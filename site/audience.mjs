@@ -1,23 +1,38 @@
 // Pages for each buyer, and how-to guides that answer the searches those buyers make.
-import { esc } from '../tools/partials.mjs';
+import { esc, faqLd, faqHtml } from '../tools/partials.mjs';
 
 const AUD = [
   { slug: 'law-firms', name: 'Law firms', title: 'Document automation for small law firms, without uploading client files',
     intro: 'Engagement letters, NDAs, demand letters, wills and leases: most firms draft the same documents every week from Word files that already exist. Clausery turns those files into questionnaires and assembles the finished document on the lawyer\'s own computer.',
     points: [['Confidentiality you can explain in one sentence', 'Client information is typed into the browser and the document is built there. It is never sent to Clausery or anyone else, so there is no vendor holding client data.'], ['Keep your precedents', 'Your Word templates keep their styles, numbering and letterhead. Add tags where details change; nothing is re-created in a new editor.'], ['Clients answer without a portal', 'Send a questionnaire as a single file. The client fills it in offline and returns an answers file you import into the draft.'], ['Encrypted on the device', 'Turn on a passphrase and everything stored in the browser is encrypted, with automatic locking when you step away.']],
-    templates: ['engagement-letter', 'mutual-nda', 'one-way-nda', 'cease-and-desist-letter', 'promissory-note', 'payment-demand-letter'] },
+    templates: ['engagement-letter', 'mutual-nda', 'one-way-nda', 'cease-and-desist-letter', 'promissory-note', 'payment-demand-letter'],
+    related: [['compare/gavel-alternative.html', 'Clausery compared with Gavel'], ['compare/clio-draft-alternative.html', 'Clausery compared with Clio Draft'], ['compare/hotdocs-alternative.html', 'Clausery compared with HotDocs'], ['guides/confidentiality-checklist-document-software.html', 'Confidentiality checklist for document software'], ['guides/client-intake-without-a-portal.html', 'Client intake without a portal'], ['clauses/', 'Contract clauses explained']],
+    faq: [['Is Clausery suitable for confidential client matters?', 'Documents are assembled in the browser on the lawyer\'s own computer, and nothing you type or generate is sent to Clausery. On the Pro plan you can also encrypt everything stored in the browser with a passphrase. Check the set-up against your own IT policies and professional rules.'],
+      ['Can we use our existing Word precedents?', 'Yes. Add {tags} where details change, wrap optional clauses in a section, and upload the file. Styles, numbering, headers and letterhead are kept exactly.'],
+      ['How is it different from Gavel, Clio Draft or HotDocs?', 'Those products run on a vendor\'s servers or need installing, and offer more, such as hosted client portals and practice management integrations. Clausery does the core job, templates into questionnaires into finished documents, in the browser with no server involved. The comparison pages set out the trade-offs honestly.'],
+      ['What does it cost?', 'Free for up to three templates with unlimited documents. Pro, with unlimited templates, calculations, encryption and client intake forms, is $19 per user per month.']] },
   { slug: 'hr-teams', name: 'HR teams', title: 'Generate offer letters and HR documents in minutes, privately',
     intro: 'Offer letters, verification letters and contractor agreements contain salaries, addresses and personal data. Clausery produces them from your approved templates without putting that data in another cloud service.',
     points: [['Approved wording, every time', 'HR owns the template; managers answer questions. Optional clauses such as equity, bonus or relocation only appear when they apply.'], ['Personal data stays on the device', 'Salary and personal details are never uploaded, which keeps your records of processing and vendor reviews simple.'], ['Share templates across the team', 'Export a template pack to your shared drive; colleagues import it and draft from the same approved version.'], ['No per-document fees', 'Generate as many letters as you need on every plan.']],
-    templates: ['offer-letter', 'internship-offer-letter', 'salary-increase-letter', 'employment-verification-letter', 'reference-letter', 'employment-termination-letter', 'independent-contractor-agreement'] },
+    templates: ['offer-letter', 'internship-offer-letter', 'salary-increase-letter', 'employment-verification-letter', 'reference-letter', 'employment-termination-letter', 'independent-contractor-agreement'],
+    related: [['guides/how-to-write-an-offer-letter.html', 'How to write a job offer letter'], ['clauses/at-will-employment-clause.html', 'At-will employment clause'], ['clauses/non-compete-clause.html', 'Non-compete clause'], ['clauses/confidentiality-clause.html', 'Confidentiality clause']],
+    faq: [['Does employee data leave our computers?', 'No. Names, salaries and addresses are typed into the browser and the letter is generated there. Nothing is sent to Clausery or any other service.'],
+      ['Can managers use it without training?', 'Yes. HR sets up the template once; managers answer plain-language questions and download the finished letter. Optional wording only appears when it applies.'],
+      ['How do we keep records of the letters we send?', 'Every draft is saved in the browser and can be backed up to a file. Keep the final signed letters in your HR system as you do today.'],
+      ['What does it cost?', 'Free for up to three templates with unlimited letters. Pro, with unlimited templates, calculations, encryption and template packs, is $19 per user per month.']] },
   { slug: 'consultants', name: 'Consultants and agencies', title: 'Proposals, SOWs and contractor agreements without another subscription',
     intro: 'Statements of work, contractor agreements and client letters follow the same pattern every time. Clausery turns your Word versions into a two-minute questionnaire and keeps client details on your laptop.',
     points: [['Repeat deliverables and line items', 'List as many deliverables, milestones or fee lines as you need; the document repeats the paragraph or table row for each one.'], ['Totals calculated for you', 'Add computed fields such as a sum of line items, a date 30 days after signing, or an amount in words.'], ['Works on the road', 'Once loaded, Clausery works offline, including on a train or a client site without Wi-Fi.'], ['Your branding, untouched', 'Your template keeps its logo, fonts and layout.']],
-    templates: ['consulting-agreement', 'statement-of-work', 'service-agreement', 'independent-contractor-agreement', 'payment-demand-letter'] },
+    templates: ['consulting-agreement', 'statement-of-work', 'service-agreement', 'independent-contractor-agreement', 'payment-demand-letter'],
+    related: [['guides/what-to-include-in-a-statement-of-work.html', 'What to include in a statement of work'], ['guides/how-to-write-a-payment-demand-letter.html', 'How to write a demand letter for unpaid invoices'], ['clauses/payment-terms-clause.html', 'Payment terms clause'], ['clauses/intellectual-property-clause.html', 'Intellectual property clause'], ['free-tools/deadline-calculator.html', 'Contract deadline calculator']],
+    faq: [['Can I add a table of deliverables or fees?', 'Yes. Put the repeat tags in a table row and the row repeats for each deliverable or line item, keeping your borders and shading.'],
+      ['Can it calculate totals and dates?', 'Yes, on the Pro plan: computed fields can add up line items, work out a date 30 days after signing, or write an amount in words.'],
+      ['Does it work without an internet connection?', 'Yes. Once the app has loaded, it works offline, so you can draft on a train or at a client site.'],
+      ['What does it cost?', 'Free for up to three templates with unlimited documents. Pro is $19 per user per month.']] },
 ];
 const NAMES = { 'one-way-nda': 'One-way NDA', 'cease-and-desist-letter': 'Cease and desist letter', 'promissory-note': 'Promissory note', 'internship-offer-letter': 'Internship offer letter', 'salary-increase-letter': 'Salary increase letter', 'reference-letter': 'Reference letter', 'employment-termination-letter': 'Termination letter', 'consulting-agreement': 'Consulting agreement', 'service-agreement': 'Service agreement', 'engagement-letter': 'Engagement letter', 'mutual-nda': 'Mutual NDA', 'payment-demand-letter': 'Payment demand letter', 'offer-letter': 'Offer letter', 'employment-verification-letter': 'Employment verification letter', 'independent-contractor-agreement': 'Independent contractor agreement', 'statement-of-work': 'Statement of work' };
 
-const GUIDES = [
+export const GUIDES = [
   { slug: 'automate-word-templates', title: 'How to automate a Word template without uploading it anywhere',
     description: 'A step-by-step guide to turning any Word document into a reusable, fill-in-the-blanks template with questions, conditional clauses and lists, entirely in your browser.',
     body: (rel) => `
@@ -254,7 +269,7 @@ GUARANTEE
 
 export const pages = [
   ...AUD.map((a) => ({
-    path: `for/${a.slug}.html`, title: a.title, description: a.intro.slice(0, 290),
+    path: `for/${a.slug}.html`, title: a.title, description: a.intro.slice(0, 290), extraHead: faqLd(a.faq),
     body: (rel) => `<section class="hero"><div class="wrap" style="display:block;max-width:52rem">
   <p class="eyebrow">For ${esc(a.name.toLowerCase())}</p>
   <h1>${esc(a.title)}</h1>
@@ -267,6 +282,10 @@ export const pages = [
 <section class="section"><div class="wrap" style="max-width:52rem">
   <h2>Start from a free template</h2>
   <ul>${a.templates.map((s) => `<li><a href="${rel}templates/${s}.html">${esc(NAMES[s])}</a></li>`).join('')}</ul>
+  <h2 style="margin-top:2.5rem">Questions</h2>
+  ${faqHtml(a.faq)}
+  <h2 style="margin-top:2.5rem">Further reading</h2>
+  <ul>${a.related.map(([href, label]) => `<li><a href="${rel}${href}">${esc(label)}</a></li>`).join('')}</ul>
 </div></section>`,
   })),
   { path: 'guides/', title: 'Guides', description: 'Practical guides to automating Word documents, conditional clauses and client intake, without uploading client data.',
@@ -274,6 +293,8 @@ export const pages = [
   ...GUIDES.map((g) => ({
     path: `guides/${g.slug}.html`, title: g.title, description: g.description, feed: true, published: '2026-09-26',
     extraHead: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: g.title, description: g.description, datePublished: '2026-09-26', author: { '@type': 'Organization', name: 'Clausery' } })}</script>`,
-    body: (rel) => `<section class="section"><div class="wrap prose"><nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}guides/">Guides</a></nav><h1 style="margin-top:1rem">${esc(g.title)}</h1>${g.body(rel)}</div></section>`,
+    body: (rel) => `<section class="section"><div class="wrap prose"><nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}guides/">Guides</a></nav><h1 style="margin-top:1rem">${esc(g.title)}</h1>${g.body(rel)}
+<h2>More guides</h2>
+<ul>${GUIDES.filter((x) => x.slug !== g.slug).map((x) => `<li><a href="${rel}guides/${x.slug}.html">${esc(x.title)}</a></li>`).join('')}</ul></div></section>`,
   })),
 ];

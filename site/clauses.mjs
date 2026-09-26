@@ -60,8 +60,8 @@ export const pages = [
     const faq = [...c.faq, ['Can I use this sample wording as it is?', 'It is a general starting point. Contract law differs between countries and states, and the right wording depends on the deal, so have it reviewed before you rely on it.']];
     const related = CLAUSES.filter((x) => x.group === c.group && x.slug !== c.slug);
     return {
-      path: `clauses/${c.slug}.html`, title: `${c.name}: meaning and sample wording`, feed: true, published: PUBLISHED,
-      description: `${c.what.split('. ')[0].replace(/\.$/, '')}. Free sample ${c.name.toLowerCase()} wording, what to check, and FAQs.`.slice(0, 300),
+      path: `clauses/${c.slug}.html`, title: `${c.name}: meaning and sample wording`.length <= 60 ? `${c.name}: meaning and sample wording` : `${c.name}: sample wording`, feed: true, published: PUBLISHED,
+      description: `Free sample ${c.name.toLowerCase()} wording, explained in plain English: what it does, what to check and common questions. ${c.what}`,
       extraHead: COPY_CSS + faqLd(faq) + crumbsLd([['Home', ''], ['Clause library', 'clauses/'], [c.name, `clauses/${c.slug}.html`]]),
       body: (rel) => `
 <section class="section"><div class="wrap prose">

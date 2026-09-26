@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Contract deadline calculator (business days, months, years) · Clausery</title>
+<title>Contract deadline calculator (business days, months, years)</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Add or subtract days, business days, weeks, months or years from a date, with month-end handling and your own holidays.">
 <link rel="canonical" href="https://getclausery.github.io/free-tools/deadline-calculator.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Clausery">
-<meta property="og:title" content="Contract deadline calculator (business days, months, years) · Clausery">
+<meta property="og:title" content="Contract deadline calculator (business days, months, years)">
 <meta property="og:description" content="Add or subtract days, business days, weeks, months or years from a date, with month-end handling and your own holidays.">
 <meta property="og:url" content="https://getclausery.github.io/free-tools/deadline-calculator.html">
 <meta property="og:image" content="https://getclausery.github.io/assets/og.png">
@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="../site.css">
 <script src="../app/theme.js"></script>
 <script src="../site.js" defer></script>
-<style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do you count days for a contract deadline?","acceptedAnswer":{"@type":"Answer","text":"The usual convention, used by this calculator, is to exclude the start day and count from the next day, so 10 days from 1 March is 11 March. Some contracts and court rules also move a deadline that falls on a weekend or holiday to the next business day; check the wording that applies to you."}},{"@type":"Question","name":"What happens when adding months to the end of a month?","acceptedAnswer":{"@type":"Answer","text":"If the target month is shorter, the date moves to its last day, so one month after 31 January is 28 February (29 in a leap year)."}},{"@type":"Question","name":"What counts as a business day?","acceptedAnswer":{"@type":"Answer","text":"Monday to Friday, excluding any holidays you enter. Public holidays differ by country and state, so add the ones that apply to your contract."}}]}</script><style>
 .tool { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 1.5rem 0; }
 .tool label { display: block; font-weight: 600; margin-bottom: .3rem; }
 .tool .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
@@ -73,6 +73,8 @@
 <ul><li><strong>Is the start day counted?</strong> This calculator counts from the day after the start date, which is the usual rule, but some contracts and courts say otherwise.</li><li><strong>Weekends and holidays.</strong> Many rules move a deadline that falls on a non-business day to the next business day.</li><li><strong>Time zones and cut-off times.</strong> "By 5pm" or "close of business" matters for filings and notices.</li></ul>
 <p class="small muted">A calculation aid, not legal advice. Court and statutory deadlines follow their own rules.</p>
 <p>Clausery templates can calculate these dates for you with <code>add_days</code>, <code>add_months</code> and <code>add_years</code>.</p>
+<h2 style="margin-top:2.5rem">Questions</h2>
+<div class="faq"><details><summary>How do you count days for a contract deadline?</summary><p>The usual convention, used by this calculator, is to exclude the start day and count from the next day, so 10 days from 1 March is 11 March. Some contracts and court rules also move a deadline that falls on a weekend or holiday to the next business day; check the wording that applies to you.</p></details><details><summary>What happens when adding months to the end of a month?</summary><p>If the target month is shorter, the date moves to its last day, so one month after 31 January is 28 February (29 in a leap year).</p></details><details><summary>What counts as a business day?</summary><p>Monday to Friday, excluding any holidays you enter. Public holidays differ by country and state, so add the ones that apply to your contract.</p></details></div>
 <div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem">Draft the whole document, not just one line</h2><p>Clausery turns your Word templates into questionnaires and builds the finished document in your browser, with amounts in words, dates and totals calculated for you. Free for up to three templates.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="../app/">Open Clausery</a> <a class="btn" href="../templates/">Free templates</a></p></div></div></section></main>
 <footer class="site-footer">
   <div class="wrap">

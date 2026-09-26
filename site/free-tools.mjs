@@ -1,6 +1,6 @@
 // Free drafting tools: small utilities people search for (amount in words, deadline calculator, template checker).
 // Each runs entirely in the page from an external module (strict CSP friendly) and points to Clausery for the full job.
-import { SITE } from '../tools/partials.mjs';
+import { SITE, faqLd, faqHtml } from '../tools/partials.mjs';
 const TOOL_CSS = `<style>
 .tool { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 1.5rem 0; }
 .tool label { display: block; font-weight: 600; margin-bottom: .3rem; }
@@ -18,6 +18,18 @@ const crumbs = (rel, name) => `<nav class="small muted" aria-label="Breadcrumb">
 const cta = (rel) => `<div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem">Draft the whole document, not just one line</h2><p>Clausery turns your Word templates into questionnaires and builds the finished document in your browser, with amounts in words, dates and totals calculated for you. Free for up to three templates.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free templates</a></p></div>`;
 const appLd = (name, desc, url) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebApplication', name, description: desc, url: SITE + url, applicationCategory: 'BusinessApplication', operatingSystem: 'Any (web browser)', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } })}</script>`;
 
+const TOOL_FAQ = [
+  [['Why write an amount in both words and figures?', 'So that a typo in one is caught by the other. For cheques and promissory notes in the United States, the Uniform Commercial Code says that where words and numbers conflict, the words prevail, and many other countries follow the same rule.'],
+  ['Should the amount include the word "and"?', 'British English usually writes "one hundred and fifty"; American cheque style often keeps "and" only before the cents, as in "and 50/100". Use the style your bank or contract template already uses.'],
+  ['Is the amount I type sent anywhere?', 'No. The conversion runs entirely in this page, so nothing you type leaves your computer.']],
+  [['How do you count days for a contract deadline?', 'The usual convention, used by this calculator, is to exclude the start day and count from the next day, so 10 days from 1 March is 11 March. Some contracts and court rules also move a deadline that falls on a weekend or holiday to the next business day; check the wording that applies to you.'],
+  ['What happens when adding months to the end of a month?', 'If the target month is shorter, the date moves to its last day, so one month after 31 January is 28 February (29 in a leap year).'],
+  ['What counts as a business day?', 'Monday to Friday, excluding any holidays you enter. Public holidays differ by country and state, so add the ones that apply to your contract.']],
+  [['What does the checker look for?', 'It reads your .docx with the same engine as the Clausery app, including headers and footers, and reports tag problems such as a section that is opened but never closed or a tag name Clausery cannot use. If the template is valid, it shows the questionnaire Clausery would build from it.'],
+  ['Is my document uploaded?', 'No. The file is read inside this page and never leaves your computer.'],
+  ['What tag syntax does it expect?', 'Single curly braces: {client_name} for a value, {#has_retainer}…{/has_retainer} for optional text, {^has_retainer}…{/has_retainer} for the opposite, and {#items}…{/items} for repeating paragraphs or table rows.']],
+];
+
 const TOOLS = [
   { slug: 'amount-in-words', name: 'Amount in words converter', desc: 'Write any amount in words for contracts, cheques and promissory notes, such as "One Thousand Two Hundred and Fifty Dollars and 50/100".' },
   { slug: 'deadline-calculator', name: 'Contract deadline calculator', desc: 'Add or subtract days, business days, weeks, months or years from a date, with month-end handling and your own holidays.' },
@@ -30,7 +42,7 @@ export const pages = [
 <div class="grid grid-3" style="margin-top:2rem">${TOOLS.map((t) => `<a class="feature" style="text-decoration:none;color:inherit" href="${rel}free-tools/${t.slug}.html"><h2 style="font-size:1.1rem">${t.name}</h2><p>${t.desc}</p></a>`).join('')}</div></div></section>` },
 
   { path: 'free-tools/amount-in-words.html', title: 'Amount in words converter for contracts and cheques', description: TOOLS[0].desc,
-    extraHead: TOOL_CSS + appLd(TOOLS[0].name, TOOLS[0].desc, 'free-tools/amount-in-words.html') + `<script type="module" src="amount-in-words.js"></script>`,
+    extraHead: faqLd(TOOL_FAQ[0]) + TOOL_CSS + appLd(TOOLS[0].name, TOOLS[0].desc, 'free-tools/amount-in-words.html') + `<script type="module" src="amount-in-words.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Amount in words')}
 <h1 style="margin-top:1rem">Amount in words converter</h1>
 <p class="lead">Contracts, promissory notes and cheques often state an amount twice, in words and in figures, so a typo in one is caught by the other. Type an amount to get the wording.</p>
@@ -48,10 +60,12 @@ export const pages = [
 <h2>How amounts are usually written</h2>
 <ul><li>In contracts, the amount in words normally comes first, followed by the figure in brackets: <em>Five Thousand Dollars ($5,000)</em>.</li><li>On cheques, cents are written as a fraction: <em>Five Thousand and 00/100</em>.</li><li>Many agreements say which one wins if they differ; words usually do.</li></ul>
 <p>In Clausery templates, the <code>words()</code> function does this automatically, for example <code>words(fee)</code>. See <a href="${rel}docs/logic.html">logic and calculations</a>.</p>
+<h2 style="margin-top:2.5rem">Questions</h2>
+${faqHtml(TOOL_FAQ[0])}
 ${cta(rel)}</div></section>` },
 
   { path: 'free-tools/deadline-calculator.html', title: 'Contract deadline calculator (business days, months, years)', description: TOOLS[1].desc,
-    extraHead: TOOL_CSS + appLd(TOOLS[1].name, TOOLS[1].desc, 'free-tools/deadline-calculator.html') + `<script type="module" src="deadline-calculator.js"></script>`,
+    extraHead: faqLd(TOOL_FAQ[1]) + TOOL_CSS + appLd(TOOLS[1].name, TOOLS[1].desc, 'free-tools/deadline-calculator.html') + `<script type="module" src="deadline-calculator.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Deadline calculator')}
 <h1 style="margin-top:1rem">Contract deadline calculator</h1>
 <p class="lead">Work out notice periods, payment due dates, renewal dates and response deadlines. Month arithmetic stops at month end, so January 31 plus one month is the last day of February.</p>
@@ -72,10 +86,12 @@ ${cta(rel)}</div></section>` },
 <ul><li><strong>Is the start day counted?</strong> This calculator counts from the day after the start date, which is the usual rule, but some contracts and courts say otherwise.</li><li><strong>Weekends and holidays.</strong> Many rules move a deadline that falls on a non-business day to the next business day.</li><li><strong>Time zones and cut-off times.</strong> "By 5pm" or "close of business" matters for filings and notices.</li></ul>
 <p class="small muted">A calculation aid, not legal advice. Court and statutory deadlines follow their own rules.</p>
 <p>Clausery templates can calculate these dates for you with <code>add_days</code>, <code>add_months</code> and <code>add_years</code>.</p>
+<h2 style="margin-top:2.5rem">Questions</h2>
+${faqHtml(TOOL_FAQ[1])}
 ${cta(rel)}</div></section>` },
 
   { path: 'free-tools/template-checker.html', title: 'Word template tag checker', description: TOOLS[2].desc,
-    extraHead: TOOL_CSS + appLd(TOOLS[2].name, TOOLS[2].desc, 'free-tools/template-checker.html') + `<script type="module" src="template-checker.js"></script>`,
+    extraHead: faqLd(TOOL_FAQ[2]) + TOOL_CSS + appLd(TOOLS[2].name, TOOLS[2].desc, 'free-tools/template-checker.html') + `<script type="module" src="template-checker.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Template checker')}
 <h1 style="margin-top:1rem">Word template tag checker</h1>
 <p class="lead">Check a Word template before you use it: unclosed tags, mismatched sections and invalid names are reported with a plain-English fix, and you see the exact questionnaire it would produce. The file is read in your browser and never uploaded.</p>
@@ -86,5 +102,7 @@ ${cta(rel)}</div></section>` },
 <h2>What it checks</h2>
 <ul><li>Tags that are opened but not closed, such as <code>{client_name</code></li><li>Sections that do not match, such as <code>{#has_retainer}</code> closed by <code>{/retainer}</code></li><li>Tag names with spaces, hyphens or dots</li><li>Tags in the body, headers, footers, footnotes and endnotes</li></ul>
 <p>New to tags? Read <a href="${rel}guides/automate-word-templates.html">how to automate a Word template</a> or the full <a href="${rel}docs/templates.html">template syntax</a>.</p>
+<h2 style="margin-top:2.5rem">Questions</h2>
+${faqHtml(TOOL_FAQ[2])}
 ${cta(rel)}</div></section>` },
 ];

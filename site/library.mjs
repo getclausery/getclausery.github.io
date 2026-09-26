@@ -5,6 +5,10 @@ import { inspectDocx } from '../app/lib/render.js';
 import { inferQuestionnaire, FIELD_TYPES } from '../app/lib/schema.js';
 import { esc, SITE } from '../tools/partials.mjs';
 import { CLAUSES } from './data/clauses.mjs';
+import { GUIDES } from './audience.mjs';
+// The how-to guide that goes with each template, where there is one.
+const GUIDE_FOR = { 'offer-letter': 'how-to-write-an-offer-letter', 'internship-offer-letter': 'how-to-write-an-offer-letter', 'payment-demand-letter': 'how-to-write-a-payment-demand-letter', 'statement-of-work': 'what-to-include-in-a-statement-of-work', 'consulting-agreement': 'what-to-include-in-a-statement-of-work', 'service-agreement': 'what-to-include-in-a-statement-of-work', 'mutual-nda': 'what-to-include-in-an-nda', 'one-way-nda': 'what-to-include-in-an-nda', 'engagement-letter': 'automate-word-templates' };
+const GUIDE = Object.fromEntries(GUIDES.map((g) => [g.slug, g]));
 
 export const LIB = [
   { slug: 'mutual-nda', file: 'mutual-nda.docx', name: 'Mutual NDA', title: 'Free mutual NDA template (Word)', category: 'Legal',
@@ -108,6 +112,8 @@ const COMMON_FAQ = [
   ['Is this legal advice?', 'No. These are general samples. Laws differ between countries and states, so have the wording reviewed for your situation before you rely on it.'],
 ];
 
+for (const [t, g] of Object.entries(GUIDE_FOR)) if (!GUIDE[g] || !LIB.some((x) => x.slug === t)) throw new Error(`GUIDE_FOR: ${t} -> ${g}`);
+
 export const pages = [
   {
     path: 'templates/', title: 'Free Word document templates',
@@ -129,7 +135,7 @@ export const pages = [
     const faq = [...t.faq, ...COMMON_FAQ];
     return {
       path: `templates/${t.slug}.html`, title: t.title, ogImage: `assets/og/${t.slug}.png`,
-      description: `${t.intro} Download the free Word template or fill it in online in minutes. Nothing is uploaded.`.slice(0, 300),
+      description: `Free ${/^[A-Z][a-z]/.test(t.name) ? t.name[0].toLowerCase() + t.name.slice(1) : t.name} template for Word. Fill it in online in minutes or download the .docx; nothing is uploaded. ${t.intro}`,
       extraHead: faqLd(faq) + crumbsLd([['Home', ''], ['Templates', 'templates/'], [t.name, `templates/${t.slug}.html`]]),
       body: (rel) => `
 <section class="section"><div class="wrap" style="max-width:52rem">
@@ -164,6 +170,7 @@ export const pages = [
 
 ${CLAUSES.some((c) => c.templates.includes(t.slug)) ? `  <h2 style="margin-top:2.5rem">Clauses in this template, explained</h2>
   <ul>${CLAUSES.filter((c) => c.templates.includes(t.slug)).map((c) => `<li><a href="${rel}clauses/${c.slug}.html">${esc(c.name)}</a></li>`).join('')}</ul>
+` : ''}${GUIDE_FOR[t.slug] ? `  <p style="margin-top:2rem"><strong>Guide:</strong> <a href="${rel}guides/${GUIDE_FOR[t.slug]}.html">${esc(GUIDE[GUIDE_FOR[t.slug]].title)}</a></p>
 ` : ''}  <h2 style="margin-top:2.5rem">More free templates</h2>
   <ul>${LIB.filter((x) => x.slug !== t.slug).map((x) => `<li><a href="${rel}templates/${x.slug}.html">${esc(x.name)}</a></li>`).join('')}</ul>
   <p class="small muted" style="margin-top:2rem">This template is a general sample and not legal advice. Laws vary by jurisdiction; have it reviewed before use.</p>
