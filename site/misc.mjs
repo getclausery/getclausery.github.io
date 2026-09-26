@@ -7,6 +7,11 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'What changed in each Clausery release.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.6.0 <span class="small muted">— 26 September 2026</span></h2>
+<ul>
+  <li>A free invoice due date calculator for net 30, net 60, end-of-month, 15 MFI and early payment discount terms such as 2/10 net 30.</li>
+  <li>The calculators can now be added to any website with a line of embed code. They run in the visitor's browser with no cookies or tracking.</li>
+</ul>
 <h2>1.5.0 <span class="small muted">— 26 September 2026</span></h2>
 <ul>
   <li>Three more templates: a payment reminder letter (friendly reminder or final notice), a subcontractor agreement and a monthly retainer agreement.</li>

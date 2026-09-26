@@ -50,6 +50,31 @@ ${extraHead}
 ${header(rel, path)}
 `;
 }
+// Bare page for a calculator shown in an iframe on another site: no header, footer, canonical or share tags, and
+// noindex so search engines credit the full tool page instead. Light by default (most host sites are), or ?theme=dark.
+export function embedPage({ title, description, extraHead = '', rel, body }) {
+  return `<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<title>${esc(title)}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="${esc(clipDescription(description))}">
+<meta name="robots" content="noindex, follow">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="${rel}assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="${rel}site.css">
+<script src="${rel}free-tools/embed/embed.js"></script>
+${extraHead}
+</head>
+<body class="embed">
+<main id="main">
+${body}
+</main>
+</body>
+</html>
+`;
+}
 export function header(rel, path) {
   const cur = (p) => (path.startsWith(p) && p !== '' ? ' aria-current="page"' : '');
   return `<header class="site-header">

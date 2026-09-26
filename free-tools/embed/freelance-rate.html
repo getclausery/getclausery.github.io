@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<title>Freelance rate calculator (embed)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Work back from the income you want to keep to the hourly and day rate you need to charge, after tax, costs and time off.">
+<meta name="robots" content="noindex, follow">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../site.css">
+<script src="../../free-tools/embed/embed.js"></script>
+<style>
+.tool { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 1.5rem 0; }
+.tool label { display: block; font-weight: 600; margin-bottom: .3rem; }
+.tool .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+.tool input, .tool select, .tool textarea { width: 100%; padding: .55rem .65rem; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--bg); color: var(--text); font: inherit; }
+.tool .out { font-size: 1.2rem; font-weight: 600; padding: 1rem; background: var(--accent-soft); color: var(--text); border-radius: var(--radius-sm); min-height: 3rem; }
+.tool .out-row { display: flex; gap: .75rem; align-items: flex-start; margin-top: .75rem; } .tool .out-row .out { flex: 1; }
+.tool .err, .bad { color: #b42318; } .ok { color: var(--ok); } .warn { color: var(--warn); }
+#drop { border: 2px dashed var(--border-strong); border-radius: var(--radius); padding: 2rem; text-align: center; }
+#drop.over { border-color: var(--accent); background: var(--accent-soft); }
+#report table { width: 100%; border-collapse: collapse; font-size: .92rem; } #report th, #report td { text-align: left; padding: .5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+#report .small { font-size: .85rem; color: var(--muted); }
+.tool .check { display: flex; gap: .5rem; align-items: center; font-weight: 400; margin-bottom: 1rem; } .tool .check input { width: auto; }
+.embed-code { width: 100%; font: .85rem/1.45 var(--mono); padding: .75rem; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--surface-2); color: var(--text); resize: vertical; }
+.embed-tools { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; margin: .75rem 0 1rem; }
+.terms-table { width: 100%; border-collapse: collapse; font-size: .95rem; } .terms-table th, .terms-table td { text-align: left; padding: .55rem .5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+</style><style>
+body.embed { background: transparent; }
+.embed-wrap { padding: 2px; }
+.embed-wrap .tool { margin: 0; padding: 1rem 1.1rem; }
+.embed-wrap .tool .row { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .75rem; }
+.embed-wrap h1 { font-size: 1.15rem; margin: 0 0 .6rem; }
+.embed-credit { font-size: .82rem; margin: .5rem 0 0; }
+</style><script type="module" src="../freelance-rate.js"></script>
+</head>
+<body class="embed">
+<main id="main">
+<div class="embed-wrap"><h1>Freelance rate calculator</h1>
+<div class="tool">
+  <div class="row">
+    <div><label for="income">Income you want to keep per year</label><input id="income" inputmode="decimal" value="60000"></div>
+    <div><label for="expenses">Business costs per year</label><input id="expenses" inputmode="decimal" value="6000"></div>
+    <div><label for="tax">Estimated tax rate (%)</label><input id="tax" inputmode="decimal" value="25"></div>
+    <div><label for="currency">Currency</label><select id="currency"><option value="USD">US dollars</option><option value="GBP">Pounds sterling</option><option value="EUR">Euros</option><option value="CAD">Canadian dollars</option><option value="AUD">Australian dollars</option></select></div>
+  </div>
+  <div class="row">
+    <div><label for="off">Weeks off per year</label><input id="off" type="number" min="0" max="51" value="6"></div>
+    <div><label for="hpw">Billable hours per week</label><input id="hpw" type="number" min="1" max="80" value="25"></div>
+    <div><label for="hpd">Hours in a working day</label><input id="hpd" type="number" min="1" max="16" value="8"></div>
+  </div>
+  <p id="error" class="err" role="alert" hidden></p>
+  <div class="out" id="result" aria-live="polite"></div>
+  <p class="small muted" id="result-note" style="margin-top:.5rem"></p>
+</div>
+<p class="embed-credit muted">Free calculator by <a href="https://getclausery.github.io/free-tools/freelance-rate.html" target="_blank" rel="noopener">Clausery</a>. Nothing you type leaves your browser.</p></div>
+</main>
+</body>
+</html>

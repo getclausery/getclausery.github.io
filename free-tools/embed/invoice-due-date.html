@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<title>Invoice due date calculator (embed)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Find the due date for Net 30, Net 60, EOM, 15 MFI or 2/10 net 30 invoices, the days left to pay and what an early payment discount is worth.">
+<meta name="robots" content="noindex, follow">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../site.css">
+<script src="../../free-tools/embed/embed.js"></script>
+<style>
+.tool { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 1.5rem 0; }
+.tool label { display: block; font-weight: 600; margin-bottom: .3rem; }
+.tool .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+.tool input, .tool select, .tool textarea { width: 100%; padding: .55rem .65rem; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--bg); color: var(--text); font: inherit; }
+.tool .out { font-size: 1.2rem; font-weight: 600; padding: 1rem; background: var(--accent-soft); color: var(--text); border-radius: var(--radius-sm); min-height: 3rem; }
+.tool .out-row { display: flex; gap: .75rem; align-items: flex-start; margin-top: .75rem; } .tool .out-row .out { flex: 1; }
+.tool .err, .bad { color: #b42318; } .ok { color: var(--ok); } .warn { color: var(--warn); }
+#drop { border: 2px dashed var(--border-strong); border-radius: var(--radius); padding: 2rem; text-align: center; }
+#drop.over { border-color: var(--accent); background: var(--accent-soft); }
+#report table { width: 100%; border-collapse: collapse; font-size: .92rem; } #report th, #report td { text-align: left; padding: .5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+#report .small { font-size: .85rem; color: var(--muted); }
+.tool .check { display: flex; gap: .5rem; align-items: center; font-weight: 400; margin-bottom: 1rem; } .tool .check input { width: auto; }
+.embed-code { width: 100%; font: .85rem/1.45 var(--mono); padding: .75rem; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--surface-2); color: var(--text); resize: vertical; }
+.embed-tools { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; margin: .75rem 0 1rem; }
+.terms-table { width: 100%; border-collapse: collapse; font-size: .95rem; } .terms-table th, .terms-table td { text-align: left; padding: .55rem .5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+</style><style>
+body.embed { background: transparent; }
+.embed-wrap { padding: 2px; }
+.embed-wrap .tool { margin: 0; padding: 1rem 1.1rem; }
+.embed-wrap .tool .row { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .75rem; }
+.embed-wrap h1 { font-size: 1.15rem; margin: 0 0 .6rem; }
+.embed-credit { font-size: .82rem; margin: .5rem 0 0; }
+</style><script type="module" src="../invoice-due-date.js"></script>
+</head>
+<body class="embed">
+<main id="main">
+<div class="embed-wrap"><h1>Invoice due date calculator</h1>
+<div class="tool">
+  <div class="row">
+    <div><label for="invoice">Invoice date</label><input id="invoice" type="date"></div>
+    <div><label for="terms">Payment terms</label><select id="terms"><option value="due on receipt">Due on receipt</option><option value="net 7">Net 7</option><option value="net 10">Net 10</option><option value="net 14">Net 14</option><option value="net 15">Net 15</option><option value="net 30" selected>Net 30</option><option value="net 45">Net 45</option><option value="net 60">Net 60</option><option value="net 90">Net 90</option><option value="eom">End of month (EOM)</option><option value="net 30 eom">Net 30 EOM</option><option value="15 mfi">15th of the following month (15 MFI)</option><option value="2/10 net 30">2/10 net 30</option><option value="1/10 net 30">1/10 net 30</option><option value="other">Other terms…</option></select></div>
+    <div id="custom-row" hidden><label for="custom">Terms as written</label><input id="custom" value="3/15 net 45" autocomplete="off"></div>
+    <div><label for="amount">Invoice amount (optional)</label><input id="amount" inputmode="decimal" value="4800" autocomplete="off"></div>
+    <div><label for="currency">Currency</label><select id="currency"><option value="USD">US dollars</option><option value="GBP">Pounds sterling</option><option value="EUR">Euros</option><option value="CAD">Canadian dollars</option><option value="AUD">Australian dollars</option></select></div>
+  </div>
+  <label class="check"><input id="weekends" type="checkbox"> Move a due date that falls on a weekend to the Monday</label>
+  <p id="error" class="err" role="alert" hidden></p>
+  <div class="out" id="result" aria-live="polite"></div>
+  <p class="small muted" id="result-note" style="margin-top:.5rem"></p>
+  <p class="small" id="result-discount"></p>
+</div>
+<p class="embed-credit muted">Free calculator by <a href="https://getclausery.github.io/free-tools/invoice-due-date.html" target="_blank" rel="noopener">Clausery</a>. Nothing you type leaves your browser.</p></div>
+</main>
+</body>
+</html>

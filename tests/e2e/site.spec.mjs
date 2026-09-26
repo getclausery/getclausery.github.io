@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
-const PAGES = ['', 'pricing/', 'docs/', 'docs/templates.html', 'docs/security.html', 'legal/privacy.html', '404.html', 'templates/', 'templates/statement-of-work.html', 'compare/gavel-alternative.html', 'for/law-firms.html', 'guides/automate-word-templates.html', 'free-tools/amount-in-words.html', 'free-tools/deadline-calculator.html', 'free-tools/template-checker.html', 'free-tools/late-payment-interest.html', 'free-tools/freelance-rate.html', 'for/freelancers.html', 'press/', 'clauses/', 'clauses/indemnification-clause.html', 'guides/what-to-include-in-an-nda.html', 'guides/what-to-do-when-a-client-wont-pay.html', 'templates/payment-reminder-letter.html', 'compare/', 'compare/honeybook-alternative.html'];
+const PAGES = ['', 'pricing/', 'docs/', 'docs/templates.html', 'docs/security.html', 'legal/privacy.html', '404.html', 'templates/', 'templates/statement-of-work.html', 'compare/gavel-alternative.html', 'for/law-firms.html', 'guides/automate-word-templates.html', 'free-tools/amount-in-words.html', 'free-tools/deadline-calculator.html', 'free-tools/template-checker.html', 'free-tools/late-payment-interest.html', 'free-tools/freelance-rate.html', 'for/freelancers.html', 'press/', 'clauses/', 'clauses/indemnification-clause.html', 'guides/what-to-include-in-an-nda.html', 'guides/what-to-do-when-a-client-wont-pay.html', 'templates/payment-reminder-letter.html', 'compare/', 'compare/honeybook-alternative.html', 'free-tools/invoice-due-date.html', 'free-tools/embed/invoice-due-date.html', 'free-tools/embed/amount-in-words.html'];
 for (const p of PAGES) {
   test(`site page ${p || 'home'} renders and has no serious accessibility violations`, async ({ page }) => {
     const res = await page.goto(p);
@@ -59,6 +59,57 @@ test('free tools work in the page', async ({ page }) => {
   await expect(page.locator('#result-note')).toContainText('Plus fixed compensation of £100.');
   await page.goto('free-tools/freelance-rate.html');
   await expect(page.locator('#result')).toHaveText('$75 an hour · $598 a day');
+  await page.goto('free-tools/invoice-due-date.html');
+  await page.fill('#invoice', '2026-03-12'); await page.selectOption('#terms', '2/10 net 30');
+  await expect(page.locator('#result')).toHaveText('Due Saturday, April 11, 2026');
+  await expect(page.locator('#result-discount')).toContainText('$4,704.00 instead of $4,800.00, saving $96.00');
+  await page.check('#weekends');
+  await expect(page.locator('#result')).toHaveText('Due Monday, April 13, 2026');
+  await expect(page.locator('#result-note')).toContainText('Moved from Saturday');
+  await page.selectOption('#terms', 'other'); await page.fill('#custom', '15 MFI');
+  await expect(page.locator('#result')).toHaveText('Due Wednesday, April 15, 2026');
+  await expect(page.locator('#result-discount')).toHaveText('');
+});
+
+test('calculators can be embedded on other sites with a credit link', async ({ page, context, baseURL }) => {
+  await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+  await page.goto('free-tools/late-payment-interest.html');
+  const code = await page.locator('#embed-code').inputValue();
+  expect(code).toContain('<iframe src="https://getclausery.github.io/free-tools/embed/late-payment-interest.html"');
+  expect(code).toContain('by <a href="https://getclausery.github.io/free-tools/late-payment-interest.html">Clausery</a>');
+  await page.click('.copy-btn[data-copy="embed-code"]');
+  await expect(page.locator('.embed-tools .copy-status')).toHaveText('Copied to the clipboard.');
+  expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(code);
+  // The embed page itself: no site chrome, not indexed, working calculator, credit link opening the full tool page.
+  await page.goto('free-tools/embed/late-payment-interest.html');
+  await expect(page.locator('.site-header')).toHaveCount(0);
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex, follow');
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
+  await page.fill('#amount', '10000'); await page.fill('#due', '2026-01-01'); await page.fill('#paid', '2026-04-11'); await page.fill('#rate', '10');
+  await expect(page.locator('#result')).toHaveText('Interest: $273.97');
+  const credit = page.locator('.embed-credit a');
+  await expect(credit).toHaveAttribute('href', 'https://getclausery.github.io/free-tools/late-payment-interest.html');
+  await expect(credit).toHaveAttribute('target', '_blank');
+  await page.goto('free-tools/embed/late-payment-interest.html?theme=dark');
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  // On another site: the embed code's script fits the iframe to the calculator at any width; without the script
+  // (some sites strip it) the fixed height still fits the calculator in a column 520px wide or more.
+  const origin = new URL(baseURL).origin;
+  for (const slug of ['amount-in-words', 'deadline-calculator', 'invoice-due-date', 'late-payment-interest', 'freelance-rate']) {
+    await page.goto(`free-tools/${slug}.html`);
+    const snippet = (await page.locator('#embed-code').inputValue()).replaceAll('https://getclausery.github.io/', baseURL).replace("'https://getclausery.github.io'", `'${origin}'`);
+    for (const [width, script] of [[360, true], [760, true], [520, false]]) {
+      await page.setViewportSize({ width: width + 40, height: 900 });
+      await page.setContent(`<!doctype html><html><body style="margin:20px">${script ? snippet : snippet.replace(/<script>.*<\/script>/s, '')}</body></html>`);
+      const frame = page.frameLocator('iframe');
+      await expect(frame.locator('.embed-wrap .out').first()).not.toBeEmpty();
+      const fits = async () => {
+        const [inner, outer] = await Promise.all([frame.locator('body').evaluate((el) => Math.ceil(el.getBoundingClientRect().height)), page.locator('iframe').evaluate((el) => el.clientHeight)]);
+        return inner <= outer && (!script || outer - inner < 12);
+      };
+      await expect.poll(fits, { message: `${slug} at ${width}px ${script ? 'with' : 'without'} the resize script` }).toBe(true);
+    }
+  }
 });
 
 test('clause pages copy the sample wording', async ({ page, context }) => {

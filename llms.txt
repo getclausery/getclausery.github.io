@@ -92,6 +92,7 @@ Key facts:
 ## Free tools
 - [Amount in words converter for contracts and cheques](https://getclausery.github.io/free-tools/amount-in-words.html): Write any amount in words for contracts, cheques and promissory notes, such as "One Thousand Two Hundred and Fifty Dollars and 50/100".
 - [Contract deadline calculator (business days, months, years)](https://getclausery.github.io/free-tools/deadline-calculator.html): Add or subtract days, business days, weeks, months or years from a date, with month-end handling and your own holidays.
+- [Net 30 calculator: invoice due date for any payment terms](https://getclausery.github.io/free-tools/invoice-due-date.html): Find the due date for Net 30, Net 60, EOM, 15 MFI or 2/10 net 30 invoices, the days left to pay and what an early payment discount is worth.
 - [Late payment interest calculator (contract or UK statutory)](https://getclausery.github.io/free-tools/late-payment-interest.html): Work out interest on an overdue invoice at your contract rate, or UK statutory interest at 8% above base rate plus the fixed compensation sum.
 - [Freelance rate calculator: hourly and day rate](https://getclausery.github.io/free-tools/freelance-rate.html): Work back from the income you want to keep to the hourly and day rate you need to charge, after tax, costs and time off.
 - [Word template tag checker](https://getclausery.github.io/free-tools/template-checker.html): Check a .docx template for broken {tags} and see the questionnaire it would produce. The file never leaves your computer.

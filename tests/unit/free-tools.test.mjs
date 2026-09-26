@@ -48,3 +48,37 @@ test('freelance rate: works back from take-home income', async () => {
   assert.equal(r.daily, 598.26);
   assert.match(freelanceRate({ income: 50000, taxRate: 20, weeksOff: 52, hoursPerWeek: 20 }).error, /weeks/);
 });
+
+test('invoice due date: net, end-of-month, MFI and early payment discount terms', async () => {
+  const { parseTerms, invoiceDue } = await import('../../free-tools/invoice-due-date.js');
+  const due = (terms, extra = {}) => invoiceDue({ invoiceDate: '2026-03-12', terms, today: '2026-03-12', ...extra });
+  assert.equal(due('net 30').due, '2026-04-11');
+  assert.equal(due('net 30').daysLeft, 30);
+  assert.equal(due('Net 30', { weekends: true }).due, '2026-04-13');                 // Saturday moves to Monday
+  assert.equal(due('net 30', { weekends: true }).moved, '2026-04-11');
+  assert.equal(due('due on receipt').due, '2026-03-12');
+  assert.equal(due('EOM').due, '2026-03-31');
+  assert.equal(due('net 30 EOM').due, '2026-04-30');
+  assert.equal(due('15 MFI').due, '2026-04-15');
+  assert.equal(invoiceDue({ invoiceDate: '2026-01-20', terms: '31 mfi' }).due, '2026-02-28'); // clamped to a short month
+  const d = due('2/10 net 30', { amount: '4,800' });
+  assert.deepEqual(d.discount, { pct: 2, by: '2026-03-22', days: 10, annualCost: 37.2, amount: 4800, saving: 96, pay: 4704 });
+  assert.deepEqual(parseTerms('2/10, n/30'), { net: 30, eom: false, pct: 2, discDays: 10 });
+  assert.deepEqual(parseTerms('1.5/10 net 45'), { net: 45, eom: false, pct: 1.5, discDays: 10 });
+  assert.deepEqual(parseTerms('10th prox'), { mfi: 10 });
+  assert.equal(invoiceDue({ invoiceDate: '2026-03-12', terms: 'net 30', today: '2026-04-20' }).daysLeft, -9);
+  assert.match(parseTerms('2/40 net 30').error, /discount period/);
+  assert.match(parseTerms('whenever').error, /net 30/);
+  assert.match(due('net 30', { amount: 'lots' }).error, /amount/);
+  assert.match(invoiceDue({ invoiceDate: '', terms: 'net 30' }).error, /invoice date/);
+});
+
+test('embed pages are kept out of the sitemap and llms.txt', async () => {
+  const { readFileSync } = await import('node:fs');
+  assert.doesNotMatch(readFileSync('sitemap.xml', 'utf8'), /free-tools\/embed/);
+  assert.doesNotMatch(readFileSync('llms.txt', 'utf8'), /free-tools\/embed/);
+  assert.match(readFileSync('sitemap.xml', 'utf8'), /free-tools\/invoice-due-date\.html/);
+  const embed = readFileSync('free-tools/embed/invoice-due-date.html', 'utf8');
+  assert.match(embed, /<meta name="robots" content="noindex, follow">/);
+  assert.doesNotMatch(embed, /site-header|rel="canonical"/);
+});
