@@ -7,6 +7,12 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'What changed in each Clausery release.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.9.0 <span class="small muted">— 26 September 2026</span></h2>
+<ul>
+  <li>Four landlord and tenant templates: a tenant's notice to vacate, a rent increase letter, a security deposit return letter with itemized deductions, and a roommate agreement.</li>
+  <li>A new page for landlords and tenants, and a guide to writing a notice to vacate.</li>
+  <li>The .zip download on the templates page now holds all 42 templates, with a new folder for landlords and tenants.</li>
+</ul>
 <h2>1.8.1 <span class="small muted">— 26 September 2026</span></h2>
 <ul>
   <li>Download all 38 templates at once as a .zip file, in a folder per category, from the templates page.</li>
