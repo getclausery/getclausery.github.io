@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="../site.css">
 <script src="../app/theme.js"></script>
 <script src="../site.js" defer></script>
-
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I use Clausery and docassemble together?","acceptedAnswer":{"@type":"Answer","text":"Yes. Many firms keep a platform like docassemble for the workflows it does best and use Clausery for documents whose details should not leave the office. Clausery needs no integration to run alongside it."}},{"@type":"Question","name":"How much does Clausery cost compared with docassemble?","acceptedAnswer":{"@type":"Answer","text":"Clausery is free for up to three templates with unlimited documents, and Pro is $19 per user per month. The table above summarises docassemble's published pricing as of 2026; check the vendor for current prices."}},{"@type":"Question","name":"Does Clausery need IT to set up?","acceptedAnswer":{"@type":"Answer","text":"No. It runs in any modern browser with nothing to install, and firms that prefer can host the files on their own server."}},{"@type":"Question","name":"What happens to my templates if I stop using Clausery?","acceptedAnswer":{"@type":"Answer","text":"They are ordinary Word files with tags, and your data exports as plain JSON. Nothing is locked into Clausery."}}]}</script>
 </head>
 <body>
 <a class="sr-only" href="#main">Skip to content</a>
@@ -53,6 +53,17 @@
     <div class="feature"><h2 style="font-size:1.15rem">Choose docassemble if</h2><ul><li>You need public-facing web interviews at scale</li><li>You have developers comfortable with Python and YAML</li><li>You need logic beyond what a form designer offers</li></ul></div>
     <div class="feature"><h2 style="font-size:1.15rem">Choose Clausery if</h2><ul><li>You have no server, no developer and no IT budget</li><li>Your templates live in Word and should stay there</li><li>You want a questionnaire from a template in minutes, without code</li></ul></div>
   </div>
+  <h2 style="margin-top:2.5rem">Moving a template from docassemble</h2>
+  <ol>
+    <li>Start from the original Word version of the document, before it was converted for docassemble.</li>
+    <li>Replace each detail that changes with a tag such as <code>{client_name}</code>, and wrap optional clauses in <code>{#has_retainer}…{/has_retainer}</code>. Lists of parties or line items use a repeating section.</li>
+    <li>Check the file with the free <a href="../free-tools/template-checker.html">template tag checker</a>, then drop it into the app.</li>
+    <li>Recreate any rules you built in docassemble's own editor as show-when conditions or calculations in the Clausery designer. Allow about an hour for a complex template.</li>
+  </ol>
+  <h2 style="margin-top:2.5rem">What Clausery deliberately leaves out</h2>
+  <p>Because nothing leaves your computer, Clausery has no hosted client portal, no built-in e-signature, no practice management integration and no cloud AI drafting. If you need those, docassemble or a similar platform may suit you better, and the two can run side by side.</p>
+  <h2 style="margin-top:2.5rem">Questions</h2>
+  <div class="faq"><details><summary>Can I use Clausery and docassemble together?</summary><p>Yes. Many firms keep a platform like docassemble for the workflows it does best and use Clausery for documents whose details should not leave the office. Clausery needs no integration to run alongside it.</p></details><details><summary>How much does Clausery cost compared with docassemble?</summary><p>Clausery is free for up to three templates with unlimited documents, and Pro is $19 per user per month. The table above summarises docassemble's published pricing as of 2026; check the vendor for current prices.</p></details><details><summary>Does Clausery need IT to set up?</summary><p>No. It runs in any modern browser with nothing to install, and firms that prefer can host the files on their own server.</p></details><details><summary>What happens to my templates if I stop using Clausery?</summary><p>They are ordinary Word files with tags, and your data exports as plain JSON. Nothing is locked into Clausery.</p></details></div>
   <h2 style="margin-top:2.5rem">Try it with your own template</h2>
   <p>Open the app, drop in a Word document with tags like <code>{client_name}</code>, and you have a questionnaire. Or start from one of the <a href="../templates/">free templates</a>.</p>
   <p><a class="btn btn-primary btn-lg" href="../app/">Open Clausery, free</a></p>
@@ -81,6 +92,7 @@
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>
+      <a href="../for/freelancers.html">For freelancers</a>
     </div>
     <div>
       <h4>Docs</h4>

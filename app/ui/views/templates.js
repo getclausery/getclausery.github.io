@@ -21,6 +21,11 @@ export const SAMPLES = [
   { slug: 'cease-and-desist-letter', file: 'cease-and-desist-letter.docx', name: 'Cease and desist letter', category: 'Legal', description: 'Demand letter listing required actions, with an optional intellectual property claim.' },
   { slug: 'promissory-note', file: 'promissory-note.docx', name: 'Promissory note', category: 'Finance', description: 'Loan note with optional interest, lump-sum or instalment repayment and a default clause.' },
   { slug: 'resignation-letter', file: 'resignation-letter.docx', name: 'Resignation letter', category: 'HR', description: 'Professional resignation with notice period, optional reason, handover offer and thanks.' },
+  { slug: 'web-design-contract', file: 'web-design-contract.docx', name: 'Web design contract', category: 'Freelance', description: 'Website project with a page list, deposit, revision rounds, optional maintenance and portfolio rights.' },
+  { slug: 'graphic-design-contract', file: 'graphic-design-contract.docx', name: 'Graphic design contract', category: 'Freelance', description: 'Deliverables with formats and dates, flat or hourly fee, copyright transfer or licence, source files and kill fee.' },
+  { slug: 'photography-contract', file: 'photography-contract.docx', name: 'Photography contract', category: 'Freelance', description: 'Shoot details, retainer, optional prints and travel fee, cancellation terms and personal or commercial usage rights.' },
+  { slug: 'social-media-management-contract', file: 'social-media-management-contract.docx', name: 'Social media management contract', category: 'Freelance', description: 'Platforms with posting frequency, optional community management, paid ads and reports, monthly fee and minimum term.' },
+  { slug: 'freelance-writing-contract', file: 'freelance-writing-contract.docx', name: 'Freelance writing contract', category: 'Freelance', description: 'Assignments with word counts, dates and fees, revisions, AI-use disclosure, kill fee, rights and byline.' },
 ];
 
 export async function importDocxFile(ctx, file, { name } = {}) {

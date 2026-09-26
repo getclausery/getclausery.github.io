@@ -1,6 +1,6 @@
 // "Alternative to X" pages. They state plainly where the other product is the better choice: buyers comparing tools
 // trust a page that admits trade-offs, and every claim here must stay accurate.
-import { esc } from '../tools/partials.mjs';
+import { esc, faqLd, faqHtml } from '../tools/partials.mjs';
 
 const ROWS = ['Where your documents are processed', 'Account needed', 'Works offline', 'Uses your own Word templates', 'Conditional clauses and repeating lists', 'Calculations', 'Client questionnaires', 'Integrations with practice management', 'Price'];
 const CLAUSERY = ['Your browser only; nothing is uploaded', 'No', 'Yes', 'Yes', 'Yes', 'Yes (Pro)', 'Offline intake file you email to the client', 'None: files in, files out', 'Free for 3 templates; Pro $19 per user per month'];
@@ -28,6 +28,14 @@ const COMPETITORS = [
     chooseUs: ['You have no server, no developer and no IT budget', 'Your templates live in Word and should stay there', 'You want a questionnaire from a template in minutes, without code'] },
 ];
 
+// Questions every comparison page answers; the answers only state facts about Clausery.
+const compareFaq = (c) => [
+  [`Can I use Clausery and ${c.name} together?`, `Yes. Many firms keep a platform like ${c.name} for the workflows it does best and use Clausery for documents whose details should not leave the office. Clausery needs no integration to run alongside it.`],
+  [`How much does Clausery cost compared with ${c.name}?`, `Clausery is free for up to three templates with unlimited documents, and Pro is $19 per user per month. The table above summarises ${c.name}'s published pricing as of 2026; check the vendor for current prices.`],
+  ['Does Clausery need IT to set up?', 'No. It runs in any modern browser with nothing to install, and firms that prefer can host the files on their own server.'],
+  ['What happens to my templates if I stop using Clausery?', 'They are ordinary Word files with tags, and your data exports as plain JSON. Nothing is locked into Clausery.'],
+];
+
 export const pages = [
   { path: 'compare/', title: 'Compare document automation tools',
     description: 'How Clausery compares with Gavel, Clio Draft, HotDocs and docassemble: where documents are processed, setup, features and price.',
@@ -37,7 +45,7 @@ export const pages = [
   <ul>${COMPETITORS.map((c) => `<li><a href="${rel}compare/${c.slug}.html">Clausery vs ${esc(c.name)}</a></li>`).join('')}</ul>
 </div></section>` },
   ...COMPETITORS.map((c) => ({
-    path: `compare/${c.slug}.html`, title: c.title,
+    path: `compare/${c.slug}.html`, title: c.title, extraHead: faqLd(compareFaq(c)),
     description: `${c.intro}`.slice(0, 290),
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}compare/">Compare</a> › ${esc(c.name)}</nav>
@@ -51,6 +59,17 @@ export const pages = [
     <div class="feature"><h2 style="font-size:1.15rem">Choose ${esc(c.name)} if</h2><ul>${c.chooseThem.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>
     <div class="feature"><h2 style="font-size:1.15rem">Choose Clausery if</h2><ul>${c.chooseUs.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>
   </div>
+  <h2 style="margin-top:2.5rem">Moving a template from ${esc(c.name)}</h2>
+  <ol>
+    <li>Start from the original Word version of the document, before it was converted for ${esc(c.name)}.</li>
+    <li>Replace each detail that changes with a tag such as <code>{client_name}</code>, and wrap optional clauses in <code>{#has_retainer}…{/has_retainer}</code>. Lists of parties or line items use a repeating section.</li>
+    <li>Check the file with the free <a href="${rel}free-tools/template-checker.html">template tag checker</a>, then drop it into the app.</li>
+    <li>Recreate any rules you built in ${esc(c.name)}'s own editor as show-when conditions or calculations in the Clausery designer. Allow about an hour for a complex template.</li>
+  </ol>
+  <h2 style="margin-top:2.5rem">What Clausery deliberately leaves out</h2>
+  <p>Because nothing leaves your computer, Clausery has no hosted client portal, no built-in e-signature, no practice management integration and no cloud AI drafting. If you need those, ${esc(c.name)} or a similar platform may suit you better, and the two can run side by side.</p>
+  <h2 style="margin-top:2.5rem">Questions</h2>
+  ${faqHtml(compareFaq(c))}
   <h2 style="margin-top:2.5rem">Try it with your own template</h2>
   <p>Open the app, drop in a Word document with tags like <code>{client_name}</code>, and you have a questionnaire. Or start from one of the <a href="${rel}templates/">free templates</a>.</p>
   <p><a class="btn btn-primary btn-lg" href="${rel}app/">Open Clausery, free</a></p>

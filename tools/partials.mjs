@@ -94,6 +94,7 @@ export function footer(rel) {
       <a href="${rel}for/law-firms.html">For law firms</a>
       <a href="${rel}for/hr-teams.html">For HR teams</a>
       <a href="${rel}for/consultants.html">For consultants</a>
+      <a href="${rel}for/freelancers.html">For freelancers</a>
     </div>
     <div>
       <h4>Docs</h4>
