@@ -295,4 +295,11 @@ test('shipped samples infer sensible questionnaires', async () => {
   const fw = q('freelance-writing-contract');
   assert.deepEqual(fw.assignments.children.map((c) => c.key), ['piece_title', 'word_count', 'due_date', 'piece_fee']);
   assert.equal(fw.rights_granted.showIf, 'not transfer_rights');
+  assert.equal(q('video-production-contract').footage_retention_months.showIf, 'not include_raw_footage');
+  const va = q('virtual-assistant-agreement');
+  assert.equal(va.tasks.type, 'repeat');
+  assert.equal(va.invoice_frequency.showIf, 'not is_retainer');
+  assert.equal(q('event-planning-contract').planning_fee.showIf, 'not is_percentage_fee');
+  assert.equal(q('personal-training-agreement').session_price.showIf, 'not is_package');
+  assert.equal(q('tutoring-agreement').session_location.showIf, 'not is_online');
 });

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Late payment interest calculator (contract or UK statutory)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Work out interest on an overdue invoice at your contract rate, or UK statutory interest at 8% above base rate plus the fixed compensation sum.">
+<link rel="canonical" href="https://getclausery.github.io/free-tools/late-payment-interest.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Clausery">
+<meta property="og:title" content="Late payment interest calculator (contract or UK statutory)">
+<meta property="og:description" content="Work out interest on an overdue invoice at your contract rate, or UK statutory interest at 8% above base rate plus the fixed compensation sum.">
+<meta property="og:url" content="https://getclausery.github.io/free-tools/late-payment-interest.html">
+<meta property="og:image" content="https://getclausery.github.io/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1b2a41">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/icon-192.png">
+<link rel="manifest" href="../app/manifest.webmanifest">
+<link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
+<link rel="stylesheet" href="../site.css">
+<script src="../app/theme.js"></script>
+<script src="../site.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is late payment interest calculated?","acceptedAnswer":{"@type":"Answer","text":"Usually as simple interest: the overdue amount × the yearly rate × the number of days late ÷ 365. This calculator counts days from the due date to the payment date."}},{"@type":"Question","name":"What is UK statutory interest?","acceptedAnswer":{"@type":"Answer","text":"Under the Late Payment of Commercial Debts (Interest) Act 1998, a business owed money by another business can usually claim interest at 8% above the Bank of England base rate, plus a fixed sum of £40, £70 or £100 depending on the size of the debt, unless the contract provides its own substantial remedy. It does not apply to consumers."}},{"@type":"Question","name":"Can I charge interest if my contract does not mention it?","acceptedAnswer":{"@type":"Answer","text":"It depends where you are. UK businesses have the statutory right above; elsewhere you may need a contract term or a court award. See the late payment interest clause in the clause library."}}]}</script><style>
+.tool { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 1.5rem 0; }
+.tool label { display: block; font-weight: 600; margin-bottom: .3rem; }
+.tool .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+.tool input, .tool select, .tool textarea { width: 100%; padding: .55rem .65rem; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--bg); color: var(--text); font: inherit; }
+.tool .out { font-size: 1.2rem; font-weight: 600; padding: 1rem; background: var(--accent-soft); color: var(--text); border-radius: var(--radius-sm); min-height: 3rem; }
+.tool .out-row { display: flex; gap: .75rem; align-items: flex-start; margin-top: .75rem; } .tool .out-row .out { flex: 1; }
+.tool .err, .bad { color: #b42318; } .ok { color: var(--ok); } .warn { color: var(--warn); }
+#drop { border: 2px dashed var(--border-strong); border-radius: var(--radius); padding: 2rem; text-align: center; }
+#drop.over { border-color: var(--accent); background: var(--accent-soft); }
+#report table { width: 100%; border-collapse: collapse; font-size: .92rem; } #report th, #report td { text-align: left; padding: .5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+#report .small { font-size: .85rem; color: var(--muted); }
+</style><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Late payment interest calculator","description":"Work out interest on an overdue invoice at your contract rate, or UK statutory interest at 8% above base rate plus the fixed compensation sum.","url":"https://getclausery.github.io/free-tools/late-payment-interest.html","applicationCategory":"BusinessApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script><script type="module" src="late-payment-interest.js"></script>
+</head>
+<body>
+<a class="sr-only" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Site">
+      <a href="../templates/">Templates</a>
+      <a href="../#features">Features</a>
+      <a href="../pricing/">Pricing</a>
+      <a href="../docs/">Docs</a>
+      <a href="../docs/security.html">Security</a>
+      <a class="btn btn-primary" href="../app/">Open the app</a>
+    </nav>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+<section class="section"><div class="wrap" style="max-width:52rem"><nav class="small muted" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../free-tools/">Free tools</a> › Late payment interest</nav>
+<h1 style="margin-top:1rem">Late payment interest calculator</h1>
+<p class="lead">Find out how much interest you can add to an overdue invoice, at the rate in your contract or at the UK statutory rate for business debts.</p>
+<div class="tool">
+  <div class="row">
+    <div><label for="amount">Amount owed</label><input id="amount" inputmode="decimal" value="4800" autocomplete="off"></div>
+    <div><label for="currency">Currency</label><select id="currency"><option value="USD">US dollars</option><option value="GBP">Pounds sterling</option><option value="EUR">Euros</option><option value="CAD">Canadian dollars</option><option value="AUD">Australian dollars</option></select></div>
+    <div><label for="due">Payment was due</label><input id="due" type="date"></div>
+    <div><label for="paid">Paid, or today</label><input id="paid" type="date"></div>
+  </div>
+  <div class="row">
+    <div><label for="basis">Interest basis</label><select id="basis"><option value="year">Contract rate per year</option><option value="month">Contract rate per month</option><option value="uk">UK statutory (business debts)</option></select></div>
+    <div id="rate-row"><label for="rate">Rate (%)</label><input id="rate" inputmode="decimal" value="10"></div>
+    <div id="base-row" hidden><label for="base">Bank of England base rate (%)</label><input id="base" inputmode="decimal" value=""></div>
+  </div>
+  <p id="error" class="err" role="alert" hidden></p>
+  <div class="out" id="result" aria-live="polite"></div>
+  <p class="small muted" id="result-note" style="margin-top:.5rem"></p>
+</div>
+<p class="small muted">For UK statutory interest, use the base rate in force on the day the debt became overdue (check the Bank of England website). This is general information, not legal advice.</p>
+<h2>Asking for payment</h2>
+<p>Send a clear written demand before adding interest. The free <a href="../templates/payment-demand-letter.html">payment demand letter</a> has an optional interest paragraph, and the <a href="../clauses/late-payment-interest-clause.html">late payment interest clause</a> shows how to put a rate in your next contract.</p>
+<h2 style="margin-top:2.5rem">Questions</h2>
+<div class="faq"><details><summary>How is late payment interest calculated?</summary><p>Usually as simple interest: the overdue amount × the yearly rate × the number of days late ÷ 365. This calculator counts days from the due date to the payment date.</p></details><details><summary>What is UK statutory interest?</summary><p>Under the Late Payment of Commercial Debts (Interest) Act 1998, a business owed money by another business can usually claim interest at 8% above the Bank of England base rate, plus a fixed sum of £40, £70 or £100 depending on the size of the debt, unless the contract provides its own substantial remedy. It does not apply to consumers.</p></details><details><summary>Can I charge interest if my contract does not mention it?</summary><p>It depends where you are. UK businesses have the statutory right above; elsewhere you may need a contract term or a court award. See the late payment interest clause in the clause library.</p></details></div>
+<div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem">Draft the whole document, not just one line</h2><p>Clausery turns your Word templates into questionnaires and builds the finished document in your browser, with amounts in words, dates and totals calculated for you. Free for up to three templates.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="../app/">Open Clausery</a> <a class="btn" href="../templates/">Free templates</a></p></div></div></section></main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <h4>Clausery</h4>
+      <p>Document automation that never leaves your browser. Turn your own Word templates into guided questionnaires and generate finished documents, offline, with no account.</p>
+    </div>
+    <div>
+      <h4>Product</h4>
+      <a href="../app/">Open the app</a>
+      <a href="../pricing/">Pricing</a>
+      <a href="../changelog.html">Changelog</a>
+      <a href="../docs/self-hosting.html">Self-hosting</a>
+      <a href="../press/">Press kit</a>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <a href="../templates/">Free templates</a>
+      <a href="../guides/">Guides</a>
+      <a href="../clauses/">Clause library</a>
+      <a href="../free-tools/">Free tools</a>
+      <a href="../compare/">Compare</a>
+      <a href="../for/law-firms.html">For law firms</a>
+      <a href="../for/hr-teams.html">For HR teams</a>
+      <a href="../for/consultants.html">For consultants</a>
+      <a href="../for/freelancers.html">For freelancers</a>
+    </div>
+    <div>
+      <h4>Docs</h4>
+      <a href="../docs/">Getting started</a>
+      <a href="../docs/templates.html">Template syntax</a>
+      <a href="../docs/logic.html">Logic &amp; calculations</a>
+      <a href="../docs/intake.html">Client intake</a>
+      <a href="../docs/security.html">Security</a>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <a href="../legal/privacy.html">Privacy</a>
+      <a href="../legal/terms.html">Terms</a>
+      <a href="../legal/dpa.html">Data processing</a>
+      <a href="mailto:hello@clausery.app">Contact</a>
+    </div>
+    <div class="legal">© 2026 Clausery. Clausery is software, not legal advice; documents you generate are your responsibility. Not affiliated with Microsoft; Word is a trademark of Microsoft Corporation.</div>
+  </div>
+</footer>
+</body>
+</html>

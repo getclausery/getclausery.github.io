@@ -26,6 +26,11 @@ export const SAMPLES = [
   { slug: 'photography-contract', file: 'photography-contract.docx', name: 'Photography contract', category: 'Freelance', description: 'Shoot details, retainer, optional prints and travel fee, cancellation terms and personal or commercial usage rights.' },
   { slug: 'social-media-management-contract', file: 'social-media-management-contract.docx', name: 'Social media management contract', category: 'Freelance', description: 'Platforms with posting frequency, optional community management, paid ads and reports, monthly fee and minimum term.' },
   { slug: 'freelance-writing-contract', file: 'freelance-writing-contract.docx', name: 'Freelance writing contract', category: 'Freelance', description: 'Assignments with word counts, dates and fees, revisions, AI-use disclosure, kill fee, rights and byline.' },
+  { slug: 'video-production-contract', file: 'video-production-contract.docx', name: 'Video production contract', category: 'Freelance', description: 'Videos with length and format, shoot and delivery dates, edit rounds, deposit, expenses, raw footage and cancellation.' },
+  { slug: 'virtual-assistant-agreement', file: 'virtual-assistant-agreement.docx', name: 'Virtual assistant agreement', category: 'Freelance', description: 'Task list, monthly retainer or hourly rate, availability and response times, secure access and optional data handling terms.' },
+  { slug: 'event-planning-contract', file: 'event-planning-contract.docx', name: 'Event planning contract', category: 'Freelance', description: 'Event details, services list, day-of coordination, flat or percentage fee, retainer, vendor terms and postponement.' },
+  { slug: 'personal-training-agreement', file: 'personal-training-agreement.docx', name: 'Personal training agreement', category: 'Freelance', description: 'Session packages or pay-per-session, late cancellation, health declaration, optional medical clearance and refunds.' },
+  { slug: 'tutoring-agreement', file: 'tutoring-agreement.docx', name: 'Tutoring agreement', category: 'Freelance', description: 'Subjects and goals, online or in-person sessions, hourly fee, cancellation, progress reports and safeguarding.' },
 ];
 
 export async function importDocxFile(ctx, file, { name } = {}) {

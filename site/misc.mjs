@@ -7,6 +7,12 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'What changed in each Clausery release.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.4.0 <span class="small muted">— 26 September 2026</span></h2>
+<ul>
+  <li>Five more contract templates: video production, virtual assistant, event planning, personal training and tutoring.</li>
+  <li>Two free calculators: late payment interest (including UK statutory interest) and freelance hourly and day rates.</li>
+  <li>Guides to writing a freelance contract and setting a kill fee.</li>
+</ul>
 <h2>1.3.0 <span class="small muted">— 26 September 2026</span></h2>
 <ul>
   <li>Five freelance contract templates: web design, graphic design, photography, social media management and freelance writing.</li>

@@ -3,7 +3,7 @@
    background requests (a new release ships a new VERSION, which installs a fresh cache). Pages are network-first so a
    deploy is visible at once; offline, app routes fall back to the app shell and other pages to offline.html.
    VERSION and PRECACHE are written by tools/release.mjs; do not edit them by hand. */
-const VERSION = '1.3.0';
+const VERSION = '1.4.0';
 const CACHE = 'clausery-' + VERSION;
 const BASE = new URL('./', self.location).pathname;
 // PRECACHE:BEGIN
@@ -45,6 +45,7 @@ const PRECACHE = [
   'samples/employment-termination-letter.docx',
   'samples/employment-verification-letter.docx',
   'samples/engagement-letter.docx',
+  'samples/event-planning-contract.docx',
   'samples/freelance-writing-contract.docx',
   'samples/graphic-design-contract.docx',
   'samples/independent-contractor-agreement.docx',
@@ -53,6 +54,7 @@ const PRECACHE = [
   'samples/offer-letter.docx',
   'samples/one-way-nda.docx',
   'samples/payment-demand-letter.docx',
+  'samples/personal-training-agreement.docx',
   'samples/photography-contract.docx',
   'samples/promissory-note.docx',
   'samples/reference-letter.docx',
@@ -61,6 +63,9 @@ const PRECACHE = [
   'samples/service-agreement.docx',
   'samples/social-media-management-contract.docx',
   'samples/statement-of-work.docx',
+  'samples/tutoring-agreement.docx',
+  'samples/video-production-contract.docx',
+  'samples/virtual-assistant-agreement.docx',
   'samples/web-design-contract.docx',
   'site.css',
   'site.js',

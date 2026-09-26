@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
-const PAGES = ['', 'pricing/', 'docs/', 'docs/templates.html', 'docs/security.html', 'legal/privacy.html', '404.html', 'templates/', 'templates/statement-of-work.html', 'compare/gavel-alternative.html', 'for/law-firms.html', 'guides/automate-word-templates.html', 'free-tools/amount-in-words.html', 'free-tools/deadline-calculator.html', 'free-tools/template-checker.html', 'press/', 'clauses/', 'clauses/indemnification-clause.html', 'guides/what-to-include-in-an-nda.html'];
+const PAGES = ['', 'pricing/', 'docs/', 'docs/templates.html', 'docs/security.html', 'legal/privacy.html', '404.html', 'templates/', 'templates/statement-of-work.html', 'compare/gavel-alternative.html', 'for/law-firms.html', 'guides/automate-word-templates.html', 'free-tools/amount-in-words.html', 'free-tools/deadline-calculator.html', 'free-tools/template-checker.html', 'free-tools/late-payment-interest.html', 'free-tools/freelance-rate.html', 'for/freelancers.html', 'press/', 'clauses/', 'clauses/indemnification-clause.html', 'guides/what-to-include-in-an-nda.html'];
 for (const p of PAGES) {
   test(`site page ${p || 'home'} renders and has no serious accessibility violations`, async ({ page }) => {
     const res = await page.goto(p);
@@ -52,6 +52,13 @@ test('free tools work in the page', async ({ page }) => {
   await expect(page.locator('#report')).toContainText('No problems found');
   await expect(page.locator('#report table tbody tr')).toHaveCount(15);
   await expect(page.locator('#report')).toContainText('For each item: Name, Role, Rate');
+  await page.goto('free-tools/late-payment-interest.html');
+  await page.fill('#amount', '10000'); await page.fill('#due', '2026-01-01'); await page.fill('#paid', '2026-04-11'); await page.fill('#rate', '10');
+  await expect(page.locator('#result')).toHaveText('Interest: $273.97');
+  await page.selectOption('#basis', 'uk'); await page.fill('#base', '4');
+  await expect(page.locator('#result-note')).toContainText('Plus fixed compensation of £100.');
+  await page.goto('free-tools/freelance-rate.html');
+  await expect(page.locator('#result')).toHaveText('$75 an hour · $598 a day');
 });
 
 test('clause pages copy the sample wording', async ({ page, context }) => {

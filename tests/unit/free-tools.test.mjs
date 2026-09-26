@@ -24,3 +24,27 @@ test('deadline calculator: month-end clamping, business days and holidays', () =
   assert.match(addPeriod('nope', 1, 'days').error, /valid start date/);
   assert.match(addPeriod('2026-09-25', -3, 'days').error, /whole number/);
 });
+
+test('late payment interest: contract rates and UK statutory interest', async () => {
+  const { lateInterest, ukCompensation } = await import('../../free-tools/late-payment-interest.js');
+  const r = lateInterest({ amount: '10,000', due: '2026-01-01', paid: '2026-04-11', rate: '10' });
+  assert.equal(r.days, 100);
+  assert.equal(r.interest, 273.97);                                        // 10,000 × 10% × 100/365
+  assert.equal(lateInterest({ amount: 1200, due: '2026-03-01', paid: '2026-03-31', rate: 1.5, basis: 'month' }).annual, 18);
+  const uk = lateInterest({ amount: 5000, due: '2026-06-01', paid: '2026-07-01', basis: 'uk', baseRate: 4 });
+  assert.equal(uk.annual, 12);
+  assert.equal(uk.compensation, 70);
+  assert.equal(uk.interest, 49.32);                                        // 5,000 × 12% × 30/365
+  assert.deepEqual([ukCompensation(999.99), ukCompensation(1000), ukCompensation(10000)], [40, 70, 100]);
+  assert.match(lateInterest({ amount: 100, due: '2026-05-01', paid: '2026-04-01', rate: 5 }).error, /after the due date/);
+});
+
+test('freelance rate: works back from take-home income', async () => {
+  const { freelanceRate } = await import('../../free-tools/freelance-rate.js');
+  const r = freelanceRate({ income: 60000, expenses: 6000, taxRate: 25, weeksOff: 6, hoursPerWeek: 25 });
+  assert.equal(r.revenue, 86000);                                          // 60,000 / 0.75 + 6,000
+  assert.equal(r.hours, 1150);                                             // 25 × 46
+  assert.equal(r.hourly, 74.78);
+  assert.equal(r.daily, 598.26);
+  assert.match(freelanceRate({ income: 50000, taxRate: 20, weeksOff: 52, hoursPerWeek: 20 }).error, /weeks/);
+});

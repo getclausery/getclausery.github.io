@@ -20,6 +20,7 @@ const SEO_TITLES = {
   'guides/client-intake-without-a-portal.html': 'Client intake without a portal: collect answers privately',
   'guides/conditional-clauses-in-word.html': 'Conditional clauses in Word: include or remove paragraphs',
   'guides/confidentiality-checklist-document-software.html': 'Confidentiality checklist for choosing document software',
+  'guides/how-to-write-a-freelance-contract.html': 'How to write a freelance contract: 10 key clauses',
 };
 for (const k of Object.keys(SEO_TITLES)) if (!pages.some((p) => p.path === k)) throw new Error('SEO_TITLES: no page ' + k);
 for (const p of pages) {
