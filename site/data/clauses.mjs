@@ -157,6 +157,7 @@ All amounts are exclusive of sales tax, value added tax and similar taxes, which
       ['Can I stop work if a customer does not pay?', 'Only if the contract allows it or the general law does. Stopping work without a contractual right can itself be a breach, so include a right to suspend on notice for overdue invoices.'],
     ],
     templates: ['service-agreement', 'independent-contractor-agreement', 'consulting-agreement', 'statement-of-work', 'web-design-contract', 'social-media-management-contract', 'retainer-agreement', 'subcontractor-agreement'],
+    tool: ['invoice-due-date', 'invoice due date calculator', 'Check what net 30, end-of-month or 2/10 net 30 terms mean in dates with the free'],
   },
   {
     slug: 'late-payment-interest-clause', name: 'Late payment interest clause', group: 'Money',
@@ -179,6 +180,7 @@ Overdue amounts bear interest at {interest_rate} from the due date until payment
       ['Can I charge interest if the contract does not mention it?', 'Sometimes. UK businesses have a statutory right to interest on late commercial payments. In many other places, you can only claim interest if the contract provides for it or a court awards it.'],
     ],
     templates: ['payment-demand-letter', 'service-agreement', 'promissory-note', 'payment-reminder-letter', 'retainer-agreement'],
+    tool: ['late-payment-interest', 'late payment interest calculator', 'Work out the interest on an overdue invoice with the free'],
   },
   {
     slug: 'intellectual-property-clause', name: 'Intellectual property assignment clause', group: 'Work and ownership',

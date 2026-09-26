@@ -35,7 +35,7 @@ function run() {
 }
 if (typeof document !== 'undefined' && $('amount')) {
   for (const id of ['amount', 'currency', 'style', 'caps']) $(id).addEventListener('input', run);
-  for (const b of document.querySelectorAll('[data-copy]')) b.addEventListener('click', () => {
+  for (const b of document.querySelectorAll('.tool [data-copy]')) b.addEventListener('click', () => {
     const text = $(b.dataset.copy).textContent; const done = () => { b.textContent = 'Copied'; setTimeout(() => { b.textContent = 'Copy'; }, 1500); };
     if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, () => {}); });
   run();

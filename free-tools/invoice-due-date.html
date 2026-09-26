@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Net 30 calculator: invoice due date for any payment terms</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Find the due date for Net 30, Net 60, EOM, 15 MFI or 2/10 net 30 invoices, the days left to pay and what an early payment discount is worth.">
+<link rel="canonical" href="https://getclausery.github.io/free-tools/invoice-due-date.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Clausery">
+<meta property="og:title" content="Net 30 calculator: invoice due date for any payment terms">
+<meta property="og:description" content="Find the due date for Net 30, Net 60, EOM, 15 MFI or 2/10 net 30 invoices, the days left to pay and what an early payment discount is worth.">
+<meta property="og:url" content="https://getclausery.github.io/free-tools/invoice-due-date.html">
+<meta property="og:image" content="https://getclausery.github.io/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1b2a41">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/icon-192.png">
+<link rel="manifest" href="../app/manifest.webmanifest">
+<link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
+<link rel="stylesheet" href="../site.css">
+<script src="../app/theme.js"></script>
+<script src="../site.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does net 30 mean?","acceptedAnswer":{"@type":"Answer","text":"Net 30 means the full invoice amount is due 30 calendar days after the invoice date. Net 15, net 60 and net 90 work the same way with a different number of days. If your contract says \"30 days from receipt\", count from the day the customer received the invoice instead."}},{"@type":"Question","name":"Does net 30 include weekends and holidays?","acceptedAnswer":{"@type":"Answer","text":"Yes. Payment terms count calendar days unless they say business days. If the due date falls on a weekend, many businesses pay on the next working day; tick the weekend option to see that date."}},{"@type":"Question","name":"What does 2/10 net 30 mean?","acceptedAnswer":{"@type":"Answer","text":"The customer can take 2% off if they pay within 10 days; otherwise the full amount is due in 30 days. Passing up that discount is expensive: it works out at about 37% a year, which is why finance teams usually take it."}},{"@type":"Question","name":"What do EOM and MFI mean on an invoice?","acceptedAnswer":{"@type":"Answer","text":"EOM means end of month: \"net 30 EOM\" is due 30 days after the end of the month the invoice is dated in. MFI means month following invoice: \"15 MFI\" is due on the 15th of the next month. Some suppliers treat invoices dated late in the month as next month's, so check your terms."}},{"@type":"Question","name":"Is there a legal limit on payment terms?","acceptedAnswer":{"@type":"Answer","text":"In the UK and the EU, if a business contract sets no payment date, statutory interest generally starts 30 days after the invoice (or delivery, if later), and agreed terms longer than 60 days must not be grossly unfair to the supplier. In the US, private business terms are set by contract; federal agencies generally pay within 30 days under the Prompt Payment Act."}}]}</script><style>
+.tool { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 1.5rem 0; }
+.tool label { display: block; font-weight: 600; margin-bottom: .3rem; }
+.tool .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+.tool input, .tool select, .tool textarea { width: 100%; padding: .55rem .65rem; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--bg); color: var(--text); font: inherit; }
+.tool .out { font-size: 1.2rem; font-weight: 600; padding: 1rem; background: var(--accent-soft); color: var(--text); border-radius: var(--radius-sm); min-height: 3rem; }
+.tool .out-row { display: flex; gap: .75rem; align-items: flex-start; margin-top: .75rem; } .tool .out-row .out { flex: 1; }
+.tool .err, .bad { color: #b42318; } .ok { color: var(--ok); } .warn { color: var(--warn); }
+#drop { border: 2px dashed var(--border-strong); border-radius: var(--radius); padding: 2rem; text-align: center; }
+#drop.over { border-color: var(--accent); background: var(--accent-soft); }
+#report table { width: 100%; border-collapse: collapse; font-size: .92rem; } #report th, #report td { text-align: left; padding: .5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+#report .small { font-size: .85rem; color: var(--muted); }
+.tool .check { display: flex; gap: .5rem; align-items: center; font-weight: 400; margin-bottom: 1rem; } .tool .check input { width: auto; }
+.embed-code { width: 100%; font: .85rem/1.45 var(--mono); padding: .75rem; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--surface-2); color: var(--text); resize: vertical; }
+.embed-tools { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; margin: .75rem 0 1rem; }
+.terms-table { width: 100%; border-collapse: collapse; font-size: .95rem; } .terms-table th, .terms-table td { text-align: left; padding: .55rem .5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+</style><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Invoice due date calculator","description":"Find the due date for Net 30, Net 60, EOM, 15 MFI or 2/10 net 30 invoices, the days left to pay and what an early payment discount is worth.","url":"https://getclausery.github.io/free-tools/invoice-due-date.html","applicationCategory":"BusinessApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script><script type="module" src="invoice-due-date.js"></script>
+</head>
+<body>
+<a class="sr-only" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Site">
+      <a href="../templates/">Templates</a>
+      <a href="../#features">Features</a>
+      <a href="../pricing/">Pricing</a>
+      <a href="../docs/">Docs</a>
+      <a href="../docs/security.html">Security</a>
+      <a class="btn btn-primary" href="../app/">Open the app</a>
+    </nav>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+<section class="section"><div class="wrap" style="max-width:52rem"><nav class="small muted" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../free-tools/">Free tools</a> › Invoice due date</nav>
+<h1 style="margin-top:1rem">Invoice due date calculator</h1>
+<p class="lead">Pick the payment terms on the invoice, such as net 30, net 30 EOM or 2/10 net 30, to see the exact due date, how many days are left, and what paying early is worth.</p>
+<div class="tool">
+  <div class="row">
+    <div><label for="invoice">Invoice date</label><input id="invoice" type="date"></div>
+    <div><label for="terms">Payment terms</label><select id="terms"><option value="due on receipt">Due on receipt</option><option value="net 7">Net 7</option><option value="net 10">Net 10</option><option value="net 14">Net 14</option><option value="net 15">Net 15</option><option value="net 30" selected>Net 30</option><option value="net 45">Net 45</option><option value="net 60">Net 60</option><option value="net 90">Net 90</option><option value="eom">End of month (EOM)</option><option value="net 30 eom">Net 30 EOM</option><option value="15 mfi">15th of the following month (15 MFI)</option><option value="2/10 net 30">2/10 net 30</option><option value="1/10 net 30">1/10 net 30</option><option value="other">Other terms…</option></select></div>
+    <div id="custom-row" hidden><label for="custom">Terms as written</label><input id="custom" value="3/15 net 45" autocomplete="off"></div>
+    <div><label for="amount">Invoice amount (optional)</label><input id="amount" inputmode="decimal" value="4800" autocomplete="off"></div>
+    <div><label for="currency">Currency</label><select id="currency"><option value="USD">US dollars</option><option value="GBP">Pounds sterling</option><option value="EUR">Euros</option><option value="CAD">Canadian dollars</option><option value="AUD">Australian dollars</option></select></div>
+  </div>
+  <label class="check"><input id="weekends" type="checkbox"> Move a due date that falls on a weekend to the Monday</label>
+  <p id="error" class="err" role="alert" hidden></p>
+  <div class="out" id="result" aria-live="polite"></div>
+  <p class="small muted" id="result-note" style="margin-top:.5rem"></p>
+  <p class="small" id="result-discount"></p>
+</div>
+<p class="small muted">Choose <strong>Other terms</strong> to type terms as they appear on the invoice, for example <em>net 21</em>, <em>3/15 net 45</em> or <em>10th prox</em>.</p>
+<h2>Payment terms explained</h2>
+<p>Terms count calendar days from the invoice date unless they say otherwise. The last column shows each one for an invoice dated March 12, 2026, before any weekend adjustment.</p>
+<div style="overflow-x:auto"><table class="terms-table"><thead><tr><th scope="col">Terms</th><th scope="col">What it means</th><th scope="col">Invoice dated Mar 12, 2026 is due</th></tr></thead><tbody><tr><th scope="row">Due on receipt</th><td>Payable as soon as the invoice arrives. Common for small one-off jobs.</td><td>Mar 12, 2026</td></tr><tr><th scope="row">Net 7 / Net 14</th><td>Due 7 or 14 days after the invoice date. Popular with freelancers who want to be paid quickly.</td><td>Mar 19, 2026 or Mar 26, 2026</td></tr><tr><th scope="row">Net 30</th><td>Due 30 days after the invoice date. The most common business term.</td><td>Apr 11, 2026</td></tr><tr><th scope="row">Net 60 / Net 90</th><td>Due 60 or 90 days after the invoice date. Asked for by large customers; some laws limit them.</td><td>May 11, 2026 or Jun 10, 2026</td></tr><tr><th scope="row">EOM</th><td>Due on the last day of the month the invoice is dated in.</td><td>Mar 31, 2026</td></tr><tr><th scope="row">Net 30 EOM</th><td>Due 30 days after the end of the invoice month, so 30 to 60 days after the invoice date, depending on when in the month it is dated.</td><td>Apr 30, 2026</td></tr><tr><th scope="row">15 MFI</th><td>Due on the 15th of the month following the invoice.</td><td>Apr 15, 2026</td></tr><tr><th scope="row">2/10 net 30</th><td>Take 2% off if paid within 10 days; otherwise the full amount is due in 30 days.</td><td>Apr 11, 2026 (2% off until Mar 22, 2026)</td></tr></tbody></table></div>
+<h2 style="margin-top:2rem">Choosing terms for your own invoices</h2>
+<ul><li><strong>Shorter terms get paid sooner.</strong> Net 14 is common for freelancers and small jobs; net 30 is the usual default between businesses.</li><li><strong>Put the terms in the contract, not just the invoice.</strong> A customer who agreed to net 14 in writing is harder to stretch to net 60. See the <a href="../clauses/payment-terms-clause.html">payment terms clause</a> for sample wording.</li><li><strong>Say what happens when payment is late.</strong> A <a href="../clauses/late-payment-interest-clause.html">late payment interest clause</a> gives you a right to interest and to pause work.</li><li><strong>Offer a discount only if cash matters more than margin.</strong> 2/10 net 30 gets many customers paying in 10 days, but it costs you 2% of every invoice they pay early.</li></ul>
+<h2>When the due date has passed</h2>
+<p>Send a polite reminder the day after, then a firmer one a week later. The free <a href="../templates/payment-reminder-letter.html">payment reminder letter</a> and <a href="../templates/payment-demand-letter.html">payment demand letter</a> templates are ready to fill in, the <a href="../free-tools/late-payment-interest.html">late payment interest calculator</a> shows what you can add, and the guide <a href="../guides/what-to-do-when-a-client-wont-pay.html">what to do when a client won't pay</a> covers the steps after that.</p>
+<p class="small muted">A calculation aid, not legal or tax advice. Your contract decides when payment is due.</p>
+<h2 style="margin-top:2.5rem">Add this calculator to your website</h2>
+<p>Free for blogs, accountants, law firms, trade associations and anyone who helps small businesses. Paste the code where you want the calculator to appear. It runs in your visitors' browsers, with no cookies, no tracking, and nothing they type sent anywhere.</p>
+<label for="embed-code">Embed code</label>
+<textarea id="embed-code" class="embed-code" rows="6" readonly>&lt;iframe src=&quot;https://getclausery.github.io/free-tools/embed/invoice-due-date.html&quot; title=&quot;Invoice due date calculator&quot; width=&quot;100%&quot; height=&quot;460&quot; style=&quot;border:0;max-width:760px&quot; loading=&quot;lazy&quot; allow=&quot;clipboard-write&quot;&gt;&lt;/iframe&gt;
+&lt;p style=&quot;font-size:13px;margin:4px 0 16px&quot;&gt;Invoice due date calculator by &lt;a href=&quot;https://getclausery.github.io/free-tools/invoice-due-date.html&quot;&gt;Clausery&lt;/a&gt;&lt;/p&gt;
+&lt;script&gt;window.addEventListener('message',function(e){if(e.origin!=='https://getclausery.github.io'||!e.data||!e.data.clauseryHeight)return;var f=document.getElementsByTagName('iframe');for(var i=0;i&lt;f.length;i++)if(f[i].contentWindow===e.source)f[i].style.height=e.data.clauseryHeight+'px';});&lt;/script&gt;</textarea>
+<div class="embed-tools"><button class="btn copy-btn" type="button" data-copy="embed-code">Copy the code</button><a class="btn" href="embed/invoice-due-date.html" target="_blank" rel="noopener">Preview</a><span class="small muted copy-status" role="status"></span></div>
+<p class="small muted">The last line of the code resizes the calculator to fit; if your site strips scripts, leave it out and the calculator still works at a fixed height. On a dark website, add <code>?theme=dark</code> after <code>invoice-due-date.html</code>. Please keep the credit line under the calculator.</p>
+<h2 style="margin-top:2.5rem">Questions</h2>
+<div class="faq"><details><summary>What does net 30 mean?</summary><p>Net 30 means the full invoice amount is due 30 calendar days after the invoice date. Net 15, net 60 and net 90 work the same way with a different number of days. If your contract says &quot;30 days from receipt&quot;, count from the day the customer received the invoice instead.</p></details><details><summary>Does net 30 include weekends and holidays?</summary><p>Yes. Payment terms count calendar days unless they say business days. If the due date falls on a weekend, many businesses pay on the next working day; tick the weekend option to see that date.</p></details><details><summary>What does 2/10 net 30 mean?</summary><p>The customer can take 2% off if they pay within 10 days; otherwise the full amount is due in 30 days. Passing up that discount is expensive: it works out at about 37% a year, which is why finance teams usually take it.</p></details><details><summary>What do EOM and MFI mean on an invoice?</summary><p>EOM means end of month: &quot;net 30 EOM&quot; is due 30 days after the end of the month the invoice is dated in. MFI means month following invoice: &quot;15 MFI&quot; is due on the 15th of the next month. Some suppliers treat invoices dated late in the month as next month's, so check your terms.</p></details><details><summary>Is there a legal limit on payment terms?</summary><p>In the UK and the EU, if a business contract sets no payment date, statutory interest generally starts 30 days after the invoice (or delivery, if later), and agreed terms longer than 60 days must not be grossly unfair to the supplier. In the US, private business terms are set by contract; federal agencies generally pay within 30 days under the Prompt Payment Act.</p></details></div>
+<div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem">Draft the whole document, not just one line</h2><p>Clausery turns your Word templates into questionnaires and builds the finished document in your browser, with amounts in words, dates and totals calculated for you. Free for up to three templates.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="../app/">Open Clausery</a> <a class="btn" href="../templates/">Free templates</a></p></div></div></section></main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <h4>Clausery</h4>
+      <p>Document automation that never leaves your browser. Turn your own Word templates into guided questionnaires and generate finished documents, offline, with no account.</p>
+    </div>
+    <div>
+      <h4>Product</h4>
+      <a href="../app/">Open the app</a>
+      <a href="../pricing/">Pricing</a>
+      <a href="../changelog.html">Changelog</a>
+      <a href="../docs/self-hosting.html">Self-hosting</a>
+      <a href="../press/">Press kit</a>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <a href="../templates/">Free templates</a>
+      <a href="../guides/">Guides</a>
+      <a href="../clauses/">Clause library</a>
+      <a href="../free-tools/">Free tools</a>
+      <a href="../compare/">Compare</a>
+      <a href="../for/law-firms.html">For law firms</a>
+      <a href="../for/hr-teams.html">For HR teams</a>
+      <a href="../for/consultants.html">For consultants</a>
+      <a href="../for/freelancers.html">For freelancers</a>
+    </div>
+    <div>
+      <h4>Docs</h4>
+      <a href="../docs/">Getting started</a>
+      <a href="../docs/templates.html">Template syntax</a>
+      <a href="../docs/logic.html">Logic &amp; calculations</a>
+      <a href="../docs/intake.html">Client intake</a>
+      <a href="../docs/security.html">Security</a>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <a href="../legal/privacy.html">Privacy</a>
+      <a href="../legal/terms.html">Terms</a>
+      <a href="../legal/dpa.html">Data processing</a>
+      <a href="mailto:hello@clausery.app">Contact</a>
+    </div>
+    <div class="legal">© 2026 Clausery. Clausery is software, not legal advice; documents you generate are your responsibility. Not affiliated with Microsoft; Word is a trademark of Microsoft Corporation.</div>
+  </div>
+</footer>
+</body>
+</html>

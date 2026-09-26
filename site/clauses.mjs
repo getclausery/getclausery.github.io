@@ -79,7 +79,8 @@ export const pages = [
 
   <h2>What to check</h2>
   <ul class="check-list">${c.points.map(([h, p]) => `<li><strong>${esc(h)}</strong>${esc(p)}</li>`).join('')}</ul>
-${c.auto ? `
+${c.tool ? `  <p>${esc(c.tool[2])} <a href="${rel}free-tools/${c.tool[0]}.html">${esc(c.tool[1])}</a>.</p>
+` : ''}${c.auto ? `
   <h2>Make the variable parts fill themselves in</h2>
   <p>In a Word template, replace the details that change with <code>{tags}</code> and wrap optional wording in a section. <a href="${rel}">Clausery</a> turns them into questions, so each document only includes the parts that apply:</p>
   <pre><code>${esc(c.auto)}</code></pre>
