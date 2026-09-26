@@ -416,7 +416,8 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <p>Sometimes an MOU is all the paperwork a small collaboration needs. If so, make it a contract in substance: settle the essential terms, record what each side gives, say the parties intend to be bound, and have authorised people sign it. At that point, consider calling it an agreement so nobody is confused later.</p>
 <h2>Free templates</h2>
 <p>The free <a href="${rel}templates/memorandum-of-understanding.html">memorandum of understanding template</a> asks whether the MOU should be binding and words the legal effect section to match, keeping confidentiality and costs binding either way. The <a href="${rel}templates/letter-of-intent.html">letter of intent to buy a business</a> keeps the deal terms non-binding while making exclusivity, confidentiality and costs binding. If you need to share information during talks, start with a <a href="${rel}templates/mutual-nda.html">mutual NDA</a>; when the deal is agreed, the <a href="${rel}templates/service-agreement.html">service agreement</a> covers many collaborations.</p>
-<p class="small muted">General information, not legal advice. Contract law differs between countries and states, and whether a document is binding depends on its exact wording and the facts.</p>` },  { slug: 'what-to-include-in-a-partnership-agreement', title: 'What to include in a partnership agreement: 10 key terms',
+<p class="small muted">General information, not legal advice. Contract law differs between countries and states, and whether a document is binding depends on its exact wording and the facts.</p>` },
+  { slug: 'what-to-include-in-a-partnership-agreement', title: 'What to include in a partnership agreement: 10 key terms',
     description: 'The ten terms every partnership agreement needs, what the law decides if you leave them out, common mistakes, and when an LLC or an MOU fits better.',
     body: (rel) => `
 <p class="lead">Short answer: who puts in what, how profits are split, who decides what, and what happens when someone leaves. Without a written agreement, default partnership law answers those questions for you, often in ways the partners did not expect.</p>
@@ -460,6 +461,129 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <h2>Free templates</h2>
 <p>The free <a href="${rel}templates/partnership-agreement.html">partnership agreement template</a> covers all ten terms above as simple questions: any number of partners with their contributions and shares, drawings, a spending limit, a list of major decisions, buyout terms and optional mediation. Still deciding whether to go into business together? Start with a <a href="${rel}templates/memorandum-of-understanding.html">memorandum of understanding</a> and a <a href="${rel}templates/mutual-nda.html">mutual NDA</a>. If one partner lends the business money rather than contributing it, record it in a <a href="${rel}templates/loan-agreement.html">loan agreement</a>.</p>
 <p class="small muted">General information, not legal or tax advice. Partnership law differs between countries and states, and a lawyer can check the agreement against the rules where you trade.</p>` },
+  { slug: 'how-to-write-a-bill-of-sale', title: 'How to write a bill of sale, with a free template',
+    description: 'What a bill of sale must include, extra details for a car or boat, when it needs a notary, and the steps after signing that protect the seller.',
+    body: (rel) => `
+<p class="lead">A bill of sale is a signed record that one person sold something to another: what it was, the price, and the date ownership changed. It takes ten minutes to write and settles most arguments before they start.</p>
+<h2>When you need one</h2>
+<p>Write one whenever you sell something valuable privately: a car, motorbike, boat, trailer, equipment, furniture or a horse. For vehicles and boats, some registration offices ask to see a bill of sale, or have their own form. Even where nobody asks for it, it protects you both:</p>
+<ul>
+  <li>The <strong>buyer</strong> can show they own the item and what they paid for it.</li>
+  <li>The <strong>seller</strong> can show when the item stopped being theirs, which matters when parking tickets, tolls or accident claims arrive later.</li>
+</ul>
+<h2>What to include</h2>
+<ol>
+  <li><strong>The date of sale</strong>, and the full names and addresses of the seller and the buyer.</li>
+  <li><strong>A description of the item</strong> specific enough to identify it: make, model, serial number, colour, and anything included, such as spare keys or accessories.</li>
+  <li><strong>The price</strong> and how it is paid: cash, bank transfer or cheque, in full or as a deposit with the balance due by a date.</li>
+  <li><strong>Ownership.</strong> A statement that the seller owns the item and that nobody else has a claim to it, such as a lender. If there is a loan on it, say so and say how it will be paid off.</li>
+  <li><strong>Condition.</strong> Either "sold as is", meaning the buyer accepts it with any faults, or the specific warranty the seller gives.</li>
+  <li><strong>Signatures</strong> of both people, and a witness or notary if the item or the office that registers it needs one.</li>
+</ol>
+<h2>Extra details for a car, motorbike or boat</h2>
+<ul>
+  <li><strong>Year, make, model and colour.</strong></li>
+  <li><strong>The vehicle identification number (VIN)</strong> or hull identification number, copied from the vehicle itself, not only from the paperwork.</li>
+  <li><strong>The odometer reading</strong> at the time of sale, and whether it is accurate. In the US, federal law requires the seller to disclose the mileage when ownership of most vehicles changes, often on the title itself.</li>
+</ul>
+<h2>Does it need a notary?</h2>
+<p>Usually not. A bill of sale is valid when both people sign it. Some US states and some registration offices do ask for a notarized bill of sale for vehicles or boats, so check the motor vehicle agency's website where the item will be registered before you meet the buyer.</p>
+<h2>After you sign</h2>
+<ol>
+  <li><strong>Get paid before you hand over the keys.</strong> Wait for a bank transfer to clear, or meet at the buyer's bank. Cheques can bounce days later.</li>
+  <li><strong>Transfer the title or registration.</strong> A bill of sale records the sale; for a vehicle, the title or registration document is what changes the legal owner, and it has its own section to sign.</li>
+  <li><strong>Tell the registration office you sold it.</strong> Many have a notice of sale or release of liability form. In California, for example, the seller should report the transfer to the DMV within 5 days.</li>
+  <li><strong>Cancel or move your insurance</strong>, and remove your plates if your state keeps them with the owner rather than the vehicle.</li>
+  <li><strong>Keep a copy</strong> of the signed bill of sale, and give one to the buyer.</li>
+</ol>
+<h2>Common mistakes</h2>
+<ul>
+  <li>Leaving out the VIN or serial number, so the document could describe any similar item.</li>
+  <li>Writing "paid" when only a deposit has been paid.</li>
+  <li>Promising the item is in good condition when you mean it is sold as is.</li>
+  <li>Handing over the item and the title before the payment has cleared.</li>
+</ul>
+<h2>Free template</h2>
+<p>The free <a href="${rel}templates/bill-of-sale.html">bill of sale template</a> asks for each detail above. Tick "vehicle" and it adds the year, make, model, VIN and odometer lines; choose full payment or a deposit and balance; and add a witness or notary block if you need one. If the buyer is paying over time, pair it with a <a href="${rel}templates/promissory-note.html">promissory note</a> for the balance.</p>
+<p class="small muted">General information, not legal advice. Rules for vehicles and boats differ between states and countries; check with the office that registers the item.</p>` },
+  { slug: 'how-to-lend-money-to-family', title: 'How to lend money to family or friends, in writing',
+    description: 'How to lend money to a family member or friend without falling out: deciding loan or gift, the terms to agree, interest and tax, and writing it down.',
+    body: (rel) => `
+<p class="lead">Decide first whether it is a loan or a gift. If it is a loan, write down the amount, the repayment plan and what happens if a payment is missed, and both sign it. That one page protects the money and the relationship.</p>
+<h2>Loan or gift?</h2>
+<p>Many family loans go wrong because the two people remember the deal differently. Ask yourself honestly whether you expect the money back, and whether you could afford to lose it. If you would not chase repayment, it may be kinder to call it a gift from the start. If you do expect it back, say so plainly and put it in writing.</p>
+<h2>Agree the terms</h2>
+<ul>
+  <li><strong>Amount</strong> and the date you hand it over.</li>
+  <li><strong>Interest</strong>: none, or a rate. Even a low rate makes it clear this is a loan, not a gift.</li>
+  <li><strong>Repayments</strong>: one payment by a date, or instalments. A <a href="${rel}free-tools/loan-repayment.html">loan repayment calculator</a> shows the instalment and every payment date.</li>
+  <li><strong>How payments are made.</strong> Bank transfers leave a record; cash does not.</li>
+  <li><strong>Early repayment</strong>, which should normally be allowed without penalty.</li>
+  <li><strong>What happens if a payment is missed</strong>: a grace period, a reminder, and when the whole balance becomes due.</li>
+  <li><strong>What happens if something changes</strong>, such as the borrower losing their job, or either of you dying before it is repaid.</li>
+</ul>
+<h2>Interest and tax</h2>
+<p>Tax rules on personal loans differ between countries, so check the rules where you live before lending a large amount.</p>
+<ul>
+  <li><strong>In the US</strong>, the IRS publishes minimum interest rates each month, called the applicable federal rates. If you lend more than $10,000 to a family member at less than that rate, the IRS can treat the missing interest as income to you and as a gift to the borrower, with some exceptions. Loans of $10,000 or less between individuals are generally exempt, unless the money is used to buy income-producing assets.</li>
+  <li><strong>Interest you receive</strong> is usually taxable income for the lender in most countries.</li>
+  <li><strong>If you later forgive the loan</strong>, the amount forgiven may count as a gift for tax purposes.</li>
+  <li><strong>Maximum rates.</strong> Many places cap the interest rate a lender can charge. Keep family loans well below any such cap.</li>
+</ul>
+<h2>Promissory note or loan agreement?</h2>
+<div class="table-wrap" tabindex="0"><table class="compare"><thead><tr><th scope="col"></th><th scope="col">Promissory note</th><th scope="col">Loan agreement</th></tr></thead><tbody>
+<tr><th scope="row">Who signs</th><td>The borrower</td><td>Both of you</td></tr>
+<tr><th scope="row">Length</th><td>About a page</td><td>Two to three pages</td></tr>
+<tr><th scope="row">Covers</th><td>Amount, interest and repayment</td><td>Also late fees, collateral, a guarantor and what counts as default</td></tr>
+<tr><th scope="row">Best for</th><td>Smaller, simple loans</td><td>Larger loans, or loans secured on property such as a car</td></tr>
+</tbody></table></div>
+<h2>Keep it friendly</h2>
+<ol>
+  <li><strong>Only lend what you could afford to lose.</strong></li>
+  <li><strong>Treat it like a real loan</strong>: sign the document, keep copies and keep a list of every payment received.</li>
+  <li><strong>Talk early if a payment is missed.</strong> A changed payment plan, agreed in writing, is better than silence.</li>
+  <li><strong>Tell other family members</strong> if it matters for fairness later, for example when a parent lends to one child but not another.</li>
+</ol>
+<h2>Free templates</h2>
+<p>For a simple loan, use the free <a href="${rel}templates/promissory-note.html">promissory note template</a>. For a larger loan, or one with a late fee, collateral or a guarantor, use the <a href="${rel}templates/loan-agreement.html">loan agreement template</a>. If a payment is missed, the <a href="${rel}templates/payment-reminder-letter.html">payment reminder letter</a> keeps the tone friendly.</p>
+<p class="small muted">General information, not legal, tax or financial advice. Tax rules on loans between individuals change and differ by country; check with a tax adviser before lending a large amount.</p>` },
+  { slug: 'do-i-need-a-model-release', title: 'When do you need a model release? A plain guide',
+    description: 'When photographers, videographers and businesses need a signed model release, when they usually do not, what to put in one, and rules for minors.',
+    body: (rel) => `
+<p class="lead">Short answer: get a signed release whenever a recognisable person appears in a photo or video that will be used to sell or promote something. For news and editorial use you often do not need one, but a release costs nothing and settles the question.</p>
+<h2>Commercial or editorial use</h2>
+<p>What matters is how the image is used, not how it was taken.</p>
+<div class="table-wrap" tabindex="0"><table class="compare"><thead><tr><th scope="col">Use</th><th scope="col">Examples</th><th scope="col">Release?</th></tr></thead><tbody>
+<tr><th scope="row">Commercial</th><td>Adverts, a business website or social media account, brochures, packaging, commercial stock photos</td><td>Yes, get one</td></tr>
+<tr><th scope="row">Editorial</th><td>News, documentary, commentary, education, a book about a public event</td><td>Often not needed, depending on where you are</td></tr>
+<tr><th scope="row">Personal</th><td>Photos kept or shared privately</td><td>Usually not needed</td></tr>
+</tbody></table></div>
+<p>In the US, many states protect a person's right of publicity: using someone's name or likeness to advertise or sell without consent can lead to a claim. Rules on privacy and the use of images differ by state and country, so a written release is the simplest way to be safe wherever you work.</p>
+<h2>Common situations</h2>
+<ul>
+  <li><strong>Posting client photos on your business account.</strong> Treat it as commercial use: you are promoting your business. Get a release, or at least written permission, first.</li>
+  <li><strong>Stock photography.</strong> Stock agencies generally require a signed model release before they will license an image of a recognisable person for commercial use.</li>
+  <li><strong>Crowds and public events.</strong> People in a crowd who are not the focus of the image are a lower risk, but an advert that features one person's face needs that person's release.</li>
+  <li><strong>Staff and volunteers.</strong> Employees are not automatically consenting to appear in your marketing. Ask, and put it in writing.</li>
+  <li><strong>Private property and artworks.</strong> Recognisable private buildings, logos and artworks can need a separate property release for commercial use.</li>
+</ul>
+<h2>What to put in a model release</h2>
+<ol>
+  <li><strong>Who is released</strong>: the photographer, and the client if the images are for someone else.</li>
+  <li><strong>Which images</strong>: the date, the place and the project.</li>
+  <li><strong>How they may be used</strong>: any commercial use, or only the uses you list, and for how long.</li>
+  <li><strong>Use of the person's name</strong>, or a promise not to identify them.</li>
+  <li><strong>Any limits</strong> the person asks for, such as no political, medical or adult-content use.</li>
+  <li><strong>What the person receives</strong>: a fee, or something else such as copies of the images.</li>
+  <li><strong>Signatures and the date</strong>, and a parent or guardian's signature for anyone under 18.</li>
+</ol>
+<h2>Minors</h2>
+<p>A child usually cannot give a binding release on their own, so a parent or legal guardian should sign as well. Schools, clubs and youth organisations often have their own consent rules, so check them before a shoot.</p>
+<h2>Outside the US</h2>
+<p>In the UK and the EU, a photo of an identifiable person is personal data under the GDPR. Tell people how their images will be used and stored, keep the signed releases, and be ready to stop using an image if someone has a right to ask you to. France and some other countries also protect a person's right to their own image, even outside advertising.</p>
+<h2>Free template</h2>
+<p>The free <a href="${rel}templates/photo-release-form.html">photo and model release template</a> covers each point above as a question: commercial or limited use, a time limit, use of the person's name, restrictions, payment, and a guardian's consent for a model under 18. For the shoot itself, use the <a href="${rel}templates/photography-contract.html">photography contract</a> or the <a href="${rel}templates/video-production-contract.html">video production contract</a>.</p>
+<p class="small muted">General information, not legal advice. Image and privacy rights differ between countries and states.</p>` },
 ];
 
 export const pages = [

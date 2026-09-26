@@ -98,6 +98,9 @@ Key facts:
 - [What to do when a client won't pay: a step-by-step plan](https://getclausery.github.io/guides/what-to-do-when-a-client-wont-pay.html): A calm plan for an unpaid invoice: reminders, a final notice, late fees, a demand letter and small claims, with reminder emails you can copy.
 - [Is an MOU legally binding? How it differs from a contract](https://getclausery.github.io/guides/is-an-mou-legally-binding.html): When a memorandum of understanding or letter of intent becomes a binding contract, how courts decide, and how to word yours so it binds only what you mean.
 - [What to include in a partnership agreement: 10 key terms](https://getclausery.github.io/guides/what-to-include-in-a-partnership-agreement.html): The ten terms every partnership agreement needs, what the law decides if you leave them out, common mistakes, and when an LLC or an MOU fits better.
+- [How to write a bill of sale, with a free template](https://getclausery.github.io/guides/how-to-write-a-bill-of-sale.html): What a bill of sale must include, extra details for a car or boat, when it needs a notary, and the steps after signing that protect the seller.
+- [How to lend money to family or friends, in writing](https://getclausery.github.io/guides/how-to-lend-money-to-family.html): How to lend money to a family member or friend without falling out: deciding loan or gift, the terms to agree, interest and tax, and writing it down.
+- [When do you need a model release? A plain guide](https://getclausery.github.io/guides/do-i-need-a-model-release.html): When photographers, videographers and businesses need a signed model release, when they usually do not, what to put in one, and rules for minors.
 
 ## Free tools
 - [Amount in words converter for contracts and cheques](https://getclausery.github.io/free-tools/amount-in-words.html): Write any amount in words for contracts, cheques and promissory notes, such as "One Thousand Two Hundred and Fifty Dollars and 50/100".

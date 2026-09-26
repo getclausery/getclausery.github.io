@@ -1,4 +1,5 @@
 import { SITE } from '../tools/partials.mjs';
+import { PACK_FILE } from './library.mjs';
 const ico = (d) => `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;
 const I = { lock: 'M6 11h12v10H6zM9 11V7a3 3 0 016 0v4', file: 'M6 3h8l4 4v14H6zM14 3v4h4', bolt: 'M13 2L4 14h7l-1 8 9-12h-7z', users: 'M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM22 21v-2a4 4 0 00-3-3.9M16 3.1a4 4 0 010 7.8', wifi: 'M5 12.5a11 11 0 0114 0M8.5 16a6 6 0 017 0M12 20h.01M2 9a15 15 0 0120 0', calc: 'M4 3h16v18H4zM8 7h8M8 12h2M12 12h2M16 12h0M8 16h2M12 16h2M16 16h0', check: 'M5 12l5 5L20 7', shield: 'M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z' };
 
@@ -76,7 +77,7 @@ export const pages = [{
       <a class="feature" style="text-decoration:none;color:inherit" href="${rel}templates/offer-letter.html"><h3>Offer letter</h3><p>Salary, bonus, equity, benefits.</p></a>
       <a class="feature" style="text-decoration:none;color:inherit" href="${rel}templates/independent-contractor-agreement.html"><h3>Contractor agreement</h3><p>Hourly or fixed fee, IP, termination.</p></a>
     </div>
-    <p style="margin-top:1.25rem"><a href="${rel}templates/">See all free templates →</a> &nbsp;·&nbsp; <a href="${rel}clauses/">Contract clauses explained →</a> &nbsp;·&nbsp; <a href="${rel}free-tools/">Free drafting tools →</a> &nbsp;·&nbsp; <a href="${rel}for/freelancers.html">Freelance contracts →</a></p>
+    <p style="margin-top:1.25rem"><a href="${rel}templates/">See all free templates →</a> &nbsp;·&nbsp; <a href="${rel}samples/${PACK_FILE}" download>Download them all (.zip) →</a> &nbsp;·&nbsp; <a href="${rel}clauses/">Contract clauses explained →</a> &nbsp;·&nbsp; <a href="${rel}free-tools/">Free drafting tools →</a> &nbsp;·&nbsp; <a href="${rel}for/freelancers.html">Freelance contracts →</a></p>
   </div>
 </section>
 

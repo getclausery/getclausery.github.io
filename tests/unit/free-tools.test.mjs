@@ -121,3 +121,20 @@ test('sales commission: flat, marginal and whole-amount tiers, and the balance a
   assert.match(salesCommission({ sales: 100, rate: 120 }).error, /percentage/);
   assert.match(salesCommission({ sales: 100, rate: 5, tiers: [{ above: 10, rate: '' }] }).error, /each tier/);
 });
+
+test('the download-all pack holds every library template in its category folder, with a README', async () => {
+  const { readFileSync } = await import('node:fs');
+  const { default: JSZip } = await import('jszip');
+  const { LIB, CATEGORY_ORDER, PACK_FILE } = await import('../../site/library.mjs');
+  const zip = await JSZip.loadAsync(readFileSync(`samples/${PACK_FILE}`));
+  const docs = Object.keys(zip.files).filter((n) => n.endsWith('.docx'));
+  assert.equal(docs.length, LIB.length);
+  const label = Object.fromEntries(CATEGORY_ORDER);
+  for (const t of LIB) {
+    const entry = docs.find((n) => n === `${label[t.category]}/${t.name}.docx`);
+    assert.ok(entry, `${t.slug} is in the pack`);
+    assert.deepEqual(await zip.file(entry).async('nodebuffer'), readFileSync(`samples/${t.file}`));
+  }
+  const readme = await zip.file('README.txt').async('string');
+  for (const t of LIB) assert.ok(readme.includes(`templates/${t.slug}.html`), `README links ${t.slug}`);
+});

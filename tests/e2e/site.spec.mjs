@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
-const PAGES = ['', 'pricing/', 'docs/', 'docs/templates.html', 'docs/security.html', 'legal/privacy.html', '404.html', 'templates/', 'templates/statement-of-work.html', 'compare/gavel-alternative.html', 'for/law-firms.html', 'guides/automate-word-templates.html', 'free-tools/amount-in-words.html', 'free-tools/deadline-calculator.html', 'free-tools/template-checker.html', 'free-tools/late-payment-interest.html', 'free-tools/freelance-rate.html', 'for/freelancers.html', 'press/', 'clauses/', 'clauses/indemnification-clause.html', 'guides/what-to-include-in-an-nda.html', 'guides/what-to-do-when-a-client-wont-pay.html', 'templates/payment-reminder-letter.html', 'compare/', 'compare/honeybook-alternative.html', 'free-tools/invoice-due-date.html', 'free-tools/embed/invoice-due-date.html', 'free-tools/embed/amount-in-words.html', 'free-tools/loan-repayment.html', 'free-tools/embed/loan-repayment.html', 'templates/memorandum-of-understanding.html', 'templates/bill-of-sale.html', 'guides/is-an-mou-legally-binding.html', 'compare/lawdepot-alternative.html', 'compare/eforms-alternative.html', 'templates/partnership-agreement.html', 'templates/general-release.html', 'guides/what-to-include-in-a-partnership-agreement.html', 'free-tools/sales-commission.html', 'free-tools/embed/sales-commission.html'];
+const PAGES = ['', 'pricing/', 'docs/', 'docs/templates.html', 'docs/security.html', 'legal/privacy.html', '404.html', 'templates/', 'templates/statement-of-work.html', 'compare/gavel-alternative.html', 'for/law-firms.html', 'guides/automate-word-templates.html', 'free-tools/amount-in-words.html', 'free-tools/deadline-calculator.html', 'free-tools/template-checker.html', 'free-tools/late-payment-interest.html', 'free-tools/freelance-rate.html', 'for/freelancers.html', 'press/', 'clauses/', 'clauses/indemnification-clause.html', 'guides/what-to-include-in-an-nda.html', 'guides/what-to-do-when-a-client-wont-pay.html', 'templates/payment-reminder-letter.html', 'compare/', 'compare/honeybook-alternative.html', 'free-tools/invoice-due-date.html', 'free-tools/embed/invoice-due-date.html', 'free-tools/embed/amount-in-words.html', 'free-tools/loan-repayment.html', 'free-tools/embed/loan-repayment.html', 'templates/memorandum-of-understanding.html', 'templates/bill-of-sale.html', 'guides/is-an-mou-legally-binding.html', 'compare/lawdepot-alternative.html', 'compare/eforms-alternative.html', 'templates/partnership-agreement.html', 'templates/general-release.html', 'guides/what-to-include-in-a-partnership-agreement.html', 'free-tools/sales-commission.html', 'free-tools/embed/sales-commission.html', 'guides/how-to-write-a-bill-of-sale.html', 'guides/how-to-lend-money-to-family.html', 'guides/do-i-need-a-model-release.html'];
 for (const p of PAGES) {
   test(`site page ${p || 'home'} renders and has no serious accessibility violations`, async ({ page }) => {
     const res = await page.goto(p);
@@ -151,4 +151,15 @@ test('the not-found page keeps its styles and links at any depth', async ({ page
   expect(await page.evaluate(() => window.getComputedStyle(document.querySelector('.site-header')).position)).not.toBe('static');
   await page.click('.site-header .brand');
   await expect(page).toHaveURL(/127\.0\.0\.1:\d+\/$/);
+});
+
+test('the templates page offers every template in one zip download', async ({ page, request }) => {
+  await page.goto('templates/');
+  const link = page.locator('a[download]:has-text("Download all")');
+  await expect(link).toHaveText(/^Download all \d+ templates$/);
+  const res = await request.get(new URL(await link.getAttribute('href'), page.url()).href);
+  expect(res.status()).toBe(200);
+  expect((await res.body()).subarray(0, 2).toString()).toBe('PK');
+  await page.goto('templates/bill-of-sale.html');
+  await expect(page.locator('a[download]:has-text("Download all")')).toHaveAttribute('href', '../samples/clausery-word-templates.zip');
 });
