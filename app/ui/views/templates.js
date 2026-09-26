@@ -38,6 +38,10 @@ export const SAMPLES = [
   { slug: 'letter-of-intent', file: 'letter-of-intent.docx', name: 'Letter of intent (business purchase)', category: 'Business', description: 'Non-binding LOI for a share or asset purchase with price, optional earn-out, due diligence, closing conditions and exclusivity.' },
   { slug: 'bill-of-sale', file: 'bill-of-sale.docx', name: 'Bill of sale', category: 'Legal', description: 'Bill of sale for any item, with optional vehicle and odometer details, deposit and balance, as-is or warranty, witness and notary.' },
   { slug: 'loan-agreement', file: 'loan-agreement.docx', name: 'Loan agreement', category: 'Finance', description: 'Loan agreement with optional interest, instalments, late fee, collateral, guarantor and collection costs.' },
+  { slug: 'partnership-agreement', file: 'partnership-agreement.docx', name: 'Partnership agreement', category: 'Business', description: 'General partnership with each partner\'s contribution and share, drawings, decisions, spending limits, buyout and dissolution.' },
+  { slug: 'sales-commission-agreement', file: 'sales-commission-agreement.docx', name: 'Sales commission agreement', category: 'Business', description: 'Commission rate with an optional accelerator, when commission is earned, chargebacks, a draw, and commission after the end date.' },
+  { slug: 'photo-release-form', file: 'photo-release-form.docx', name: 'Photo and model release', category: 'Freelance', description: 'Model release for photos and video: commercial or limited use, time limit, use of name, payment, and a parent signature for minors.' },
+  { slug: 'general-release', file: 'general-release.docx', name: 'General release', category: 'Legal', description: 'Release of claims to settle a dispute: payment, general or dispute-only scope, mutual release, unknown claims and confidentiality.' },
 ];
 
 export async function importDocxFile(ctx, file, { name } = {}) {

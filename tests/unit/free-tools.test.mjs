@@ -99,3 +99,25 @@ test('loan repayment: equal payments, rounding on the last one, and dated schedu
   assert.match(loanRepayment({ amount: 5000, rate: 5, payments: 2.5 }).error, /whole number/);
   assert.match(loanRepayment({ amount: 0, rate: 5, payments: 12 }).error, /loan amount/);
 });
+
+test('sales commission: flat, marginal and whole-amount tiers, and the balance after a draw', async () => {
+  const { salesCommission } = await import('../../free-tools/sales-commission.js');
+  const tiers = [{ above: 50000, rate: 8 }, { above: '', rate: '' }];
+  const m = salesCommission({ sales: '80,000', rate: 5, tiers });
+  assert.equal(m.commission, 4900);
+  assert.equal(m.effectiveRate, 6.13);
+  assert.deepEqual(m.rows.map((x) => [x.sales, x.commission]), [[50000, 2500], [30000, 2400]]);
+  assert.equal(salesCommission({ sales: 80000, rate: 5, tiers: [] }).commission, 4000);
+  const w = salesCommission({ sales: 80000, rate: 5, tiers, method: 'whole', draw: 6000 });
+  assert.equal(w.commission, 6400);
+  assert.deepEqual(w.draw, { amount: 6000, balance: 400 });
+  // a tier applies only above its level, so sales exactly at the level stay on the base rate
+  assert.equal(salesCommission({ sales: 50000, rate: 5, tiers, method: 'whole' }).commission, 2500);
+  const three = salesCommission({ sales: 120000, rate: 5, tiers: [{ above: 50000, rate: 8 }, { above: 100000, rate: 10 }], draw: '9000' });
+  assert.equal(three.commission, 8500);
+  assert.equal(three.draw.balance, -500);
+  assert.match(salesCommission({ sales: 1000, rate: 5, tiers: [{ above: 50000, rate: 8 }, { above: 40000, rate: 10 }] }).error, /higher sales level/);
+  assert.match(salesCommission({ sales: '', rate: 5 }).error, /sales amount/);
+  assert.match(salesCommission({ sales: 100, rate: 120 }).error, /percentage/);
+  assert.match(salesCommission({ sales: 100, rate: 5, tiers: [{ above: 10, rate: '' }] }).error, /each tier/);
+});

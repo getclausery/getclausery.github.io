@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
-const PAGES = ['', 'pricing/', 'docs/', 'docs/templates.html', 'docs/security.html', 'legal/privacy.html', '404.html', 'templates/', 'templates/statement-of-work.html', 'compare/gavel-alternative.html', 'for/law-firms.html', 'guides/automate-word-templates.html', 'free-tools/amount-in-words.html', 'free-tools/deadline-calculator.html', 'free-tools/template-checker.html', 'free-tools/late-payment-interest.html', 'free-tools/freelance-rate.html', 'for/freelancers.html', 'press/', 'clauses/', 'clauses/indemnification-clause.html', 'guides/what-to-include-in-an-nda.html', 'guides/what-to-do-when-a-client-wont-pay.html', 'templates/payment-reminder-letter.html', 'compare/', 'compare/honeybook-alternative.html', 'free-tools/invoice-due-date.html', 'free-tools/embed/invoice-due-date.html', 'free-tools/embed/amount-in-words.html', 'free-tools/loan-repayment.html', 'free-tools/embed/loan-repayment.html', 'templates/memorandum-of-understanding.html', 'templates/bill-of-sale.html', 'guides/is-an-mou-legally-binding.html', 'compare/lawdepot-alternative.html', 'compare/eforms-alternative.html'];
+const PAGES = ['', 'pricing/', 'docs/', 'docs/templates.html', 'docs/security.html', 'legal/privacy.html', '404.html', 'templates/', 'templates/statement-of-work.html', 'compare/gavel-alternative.html', 'for/law-firms.html', 'guides/automate-word-templates.html', 'free-tools/amount-in-words.html', 'free-tools/deadline-calculator.html', 'free-tools/template-checker.html', 'free-tools/late-payment-interest.html', 'free-tools/freelance-rate.html', 'for/freelancers.html', 'press/', 'clauses/', 'clauses/indemnification-clause.html', 'guides/what-to-include-in-an-nda.html', 'guides/what-to-do-when-a-client-wont-pay.html', 'templates/payment-reminder-letter.html', 'compare/', 'compare/honeybook-alternative.html', 'free-tools/invoice-due-date.html', 'free-tools/embed/invoice-due-date.html', 'free-tools/embed/amount-in-words.html', 'free-tools/loan-repayment.html', 'free-tools/embed/loan-repayment.html', 'templates/memorandum-of-understanding.html', 'templates/bill-of-sale.html', 'guides/is-an-mou-legally-binding.html', 'compare/lawdepot-alternative.html', 'compare/eforms-alternative.html', 'templates/partnership-agreement.html', 'templates/general-release.html', 'guides/what-to-include-in-a-partnership-agreement.html', 'free-tools/sales-commission.html', 'free-tools/embed/sales-commission.html'];
 for (const p of PAGES) {
   test(`site page ${p || 'home'} renders and has no serious accessibility violations`, async ({ page }) => {
     const res = await page.goto(p);
@@ -79,6 +79,17 @@ test('free tools work in the page', async ({ page }) => {
   await page.fill('#rate', 'x');
   await expect(page.locator('#error')).toBeVisible();
   await expect(page.locator('#schedule-box')).toBeHidden();
+  await page.goto('free-tools/sales-commission.html');
+  await expect(page.locator('#result')).toHaveText('$4,900.00 commission');
+  await expect(page.locator('#result-note')).toHaveText('Effective rate 6.13% of sales. 5% on the first $50,000.00, 8% on the next $30,000.00.');
+  await page.selectOption('#method', 'whole'); await page.fill('#draw', '6000');
+  await expect(page.locator('#result')).toHaveText('$6,400.00 commission');
+  await expect(page.locator('#result-draw')).toHaveText('After the draw of $6,000.00 already paid, $400.00 more is due.');
+  await page.click('#breakdown-box summary');
+  await expect(page.locator('#breakdown tbody tr')).toHaveCount(1);
+  await page.fill('#t2-above', '10');
+  await expect(page.locator('#error')).toBeVisible();
+  await expect(page.locator('#breakdown-box')).toBeHidden();
 });
 
 test('calculators can be embedded on other sites with a credit link', async ({ page, context, baseURL }) => {
@@ -105,7 +116,7 @@ test('calculators can be embedded on other sites with a credit link', async ({ p
   // On another site: the embed code's script fits the iframe to the calculator at any width; without the script
   // (some sites strip it) the fixed height still fits the calculator in a column 520px wide or more.
   const origin = new URL(baseURL).origin;
-  for (const slug of ['amount-in-words', 'deadline-calculator', 'invoice-due-date', 'late-payment-interest', 'loan-repayment', 'freelance-rate']) {
+  for (const slug of ['amount-in-words', 'deadline-calculator', 'invoice-due-date', 'late-payment-interest', 'loan-repayment', 'sales-commission', 'freelance-rate']) {
     await page.goto(`free-tools/${slug}.html`);
     const snippet = (await page.locator('#embed-code').inputValue()).replaceAll('https://getclausery.github.io/', baseURL).replace("'https://getclausery.github.io'", `'${origin}'`);
     for (const [width, script] of [[360, true], [760, true], [520, false]]) {

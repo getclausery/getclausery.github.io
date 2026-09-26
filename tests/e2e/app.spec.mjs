@@ -85,7 +85,7 @@ test.describe('core drafting flow', () => {
 
 test('the new business templates open as drafts from their deep links', async ({ browser, baseURL }) => {
   // a fresh browser profile for each, since the free plan holds three templates
-  for (const [slug, name] of [['memorandum-of-understanding', 'Memorandum of understanding (MOU)'], ['letter-of-intent', 'Letter of intent (business purchase)'], ['bill-of-sale', 'Bill of sale'], ['loan-agreement', 'Loan agreement']]) {
+  for (const [slug, name] of [['memorandum-of-understanding', 'Memorandum of understanding (MOU)'], ['letter-of-intent', 'Letter of intent (business purchase)'], ['bill-of-sale', 'Bill of sale'], ['loan-agreement', 'Loan agreement'], ['partnership-agreement', 'Partnership agreement'], ['sales-commission-agreement', 'Sales commission agreement'], ['photo-release-form', 'Photo and model release'], ['general-release', 'General release']]) {
     const context = await browser.newContext({ baseURL });
     const page = await context.newPage();
     await page.goto(`app/#/start/${slug}`);
