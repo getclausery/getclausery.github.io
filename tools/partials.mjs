@@ -2,8 +2,20 @@
 export const YEAR = '2026';
 // The site's public origin. Every absolute URL (canonical, Open Graph, JSON-LD, sitemap, feed) is built from it.
 export const SITE = 'https://getclausery.github.io/';
+// Search results show about 155-160 characters of a description; cut longer ones at a sentence, else a word.
+export function clipDescription(d, max = 160) {
+  if (d.length <= max) return d;
+  const cut = d.slice(0, max + 1);
+  const stop = cut.lastIndexOf('. ');
+  if (stop >= 90) return cut.slice(0, stop + 1);
+  return cut.slice(0, cut.lastIndexOf(' ', max - 1)).replace(/[,;:]$/, '') + '…';
+}
+export const faqLd = (faq) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) })}</script>`;
+export const faqHtml = (faq) => `<div class="faq">${faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>`;
 export function head({ title, description, path, extraHead = '', ogImage = 'assets/og.png', rel: relOverride }) {
-  const full = title === 'Clausery' ? 'Clausery — Document automation that never leaves your browser' : `${title} · Clausery`;
+  // Search results show about 60 characters of a title; drop the brand suffix rather than have the title cut off.
+  const full = title === 'Clausery' ? 'Clausery: document automation that stays in your browser' : `${title} · Clausery`.length <= 60 ? `${title} · Clausery` : title;
+  description = clipDescription(description);
   const url = `${SITE}${path}`;
   const depth = path.split('/').filter(Boolean).length - (path.endsWith('/') || path === '' ? 0 : 1);
   const rel = relOverride || (depth > 0 ? '../'.repeat(depth) : './');

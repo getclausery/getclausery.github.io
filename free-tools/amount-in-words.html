@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Amount in words converter for contracts and cheques · Clausery</title>
+<title>Amount in words converter for contracts and cheques</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Write any amount in words for contracts, cheques and promissory notes, such as &quot;One Thousand Two Hundred and Fifty Dollars and 50/100&quot;.">
 <link rel="canonical" href="https://getclausery.github.io/free-tools/amount-in-words.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Clausery">
-<meta property="og:title" content="Amount in words converter for contracts and cheques · Clausery">
+<meta property="og:title" content="Amount in words converter for contracts and cheques">
 <meta property="og:description" content="Write any amount in words for contracts, cheques and promissory notes, such as &quot;One Thousand Two Hundred and Fifty Dollars and 50/100&quot;.">
 <meta property="og:url" content="https://getclausery.github.io/free-tools/amount-in-words.html">
 <meta property="og:image" content="https://getclausery.github.io/assets/og.png">
@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="../site.css">
 <script src="../app/theme.js"></script>
 <script src="../site.js" defer></script>
-<style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why write an amount in both words and figures?","acceptedAnswer":{"@type":"Answer","text":"So that a typo in one is caught by the other. For cheques and promissory notes in the United States, the Uniform Commercial Code says that where words and numbers conflict, the words prevail, and many other countries follow the same rule."}},{"@type":"Question","name":"Should the amount include the word \"and\"?","acceptedAnswer":{"@type":"Answer","text":"British English usually writes \"one hundred and fifty\"; American cheque style often keeps \"and\" only before the cents, as in \"and 50/100\". Use the style your bank or contract template already uses."}},{"@type":"Question","name":"Is the amount I type sent anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. The conversion runs entirely in this page, so nothing you type leaves your computer."}}]}</script><style>
 .tool { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 1.5rem 0; }
 .tool label { display: block; font-weight: 600; margin-bottom: .3rem; }
 .tool .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
@@ -70,6 +70,8 @@
 <h2>How amounts are usually written</h2>
 <ul><li>In contracts, the amount in words normally comes first, followed by the figure in brackets: <em>Five Thousand Dollars ($5,000)</em>.</li><li>On cheques, cents are written as a fraction: <em>Five Thousand and 00/100</em>.</li><li>Many agreements say which one wins if they differ; words usually do.</li></ul>
 <p>In Clausery templates, the <code>words()</code> function does this automatically, for example <code>words(fee)</code>. See <a href="../docs/logic.html">logic and calculations</a>.</p>
+<h2 style="margin-top:2.5rem">Questions</h2>
+<div class="faq"><details><summary>Why write an amount in both words and figures?</summary><p>So that a typo in one is caught by the other. For cheques and promissory notes in the United States, the Uniform Commercial Code says that where words and numbers conflict, the words prevail, and many other countries follow the same rule.</p></details><details><summary>Should the amount include the word &quot;and&quot;?</summary><p>British English usually writes &quot;one hundred and fifty&quot;; American cheque style often keeps &quot;and&quot; only before the cents, as in &quot;and 50/100&quot;. Use the style your bank or contract template already uses.</p></details><details><summary>Is the amount I type sent anywhere?</summary><p>No. The conversion runs entirely in this page, so nothing you type leaves your computer.</p></details></div>
 <div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem">Draft the whole document, not just one line</h2><p>Clausery turns your Word templates into questionnaires and builds the finished document in your browser, with amounts in words, dates and totals calculated for you. Free for up to three templates.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="../app/">Open Clausery</a> <a class="btn" href="../templates/">Free templates</a></p></div></div></section></main>
 <footer class="site-footer">
   <div class="wrap">

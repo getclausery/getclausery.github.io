@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="../site.css">
 <script src="../app/theme.js"></script>
 <script src="../site.js" defer></script>
-<style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does the checker look for?","acceptedAnswer":{"@type":"Answer","text":"It reads your .docx with the same engine as the Clausery app, including headers and footers, and reports tag problems such as a section that is opened but never closed or a tag name Clausery cannot use. If the template is valid, it shows the questionnaire Clausery would build from it."}},{"@type":"Question","name":"Is my document uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. The file is read inside this page and never leaves your computer."}},{"@type":"Question","name":"What tag syntax does it expect?","acceptedAnswer":{"@type":"Answer","text":"Single curly braces: {client_name} for a value, {#has_retainer}…{/has_retainer} for optional text, {^has_retainer}…{/has_retainer} for the opposite, and {#items}…{/items} for repeating paragraphs or table rows."}}]}</script><style>
 .tool { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 1.5rem 0; }
 .tool label { display: block; font-weight: 600; margin-bottom: .3rem; }
 .tool .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
@@ -63,6 +63,8 @@
 <h2>What it checks</h2>
 <ul><li>Tags that are opened but not closed, such as <code>{client_name</code></li><li>Sections that do not match, such as <code>{#has_retainer}</code> closed by <code>{/retainer}</code></li><li>Tag names with spaces, hyphens or dots</li><li>Tags in the body, headers, footers, footnotes and endnotes</li></ul>
 <p>New to tags? Read <a href="../guides/automate-word-templates.html">how to automate a Word template</a> or the full <a href="../docs/templates.html">template syntax</a>.</p>
+<h2 style="margin-top:2.5rem">Questions</h2>
+<div class="faq"><details><summary>What does the checker look for?</summary><p>It reads your .docx with the same engine as the Clausery app, including headers and footers, and reports tag problems such as a section that is opened but never closed or a tag name Clausery cannot use. If the template is valid, it shows the questionnaire Clausery would build from it.</p></details><details><summary>Is my document uploaded?</summary><p>No. The file is read inside this page and never leaves your computer.</p></details><details><summary>What tag syntax does it expect?</summary><p>Single curly braces: {client_name} for a value, {#has_retainer}…{/has_retainer} for optional text, {^has_retainer}…{/has_retainer} for the opposite, and {#items}…{/items} for repeating paragraphs or table rows.</p></details></div>
 <div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem">Draft the whole document, not just one line</h2><p>Clausery turns your Word templates into questionnaires and builds the finished document in your browser, with amounts in words, dates and totals calculated for you. Free for up to three templates.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="../app/">Open Clausery</a> <a class="btn" href="../templates/">Free templates</a></p></div></div></section></main>
 <footer class="site-footer">
   <div class="wrap">
