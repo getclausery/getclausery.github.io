@@ -69,7 +69,7 @@ test('the not-found page keeps its styles and links at any depth', async ({ page
   const res = await page.goto('templates/no-such/page.html');
   expect(res.status()).toBe(404);
   await expect(page.locator('h1')).toHaveText('That page is not here.');
-  expect(await page.evaluate(() => getComputedStyle(document.querySelector('.site-header')).position)).not.toBe('static');
+  expect(await page.evaluate(() => window.getComputedStyle(document.querySelector('.site-header')).position)).not.toBe('static');
   await page.click('.site-header .brand');
   await expect(page).toHaveURL(/127\.0\.0\.1:\d+\/$/);
 });
