@@ -42,6 +42,7 @@
   <url><loc>https://getclausery.github.io/docs/teams.html</loc><priority>0.6</priority></url>
   <url><loc>https://getclausery.github.io/docs/templates.html</loc><priority>0.6</priority></url>
   <url><loc>https://getclausery.github.io/for/consultants.html</loc><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/for/freelancers.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/for/hr-teams.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/for/law-firms.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/free-tools/amount-in-words.html</loc><priority>0.8</priority></url>
@@ -70,6 +71,8 @@
   <url><loc>https://getclausery.github.io/templates/employment-termination-letter.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/employment-verification-letter.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/engagement-letter.html</loc><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/freelance-writing-contract.html</loc><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/graphic-design-contract.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/independent-contractor-agreement.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/internship-offer-letter.html</loc><priority>0.8</priority></url>
@@ -77,10 +80,13 @@
   <url><loc>https://getclausery.github.io/templates/offer-letter.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/one-way-nda.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/payment-demand-letter.html</loc><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/photography-contract.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/promissory-note.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/reference-letter.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/resignation-letter.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/salary-increase-letter.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/service-agreement.html</loc><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/social-media-management-contract.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/statement-of-work.html</loc><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/web-design-contract.html</loc><priority>0.8</priority></url>
 </urlset>

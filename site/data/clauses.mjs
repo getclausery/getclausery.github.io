@@ -45,7 +45,7 @@ Subject to the paragraph above: (a) neither party shall be liable to the other f
       ['What is a typical liability cap?', 'In service agreements, the fees paid in the previous twelve months is the most common starting point. Higher-risk contracts often use a multiple of annual fees or a fixed amount linked to insurance cover.'],
       ['Can a contract exclude all liability?', 'Generally no. Most legal systems do not allow a party to exclude liability for fraud, and many prohibit excluding liability for death or personal injury caused by negligence. A clause that tries to exclude everything risks being struck down entirely.'],
     ],
-    templates: ['service-agreement', 'consulting-agreement', 'statement-of-work'],
+    templates: ['service-agreement', 'consulting-agreement', 'statement-of-work', 'photography-contract'],
   },
   {
     slug: 'force-majeure-clause', name: 'Force majeure clause', group: 'Risk and liability',
@@ -67,7 +67,7 @@ If a Force Majeure Event prevents performance for more than {force_majeure_days}
       ['Does force majeure cover pandemics?', 'Only if the wording covers it. Many older clauses did not mention epidemics or government lockdown orders, which led to disputes in 2020. Name them expressly if you want them covered.'],
       ['What happens if a contract has no force majeure clause?', 'You fall back on general law, such as frustration in England or impossibility and impracticability in the United States. Those doctrines are narrow and usually end the contract rather than suspending it.'],
     ],
-    templates: ['service-agreement', 'consulting-agreement'],
+    templates: ['service-agreement', 'consulting-agreement', 'photography-contract'],
   },
   {
     slug: 'confidentiality-clause', name: 'Confidentiality clause', group: 'Confidentiality and restrictions',
@@ -156,7 +156,7 @@ All amounts are exclusive of sales tax, value added tax and similar taxes, which
       ['What does "net 30" mean?', 'Payment is due 30 days after the invoice date, or after receipt if the contract says so. "Net 60" and "net 90" work the same way with longer periods.'],
       ['Can I stop work if a customer does not pay?', 'Only if the contract allows it or the general law does. Stopping work without a contractual right can itself be a breach, so include a right to suspend on notice for overdue invoices.'],
     ],
-    templates: ['service-agreement', 'independent-contractor-agreement', 'consulting-agreement', 'statement-of-work'],
+    templates: ['service-agreement', 'independent-contractor-agreement', 'consulting-agreement', 'statement-of-work', 'web-design-contract', 'social-media-management-contract'],
   },
   {
     slug: 'late-payment-interest-clause', name: 'Late payment interest clause', group: 'Money',
@@ -202,7 +202,7 @@ The Contractor retains ownership of the Deliverables and grants the Client a non
       ['Who owns work created by a contractor?', 'Usually the contractor, unless a written agreement assigns it to the client. Employees are different: work created in the course of employment generally belongs to the employer.'],
       ['Is "work made for hire" the same as an assignment?', 'Not quite. In US copyright law, work made for hire applies automatically to employees, but for contractors only to certain categories of commissioned work with a signed agreement. That is why most contracts also include a backup assignment.'],
     ],
-    templates: ['independent-contractor-agreement', 'consulting-agreement', 'statement-of-work'],
+    templates: ['independent-contractor-agreement', 'consulting-agreement', 'statement-of-work', 'web-design-contract', 'graphic-design-contract', 'freelance-writing-contract'],
   },
   {
     slug: 'warranty-clause', name: 'Warranty clause', group: 'Work and ownership',
@@ -224,7 +224,7 @@ Except as expressly set out in this Agreement, all warranties, conditions and ot
       ['What is the difference between a warranty and a representation?', 'A representation is a statement of fact that induces someone to enter the contract; a false one can allow the contract to be unwound. A warranty is a contractual promise; breaching it gives a claim for damages. Many contracts use both words together.'],
       ['Why are warranty disclaimers written in capital letters?', 'Under the US Uniform Commercial Code, a disclaimer of the implied warranty of merchantability must be conspicuous. Capital letters or bold type are the usual way to show that.'],
     ],
-    templates: ['service-agreement', 'statement-of-work'],
+    templates: ['service-agreement', 'statement-of-work', 'social-media-management-contract'],
   },
   {
     slug: 'independent-contractor-clause', name: 'Independent contractor clause', group: 'Work and ownership',
@@ -244,7 +244,7 @@ The Contractor is solely responsible for all income tax, social security contrib
       ['Does calling someone a contractor make them one?', 'No. The legal status depends on the substance of the relationship. The clause helps show what the parties intended but is not decisive.'],
       ['What happens if a contractor is misclassified?', 'The business may owe back taxes, penalties and employee benefits such as holiday pay or overtime, depending on the country.'],
     ],
-    templates: ['independent-contractor-agreement', 'consulting-agreement'],
+    templates: ['independent-contractor-agreement', 'consulting-agreement', 'freelance-writing-contract'],
   },
   {
     slug: 'termination-for-convenience-clause', name: 'Termination for convenience clause', group: 'Ending the contract',
@@ -264,7 +264,7 @@ On termination under this clause, the Customer shall pay the Supplier for all Se
       ['What is the difference between termination for convenience and termination for cause?', 'Termination for convenience needs no reason, only notice. Termination for cause is available only when the other party has breached the contract or become insolvent, and can often take effect immediately.'],
       ['Can a contract with no termination clause be ended early?', 'Generally not unilaterally, unless the other party commits a serious breach. Contracts with no fixed end date may be terminable on reasonable notice, depending on local law.'],
     ],
-    templates: ['independent-contractor-agreement', 'consulting-agreement', 'engagement-letter', 'service-agreement'],
+    templates: ['independent-contractor-agreement', 'consulting-agreement', 'engagement-letter', 'service-agreement', 'web-design-contract', 'social-media-management-contract'],
   },
   {
     slug: 'termination-for-cause-clause', name: 'Termination for cause clause', group: 'Ending the contract',

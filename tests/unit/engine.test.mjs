@@ -281,4 +281,18 @@ test('shipped samples infer sensible questionnaires', async () => {
   assert.equal(svc.service_items.type, 'repeat');
   assert.equal(q('resignation-letter').last_day.type, 'date');
   assert.equal(q('reference-letter').strengths.type, 'repeat');
+  const web = q('web-design-contract');
+  assert.deepEqual(web.pages.children.map((c) => c.key), ['page_name', 'page_notes']);
+  assert.equal(web.maintenance_fee.showIf, 'include_maintenance');
+  const gd = q('graphic-design-contract');
+  assert.equal(gd.hourly_rate.showIf, 'not is_flat_fee');
+  assert.equal(gd.licence_scope.showIf, 'not transfer_copyright');
+  const photo = q('photography-contract');
+  assert.equal(photo.prints.type, 'repeat');
+  assert.equal(photo.prints.showIf, 'include_prints');
+  assert.equal(photo.has_travel_fee.type, 'checkbox');
+  assert.equal(q('social-media-management-contract').platforms.type, 'repeat');
+  const fw = q('freelance-writing-contract');
+  assert.deepEqual(fw.assignments.children.map((c) => c.key), ['piece_title', 'word_count', 'due_date', 'piece_fee']);
+  assert.equal(fw.rights_granted.showIf, 'not transfer_rights');
 });

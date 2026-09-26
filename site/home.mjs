@@ -69,14 +69,14 @@ export const pages = [{
 <section class="section section-alt" id="templates">
   <div class="wrap">
     <h2>Start with a free template</h2>
-    <p class="lead">Seventeen ready-made Word templates, each one click away from a finished document.</p>
+    <p class="lead">Twenty-two ready-made Word templates, from NDAs to freelance contracts, each one click away from a finished document.</p>
     <div class="grid grid-4">
       <a class="feature" style="text-decoration:none;color:inherit" href="${rel}templates/mutual-nda.html"><h3>Mutual NDA</h3><p>Two-way confidentiality agreement.</p></a>
       <a class="feature" style="text-decoration:none;color:inherit" href="${rel}templates/engagement-letter.html"><h3>Engagement letter</h3><p>Scope, team, fees and retainer.</p></a>
       <a class="feature" style="text-decoration:none;color:inherit" href="${rel}templates/offer-letter.html"><h3>Offer letter</h3><p>Salary, bonus, equity, benefits.</p></a>
       <a class="feature" style="text-decoration:none;color:inherit" href="${rel}templates/independent-contractor-agreement.html"><h3>Contractor agreement</h3><p>Hourly or fixed fee, IP, termination.</p></a>
     </div>
-    <p style="margin-top:1.25rem"><a href="${rel}templates/">See all free templates →</a> &nbsp;·&nbsp; <a href="${rel}clauses/">Contract clauses explained →</a> &nbsp;·&nbsp; <a href="${rel}free-tools/">Free drafting tools →</a></p>
+    <p style="margin-top:1.25rem"><a href="${rel}templates/">See all free templates →</a> &nbsp;·&nbsp; <a href="${rel}clauses/">Contract clauses explained →</a> &nbsp;·&nbsp; <a href="${rel}free-tools/">Free drafting tools →</a> &nbsp;·&nbsp; <a href="${rel}for/freelancers.html">Freelance contracts →</a></p>
   </div>
 </section>
 
