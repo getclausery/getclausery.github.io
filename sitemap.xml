@@ -60,6 +60,7 @@
   <url><loc>https://getclausery.github.io/free-tools/invoice-due-date.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/free-tools/late-payment-interest.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/free-tools/loan-repayment.html</loc><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/free-tools/prorated-rent.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/free-tools/sales-commission.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/free-tools/template-checker.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/automate-word-templates.html</loc><priority>0.8</priority></url>
@@ -79,6 +80,7 @@
   <url><loc>https://getclausery.github.io/guides/repeating-lists-and-tables-in-word.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/what-is-a-kill-fee.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/what-to-do-when-a-client-wont-pay.html</loc><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/guides/what-to-include-in-a-lease-agreement.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/what-to-include-in-a-partnership-agreement.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/what-to-include-in-a-statement-of-work.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/what-to-include-in-an-nda.html</loc><priority>0.8</priority></url>
@@ -101,9 +103,11 @@
   <url><loc>https://getclausery.github.io/templates/independent-contractor-agreement.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/internship-offer-letter.html</loc><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/late-rent-notice.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/letter-of-intent.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/loan-agreement.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/memorandum-of-understanding.html</loc><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/move-in-checklist.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/mutual-nda.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/notice-to-vacate.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/offer-letter.html</loc><priority>0.8</priority></url>
@@ -117,6 +121,7 @@
   <url><loc>https://getclausery.github.io/templates/promissory-note.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/reference-letter.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/rent-increase-letter.html</loc><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/residential-lease-agreement.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/resignation-letter.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/retainer-agreement.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/roommate-agreement.html</loc><priority>0.8</priority></url>
@@ -127,6 +132,7 @@
   <url><loc>https://getclausery.github.io/templates/social-media-management-contract.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/statement-of-work.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/subcontractor-agreement.html</loc><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/sublease-agreement.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/tutoring-agreement.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/video-production-contract.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/virtual-assistant-agreement.html</loc><priority>0.8</priority></url>

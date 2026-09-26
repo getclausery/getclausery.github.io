@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
-const PAGES = ['', 'pricing/', 'docs/', 'docs/templates.html', 'docs/security.html', 'legal/privacy.html', '404.html', 'templates/', 'templates/statement-of-work.html', 'compare/gavel-alternative.html', 'for/law-firms.html', 'guides/automate-word-templates.html', 'free-tools/amount-in-words.html', 'free-tools/deadline-calculator.html', 'free-tools/template-checker.html', 'free-tools/late-payment-interest.html', 'free-tools/freelance-rate.html', 'for/freelancers.html', 'press/', 'clauses/', 'clauses/indemnification-clause.html', 'guides/what-to-include-in-an-nda.html', 'guides/what-to-do-when-a-client-wont-pay.html', 'templates/payment-reminder-letter.html', 'compare/', 'compare/honeybook-alternative.html', 'free-tools/invoice-due-date.html', 'free-tools/embed/invoice-due-date.html', 'free-tools/embed/amount-in-words.html', 'free-tools/loan-repayment.html', 'free-tools/embed/loan-repayment.html', 'templates/memorandum-of-understanding.html', 'templates/bill-of-sale.html', 'guides/is-an-mou-legally-binding.html', 'compare/lawdepot-alternative.html', 'compare/eforms-alternative.html', 'templates/partnership-agreement.html', 'templates/general-release.html', 'guides/what-to-include-in-a-partnership-agreement.html', 'free-tools/sales-commission.html', 'free-tools/embed/sales-commission.html', 'guides/how-to-write-a-bill-of-sale.html', 'guides/how-to-lend-money-to-family.html', 'guides/do-i-need-a-model-release.html', 'templates/notice-to-vacate.html', 'templates/security-deposit-return-letter.html', 'for/landlords.html', 'guides/how-to-write-a-notice-to-vacate.html'];
+const PAGES = ['', 'pricing/', 'docs/', 'docs/templates.html', 'docs/security.html', 'legal/privacy.html', '404.html', 'templates/', 'templates/statement-of-work.html', 'compare/gavel-alternative.html', 'for/law-firms.html', 'guides/automate-word-templates.html', 'free-tools/amount-in-words.html', 'free-tools/deadline-calculator.html', 'free-tools/template-checker.html', 'free-tools/late-payment-interest.html', 'free-tools/freelance-rate.html', 'for/freelancers.html', 'press/', 'clauses/', 'clauses/indemnification-clause.html', 'guides/what-to-include-in-an-nda.html', 'guides/what-to-do-when-a-client-wont-pay.html', 'templates/payment-reminder-letter.html', 'compare/', 'compare/honeybook-alternative.html', 'free-tools/invoice-due-date.html', 'free-tools/embed/invoice-due-date.html', 'free-tools/embed/amount-in-words.html', 'free-tools/loan-repayment.html', 'free-tools/embed/loan-repayment.html', 'templates/memorandum-of-understanding.html', 'templates/bill-of-sale.html', 'guides/is-an-mou-legally-binding.html', 'compare/lawdepot-alternative.html', 'compare/eforms-alternative.html', 'templates/partnership-agreement.html', 'templates/general-release.html', 'guides/what-to-include-in-a-partnership-agreement.html', 'free-tools/sales-commission.html', 'free-tools/embed/sales-commission.html', 'guides/how-to-write-a-bill-of-sale.html', 'guides/how-to-lend-money-to-family.html', 'guides/do-i-need-a-model-release.html', 'templates/notice-to-vacate.html', 'templates/security-deposit-return-letter.html', 'for/landlords.html', 'guides/how-to-write-a-notice-to-vacate.html', 'templates/residential-lease-agreement.html', 'templates/move-in-checklist.html', 'free-tools/prorated-rent.html', 'free-tools/embed/prorated-rent.html', 'guides/what-to-include-in-a-lease-agreement.html'];
 for (const p of PAGES) {
   test(`site page ${p || 'home'} renders and has no serious accessibility violations`, async ({ page }) => {
     const res = await page.goto(p);
@@ -90,6 +90,20 @@ test('free tools work in the page', async ({ page }) => {
   await page.fill('#t2-above', '10');
   await expect(page.locator('#error')).toBeVisible();
   await expect(page.locator('#breakdown-box')).toBeHidden();
+  await page.goto('free-tools/prorated-rent.html');
+  await expect(page.locator('#result')).not.toBeEmpty();
+  await page.fill('#date', '2026-09-20');
+  await expect(page.locator('#result')).toHaveText('$550.00 for 11 days');
+  await expect(page.locator('#result-note')).toHaveText('Daily rate $50.00 (the monthly rent ÷ 30 days in September 2026). Rent for September 20 to September 30, counting the move-in day.');
+  await page.selectOption('#direction', 'out'); await page.fill('#date', '2026-10-10');
+  await expect(page.locator('#result')).toHaveText('$483.87 for 10 days');
+  await page.click('#compare-box summary');
+  await expect(page.locator('#compare tbody tr')).toHaveCount(3);
+  await expect(page.locator('#compare tbody tr').nth(2)).toContainText('$500.00');
+  await expect(page.locator('.small', { hasText: 'More free tools:' }).locator('a[href$="sales-commission.html"]')).toHaveCount(1);
+  await page.fill('#rent', '');
+  await expect(page.locator('#error')).toBeVisible();
+  await expect(page.locator('#compare-box')).toBeHidden();
 });
 
 test('calculators can be embedded on other sites with a credit link', async ({ page, context, baseURL }) => {
@@ -116,7 +130,7 @@ test('calculators can be embedded on other sites with a credit link', async ({ p
   // On another site: the embed code's script fits the iframe to the calculator at any width; without the script
   // (some sites strip it) the fixed height still fits the calculator in a column 520px wide or more.
   const origin = new URL(baseURL).origin;
-  for (const slug of ['amount-in-words', 'deadline-calculator', 'invoice-due-date', 'late-payment-interest', 'loan-repayment', 'sales-commission', 'freelance-rate']) {
+  for (const slug of ['amount-in-words', 'deadline-calculator', 'invoice-due-date', 'late-payment-interest', 'loan-repayment', 'sales-commission', 'prorated-rent', 'freelance-rate']) {
     await page.goto(`free-tools/${slug}.html`);
     const snippet = (await page.locator('#embed-code').inputValue()).replaceAll('https://getclausery.github.io/', baseURL).replace("'https://getclausery.github.io'", `'${origin}'`);
     for (const [width, script] of [[360, true], [760, true], [520, false]]) {

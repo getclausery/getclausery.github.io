@@ -327,7 +327,7 @@ The courts of the State of New York sitting in New York County, and the United S
       ['What is the difference between governing law and jurisdiction?', 'Governing law is the set of legal rules used to interpret the contract. Jurisdiction is which court decides the dispute. A court in one country can apply another country\'s law, but it is slower and more expensive.'],
       ['What happens if a contract does not choose a governing law?', 'Courts apply conflict-of-laws rules to work it out, typically looking at where the parties are and where the contract is performed. The result can be uncertain and expensive to argue about.'],
     ],
-    templates: ['mutual-nda', 'one-way-nda', 'service-agreement', 'independent-contractor-agreement', 'consulting-agreement', 'promissory-note', 'subcontractor-agreement', 'retainer-agreement', 'memorandum-of-understanding', 'letter-of-intent', 'loan-agreement', 'bill-of-sale', 'partnership-agreement', 'sales-commission-agreement', 'photo-release-form', 'general-release'],
+    templates: ['mutual-nda', 'one-way-nda', 'service-agreement', 'independent-contractor-agreement', 'consulting-agreement', 'promissory-note', 'subcontractor-agreement', 'retainer-agreement', 'memorandum-of-understanding', 'letter-of-intent', 'loan-agreement', 'bill-of-sale', 'partnership-agreement', 'sales-commission-agreement', 'photo-release-form', 'general-release', 'residential-lease-agreement'],
   },
   {
     slug: 'dispute-resolution-clause', name: 'Dispute resolution clause', group: 'Law and disputes',
@@ -371,7 +371,7 @@ This clause does not apply to the service of any proceedings or other documents 
       ['Is email valid notice under a contract?', 'Only if the notices clause allows it, or if the clause is silent and the general law accepts it. Many older contracts require post or hand delivery only.'],
       ['What if a notice is sent to the wrong address?', 'It may not be valid, so a deadline such as a renewal cut-off could pass. Courts do sometimes accept notices that actually reached the right person, but that is an argument you want to avoid.'],
     ],
-    templates: ['mutual-nda', 'service-agreement'],
+    templates: ['mutual-nda', 'service-agreement', 'residential-lease-agreement'],
   },
   {
     slug: 'entire-agreement-clause', name: 'Entire agreement clause', group: 'Boilerplate',
@@ -391,7 +391,7 @@ Each party acknowledges that in entering into this Agreement it does not rely on
       ['What is a merger clause?', 'Another name for an entire agreement clause, used mainly in the United States. "Integration clause" means the same.'],
       ['Can an entire agreement clause cancel an earlier NDA?', 'Yes, if the NDA covers the same subject matter and is not excluded. Many deals preserve the NDA expressly for that reason.'],
     ],
-    templates: ['service-agreement', 'consulting-agreement', 'mutual-nda', 'loan-agreement', 'partnership-agreement', 'sales-commission-agreement', 'general-release'],
+    templates: ['service-agreement', 'consulting-agreement', 'mutual-nda', 'loan-agreement', 'partnership-agreement', 'sales-commission-agreement', 'general-release', 'residential-lease-agreement'],
   },
   {
     slug: 'severability-clause', name: 'Severability clause', group: 'Boilerplate',
@@ -410,7 +410,7 @@ Any modification to or deletion of a provision or part-provision under this clau
       ['Will a severability clause save an unenforceable non-compete?', 'Sometimes. Some US states let courts narrow an unreasonable non-compete; others strike it out entirely; English courts will only delete words and will not rewrite the clause.'],
       ['Is a severability clause necessary?', 'Courts often sever invalid terms anyway, but the clause makes the parties\' intention clear and costs nothing to include.'],
     ],
-    templates: ['service-agreement', 'independent-contractor-agreement', 'loan-agreement', 'partnership-agreement', 'sales-commission-agreement', 'general-release'],
+    templates: ['service-agreement', 'independent-contractor-agreement', 'loan-agreement', 'partnership-agreement', 'sales-commission-agreement', 'general-release', 'residential-lease-agreement'],
   },
   {
     slug: 'assignment-clause', name: 'Assignment clause', group: 'Boilerplate',
@@ -447,7 +447,7 @@ However, either party may assign this Agreement in its entirety, without consent
       ['Can a contract be changed by email?', 'Often yes, if the emails show both parties agreed, unless the contract requires a signed document and the governing law enforces that requirement.'],
       ['What is the difference between an amendment and an addendum?', 'An amendment changes existing terms. An addendum adds new terms or material. Both should be signed by both parties.'],
     ],
-    templates: ['service-agreement', 'statement-of-work', 'loan-agreement', 'partnership-agreement', 'sales-commission-agreement', 'general-release'],
+    templates: ['service-agreement', 'statement-of-work', 'loan-agreement', 'partnership-agreement', 'sales-commission-agreement', 'general-release', 'residential-lease-agreement'],
   },
   {
     slug: 'waiver-clause', name: 'Waiver clause', group: 'Boilerplate',
