@@ -50,7 +50,11 @@ const TOOL_FAQ = [
   [['How is a loan repayment calculated?', 'For a loan repaid in equal instalments, the payment is P × i ÷ (1 − (1 + i)^−n), where P is the amount borrowed, i is the interest rate for one payment period (the yearly rate divided by the number of payments a year) and n is the number of payments. Each payment covers that period\'s interest first, and the rest reduces the balance.'],
     ['What is an amortization schedule?', 'A table of every payment showing how much goes to interest, how much repays the loan, and the balance left afterwards. Early payments are mostly interest; later ones are mostly repayment.'],
     ['Why is the last payment slightly different?', 'Payments are rounded to the cent, so the final payment is adjusted by a few cents to clear the balance exactly.'],
-    ['Does this match my bank\'s figures?', 'Usually to within a few cents or dollars. Some lenders charge interest daily, add fees, or round differently, so their figures can differ slightly.']]
+    ['Does this match my bank\'s figures?', 'Usually to within a few cents or dollars. Some lenders charge interest daily, add fees, or round differently, so their figures can differ slightly.']],
+  [['How is sales commission calculated?', 'Multiply the sales by the commission rate: 5% commission on $80,000 of sales is $4,000. Check what the rate applies to. Most plans use the net sales price, after discounts, returns and taxes, and some pay only once the customer has paid.'],
+    ['What is tiered commission?', 'A plan where the rate rises once sales pass a level. The higher rate can apply only to the sales above that level (marginal, like tax brackets) or to all sales once the level is reached (whole amount). The whole-amount method pays more and jumps at each level, so a plan should say clearly which one it uses.'],
+    ['What is a draw against commission?', 'An advance paid to a salesperson each period and set against the commission they earn. If the commission is more than the draw, the difference is paid. If it is less, a recoverable draw carries the shortfall forward to later commission, while a non-recoverable draw does not.'],
+    ['Is anything I type sent anywhere?', 'No. The calculation runs entirely in this page, so nothing you type leaves your computer.']]
 ];
 
 // `height` is the iframe's fallback height (px) in the embed code, for sites that strip the resize script: it fits the
@@ -61,6 +65,7 @@ const TOOLS = [
   { slug: 'invoice-due-date', name: 'Invoice due date calculator', desc: 'Find the due date for Net 30, Net 60, EOM, 15 MFI or 2/10 net 30 invoices, the days left to pay and what an early payment discount is worth.', height: 460 },
   { slug: 'late-payment-interest', name: 'Late payment interest calculator', desc: 'Work out interest on an overdue invoice at your contract rate, or UK statutory interest at 8% above base rate plus the fixed compensation sum.', height: 540 },
   { slug: 'loan-repayment', name: 'Loan repayment calculator', desc: 'Work out the payment on a loan repaid in equal instalments, the total interest and a full repayment schedule with dates, for weekly to yearly payments.', height: 500 },
+  { slug: 'sales-commission', name: 'Sales commission calculator', desc: 'Work out commission at a flat rate or with higher tiers above a sales target, the effective rate, and what is still due after a draw.', height: 620 },
   { slug: 'freelance-rate', name: 'Freelance rate calculator', desc: 'Work back from the income you want to keep to the hourly and day rate you need to charge, after tax, costs and time off.', height: 580 },
   { slug: 'template-checker', name: 'Word template tag checker', desc: 'Check a .docx template for broken {tags} and see the questionnaire it would produce. The file never leaves your computer.' },
 ];
@@ -159,6 +164,28 @@ const WIDGET = {
   <p class="small muted" id="result-note" style="margin-top:.5rem"></p>
 </div>`,
   'invoice-due-date': INVOICE_WIDGET,
+  'sales-commission': `<div class="tool">
+  <div class="row">
+    <div><label for="sales">Sales</label><input id="sales" inputmode="decimal" value="80000" autocomplete="off"></div>
+    <div><label for="currency">Currency</label><select id="currency"><option value="USD">US dollars</option><option value="GBP">Pounds sterling</option><option value="EUR">Euros</option><option value="CAD">Canadian dollars</option><option value="AUD">Australian dollars</option><option value="INR">Rupees</option></select></div>
+    <div><label for="rate">Commission rate (%)</label><input id="rate" inputmode="decimal" value="5" autocomplete="off"></div>
+  </div>
+  <div class="row">
+    <div><label for="t1-above">Tier 1: sales above (optional)</label><input id="t1-above" inputmode="decimal" value="50000" autocomplete="off"></div>
+    <div><label for="t1-rate">Tier 1 rate (%)</label><input id="t1-rate" inputmode="decimal" value="8" autocomplete="off"></div>
+    <div><label for="method">Higher rates apply to</label><select id="method"><option value="marginal">Only the sales above each level</option><option value="whole">All sales, once a level is reached</option></select></div>
+  </div>
+  <div class="row">
+    <div><label for="t2-above">Tier 2: sales above (optional)</label><input id="t2-above" inputmode="decimal" autocomplete="off"></div>
+    <div><label for="t2-rate">Tier 2 rate (%)</label><input id="t2-rate" inputmode="decimal" autocomplete="off"></div>
+    <div><label for="draw">Draw already paid (optional)</label><input id="draw" inputmode="decimal" autocomplete="off"></div>
+  </div>
+  <p id="error" class="err" role="alert" hidden></p>
+  <div class="out" id="result" aria-live="polite"></div>
+  <p class="small muted" id="result-note" style="margin-top:.5rem"></p>
+  <p id="result-draw" style="margin-top:.5rem"></p>
+  <details id="breakdown-box"><summary>Commission by sales band</summary><div class="schedule-wrap" tabindex="0"><table id="breakdown" class="terms-table"><thead><tr><th scope="col">Sales band</th><th scope="col">Rate</th><th scope="col">Sales in band</th><th scope="col">Commission</th></tr></thead><tbody></tbody></table></div></details>
+</div>`,
   'loan-repayment': `<div class="tool">
   <div class="row">
     <div><label for="amount">Loan amount</label><input id="amount" inputmode="decimal" value="12000" autocomplete="off"></div>
@@ -199,7 +226,7 @@ body.embed { background: transparent; }
 .embed-credit { font-size: .82rem; margin: .5rem 0 0; }
 </style>`;
 export const pages = [
-  { path: 'free-tools/', title: 'Free drafting tools', description: 'Free tools for drafting and invoicing: amount in words, deadlines, invoice due dates, late payment interest, loan repayments, freelance rates and more.',
+  { path: 'free-tools/', title: 'Free drafting tools', description: 'Free tools for drafting and invoicing: amount in words, deadlines, invoice due dates, late payment interest, loans, sales commission, freelance rates and more.',
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem"><h1>Free drafting tools</h1><p class="lead">Small tools for everyday drafting and invoicing. They run entirely in your browser; nothing you type is sent anywhere. The calculators can also be <a href="#embed">added to your own website</a> for free.</p>
 <div class="grid grid-3" style="margin-top:2rem">${TOOLS.map((t) => `<a class="feature" style="text-decoration:none;color:inherit" href="${rel}free-tools/${t.slug}.html"><h2 style="font-size:1.1rem">${t.name}</h2><p>${t.desc}</p></a>`).join('')}</div>
 <h2 id="embed" style="margin-top:3rem">Put a calculator on your website</h2>
@@ -295,6 +322,19 @@ ${WIDGET['loan-repayment']}
 ${embedSection('loan-repayment')}
 <h2 style="margin-top:2.5rem">Questions</h2>
 ${faqHtml(TOOL_FAQ[6])}
+${cta(rel)}</div></section>` },
+  { path: 'free-tools/sales-commission.html', title: 'Sales commission calculator with tiers and draw', description: T['sales-commission'].desc,
+    extraHead: faqLd(TOOL_FAQ[7]) + TOOL_CSS + appLd(T['sales-commission'].name, T['sales-commission'].desc, 'free-tools/sales-commission.html') + `<script type="module" src="sales-commission.js"></script>`,
+    body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Sales commission')}
+<h1 style="margin-top:1rem">Sales commission calculator</h1>
+<p class="lead">Enter the sales and the commission rate to see what is owed. Add up to two higher tiers for sales above a target, choose whether the higher rate covers only the extra sales or all of them, and subtract any draw already paid.</p>
+${WIDGET['sales-commission']}
+<p class="small muted">Commission is worked out on the sales figure you enter. If your plan pays on net sales, enter the amount after discounts, returns and taxes. A calculation aid, not financial or tax advice.</p>
+<h2>Put the commission plan in writing</h2>
+<p>A written plan avoids the most common commission disputes: what the rate applies to, when commission is earned, what happens on refunds, and what is paid after someone leaves. The free <a href="${rel}templates/sales-commission-agreement.html">sales commission agreement template</a> covers each of these, with an optional accelerator above a threshold and a recoverable or non-recoverable draw. Some places require commission plans for employees to be in writing, including California.</p>
+${embedSection('sales-commission')}
+<h2 style="margin-top:2.5rem">Questions</h2>
+${faqHtml(TOOL_FAQ[7])}
 ${cta(rel)}</div></section>` },
   { path: 'free-tools/template-checker.html', title: 'Word template tag checker', description: T['template-checker'].desc,
     extraHead: faqLd(TOOL_FAQ[2]) + TOOL_CSS + appLd(T['template-checker'].name, T['template-checker'].desc, 'free-tools/template-checker.html') + `<script type="module" src="template-checker.js"></script>`,

@@ -92,7 +92,7 @@ These obligations continue for {confidentiality_years} years after this Agreemen
       ['Is a confidentiality clause the same as an NDA?', 'It does the same job. An NDA is a standalone agreement, usually signed before a deal. A confidentiality clause sits inside a larger contract, such as a services or employment agreement.'],
       ['How long should confidentiality last?', 'Long enough for the information to lose its value. Two to five years suits most commercial information; trade secrets need protection for as long as they remain secret.'],
     ],
-    templates: ['mutual-nda', 'one-way-nda', 'consulting-agreement', 'independent-contractor-agreement', 'subcontractor-agreement', 'retainer-agreement', 'memorandum-of-understanding', 'letter-of-intent'],
+    templates: ['mutual-nda', 'one-way-nda', 'consulting-agreement', 'independent-contractor-agreement', 'subcontractor-agreement', 'retainer-agreement', 'memorandum-of-understanding', 'letter-of-intent', 'sales-commission-agreement', 'general-release'],
   },
   {
     slug: 'non-solicitation-clause', name: 'Non-solicitation clause', group: 'Confidentiality and restrictions',
@@ -246,7 +246,7 @@ The Contractor is solely responsible for all income tax, social security contrib
       ['Does calling someone a contractor make them one?', 'No. The legal status depends on the substance of the relationship. The clause helps show what the parties intended but is not decisive.'],
       ['What happens if a contractor is misclassified?', 'The business may owe back taxes, penalties and employee benefits such as holiday pay or overtime, depending on the country.'],
     ],
-    templates: ['independent-contractor-agreement', 'consulting-agreement', 'freelance-writing-contract', 'subcontractor-agreement', 'retainer-agreement'],
+    templates: ['independent-contractor-agreement', 'consulting-agreement', 'freelance-writing-contract', 'subcontractor-agreement', 'retainer-agreement', 'sales-commission-agreement'],
   },
   {
     slug: 'termination-for-convenience-clause', name: 'Termination for convenience clause', group: 'Ending the contract',
@@ -327,7 +327,7 @@ The courts of the State of New York sitting in New York County, and the United S
       ['What is the difference between governing law and jurisdiction?', 'Governing law is the set of legal rules used to interpret the contract. Jurisdiction is which court decides the dispute. A court in one country can apply another country\'s law, but it is slower and more expensive.'],
       ['What happens if a contract does not choose a governing law?', 'Courts apply conflict-of-laws rules to work it out, typically looking at where the parties are and where the contract is performed. The result can be uncertain and expensive to argue about.'],
     ],
-    templates: ['mutual-nda', 'one-way-nda', 'service-agreement', 'independent-contractor-agreement', 'consulting-agreement', 'promissory-note', 'subcontractor-agreement', 'retainer-agreement', 'memorandum-of-understanding', 'letter-of-intent', 'loan-agreement', 'bill-of-sale'],
+    templates: ['mutual-nda', 'one-way-nda', 'service-agreement', 'independent-contractor-agreement', 'consulting-agreement', 'promissory-note', 'subcontractor-agreement', 'retainer-agreement', 'memorandum-of-understanding', 'letter-of-intent', 'loan-agreement', 'bill-of-sale', 'partnership-agreement', 'sales-commission-agreement', 'photo-release-form', 'general-release'],
   },
   {
     slug: 'dispute-resolution-clause', name: 'Dispute resolution clause', group: 'Law and disputes',
@@ -349,7 +349,7 @@ Nothing in this clause prevents either party from seeking urgent interim or inju
       ['Should I choose arbitration or court?', 'Arbitration suits international contracts, confidential disputes and technical subject matter. Courts often suit domestic contracts and smaller claims. Consumer and employment arbitration is restricted in many places.'],
       ['What is a tiered dispute resolution clause?', 'One with escalating steps, such as negotiation, then mediation, then arbitration or litigation. Courts in several countries will enforce the earlier steps if they are clearly defined.'],
     ],
-    templates: ['service-agreement', 'consulting-agreement'],
+    templates: ['service-agreement', 'consulting-agreement', 'partnership-agreement'],
   },
   {
     slug: 'notices-clause', name: 'Notices clause', group: 'Boilerplate',
@@ -391,7 +391,7 @@ Each party acknowledges that in entering into this Agreement it does not rely on
       ['What is a merger clause?', 'Another name for an entire agreement clause, used mainly in the United States. "Integration clause" means the same.'],
       ['Can an entire agreement clause cancel an earlier NDA?', 'Yes, if the NDA covers the same subject matter and is not excluded. Many deals preserve the NDA expressly for that reason.'],
     ],
-    templates: ['service-agreement', 'consulting-agreement', 'mutual-nda', 'loan-agreement'],
+    templates: ['service-agreement', 'consulting-agreement', 'mutual-nda', 'loan-agreement', 'partnership-agreement', 'sales-commission-agreement', 'general-release'],
   },
   {
     slug: 'severability-clause', name: 'Severability clause', group: 'Boilerplate',
@@ -410,7 +410,7 @@ Any modification to or deletion of a provision or part-provision under this clau
       ['Will a severability clause save an unenforceable non-compete?', 'Sometimes. Some US states let courts narrow an unreasonable non-compete; others strike it out entirely; English courts will only delete words and will not rewrite the clause.'],
       ['Is a severability clause necessary?', 'Courts often sever invalid terms anyway, but the clause makes the parties\' intention clear and costs nothing to include.'],
     ],
-    templates: ['service-agreement', 'independent-contractor-agreement', 'loan-agreement'],
+    templates: ['service-agreement', 'independent-contractor-agreement', 'loan-agreement', 'partnership-agreement', 'sales-commission-agreement', 'general-release'],
   },
   {
     slug: 'assignment-clause', name: 'Assignment clause', group: 'Boilerplate',
@@ -430,7 +430,7 @@ However, either party may assign this Agreement in its entirety, without consent
       ['Can a contract be assigned without consent?', 'Rights can often be assigned without consent unless the contract prohibits it or the contract is personal in nature. Most commercial contracts restrict assignment expressly.'],
       ['What is the difference between assignment and novation?', 'Assignment transfers rights, such as the right to be paid. Novation replaces a party entirely, transferring both rights and obligations, and needs all parties to agree.'],
     ],
-    templates: ['service-agreement', 'consulting-agreement'],
+    templates: ['service-agreement', 'consulting-agreement', 'partnership-agreement'],
   },
   {
     slug: 'amendment-clause', name: 'Amendment clause', group: 'Boilerplate',
@@ -447,7 +447,7 @@ However, either party may assign this Agreement in its entirety, without consent
       ['Can a contract be changed by email?', 'Often yes, if the emails show both parties agreed, unless the contract requires a signed document and the governing law enforces that requirement.'],
       ['What is the difference between an amendment and an addendum?', 'An amendment changes existing terms. An addendum adds new terms or material. Both should be signed by both parties.'],
     ],
-    templates: ['service-agreement', 'statement-of-work', 'loan-agreement'],
+    templates: ['service-agreement', 'statement-of-work', 'loan-agreement', 'partnership-agreement', 'sales-commission-agreement', 'general-release'],
   },
   {
     slug: 'waiver-clause', name: 'Waiver clause', group: 'Boilerplate',

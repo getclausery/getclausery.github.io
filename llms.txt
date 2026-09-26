@@ -51,6 +51,10 @@ Key facts:
 - [Free letter of intent template to buy a business (Word)](https://getclausery.github.io/templates/letter-of-intent.html): Free letter of intent template to buy a business: price, earn-out, due diligence, exclusivity and closing conditions. Fill it in online or download it.
 - [Free bill of sale template, with vehicle option (Word)](https://getclausery.github.io/templates/bill-of-sale.html): Free bill of sale template for a car, boat, equipment or any item, with VIN and odometer, deposit and balance, and as-is terms. Fill it in online or download.
 - [Free loan agreement template (Word)](https://getclausery.github.io/templates/loan-agreement.html): Free loan agreement template for family, friend or business loans: interest, instalments, late fee, collateral and a guarantor. Fill it in online or download.
+- [Free partnership agreement template (Word)](https://getclausery.github.io/templates/partnership-agreement.html): Free partnership agreement template: contributions, profit shares, drawings, decisions, buyout and dissolution. Fill it in online or download it.
+- [Free sales commission agreement template (Word)](https://getclausery.github.io/templates/sales-commission-agreement.html): Free sales commission agreement template: rate and accelerator, when commission is earned, chargebacks, a draw and commission after the end date.
+- [Free photo and model release form template (Word)](https://getclausery.github.io/templates/photo-release-form.html): Free photo and model release form for photos and video: commercial or limited use, use of name, payment and a parent signature for minors. Word or online.
+- [Free general release of claims template (Word)](https://getclausery.github.io/templates/general-release.html): Free general release of claims template to settle a dispute: payment, general or dispute-only scope, mutual release, unknown claims and confidentiality.
 
 ## Contract clause library
 - [Indemnification clause: meaning and sample wording](https://getclausery.github.io/clauses/indemnification-clause.html): Free sample indemnification clause wording, explained in plain English: what it does, what to check and common questions. An indemnity is a promise by one party to cover the other party's losses if a specified kind of claim arises, most often a claim by a third party caused by the first party's breach, negligence or infringement of someone else's intellectual property.
@@ -93,6 +97,7 @@ Key facts:
 - [What is a kill fee? How to set one in a freelance contract](https://getclausery.github.io/guides/what-is-a-kill-fee.html): A kill fee is what a client pays if they cancel a freelance project after work has started. How much to charge, how to word it, and how it differs from a deposit.
 - [What to do when a client won't pay: a step-by-step plan](https://getclausery.github.io/guides/what-to-do-when-a-client-wont-pay.html): A calm plan for an unpaid invoice: reminders, a final notice, late fees, a demand letter and small claims, with reminder emails you can copy.
 - [Is an MOU legally binding? How it differs from a contract](https://getclausery.github.io/guides/is-an-mou-legally-binding.html): When a memorandum of understanding or letter of intent becomes a binding contract, how courts decide, and how to word yours so it binds only what you mean.
+- [What to include in a partnership agreement: 10 key terms](https://getclausery.github.io/guides/what-to-include-in-a-partnership-agreement.html): The ten terms every partnership agreement needs, what the law decides if you leave them out, common mistakes, and when an LLC or an MOU fits better.
 
 ## Free tools
 - [Amount in words converter for contracts and cheques](https://getclausery.github.io/free-tools/amount-in-words.html): Write any amount in words for contracts, cheques and promissory notes, such as "One Thousand Two Hundred and Fifty Dollars and 50/100".
@@ -101,6 +106,7 @@ Key facts:
 - [Late payment interest calculator (contract or UK statutory)](https://getclausery.github.io/free-tools/late-payment-interest.html): Work out interest on an overdue invoice at your contract rate, or UK statutory interest at 8% above base rate plus the fixed compensation sum.
 - [Freelance rate calculator: hourly and day rate](https://getclausery.github.io/free-tools/freelance-rate.html): Work back from the income you want to keep to the hourly and day rate you need to charge, after tax, costs and time off.
 - [Loan repayment calculator with amortization schedule](https://getclausery.github.io/free-tools/loan-repayment.html): Work out the payment on a loan repaid in equal instalments, the total interest and a full repayment schedule with dates, for weekly to yearly payments.
+- [Sales commission calculator with tiers and draw](https://getclausery.github.io/free-tools/sales-commission.html): Work out commission at a flat rate or with higher tiers above a sales target, the effective rate, and what is still due after a draw.
 - [Word template tag checker](https://getclausery.github.io/free-tools/template-checker.html): Check a .docx template for broken {tags} and see the questionnaire it would produce. The file never leaves your computer.
 
 ## Comparisons

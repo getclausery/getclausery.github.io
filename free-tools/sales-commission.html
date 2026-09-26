@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sales commission calculator with tiers and draw · Clausery</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Work out commission at a flat rate or with higher tiers above a sales target, the effective rate, and what is still due after a draw.">
+<link rel="canonical" href="https://getclausery.github.io/free-tools/sales-commission.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Clausery">
+<meta property="og:title" content="Sales commission calculator with tiers and draw · Clausery">
+<meta property="og:description" content="Work out commission at a flat rate or with higher tiers above a sales target, the effective rate, and what is still due after a draw.">
+<meta property="og:url" content="https://getclausery.github.io/free-tools/sales-commission.html">
+<meta property="og:image" content="https://getclausery.github.io/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1b2a41">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/icon-192.png">
+<link rel="manifest" href="../app/manifest.webmanifest">
+<link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
+<link rel="stylesheet" href="../site.css">
+<script src="../app/theme.js"></script>
+<script src="../site.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is sales commission calculated?","acceptedAnswer":{"@type":"Answer","text":"Multiply the sales by the commission rate: 5% commission on $80,000 of sales is $4,000. Check what the rate applies to. Most plans use the net sales price, after discounts, returns and taxes, and some pay only once the customer has paid."}},{"@type":"Question","name":"What is tiered commission?","acceptedAnswer":{"@type":"Answer","text":"A plan where the rate rises once sales pass a level. The higher rate can apply only to the sales above that level (marginal, like tax brackets) or to all sales once the level is reached (whole amount). The whole-amount method pays more and jumps at each level, so a plan should say clearly which one it uses."}},{"@type":"Question","name":"What is a draw against commission?","acceptedAnswer":{"@type":"Answer","text":"An advance paid to a salesperson each period and set against the commission they earn. If the commission is more than the draw, the difference is paid. If it is less, a recoverable draw carries the shortfall forward to later commission, while a non-recoverable draw does not."}},{"@type":"Question","name":"Is anything I type sent anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. The calculation runs entirely in this page, so nothing you type leaves your computer."}}]}</script><style>
+.tool { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 1.5rem 0; }
+.tool label { display: block; font-weight: 600; margin-bottom: .3rem; }
+.tool .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+.tool input, .tool select, .tool textarea { width: 100%; padding: .55rem .65rem; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--bg); color: var(--text); font: inherit; }
+.tool .out { font-size: 1.2rem; font-weight: 600; padding: 1rem; background: var(--accent-soft); color: var(--text); border-radius: var(--radius-sm); min-height: 3rem; }
+.tool .out-row { display: flex; gap: .75rem; align-items: flex-start; margin-top: .75rem; } .tool .out-row .out { flex: 1; }
+.tool .err, .bad { color: #b42318; } .ok { color: var(--ok); } .warn { color: var(--warn); }
+#drop { border: 2px dashed var(--border-strong); border-radius: var(--radius); padding: 2rem; text-align: center; }
+#drop.over { border-color: var(--accent); background: var(--accent-soft); }
+#report table { width: 100%; border-collapse: collapse; font-size: .92rem; } #report th, #report td { text-align: left; padding: .5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+#report .small { font-size: .85rem; color: var(--muted); }
+.tool .check { display: flex; gap: .5rem; align-items: center; font-weight: 400; margin-bottom: 1rem; } .tool .check input { width: auto; }
+.embed-code { width: 100%; font: .85rem/1.45 var(--mono); padding: .75rem; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--surface-2); color: var(--text); resize: vertical; }
+.embed-tools { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; margin: .75rem 0 1rem; }
+.schedule-wrap { max-height: 22rem; overflow: auto; margin-top: .5rem; } .tool details summary { cursor: pointer; font-weight: 600; }
+.terms-table { width: 100%; border-collapse: collapse; font-size: .95rem; } .terms-table th, .terms-table td { text-align: left; padding: .55rem .5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+</style><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Sales commission calculator","description":"Work out commission at a flat rate or with higher tiers above a sales target, the effective rate, and what is still due after a draw.","url":"https://getclausery.github.io/free-tools/sales-commission.html","applicationCategory":"BusinessApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script><script type="module" src="sales-commission.js"></script>
+</head>
+<body>
+<a class="sr-only" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Site">
+      <a href="../templates/">Templates</a>
+      <a href="../#features">Features</a>
+      <a href="../pricing/">Pricing</a>
+      <a href="../docs/">Docs</a>
+      <a href="../docs/security.html">Security</a>
+      <a class="btn btn-primary" href="../app/">Open the app</a>
+    </nav>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+<section class="section"><div class="wrap" style="max-width:52rem"><nav class="small muted" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../free-tools/">Free tools</a> › Sales commission</nav>
+<h1 style="margin-top:1rem">Sales commission calculator</h1>
+<p class="lead">Enter the sales and the commission rate to see what is owed. Add up to two higher tiers for sales above a target, choose whether the higher rate covers only the extra sales or all of them, and subtract any draw already paid.</p>
+<div class="tool">
+  <div class="row">
+    <div><label for="sales">Sales</label><input id="sales" inputmode="decimal" value="80000" autocomplete="off"></div>
+    <div><label for="currency">Currency</label><select id="currency"><option value="USD">US dollars</option><option value="GBP">Pounds sterling</option><option value="EUR">Euros</option><option value="CAD">Canadian dollars</option><option value="AUD">Australian dollars</option><option value="INR">Rupees</option></select></div>
+    <div><label for="rate">Commission rate (%)</label><input id="rate" inputmode="decimal" value="5" autocomplete="off"></div>
+  </div>
+  <div class="row">
+    <div><label for="t1-above">Tier 1: sales above (optional)</label><input id="t1-above" inputmode="decimal" value="50000" autocomplete="off"></div>
+    <div><label for="t1-rate">Tier 1 rate (%)</label><input id="t1-rate" inputmode="decimal" value="8" autocomplete="off"></div>
+    <div><label for="method">Higher rates apply to</label><select id="method"><option value="marginal">Only the sales above each level</option><option value="whole">All sales, once a level is reached</option></select></div>
+  </div>
+  <div class="row">
+    <div><label for="t2-above">Tier 2: sales above (optional)</label><input id="t2-above" inputmode="decimal" autocomplete="off"></div>
+    <div><label for="t2-rate">Tier 2 rate (%)</label><input id="t2-rate" inputmode="decimal" autocomplete="off"></div>
+    <div><label for="draw">Draw already paid (optional)</label><input id="draw" inputmode="decimal" autocomplete="off"></div>
+  </div>
+  <p id="error" class="err" role="alert" hidden></p>
+  <div class="out" id="result" aria-live="polite"></div>
+  <p class="small muted" id="result-note" style="margin-top:.5rem"></p>
+  <p id="result-draw" style="margin-top:.5rem"></p>
+  <details id="breakdown-box"><summary>Commission by sales band</summary><div class="schedule-wrap" tabindex="0"><table id="breakdown" class="terms-table"><thead><tr><th scope="col">Sales band</th><th scope="col">Rate</th><th scope="col">Sales in band</th><th scope="col">Commission</th></tr></thead><tbody></tbody></table></div></details>
+</div>
+<p class="small muted">Commission is worked out on the sales figure you enter. If your plan pays on net sales, enter the amount after discounts, returns and taxes. A calculation aid, not financial or tax advice.</p>
+<h2>Put the commission plan in writing</h2>
+<p>A written plan avoids the most common commission disputes: what the rate applies to, when commission is earned, what happens on refunds, and what is paid after someone leaves. The free <a href="../templates/sales-commission-agreement.html">sales commission agreement template</a> covers each of these, with an optional accelerator above a threshold and a recoverable or non-recoverable draw. Some places require commission plans for employees to be in writing, including California.</p>
+<h2 style="margin-top:2.5rem">Add this calculator to your website</h2>
+<p>Free for blogs, accountants, law firms, trade associations and anyone who helps small businesses. Paste the code where you want the calculator to appear. It runs in your visitors' browsers, with no cookies, no tracking, and nothing they type sent anywhere.</p>
+<label for="embed-code">Embed code</label>
+<textarea id="embed-code" class="embed-code" rows="6" readonly>&lt;iframe src=&quot;https://getclausery.github.io/free-tools/embed/sales-commission.html&quot; title=&quot;Sales commission calculator&quot; width=&quot;100%&quot; height=&quot;620&quot; style=&quot;border:0;max-width:760px&quot; loading=&quot;lazy&quot; allow=&quot;clipboard-write&quot;&gt;&lt;/iframe&gt;
+&lt;p style=&quot;font-size:13px;margin:4px 0 16px&quot;&gt;Sales commission calculator by &lt;a href=&quot;https://getclausery.github.io/free-tools/sales-commission.html&quot;&gt;Clausery&lt;/a&gt;&lt;/p&gt;
+&lt;script&gt;window.addEventListener('message',function(e){if(e.origin!=='https://getclausery.github.io'||!e.data||!e.data.clauseryHeight)return;var f=document.getElementsByTagName('iframe');for(var i=0;i&lt;f.length;i++)if(f[i].contentWindow===e.source)f[i].style.height=e.data.clauseryHeight+'px';});&lt;/script&gt;</textarea>
+<div class="embed-tools"><button class="btn copy-btn" type="button" data-copy="embed-code">Copy the code</button><a class="btn" href="embed/sales-commission.html" target="_blank" rel="noopener">Preview</a><span class="small muted copy-status" role="status"></span></div>
+<p class="small muted">The last line of the code resizes the calculator to fit; if your site strips scripts, leave it out and the calculator still works at a fixed height. On a dark website, add <code>?theme=dark</code> after <code>sales-commission.html</code>. Please keep the credit line under the calculator.</p>
+<h2 style="margin-top:2.5rem">Questions</h2>
+<div class="faq"><details><summary>How is sales commission calculated?</summary><p>Multiply the sales by the commission rate: 5% commission on $80,000 of sales is $4,000. Check what the rate applies to. Most plans use the net sales price, after discounts, returns and taxes, and some pay only once the customer has paid.</p></details><details><summary>What is tiered commission?</summary><p>A plan where the rate rises once sales pass a level. The higher rate can apply only to the sales above that level (marginal, like tax brackets) or to all sales once the level is reached (whole amount). The whole-amount method pays more and jumps at each level, so a plan should say clearly which one it uses.</p></details><details><summary>What is a draw against commission?</summary><p>An advance paid to a salesperson each period and set against the commission they earn. If the commission is more than the draw, the difference is paid. If it is less, a recoverable draw carries the shortfall forward to later commission, while a non-recoverable draw does not.</p></details><details><summary>Is anything I type sent anywhere?</summary><p>No. The calculation runs entirely in this page, so nothing you type leaves your computer.</p></details></div>
+<div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem">Draft the whole document, not just one line</h2><p>Clausery turns your Word templates into questionnaires and builds the finished document in your browser, with amounts in words, dates and totals calculated for you. Free for up to three templates.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="../app/">Open Clausery</a> <a class="btn" href="../templates/">Free templates</a></p></div></div></section></main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <h4>Clausery</h4>
+      <p>Document automation that never leaves your browser. Turn your own Word templates into guided questionnaires and generate finished documents, offline, with no account.</p>
+    </div>
+    <div>
+      <h4>Product</h4>
+      <a href="../app/">Open the app</a>
+      <a href="../pricing/">Pricing</a>
+      <a href="../changelog.html">Changelog</a>
+      <a href="../docs/self-hosting.html">Self-hosting</a>
+      <a href="../press/">Press kit</a>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <a href="../templates/">Free templates</a>
+      <a href="../guides/">Guides</a>
+      <a href="../clauses/">Clause library</a>
+      <a href="../free-tools/">Free tools</a>
+      <a href="../compare/">Compare</a>
+      <a href="../for/law-firms.html">For law firms</a>
+      <a href="../for/hr-teams.html">For HR teams</a>
+      <a href="../for/consultants.html">For consultants</a>
+      <a href="../for/freelancers.html">For freelancers</a>
+    </div>
+    <div>
+      <h4>Docs</h4>
+      <a href="../docs/">Getting started</a>
+      <a href="../docs/templates.html">Template syntax</a>
+      <a href="../docs/logic.html">Logic &amp; calculations</a>
+      <a href="../docs/intake.html">Client intake</a>
+      <a href="../docs/security.html">Security</a>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <a href="../legal/privacy.html">Privacy</a>
+      <a href="../legal/terms.html">Terms</a>
+      <a href="../legal/dpa.html">Data processing</a>
+      <a href="mailto:hello@clausery.app">Contact</a>
+    </div>
+    <div class="legal">© 2026 Clausery. Clausery is software, not legal advice; documents you generate are your responsibility. Not affiliated with Microsoft; Word is a trademark of Microsoft Corporation.</div>
+  </div>
+</footer>
+</body>
+</html>
