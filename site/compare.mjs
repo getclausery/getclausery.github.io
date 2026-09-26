@@ -9,6 +9,11 @@ const CLAUSERY = ['Your browser only; nothing is uploaded', 'No', 'Yes', 'Yes', 
 const FREELANCE_ROWS = ['Where contracts are created', 'Account needed', 'Works offline', 'Free contract templates', 'Use your own Word contract', 'Contract download', 'E-signature', 'Invoicing and payments', 'Client portal, scheduling and CRM', 'Price'];
 const CLAUSERY_FREELANCE = ['Your browser only; nothing is uploaded', 'No', 'Yes', `Yes, ${LIB.length} Word templates`, 'Yes: add {tags} to any .docx', 'Word (.docx), or print to PDF', 'No: sign on paper or with any e-signature service', 'No', 'No', 'Free for 3 templates; Pro $19 per user per month'];
 
+// Online legal form sites sell finished documents by subscription or per document, so their table asks about downloads,
+// ongoing charges and lawyer access.
+const FORMS_ROWS = ['Where documents are created', 'Account needed', 'Free Word download', 'Ongoing subscription', 'Use your own Word templates', 'Lawyer help', 'E-signature', 'State-specific forms', 'Price'];
+const CLAUSERY_FORMS = ['Your browser only; nothing is uploaded', 'No', `Yes, all ${LIB.length} templates, with no sign-up`, 'No: the free plan has no time limit', 'Yes: add {tags} to any .docx', 'No: Clausery is software, not a law firm', 'No: sign on paper or with any e-signature service', 'No: general templates you adapt', 'Free for 3 templates; Pro $19 per user per month'];
+
 const COMPETITORS = [
   { slug: 'gavel-alternative', name: 'Gavel', title: 'Gavel alternative that keeps client data on your computer', group: 'legal', bestFor: 'Law firms that want hosted client portals and workflows',
     intro: 'Gavel is a well-regarded cloud platform for legal document automation and client workflows. Clausery does the core job, turning Word templates into guided questionnaires, without sending client data to a vendor.',
@@ -54,22 +59,33 @@ const COMPETITORS = [
     chooseThem: ['You need e-signatures with an audit trail in the same tool', 'Your sales team sends quotes with pricing tables and syncs them with a CRM', 'You want to know when a client opens a document, and route it for approval'],
     chooseUs: ['Your contracts already live in Word and should keep their exact formatting', 'You want each document built from a short questionnaire, with optional clauses switched on or off by the answers', 'You do not want to pay per seat', 'Client details should stay on your own computer'] },
 ];
-const GROUPS = [['legal', 'Legal document automation'], ['freelance', 'All-in-one tools for freelancers']];
+const GROUPS = [['legal', 'Legal document automation'], ['forms', 'Online legal form sites'], ['freelance', 'All-in-one tools for freelancers']];
 const price = (c) => c.them[c.them.length - 1];
 
 // Questions every comparison page answers; the answers only state facts about Clausery.
 const compareFaq = (c) => [
-  [`Can I use Clausery and ${c.name} together?`, c.group === 'freelance'
+  [`Can I use Clausery and ${c.name} together?`, c.group === 'forms'
+    ? `Yes. You could use ${c.name} for a state-specific form or a question to a lawyer, and Clausery for the documents you fill in again and again. Clausery produces an ordinary Word file, so nothing needs to connect.`
+    : c.group === 'freelance'
     ? `Yes. You could keep ${c.name} for the parts you use, such as invoicing and payments, and prepare contracts in Clausery. Clausery needs no integration: it produces a Word file you can send, sign and store however you like.`
     : `Yes. Many firms keep a platform like ${c.name} for the workflows it does best and use Clausery for documents whose details should not leave the office. Clausery needs no integration to run alongside it.`],
   [`How much does Clausery cost compared with ${c.name}?`, `Clausery is free for up to three templates with unlimited documents, and Pro is $19 per user per month. The table above summarises ${c.name}'s published pricing as of 2026; check the vendor for current prices.`],
-  c.group === 'freelance'
+  c.group === 'forms'
+    ? ['Is there a trial that turns into a subscription?', 'No. The free plan has no time limit and asks for no card, and every template can be downloaded as a Word file without an account. You only pay if you choose to buy Pro.']
+    : c.group === 'freelance'
     ? ['Can clients sign a Clausery contract?', 'Clausery does not collect signatures itself. Send the Word file, or a PDF printed from it, through any e-signature service, or sign on paper. Several e-signature services have a free plan for a limited number of documents.']
     : ['Does Clausery need IT to set up?', 'No. It runs in any modern browser with nothing to install, and firms that prefer can host the files on their own server.'],
   ['What happens to my templates if I stop using Clausery?', 'They are ordinary Word files with tags, and your data exports as plain JSON. Nothing is locked into Clausery.'],
 ];
 
-const moveSteps = (c, rel) => (c.group === 'freelance' ? `  <h2 style="margin-top:2.5rem">Moving your contracts from ${esc(c.name)}</h2>
+const moveSteps = (c, rel) => (c.group === 'forms' ? `  <h2 style="margin-top:2.5rem">Moving a document from ${esc(c.name)}</h2>
+  <ol>
+    <li>Download the finished document from ${esc(c.name)} as a Word file if your plan allows it, or start from the matching <a href="${rel}templates/">free template</a>.</li>
+    <li>Replace each detail that changes with a tag such as <code>{buyer_name}</code>, and wrap optional paragraphs in <code>{#is_vehicle}…{/is_vehicle}</code>.</li>
+    <li>Check the file with the free <a href="${rel}free-tools/template-checker.html">template tag checker</a>, then drop it into the app. Next time, you answer the questions instead of editing the document.</li>
+  </ol>
+  <h2 style="margin-top:2.5rem">What Clausery deliberately leaves out</h2>
+  <p>Clausery is software, not a law firm. It has no lawyers to call, no state-specific court or motor vehicle forms, no e-signature and no cloud storage of your documents. If you need legal advice or an official form, ${esc(c.name)} or a local lawyer may be the better choice. If you need a sound general document that you can fill in again whenever you like, a free template may be all it takes.</p>` : c.group === 'freelance' ? `  <h2 style="margin-top:2.5rem">Moving your contracts from ${esc(c.name)}</h2>
   <ol>
     <li>Copy your contract wording out of ${esc(c.name)} into a Word document, or start from one of the <a href="${rel}for/freelancers.html">free freelance contract templates</a>.</li>
     <li>Replace each detail that changes with a tag such as <code>{client_name}</code>, and wrap optional terms, such as a deposit or kill fee, in <code>{#has_deposit}…{/has_deposit}</code>.</li>
@@ -103,7 +119,7 @@ ${GROUPS.map(([g, label]) => `  <h2 style="margin-top:2rem">${esc(label)}</h2>
   <p class="small muted">Published prices checked in September 2026, in US dollars. Vendors change prices and plans; check their pricing pages before you decide.</p>
 </div></section>` },
   ...COMPETITORS.map((c) => {
-    const [rows, us] = c.group === 'freelance' ? [FREELANCE_ROWS, CLAUSERY_FREELANCE] : [ROWS, CLAUSERY];
+    const [rows, us] = c.group === 'freelance' ? [FREELANCE_ROWS, CLAUSERY_FREELANCE] : c.group === 'forms' ? [FORMS_ROWS, CLAUSERY_FORMS] : [ROWS, CLAUSERY];
     if (rows.length !== c.them.length) throw new Error(`${c.slug}: ${c.them.length} table cells for ${rows.length} rows`);
     return {
       path: `compare/${c.slug}.html`, title: c.title, extraHead: faqLd(compareFaq(c)),
@@ -115,7 +131,7 @@ ${GROUPS.map(([g, label]) => `  <h2 style="margin-top:2rem">${esc(label)}</h2>
 ${c.context ? `  <p>${esc(c.context)}</p>\n` : ''}  <div class="table-wrap" tabindex="0" style="margin-top:2rem"><table class="compare"><thead><tr><th scope="col"></th><th scope="col">Clausery</th><th scope="col">${esc(c.name)}</th></tr></thead><tbody>
     ${rows.map((r, i) => `<tr><td>${esc(r)}</td><td>${esc(us[i])}</td><td>${esc(c.them[i])}</td></tr>`).join('')}
   </tbody></table></div>
-  <p class="small muted">${c.group === 'freelance' ? 'Based on public information checked in September 2026. Products and prices change; check with the vendor.' : 'Based on public information as of 2026. Products change; check with the vendor.'}</p>
+  <p class="small muted">${c.group !== 'legal' ? 'Based on public information checked in September 2026. Products and prices change; check with the vendor.' : 'Based on public information as of 2026. Products change; check with the vendor.'}</p>
   <div class="grid grid-2" style="margin-top:2rem">
     <div class="feature"><h2 style="font-size:1.15rem">Choose ${esc(c.name)} if</h2><ul>${c.chooseThem.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>
     <div class="feature"><h2 style="font-size:1.15rem">Choose Clausery if</h2><ul>${c.chooseUs.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>
