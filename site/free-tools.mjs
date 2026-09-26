@@ -28,16 +28,24 @@ const TOOL_FAQ = [
   [['What does the checker look for?', 'It reads your .docx with the same engine as the Clausery app, including headers and footers, and reports tag problems such as a section that is opened but never closed or a tag name Clausery cannot use. If the template is valid, it shows the questionnaire Clausery would build from it.'],
   ['Is my document uploaded?', 'No. The file is read inside this page and never leaves your computer.'],
   ['What tag syntax does it expect?', 'Single curly braces: {client_name} for a value, {#has_retainer}…{/has_retainer} for optional text, {^has_retainer}…{/has_retainer} for the opposite, and {#items}…{/items} for repeating paragraphs or table rows.']],
+  [['How is late payment interest calculated?', 'Usually as simple interest: the overdue amount × the yearly rate × the number of days late ÷ 365. This calculator counts days from the due date to the payment date.'],
+    ['What is UK statutory interest?', 'Under the Late Payment of Commercial Debts (Interest) Act 1998, a business owed money by another business can usually claim interest at 8% above the Bank of England base rate, plus a fixed sum of £40, £70 or £100 depending on the size of the debt, unless the contract provides its own substantial remedy. It does not apply to consumers.'],
+    ['Can I charge interest if my contract does not mention it?', 'It depends where you are. UK businesses have the statutory right above; elsewhere you may need a contract term or a court award. See the late payment interest clause in the clause library.']],
+  [['How do freelancers calculate an hourly rate?', 'Start from the income you want to keep, add tax and business costs to get the revenue you need, then divide by the hours you can realistically bill in a year after holidays, sickness and admin time.'],
+    ['How many billable hours should I assume?', 'Few freelancers bill 40 hours a week; finding work, admin and invoicing take time. 20 to 30 billable hours is a common planning range.'],
+    ['Should I charge by the hour or by the project?', 'Use the hourly rate to price projects: estimate the hours, multiply, and add a margin for revisions. The freelance contract templates let you choose a flat fee or an hourly rate.']],
 ];
 
 const TOOLS = [
   { slug: 'amount-in-words', name: 'Amount in words converter', desc: 'Write any amount in words for contracts, cheques and promissory notes, such as "One Thousand Two Hundred and Fifty Dollars and 50/100".' },
   { slug: 'deadline-calculator', name: 'Contract deadline calculator', desc: 'Add or subtract days, business days, weeks, months or years from a date, with month-end handling and your own holidays.' },
+  { slug: 'late-payment-interest', name: 'Late payment interest calculator', desc: 'Work out interest on an overdue invoice at your contract rate, or UK statutory interest at 8% above base rate plus the fixed compensation sum.' },
+  { slug: 'freelance-rate', name: 'Freelance rate calculator', desc: 'Work back from the income you want to keep to the hourly and day rate you need to charge, after tax, costs and time off.' },
   { slug: 'template-checker', name: 'Word template tag checker', desc: 'Check a .docx template for broken {tags} and see the questionnaire it would produce. The file never leaves your computer.' },
 ];
 
 export const pages = [
-  { path: 'free-tools/', title: 'Free drafting tools', description: 'Free tools for people who draft documents: amount in words, contract deadline calculator and a Word template tag checker. They all run in your browser.',
+  { path: 'free-tools/', title: 'Free drafting tools', description: 'Free tools for people who draft documents and send invoices: amount in words, deadlines, late payment interest, freelance rates and a Word template checker.',
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem"><h1>Free drafting tools</h1><p class="lead">Small tools for everyday drafting. They run entirely in your browser; nothing you type is sent anywhere.</p>
 <div class="grid grid-3" style="margin-top:2rem">${TOOLS.map((t) => `<a class="feature" style="text-decoration:none;color:inherit" href="${rel}free-tools/${t.slug}.html"><h2 style="font-size:1.1rem">${t.name}</h2><p>${t.desc}</p></a>`).join('')}</div></div></section>` },
 
@@ -90,8 +98,64 @@ ${cta(rel)}</div></section>` },
 ${faqHtml(TOOL_FAQ[1])}
 ${cta(rel)}</div></section>` },
 
-  { path: 'free-tools/template-checker.html', title: 'Word template tag checker', description: TOOLS[2].desc,
-    extraHead: faqLd(TOOL_FAQ[2]) + TOOL_CSS + appLd(TOOLS[2].name, TOOLS[2].desc, 'free-tools/template-checker.html') + `<script type="module" src="template-checker.js"></script>`,
+  { path: 'free-tools/late-payment-interest.html', title: 'Late payment interest calculator (contract or UK statutory)', description: TOOLS[2].desc,
+    extraHead: faqLd(TOOL_FAQ[3]) + TOOL_CSS + appLd(TOOLS[2].name, TOOLS[2].desc, 'free-tools/late-payment-interest.html') + `<script type="module" src="late-payment-interest.js"></script>`,
+    body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Late payment interest')}
+<h1 style="margin-top:1rem">Late payment interest calculator</h1>
+<p class="lead">Find out how much interest you can add to an overdue invoice, at the rate in your contract or at the UK statutory rate for business debts.</p>
+<div class="tool">
+  <div class="row">
+    <div><label for="amount">Amount owed</label><input id="amount" inputmode="decimal" value="4800" autocomplete="off"></div>
+    <div><label for="currency">Currency</label><select id="currency"><option value="USD">US dollars</option><option value="GBP">Pounds sterling</option><option value="EUR">Euros</option><option value="CAD">Canadian dollars</option><option value="AUD">Australian dollars</option></select></div>
+    <div><label for="due">Payment was due</label><input id="due" type="date"></div>
+    <div><label for="paid">Paid, or today</label><input id="paid" type="date"></div>
+  </div>
+  <div class="row">
+    <div><label for="basis">Interest basis</label><select id="basis"><option value="year">Contract rate per year</option><option value="month">Contract rate per month</option><option value="uk">UK statutory (business debts)</option></select></div>
+    <div id="rate-row"><label for="rate">Rate (%)</label><input id="rate" inputmode="decimal" value="10"></div>
+    <div id="base-row" hidden><label for="base">Bank of England base rate (%)</label><input id="base" inputmode="decimal" value=""></div>
+  </div>
+  <p id="error" class="err" role="alert" hidden></p>
+  <div class="out" id="result" aria-live="polite"></div>
+  <p class="small muted" id="result-note" style="margin-top:.5rem"></p>
+</div>
+<p class="small muted">For UK statutory interest, use the base rate in force on the day the debt became overdue (check the Bank of England website). This is general information, not legal advice.</p>
+<h2>Asking for payment</h2>
+<p>Send a clear written demand before adding interest. The free <a href="${rel}templates/payment-demand-letter.html">payment demand letter</a> has an optional interest paragraph, and the <a href="${rel}clauses/late-payment-interest-clause.html">late payment interest clause</a> shows how to put a rate in your next contract.</p>
+<h2 style="margin-top:2.5rem">Questions</h2>
+${faqHtml(TOOL_FAQ[3])}
+${cta(rel)}</div></section>` },
+
+  { path: 'free-tools/freelance-rate.html', title: 'Freelance rate calculator: hourly and day rate', description: TOOLS[3].desc,
+    extraHead: faqLd(TOOL_FAQ[4]) + TOOL_CSS + appLd(TOOLS[3].name, TOOLS[3].desc, 'free-tools/freelance-rate.html') + `<script type="module" src="freelance-rate.js"></script>`,
+    body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Freelance rate')}
+<h1 style="margin-top:1rem">Freelance rate calculator</h1>
+<p class="lead">Start from what you want to take home and work back to the hourly and day rate that gets you there, after tax, business costs and time off.</p>
+<div class="tool">
+  <div class="row">
+    <div><label for="income">Income you want to keep per year</label><input id="income" inputmode="decimal" value="60000"></div>
+    <div><label for="expenses">Business costs per year</label><input id="expenses" inputmode="decimal" value="6000"></div>
+    <div><label for="tax">Estimated tax rate (%)</label><input id="tax" inputmode="decimal" value="25"></div>
+    <div><label for="currency">Currency</label><select id="currency"><option value="USD">US dollars</option><option value="GBP">Pounds sterling</option><option value="EUR">Euros</option><option value="CAD">Canadian dollars</option><option value="AUD">Australian dollars</option></select></div>
+  </div>
+  <div class="row">
+    <div><label for="off">Weeks off per year</label><input id="off" type="number" min="0" max="51" value="6"></div>
+    <div><label for="hpw">Billable hours per week</label><input id="hpw" type="number" min="1" max="80" value="25"></div>
+    <div><label for="hpd">Hours in a working day</label><input id="hpd" type="number" min="1" max="16" value="8"></div>
+  </div>
+  <p id="error" class="err" role="alert" hidden></p>
+  <div class="out" id="result" aria-live="polite"></div>
+  <p class="small muted" id="result-note" style="margin-top:.5rem"></p>
+</div>
+<p class="small muted">The tax rate is a single estimate; real tax depends on your country, income and deductions.</p>
+<h2>Put the rate in writing</h2>
+<p>Once you know your rate, put it in the contract with the revisions and extras it covers. See the free <a href="${rel}for/freelancers.html">freelance contract templates</a> and the <a href="${rel}clauses/payment-terms-clause.html">payment terms clause</a>.</p>
+<h2 style="margin-top:2.5rem">Questions</h2>
+${faqHtml(TOOL_FAQ[4])}
+${cta(rel)}</div></section>` },
+
+  { path: 'free-tools/template-checker.html', title: 'Word template tag checker', description: TOOLS[4].desc,
+    extraHead: faqLd(TOOL_FAQ[2]) + TOOL_CSS + appLd(TOOLS[4].name, TOOLS[4].desc, 'free-tools/template-checker.html') + `<script type="module" src="template-checker.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Template checker')}
 <h1 style="margin-top:1rem">Word template tag checker</h1>
 <p class="lead">Check a Word template before you use it: unclosed tags, mismatched sections and invalid names are reported with a plain-English fix, and you see the exact questionnaire it would produce. The file is read in your browser and never uploaded.</p>

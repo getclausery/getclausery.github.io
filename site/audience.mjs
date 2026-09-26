@@ -30,13 +30,13 @@ const AUD = [
       ['Does it work without an internet connection?', 'Yes. Once the app has loaded, it works offline, so you can draft on a train or at a client site.'],
       ['What does it cost?', 'Free for up to three templates with unlimited documents. Pro is $19 per user per month.']] },
   { slug: 'freelancers', name: 'Freelancers', title: 'Free freelance contract templates you can fill in online',
-    intro: 'Web designers, graphic designers, photographers, social media managers and writers all need a signed contract before work starts. Clausery turns a free Word contract into a two-minute questionnaire, so each client gets the right terms without you editing the document by hand.',
+    intro: 'Designers, photographers, videographers, virtual assistants, planners, trainers, tutors and writers all need a signed contract before work starts. Clausery turns a free Word contract into a two-minute questionnaire, so each client gets the right terms without you editing the document by hand.',
     points: [['Contracts written for your trade', 'Page lists for web projects, concepts and file formats for designers, retainers and usage rights for photographers, platforms and posting schedules for social media, word counts and bylines for writers.'], ['Stop scope creep in writing', 'Revision rounds, content deadlines, hourly rates for extra work and kill fees are built in, so the conversation is already settled when a client asks for "one more change".'], ['Client details stay on your laptop', 'Names, fees and addresses are typed into your browser and the contract is built there. Nothing is uploaded, and it works offline.'], ['Free for your first three templates', 'Use up to three contracts free with unlimited documents; Pro removes the limit for $19 a month.']],
-    templates: ['web-design-contract', 'graphic-design-contract', 'photography-contract', 'social-media-management-contract', 'freelance-writing-contract', 'independent-contractor-agreement', 'payment-demand-letter'],
-    related: [['clauses/intellectual-property-clause.html', 'Who owns the work: intellectual property clause'], ['clauses/payment-terms-clause.html', 'Payment terms clause'], ['clauses/late-payment-interest-clause.html', 'Late payment interest clause'], ['guides/how-to-write-a-payment-demand-letter.html', 'How to write a demand letter for unpaid invoices'], ['free-tools/deadline-calculator.html', 'Contract deadline calculator']],
+    templates: ['web-design-contract', 'graphic-design-contract', 'photography-contract', 'video-production-contract', 'social-media-management-contract', 'freelance-writing-contract', 'virtual-assistant-agreement', 'event-planning-contract', 'personal-training-agreement', 'tutoring-agreement', 'independent-contractor-agreement', 'payment-demand-letter'],
+    related: [['guides/how-to-write-a-freelance-contract.html', 'How to write a freelance contract'], ['guides/what-is-a-kill-fee.html', 'What is a kill fee?'], ['free-tools/freelance-rate.html', 'Freelance rate calculator'], ['free-tools/late-payment-interest.html', 'Late payment interest calculator'], ['clauses/intellectual-property-clause.html', 'Who owns the work: intellectual property clause'], ['clauses/payment-terms-clause.html', 'Payment terms clause'], ['clauses/late-payment-interest-clause.html', 'Late payment interest clause'], ['guides/how-to-write-a-payment-demand-letter.html', 'How to write a demand letter for unpaid invoices'], ['free-tools/deadline-calculator.html', 'Contract deadline calculator']],
     faq: [['Do I need a contract for small freelance jobs?', 'A short written agreement avoids most disputes about scope, revisions, payment and ownership, whatever the size of the job. Email acceptance of a clear contract is often enough, though some documents need a signature.'], ['Can I reuse the same contract for every client?', 'Yes. Answer the questions for each client and download a finished Word contract. Optional terms, such as a deposit, kill fee or maintenance plan, only appear when you switch them on.'], ['Are these contracts legally binding?', 'They are general templates. Whether a contract is enforceable depends on your country or state and how it is agreed, so have one reviewed for your situation, especially for large projects.'], ['Can I add my own clauses?', 'Yes. Download the Word file, edit anything, keep the {tags}, and upload it to Clausery. Your formatting is kept exactly.']] },
 ];
-const NAMES = { 'web-design-contract': 'Web design contract', 'graphic-design-contract': 'Graphic design contract', 'photography-contract': 'Photography contract', 'social-media-management-contract': 'Social media management contract', 'freelance-writing-contract': 'Freelance writing contract',  'one-way-nda': 'One-way NDA', 'cease-and-desist-letter': 'Cease and desist letter', 'promissory-note': 'Promissory note', 'internship-offer-letter': 'Internship offer letter', 'salary-increase-letter': 'Salary increase letter', 'reference-letter': 'Reference letter', 'employment-termination-letter': 'Termination letter', 'consulting-agreement': 'Consulting agreement', 'service-agreement': 'Service agreement', 'engagement-letter': 'Engagement letter', 'mutual-nda': 'Mutual NDA', 'payment-demand-letter': 'Payment demand letter', 'offer-letter': 'Offer letter', 'employment-verification-letter': 'Employment verification letter', 'independent-contractor-agreement': 'Independent contractor agreement', 'statement-of-work': 'Statement of work' };
+const NAMES = { 'video-production-contract': 'Video production contract', 'virtual-assistant-agreement': 'Virtual assistant agreement', 'event-planning-contract': 'Event planning contract', 'personal-training-agreement': 'Personal training agreement', 'tutoring-agreement': 'Tutoring agreement', 'web-design-contract': 'Web design contract', 'graphic-design-contract': 'Graphic design contract', 'photography-contract': 'Photography contract', 'social-media-management-contract': 'Social media management contract', 'freelance-writing-contract': 'Freelance writing contract',  'one-way-nda': 'One-way NDA', 'cease-and-desist-letter': 'Cease and desist letter', 'promissory-note': 'Promissory note', 'internship-offer-letter': 'Internship offer letter', 'salary-increase-letter': 'Salary increase letter', 'reference-letter': 'Reference letter', 'employment-termination-letter': 'Termination letter', 'consulting-agreement': 'Consulting agreement', 'service-agreement': 'Service agreement', 'engagement-letter': 'Engagement letter', 'mutual-nda': 'Mutual NDA', 'payment-demand-letter': 'Payment demand letter', 'offer-letter': 'Offer letter', 'employment-verification-letter': 'Employment verification letter', 'independent-contractor-agreement': 'Independent contractor agreement', 'statement-of-work': 'Statement of work' };
 
 export const GUIDES = [
   { slug: 'automate-word-templates', title: 'How to automate a Word template without uploading it anywhere',
@@ -271,6 +271,48 @@ GUARANTEE
 </ul>
 <h2>Send one in two minutes</h2>
 <p>Both NDA templates are free to download as Word files or fill in online. Clausery asks for the parties, purpose, term and governing law, includes the optional clauses you choose, and produces a finished document without uploading anything.</p>` },
+  { slug: 'how-to-write-a-freelance-contract', title: 'How to write a freelance contract: 10 clauses that prevent disputes',
+    description: 'What every freelance contract should say about scope, revisions, deadlines, payment, deposits, kill fees, ownership and termination, with free templates for designers, photographers, writers and more.',
+    body: (rel) => `
+<p class="lead">Most freelance disputes come down to one of three questions: what was included, when you get paid, and who owns the work. A short contract that answers them before you start saves weeks of awkward emails later.</p>
+<h2>The ten clauses</h2>
+<ol>
+  <li><strong>Who the parties are.</strong> Your business name and the client's legal name, not just a contact person.</li>
+  <li><strong>Scope.</strong> What you will deliver, in a list: pages, designs, articles, hours of coverage or posts per week. Add what is not included.</li>
+  <li><strong>Timeline and client inputs.</strong> Your deadlines, and the date the client must supply content, feedback or access. If they are late, your dates move.</li>
+  <li><strong>Revisions.</strong> How many rounds are included, and your hourly rate for anything beyond them.</li>
+  <li><strong>Fees.</strong> A flat fee or an hourly rate with an estimate. The free <a href="${rel}free-tools/freelance-rate.html">freelance rate calculator</a> helps you set it.</li>
+  <li><strong>Deposit and payment terms.</strong> How much is due up front, when invoices are due and how to pay. See the <a href="${rel}clauses/payment-terms-clause.html">payment terms clause</a>.</li>
+  <li><strong>Late payment.</strong> Interest on overdue invoices and a right to pause work. The <a href="${rel}free-tools/late-payment-interest.html">late payment interest calculator</a> shows what it adds up to.</li>
+  <li><strong>Cancellation and kill fee.</strong> What the client pays if they cancel after work has started. See <a href="${rel}guides/what-is-a-kill-fee.html">what a kill fee is</a>.</li>
+  <li><strong>Ownership.</strong> Whether the client owns the work or gets a licence, and that rights pass only on payment in full. See the <a href="${rel}clauses/intellectual-property-clause.html">intellectual property clause</a>.</li>
+  <li><strong>Independent contractor status and governing law.</strong> You run your own business and pay your own taxes; name the law that applies.</li>
+</ol>
+<h2>Keep it short enough to be signed</h2>
+<p>Two or three pages is plenty for most projects. A client is more likely to sign a clear, fair contract today than a long one next week, and an unsigned contract protects no one.</p>
+<h2>Start from a template for your trade</h2>
+<p>The free <a href="${rel}for/freelancers.html">freelance contract templates</a> already contain these clauses for web design, graphic design, photography, social media management and writing. Answer the questions for each client, and optional terms such as a deposit or kill fee only appear when you switch them on.</p>
+<p class="small muted">General information, not legal advice. Contract rules differ between countries and states.</p>` },
+  { slug: 'what-is-a-kill-fee', title: 'What is a kill fee? How to set one in a freelance contract',
+    description: 'A kill fee is what a client pays if they cancel a freelance project after work has started. How much to charge, how to word it, and how it differs from a deposit.',
+    body: (rel) => `
+<p class="lead">A kill fee is a payment the client makes if they cancel a project after you have started work. It compensates you for time you set aside and other work you turned down.</p>
+<h2>Kill fee or deposit?</h2>
+<p>A deposit is paid before work starts and is usually credited against the final invoice. A kill fee is only paid if the project is cancelled. Many freelancers use both: the deposit secures the booking and the kill fee covers a cancellation part-way through.</p>
+<h2>How much to charge</h2>
+<ul>
+  <li><strong>Writing and journalism:</strong> 25% to 50% of the agreed fee is common, depending on how far the piece had got.</li>
+  <li><strong>Design and web projects:</strong> payment for work completed so far, plus a fixed cancellation fee or a percentage of the remaining fee.</li>
+  <li><strong>Photography and events:</strong> usually handled through a non-refundable retainer tied to how close to the date the client cancels.</li>
+</ul>
+<p>Whatever you choose, it should be a genuine estimate of your loss. In some places, a cancellation charge far above your real loss can be challenged as a penalty, and consumer protection rules may limit charges to private individuals.</p>
+<h2>Sample wording</h2>
+<pre><code>If the Client cancels the project after work has started, the Client will pay for work completed to date plus a cancellation fee of {kill_fee}.</code></pre>
+<p>For writers paid per piece, a percentage works better:</p>
+<pre><code>If the Client cancels a piece after writing has started, the Client will pay {kill_fee_percent}% of its fee.</code></pre>
+<h2>Templates that include it</h2>
+<p>The free <a href="${rel}templates/graphic-design-contract.html">graphic design contract</a> and <a href="${rel}templates/freelance-writing-contract.html">freelance writing contract</a> include an optional kill fee you can switch on for each client.</p>
+<p class="small muted">General information, not legal advice.</p>` },
 ];
 
 export const pages = [
