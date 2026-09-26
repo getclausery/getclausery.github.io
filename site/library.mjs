@@ -230,6 +230,7 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <h2 id="${c.toLowerCase()}" style="margi
   <div class="grid grid-3" style="margin-top:1rem">
     ${LIB.filter((t) => t.category === c).map((t) => `<a class="feature" style="text-decoration:none;color:inherit" href="${rel}templates/${t.slug}.html"><span class="badge">${t.category}</span><h3 style="font-size:1.15rem;margin-top:.75rem">${esc(t.name)}</h3><p>${esc(t.intro)}</p></a>`).join('')}
   </div>`).join('\n')}
+  <p style="margin-top:2.5rem">Paying for LawDepot, Rocket Lawyer or eForms? See <a href="${rel}compare/">how they compare with Clausery</a>, including prices and free trials.</p>
   <p class="small muted" style="margin-top:2rem">These are general samples, not legal advice. Have them reviewed for your jurisdiction before use.</p>
 </div></section>`,
   },

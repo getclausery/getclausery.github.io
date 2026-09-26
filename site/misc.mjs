@@ -7,6 +7,11 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'What changed in each Clausery release.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.7.1 <span class="small muted">— 26 September 2026</span></h2>
+<ul>
+  <li>The template library is grouped by category: business agreements, freelance contracts, loans and getting paid, NDAs and letters, and HR letters.</li>
+  <li>Comparison pages for LawDepot, Rocket Lawyer and eForms, with prices and free-trial terms.</li>
+</ul>
 <h2>1.7.0 <span class="small muted">— 26 September 2026</span></h2>
 <ul>
   <li>Four more templates: a memorandum of understanding (MOU), a letter of intent to buy a business, a bill of sale with optional vehicle details, and a loan agreement.</li>
