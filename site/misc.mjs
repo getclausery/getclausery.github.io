@@ -7,6 +7,11 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'What changed in each Clausery release.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.8.1 <span class="small muted">— 26 September 2026</span></h2>
+<ul>
+  <li>Download all 38 templates at once as a .zip file, in a folder per category, from the templates page.</li>
+  <li>Three new guides: how to write a bill of sale, how to lend money to family or friends, and when you need a model release.</li>
+</ul>
 <h2>1.8.0 <span class="small muted">— 26 September 2026</span></h2>
 <ul>
   <li>Four more templates: a partnership agreement, a sales commission agreement, a photo and model release, and a general release of claims.</li>

@@ -1,13 +1,13 @@
 // Free template library: one page per shipped sample, generated from the real .docx so the question list always matches
 // what the app asks. Each page offers the Word template download and a one-click "fill it in your browser" deep link.
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, statSync } from 'node:fs';
 import { inspectDocx } from '../app/lib/render.js';
 import { inferQuestionnaire, FIELD_TYPES } from '../app/lib/schema.js';
 import { esc, SITE } from '../tools/partials.mjs';
 import { CLAUSES } from './data/clauses.mjs';
 import { GUIDES } from './audience.mjs';
 // The how-to guide that goes with each template, where there is one.
-const GUIDE_FOR = { 'partnership-agreement': 'what-to-include-in-a-partnership-agreement', 'memorandum-of-understanding': 'is-an-mou-legally-binding', 'letter-of-intent': 'is-an-mou-legally-binding', 'payment-reminder-letter': 'what-to-do-when-a-client-wont-pay', 'subcontractor-agreement': 'how-to-write-a-freelance-contract', 'retainer-agreement': 'how-to-write-a-freelance-contract', 'offer-letter': 'how-to-write-an-offer-letter', 'internship-offer-letter': 'how-to-write-an-offer-letter', 'payment-demand-letter': 'how-to-write-a-payment-demand-letter', 'statement-of-work': 'what-to-include-in-a-statement-of-work', 'consulting-agreement': 'what-to-include-in-a-statement-of-work', 'service-agreement': 'what-to-include-in-a-statement-of-work', 'mutual-nda': 'what-to-include-in-an-nda', 'one-way-nda': 'what-to-include-in-an-nda', 'engagement-letter': 'automate-word-templates', 'web-design-contract': 'how-to-write-a-freelance-contract', 'graphic-design-contract': 'what-is-a-kill-fee', 'photography-contract': 'how-to-write-a-freelance-contract', 'social-media-management-contract': 'how-to-write-a-freelance-contract', 'freelance-writing-contract': 'what-is-a-kill-fee', 'video-production-contract': 'how-to-write-a-freelance-contract', 'virtual-assistant-agreement': 'how-to-write-a-freelance-contract', 'event-planning-contract': 'how-to-write-a-freelance-contract' };
+const GUIDE_FOR = { 'partnership-agreement': 'what-to-include-in-a-partnership-agreement', 'bill-of-sale': 'how-to-write-a-bill-of-sale', 'loan-agreement': 'how-to-lend-money-to-family', 'promissory-note': 'how-to-lend-money-to-family', 'photo-release-form': 'do-i-need-a-model-release', 'memorandum-of-understanding': 'is-an-mou-legally-binding', 'letter-of-intent': 'is-an-mou-legally-binding', 'payment-reminder-letter': 'what-to-do-when-a-client-wont-pay', 'subcontractor-agreement': 'how-to-write-a-freelance-contract', 'retainer-agreement': 'how-to-write-a-freelance-contract', 'offer-letter': 'how-to-write-an-offer-letter', 'internship-offer-letter': 'how-to-write-an-offer-letter', 'payment-demand-letter': 'how-to-write-a-payment-demand-letter', 'statement-of-work': 'what-to-include-in-a-statement-of-work', 'consulting-agreement': 'what-to-include-in-a-statement-of-work', 'service-agreement': 'what-to-include-in-a-statement-of-work', 'mutual-nda': 'what-to-include-in-an-nda', 'one-way-nda': 'what-to-include-in-an-nda', 'engagement-letter': 'automate-word-templates', 'web-design-contract': 'how-to-write-a-freelance-contract', 'graphic-design-contract': 'what-is-a-kill-fee', 'photography-contract': 'how-to-write-a-freelance-contract', 'social-media-management-contract': 'how-to-write-a-freelance-contract', 'freelance-writing-contract': 'what-is-a-kill-fee', 'video-production-contract': 'how-to-write-a-freelance-contract', 'virtual-assistant-agreement': 'how-to-write-a-freelance-contract', 'event-planning-contract': 'how-to-write-a-freelance-contract' };
 const GUIDE = Object.fromEntries(GUIDES.map((g) => [g.slug, g]));
 // The free calculator that goes with a template, where there is one.
 const TOOL_FOR = {
@@ -235,7 +235,10 @@ const COMMON_FAQ = [
 ];
 
 // The library index groups templates under these headings, in this order.
-const CATEGORY_ORDER = [['Business', 'Business agreements'], ['Freelance', 'Freelance contracts'], ['Finance', 'Loans and getting paid'], ['Legal', 'NDAs, letters and sales'], ['HR', 'HR letters']];
+// The download-all pack, built by tools/make-pack.mjs from LIB, grouped the same way as the index page.
+export const PACK_FILE = 'clausery-word-templates.zip';
+const packSize = () => { const f = new URL(`../samples/${PACK_FILE}`, import.meta.url); return existsSync(f) ? `${Math.round(statSync(f).size / 1024)} KB` : ''; };
+export const CATEGORY_ORDER = [['Business', 'Business agreements'], ['Freelance', 'Freelance contracts'], ['Finance', 'Loans and getting paid'], ['Legal', 'NDAs, letters and sales'], ['HR', 'HR letters']];
 for (const t of LIB) if (!CATEGORY_ORDER.some(([c]) => c === t.category)) throw new Error(`templates index: no heading for category ${t.category}`);
 for (const [t, g] of Object.entries(GUIDE_FOR)) if (!GUIDE[g] || !LIB.some((x) => x.slug === t)) throw new Error(`GUIDE_FOR: ${t} -> ${g}`);
 for (const [t, [tool]] of Object.entries(TOOL_FOR)) if (!existsSync(`free-tools/${tool}.js`) || !LIB.some((x) => x.slug === t)) throw new Error(`TOOL_FOR: ${t} -> ${tool}`);
@@ -250,6 +253,7 @@ export const pages = [
   <p class="eyebrow">Free template library</p>
   <h1>Free Word templates you can fill in without uploading anything</h1>
   <p class="lead">Download any template as a normal Word file, or fill it in right here: answer a few questions and get a finished .docx. Everything happens in your browser, so client and employee details never leave your computer.</p>
+  <p style="margin-top:1.25rem"><a class="btn" href="${rel}samples/${PACK_FILE}" download>Download all ${LIB.length} templates</a> <span class="small muted">One .zip file (${packSize()}), in a folder per category.</span></p>
   <nav class="small" aria-label="Template categories" style="margin-top:1.5rem">${CATEGORY_ORDER.map(([c, label]) => `<a href="#${c.toLowerCase()}">${label}</a>`).join(' · ')}</nav>
 ${CATEGORY_ORDER.map(([c, label]) => `  <h2 id="${c.toLowerCase()}" style="margin-top:2.5rem">${label}</h2>
   <div class="grid grid-3" style="margin-top:1rem">
@@ -276,6 +280,7 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <h2 id="${c.toLowerCase()}" style="margi
     <a class="btn btn-lg" href="${rel}samples/${t.file}" download>Download the Word template</a>
   </div>
   <p class="small muted">No sign-up. Your answers stay in your browser. <strong>Who it is for:</strong> ${esc(t.who)}</p>
+  <p class="small muted">Need more than one? <a href="${rel}samples/${PACK_FILE}" download>Download all ${LIB.length} templates</a> as one .zip file.</p>
 
   <h2 style="margin-top:2.5rem">What is in the ${esc(t.name.toLowerCase())}</h2>
   <ul>${t.clauses.map((c) => `<li>${esc(c)}</li>`).join('')}</ul>

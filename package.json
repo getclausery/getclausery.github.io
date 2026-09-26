@@ -1,12 +1,12 @@
 {
   "name": "clausery",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "private": true,
   "description": "Clausery: browser-only document automation. Turn your own Word templates into guided questionnaires and generate finished documents without any data leaving the machine.",
   "type": "module",
   "scripts": {
     "build:vendor": "node tools/build-vendor.mjs",
-    "build:samples": "node tools/make-samples.mjs",
+    "build:samples": "node tools/make-samples.mjs && node tools/make-pack.mjs",
     "build:sitemap": "node tools/make-sitemap.mjs",
     "build": "npm run build:vendor && npm run build:samples && npm run build:site && npm run build:sitemap && npm run release",
     "lint": "eslint .",
