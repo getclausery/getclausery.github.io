@@ -23,7 +23,8 @@ const TOOL_CSS = `<style>
 .terms-table { width: 100%; border-collapse: collapse; font-size: .95rem; } .terms-table th, .terms-table td { text-align: left; padding: .55rem .5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
 </style>`;
 const crumbs = (rel, name) => `<nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}free-tools/">Free tools</a> › ${name}</nav>`;
-const cta = (rel) => `<div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem">Draft the whole document, not just one line</h2><p>Clausery turns your Word templates into questionnaires and builds the finished document in your browser, with amounts in words, dates and totals calculated for you. Free for up to three templates.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free templates</a></p></div>`;
+const moreTools = (rel, slug) => `<p class="small" style="margin-top:2rem"><strong>More free tools:</strong> ${TOOLS.filter((t) => t.slug !== slug).map((t) => `<a href="${rel}free-tools/${t.slug}.html">${t.name}</a>`).join(' · ')}</p>`;
+const cta = (rel, slug) => moreTools(rel, slug) + `<div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem">Draft the whole document, not just one line</h2><p>Clausery turns your Word templates into questionnaires and builds the finished document in your browser, with amounts in words, dates and totals calculated for you. Free for up to three templates.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free templates</a></p></div>`;
 const appLd = (name, desc, url) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebApplication', name, description: desc, url: SITE + url, applicationCategory: 'BusinessApplication', operatingSystem: 'Any (web browser)', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } })}</script>`;
 
 const TOOL_FAQ = [
@@ -54,7 +55,11 @@ const TOOL_FAQ = [
   [['How is sales commission calculated?', 'Multiply the sales by the commission rate: 5% commission on $80,000 of sales is $4,000. Check what the rate applies to. Most plans use the net sales price, after discounts, returns and taxes, and some pay only once the customer has paid.'],
     ['What is tiered commission?', 'A plan where the rate rises once sales pass a level. The higher rate can apply only to the sales above that level (marginal, like tax brackets) or to all sales once the level is reached (whole amount). The whole-amount method pays more and jumps at each level, so a plan should say clearly which one it uses.'],
     ['What is a draw against commission?', 'An advance paid to a salesperson each period and set against the commission they earn. If the commission is more than the draw, the difference is paid. If it is less, a recoverable draw carries the shortfall forward to later commission, while a non-recoverable draw does not.'],
-    ['Is anything I type sent anywhere?', 'No. The calculation runs entirely in this page, so nothing you type leaves your computer.']]
+    ['Is anything I type sent anywhere?', 'No. The calculation runs entirely in this page, so nothing you type leaves your computer.']],
+  [['How do you calculate prorated rent?', 'Divide the monthly rent by the number of days in that month to get a daily rate, then multiply it by the number of days the tenant lives there, counting the move-in day. For $1,500 rent and a move-in on September 20, that is $1,500 ÷ 30 × 11 days = $550.'],
+    ['Which method should I use?', 'The one your lease names. If it does not say, the days-in-the-month method is the most common and the easiest to explain. A 365-day year gives the same daily rate in every month. A 30-day month is simple, but in a 31-day month it can come to more than a month\'s rent, so this calculator never charges more than the full rent.'],
+    ['Does a landlord have to prorate rent?', 'It depends on the lease and on local law. Many landlords prorate the first month when a tenant moves in mid-month, or collect a full first month and prorate the second. Whatever you agree, write the amount and the method into the lease so there is no dispute later.'],
+    ['Is anything I type sent anywhere?', 'No. The calculation runs entirely in this page, so nothing you type leaves your computer.']],
 ];
 
 // `height` is the iframe's fallback height (px) in the embed code, for sites that strip the resize script: it fits the
@@ -66,6 +71,7 @@ const TOOLS = [
   { slug: 'late-payment-interest', name: 'Late payment interest calculator', desc: 'Work out interest on an overdue invoice at your contract rate, or UK statutory interest at 8% above base rate plus the fixed compensation sum.', height: 540 },
   { slug: 'loan-repayment', name: 'Loan repayment calculator', desc: 'Work out the payment on a loan repaid in equal instalments, the total interest and a full repayment schedule with dates, for weekly to yearly payments.', height: 500 },
   { slug: 'sales-commission', name: 'Sales commission calculator', desc: 'Work out commission at a flat rate or with higher tiers above a sales target, the effective rate, and what is still due after a draw.', height: 620 },
+  { slug: 'prorated-rent', name: 'Prorated rent calculator', desc: 'Work out the rent for a partial month when a tenant moves in or out mid-month, by days in the month, a 365-day year or a 30-day month.', height: 560 },
   { slug: 'freelance-rate', name: 'Freelance rate calculator', desc: 'Work back from the income you want to keep to the hourly and day rate you need to charge, after tax, costs and time off.', height: 580 },
   { slug: 'template-checker', name: 'Word template tag checker', desc: 'Check a .docx template for broken {tags} and see the questionnaire it would produce. The file never leaves your computer.' },
 ];
@@ -164,6 +170,21 @@ const WIDGET = {
   <p class="small muted" id="result-note" style="margin-top:.5rem"></p>
 </div>`,
   'invoice-due-date': INVOICE_WIDGET,
+  'prorated-rent': `<div class="tool">
+  <div class="row">
+    <div><label for="rent">Monthly rent</label><input id="rent" inputmode="decimal" value="1500" autocomplete="off"></div>
+    <div><label for="currency">Currency</label><select id="currency"><option value="USD">US dollars</option><option value="GBP">Pounds sterling</option><option value="EUR">Euros</option><option value="CAD">Canadian dollars</option><option value="AUD">Australian dollars</option></select></div>
+    <div><label for="direction">The tenant is</label><select id="direction"><option value="in">Moving in</option><option value="out">Moving out</option></select></div>
+  </div>
+  <div class="row">
+    <div><label for="date">Move-in or move-out date</label><input id="date" type="date"></div>
+    <div><label for="method">Daily rate from</label><select id="method"><option value="month">Days in that month</option><option value="year">365-day year</option><option value="banker">30-day month</option></select></div>
+  </div>
+  <p id="error" class="err" role="alert" hidden></p>
+  <div class="out" id="result" aria-live="polite"></div>
+  <p class="small muted" id="result-note" style="margin-top:.5rem"></p>
+  <details id="compare-box"><summary>Compare the three methods</summary><div class="schedule-wrap" tabindex="0"><table id="compare" class="terms-table"><thead><tr><th scope="col">Method</th><th scope="col">Daily rate</th><th scope="col">Prorated rent</th></tr></thead><tbody></tbody></table></div></details>
+</div>`,
   'sales-commission': `<div class="tool">
   <div class="row">
     <div><label for="sales">Sales</label><input id="sales" inputmode="decimal" value="80000" autocomplete="off"></div>
@@ -226,7 +247,7 @@ body.embed { background: transparent; }
 .embed-credit { font-size: .82rem; margin: .5rem 0 0; }
 </style>`;
 export const pages = [
-  { path: 'free-tools/', title: 'Free drafting tools', description: 'Free tools for drafting and invoicing: amount in words, deadlines, invoice due dates, late payment interest, loans, sales commission, freelance rates and more.',
+  { path: 'free-tools/', title: 'Free drafting tools', description: 'Free tools for drafting and invoicing: amount in words, deadlines, invoice due dates, late payment interest, loans, commission, prorated rent and more.',
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem"><h1>Free drafting tools</h1><p class="lead">Small tools for everyday drafting and invoicing. They run entirely in your browser; nothing you type is sent anywhere. The calculators can also be <a href="#embed">added to your own website</a> for free.</p>
 <div class="grid grid-3" style="margin-top:2rem">${TOOLS.map((t) => `<a class="feature" style="text-decoration:none;color:inherit" href="${rel}free-tools/${t.slug}.html"><h2 style="font-size:1.1rem">${t.name}</h2><p>${t.desc}</p></a>`).join('')}</div>
 <h2 id="embed" style="margin-top:3rem">Put a calculator on your website</h2>
@@ -244,7 +265,7 @@ ${WIDGET['amount-in-words']}
 ${embedSection('amount-in-words')}
 <h2 style="margin-top:2.5rem">Questions</h2>
 ${faqHtml(TOOL_FAQ[0])}
-${cta(rel)}</div></section>` },
+${cta(rel, 'amount-in-words')}</div></section>` },
 
   { path: 'free-tools/deadline-calculator.html', title: 'Contract deadline calculator (business days, months, years)', description: T['deadline-calculator'].desc,
     extraHead: faqLd(TOOL_FAQ[1]) + TOOL_CSS + appLd(T['deadline-calculator'].name, T['deadline-calculator'].desc, 'free-tools/deadline-calculator.html') + `<script type="module" src="deadline-calculator.js"></script>`,
@@ -259,7 +280,7 @@ ${WIDGET['deadline-calculator']}
 ${embedSection('deadline-calculator')}
 <h2 style="margin-top:2.5rem">Questions</h2>
 ${faqHtml(TOOL_FAQ[1])}
-${cta(rel)}</div></section>` },
+${cta(rel, 'deadline-calculator')}</div></section>` },
 
   { path: 'free-tools/invoice-due-date.html', title: 'Net 30 calculator: invoice due date for any payment terms', description: T['invoice-due-date'].desc,
     extraHead: faqLd(TOOL_FAQ[5]) + TOOL_CSS + appLd(T['invoice-due-date'].name, T['invoice-due-date'].desc, 'free-tools/invoice-due-date.html') + `<script type="module" src="invoice-due-date.js"></script>`,
@@ -279,7 +300,7 @@ ${termsTable()}
 ${embedSection('invoice-due-date')}
 <h2 style="margin-top:2.5rem">Questions</h2>
 ${faqHtml(TOOL_FAQ[5])}
-${cta(rel)}</div></section>` },
+${cta(rel, 'invoice-due-date')}</div></section>` },
 
   { path: 'free-tools/late-payment-interest.html', title: 'Late payment interest calculator (contract or UK statutory)', description: T['late-payment-interest'].desc,
     extraHead: faqLd(TOOL_FAQ[3]) + TOOL_CSS + appLd(T['late-payment-interest'].name, T['late-payment-interest'].desc, 'free-tools/late-payment-interest.html') + `<script type="module" src="late-payment-interest.js"></script>`,
@@ -294,7 +315,7 @@ ${WIDGET['late-payment-interest']}
 ${embedSection('late-payment-interest')}
 <h2 style="margin-top:2.5rem">Questions</h2>
 ${faqHtml(TOOL_FAQ[3])}
-${cta(rel)}</div></section>` },
+${cta(rel, 'late-payment-interest')}</div></section>` },
 
   { path: 'free-tools/freelance-rate.html', title: 'Freelance rate calculator: hourly and day rate', description: T['freelance-rate'].desc,
     extraHead: faqLd(TOOL_FAQ[4]) + TOOL_CSS + appLd(T['freelance-rate'].name, T['freelance-rate'].desc, 'free-tools/freelance-rate.html') + `<script type="module" src="freelance-rate.js"></script>`,
@@ -308,7 +329,7 @@ ${WIDGET['freelance-rate']}
 ${embedSection('freelance-rate')}
 <h2 style="margin-top:2.5rem">Questions</h2>
 ${faqHtml(TOOL_FAQ[4])}
-${cta(rel)}</div></section>` },
+${cta(rel, 'freelance-rate')}</div></section>` },
 
   { path: 'free-tools/loan-repayment.html', title: 'Loan repayment calculator with amortization schedule', description: T['loan-repayment'].desc,
     extraHead: faqLd(TOOL_FAQ[6]) + TOOL_CSS + appLd(T['loan-repayment'].name, T['loan-repayment'].desc, 'free-tools/loan-repayment.html') + `<script type="module" src="loan-repayment.js"></script>`,
@@ -322,7 +343,7 @@ ${WIDGET['loan-repayment']}
 ${embedSection('loan-repayment')}
 <h2 style="margin-top:2.5rem">Questions</h2>
 ${faqHtml(TOOL_FAQ[6])}
-${cta(rel)}</div></section>` },
+${cta(rel, 'loan-repayment')}</div></section>` },
   { path: 'free-tools/sales-commission.html', title: 'Sales commission calculator with tiers and draw', description: T['sales-commission'].desc,
     extraHead: faqLd(TOOL_FAQ[7]) + TOOL_CSS + appLd(T['sales-commission'].name, T['sales-commission'].desc, 'free-tools/sales-commission.html') + `<script type="module" src="sales-commission.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Sales commission')}
@@ -335,7 +356,20 @@ ${WIDGET['sales-commission']}
 ${embedSection('sales-commission')}
 <h2 style="margin-top:2.5rem">Questions</h2>
 ${faqHtml(TOOL_FAQ[7])}
-${cta(rel)}</div></section>` },
+${cta(rel, 'sales-commission')}</div></section>` },
+  { path: 'free-tools/prorated-rent.html', title: 'Prorated rent calculator for move-in and move-out', description: T['prorated-rent'].desc,
+    extraHead: faqLd(TOOL_FAQ[8]) + TOOL_CSS + appLd(T['prorated-rent'].name, T['prorated-rent'].desc, 'free-tools/prorated-rent.html') + `<script type="module" src="prorated-rent.js"></script>`,
+    body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Prorated rent')}
+<h1 style="margin-top:1rem">Prorated rent calculator</h1>
+<p class="lead">Moving in or out partway through a month? Enter the monthly rent and the date to see the rent for the days the tenant actually lives there, with the daily rate and a comparison of the three common methods.</p>
+${WIDGET['prorated-rent']}
+<p class="small muted">The move-in or move-out day counts as a day of the tenancy. Amounts are rounded to the cent and never exceed a full month's rent. A calculation aid, not legal or tax advice.</p>
+<h2>Write it into the lease</h2>
+<p>Put the prorated amount, the date it is due and the method in writing, so the first and last payments are not a surprise. The free <a href="${rel}templates/residential-lease-agreement.html">residential lease agreement</a> has an optional paragraph for a prorated first month, and a <a href="${rel}templates/sublease-agreement.html">sublease agreement</a> works for a room or a whole home for a few months. When a tenant leaves mid-month, the <a href="${rel}templates/security-deposit-return-letter.html">security deposit return letter</a> lists any rent still owed with the other deductions. More letters are on the <a href="${rel}for/landlords.html">landlord and tenant page</a>.</p>
+${embedSection('prorated-rent')}
+<h2 style="margin-top:2.5rem">Questions</h2>
+${faqHtml(TOOL_FAQ[8])}
+${cta(rel, 'prorated-rent')}</div></section>` },
   { path: 'free-tools/template-checker.html', title: 'Word template tag checker', description: T['template-checker'].desc,
     extraHead: faqLd(TOOL_FAQ[2]) + TOOL_CSS + appLd(T['template-checker'].name, T['template-checker'].desc, 'free-tools/template-checker.html') + `<script type="module" src="template-checker.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Template checker')}
@@ -350,7 +384,7 @@ ${cta(rel)}</div></section>` },
 <p>New to tags? Read <a href="${rel}guides/automate-word-templates.html">how to automate a Word template</a> or the full <a href="${rel}docs/templates.html">template syntax</a>.</p>
 <h2 style="margin-top:2.5rem">Questions</h2>
 ${faqHtml(TOOL_FAQ[2])}
-${cta(rel)}</div></section>` },
+${cta(rel, 'template-checker')}</div></section>` },
   // Bare calculator pages for other sites' iframes: no site header or footer, not indexed, light theme unless ?theme=dark.
   ...TOOLS.filter((t) => t.height).map((t) => ({
     path: `free-tools/embed/${t.slug}.html`, layout: 'embed', noindex: true, title: `${t.name} (embed)`, description: t.desc,

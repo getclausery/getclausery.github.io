@@ -3,7 +3,7 @@
    background requests (a new release ships a new VERSION, which installs a fresh cache). Pages are network-first so a
    deploy is visible at once; offline, app routes fall back to the app shell and other pages to offline.html.
    VERSION and PRECACHE are written by tools/release.mjs; do not edit them by hand. */
-const VERSION = '1.9.0';
+const VERSION = '1.10.0';
 const CACHE = 'clausery-' + VERSION;
 const BASE = new URL('./', self.location).pathname;
 // PRECACHE:BEGIN
@@ -52,9 +52,11 @@ const PRECACHE = [
   'samples/graphic-design-contract.docx',
   'samples/independent-contractor-agreement.docx',
   'samples/internship-offer-letter.docx',
+  'samples/late-rent-notice.docx',
   'samples/letter-of-intent.docx',
   'samples/loan-agreement.docx',
   'samples/memorandum-of-understanding.docx',
+  'samples/move-in-checklist.docx',
   'samples/mutual-nda.docx',
   'samples/notice-to-vacate.docx',
   'samples/offer-letter.docx',
@@ -68,6 +70,7 @@ const PRECACHE = [
   'samples/promissory-note.docx',
   'samples/reference-letter.docx',
   'samples/rent-increase-letter.docx',
+  'samples/residential-lease-agreement.docx',
   'samples/resignation-letter.docx',
   'samples/retainer-agreement.docx',
   'samples/roommate-agreement.docx',
@@ -78,6 +81,7 @@ const PRECACHE = [
   'samples/social-media-management-contract.docx',
   'samples/statement-of-work.docx',
   'samples/subcontractor-agreement.docx',
+  'samples/sublease-agreement.docx',
   'samples/tutoring-agreement.docx',
   'samples/video-production-contract.docx',
   'samples/virtual-assistant-agreement.docx',

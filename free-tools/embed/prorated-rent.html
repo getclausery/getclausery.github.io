@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<title>Prorated rent calculator (embed)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Work out the rent for a partial month when a tenant moves in or out mid-month, by days in the month, a 365-day year or a 30-day month.">
+<meta name="robots" content="noindex, follow">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../site.css">
+<script src="../../free-tools/embed/embed.js"></script>
+<style>
+.tool { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 1.5rem 0; }
+.tool label { display: block; font-weight: 600; margin-bottom: .3rem; }
+.tool .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+.tool input, .tool select, .tool textarea { width: 100%; padding: .55rem .65rem; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--bg); color: var(--text); font: inherit; }
+.tool .out { font-size: 1.2rem; font-weight: 600; padding: 1rem; background: var(--accent-soft); color: var(--text); border-radius: var(--radius-sm); min-height: 3rem; }
+.tool .out-row { display: flex; gap: .75rem; align-items: flex-start; margin-top: .75rem; } .tool .out-row .out { flex: 1; }
+.tool .err, .bad { color: #b42318; } .ok { color: var(--ok); } .warn { color: var(--warn); }
+#drop { border: 2px dashed var(--border-strong); border-radius: var(--radius); padding: 2rem; text-align: center; }
+#drop.over { border-color: var(--accent); background: var(--accent-soft); }
+#report table { width: 100%; border-collapse: collapse; font-size: .92rem; } #report th, #report td { text-align: left; padding: .5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+#report .small { font-size: .85rem; color: var(--muted); }
+.tool .check { display: flex; gap: .5rem; align-items: center; font-weight: 400; margin-bottom: 1rem; } .tool .check input { width: auto; }
+.embed-code { width: 100%; font: .85rem/1.45 var(--mono); padding: .75rem; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--surface-2); color: var(--text); resize: vertical; }
+.embed-tools { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; margin: .75rem 0 1rem; }
+.schedule-wrap { max-height: 22rem; overflow: auto; margin-top: .5rem; } .tool details summary { cursor: pointer; font-weight: 600; }
+.terms-table { width: 100%; border-collapse: collapse; font-size: .95rem; } .terms-table th, .terms-table td { text-align: left; padding: .55rem .5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+</style><style>
+body.embed { background: transparent; }
+.embed-wrap { padding: 2px; }
+.embed-wrap .tool { margin: 0; padding: 1rem 1.1rem; }
+.embed-wrap .tool .row { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .75rem; }
+.embed-wrap h1 { font-size: 1.15rem; margin: 0 0 .6rem; }
+.embed-credit { font-size: .82rem; margin: .5rem 0 0; }
+</style><script type="module" src="../prorated-rent.js"></script>
+</head>
+<body class="embed">
+<main id="main">
+<div class="embed-wrap"><h1>Prorated rent calculator</h1>
+<div class="tool">
+  <div class="row">
+    <div><label for="rent">Monthly rent</label><input id="rent" inputmode="decimal" value="1500" autocomplete="off"></div>
+    <div><label for="currency">Currency</label><select id="currency"><option value="USD">US dollars</option><option value="GBP">Pounds sterling</option><option value="EUR">Euros</option><option value="CAD">Canadian dollars</option><option value="AUD">Australian dollars</option></select></div>
+    <div><label for="direction">The tenant is</label><select id="direction"><option value="in">Moving in</option><option value="out">Moving out</option></select></div>
+  </div>
+  <div class="row">
+    <div><label for="date">Move-in or move-out date</label><input id="date" type="date"></div>
+    <div><label for="method">Daily rate from</label><select id="method"><option value="month">Days in that month</option><option value="year">365-day year</option><option value="banker">30-day month</option></select></div>
+  </div>
+  <p id="error" class="err" role="alert" hidden></p>
+  <div class="out" id="result" aria-live="polite"></div>
+  <p class="small muted" id="result-note" style="margin-top:.5rem"></p>
+  <details id="compare-box"><summary>Compare the three methods</summary><div class="schedule-wrap" tabindex="0"><table id="compare" class="terms-table"><thead><tr><th scope="col">Method</th><th scope="col">Daily rate</th><th scope="col">Prorated rent</th></tr></thead><tbody></tbody></table></div></details>
+</div>
+<p class="embed-credit muted">Free calculator by <a href="https://getclausery.github.io/free-tools/prorated-rent.html" target="_blank" rel="noopener">Clausery</a>. Nothing you type leaves your browser.</p></div>
+</main>
+</body>
+</html>

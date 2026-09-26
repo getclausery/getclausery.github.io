@@ -7,6 +7,13 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'What changed in each Clausery release.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.10.0 <span class="small muted">— 26 September 2026</span></h2>
+<ul>
+  <li>Four more landlord and tenant templates: a residential lease agreement, a sublease agreement, a move-in and move-out inspection checklist, and a late rent notice.</li>
+  <li>A free prorated rent calculator for move-in and move-out, which can also be embedded on other websites.</li>
+  <li>A guide to what to include in a residential lease agreement.</li>
+  <li>Each free tool page now links to the other tools.</li>
+</ul>
 <h2>1.9.0 <span class="small muted">— 26 September 2026</span></h2>
 <ul>
   <li>Four landlord and tenant templates: a tenant's notice to vacate, a rent increase letter, a security deposit return letter with itemized deductions, and a roommate agreement.</li>

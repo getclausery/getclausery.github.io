@@ -122,6 +122,24 @@ test('sales commission: flat, marginal and whole-amount tiers, and the balance a
   assert.match(salesCommission({ sales: 100, rate: 5, tiers: [{ above: 10, rate: '' }] }).error, /each tier/);
 });
 
+test('prorated rent: days in the month, 365-day year and 30-day month, for move-in and move-out', async () => {
+  const { proratedRent } = await import('../../free-tools/prorated-rent.js');
+  const inn = proratedRent({ rent: '1,500', date: '2026-09-20' });
+  assert.deepEqual([inn.amount, inn.daily, inn.days, inn.daysInMonth, inn.from, inn.to], [550, 50, 11, 30, '2026-09-20', '2026-09-30']);
+  assert.deepEqual(inn.compare.map((x) => x.amount), [550, 542.47, 550]);
+  const out = proratedRent({ rent: 1500, date: '2026-10-10', direction: 'out' });
+  assert.deepEqual([out.amount, out.days, out.from, out.to], [483.87, 10, '2026-10-01', '2026-10-10']);
+  assert.deepEqual(out.compare.map((x) => x.amount), [483.87, 493.15, 500]);
+  // leap-year February, and a whole month never costs more than the rent, whatever the method
+  assert.equal(proratedRent({ rent: 1450, date: '2028-02-29', direction: 'out' }).amount, 1450);
+  const full = proratedRent({ rent: 1500, date: '2026-10-01', method: 'banker' });
+  assert.deepEqual([full.amount, full.full], [1500, true]);
+  assert.equal(proratedRent({ rent: 1500, date: '2026-10-31', method: 'year' }).amount, 49.32);
+  assert.match(proratedRent({ rent: '', date: '2026-10-01' }).error, /monthly rent/);
+  assert.match(proratedRent({ rent: 1500, date: '2026-02-30' }).error, /date/);
+  assert.match(proratedRent({ rent: 1500, date: '2026-02-10', method: 'x' }).error, /method/);
+});
+
 test('the download-all pack holds every library template in its category folder, with a README', async () => {
   const { readFileSync } = await import('node:fs');
   const { default: JSZip } = await import('jszip');
