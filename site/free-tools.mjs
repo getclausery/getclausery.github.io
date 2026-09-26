@@ -121,7 +121,7 @@ ${cta(rel)}</div></section>` },
 </div>
 <p class="small muted">For UK statutory interest, use the base rate in force on the day the debt became overdue (check the Bank of England website). This is general information, not legal advice.</p>
 <h2>Asking for payment</h2>
-<p>Send a clear written demand before adding interest. The free <a href="${rel}templates/payment-demand-letter.html">payment demand letter</a> has an optional interest paragraph, and the <a href="${rel}clauses/late-payment-interest-clause.html">late payment interest clause</a> shows how to put a rate in your next contract.</p>
+<p>Send a clear written reminder or demand before adding interest. The free <a href="${rel}templates/payment-reminder-letter.html">payment reminder letter</a> has an optional late fee line, the <a href="${rel}templates/payment-demand-letter.html">payment demand letter</a> has an optional interest paragraph, and the <a href="${rel}clauses/late-payment-interest-clause.html">late payment interest clause</a> shows how to put a rate in your next contract.</p>
 <h2 style="margin-top:2.5rem">Questions</h2>
 ${faqHtml(TOOL_FAQ[3])}
 ${cta(rel)}</div></section>` },

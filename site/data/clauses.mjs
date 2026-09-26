@@ -92,7 +92,7 @@ These obligations continue for {confidentiality_years} years after this Agreemen
       ['Is a confidentiality clause the same as an NDA?', 'It does the same job. An NDA is a standalone agreement, usually signed before a deal. A confidentiality clause sits inside a larger contract, such as a services or employment agreement.'],
       ['How long should confidentiality last?', 'Long enough for the information to lose its value. Two to five years suits most commercial information; trade secrets need protection for as long as they remain secret.'],
     ],
-    templates: ['mutual-nda', 'one-way-nda', 'consulting-agreement', 'independent-contractor-agreement'],
+    templates: ['mutual-nda', 'one-way-nda', 'consulting-agreement', 'independent-contractor-agreement', 'subcontractor-agreement', 'retainer-agreement'],
   },
   {
     slug: 'non-solicitation-clause', name: 'Non-solicitation clause', group: 'Confidentiality and restrictions',
@@ -112,7 +112,7 @@ This clause does not prevent either party from placing general advertisements th
       ['Is a non-solicitation clause enforceable?', 'It is enforced more often than a non-compete, provided it protects a legitimate interest and is reasonable in length and scope. Some places are stricter: California, for example, treats many customer non-solicitation clauses in employment contracts as void.'],
       ['What is the difference between non-solicitation and non-compete?', 'A non-compete stops someone working for a competitor at all. A non-solicitation clause only stops them approaching specific people, so it restricts far less and is easier to justify.'],
     ],
-    templates: ['consulting-agreement', 'service-agreement', 'independent-contractor-agreement'],
+    templates: ['consulting-agreement', 'service-agreement', 'independent-contractor-agreement', 'subcontractor-agreement'],
   },
   {
     slug: 'non-compete-clause', name: 'Non-compete clause', group: 'Confidentiality and restrictions',
@@ -156,7 +156,7 @@ All amounts are exclusive of sales tax, value added tax and similar taxes, which
       ['What does "net 30" mean?', 'Payment is due 30 days after the invoice date, or after receipt if the contract says so. "Net 60" and "net 90" work the same way with longer periods.'],
       ['Can I stop work if a customer does not pay?', 'Only if the contract allows it or the general law does. Stopping work without a contractual right can itself be a breach, so include a right to suspend on notice for overdue invoices.'],
     ],
-    templates: ['service-agreement', 'independent-contractor-agreement', 'consulting-agreement', 'statement-of-work', 'web-design-contract', 'social-media-management-contract'],
+    templates: ['service-agreement', 'independent-contractor-agreement', 'consulting-agreement', 'statement-of-work', 'web-design-contract', 'social-media-management-contract', 'retainer-agreement', 'subcontractor-agreement'],
   },
   {
     slug: 'late-payment-interest-clause', name: 'Late payment interest clause', group: 'Money',
@@ -178,7 +178,7 @@ Overdue amounts bear interest at {interest_rate} from the due date until payment
       ['What interest rate can I charge on late invoices?', 'Whatever the contract says, within legal limits. 1% to 1.5% per month is common in US commercial contracts, subject to state usury laws. Without a contract term, you may be limited to a statutory rate or none at all.'],
       ['Can I charge interest if the contract does not mention it?', 'Sometimes. UK businesses have a statutory right to interest on late commercial payments. In many other places, you can only claim interest if the contract provides for it or a court awards it.'],
     ],
-    templates: ['payment-demand-letter', 'service-agreement', 'promissory-note'],
+    templates: ['payment-demand-letter', 'service-agreement', 'promissory-note', 'payment-reminder-letter', 'retainer-agreement'],
   },
   {
     slug: 'intellectual-property-clause', name: 'Intellectual property assignment clause', group: 'Work and ownership',
@@ -202,7 +202,7 @@ The Contractor retains ownership of the Deliverables and grants the Client a non
       ['Who owns work created by a contractor?', 'Usually the contractor, unless a written agreement assigns it to the client. Employees are different: work created in the course of employment generally belongs to the employer.'],
       ['Is "work made for hire" the same as an assignment?', 'Not quite. In US copyright law, work made for hire applies automatically to employees, but for contractors only to certain categories of commissioned work with a signed agreement. That is why most contracts also include a backup assignment.'],
     ],
-    templates: ['independent-contractor-agreement', 'consulting-agreement', 'statement-of-work', 'web-design-contract', 'graphic-design-contract', 'freelance-writing-contract'],
+    templates: ['independent-contractor-agreement', 'consulting-agreement', 'statement-of-work', 'web-design-contract', 'graphic-design-contract', 'freelance-writing-contract', 'subcontractor-agreement', 'retainer-agreement'],
   },
   {
     slug: 'warranty-clause', name: 'Warranty clause', group: 'Work and ownership',
@@ -244,7 +244,7 @@ The Contractor is solely responsible for all income tax, social security contrib
       ['Does calling someone a contractor make them one?', 'No. The legal status depends on the substance of the relationship. The clause helps show what the parties intended but is not decisive.'],
       ['What happens if a contractor is misclassified?', 'The business may owe back taxes, penalties and employee benefits such as holiday pay or overtime, depending on the country.'],
     ],
-    templates: ['independent-contractor-agreement', 'consulting-agreement', 'freelance-writing-contract'],
+    templates: ['independent-contractor-agreement', 'consulting-agreement', 'freelance-writing-contract', 'subcontractor-agreement', 'retainer-agreement'],
   },
   {
     slug: 'termination-for-convenience-clause', name: 'Termination for convenience clause', group: 'Ending the contract',
@@ -264,7 +264,7 @@ On termination under this clause, the Customer shall pay the Supplier for all Se
       ['What is the difference between termination for convenience and termination for cause?', 'Termination for convenience needs no reason, only notice. Termination for cause is available only when the other party has breached the contract or become insolvent, and can often take effect immediately.'],
       ['Can a contract with no termination clause be ended early?', 'Generally not unilaterally, unless the other party commits a serious breach. Contracts with no fixed end date may be terminable on reasonable notice, depending on local law.'],
     ],
-    templates: ['independent-contractor-agreement', 'consulting-agreement', 'engagement-letter', 'service-agreement', 'web-design-contract', 'social-media-management-contract'],
+    templates: ['independent-contractor-agreement', 'consulting-agreement', 'engagement-letter', 'service-agreement', 'web-design-contract', 'social-media-management-contract', 'retainer-agreement', 'subcontractor-agreement'],
   },
   {
     slug: 'termination-for-cause-clause', name: 'Termination for cause clause', group: 'Ending the contract',
@@ -325,7 +325,7 @@ The courts of the State of New York sitting in New York County, and the United S
       ['What is the difference between governing law and jurisdiction?', 'Governing law is the set of legal rules used to interpret the contract. Jurisdiction is which court decides the dispute. A court in one country can apply another country\'s law, but it is slower and more expensive.'],
       ['What happens if a contract does not choose a governing law?', 'Courts apply conflict-of-laws rules to work it out, typically looking at where the parties are and where the contract is performed. The result can be uncertain and expensive to argue about.'],
     ],
-    templates: ['mutual-nda', 'one-way-nda', 'service-agreement', 'independent-contractor-agreement', 'consulting-agreement', 'promissory-note'],
+    templates: ['mutual-nda', 'one-way-nda', 'service-agreement', 'independent-contractor-agreement', 'consulting-agreement', 'promissory-note', 'subcontractor-agreement', 'retainer-agreement'],
   },
   {
     slug: 'dispute-resolution-clause', name: 'Dispute resolution clause', group: 'Law and disputes',

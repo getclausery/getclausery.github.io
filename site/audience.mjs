@@ -23,8 +23,8 @@ const AUD = [
   { slug: 'consultants', name: 'Consultants and agencies', title: 'Proposals, SOWs and contractor agreements without another subscription',
     intro: 'Statements of work, contractor agreements and client letters follow the same pattern every time. Clausery turns your Word versions into a two-minute questionnaire and keeps client details on your laptop.',
     points: [['Repeat deliverables and line items', 'List as many deliverables, milestones or fee lines as you need; the document repeats the paragraph or table row for each one.'], ['Totals calculated for you', 'Add computed fields such as a sum of line items, a date 30 days after signing, or an amount in words.'], ['Works on the road', 'Once loaded, Clausery works offline, including on a train or a client site without Wi-Fi.'], ['Your branding, untouched', 'Your template keeps its logo, fonts and layout.']],
-    templates: ['consulting-agreement', 'statement-of-work', 'service-agreement', 'independent-contractor-agreement', 'payment-demand-letter'],
-    related: [['guides/what-to-include-in-a-statement-of-work.html', 'What to include in a statement of work'], ['guides/how-to-write-a-payment-demand-letter.html', 'How to write a demand letter for unpaid invoices'], ['clauses/payment-terms-clause.html', 'Payment terms clause'], ['clauses/intellectual-property-clause.html', 'Intellectual property clause'], ['free-tools/deadline-calculator.html', 'Contract deadline calculator']],
+    templates: ['consulting-agreement', 'statement-of-work', 'service-agreement', 'retainer-agreement', 'subcontractor-agreement', 'independent-contractor-agreement', 'payment-reminder-letter', 'payment-demand-letter'],
+    related: [['guides/what-to-include-in-a-statement-of-work.html', 'What to include in a statement of work'], ['guides/how-to-write-a-payment-demand-letter.html', 'How to write a demand letter for unpaid invoices'], ['clauses/payment-terms-clause.html', 'Payment terms clause'], ['clauses/intellectual-property-clause.html', 'Intellectual property clause'], ['free-tools/deadline-calculator.html', 'Contract deadline calculator'], ['guides/what-to-do-when-a-client-wont-pay.html', 'What to do when a client won\'t pay'], ['compare/pandadoc-alternative.html', 'Clausery compared with PandaDoc']],
     faq: [['Can I add a table of deliverables or fees?', 'Yes. Put the repeat tags in a table row and the row repeats for each deliverable or line item, keeping your borders and shading.'],
       ['Can it calculate totals and dates?', 'Yes, on the Pro plan: computed fields can add up line items, work out a date 30 days after signing, or write an amount in words.'],
       ['Does it work without an internet connection?', 'Yes. Once the app has loaded, it works offline, so you can draft on a train or at a client site.'],
@@ -32,11 +32,11 @@ const AUD = [
   { slug: 'freelancers', name: 'Freelancers', title: 'Free freelance contract templates you can fill in online',
     intro: 'Designers, photographers, videographers, virtual assistants, planners, trainers, tutors and writers all need a signed contract before work starts. Clausery turns a free Word contract into a two-minute questionnaire, so each client gets the right terms without you editing the document by hand.',
     points: [['Contracts written for your trade', 'Page lists for web projects, concepts and file formats for designers, retainers and usage rights for photographers, platforms and posting schedules for social media, word counts and bylines for writers.'], ['Stop scope creep in writing', 'Revision rounds, content deadlines, hourly rates for extra work and kill fees are built in, so the conversation is already settled when a client asks for "one more change".'], ['Client details stay on your laptop', 'Names, fees and addresses are typed into your browser and the contract is built there. Nothing is uploaded, and it works offline.'], ['Free for your first three templates', 'Use up to three contracts free with unlimited documents; Pro removes the limit for $19 a month.']],
-    templates: ['web-design-contract', 'graphic-design-contract', 'photography-contract', 'video-production-contract', 'social-media-management-contract', 'freelance-writing-contract', 'virtual-assistant-agreement', 'event-planning-contract', 'personal-training-agreement', 'tutoring-agreement', 'independent-contractor-agreement', 'payment-demand-letter'],
-    related: [['guides/how-to-write-a-freelance-contract.html', 'How to write a freelance contract'], ['guides/what-is-a-kill-fee.html', 'What is a kill fee?'], ['free-tools/freelance-rate.html', 'Freelance rate calculator'], ['free-tools/late-payment-interest.html', 'Late payment interest calculator'], ['clauses/intellectual-property-clause.html', 'Who owns the work: intellectual property clause'], ['clauses/payment-terms-clause.html', 'Payment terms clause'], ['clauses/late-payment-interest-clause.html', 'Late payment interest clause'], ['guides/how-to-write-a-payment-demand-letter.html', 'How to write a demand letter for unpaid invoices'], ['free-tools/deadline-calculator.html', 'Contract deadline calculator']],
+    templates: ['web-design-contract', 'graphic-design-contract', 'photography-contract', 'video-production-contract', 'social-media-management-contract', 'freelance-writing-contract', 'virtual-assistant-agreement', 'event-planning-contract', 'personal-training-agreement', 'tutoring-agreement', 'retainer-agreement', 'subcontractor-agreement', 'independent-contractor-agreement', 'payment-reminder-letter', 'payment-demand-letter'],
+    related: [['guides/how-to-write-a-freelance-contract.html', 'How to write a freelance contract'], ['guides/what-to-do-when-a-client-wont-pay.html', 'What to do when a client won\'t pay'], ['guides/what-is-a-kill-fee.html', 'What is a kill fee?'], ['free-tools/freelance-rate.html', 'Freelance rate calculator'], ['free-tools/late-payment-interest.html', 'Late payment interest calculator'], ['clauses/intellectual-property-clause.html', 'Who owns the work: intellectual property clause'], ['clauses/payment-terms-clause.html', 'Payment terms clause'], ['clauses/late-payment-interest-clause.html', 'Late payment interest clause'], ['guides/how-to-write-a-payment-demand-letter.html', 'How to write a demand letter for unpaid invoices'], ['free-tools/deadline-calculator.html', 'Contract deadline calculator'], ['compare/honeybook-alternative.html', 'Clausery compared with HoneyBook'], ['compare/bonsai-alternative.html', 'Clausery compared with Bonsai'], ['compare/dubsado-alternative.html', 'Clausery compared with Dubsado']],
     faq: [['Do I need a contract for small freelance jobs?', 'A short written agreement avoids most disputes about scope, revisions, payment and ownership, whatever the size of the job. Email acceptance of a clear contract is often enough, though some documents need a signature.'], ['Can I reuse the same contract for every client?', 'Yes. Answer the questions for each client and download a finished Word contract. Optional terms, such as a deposit, kill fee or maintenance plan, only appear when you switch them on.'], ['Are these contracts legally binding?', 'They are general templates. Whether a contract is enforceable depends on your country or state and how it is agreed, so have one reviewed for your situation, especially for large projects.'], ['Can I add my own clauses?', 'Yes. Download the Word file, edit anything, keep the {tags}, and upload it to Clausery. Your formatting is kept exactly.']] },
 ];
-const NAMES = { 'video-production-contract': 'Video production contract', 'virtual-assistant-agreement': 'Virtual assistant agreement', 'event-planning-contract': 'Event planning contract', 'personal-training-agreement': 'Personal training agreement', 'tutoring-agreement': 'Tutoring agreement', 'web-design-contract': 'Web design contract', 'graphic-design-contract': 'Graphic design contract', 'photography-contract': 'Photography contract', 'social-media-management-contract': 'Social media management contract', 'freelance-writing-contract': 'Freelance writing contract',  'one-way-nda': 'One-way NDA', 'cease-and-desist-letter': 'Cease and desist letter', 'promissory-note': 'Promissory note', 'internship-offer-letter': 'Internship offer letter', 'salary-increase-letter': 'Salary increase letter', 'reference-letter': 'Reference letter', 'employment-termination-letter': 'Termination letter', 'consulting-agreement': 'Consulting agreement', 'service-agreement': 'Service agreement', 'engagement-letter': 'Engagement letter', 'mutual-nda': 'Mutual NDA', 'payment-demand-letter': 'Payment demand letter', 'offer-letter': 'Offer letter', 'employment-verification-letter': 'Employment verification letter', 'independent-contractor-agreement': 'Independent contractor agreement', 'statement-of-work': 'Statement of work' };
+const NAMES = { 'payment-reminder-letter': 'Payment reminder letter', 'subcontractor-agreement': 'Subcontractor agreement', 'retainer-agreement': 'Retainer agreement', 'video-production-contract': 'Video production contract', 'virtual-assistant-agreement': 'Virtual assistant agreement', 'event-planning-contract': 'Event planning contract', 'personal-training-agreement': 'Personal training agreement', 'tutoring-agreement': 'Tutoring agreement', 'web-design-contract': 'Web design contract', 'graphic-design-contract': 'Graphic design contract', 'photography-contract': 'Photography contract', 'social-media-management-contract': 'Social media management contract', 'freelance-writing-contract': 'Freelance writing contract',  'one-way-nda': 'One-way NDA', 'cease-and-desist-letter': 'Cease and desist letter', 'promissory-note': 'Promissory note', 'internship-offer-letter': 'Internship offer letter', 'salary-increase-letter': 'Salary increase letter', 'reference-letter': 'Reference letter', 'employment-termination-letter': 'Termination letter', 'consulting-agreement': 'Consulting agreement', 'service-agreement': 'Service agreement', 'engagement-letter': 'Engagement letter', 'mutual-nda': 'Mutual NDA', 'payment-demand-letter': 'Payment demand letter', 'offer-letter': 'Offer letter', 'employment-verification-letter': 'Employment verification letter', 'independent-contractor-agreement': 'Independent contractor agreement', 'statement-of-work': 'Statement of work' };
 
 export const GUIDES = [
   { slug: 'automate-word-templates', title: 'How to automate a Word template without uploading it anywhere',
@@ -198,6 +198,7 @@ GUARANTEE
     description: 'A step-by-step guide to asking a customer for overdue payment in writing: what to include, tone, deadlines, interest, and what to do if they still do not pay.',
     body: (rel) => `
 <p class="lead">Most late invoices are paid after a clear, polite letter with a firm deadline. Here is how to write one that gets paid without damaging the relationship.</p>
+<p>Not at the demand stage yet? Start with a <a href="${rel}templates/payment-reminder-letter.html">payment reminder letter</a>, and see the full plan for <a href="${rel}guides/what-to-do-when-a-client-wont-pay.html">what to do when a client won't pay</a>.</p>
 <h2>Before you write</h2>
 <ul>
   <li>Check the contract or terms for the <a href="${rel}clauses/payment-terms-clause.html">payment terms</a> and any <a href="${rel}clauses/late-payment-interest-clause.html">late payment interest</a> clause.</li>
@@ -313,6 +314,71 @@ GUARANTEE
 <h2>Templates that include it</h2>
 <p>The free <a href="${rel}templates/graphic-design-contract.html">graphic design contract</a> and <a href="${rel}templates/freelance-writing-contract.html">freelance writing contract</a> include an optional kill fee you can switch on for each client.</p>
 <p class="small muted">General information, not legal advice.</p>` },
+  { slug: 'what-to-do-when-a-client-wont-pay', title: 'What to do when a client won\'t pay: a step-by-step plan',
+    description: 'A calm plan for an unpaid invoice: reminders, a final notice, late fees, a demand letter and small claims, with reminder emails you can copy.',
+    body: (rel) => `
+<p class="lead">Most late invoices are paid after a clear reminder. Most of the rest are paid once the client sees a date and a consequence. This plan takes you from a polite nudge to a formal demand, one step at a time, without damaging the relationship before you need to.</p>
+<h2>First, check the basics</h2>
+<ul>
+  <li>Did the invoice reach the person who actually pays, such as accounts payable, with any purchase order number they asked for?</li>
+  <li>Does it show the amount, what it is for, the due date and how to pay?</li>
+  <li>Is there a complaint about the work you have not answered? A dispute needs a conversation first, not a reminder.</li>
+</ul>
+<h2>Step 1: a friendly reminder on the due date</h2>
+<p>Send a short, neutral email on the due date or a few days before. Assume it was missed, attach the invoice again, and say how to pay.</p>
+<pre><code>Subject: Invoice [number] due today
+
+Hi [name],
+
+A quick reminder that invoice [number] for [amount] is due today. I've attached a copy in case it went astray. You can pay by [bank transfer / card link].
+
+Thanks,
+[your name]</code></pre>
+<h2>Step 2: a firmer reminder a week later</h2>
+<p>Ask a direct question. A question needs an answer; a statement is easy to ignore. If you can, also call or message the person who approved the work.</p>
+<pre><code>Subject: Invoice [number] is now 7 days overdue
+
+Hi [name],
+
+Invoice [number] for [amount] was due on [date] and I haven't received payment yet. Could you let me know when it will be paid? If there's a problem with the invoice, tell me and I'll sort it out.
+
+Thanks,
+[your name]</code></pre>
+<h2>Step 3: pause work, if your contract allows it</h2>
+<p>If you are part-way through a project or on a monthly retainer, say that new work will pause until the account is up to date. Check your contract first: the free <a href="${rel}templates/retainer-agreement.html">retainer agreement</a> includes a clause that allows it.</p>
+<h2>Step 4: a final notice with a date</h2>
+<p>About two to three weeks after the due date, send a final notice by email and by post. Give the amount, the dates of your earlier reminders, a pay-by date seven to fourteen days away, and exactly what you will do next. Only name a step you are really prepared to take.</p>
+<p>The free <a href="${rel}templates/payment-reminder-letter.html">payment reminder letter</a> does this: switch on <em>final notice</em> and it adds the earlier reminders and your next step.</p>
+<pre><code>Subject: Final notice: invoice [number], [amount]
+
+Hi [name],
+
+Invoice [number] for [amount] is now [number] days overdue, despite my reminders on [dates]. Please pay by [date]. If I don't receive payment or hear from you by then, I will [send a formal demand / start a small claim]. The attached letter has the details.
+
+[your name]</code></pre>
+<h2>Step 5: add interest or late fees you are entitled to</h2>
+<p>If your contract has a <a href="${rel}clauses/late-payment-interest-clause.html">late payment interest clause</a>, apply it and show the working. In the UK, a business owed money by another business can claim statutory interest at 8% above the Bank of England base rate, plus fixed compensation of &pound;40, &pound;70 or &pound;100 depending on the size of the debt, even without a clause. In the US it depends on your contract and your state's law.</p>
+<p>The free <a href="${rel}free-tools/late-payment-interest.html">late payment interest calculator</a> works out both.</p>
+<h2>Step 6: send a formal demand letter</h2>
+<p>If the final notice is ignored, a demand letter, also called a letter before action, is usually the last step before court or a collection agency. It should state the debt, how it arose, what you have already done, and a final date to pay. In England and Wales, if the client is an individual or sole trader, the Pre-Action Protocol for Debt Claims applies: the letter must include certain information and give them 30 days to reply.</p>
+<p>Use the free <a href="${rel}templates/payment-demand-letter.html">payment demand letter template</a> and the guide on <a href="${rel}guides/how-to-write-a-payment-demand-letter.html">how to write a demand letter for unpaid invoices</a>.</p>
+<h2>Step 7: small claims, mediation or collections</h2>
+<ul>
+  <li><strong>Small claims court.</strong> In the US, each state sets its own limit, typically somewhere between $2,500 and $25,000. In England and Wales, claims up to &pound;10,000 usually go to the small claims track, and you can start one online.</li>
+  <li><strong>Mediation.</strong> Cheaper and faster than a hearing, and it keeps the door open for future work. In England and Wales, most small money claims now include a free telephone mediation session.</li>
+  <li><strong>Collection agencies.</strong> They usually keep a percentage of what they recover, so they suit larger debts you have given up collecting yourself.</li>
+</ul>
+<h2>Can I keep the files until they pay?</h2>
+<p>If your contract says ownership passes only on payment in full, the client does not own the work until they pay, and holding back final files is usually fine. Taking down a live website or disabling something you have already handed over is riskier, so get advice before you do that. See the <a href="${rel}clauses/intellectual-property-clause.html">intellectual property clause</a>.</p>
+<h2>Stop it happening next time</h2>
+<ul>
+  <li>Take a deposit before you start, often 25% to 50%, and bill larger projects in milestones.</li>
+  <li>Put the due date, late fees and your right to pause work in a written <a href="${rel}clauses/payment-terms-clause.html">payment terms clause</a>.</li>
+  <li>Make ownership pass only on payment in full.</li>
+  <li>Agree a <a href="${rel}guides/what-is-a-kill-fee.html">kill fee</a> for cancelled work.</li>
+</ul>
+<p>The free <a href="${rel}for/freelancers.html">freelance contract templates</a> include these terms, and you can fill them in online without uploading client details.</p>
+<p class="small muted">General information, not legal advice. Debt recovery rules differ between countries and states.</p>` },
 ];
 
 export const pages = [
