@@ -31,6 +31,9 @@ export const SAMPLES = [
   { slug: 'event-planning-contract', file: 'event-planning-contract.docx', name: 'Event planning contract', category: 'Freelance', description: 'Event details, services list, day-of coordination, flat or percentage fee, retainer, vendor terms and postponement.' },
   { slug: 'personal-training-agreement', file: 'personal-training-agreement.docx', name: 'Personal training agreement', category: 'Freelance', description: 'Session packages or pay-per-session, late cancellation, health declaration, optional medical clearance and refunds.' },
   { slug: 'tutoring-agreement', file: 'tutoring-agreement.docx', name: 'Tutoring agreement', category: 'Freelance', description: 'Subjects and goals, online or in-person sessions, hourly fee, cancellation, progress reports and safeguarding.' },
+  { slug: 'payment-reminder-letter', file: 'payment-reminder-letter.docx', name: 'Payment reminder letter', category: 'Finance', description: 'Friendly reminder or final notice for an overdue invoice, with optional part payment, late fee and next steps.' },
+  { slug: 'subcontractor-agreement', file: 'subcontractor-agreement.docx', name: 'Subcontractor agreement', category: 'Business', description: 'Deliverables with due dates, fixed or hourly fee, optional pay-when-paid, white-label and non-solicitation terms, insurance.' },
+  { slug: 'retainer-agreement', file: 'retainer-agreement.docx', name: 'Retainer agreement', category: 'Freelance', description: 'Monthly retainer with a services list, included hours, rollover and overage rate, response times, minimum term and notice.' },
 ];
 
 export async function importDocxFile(ctx, file, { name } = {}) {

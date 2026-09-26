@@ -7,6 +7,12 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'What changed in each Clausery release.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.5.0 <span class="small muted">— 26 September 2026</span></h2>
+<ul>
+  <li>Three more templates: a payment reminder letter (friendly reminder or final notice), a subcontractor agreement and a monthly retainer agreement.</li>
+  <li>A step-by-step guide to what to do when a client won't pay, with reminder emails you can copy.</li>
+  <li>Comparison pages for HoneyBook, Bonsai, Dubsado and PandaDoc, for freelancers who only need contracts.</li>
+</ul>
 <h2>1.4.0 <span class="small muted">— 26 September 2026</span></h2>
 <ul>
   <li>Five more contract templates: video production, virtual assistant, event planning, personal training and tutoring.</li>

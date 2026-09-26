@@ -593,8 +593,85 @@ const tutoring = doc([
   P(''), P('{tutor_name}: ____________________________'), P('{parent_name}: ____________________________'),
 ]);
 
+const reminder = doc([
+  Title('{#is_final_notice}FINAL NOTICE BEFORE FURTHER ACTION{/is_final_notice}{^is_final_notice}PAYMENT REMINDER{/is_final_notice}'),
+  P('{letter_date}'),
+  P('{client_name}'), P('{client_address}'),
+  P('Re: Invoice {invoice_number} for {amount_due}, due {due_date}'),
+  P('Dear {client_salutation},'),
+  P('{^is_final_notice}I hope all is well. This is a friendly reminder that invoice {invoice_number} for {amount_due}, for {services_description}, was due on {due_date} and has not been paid yet. It may simply have been missed, so a copy is attached.{/is_final_notice}'),
+  P('{#is_final_notice}Invoice {invoice_number} for {amount_due}, for {services_description}, was due on {due_date} and remains unpaid despite our earlier reminders{#has_earlier_reminders} of {earlier_reminder_dates}{/has_earlier_reminders}.{/is_final_notice}'),
+  P('{#has_partial_payment}Thank you for the {amount_paid} received so far. The balance still owed is {balance_due}.{/has_partial_payment}'),
+  P('Please pay by {pay_by_date}. {payment_instructions}'),
+  P('{#mention_late_fee}As set out in our terms, a late payment charge of {late_fee} applies to balances not paid by that date.{/mention_late_fee}'),
+  P('{#is_final_notice}If we do not receive payment or hear from you by {pay_by_date}, we will {next_steps} without further notice. We would much rather settle this directly, so please contact us before then if there is a problem.{/is_final_notice}'),
+  P('If you have already paid, thank you, and please send the payment details so we can match it. If something about the invoice is wrong, or you would like to agree a payment plan, please contact {contact_name} at {contact_email}.'),
+  P('Kind regards,'), P('{contact_name}'), P('{business_name}'),
+]);
+
+const subcontractor = doc([
+  Title('SUBCONTRACTOR AGREEMENT'),
+  P('This Subcontractor Agreement is made on {effective_date} between {contractor_name}, {contractor_address} (the "Contractor"), and {subcontractor_name}, {subcontractor_address} (the "Subcontractor").'),
+  H('1. Background'),
+  P('The Contractor has agreed to provide services to {end_client_name} (the "Client") and engages the Subcontractor to perform part of that work.'),
+  H('2. Services'),
+  P('The Subcontractor will provide the following (the "Services"):'),
+  new Paragraph({ children: [new TextRun('{#deliverables}')] }),
+  Bullet('{deliverable_description}, due {deliverable_due_date}'),
+  new Paragraph({ children: [new TextRun('{/deliverables}')] }),
+  P('The Subcontractor will perform the Services with reasonable skill and care, on time, and to any standards the Contractor gives it in writing.{#must_follow_client_terms} The Contractor has shared the parts of its contract with the Client that apply to the Services, and the Subcontractor will comply with them as if it were the Contractor.{/must_follow_client_terms}'),
+  H('3. Fees and payment'),
+  P('{#is_fixed_fee}The Contractor will pay the Subcontractor a fixed fee of {fixed_fee} for the Services.{/is_fixed_fee}{^is_fixed_fee}The Contractor will pay the Subcontractor {hourly_rate} per hour, up to {max_hours} hours unless the Contractor agrees to more in writing.{/is_fixed_fee}'),
+  P('The Subcontractor will invoice the Contractor {invoice_frequency}. The Contractor will pay each undisputed invoice within {payment_days} days of receiving it.{#pay_when_paid} If the Client has not yet paid the Contractor for the related work, the Contractor may delay payment until {days_after_client_payment} days after the Client pays, but never more than {longstop_days} days after the invoice date.{/pay_when_paid}'),
+  P('{#reimburse_expenses}The Contractor will reimburse reasonable expenses that it approved in advance, supported by receipts.{/reimburse_expenses}'),
+  H('4. Independent contractor'),
+  P('The Subcontractor is an independent business, not an employee, partner or agent of the Contractor. It decides how to perform the Services, provides its own equipment, and is responsible for its own taxes and insurance. It may not pass the Services to anyone else without the Contractor\'s written consent.'),
+  H('5. The Client relationship'),
+  P('{#is_white_label}The Subcontractor will work as part of the Contractor\'s team, will not contact the Client about the project unless the Contractor agrees, and will pass any Client enquiries to the Contractor.{/is_white_label}'),
+  P('{#include_non_solicitation}During this Agreement and for {non_solicit_months} months after it ends, the Subcontractor will not solicit the Client for, or accept from the Client, work similar to the Services without the Contractor\'s written consent.{/include_non_solicitation}'),
+  H('6. Ownership of the work'),
+  P('Once the Contractor has paid for it, all work the Subcontractor creates for the Services belongs to the Contractor, so that the Contractor can pass it to the Client, and the Subcontractor assigns all rights in it to the Contractor. {#portfolio_use}The Subcontractor may show the work in its portfolio once the Client has made it public, unless the Contractor says otherwise.{/portfolio_use}{^portfolio_use}The Subcontractor will not show or publish the work.{/portfolio_use}'),
+  H('7. Confidentiality'),
+  P('The Subcontractor will keep the Contractor\'s and the Client\'s non-public information confidential and use it only to perform the Services, during this Agreement and for {confidentiality_years} years afterwards.'),
+  P('{#requires_insurance}The Subcontractor will hold {insurance_type} insurance with cover of at least {insurance_amount} while it performs the Services, and will show proof on request.{/requires_insurance}'),
+  H('8. Ending this Agreement'),
+  P('Either party may end this Agreement with {notice_days} days\' written notice. If the Client ends or reduces its project with the Contractor, the Contractor may end or reduce this Agreement to match by written notice. In every case the Contractor pays for Services properly performed up to the end date.'),
+  H('9. Governing law'),
+  P('This Agreement is governed by the laws of {governing_law}.'),
+  P(''), P('{contractor_name}: ____________________________'), P('{subcontractor_name}: ____________________________'),
+]);
+
+const retainer = doc([
+  Title('RETAINER AGREEMENT'),
+  P('This Retainer Agreement is made on {effective_date} between {provider_name}, {provider_address} (the "Provider"), and {client_name}, {client_address} (the "Client").'),
+  H('1. Services'),
+  P('Each month the Provider will be available to provide the following services (the "Services"):'),
+  new Paragraph({ children: [new TextRun('{#services}')] }),
+  Bullet('{service_description}'),
+  new Paragraph({ children: [new TextRun('{/services}')] }),
+  P('Work outside the Services, such as new projects, will be quoted separately before it starts.'),
+  H('2. Retainer fee'),
+  P('The Client will pay a monthly retainer of {monthly_fee}{#has_included_hours}, which covers up to {included_hours} hours of work each month{/has_included_hours}. The retainer is invoiced at the start of each month, in advance, and is payable within {payment_days} days.'),
+  P('{#has_included_hours}{#hours_roll_over}Unused hours carry over to the following month only, and then expire.{/hours_roll_over}{^hours_roll_over}Unused hours do not carry over to the following month.{/hours_roll_over} Extra hours are charged at {overage_rate} per hour and need the Client\'s approval before the work starts.{/has_included_hours}'),
+  P('The Provider may pause work while an invoice is more than {suspension_days} days overdue.{#charges_interest} Overdue invoices carry interest at {interest_rate} per year from the due date until paid.{/charges_interest}'),
+  P('{#annual_fee_review}The Provider may change the retainer fee once a year by giving {fee_notice_days} days\' written notice.{/annual_fee_review}'),
+  H('3. Availability'),
+  P('The Provider will reply to requests within {response_hours} business hours and aims to complete routine requests within {turnaround_days} business days. {#includes_monthly_report}The Provider will send a short monthly report of the work done and the hours used.{/includes_monthly_report}'),
+  H('4. Term'),
+  P('This Agreement starts on {start_date}{#has_minimum_term} and runs for a minimum of {minimum_term_months} months{/has_minimum_term}. {#has_minimum_term}After that, either{/has_minimum_term}{^has_minimum_term}Either{/has_minimum_term} party may end it with {notice_days} days\' written notice. The retainer for the notice period remains payable.'),
+  H('5. Ownership'),
+  P('Work the Provider creates for the Client belongs to the Client once it has been paid for. The Provider keeps its own tools, methods and pre-existing materials, and grants the Client a licence to use any that are part of the work. {#portfolio_use}The Provider may show the work in its portfolio once it is public.{/portfolio_use}'),
+  H('6. Confidentiality'),
+  P('Each party will keep the other\'s non-public information confidential, during this Agreement and for {confidentiality_years} years afterwards.'),
+  H('7. Independent contractor'),
+  P('The Provider is an independent business, not an employee of the Client, and is responsible for its own taxes, equipment and insurance. The Provider may work for other clients.'),
+  H('8. Governing law'),
+  P('This Agreement is governed by the laws of {governing_law}.'),
+  P(''), P('{provider_name}: ____________________________'), P('{client_name}: ____________________________'),
+]);
+
 mkdirSync('samples', { recursive: true });
-for (const [file, d] of [['video-production-contract.docx', video], ['virtual-assistant-agreement.docx', assistant], ['event-planning-contract.docx', eventPlanning], ['personal-training-agreement.docx', training], ['tutoring-agreement.docx', tutoring], ['web-design-contract.docx', webDesign], ['graphic-design-contract.docx', graphicDesign], ['photography-contract.docx', photography], ['social-media-management-contract.docx', socialMedia], ['freelance-writing-contract.docx', writing], ['mutual-nda.docx', nda], ['engagement-letter.docx', engagement], ['offer-letter.docx', offer], ['independent-contractor-agreement.docx', contractor], ['statement-of-work.docx', sow], ['employment-verification-letter.docx', verification], ['payment-demand-letter.docx', demand], ['one-way-nda.docx', unilateralNda], ['consulting-agreement.docx', consulting], ['employment-termination-letter.docx', termination], ['reference-letter.docx', reference], ['salary-increase-letter.docx', raise], ['internship-offer-letter.docx', internship], ['service-agreement.docx', service], ['cease-and-desist-letter.docx', cease], ['promissory-note.docx', promissory], ['resignation-letter.docx', resignation]]) {
+for (const [file, d] of [['payment-reminder-letter.docx', reminder], ['subcontractor-agreement.docx', subcontractor], ['retainer-agreement.docx', retainer], ['video-production-contract.docx', video], ['virtual-assistant-agreement.docx', assistant], ['event-planning-contract.docx', eventPlanning], ['personal-training-agreement.docx', training], ['tutoring-agreement.docx', tutoring], ['web-design-contract.docx', webDesign], ['graphic-design-contract.docx', graphicDesign], ['photography-contract.docx', photography], ['social-media-management-contract.docx', socialMedia], ['freelance-writing-contract.docx', writing], ['mutual-nda.docx', nda], ['engagement-letter.docx', engagement], ['offer-letter.docx', offer], ['independent-contractor-agreement.docx', contractor], ['statement-of-work.docx', sow], ['employment-verification-letter.docx', verification], ['payment-demand-letter.docx', demand], ['one-way-nda.docx', unilateralNda], ['consulting-agreement.docx', consulting], ['employment-termination-letter.docx', termination], ['reference-letter.docx', reference], ['salary-increase-letter.docx', raise], ['internship-offer-letter.docx', internship], ['service-agreement.docx', service], ['cease-and-desist-letter.docx', cease], ['promissory-note.docx', promissory], ['resignation-letter.docx', resignation]]) {
   writeFileSync(`samples/${file}`, await deterministic(await Packer.toBuffer(d)));
   console.log('wrote samples/' + file);
 }
