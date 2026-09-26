@@ -19,6 +19,7 @@ const TOOL_CSS = `<style>
 .tool .check { display: flex; gap: .5rem; align-items: center; font-weight: 400; margin-bottom: 1rem; } .tool .check input { width: auto; }
 .embed-code { width: 100%; font: .85rem/1.45 var(--mono); padding: .75rem; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--surface-2); color: var(--text); resize: vertical; }
 .embed-tools { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; margin: .75rem 0 1rem; }
+.schedule-wrap { max-height: 22rem; overflow: auto; margin-top: .5rem; } .tool details summary { cursor: pointer; font-weight: 600; }
 .terms-table { width: 100%; border-collapse: collapse; font-size: .95rem; } .terms-table th, .terms-table td { text-align: left; padding: .55rem .5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
 </style>`;
 const crumbs = (rel, name) => `<nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}free-tools/">Free tools</a> › ${name}</nav>`;
@@ -46,6 +47,10 @@ const TOOL_FAQ = [
     ['What does 2/10 net 30 mean?', 'The customer can take 2% off if they pay within 10 days; otherwise the full amount is due in 30 days. Passing up that discount is expensive: it works out at about 37% a year, which is why finance teams usually take it.'],
     ['What do EOM and MFI mean on an invoice?', 'EOM means end of month: "net 30 EOM" is due 30 days after the end of the month the invoice is dated in. MFI means month following invoice: "15 MFI" is due on the 15th of the next month. Some suppliers treat invoices dated late in the month as next month\'s, so check your terms.'],
     ['Is there a legal limit on payment terms?', 'In the UK and the EU, if a business contract sets no payment date, statutory interest generally starts 30 days after the invoice (or delivery, if later), and agreed terms longer than 60 days must not be grossly unfair to the supplier. In the US, private business terms are set by contract; federal agencies generally pay within 30 days under the Prompt Payment Act.']],
+  [['How is a loan repayment calculated?', 'For a loan repaid in equal instalments, the payment is P × i ÷ (1 − (1 + i)^−n), where P is the amount borrowed, i is the interest rate for one payment period (the yearly rate divided by the number of payments a year) and n is the number of payments. Each payment covers that period\'s interest first, and the rest reduces the balance.'],
+    ['What is an amortization schedule?', 'A table of every payment showing how much goes to interest, how much repays the loan, and the balance left afterwards. Early payments are mostly interest; later ones are mostly repayment.'],
+    ['Why is the last payment slightly different?', 'Payments are rounded to the cent, so the final payment is adjusted by a few cents to clear the balance exactly.'],
+    ['Does this match my bank\'s figures?', 'Usually to within a few cents or dollars. Some lenders charge interest daily, add fees, or round differently, so their figures can differ slightly.']]
 ];
 
 // `height` is the iframe's fallback height (px) in the embed code, for sites that strip the resize script: it fits the
@@ -55,6 +60,7 @@ const TOOLS = [
   { slug: 'deadline-calculator', name: 'Contract deadline calculator', desc: 'Add or subtract days, business days, weeks, months or years from a date, with month-end handling and your own holidays.', height: 540 },
   { slug: 'invoice-due-date', name: 'Invoice due date calculator', desc: 'Find the due date for Net 30, Net 60, EOM, 15 MFI or 2/10 net 30 invoices, the days left to pay and what an early payment discount is worth.', height: 460 },
   { slug: 'late-payment-interest', name: 'Late payment interest calculator', desc: 'Work out interest on an overdue invoice at your contract rate, or UK statutory interest at 8% above base rate plus the fixed compensation sum.', height: 540 },
+  { slug: 'loan-repayment', name: 'Loan repayment calculator', desc: 'Work out the payment on a loan repaid in equal instalments, the total interest and a full repayment schedule with dates, for weekly to yearly payments.', height: 500 },
   { slug: 'freelance-rate', name: 'Freelance rate calculator', desc: 'Work back from the income you want to keep to the hourly and day rate you need to charge, after tax, costs and time off.', height: 580 },
   { slug: 'template-checker', name: 'Word template tag checker', desc: 'Check a .docx template for broken {tags} and see the questionnaire it would produce. The file never leaves your computer.' },
 ];
@@ -153,6 +159,22 @@ const WIDGET = {
   <p class="small muted" id="result-note" style="margin-top:.5rem"></p>
 </div>`,
   'invoice-due-date': INVOICE_WIDGET,
+  'loan-repayment': `<div class="tool">
+  <div class="row">
+    <div><label for="amount">Loan amount</label><input id="amount" inputmode="decimal" value="12000" autocomplete="off"></div>
+    <div><label for="currency">Currency</label><select id="currency"><option value="USD">US dollars</option><option value="GBP">Pounds sterling</option><option value="EUR">Euros</option><option value="CAD">Canadian dollars</option><option value="AUD">Australian dollars</option><option value="INR">Rupees</option></select></div>
+    <div><label for="rate">Interest rate (% a year)</label><input id="rate" inputmode="decimal" value="5" autocomplete="off"></div>
+  </div>
+  <div class="row">
+    <div><label for="payments">Number of payments</label><input id="payments" type="number" min="1" max="1200" step="1" value="24"></div>
+    <div><label for="frequency">Paid</label><select id="frequency"><option value="weekly">Weekly</option><option value="fortnightly">Every two weeks</option><option value="monthly" selected>Monthly</option><option value="quarterly">Quarterly</option><option value="yearly">Yearly</option></select></div>
+    <div><label for="first">First payment date (optional)</label><input id="first" type="date"></div>
+  </div>
+  <p id="error" class="err" role="alert" hidden></p>
+  <div class="out" id="result" aria-live="polite"></div>
+  <p class="small muted" id="result-note" style="margin-top:.5rem"></p>
+  <details id="schedule-box"><summary>Repayment schedule</summary><div class="schedule-wrap" tabindex="0"><table id="schedule" class="terms-table"><thead><tr><th scope="col">#</th><th scope="col" id="date-col" hidden>Date</th><th scope="col">Payment</th><th scope="col">Interest</th><th scope="col">Principal</th><th scope="col">Balance</th></tr></thead><tbody></tbody></table></div></details>
+</div>`,
 };
 
 // The code other sites paste to embed a calculator. The credit link sits outside the iframe so it counts as a normal
@@ -177,7 +199,7 @@ body.embed { background: transparent; }
 .embed-credit { font-size: .82rem; margin: .5rem 0 0; }
 </style>`;
 export const pages = [
-  { path: 'free-tools/', title: 'Free drafting tools', description: 'Free tools for people who draft documents and send invoices: amount in words, deadlines, invoice due dates, late payment interest, freelance rates and more.',
+  { path: 'free-tools/', title: 'Free drafting tools', description: 'Free tools for drafting and invoicing: amount in words, deadlines, invoice due dates, late payment interest, loan repayments, freelance rates and more.',
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem"><h1>Free drafting tools</h1><p class="lead">Small tools for everyday drafting and invoicing. They run entirely in your browser; nothing you type is sent anywhere. The calculators can also be <a href="#embed">added to your own website</a> for free.</p>
 <div class="grid grid-3" style="margin-top:2rem">${TOOLS.map((t) => `<a class="feature" style="text-decoration:none;color:inherit" href="${rel}free-tools/${t.slug}.html"><h2 style="font-size:1.1rem">${t.name}</h2><p>${t.desc}</p></a>`).join('')}</div>
 <h2 id="embed" style="margin-top:3rem">Put a calculator on your website</h2>
@@ -261,6 +283,19 @@ ${embedSection('freelance-rate')}
 ${faqHtml(TOOL_FAQ[4])}
 ${cta(rel)}</div></section>` },
 
+  { path: 'free-tools/loan-repayment.html', title: 'Loan repayment calculator with amortization schedule', description: T['loan-repayment'].desc,
+    extraHead: faqLd(TOOL_FAQ[6]) + TOOL_CSS + appLd(T['loan-repayment'].name, T['loan-repayment'].desc, 'free-tools/loan-repayment.html') + `<script type="module" src="loan-repayment.js"></script>`,
+    body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Loan repayment')}
+<h1 style="margin-top:1rem">Loan repayment calculator</h1>
+<p class="lead">Lending to family, a friend or a business? Enter the amount, the interest rate and the number of payments to see the payment, the total interest, and a full schedule you can attach to the loan agreement.</p>
+${WIDGET['loan-repayment']}
+<p class="small muted">Interest is charged each period at the yearly rate divided by the number of payments a year. Enter 0% for an interest-free loan. A calculation aid, not financial or tax advice.</p>
+<h2>Put the loan in writing</h2>
+<p>Write the payment, the number of payments and the first and last payment dates into a signed agreement. The free <a href="${rel}templates/loan-agreement.html">loan agreement template</a> covers interest, instalments, a late fee, collateral and a guarantor; for a simple loan, a <a href="${rel}templates/promissory-note.html">promissory note</a> is enough. If you charge interest, check the legal maximum where the borrower lives, and for large family loans check the tax rules on interest-free lending.</p>
+${embedSection('loan-repayment')}
+<h2 style="margin-top:2.5rem">Questions</h2>
+${faqHtml(TOOL_FAQ[6])}
+${cta(rel)}</div></section>` },
   { path: 'free-tools/template-checker.html', title: 'Word template tag checker', description: T['template-checker'].desc,
     extraHead: faqLd(TOOL_FAQ[2]) + TOOL_CSS + appLd(T['template-checker'].name, T['template-checker'].desc, 'free-tools/template-checker.html') + `<script type="module" src="template-checker.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Template checker')}

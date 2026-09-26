@@ -1,14 +1,22 @@
 // Free template library: one page per shipped sample, generated from the real .docx so the question list always matches
 // what the app asks. Each page offers the Word template download and a one-click "fill it in your browser" deep link.
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { inspectDocx } from '../app/lib/render.js';
 import { inferQuestionnaire, FIELD_TYPES } from '../app/lib/schema.js';
 import { esc, SITE } from '../tools/partials.mjs';
 import { CLAUSES } from './data/clauses.mjs';
 import { GUIDES } from './audience.mjs';
 // The how-to guide that goes with each template, where there is one.
-const GUIDE_FOR = { 'payment-reminder-letter': 'what-to-do-when-a-client-wont-pay', 'subcontractor-agreement': 'how-to-write-a-freelance-contract', 'retainer-agreement': 'how-to-write-a-freelance-contract', 'offer-letter': 'how-to-write-an-offer-letter', 'internship-offer-letter': 'how-to-write-an-offer-letter', 'payment-demand-letter': 'how-to-write-a-payment-demand-letter', 'statement-of-work': 'what-to-include-in-a-statement-of-work', 'consulting-agreement': 'what-to-include-in-a-statement-of-work', 'service-agreement': 'what-to-include-in-a-statement-of-work', 'mutual-nda': 'what-to-include-in-an-nda', 'one-way-nda': 'what-to-include-in-an-nda', 'engagement-letter': 'automate-word-templates', 'web-design-contract': 'how-to-write-a-freelance-contract', 'graphic-design-contract': 'what-is-a-kill-fee', 'photography-contract': 'how-to-write-a-freelance-contract', 'social-media-management-contract': 'how-to-write-a-freelance-contract', 'freelance-writing-contract': 'what-is-a-kill-fee', 'video-production-contract': 'how-to-write-a-freelance-contract', 'virtual-assistant-agreement': 'how-to-write-a-freelance-contract', 'event-planning-contract': 'how-to-write-a-freelance-contract' };
+const GUIDE_FOR = { 'memorandum-of-understanding': 'is-an-mou-legally-binding', 'letter-of-intent': 'is-an-mou-legally-binding', 'payment-reminder-letter': 'what-to-do-when-a-client-wont-pay', 'subcontractor-agreement': 'how-to-write-a-freelance-contract', 'retainer-agreement': 'how-to-write-a-freelance-contract', 'offer-letter': 'how-to-write-an-offer-letter', 'internship-offer-letter': 'how-to-write-an-offer-letter', 'payment-demand-letter': 'how-to-write-a-payment-demand-letter', 'statement-of-work': 'what-to-include-in-a-statement-of-work', 'consulting-agreement': 'what-to-include-in-a-statement-of-work', 'service-agreement': 'what-to-include-in-a-statement-of-work', 'mutual-nda': 'what-to-include-in-an-nda', 'one-way-nda': 'what-to-include-in-an-nda', 'engagement-letter': 'automate-word-templates', 'web-design-contract': 'how-to-write-a-freelance-contract', 'graphic-design-contract': 'what-is-a-kill-fee', 'photography-contract': 'how-to-write-a-freelance-contract', 'social-media-management-contract': 'how-to-write-a-freelance-contract', 'freelance-writing-contract': 'what-is-a-kill-fee', 'video-production-contract': 'how-to-write-a-freelance-contract', 'virtual-assistant-agreement': 'how-to-write-a-freelance-contract', 'event-planning-contract': 'how-to-write-a-freelance-contract' };
 const GUIDE = Object.fromEntries(GUIDES.map((g) => [g.slug, g]));
+// The free calculator that goes with a template, where there is one.
+const TOOL_FOR = {
+  'loan-agreement': ['loan-repayment', 'Loan repayment calculator: the instalment amount and a full schedule'],
+  'promissory-note': ['loan-repayment', 'Loan repayment calculator: the instalment amount and a full schedule'],
+  'payment-reminder-letter': ['late-payment-interest', 'Late payment interest calculator'],
+  'payment-demand-letter': ['late-payment-interest', 'Late payment interest calculator'],
+  'retainer-agreement': ['invoice-due-date', 'Invoice due date calculator: net 30, EOM and more'],
+};
 
 export const LIB = [
   { slug: 'mutual-nda', file: 'mutual-nda.docx', name: 'Mutual NDA', title: 'Free mutual NDA template (Word)', category: 'Legal',
@@ -161,6 +169,30 @@ export const LIB = [
     who: 'Freelancers, consultants and small agencies with ongoing monthly clients. For a law firm retainer, use the engagement letter.',
     clauses: ['Services included each month, as a list', 'Monthly fee, invoiced in advance', 'Optional included hours, rollover and an hourly rate for extra hours', 'Pausing work on overdue invoices, and optional interest', 'Optional yearly fee review with notice', 'Response and turnaround times, and an optional monthly report', 'Start date, optional minimum term and notice to end', 'The client owns paid work; you keep your own tools and methods', 'Confidentiality, independent contractor status and governing law'],
     faq: [['What is a retainer agreement?', 'An agreement where a client pays a fixed fee each month to reserve your time or a set of services. You get predictable income, and the client gets priority access without a new quote for every small job.'], ['Should unused hours roll over?', 'It is your choice. Rolling hours over for one month only is a common middle ground: it feels fair to the client without letting a large backlog build up. Switch rollover on or off for each client.'], ['How is this different from a law firm retainer?', 'A lawyer\'s retainer usually means money paid in advance and held in a client trust account. This template is a monthly service retainer for freelancers and agencies. Law firms can use the free engagement letter template instead.']] },
+  { slug: 'memorandum-of-understanding', file: 'memorandum-of-understanding.docx', name: 'Memorandum of understanding (MOU)', title: 'Free memorandum of understanding (MOU) template (Word)', category: 'Business',
+    description: "Free memorandum of understanding (MOU) template for Word: each party's commitments, costs, term, confidentiality and a binding or non-binding choice.",
+    intro: 'A memorandum of understanding for two organisations working together: the purpose, what each side will do, how costs are shared, the term, optional confidentiality, and a clear choice of whether it is legally binding.',
+    who: 'Businesses, charities, schools and public bodies agreeing a partnership, pilot or joint project before, or instead of, a full contract.',
+    clauses: ['Parties and short names', 'Purpose of the collaboration', 'What each party will do, as two lists', 'Shared costs, or each side pays its own', 'Start and end dates, and ending early by notice', 'Optional confidentiality for a set number of years', 'Binding or non-binding, with the binding parts named', 'Contact people and governing law', 'Signature blocks'],
+    faq: [['Is an MOU legally binding?', 'It depends on the wording and how the parties act, not on the title. This template lets you choose: non-binding apart from named clauses such as confidentiality, or binding. Read the guide on whether an MOU is binding before you sign.'], ['What is the difference between an MOU and a contract?', 'A contract creates obligations the courts will enforce. An MOU usually records shared intentions and a plan, often before a contract is negotiated, though a detailed MOU that says it is binding can be a contract.']] },
+  { slug: 'letter-of-intent', file: 'letter-of-intent.docx', name: 'Letter of intent (business purchase)', title: 'Free letter of intent template to buy a business (Word)', category: 'Business',
+    description: "Free letter of intent template to buy a business: price, earn-out, due diligence, exclusivity and closing conditions. Fill it in online or download it.",
+    intro: 'A letter of intent to buy a business or its assets: the price and how it is paid, an optional earn-out, due diligence, closing conditions, optional exclusivity, confidentiality and costs, with everything except those protections left non-binding.',
+    who: 'Buyers of small and mid-sized businesses, and their advisers, setting out an offer before lawyers draft the purchase agreement.',
+    clauses: ['Share purchase or asset purchase', 'Price, paid at closing or in stages', 'Optional earn-out', 'Due diligence access and timetable', 'Definitive agreement, target closing date and conditions as a list', 'Optional exclusivity (no-shop) period', 'Confidentiality, with an optional reference to an existing NDA', 'Which paragraphs are binding', 'Offer expiry date and signatures'],
+    faq: [['Is a letter of intent binding?', 'Usually only in part. This letter says the price and deal terms are not binding until a definitive agreement is signed, while exclusivity, confidentiality and costs are. Courts can still find a deal was agreed if the parties act as if it was, so keep the wording and your conduct consistent.'], ['What is the difference between a letter of intent and an MOU?', 'Both record intentions before a final agreement. A letter of intent is usually a one-sided offer in letter form, common for buying a business or property; an MOU is usually a joint statement between two partners.']] },
+  { slug: 'bill-of-sale', file: 'bill-of-sale.docx', name: 'Bill of sale', title: 'Free bill of sale template, with vehicle option (Word)', category: 'Legal',
+    description: "Free bill of sale template for a car, boat, equipment or any item, with VIN and odometer, deposit and balance, and as-is terms. Fill it in online or download.",
+    intro: 'A general bill of sale for a car, boat, equipment, furniture or any other item: the buyer and seller, what was sold, the price, full payment or a deposit and balance, ownership, an as-is or warranty choice, and optional vehicle, witness and notary sections.',
+    who: 'Private sellers and small businesses selling a vehicle, equipment or other property and wanting a signed record of the sale.',
+    clauses: ['Seller, buyer and date of sale', 'Description of the item', 'Optional vehicle details: year, make, model, colour, VIN and odometer', 'Price and how it is paid', 'Paid in full, or a deposit and balance due by a date', 'Ownership and any disclosed liens', 'Sold as is, or with a warranty', 'Signatures, optional witness and notary acknowledgment'],
+    faq: [['Does a bill of sale transfer a car\'s title?', 'No. It is a record of the sale. To transfer a vehicle you usually also sign over the title or registration document and follow your motor vehicle agency\'s process, which may have its own form and an odometer disclosure.'], ['Does a bill of sale need to be notarized?', 'Usually not, but some states and agencies require it for vehicles or boats. The notary section is optional; check the rules where the item is registered.']] },
+  { slug: 'loan-agreement', file: 'loan-agreement.docx', name: 'Loan agreement', title: 'Free loan agreement template (Word)', category: 'Finance',
+    description: "Free loan agreement template for family, friend or business loans: interest, instalments, late fee, collateral and a guarantor. Fill it in online or download.",
+    intro: 'A loan agreement for a family, friend or business loan: the amount and purpose, optional interest capped at the legal maximum, one repayment or instalments, early repayment, an optional late fee, collateral and guarantor, default and governing law.',
+    who: 'Individuals and small businesses lending money who want more detail than a promissory note, such as security, a guarantor and default terms.',
+    clauses: ['Lender, borrower and loan amount', 'Optional stated purpose', 'Interest or interest-free, capped at the lawful maximum', 'One payment by a date, or instalments', 'Early repayment without penalty', 'Optional late fee after a grace period', 'Optional collateral and guarantor', 'Default and acceleration, with optional collection costs', 'Entire agreement, changes, severability and governing law'],
+    faq: [['What is the difference between a loan agreement and a promissory note?', 'A promissory note is a short promise by the borrower to repay. A loan agreement is signed by both sides and usually adds more terms, such as collateral, a guarantor, a late fee and what counts as default. For a simple loan, the promissory note template is enough.'], ['How do I work out the instalment amount?', 'Use the free loan repayment calculator: enter the amount, the interest rate and the number of payments, and it shows the payment and a full repayment schedule.'], ['Do family loans need interest?', 'Not legally in most places, but tax rules may treat large interest-free loans as gifts or impute interest, for example under US federal tax rules. Check before lending a large amount.']] },
 ];
 
 function questionsFor(file) {
@@ -178,6 +210,7 @@ const COMMON_FAQ = [
 ];
 
 for (const [t, g] of Object.entries(GUIDE_FOR)) if (!GUIDE[g] || !LIB.some((x) => x.slug === t)) throw new Error(`GUIDE_FOR: ${t} -> ${g}`);
+for (const [t, [tool]] of Object.entries(TOOL_FOR)) if (!existsSync(`free-tools/${tool}.js`) || !LIB.some((x) => x.slug === t)) throw new Error(`TOOL_FOR: ${t} -> ${tool}`);
 
 export const pages = [
   {
@@ -200,7 +233,7 @@ export const pages = [
     const faq = [...t.faq, ...COMMON_FAQ];
     return {
       path: `templates/${t.slug}.html`, title: t.title, ogImage: `assets/og/${t.slug}.png`,
-      description: `Free ${/^[A-Z][a-z]/.test(t.name) ? t.name[0].toLowerCase() + t.name.slice(1) : t.name} template for Word. Fill it in online in minutes or download the .docx; nothing is uploaded. ${t.intro}`,
+      description: t.description || `Free ${/^[A-Z][a-z]/.test(t.name) ? t.name[0].toLowerCase() + t.name.slice(1) : t.name} template for Word. Fill it in online in minutes or download the .docx; nothing is uploaded. ${t.intro}`,
       extraHead: faqLd(faq) + crumbsLd([['Home', ''], ['Templates', 'templates/'], [t.name, `templates/${t.slug}.html`]]),
       body: (rel) => `
 <section class="section"><div class="wrap" style="max-width:52rem">
@@ -236,6 +269,7 @@ export const pages = [
 ${CLAUSES.some((c) => c.templates.includes(t.slug)) ? `  <h2 style="margin-top:2.5rem">Clauses in this template, explained</h2>
   <ul>${CLAUSES.filter((c) => c.templates.includes(t.slug)).map((c) => `<li><a href="${rel}clauses/${c.slug}.html">${esc(c.name)}</a></li>`).join('')}</ul>
 ` : ''}${GUIDE_FOR[t.slug] ? `  <p style="margin-top:2rem"><strong>Guide:</strong> <a href="${rel}guides/${GUIDE_FOR[t.slug]}.html">${esc(GUIDE[GUIDE_FOR[t.slug]].title)}</a></p>
+` : ''}${TOOL_FOR[t.slug] ? `  <p><strong>Free tool:</strong> <a href="${rel}free-tools/${TOOL_FOR[t.slug][0]}.html">${esc(TOOL_FOR[t.slug][1])}</a></p>
 ` : ''}  <h2 style="margin-top:2.5rem">More free templates</h2>
   <ul>${LIB.filter((x) => x.slug !== t.slug).map((x) => `<li><a href="${rel}templates/${x.slug}.html">${esc(x.name)}</a></li>`).join('')}</ul>
   <p class="small muted" style="margin-top:2rem">This template is a general sample and not legal advice. Laws vary by jurisdiction; have it reviewed before use.</p>

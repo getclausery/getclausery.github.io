@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
-const PAGES = ['', 'pricing/', 'docs/', 'docs/templates.html', 'docs/security.html', 'legal/privacy.html', '404.html', 'templates/', 'templates/statement-of-work.html', 'compare/gavel-alternative.html', 'for/law-firms.html', 'guides/automate-word-templates.html', 'free-tools/amount-in-words.html', 'free-tools/deadline-calculator.html', 'free-tools/template-checker.html', 'free-tools/late-payment-interest.html', 'free-tools/freelance-rate.html', 'for/freelancers.html', 'press/', 'clauses/', 'clauses/indemnification-clause.html', 'guides/what-to-include-in-an-nda.html', 'guides/what-to-do-when-a-client-wont-pay.html', 'templates/payment-reminder-letter.html', 'compare/', 'compare/honeybook-alternative.html', 'free-tools/invoice-due-date.html', 'free-tools/embed/invoice-due-date.html', 'free-tools/embed/amount-in-words.html'];
+const PAGES = ['', 'pricing/', 'docs/', 'docs/templates.html', 'docs/security.html', 'legal/privacy.html', '404.html', 'templates/', 'templates/statement-of-work.html', 'compare/gavel-alternative.html', 'for/law-firms.html', 'guides/automate-word-templates.html', 'free-tools/amount-in-words.html', 'free-tools/deadline-calculator.html', 'free-tools/template-checker.html', 'free-tools/late-payment-interest.html', 'free-tools/freelance-rate.html', 'for/freelancers.html', 'press/', 'clauses/', 'clauses/indemnification-clause.html', 'guides/what-to-include-in-an-nda.html', 'guides/what-to-do-when-a-client-wont-pay.html', 'templates/payment-reminder-letter.html', 'compare/', 'compare/honeybook-alternative.html', 'free-tools/invoice-due-date.html', 'free-tools/embed/invoice-due-date.html', 'free-tools/embed/amount-in-words.html', 'free-tools/loan-repayment.html', 'free-tools/embed/loan-repayment.html', 'templates/memorandum-of-understanding.html', 'templates/bill-of-sale.html', 'guides/is-an-mou-legally-binding.html'];
 for (const p of PAGES) {
   test(`site page ${p || 'home'} renders and has no serious accessibility violations`, async ({ page }) => {
     const res = await page.goto(p);
@@ -69,6 +69,16 @@ test('free tools work in the page', async ({ page }) => {
   await page.selectOption('#terms', 'other'); await page.fill('#custom', '15 MFI');
   await expect(page.locator('#result')).toHaveText('Due Wednesday, April 15, 2026');
   await expect(page.locator('#result-discount')).toHaveText('');
+  await page.goto('free-tools/loan-repayment.html');
+  await expect(page.locator('#result')).toHaveText('$526.46 a month');
+  await page.fill('#first', '2026-11-01');
+  await expect(page.locator('#result-note')).toContainText('Final payment on October 1, 2028.');
+  await page.click('#schedule-box summary');
+  await expect(page.locator('#schedule tbody tr')).toHaveCount(24);
+  await expect(page.locator('#schedule tbody tr').first()).toContainText('$50.00');
+  await page.fill('#rate', 'x');
+  await expect(page.locator('#error')).toBeVisible();
+  await expect(page.locator('#schedule-box')).toBeHidden();
 });
 
 test('calculators can be embedded on other sites with a credit link', async ({ page, context, baseURL }) => {
@@ -95,7 +105,7 @@ test('calculators can be embedded on other sites with a credit link', async ({ p
   // On another site: the embed code's script fits the iframe to the calculator at any width; without the script
   // (some sites strip it) the fixed height still fits the calculator in a column 520px wide or more.
   const origin = new URL(baseURL).origin;
-  for (const slug of ['amount-in-words', 'deadline-calculator', 'invoice-due-date', 'late-payment-interest', 'freelance-rate']) {
+  for (const slug of ['amount-in-words', 'deadline-calculator', 'invoice-due-date', 'late-payment-interest', 'loan-repayment', 'freelance-rate']) {
     await page.goto(`free-tools/${slug}.html`);
     const snippet = (await page.locator('#embed-code').inputValue()).replaceAll('https://getclausery.github.io/', baseURL).replace("'https://getclausery.github.io'", `'${origin}'`);
     for (const [width, script] of [[360, true], [760, true], [520, false]]) {
