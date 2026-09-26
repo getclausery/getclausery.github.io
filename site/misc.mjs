@@ -7,6 +7,12 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'What changed in each Clausery release.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.7.0 <span class="small muted">— 26 September 2026</span></h2>
+<ul>
+  <li>Four more templates: a memorandum of understanding (MOU), a letter of intent to buy a business, a bill of sale with optional vehicle details, and a loan agreement.</li>
+  <li>A free loan repayment calculator with a full repayment schedule, which can also be embedded on other websites.</li>
+  <li>A guide to whether an MOU is legally binding, and how it differs from a letter of intent and a contract.</li>
+</ul>
 <h2>1.6.0 <span class="small muted">— 26 September 2026</span></h2>
 <ul>
   <li>A free invoice due date calculator for net 30, net 60, end-of-month, 15 MFI and early payment discount terms such as 2/10 net 30.</li>

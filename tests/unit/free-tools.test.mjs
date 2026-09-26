@@ -82,3 +82,20 @@ test('embed pages are kept out of the sitemap and llms.txt', async () => {
   assert.match(embed, /<meta name="robots" content="noindex, follow">/);
   assert.doesNotMatch(embed, /site-header|rel="canonical"/);
 });
+
+test('loan repayment: equal payments, rounding on the last one, and dated schedules', async () => {
+  const { loanRepayment } = await import('../../free-tools/loan-repayment.js');
+  const r = loanRepayment({ amount: '12,000', rate: '5', payments: 24, frequency: 'monthly', firstPayment: '2026-11-01' });
+  assert.equal(r.payment, 526.46);                                         // 12,000 × i / (1 − (1 + i)^−24), i = 5% / 12
+  assert.equal(r.rows[0].interest, 50);                                    // 12,000 × 5% / 12
+  assert.equal(r.rows.at(-1).balance, 0);
+  assert.equal(r.last, 526.35);
+  assert.equal(r.totalInterest, 634.93);
+  assert.equal(r.rows.at(-1).date, '2028-10-01');
+  assert.deepEqual(loanRepayment({ amount: 1000, rate: 0, payments: 3 }).rows.map((x) => x.payment), [333.33, 333.33, 333.34]);
+  assert.deepEqual(loanRepayment({ amount: 5000, rate: 8, payments: 3, firstPayment: '2026-01-31' }).rows.map((x) => x.date), ['2026-01-31', '2026-02-28', '2026-03-31']);
+  assert.equal(loanRepayment({ amount: 5000, rate: 8, payments: 52, frequency: 'weekly', firstPayment: '2026-01-31' }).rows[1].date, '2026-02-07');
+  assert.match(loanRepayment({ amount: 5000, rate: '', payments: 3 }).error, /interest rate/);
+  assert.match(loanRepayment({ amount: 5000, rate: 5, payments: 2.5 }).error, /whole number/);
+  assert.match(loanRepayment({ amount: 0, rate: 5, payments: 12 }).error, /loan amount/);
+});

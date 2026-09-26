@@ -83,6 +83,18 @@ test.describe('core drafting flow', () => {
   });
 });
 
+test('the new business templates open as drafts from their deep links', async ({ browser, baseURL }) => {
+  // a fresh browser profile for each, since the free plan holds three templates
+  for (const [slug, name] of [['memorandum-of-understanding', 'Memorandum of understanding (MOU)'], ['letter-of-intent', 'Letter of intent (business purchase)'], ['bill-of-sale', 'Bill of sale'], ['loan-agreement', 'Loan agreement']]) {
+    const context = await browser.newContext({ baseURL });
+    const page = await context.newPage();
+    await page.goto(`app/#/start/${slug}`);
+    await page.waitForSelector('.stepper');
+    await expect(page.locator('#main .badge').first()).toHaveText(name);
+    await context.close();
+  }
+});
+
 test('template library "Fill it in now" opens a ready draft, and reuses the template on a second visit', async ({ page }) => {
   await page.goto('templates/payment-demand-letter.html');
   await page.click('a:has-text("Fill it in now")');

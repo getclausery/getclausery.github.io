@@ -92,7 +92,7 @@ These obligations continue for {confidentiality_years} years after this Agreemen
       ['Is a confidentiality clause the same as an NDA?', 'It does the same job. An NDA is a standalone agreement, usually signed before a deal. A confidentiality clause sits inside a larger contract, such as a services or employment agreement.'],
       ['How long should confidentiality last?', 'Long enough for the information to lose its value. Two to five years suits most commercial information; trade secrets need protection for as long as they remain secret.'],
     ],
-    templates: ['mutual-nda', 'one-way-nda', 'consulting-agreement', 'independent-contractor-agreement', 'subcontractor-agreement', 'retainer-agreement'],
+    templates: ['mutual-nda', 'one-way-nda', 'consulting-agreement', 'independent-contractor-agreement', 'subcontractor-agreement', 'retainer-agreement', 'memorandum-of-understanding', 'letter-of-intent'],
   },
   {
     slug: 'non-solicitation-clause', name: 'Non-solicitation clause', group: 'Confidentiality and restrictions',
@@ -179,7 +179,7 @@ Overdue amounts bear interest at {interest_rate} from the due date until payment
       ['What interest rate can I charge on late invoices?', 'Whatever the contract says, within legal limits. 1% to 1.5% per month is common in US commercial contracts, subject to state usury laws. Without a contract term, you may be limited to a statutory rate or none at all.'],
       ['Can I charge interest if the contract does not mention it?', 'Sometimes. UK businesses have a statutory right to interest on late commercial payments. In many other places, you can only claim interest if the contract provides for it or a court awards it.'],
     ],
-    templates: ['payment-demand-letter', 'service-agreement', 'promissory-note', 'payment-reminder-letter', 'retainer-agreement'],
+    templates: ['payment-demand-letter', 'service-agreement', 'promissory-note', 'payment-reminder-letter', 'retainer-agreement', 'loan-agreement'],
     tool: ['late-payment-interest', 'late payment interest calculator', 'Work out the interest on an overdue invoice with the free'],
   },
   {
@@ -226,7 +226,7 @@ Except as expressly set out in this Agreement, all warranties, conditions and ot
       ['What is the difference between a warranty and a representation?', 'A representation is a statement of fact that induces someone to enter the contract; a false one can allow the contract to be unwound. A warranty is a contractual promise; breaching it gives a claim for damages. Many contracts use both words together.'],
       ['Why are warranty disclaimers written in capital letters?', 'Under the US Uniform Commercial Code, a disclaimer of the implied warranty of merchantability must be conspicuous. Capital letters or bold type are the usual way to show that.'],
     ],
-    templates: ['service-agreement', 'statement-of-work', 'social-media-management-contract'],
+    templates: ['service-agreement', 'statement-of-work', 'social-media-management-contract', 'bill-of-sale'],
   },
   {
     slug: 'independent-contractor-clause', name: 'Independent contractor clause', group: 'Work and ownership',
@@ -327,7 +327,7 @@ The courts of the State of New York sitting in New York County, and the United S
       ['What is the difference between governing law and jurisdiction?', 'Governing law is the set of legal rules used to interpret the contract. Jurisdiction is which court decides the dispute. A court in one country can apply another country\'s law, but it is slower and more expensive.'],
       ['What happens if a contract does not choose a governing law?', 'Courts apply conflict-of-laws rules to work it out, typically looking at where the parties are and where the contract is performed. The result can be uncertain and expensive to argue about.'],
     ],
-    templates: ['mutual-nda', 'one-way-nda', 'service-agreement', 'independent-contractor-agreement', 'consulting-agreement', 'promissory-note', 'subcontractor-agreement', 'retainer-agreement'],
+    templates: ['mutual-nda', 'one-way-nda', 'service-agreement', 'independent-contractor-agreement', 'consulting-agreement', 'promissory-note', 'subcontractor-agreement', 'retainer-agreement', 'memorandum-of-understanding', 'letter-of-intent', 'loan-agreement', 'bill-of-sale'],
   },
   {
     slug: 'dispute-resolution-clause', name: 'Dispute resolution clause', group: 'Law and disputes',
@@ -391,7 +391,7 @@ Each party acknowledges that in entering into this Agreement it does not rely on
       ['What is a merger clause?', 'Another name for an entire agreement clause, used mainly in the United States. "Integration clause" means the same.'],
       ['Can an entire agreement clause cancel an earlier NDA?', 'Yes, if the NDA covers the same subject matter and is not excluded. Many deals preserve the NDA expressly for that reason.'],
     ],
-    templates: ['service-agreement', 'consulting-agreement', 'mutual-nda'],
+    templates: ['service-agreement', 'consulting-agreement', 'mutual-nda', 'loan-agreement'],
   },
   {
     slug: 'severability-clause', name: 'Severability clause', group: 'Boilerplate',
@@ -410,7 +410,7 @@ Any modification to or deletion of a provision or part-provision under this clau
       ['Will a severability clause save an unenforceable non-compete?', 'Sometimes. Some US states let courts narrow an unreasonable non-compete; others strike it out entirely; English courts will only delete words and will not rewrite the clause.'],
       ['Is a severability clause necessary?', 'Courts often sever invalid terms anyway, but the clause makes the parties\' intention clear and costs nothing to include.'],
     ],
-    templates: ['service-agreement', 'independent-contractor-agreement'],
+    templates: ['service-agreement', 'independent-contractor-agreement', 'loan-agreement'],
   },
   {
     slug: 'assignment-clause', name: 'Assignment clause', group: 'Boilerplate',
@@ -447,7 +447,7 @@ However, either party may assign this Agreement in its entirety, without consent
       ['Can a contract be changed by email?', 'Often yes, if the emails show both parties agreed, unless the contract requires a signed document and the governing law enforces that requirement.'],
       ['What is the difference between an amendment and an addendum?', 'An amendment changes existing terms. An addendum adds new terms or material. Both should be signed by both parties.'],
     ],
-    templates: ['service-agreement', 'statement-of-work'],
+    templates: ['service-agreement', 'statement-of-work', 'loan-agreement'],
   },
   {
     slug: 'waiver-clause', name: 'Waiver clause', group: 'Boilerplate',

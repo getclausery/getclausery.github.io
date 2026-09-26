@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Loan repayment calculator with amortization schedule</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Work out the payment on a loan repaid in equal instalments, the total interest and a full repayment schedule with dates, for weekly to yearly payments.">
+<link rel="canonical" href="https://getclausery.github.io/free-tools/loan-repayment.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Clausery">
+<meta property="og:title" content="Loan repayment calculator with amortization schedule">
+<meta property="og:description" content="Work out the payment on a loan repaid in equal instalments, the total interest and a full repayment schedule with dates, for weekly to yearly payments.">
+<meta property="og:url" content="https://getclausery.github.io/free-tools/loan-repayment.html">
+<meta property="og:image" content="https://getclausery.github.io/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1b2a41">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/icon-192.png">
+<link rel="manifest" href="../app/manifest.webmanifest">
+<link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
+<link rel="stylesheet" href="../site.css">
+<script src="../app/theme.js"></script>
+<script src="../site.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is a loan repayment calculated?","acceptedAnswer":{"@type":"Answer","text":"For a loan repaid in equal instalments, the payment is P × i ÷ (1 − (1 + i)^−n), where P is the amount borrowed, i is the interest rate for one payment period (the yearly rate divided by the number of payments a year) and n is the number of payments. Each payment covers that period's interest first, and the rest reduces the balance."}},{"@type":"Question","name":"What is an amortization schedule?","acceptedAnswer":{"@type":"Answer","text":"A table of every payment showing how much goes to interest, how much repays the loan, and the balance left afterwards. Early payments are mostly interest; later ones are mostly repayment."}},{"@type":"Question","name":"Why is the last payment slightly different?","acceptedAnswer":{"@type":"Answer","text":"Payments are rounded to the cent, so the final payment is adjusted by a few cents to clear the balance exactly."}},{"@type":"Question","name":"Does this match my bank's figures?","acceptedAnswer":{"@type":"Answer","text":"Usually to within a few cents or dollars. Some lenders charge interest daily, add fees, or round differently, so their figures can differ slightly."}}]}</script><style>
+.tool { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 1.5rem 0; }
+.tool label { display: block; font-weight: 600; margin-bottom: .3rem; }
+.tool .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+.tool input, .tool select, .tool textarea { width: 100%; padding: .55rem .65rem; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--bg); color: var(--text); font: inherit; }
+.tool .out { font-size: 1.2rem; font-weight: 600; padding: 1rem; background: var(--accent-soft); color: var(--text); border-radius: var(--radius-sm); min-height: 3rem; }
+.tool .out-row { display: flex; gap: .75rem; align-items: flex-start; margin-top: .75rem; } .tool .out-row .out { flex: 1; }
+.tool .err, .bad { color: #b42318; } .ok { color: var(--ok); } .warn { color: var(--warn); }
+#drop { border: 2px dashed var(--border-strong); border-radius: var(--radius); padding: 2rem; text-align: center; }
+#drop.over { border-color: var(--accent); background: var(--accent-soft); }
+#report table { width: 100%; border-collapse: collapse; font-size: .92rem; } #report th, #report td { text-align: left; padding: .5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+#report .small { font-size: .85rem; color: var(--muted); }
+.tool .check { display: flex; gap: .5rem; align-items: center; font-weight: 400; margin-bottom: 1rem; } .tool .check input { width: auto; }
+.embed-code { width: 100%; font: .85rem/1.45 var(--mono); padding: .75rem; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--surface-2); color: var(--text); resize: vertical; }
+.embed-tools { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; margin: .75rem 0 1rem; }
+.schedule-wrap { max-height: 22rem; overflow: auto; margin-top: .5rem; } .tool details summary { cursor: pointer; font-weight: 600; }
+.terms-table { width: 100%; border-collapse: collapse; font-size: .95rem; } .terms-table th, .terms-table td { text-align: left; padding: .55rem .5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+</style><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Loan repayment calculator","description":"Work out the payment on a loan repaid in equal instalments, the total interest and a full repayment schedule with dates, for weekly to yearly payments.","url":"https://getclausery.github.io/free-tools/loan-repayment.html","applicationCategory":"BusinessApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script><script type="module" src="loan-repayment.js"></script>
+</head>
+<body>
+<a class="sr-only" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Site">
+      <a href="../templates/">Templates</a>
+      <a href="../#features">Features</a>
+      <a href="../pricing/">Pricing</a>
+      <a href="../docs/">Docs</a>
+      <a href="../docs/security.html">Security</a>
+      <a class="btn btn-primary" href="../app/">Open the app</a>
+    </nav>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+<section class="section"><div class="wrap" style="max-width:52rem"><nav class="small muted" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../free-tools/">Free tools</a> › Loan repayment</nav>
+<h1 style="margin-top:1rem">Loan repayment calculator</h1>
+<p class="lead">Lending to family, a friend or a business? Enter the amount, the interest rate and the number of payments to see the payment, the total interest, and a full schedule you can attach to the loan agreement.</p>
+<div class="tool">
+  <div class="row">
+    <div><label for="amount">Loan amount</label><input id="amount" inputmode="decimal" value="12000" autocomplete="off"></div>
+    <div><label for="currency">Currency</label><select id="currency"><option value="USD">US dollars</option><option value="GBP">Pounds sterling</option><option value="EUR">Euros</option><option value="CAD">Canadian dollars</option><option value="AUD">Australian dollars</option><option value="INR">Rupees</option></select></div>
+    <div><label for="rate">Interest rate (% a year)</label><input id="rate" inputmode="decimal" value="5" autocomplete="off"></div>
+  </div>
+  <div class="row">
+    <div><label for="payments">Number of payments</label><input id="payments" type="number" min="1" max="1200" step="1" value="24"></div>
+    <div><label for="frequency">Paid</label><select id="frequency"><option value="weekly">Weekly</option><option value="fortnightly">Every two weeks</option><option value="monthly" selected>Monthly</option><option value="quarterly">Quarterly</option><option value="yearly">Yearly</option></select></div>
+    <div><label for="first">First payment date (optional)</label><input id="first" type="date"></div>
+  </div>
+  <p id="error" class="err" role="alert" hidden></p>
+  <div class="out" id="result" aria-live="polite"></div>
+  <p class="small muted" id="result-note" style="margin-top:.5rem"></p>
+  <details id="schedule-box"><summary>Repayment schedule</summary><div class="schedule-wrap" tabindex="0"><table id="schedule" class="terms-table"><thead><tr><th scope="col">#</th><th scope="col" id="date-col" hidden>Date</th><th scope="col">Payment</th><th scope="col">Interest</th><th scope="col">Principal</th><th scope="col">Balance</th></tr></thead><tbody></tbody></table></div></details>
+</div>
+<p class="small muted">Interest is charged each period at the yearly rate divided by the number of payments a year. Enter 0% for an interest-free loan. A calculation aid, not financial or tax advice.</p>
+<h2>Put the loan in writing</h2>
+<p>Write the payment, the number of payments and the first and last payment dates into a signed agreement. The free <a href="../templates/loan-agreement.html">loan agreement template</a> covers interest, instalments, a late fee, collateral and a guarantor; for a simple loan, a <a href="../templates/promissory-note.html">promissory note</a> is enough. If you charge interest, check the legal maximum where the borrower lives, and for large family loans check the tax rules on interest-free lending.</p>
+<h2 style="margin-top:2.5rem">Add this calculator to your website</h2>
+<p>Free for blogs, accountants, law firms, trade associations and anyone who helps small businesses. Paste the code where you want the calculator to appear. It runs in your visitors' browsers, with no cookies, no tracking, and nothing they type sent anywhere.</p>
+<label for="embed-code">Embed code</label>
+<textarea id="embed-code" class="embed-code" rows="6" readonly>&lt;iframe src=&quot;https://getclausery.github.io/free-tools/embed/loan-repayment.html&quot; title=&quot;Loan repayment calculator&quot; width=&quot;100%&quot; height=&quot;500&quot; style=&quot;border:0;max-width:760px&quot; loading=&quot;lazy&quot; allow=&quot;clipboard-write&quot;&gt;&lt;/iframe&gt;
+&lt;p style=&quot;font-size:13px;margin:4px 0 16px&quot;&gt;Loan repayment calculator by &lt;a href=&quot;https://getclausery.github.io/free-tools/loan-repayment.html&quot;&gt;Clausery&lt;/a&gt;&lt;/p&gt;
+&lt;script&gt;window.addEventListener('message',function(e){if(e.origin!=='https://getclausery.github.io'||!e.data||!e.data.clauseryHeight)return;var f=document.getElementsByTagName('iframe');for(var i=0;i&lt;f.length;i++)if(f[i].contentWindow===e.source)f[i].style.height=e.data.clauseryHeight+'px';});&lt;/script&gt;</textarea>
+<div class="embed-tools"><button class="btn copy-btn" type="button" data-copy="embed-code">Copy the code</button><a class="btn" href="embed/loan-repayment.html" target="_blank" rel="noopener">Preview</a><span class="small muted copy-status" role="status"></span></div>
+<p class="small muted">The last line of the code resizes the calculator to fit; if your site strips scripts, leave it out and the calculator still works at a fixed height. On a dark website, add <code>?theme=dark</code> after <code>loan-repayment.html</code>. Please keep the credit line under the calculator.</p>
+<h2 style="margin-top:2.5rem">Questions</h2>
+<div class="faq"><details><summary>How is a loan repayment calculated?</summary><p>For a loan repaid in equal instalments, the payment is P × i ÷ (1 − (1 + i)^−n), where P is the amount borrowed, i is the interest rate for one payment period (the yearly rate divided by the number of payments a year) and n is the number of payments. Each payment covers that period's interest first, and the rest reduces the balance.</p></details><details><summary>What is an amortization schedule?</summary><p>A table of every payment showing how much goes to interest, how much repays the loan, and the balance left afterwards. Early payments are mostly interest; later ones are mostly repayment.</p></details><details><summary>Why is the last payment slightly different?</summary><p>Payments are rounded to the cent, so the final payment is adjusted by a few cents to clear the balance exactly.</p></details><details><summary>Does this match my bank's figures?</summary><p>Usually to within a few cents or dollars. Some lenders charge interest daily, add fees, or round differently, so their figures can differ slightly.</p></details></div>
+<div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem">Draft the whole document, not just one line</h2><p>Clausery turns your Word templates into questionnaires and builds the finished document in your browser, with amounts in words, dates and totals calculated for you. Free for up to three templates.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="../app/">Open Clausery</a> <a class="btn" href="../templates/">Free templates</a></p></div></div></section></main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <h4>Clausery</h4>
+      <p>Document automation that never leaves your browser. Turn your own Word templates into guided questionnaires and generate finished documents, offline, with no account.</p>
+    </div>
+    <div>
+      <h4>Product</h4>
+      <a href="../app/">Open the app</a>
+      <a href="../pricing/">Pricing</a>
+      <a href="../changelog.html">Changelog</a>
+      <a href="../docs/self-hosting.html">Self-hosting</a>
+      <a href="../press/">Press kit</a>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <a href="../templates/">Free templates</a>
+      <a href="../guides/">Guides</a>
+      <a href="../clauses/">Clause library</a>
+      <a href="../free-tools/">Free tools</a>
+      <a href="../compare/">Compare</a>
+      <a href="../for/law-firms.html">For law firms</a>
+      <a href="../for/hr-teams.html">For HR teams</a>
+      <a href="../for/consultants.html">For consultants</a>
+      <a href="../for/freelancers.html">For freelancers</a>
+    </div>
+    <div>
+      <h4>Docs</h4>
+      <a href="../docs/">Getting started</a>
+      <a href="../docs/templates.html">Template syntax</a>
+      <a href="../docs/logic.html">Logic &amp; calculations</a>
+      <a href="../docs/intake.html">Client intake</a>
+      <a href="../docs/security.html">Security</a>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <a href="../legal/privacy.html">Privacy</a>
+      <a href="../legal/terms.html">Terms</a>
+      <a href="../legal/dpa.html">Data processing</a>
+      <a href="mailto:hello@clausery.app">Contact</a>
+    </div>
+    <div class="legal">© 2026 Clausery. Clausery is software, not legal advice; documents you generate are your responsibility. Not affiliated with Microsoft; Word is a trademark of Microsoft Corporation.</div>
+  </div>
+</footer>
+</body>
+</html>

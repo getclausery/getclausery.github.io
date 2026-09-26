@@ -670,8 +670,106 @@ const retainer = doc([
   P(''), P('{provider_name}: ____________________________'), P('{client_name}: ____________________________'),
 ]);
 
+const mou = doc([
+  Title('MEMORANDUM OF UNDERSTANDING'),
+  P('This Memorandum of Understanding (the "MOU") is made on {effective_date} between {party_a_name}, {party_a_address} ("{party_a_short_name}"), and {party_b_name}, {party_b_address} ("{party_b_short_name}").'),
+  H('1. Purpose'),
+  P('This MOU records the parties\' shared understanding about {purpose}.'),
+  H('2. What each party will do'),
+  P('{party_a_short_name} will:'),
+  new Paragraph({ children: [new TextRun('{#party_a_commitments}')] }),
+  Bullet('{a_commitment}'),
+  new Paragraph({ children: [new TextRun('{/party_a_commitments}')] }),
+  P('{party_b_short_name} will:'),
+  new Paragraph({ children: [new TextRun('{#party_b_commitments}')] }),
+  Bullet('{b_commitment}'),
+  new Paragraph({ children: [new TextRun('{/party_b_commitments}')] }),
+  H('3. Costs'),
+  P('{#has_shared_costs}The parties will share the costs of the activities in this MOU as follows: {cost_sharing_terms}{/has_shared_costs}{^has_shared_costs}Each party will pay its own costs of the activities in this MOU.{/has_shared_costs}'),
+  H('4. Term'),
+  P('This MOU takes effect on {effective_date} and continues until {end_date}, unless either party ends it earlier by written notice to the other. The parties may extend it by agreeing in writing.'),
+  P('{#include_confidentiality}Each party will keep confidential any non-public information it receives from the other under this MOU, and use it only for the purpose above, during this MOU and for {confidentiality_years} years after it ends.{/include_confidentiality}'),
+  H('5. Legal effect'),
+  P('{^is_binding}This MOU is a statement of the parties\' intentions. Apart from this section, the section on costs{#include_confidentiality} and the confidentiality paragraph{/include_confidentiality}, which are binding, it does not create legal obligations, and either party may withdraw from the activities it describes. Any binding commitment will be set out in a separate written agreement signed by both parties.{/is_binding}{#is_binding}The parties intend this MOU to be a legally binding agreement between them.{/is_binding}'),
+  H('6. Contacts'),
+  P('{party_a_short_name}: {party_a_contact_name}, {party_a_contact_email}. {party_b_short_name}: {party_b_contact_name}, {party_b_contact_email}.'),
+  H('7. Governing law'),
+  P('This MOU is governed by the laws of {governing_law}.'),
+  P(''), P('Signed for {party_a_name}: ____________________________  {party_a_signatory}'), P('Signed for {party_b_name}: ____________________________  {party_b_signatory}'),
+]);
+
+const loi = doc([
+  P('{letter_date}'),
+  P('{recipient_name}'), P('{seller_name}'), P('{seller_address}'),
+  P('Re: Letter of intent to acquire {target_name}', { bold: true }),
+  P('Dear {recipient_name},'),
+  P('This letter sets out the main terms on which {buyer_name} (the "Buyer") proposes to {#is_share_purchase}buy all of the shares in{/is_share_purchase}{^is_share_purchase}buy the business and assets of{/is_share_purchase} {target_name} (the "Business") from {seller_name} (the "Seller").'),
+  H2('Price'),
+  P('The proposed price is {purchase_price}, to be paid {#is_paid_at_closing}in full at closing{/is_paid_at_closing}{^is_paid_at_closing}as follows: {payment_terms}{/is_paid_at_closing}.{#has_earn_out} Up to a further {earn_out_amount} will depend on the Business\'s performance after closing, on terms to be agreed in the definitive agreement.{/has_earn_out} The price assumes the Business is delivered free of debt and with a normal level of working capital.'),
+  H2('Due diligence'),
+  P('The Seller will give the Buyer and its advisers reasonable access to the Business\'s financial, legal, tax and operational records, premises and key staff. The Buyer expects to complete its review within {due_diligence_days} days of the date the Seller signs this letter.'),
+  H2('Definitive agreement and closing'),
+  P('The parties will negotiate in good faith a definitive purchase agreement containing the terms above and the warranties, indemnities and other terms usual for a transaction of this kind. The target closing date is {target_closing_date}. Closing will depend on:'),
+  new Paragraph({ children: [new TextRun('{#conditions}')] }),
+  Bullet('{condition}'),
+  new Paragraph({ children: [new TextRun('{/conditions}')] }),
+  P('{#include_exclusivity}For {exclusivity_days} days after the Seller signs this letter, the Seller will not solicit, encourage or negotiate any other offer to buy the Business or any significant part of it, and will tell the Buyer promptly if it receives one.{/include_exclusivity}'),
+  H2('Confidentiality and costs'),
+  P('Each party will keep this letter and all information it receives about the other confidential{#has_existing_nda}, as set out in the non-disclosure agreement between them dated {nda_date}{/has_existing_nda}. Each party will pay its own costs, whether or not the transaction goes ahead.'),
+  H2('Legal effect'),
+  P('Apart from the {#include_exclusivity}exclusivity, {/include_exclusivity}confidentiality and costs paragraphs and this paragraph, which are binding, this letter is not a legally binding agreement. Neither party is obliged to complete the transaction unless and until a definitive agreement is signed. This letter is governed by the laws of {governing_law}.'),
+  P('This proposal expires if the Seller has not signed and returned a copy of this letter by {offer_expiry_date}.'),
+  P('Yours sincerely,'),
+  P(''), P('____________________________'), P('{buyer_signatory}, for {buyer_name}'),
+  P(''), P('Agreed and accepted by {seller_name}:'), P('____________________________   Date: ______________'),
+]);
+
+const billOfSale = doc([
+  Title('BILL OF SALE'),
+  P('Date of sale: {sale_date}'),
+  H2('Seller'),
+  P('{seller_name}, {seller_address}'),
+  H2('Buyer'),
+  P('{buyer_name}, {buyer_address}'),
+  H2('The item sold'),
+  P('The Seller sells and transfers to the Buyer the following (the "Item"): {item_description}'),
+  P('{#is_vehicle}Vehicle: {vehicle_year} {vehicle_make} {vehicle_model}, colour {vehicle_colour}, vehicle identification number (VIN) {vehicle_vin}, odometer reading {odometer_reading}. To the best of the Seller\'s knowledge the odometer reading is the actual distance the vehicle has travelled{#has_odometer_discrepancy}, except that {odometer_note}{/has_odometer_discrepancy}.{/is_vehicle}'),
+  H2('Price and payment'),
+  P('The price for the Item is {sale_price}, payable by {how_paid}. {#is_paid_in_full}The Seller confirms that it has received the full price.{/is_paid_in_full}{^is_paid_in_full}The Buyer paid {deposit_amount} on the date of sale and will pay the balance of {balance_amount} on or before {balance_due_date}.{/is_paid_in_full}'),
+  H2('Ownership'),
+  P('The Seller confirms that the Seller owns the Item, has the right to sell it, and that it is free of any loan, lien or other claim{#has_disclosed_liens}, except: {lien_details}{/has_disclosed_liens}. Ownership of the Item passes to the Buyer {#is_paid_in_full}on the date of sale{/is_paid_in_full}{^is_paid_in_full}when the price has been paid in full{/is_paid_in_full}.'),
+  H2('Condition'),
+  P('{#is_as_is}The Buyer has had the opportunity to inspect the Item and accepts it "as is", with all faults. The Seller gives no warranty about its condition, except as to ownership above.{/is_as_is}{^is_as_is}The Seller gives the following warranty about the Item\'s condition: {warranty_terms}{/is_as_is}'),
+  P(''), P('Seller: ____________________________  {seller_name}   Date: ______________'),
+  P('Buyer: ____________________________  {buyer_name}   Date: ______________'),
+  P('{#has_witness}Witness: ____________________________  {witness_name}{/has_witness}'),
+  P('{#needs_notary}Notary acknowledgment: State/County of ______________. Signed before me on ______________ by the person(s) named above. Notary public: ____________________________  My commission expires: ______________{/needs_notary}'),
+]);
+
+const loan = doc([
+  Title('LOAN AGREEMENT'),
+  P('This Loan Agreement is made on {agreement_date} between {lender_name}, {lender_address} (the "Lender"), and {borrower_name}, {borrower_address} (the "Borrower").'),
+  H('1. The loan'),
+  P('The Lender will lend the Borrower {loan_amount} (the "Loan"), paid to the Borrower on {disbursement_date} by {transfer_method}.{#has_stated_purpose} The Borrower will use the Loan only for {loan_purpose}.{/has_stated_purpose}'),
+  H('2. Interest'),
+  P('{#charges_interest}Interest accrues on the unpaid balance at {interest_rate} per year, calculated daily on a 365-day year, from the date the Loan is paid to the Borrower until it is repaid. If that rate is higher than the maximum rate the law allows, the maximum lawful rate applies instead.{/charges_interest}{^charges_interest}The Loan is interest-free.{/charges_interest}'),
+  H('3. Repayment'),
+  P('{#pay_in_installments}The Borrower will repay the Loan{#charges_interest} with interest{/charges_interest} in {installment_count} {installment_frequency} instalments of {installment_amount}, starting on {first_payment_date}, with any remaining balance due on {maturity_date}.{/pay_in_installments}{^pay_in_installments}The Borrower will repay the Loan{#charges_interest} with interest{/charges_interest} in one payment on or before {maturity_date}.{/pay_in_installments} Payments will be made to: {lender_payment_details}'),
+  P('The Borrower may repay all or part of the Loan early without penalty.{#charges_interest} Early payments are applied first to interest due and then to the balance.{/charges_interest}'),
+  P('{#charges_late_fee}If a payment is more than {grace_days} days late, the Borrower will also pay a late fee of {late_fee}, to the extent permitted by law.{/charges_late_fee}'),
+  H('4. Security and guarantee'),
+  P('{#is_secured}To secure repayment, the Borrower grants the Lender a security interest in the following property: {collateral_description}. Until the Loan is repaid in full, the Borrower will keep that property in good condition and will not sell, give away or borrow against it without the Lender\'s written consent.{/is_secured}{^is_secured}The Loan is unsecured.{/is_secured}'),
+  P('{#has_guarantor}{guarantor_name}, {guarantor_address} (the "Guarantor"), guarantees that the Borrower will pay every amount due under this Agreement, and will pay any such amount on demand if the Borrower does not.{/has_guarantor}'),
+  H('5. Default'),
+  P('The Borrower is in default if a payment is more than {default_days} days late, if the Borrower becomes insolvent or bankrupt, or if anything the Borrower told the Lender to obtain the Loan was materially untrue. If the Borrower is in default, the Lender may, by written notice, require immediate repayment of the whole unpaid balance{#charges_interest} and interest{/charges_interest}.{#include_collection_costs} The Borrower will also pay the Lender\'s reasonable costs of collecting overdue amounts, including legal fees, to the extent permitted by law.{/include_collection_costs}'),
+  H('6. General'),
+  P('This Agreement is the entire agreement between the parties about the Loan. Any change must be in writing and signed by both parties. If any part of this Agreement cannot be enforced, the rest remains in effect. This Agreement is governed by the laws of {governing_law}.'),
+  P(''), P('Lender: ____________________________  {lender_name}'), P('Borrower: ____________________________  {borrower_name}'),
+  P('{#has_guarantor}Guarantor: ____________________________  {guarantor_name}{/has_guarantor}'),
+]);
+
 mkdirSync('samples', { recursive: true });
-for (const [file, d] of [['payment-reminder-letter.docx', reminder], ['subcontractor-agreement.docx', subcontractor], ['retainer-agreement.docx', retainer], ['video-production-contract.docx', video], ['virtual-assistant-agreement.docx', assistant], ['event-planning-contract.docx', eventPlanning], ['personal-training-agreement.docx', training], ['tutoring-agreement.docx', tutoring], ['web-design-contract.docx', webDesign], ['graphic-design-contract.docx', graphicDesign], ['photography-contract.docx', photography], ['social-media-management-contract.docx', socialMedia], ['freelance-writing-contract.docx', writing], ['mutual-nda.docx', nda], ['engagement-letter.docx', engagement], ['offer-letter.docx', offer], ['independent-contractor-agreement.docx', contractor], ['statement-of-work.docx', sow], ['employment-verification-letter.docx', verification], ['payment-demand-letter.docx', demand], ['one-way-nda.docx', unilateralNda], ['consulting-agreement.docx', consulting], ['employment-termination-letter.docx', termination], ['reference-letter.docx', reference], ['salary-increase-letter.docx', raise], ['internship-offer-letter.docx', internship], ['service-agreement.docx', service], ['cease-and-desist-letter.docx', cease], ['promissory-note.docx', promissory], ['resignation-letter.docx', resignation]]) {
+for (const [file, d] of [['memorandum-of-understanding.docx', mou], ['letter-of-intent.docx', loi], ['bill-of-sale.docx', billOfSale], ['loan-agreement.docx', loan], ['payment-reminder-letter.docx', reminder], ['subcontractor-agreement.docx', subcontractor], ['retainer-agreement.docx', retainer], ['video-production-contract.docx', video], ['virtual-assistant-agreement.docx', assistant], ['event-planning-contract.docx', eventPlanning], ['personal-training-agreement.docx', training], ['tutoring-agreement.docx', tutoring], ['web-design-contract.docx', webDesign], ['graphic-design-contract.docx', graphicDesign], ['photography-contract.docx', photography], ['social-media-management-contract.docx', socialMedia], ['freelance-writing-contract.docx', writing], ['mutual-nda.docx', nda], ['engagement-letter.docx', engagement], ['offer-letter.docx', offer], ['independent-contractor-agreement.docx', contractor], ['statement-of-work.docx', sow], ['employment-verification-letter.docx', verification], ['payment-demand-letter.docx', demand], ['one-way-nda.docx', unilateralNda], ['consulting-agreement.docx', consulting], ['employment-termination-letter.docx', termination], ['reference-letter.docx', reference], ['salary-increase-letter.docx', raise], ['internship-offer-letter.docx', internship], ['service-agreement.docx', service], ['cease-and-desist-letter.docx', cease], ['promissory-note.docx', promissory], ['resignation-letter.docx', resignation]]) {
   writeFileSync(`samples/${file}`, await deterministic(await Packer.toBuffer(d)));
   console.log('wrote samples/' + file);
 }

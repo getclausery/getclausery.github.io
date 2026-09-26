@@ -34,6 +34,10 @@ export const SAMPLES = [
   { slug: 'payment-reminder-letter', file: 'payment-reminder-letter.docx', name: 'Payment reminder letter', category: 'Finance', description: 'Friendly reminder or final notice for an overdue invoice, with optional part payment, late fee and next steps.' },
   { slug: 'subcontractor-agreement', file: 'subcontractor-agreement.docx', name: 'Subcontractor agreement', category: 'Business', description: 'Deliverables with due dates, fixed or hourly fee, optional pay-when-paid, white-label and non-solicitation terms, insurance.' },
   { slug: 'retainer-agreement', file: 'retainer-agreement.docx', name: 'Retainer agreement', category: 'Freelance', description: 'Monthly retainer with a services list, included hours, rollover and overage rate, response times, minimum term and notice.' },
+  { slug: 'memorandum-of-understanding', file: 'memorandum-of-understanding.docx', name: 'Memorandum of understanding (MOU)', category: 'Business', description: 'MOU with each party\'s commitments, shared or separate costs, optional confidentiality, and a binding or non-binding choice.' },
+  { slug: 'letter-of-intent', file: 'letter-of-intent.docx', name: 'Letter of intent (business purchase)', category: 'Business', description: 'Non-binding LOI for a share or asset purchase with price, optional earn-out, due diligence, closing conditions and exclusivity.' },
+  { slug: 'bill-of-sale', file: 'bill-of-sale.docx', name: 'Bill of sale', category: 'Legal', description: 'Bill of sale for any item, with optional vehicle and odometer details, deposit and balance, as-is or warranty, witness and notary.' },
+  { slug: 'loan-agreement', file: 'loan-agreement.docx', name: 'Loan agreement', category: 'Finance', description: 'Loan agreement with optional interest, instalments, late fee, collateral, guarantor and collection costs.' },
 ];
 
 export async function importDocxFile(ctx, file, { name } = {}) {
