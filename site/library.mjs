@@ -209,22 +209,28 @@ const COMMON_FAQ = [
   ['Is this legal advice?', 'No. These are general samples. Laws differ between countries and states, so have the wording reviewed for your situation before you rely on it.'],
 ];
 
+// The library index groups templates under these headings, in this order.
+const CATEGORY_ORDER = [['Business', 'Business agreements'], ['Freelance', 'Freelance contracts'], ['Finance', 'Loans and getting paid'], ['Legal', 'NDAs, letters and sales'], ['HR', 'HR letters']];
+for (const t of LIB) if (!CATEGORY_ORDER.some(([c]) => c === t.category)) throw new Error(`templates index: no heading for category ${t.category}`);
 for (const [t, g] of Object.entries(GUIDE_FOR)) if (!GUIDE[g] || !LIB.some((x) => x.slug === t)) throw new Error(`GUIDE_FOR: ${t} -> ${g}`);
 for (const [t, [tool]] of Object.entries(TOOL_FOR)) if (!existsSync(`free-tools/${tool}.js`) || !LIB.some((x) => x.slug === t)) throw new Error(`TOOL_FOR: ${t} -> ${tool}`);
 
 export const pages = [
   {
     path: 'templates/', title: 'Free Word document templates',
-    description: 'Free Word (.docx) templates for NDAs, engagement letters, offer letters, contractor agreements, statements of work and more. Fill them in your browser; nothing is uploaded.',
+    description: 'Free Word templates for NDAs, MOUs, loan agreements, bills of sale, freelance contracts, offer letters and more. Fill them in your browser; nothing is uploaded.',
     extraHead: crumbsLd([['Home', ''], ['Templates', 'templates/']]),
     body: (rel) => `
 <section class="section"><div class="wrap">
   <p class="eyebrow">Free template library</p>
   <h1>Free Word templates you can fill in without uploading anything</h1>
   <p class="lead">Download any template as a normal Word file, or fill it in right here: answer a few questions and get a finished .docx. Everything happens in your browser, so client and employee details never leave your computer.</p>
-  <div class="grid grid-3" style="margin-top:2rem">
-    ${LIB.map((t) => `<a class="feature" style="text-decoration:none;color:inherit" href="${rel}templates/${t.slug}.html"><span class="badge">${t.category}</span><h2 style="font-size:1.15rem;margin-top:.75rem">${esc(t.name)}</h2><p>${esc(t.intro)}</p></a>`).join('')}
-  </div>
+  <nav class="small" aria-label="Template categories" style="margin-top:1.5rem">${CATEGORY_ORDER.map(([c, label]) => `<a href="#${c.toLowerCase()}">${label}</a>`).join(' · ')}</nav>
+${CATEGORY_ORDER.map(([c, label]) => `  <h2 id="${c.toLowerCase()}" style="margin-top:2.5rem">${label}</h2>
+  <div class="grid grid-3" style="margin-top:1rem">
+    ${LIB.filter((t) => t.category === c).map((t) => `<a class="feature" style="text-decoration:none;color:inherit" href="${rel}templates/${t.slug}.html"><span class="badge">${t.category}</span><h3 style="font-size:1.15rem;margin-top:.75rem">${esc(t.name)}</h3><p>${esc(t.intro)}</p></a>`).join('')}
+  </div>`).join('\n')}
+  <p style="margin-top:2.5rem">Paying for LawDepot, Rocket Lawyer or eForms? See <a href="${rel}compare/">how they compare with Clausery</a>, including prices and free trials.</p>
   <p class="small muted" style="margin-top:2rem">These are general samples, not legal advice. Have them reviewed for your jurisdiction before use.</p>
 </div></section>`,
   },
