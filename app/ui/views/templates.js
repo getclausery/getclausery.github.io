@@ -42,6 +42,10 @@ export const SAMPLES = [
   { slug: 'sales-commission-agreement', file: 'sales-commission-agreement.docx', name: 'Sales commission agreement', category: 'Business', description: 'Commission rate with an optional accelerator, when commission is earned, chargebacks, a draw, and commission after the end date.' },
   { slug: 'photo-release-form', file: 'photo-release-form.docx', name: 'Photo and model release', category: 'Freelance', description: 'Model release for photos and video: commercial or limited use, time limit, use of name, payment, and a parent signature for minors.' },
   { slug: 'general-release', file: 'general-release.docx', name: 'General release', category: 'Legal', description: 'Release of claims to settle a dispute: payment, general or dispute-only scope, mutual release, unknown claims and confidentiality.' },
+  { slug: 'notice-to-vacate', file: 'notice-to-vacate.docx', name: 'Notice to vacate (tenant)', category: 'Real estate', description: 'Tenant\'s notice to the landlord: move-out date, end of lease or notice period, walkthrough, keys and forwarding address for the deposit.' },
+  { slug: 'rent-increase-letter', file: 'rent-increase-letter.docx', name: 'Rent increase letter', category: 'Real estate', description: 'Landlord\'s notice of a rent increase: current and new rent, effective date, notice period, optional reason and renewal offer.' },
+  { slug: 'security-deposit-return-letter', file: 'security-deposit-return-letter.docx', name: 'Security deposit return letter', category: 'Real estate', description: 'Itemized security deposit statement: interest, a list of deductions, the amount returned and how it is paid.' },
+  { slug: 'roommate-agreement', file: 'roommate-agreement.docx', name: 'Roommate agreement', category: 'Real estate', description: 'Rent shares, deposit, bills, quiet time, guests, cleaning, pets and smoking, and notice before a roommate moves out.' },
 ];
 
 export async function importDocxFile(ctx, file, { name } = {}) {

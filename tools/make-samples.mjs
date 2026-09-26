@@ -875,8 +875,82 @@ const generalRelease = doc([
   P('{released_party_name}: ____________________________  {released_party_signatory}   Date: ______________'),
 ]);
 
+const noticeToVacate = doc([
+  P('{notice_date}'),
+  P('{landlord_name}'), P('{landlord_address}'),
+  P('Re: Notice to vacate {property_address}', { bold: true }),
+  P('Dear {landlord_name},'),
+  P('This letter is my written notice that I will move out of {property_address} and end my tenancy on {move_out_date}.{#has_co_tenants} My co-tenants, {co_tenant_names}, are also moving out and sign this notice with me.{/has_co_tenants}'),
+  P('{#is_end_of_lease}My lease ends on {lease_end_date}, and I will not be renewing it.{/is_end_of_lease}{^is_end_of_lease}I am giving you {notice_days} days\' notice, as my rental agreement requires.{/is_end_of_lease} I will pay rent in full up to the move-out date.'),
+  P('{#include_walkthrough}Please let me know a time to inspect the property with me before I leave, so that we can agree on its condition.{/include_walkthrough}'),
+  P('I will return all keys{#has_access_devices} and {access_devices}{/has_access_devices} on or before {move_out_date}. Please return my security deposit of {deposit_amount}, with an itemized list of any deductions, to this forwarding address: {forwarding_address}'),
+  P('You can reach me at {tenant_phone} or {tenant_email}. Thank you for having me as a tenant.'),
+  P('Sincerely,'),
+  P(''), P('____________________________'), P('{tenant_name}'),
+  P('{#has_co_tenants}____________________________   {co_tenant_names}{/has_co_tenants}'),
+]);
+
+const rentIncrease = doc([
+  P('{letter_date}'),
+  P('{tenant_names}'), P('{property_address}'),
+  P('Re: Rent increase for {property_address}', { bold: true }),
+  P('Dear {tenant_names},'),
+  P('This letter is formal notice that the rent for {property_address} will increase from {current_rent} to {new_rent} a month, starting on {effective_date}.'),
+  P('{#is_month_to_month}Your tenancy is month to month, and this letter gives you {notice_days} days\' notice before the new rent applies.{/is_month_to_month}{^is_month_to_month}Your current lease term ends on {lease_end_date}, and the new rent applies after that{#include_renewal_offer}, under the renewal we are offering you on otherwise the same terms{/include_renewal_offer}. This letter gives you {notice_days} days\' notice.{/is_month_to_month}'),
+  P('{#has_reason}The increase reflects {increase_reason}.{/has_reason}'),
+  P('Everything else about your tenancy stays the same, including how and when rent is paid.{#asks_for_reply} Please let us know by {reply_by_date} whether you plan to stay.{/asks_for_reply}'),
+  P('If you have any questions, please contact {landlord_contact_name} at {landlord_phone} or {landlord_email}. Thank you for being our tenant.'),
+  P('Sincerely,'),
+  P(''), P('____________________________'), P('{landlord_name}'),
+]);
+
+const depositReturn = doc([
+  P('{letter_date}'),
+  P('{tenant_name}'), P('{tenant_forwarding_address}'),
+  P('Re: Security deposit for {property_address}', { bold: true }),
+  P('Dear {tenant_name},'),
+  P('Your tenancy at {property_address} ended on {move_out_date}. This letter explains what is happening to your security deposit of {deposit_amount}{#includes_interest}, plus interest of {interest_amount}{/includes_interest}.'),
+  P('{^has_deductions}We are returning your deposit in full.{/has_deductions}{#has_deductions}We have made the following deductions:{/has_deductions}'),
+  new Paragraph({ children: [new TextRun('{#has_deductions}{#deductions}')] }),
+  Bullet('{deduction_description}: {deduction_amount}'),
+  new Paragraph({ children: [new TextRun('{/deductions}{/has_deductions}')] }),
+  P('{#has_deductions}Total deductions: {total_deductions}. {/has_deductions}We are paying you {refund_amount} by {how_paid}.'),
+  P('{#has_deductions}Deductions are only for unpaid rent, damage beyond normal wear and tear, and other charges your lease allows.{#includes_receipts} Copies of the invoices and receipts for the work are enclosed.{/includes_receipts}{/has_deductions}'),
+  P('If you have any questions about this letter, please contact {landlord_contact_name} at {landlord_phone} or {landlord_email}.'),
+  P('Sincerely,'),
+  P(''), P('____________________________'), P('{landlord_name}'),
+]);
+
+const roommate = doc([
+  Title('ROOMMATE AGREEMENT'),
+  P('This Roommate Agreement is made on {agreement_date} between the following people who share the home at {property_address} (each a "Roommate"):'),
+  new Paragraph({ children: [new TextRun('{#roommates}')] }),
+  Bullet('{roommate_name}, who pays {rent_share} a month towards the rent'),
+  new Paragraph({ children: [new TextRun('{/roommates}')] }),
+  P('This agreement is between the Roommates only. It does not change the lease, and each Roommate remains responsible to the landlord as the lease says.'),
+  H('1. Rent'),
+  P('The total rent is {total_rent} a month. {#has_rent_collector}Each Roommate pays their share to {collector_name} by {share_due_by} each month, and {collector_name} pays the landlord.{/has_rent_collector}{^has_rent_collector}Each Roommate pays their share directly to the landlord, on the date the lease requires.{/has_rent_collector} A Roommate who pays late covers any late fee the landlord charges because of it.'),
+  H('2. Security deposit'),
+  P('The security deposit of {deposit_amount} was paid {deposit_split_terms}. When the landlord returns the deposit, it will be shared in the same way, after taking the cost of any damage caused by one Roommate out of that Roommate\'s share.'),
+  H('3. Utilities and shared costs'),
+  P('Shared household costs, including {shared_costs_list}, are split {costs_split}. {bills_manager_name} will set up the accounts and tell each Roommate their share, which is due within {bill_payment_days} days.'),
+  H('4. Living together'),
+  P('Quiet time is {quiet_period}. Overnight guests may stay no more than {guest_night_limit} nights a month unless the other Roommates agree.'),
+  P('Cleaning of shared areas: {cleaning_plan}'),
+  P('{#allow_pets}Pets are allowed, if the lease permits, as follows: {pet_terms}{/allow_pets}{^allow_pets}No pets without the agreement of all the Roommates and the landlord.{/allow_pets}'),
+  P('{#allow_smoking}Smoking is allowed only {smoking_areas}, if the lease permits.{/allow_smoking}{^allow_smoking}No smoking or vaping inside the home.{/allow_smoking}'),
+  H('5. Moving out'),
+  P('A Roommate who wants to leave before the lease ends will give the others at least {move_out_notice_days} days\' written notice{#must_find_replacement}, and will keep paying their share of the rent until a replacement approved by the other Roommates and the landlord moves in, or the lease ends, whichever is earlier{/must_find_replacement}.'),
+  H('6. Disagreements'),
+  P('The Roommates will try to settle disagreements by talking to each other first{#include_house_meetings}, at a house meeting held {meeting_frequency}{/include_house_meetings}.'),
+  P('Signed by the Roommates:'),
+  new Paragraph({ children: [new TextRun('{#roommates}')] }),
+  P('____________________________  {roommate_name}   Date: ______________'),
+  new Paragraph({ children: [new TextRun('{/roommates}')] }),
+]);
+
 mkdirSync('samples', { recursive: true });
-for (const [file, d] of [['partnership-agreement.docx', partnership], ['sales-commission-agreement.docx', commission], ['photo-release-form.docx', photoRelease], ['general-release.docx', generalRelease], ['memorandum-of-understanding.docx', mou], ['letter-of-intent.docx', loi], ['bill-of-sale.docx', billOfSale], ['loan-agreement.docx', loan], ['payment-reminder-letter.docx', reminder], ['subcontractor-agreement.docx', subcontractor], ['retainer-agreement.docx', retainer], ['video-production-contract.docx', video], ['virtual-assistant-agreement.docx', assistant], ['event-planning-contract.docx', eventPlanning], ['personal-training-agreement.docx', training], ['tutoring-agreement.docx', tutoring], ['web-design-contract.docx', webDesign], ['graphic-design-contract.docx', graphicDesign], ['photography-contract.docx', photography], ['social-media-management-contract.docx', socialMedia], ['freelance-writing-contract.docx', writing], ['mutual-nda.docx', nda], ['engagement-letter.docx', engagement], ['offer-letter.docx', offer], ['independent-contractor-agreement.docx', contractor], ['statement-of-work.docx', sow], ['employment-verification-letter.docx', verification], ['payment-demand-letter.docx', demand], ['one-way-nda.docx', unilateralNda], ['consulting-agreement.docx', consulting], ['employment-termination-letter.docx', termination], ['reference-letter.docx', reference], ['salary-increase-letter.docx', raise], ['internship-offer-letter.docx', internship], ['service-agreement.docx', service], ['cease-and-desist-letter.docx', cease], ['promissory-note.docx', promissory], ['resignation-letter.docx', resignation]]) {
+for (const [file, d] of [['notice-to-vacate.docx', noticeToVacate], ['rent-increase-letter.docx', rentIncrease], ['security-deposit-return-letter.docx', depositReturn], ['roommate-agreement.docx', roommate], ['partnership-agreement.docx', partnership], ['sales-commission-agreement.docx', commission], ['photo-release-form.docx', photoRelease], ['general-release.docx', generalRelease], ['memorandum-of-understanding.docx', mou], ['letter-of-intent.docx', loi], ['bill-of-sale.docx', billOfSale], ['loan-agreement.docx', loan], ['payment-reminder-letter.docx', reminder], ['subcontractor-agreement.docx', subcontractor], ['retainer-agreement.docx', retainer], ['video-production-contract.docx', video], ['virtual-assistant-agreement.docx', assistant], ['event-planning-contract.docx', eventPlanning], ['personal-training-agreement.docx', training], ['tutoring-agreement.docx', tutoring], ['web-design-contract.docx', webDesign], ['graphic-design-contract.docx', graphicDesign], ['photography-contract.docx', photography], ['social-media-management-contract.docx', socialMedia], ['freelance-writing-contract.docx', writing], ['mutual-nda.docx', nda], ['engagement-letter.docx', engagement], ['offer-letter.docx', offer], ['independent-contractor-agreement.docx', contractor], ['statement-of-work.docx', sow], ['employment-verification-letter.docx', verification], ['payment-demand-letter.docx', demand], ['one-way-nda.docx', unilateralNda], ['consulting-agreement.docx', consulting], ['employment-termination-letter.docx', termination], ['reference-letter.docx', reference], ['salary-increase-letter.docx', raise], ['internship-offer-letter.docx', internship], ['service-agreement.docx', service], ['cease-and-desist-letter.docx', cease], ['promissory-note.docx', promissory], ['resignation-letter.docx', resignation]]) {
   writeFileSync(`samples/${file}`, await deterministic(await Packer.toBuffer(d)));
   console.log('wrote samples/' + file);
 }
