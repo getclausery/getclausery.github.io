@@ -4,9 +4,9 @@
 
 Clausery turns the Word templates a firm already uses into guided questionnaires and assembles finished `.docx` documents entirely client-side. No uploads, no account, no server: the product is a folder of static files that runs in the browser, stores data in IndexedDB, and works offline.
 
-- **Live site:** https://bodyatlas.github.io/clausery/
-- **App:** https://bodyatlas.github.io/clausery/app/
-- **Docs:** https://bodyatlas.github.io/clausery/docs/
+- **Live site:** https://getclausery.github.io/
+- **App:** https://getclausery.github.io/app/
+- **Docs:** https://getclausery.github.io/docs/
 
 ## Why
 
@@ -48,7 +48,7 @@ clausery/
 cd clausery
 npm ci
 npm run build        # vendor bundle, samples, site pages, sitemap, release stamp
-npm run serve        # http://127.0.0.1:4173/clausery/
+npm run serve        # http://127.0.0.1:4173/
 npm run verify       # lint + HTML checks + unit tests
 npm run test:e2e     # Playwright (needs Chromium: npx playwright install chromium)
 npm run screenshots  # regenerate marketing images and icons
@@ -69,7 +69,7 @@ Put the public key in `app/config.js` (`LICENSE_PUBLIC_KEY`). Keys are verified 
 
 ## Security
 
-See `SECURITY.md` and the [security overview](https://bodyatlas.github.io/clausery/docs/security.html).
+See `SECURITY.md` and the [security overview](https://getclausery.github.io/docs/security.html).
 
 ## License
 

@@ -16,7 +16,7 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 
 const port = 4177;
 const server = await startServer(port);
-const base = `http://127.0.0.1:${port}/clausery/`;
+const base = `http://127.0.0.1:${port}/`;
 const browser = await chromium.launch();
 try {
   // icons from the SVG

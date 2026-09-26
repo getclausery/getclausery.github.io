@@ -19,8 +19,7 @@ for (const f of files) {
   for (const m of html.matchAll(/(?:href|src)="([^"#?]+)(?:[#?][^"]*)?"/g)) {
     const url = m[1];
     if (/^(https?:|mailto:|data:|javascript:|tel:)/.test(url) || url === '') continue;
-    let target = url.startsWith('/clausery/') ? join(root, url.slice('/clausery/'.length)) : resolve(dirname(join(root, f)), url);
-    if (url.startsWith('/') && !url.startsWith('/clausery/')) { fail(f, 'absolute link outside the project: ' + url); continue; }
+    let target = url.startsWith('/') ? join(root, url.slice(1)) : resolve(dirname(join(root, f)), url);
     if (existsSync(target) && statSync(target).isDirectory()) target = join(target, 'index.html');
     if (!existsSync(target)) fail(f, 'broken link: ' + url);
   }

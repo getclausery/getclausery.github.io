@@ -7,6 +7,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'What changed in each Clausery release.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.2.1 <span class="small muted">— 26 September 2026</span></h2>
+<ul>
+  <li>Clausery has its own address: <a href="https://getclausery.github.io/">getclausery.github.io</a>. Links to the old address redirect here.</li>
+</ul>
 <h2>1.2.0 <span class="small muted">— 26 September 2026</span></h2>
 <ul>
   <li>Contract clause library: plain-English explanations and copyable sample wording for 24 common clauses, each with the matching Clausery tags.</li>

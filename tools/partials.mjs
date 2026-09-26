@@ -1,10 +1,12 @@
 // Shared HTML fragments for the static site pages (used by tools/build-site.mjs).
 export const YEAR = '2026';
-export function head({ title, description, path, extraHead = '', ogImage = 'assets/og.png' }) {
+// The site's public origin. Every absolute URL (canonical, Open Graph, JSON-LD, sitemap, feed) is built from it.
+export const SITE = 'https://getclausery.github.io/';
+export function head({ title, description, path, extraHead = '', ogImage = 'assets/og.png', rel: relOverride }) {
   const full = title === 'Clausery' ? 'Clausery — Document automation that never leaves your browser' : `${title} · Clausery`;
-  const url = `https://bodyatlas.github.io/clausery/${path}`;
+  const url = `${SITE}${path}`;
   const depth = path.split('/').filter(Boolean).length - (path.endsWith('/') || path === '' ? 0 : 1);
-  const rel = depth > 0 ? '../'.repeat(depth) : './';
+  const rel = relOverride || (depth > 0 ? '../'.repeat(depth) : './');
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -18,7 +20,7 @@ export function head({ title, description, path, extraHead = '', ogImage = 'asse
 <meta property="og:title" content="${esc(full)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${url}">
-<meta property="og:image" content="https://bodyatlas.github.io/clausery/${ogImage}">
+<meta property="og:image" content="${SITE}${ogImage}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#1b2a41">
 <meta name="referrer" content="strict-origin-when-cross-origin">

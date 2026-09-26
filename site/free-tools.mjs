@@ -1,5 +1,6 @@
 // Free drafting tools: small utilities people search for (amount in words, deadline calculator, template checker).
 // Each runs entirely in the page from an external module (strict CSP friendly) and points to Clausery for the full job.
+import { SITE } from '../tools/partials.mjs';
 const TOOL_CSS = `<style>
 .tool { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 1.5rem 0; }
 .tool label { display: block; font-weight: 600; margin-bottom: .3rem; }
@@ -15,7 +16,7 @@ const TOOL_CSS = `<style>
 </style>`;
 const crumbs = (rel, name) => `<nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}free-tools/">Free tools</a> › ${name}</nav>`;
 const cta = (rel) => `<div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem">Draft the whole document, not just one line</h2><p>Clausery turns your Word templates into questionnaires and builds the finished document in your browser, with amounts in words, dates and totals calculated for you. Free for up to three templates.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free templates</a></p></div>`;
-const appLd = (name, desc, url) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebApplication', name, description: desc, url: 'https://bodyatlas.github.io/clausery/' + url, applicationCategory: 'BusinessApplication', operatingSystem: 'Any (web browser)', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } })}</script>`;
+const appLd = (name, desc, url) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebApplication', name, description: desc, url: SITE + url, applicationCategory: 'BusinessApplication', operatingSystem: 'Any (web browser)', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } })}</script>`;
 
 const TOOLS = [
   { slug: 'amount-in-words', name: 'Amount in words converter', desc: 'Write any amount in words for contracts, cheques and promissory notes, such as "One Thousand Two Hundred and Fifty Dollars and 50/100".' },

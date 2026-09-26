@@ -258,7 +258,7 @@ page('docs/self-hosting.html', 'Self-hosting', 'Run Clausery on your own domain 
 <p class="lead">Clausery is a folder of static files. Any web server, object-storage bucket or intranet file share that serves HTTPS can host it.</p>
 <h2>Deploy</h2>
 <ol>
-  <li>Get the release folder (the <code>clausery/</code> directory of the repository, or a release archive).</li>
+  <li>Get the release folder (a copy of the repository, or a release archive).</li>
   <li>Upload it to your host so that <code>index.html</code> is served at the root of the path you choose, for example <code>https://draft.yourfirm.com/</code> or <code>https://intranet/tools/clausery/</code>. All links are relative, so any base path works. Configure your server to answer unknown URLs with <code>404.html</code> (GitHub Pages does this automatically for the file at the site root).</li>
   <li>Serve over HTTPS. Service workers and WebCrypto require a secure context (localhost is also allowed).</li>
   <li>Set <code>SITE_URL</code> in <code>app/config.js</code> to your address (used in exported intake forms).</li>

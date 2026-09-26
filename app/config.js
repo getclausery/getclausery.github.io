@@ -1,9 +1,9 @@
 /* Clausery deployment configuration. Edit this file when you deploy your own copy. */
 export const APP_NAME = 'Clausery';
-export const APP_VERSION = '1.2.0';
+export const APP_VERSION = '1.2.1';
 
 /* Public site URL (no trailing slash). Used for links in exported files and the intake form footer. */
-export const SITE_URL = 'https://bodyatlas.github.io/clausery';
+export const SITE_URL = 'https://getclausery.github.io';
 
 /* Base64url Ed25519 public key that license keys are verified against. Generate a key pair with
    `npm run license -- keygen`; keep the private key offline and paste the public key here. */

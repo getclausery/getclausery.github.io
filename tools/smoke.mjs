@@ -21,7 +21,7 @@ page.on('console', (m) => { if (m.type() === 'error' || m.type() === 'warning') 
 page.on('pageerror', (e) => errors.push('pageerror: ' + e.message));
 page.on('requestfailed', (r) => errors.push('requestfailed: ' + r.url()));
 try {
-  await page.goto('http://127.0.0.1:4199/clausery/app/', { waitUntil: 'networkidle' });
+  await page.goto('http://127.0.0.1:4199/app/', { waitUntil: 'networkidle' });
   await page.waitForSelector('h1:has-text("Templates")', { timeout: 10000 });
   console.log('templates view ok');
   await page.click('button:has-text("Use this sample") >> nth=1');   // engagement letter
@@ -55,13 +55,13 @@ try {
   console.log('review notice:', (await page.locator('.notice').first().innerText()).slice(0, 120).replace(/\n/g, ' '));
   const [download] = await Promise.all([page.waitForEvent('download'), page.click('button:has-text("Download .docx")')]);
   const path = await download.path();
-  const { PizZip, Docxtemplater } = await import('/home/user/bodyatlas.github.io/clausery/vendor/docs.js');
+  const { PizZip, Docxtemplater } = await import('../vendor/docs.js');
   const text = new Docxtemplater(new PizZip(readFileSync(path)), { paragraphLoop: true }).getFullText();
   console.log('docx contains Acme:', text.includes('Acme Ltd'), '| retainer $5,000.00:', text.includes('$5,000.00'), '| attorney:', text.includes('Jane Doe, Partner'), '| no flat fee:', !text.includes('flat fee of'));
   await page.click('button:has-text("Preview")');
   await page.waitForSelector('.preview-wrap section.docx', { timeout: 15000 });
   console.log('preview pages:', await page.locator('.preview-wrap section.docx').count());
-  await page.goto('http://127.0.0.1:4199/clausery/app/#/settings', { waitUntil: 'networkidle' });
+  await page.goto('http://127.0.0.1:4199/app/#/settings', { waitUntil: 'networkidle' });
   await page.waitForSelector('h1:has-text("Settings")');
   console.log('settings ok');
   await page.screenshot({ path: 'test-results/settings.png', fullPage: true });

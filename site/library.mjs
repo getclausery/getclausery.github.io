@@ -3,7 +3,7 @@
 import { readFileSync } from 'node:fs';
 import { inspectDocx } from '../app/lib/render.js';
 import { inferQuestionnaire, FIELD_TYPES } from '../app/lib/schema.js';
-import { esc } from '../tools/partials.mjs';
+import { esc, SITE } from '../tools/partials.mjs';
 import { CLAUSES } from './data/clauses.mjs';
 
 export const LIB = [
@@ -101,7 +101,7 @@ function questionsFor(file) {
 }
 
 const faqLd = (faq) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) })}</script>`;
-const crumbsLd = (items) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map(([name, url], i) => ({ '@type': 'ListItem', position: i + 1, name, item: 'https://bodyatlas.github.io/clausery/' + url })) })}</script>`;
+const crumbsLd = (items) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map(([name, url], i) => ({ '@type': 'ListItem', position: i + 1, name, item: SITE + url })) })}</script>`;
 const COMMON_FAQ = [
   ['Is it really free?', 'Yes. The template download is free, and the Clausery app is free for up to three templates with unlimited documents. No account or card is needed.'],
   ['Is my information uploaded anywhere?', 'No. Clausery runs entirely in your browser. Your answers and the finished document are created and stored on your own device.'],

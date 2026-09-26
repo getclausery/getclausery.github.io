@@ -15,7 +15,7 @@ export const pages = [{
 <h2>Facts</h2>
 <table><tbody>
 <tr><th scope="row">Launched</th><td>September 2026</td></tr>
-<tr><th scope="row">Website</th><td><a href="${rel}">bodyatlas.github.io/clausery</a></td></tr>
+<tr><th scope="row">Website</th><td><a href="${rel}">getclausery.github.io</a></td></tr>
 <tr><th scope="row">Pricing</th><td>Free for 3 templates; Pro $19 per user per month; Team $49 per month for 5 seats; Enterprise on request</td></tr>
 <tr><th scope="row">For</th><td>Solo and small law firms, HR teams, consultants and agencies</td></tr>
 <tr><th scope="row">Platform</th><td>Any modern browser on desktop or mobile; installable; works offline</td></tr>
