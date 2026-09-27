@@ -433,4 +433,16 @@ test('shipped samples infer sensible questionnaires', async () => {
   assert.equal(pet.max_hours_alone.type, 'number');
   assert.equal(pet.pet_rent_amount.type, 'money');
   assert.equal(pet.cure_days.type, 'number');
+  const enda = q('employee-nda');
+  assert.equal(enda.start_date.showIf, 'is_new_hire');
+  assert.equal(enda.named_information_details.type, 'textarea');
+  assert.equal(enda.years_after_employment.type, 'number');
+  assert.equal(enda.is_us_employer.type, 'checkbox');
+  const cnda = q('contractor-nda');
+  assert.deepEqual([cnda.project_description.type, cnda.breach_notice_hours.type, cnda.return_days.type], ['textarea', 'number', 'number']);
+  assert.deepEqual([cnda.allow_subcontractors.type, cnda.allow_portfolio_use.type, cnda.is_us_client.type], ['checkbox', 'checkbox', 'checkbox']);
+  const bnda = q('business-sale-nda');
+  assert.equal(bnda.broker_name.showIf, 'has_broker');
+  assert.equal(bnda.non_solicit_months.showIf, 'include_non_solicit');
+  assert.equal(bnda.non_solicit_months.type, 'number');
 });

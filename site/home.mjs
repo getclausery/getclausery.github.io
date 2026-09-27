@@ -70,9 +70,9 @@ export const pages = [{
 <section class="section section-alt" id="templates">
   <div class="wrap">
     <h2>Start with a free template</h2>
-    <p class="lead">Fifty ready-made Word templates, from NDAs and partnership agreements to leases and freelance contracts, each one click away from a finished document.</p>
+    <p class="lead">Fifty-three ready-made Word templates, from NDAs and partnership agreements to leases and freelance contracts, each one click away from a finished document.</p>
     <div class="grid grid-4">
-      <a class="feature" style="text-decoration:none;color:inherit" href="${rel}templates/mutual-nda.html"><h3>Mutual NDA</h3><p>Two-way confidentiality agreement.</p></a>
+      <a class="feature" style="text-decoration:none;color:inherit" href="${rel}nda-templates/"><h3>NDA templates</h3><p>Mutual, one-way, employee, contractor and business sale.</p></a>
       <a class="feature" style="text-decoration:none;color:inherit" href="${rel}templates/engagement-letter.html"><h3>Engagement letter</h3><p>Scope, team, fees and retainer.</p></a>
       <a class="feature" style="text-decoration:none;color:inherit" href="${rel}templates/offer-letter.html"><h3>Offer letter</h3><p>Salary, bonus, equity, benefits.</p></a>
       <a class="feature" style="text-decoration:none;color:inherit" href="${rel}templates/independent-contractor-agreement.html"><h3>Contractor agreement</h3><p>Hourly or fixed fee, IP, termination.</p></a>

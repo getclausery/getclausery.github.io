@@ -48,7 +48,7 @@ const nda = doc([
   Numbered('The receiving Party shall protect the Confidential Information using at least the same degree of care it uses for its own confidential information, and no less than reasonable care.'),
   Numbered('The receiving Party shall restrict disclosure to those of its employees and advisers who need to know and who are bound by obligations at least as protective as this Agreement.'),
   H('4. Term'),
-  P('This Agreement is effective from the date first written above and continues for {term_years} years. The obligations of confidentiality survive for {survival_years} years after expiry or termination.'),
+  P('This Agreement is effective from the date first written above and continues for {term_years} years. The obligations of confidentiality survive for {survival_years} years after expiry or termination, except that information which is a trade secret under applicable law stays protected for as long as it remains a trade secret.'),
   H('5. Governing Law'),
   P('This Agreement is governed by the laws of {governing_law}. {#has_jurisdiction}The courts of {jurisdiction} have exclusive jurisdiction over any dispute arising out of this Agreement.{/has_jurisdiction}'),
   H('6. Notices'),
@@ -197,7 +197,7 @@ const unilateralNda = doc([
   Numbered('Protect it with at least reasonable care.'),
   Numbered('Return or destroy it on request{#certify_destruction} and confirm in writing that it has done so{/certify_destruction}.'),
   H('4. Term'),
-  P('The obligations in this Agreement last for {term_years} years from the date above.'),
+  P('The obligations in this Agreement last for {term_years} years from the date above. Information that is a trade secret under applicable law stays protected for as long as it remains a trade secret.'),
   H('5. No licence'),
   P('Nothing in this Agreement grants the Receiving Party any rights in the Confidential Information other than to use it for the Purpose.'),
   H('6. Governing law'),
@@ -1168,8 +1168,93 @@ const petAddendum = doc([
   P('____________________________  {tenant_names} (Tenant)   Date: ______________'),
 ]);
 
+const DTSA = 'Notice under the Defend Trade Secrets Act (18 U.S.C. § 1833(b)): an individual will not be held criminally or civilly liable under any federal or state trade secret law for disclosing a trade secret (a) in confidence to a federal, state or local government official, directly or indirectly, or to an attorney, solely for the purpose of reporting or investigating a suspected violation of law; or (b) in a complaint or other document filed in a lawsuit or other proceeding, if the filing is made under seal. An individual who files a lawsuit for retaliation for reporting a suspected violation of law may disclose the trade secret to their attorney and use it in the court proceeding, if they file any document containing the trade secret under seal and do not disclose it except under a court order.';
+
+const employeeNda = doc([
+  Title('EMPLOYEE CONFIDENTIALITY AGREEMENT'),
+  P('This Employee Confidentiality Agreement (the "Agreement") is made on {effective_date} between {employer_name}, {employer_address} (the "Company"), and {employee_name} (the "Employee"), who is employed as {job_title}.{#is_new_hire} The Employee\'s employment starts on {start_date}.{/is_new_hire}'),
+  H('1. Confidential Information'),
+  P('"Confidential Information" means non-public information about the Company\'s business that the Employee receives or learns through their work, in any form, including business and product plans, customer and supplier information, pricing, financial information, software and technical information, and know-how.{#has_named_information} It includes in particular: {named_information_details}.{/has_named_information}'),
+  P('Confidential Information does not include information that is or becomes public through no fault of the Employee, that the Employee lawfully knew before working for the Company, or that the Employee lawfully receives from someone else without a duty of confidence. It also does not include the Employee\'s general skills, knowledge and experience.'),
+  H('2. What the Employee agrees to do'),
+  Numbered('Use Confidential Information only to do their job for the Company.'),
+  Numbered('Not disclose it to anyone outside the Company, or to colleagues who do not need it for their work, unless the Company authorizes it.'),
+  Numbered('Keep it secure, and follow the Company\'s policies on devices, passwords and storing information.'),
+  Numbered('Tell the Company promptly if they learn that Confidential Information has been lost or disclosed without permission.'),
+  H('3. How long this lasts'),
+  P('These obligations apply during the Employee\'s employment and for {years_after_employment} years after it ends. Information that is a trade secret under applicable law stays protected for as long as it remains a trade secret.'),
+  H('4. Returning Company property'),
+  P('When the Employee\'s employment ends, or earlier if the Company asks, the Employee will return all Company documents, files, devices and other property, and delete any copies of Confidential Information from personal devices and accounts{#certify_return}, and will confirm in writing that they have done so{/certify_return}.'),
+  H('5. What this Agreement does not restrict'),
+  P('Nothing in this Agreement prevents the Employee from reporting a possible violation of law to a government agency or regulator, taking part in an investigation, giving truthful evidence, or disclosing information where the law protects the right to do so, including information about harassment, discrimination or other unlawful conduct at work. The Employee does not need the Company\'s permission to do any of these things.{#is_us_employer} This includes discussing wages, hours and other terms and conditions of employment, as protected by the National Labor Relations Act.{/is_us_employer}'),
+  P('{#is_us_employer}' + DTSA + '{/is_us_employer}'),
+  P('This Agreement does not stop the Employee from working for anyone else after leaving the Company. It only protects Confidential Information.'),
+  H('6. Remedies'),
+  P('The Employee understands that a breach of this Agreement could cause the Company harm that money alone cannot put right, so the Company may ask a court for an order to stop a breach, as well as any other remedy the law allows.'),
+  H('7. General'),
+  P('This Agreement does not create employment for any fixed period or change the other terms of the Employee\'s employment. If any part of it cannot be enforced, the rest still applies. It is governed by the laws of {governing_law}.'),
+  H('Signatures'),
+  P('{employer_name}'), P('By: ____________________________'), P('Name and title: {company_signatory}   Date: ______________'), P(''),
+  P('Employee: ____________________________  {employee_name}   Date: ______________'),
+]);
+
+const contractorNda = doc([
+  Title('CONTRACTOR CONFIDENTIALITY AGREEMENT'),
+  P('This Contractor Confidentiality Agreement (the "Agreement") is made on {effective_date} between {client_name}, {client_address} (the "Client"), and {contractor_name}, {contractor_address} (the "Contractor").'),
+  H('1. Purpose'),
+  P('The Client will share Confidential Information with the Contractor so that the Contractor can carry out the following work: {project_description} (the "Project").'),
+  H('2. Confidential Information'),
+  P('"Confidential Information" means all non-public information the Client shares with the Contractor, or that the Contractor sees while working on the Project, in any form. It includes business and product plans, customer information, designs, source code, financial information, and passwords and other access details.'),
+  P('It does not include information that is or becomes public through no fault of the Contractor, that the Contractor already lawfully knew, that the Contractor develops independently without using the Client\'s information, or that the Contractor lawfully receives from someone else without a duty of confidence.'),
+  H('3. What the Contractor agrees to do'),
+  Numbered('Use Confidential Information only for the Project.'),
+  Numbered('Not share it with anyone else{#allow_subcontractors}, except subcontractors the Client has approved in writing who are bound by confidentiality terms at least as strict as these. The Contractor is responsible for what those subcontractors do with it{/allow_subcontractors}{^allow_subcontractors}, including subcontractors or assistants, without the Client\'s written consent{/allow_subcontractors}.'),
+  Numbered('Keep it secure: store it only on password-protected devices and accounts, and never share the Client\'s access details.'),
+  Numbered('Tell the Client within {breach_notice_hours} hours of learning that Confidential Information has been lost, stolen or disclosed without permission.'),
+  P('{#handles_personal_data}If the Project involves personal data about the Client\'s customers or staff, the Contractor will use it only on the Client\'s instructions, keep it secure, and follow the data protection law that applies to it.{/handles_personal_data}'),
+  H('4. Portfolio and publicity'),
+  P('{#allow_portfolio_use}Once the Client has published or released the work, the Contractor may show it in their portfolio and describe their role in it, without revealing any Confidential Information that is not public.{/allow_portfolio_use}{^allow_portfolio_use}The Contractor will not mention the Client or the Project in a portfolio, case study or other publicity without the Client\'s written consent.{/allow_portfolio_use}'),
+  H('5. Return and deletion'),
+  P('Within {return_days} days after the Project ends, or earlier if the Client asks, the Contractor will return or securely delete all Confidential Information, including copies, and confirm in writing that they have done so.'),
+  H('6. How long this lasts'),
+  P('These obligations last for {term_years} years after the Project ends. Information that is a trade secret under applicable law stays protected for as long as it remains a trade secret.'),
+  H('7. Other terms'),
+  P('Nothing in this Agreement gives the Contractor any rights in the Confidential Information, or makes the Contractor an employee of the Client. Nothing in it prevents either party from reporting a possible violation of law to a government agency or giving truthful evidence.'),
+  P('{#is_us_client}' + DTSA + '{/is_us_client}'),
+  P('If any part of this Agreement cannot be enforced, the rest still applies. It is governed by the laws of {governing_law}.'),
+  H('Signatures'),
+  P('{client_name}'), P('By: ____________________________'), P('Name and title: {client_signatory}   Date: ______________'), P(''),
+  P('Contractor: ____________________________  {contractor_name}   Date: ______________'),
+]);
+
+const businessSaleNda = doc([
+  Title('CONFIDENTIALITY AGREEMENT: PROPOSED SALE OF A BUSINESS'),
+  P('This Confidentiality Agreement (the "Agreement") is made on {effective_date} between {seller_name} (the "Seller"), the owner of {business_name} (the "Business"), and {buyer_name}, {buyer_address} (the "Prospective Buyer").'),
+  H('1. Purpose'),
+  P('The Seller is willing to share information about the Business so that the Prospective Buyer can decide whether to buy it (the "Transaction"). The Prospective Buyer will use that information only for this purpose.{#has_broker} The Seller is represented by {broker_name}, and the Prospective Buyer will send all requests for information through them.{/has_broker}'),
+  H('2. Confidential Information'),
+  P('"Confidential Information" means all information about the Business that the Seller or its advisers provide, in any form, including financial statements, tax returns, customer and supplier information, contracts, pricing, and information about employees. It also includes the fact that the Business may be for sale and that the parties are in talks.'),
+  P('It does not include information that is or becomes public through no fault of the Prospective Buyer, that the Prospective Buyer already lawfully knew, or that the Prospective Buyer lawfully receives from someone else without a duty of confidence.'),
+  H('3. What the Prospective Buyer agrees to do'),
+  Numbered('Keep the Confidential Information secret, and use it only to evaluate the Transaction.'),
+  Numbered('Share it only with its own lawyers, accountants, lenders and other advisers who need it for the Transaction and who are told it is confidential. The Prospective Buyer is responsible for them keeping it confidential.'),
+  Numbered('Not contact the Business\'s employees, customers, suppliers or landlord about the Business or the Transaction without the Seller\'s written consent.'),
+  P('{#include_non_solicit}For {non_solicit_months} months from the date of this Agreement, the Prospective Buyer will not try to hire any employee of the Business it met or learned about through the Transaction, unless the parties complete the Transaction. General job advertisements not aimed at those employees are allowed.{/include_non_solicit}'),
+  H('4. If the Transaction does not go ahead'),
+  P('If the Seller asks, or if the Prospective Buyer decides not to go ahead, the Prospective Buyer will promptly return or destroy all Confidential Information and any notes or analysis based on it, and confirm this in writing.'),
+  H('5. No obligation to sell or buy'),
+  P('This Agreement does not oblige either party to complete the Transaction. Only a signed purchase agreement will do that. The Seller makes no promise in this Agreement about whether the information is accurate or complete; any such promises will be set out in the purchase agreement.'),
+  H('6. How long this lasts'),
+  P('This Agreement lasts for {term_years} years from the date above. Information that is a trade secret under applicable law stays protected for as long as it remains a trade secret.'),
+  H('7. Remedies and law'),
+  P('A breach of this Agreement could harm the Business in ways that money alone cannot put right, so the Seller may ask a court for an order to stop a breach, as well as any other remedy the law allows. If any part of this Agreement cannot be enforced, the rest still applies. It is governed by the laws of {governing_law}.'),
+  H('Signatures'),
+  P('Seller: ____________________________  {seller_name}   Date: ______________'),
+  P('Prospective Buyer: ____________________________  {buyer_name}   Date: ______________'),
+]);
+
 mkdirSync('samples', { recursive: true });
-for (const [file, d] of [['rent-receipt.docx', rentReceipt], ['rental-application.docx', rentalApplication], ['lease-renewal-letter.docx', leaseRenewal], ['pet-addendum.docx', petAddendum], ['residential-lease-agreement.docx', lease], ['sublease-agreement.docx', sublease], ['move-in-checklist.docx', moveInChecklist], ['late-rent-notice.docx', lateRent], ['notice-to-vacate.docx', noticeToVacate], ['rent-increase-letter.docx', rentIncrease], ['security-deposit-return-letter.docx', depositReturn], ['roommate-agreement.docx', roommate], ['partnership-agreement.docx', partnership], ['sales-commission-agreement.docx', commission], ['photo-release-form.docx', photoRelease], ['general-release.docx', generalRelease], ['memorandum-of-understanding.docx', mou], ['letter-of-intent.docx', loi], ['bill-of-sale.docx', billOfSale], ['loan-agreement.docx', loan], ['payment-reminder-letter.docx', reminder], ['subcontractor-agreement.docx', subcontractor], ['retainer-agreement.docx', retainer], ['video-production-contract.docx', video], ['virtual-assistant-agreement.docx', assistant], ['event-planning-contract.docx', eventPlanning], ['personal-training-agreement.docx', training], ['tutoring-agreement.docx', tutoring], ['web-design-contract.docx', webDesign], ['graphic-design-contract.docx', graphicDesign], ['photography-contract.docx', photography], ['social-media-management-contract.docx', socialMedia], ['freelance-writing-contract.docx', writing], ['mutual-nda.docx', nda], ['engagement-letter.docx', engagement], ['offer-letter.docx', offer], ['independent-contractor-agreement.docx', contractor], ['statement-of-work.docx', sow], ['employment-verification-letter.docx', verification], ['payment-demand-letter.docx', demand], ['one-way-nda.docx', unilateralNda], ['consulting-agreement.docx', consulting], ['employment-termination-letter.docx', termination], ['reference-letter.docx', reference], ['salary-increase-letter.docx', raise], ['internship-offer-letter.docx', internship], ['service-agreement.docx', service], ['cease-and-desist-letter.docx', cease], ['promissory-note.docx', promissory], ['resignation-letter.docx', resignation]]) {
+for (const [file, d] of [['employee-nda.docx', employeeNda], ['contractor-nda.docx', contractorNda], ['business-sale-nda.docx', businessSaleNda], ['rent-receipt.docx', rentReceipt], ['rental-application.docx', rentalApplication], ['lease-renewal-letter.docx', leaseRenewal], ['pet-addendum.docx', petAddendum], ['residential-lease-agreement.docx', lease], ['sublease-agreement.docx', sublease], ['move-in-checklist.docx', moveInChecklist], ['late-rent-notice.docx', lateRent], ['notice-to-vacate.docx', noticeToVacate], ['rent-increase-letter.docx', rentIncrease], ['security-deposit-return-letter.docx', depositReturn], ['roommate-agreement.docx', roommate], ['partnership-agreement.docx', partnership], ['sales-commission-agreement.docx', commission], ['photo-release-form.docx', photoRelease], ['general-release.docx', generalRelease], ['memorandum-of-understanding.docx', mou], ['letter-of-intent.docx', loi], ['bill-of-sale.docx', billOfSale], ['loan-agreement.docx', loan], ['payment-reminder-letter.docx', reminder], ['subcontractor-agreement.docx', subcontractor], ['retainer-agreement.docx', retainer], ['video-production-contract.docx', video], ['virtual-assistant-agreement.docx', assistant], ['event-planning-contract.docx', eventPlanning], ['personal-training-agreement.docx', training], ['tutoring-agreement.docx', tutoring], ['web-design-contract.docx', webDesign], ['graphic-design-contract.docx', graphicDesign], ['photography-contract.docx', photography], ['social-media-management-contract.docx', socialMedia], ['freelance-writing-contract.docx', writing], ['mutual-nda.docx', nda], ['engagement-letter.docx', engagement], ['offer-letter.docx', offer], ['independent-contractor-agreement.docx', contractor], ['statement-of-work.docx', sow], ['employment-verification-letter.docx', verification], ['payment-demand-letter.docx', demand], ['one-way-nda.docx', unilateralNda], ['consulting-agreement.docx', consulting], ['employment-termination-letter.docx', termination], ['reference-letter.docx', reference], ['salary-increase-letter.docx', raise], ['internship-offer-letter.docx', internship], ['service-agreement.docx', service], ['cease-and-desist-letter.docx', cease], ['promissory-note.docx', promissory], ['resignation-letter.docx', resignation]]) {
   writeFileSync(`samples/${file}`, await deterministic(await Packer.toBuffer(d)));
   console.log('wrote samples/' + file);
 }

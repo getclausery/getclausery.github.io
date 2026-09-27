@@ -3,7 +3,7 @@
    background requests (a new release ships a new VERSION, which installs a fresh cache). Pages are network-first so a
    deploy is visible at once; offline, app routes fall back to the app shell and other pages to offline.html.
    VERSION and PRECACHE are written by tools/release.mjs; do not edit them by hand. */
-const VERSION = '1.11.0';
+const VERSION = '1.12.0';
 const CACHE = 'clausery-' + VERSION;
 const BASE = new URL('./', self.location).pathname;
 // PRECACHE:BEGIN
@@ -41,8 +41,11 @@ const PRECACHE = [
   'index.html',
   'offline.html',
   'samples/bill-of-sale.docx',
+  'samples/business-sale-nda.docx',
   'samples/cease-and-desist-letter.docx',
   'samples/consulting-agreement.docx',
+  'samples/contractor-nda.docx',
+  'samples/employee-nda.docx',
   'samples/employment-termination-letter.docx',
   'samples/employment-verification-letter.docx',
   'samples/engagement-letter.docx',

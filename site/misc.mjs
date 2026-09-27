@@ -7,6 +7,13 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'What changed in each Clausery release.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.12.0 <span class="small muted">— 27 September 2026</span></h2>
+<ul>
+  <li>Three more NDA templates: an employee NDA with the Defend Trade Secrets Act notice and protected-disclosure wording, a contractor NDA for freelancers with portfolio rights, and an NDA for selling a business.</li>
+  <li>A new page that compares all five NDA templates and helps you pick one.</li>
+  <li>Guides to choosing a mutual or one-way NDA, and to how long an NDA should last.</li>
+  <li>The mutual and one-way NDAs now keep trade secrets protected for as long as they stay secret.</li>
+</ul>
 <h2>1.11.0 <span class="small muted">— 27 September 2026</span></h2>
 <ul>
   <li>Four more landlord and tenant templates: a rent receipt that handles partial payments, a rental application with a fair housing statement, a lease renewal letter and a pet addendum.</li>
