@@ -5,9 +5,10 @@ import { inspectDocx } from '../app/lib/render.js';
 import { inferQuestionnaire, FIELD_TYPES } from '../app/lib/schema.js';
 import { esc, crumbsLd } from '../tools/partials.mjs';
 import { CLAUSES } from './data/clauses.mjs';
+import { previewHtml, PREVIEW_CSS } from '../tools/preview.mjs';
 import { GUIDES } from './audience.mjs';
 // The how-to guide that goes with each template, where there is one.
-const GUIDE_FOR = { 'employee-nda': 'how-long-should-an-nda-last', 'contractor-nda': 'mutual-vs-one-way-nda', 'business-sale-nda': 'mutual-vs-one-way-nda', 'pet-addendum': 'what-to-include-in-a-lease-agreement', 'rental-application': 'what-to-include-in-a-lease-agreement', 'residential-lease-agreement': 'what-to-include-in-a-lease-agreement', 'sublease-agreement': 'what-to-include-in-a-lease-agreement', 'move-in-checklist': 'how-to-write-a-notice-to-vacate', 'partnership-agreement': 'what-to-include-in-a-partnership-agreement', 'notice-to-vacate': 'how-to-write-a-notice-to-vacate', 'roommate-agreement': 'how-to-write-a-notice-to-vacate', 'bill-of-sale': 'how-to-write-a-bill-of-sale', 'loan-agreement': 'how-to-lend-money-to-family', 'promissory-note': 'how-to-lend-money-to-family', 'photo-release-form': 'do-i-need-a-model-release', 'memorandum-of-understanding': 'is-an-mou-legally-binding', 'letter-of-intent': 'is-an-mou-legally-binding', 'payment-reminder-letter': 'what-to-do-when-a-client-wont-pay', 'subcontractor-agreement': 'how-to-write-a-freelance-contract', 'retainer-agreement': 'how-to-write-a-freelance-contract', 'offer-letter': 'how-to-write-an-offer-letter', 'internship-offer-letter': 'how-to-write-an-offer-letter', 'payment-demand-letter': 'how-to-write-a-payment-demand-letter', 'statement-of-work': 'what-to-include-in-a-statement-of-work', 'consulting-agreement': 'what-to-include-in-a-statement-of-work', 'service-agreement': 'what-to-include-in-a-statement-of-work', 'mutual-nda': 'what-to-include-in-an-nda', 'one-way-nda': 'mutual-vs-one-way-nda', 'engagement-letter': 'automate-word-templates', 'web-design-contract': 'how-to-write-a-freelance-contract', 'graphic-design-contract': 'what-is-a-kill-fee', 'photography-contract': 'how-to-write-a-freelance-contract', 'social-media-management-contract': 'how-to-write-a-freelance-contract', 'freelance-writing-contract': 'what-is-a-kill-fee', 'video-production-contract': 'how-to-write-a-freelance-contract', 'virtual-assistant-agreement': 'how-to-write-a-freelance-contract', 'event-planning-contract': 'how-to-write-a-freelance-contract' };
+const GUIDE_FOR = { 'non-solicitation-agreement': 'nda-vs-confidentiality-agreement', 'employee-nda': 'how-long-should-an-nda-last', 'contractor-nda': 'mutual-vs-one-way-nda', 'business-sale-nda': 'mutual-vs-one-way-nda', 'pet-addendum': 'what-to-include-in-a-lease-agreement', 'rental-application': 'what-to-include-in-a-lease-agreement', 'residential-lease-agreement': 'what-to-include-in-a-lease-agreement', 'sublease-agreement': 'what-to-include-in-a-lease-agreement', 'move-in-checklist': 'how-to-write-a-notice-to-vacate', 'partnership-agreement': 'what-to-include-in-a-partnership-agreement', 'notice-to-vacate': 'how-to-write-a-notice-to-vacate', 'roommate-agreement': 'how-to-write-a-notice-to-vacate', 'bill-of-sale': 'how-to-write-a-bill-of-sale', 'loan-agreement': 'how-to-lend-money-to-family', 'promissory-note': 'how-to-lend-money-to-family', 'photo-release-form': 'do-i-need-a-model-release', 'memorandum-of-understanding': 'is-an-mou-legally-binding', 'letter-of-intent': 'is-an-mou-legally-binding', 'payment-reminder-letter': 'what-to-do-when-a-client-wont-pay', 'subcontractor-agreement': 'how-to-write-a-freelance-contract', 'retainer-agreement': 'how-to-write-a-freelance-contract', 'offer-letter': 'how-to-write-an-offer-letter', 'internship-offer-letter': 'how-to-write-an-offer-letter', 'payment-demand-letter': 'how-to-write-a-payment-demand-letter', 'statement-of-work': 'what-to-include-in-a-statement-of-work', 'consulting-agreement': 'what-to-include-in-a-statement-of-work', 'service-agreement': 'what-to-include-in-a-statement-of-work', 'mutual-nda': 'what-to-include-in-an-nda', 'one-way-nda': 'mutual-vs-one-way-nda', 'engagement-letter': 'automate-word-templates', 'web-design-contract': 'how-to-write-a-freelance-contract', 'graphic-design-contract': 'what-is-a-kill-fee', 'photography-contract': 'how-to-write-a-freelance-contract', 'social-media-management-contract': 'how-to-write-a-freelance-contract', 'freelance-writing-contract': 'what-is-a-kill-fee', 'video-production-contract': 'how-to-write-a-freelance-contract', 'virtual-assistant-agreement': 'how-to-write-a-freelance-contract', 'event-planning-contract': 'how-to-write-a-freelance-contract' };
 const GUIDE = Object.fromEntries(GUIDES.map((g) => [g.slug, g]));
 // The free calculator that goes with a template, where there is one.
 const TOOL_FOR = {
@@ -33,6 +34,12 @@ export const LIB = [
     who: 'Founders, in-house counsel and law firms who send NDAs every week and are tired of editing party names by hand.',
     clauses: ['Parties, entity types and short names', 'Purpose of the disclosure', 'Definition of confidential information, with optional standard carve-outs', 'Use and protection obligations', 'Term and survival period, with trade secrets protected for as long as they stay secret', 'Governing law, with optional exclusive jurisdiction', 'Notices, with optional email copies', 'Signature blocks'],
     faq: [['Is a mutual NDA different from a one-way NDA?', 'Yes. A mutual NDA protects information flowing in both directions. Use a one-way NDA when only one party discloses.'], ['Can I change the clauses?', 'Yes. Download the Word file, edit any wording you like, keep the {tags}, and upload it to Clausery. Your formatting is kept exactly.']] },
+  { slug: 'non-solicitation-agreement', file: 'non-solicitation-agreement.docx', name: 'Non-solicitation agreement', title: 'Free non-solicitation agreement template (Word)', category: 'Legal',
+    description: 'Free non-solicitation agreement for Word: stops a departing employee or contractor poaching customers or staff, without a non-compete. No sign-up.',
+    intro: 'Stops a departing employee or contractor from poaching your customers or staff for a set number of months, without stopping them working for anyone else. Customer and staff clauses can be switched on or off.',
+    who: 'Small businesses whose staff or contractors build close relationships with customers, and owners who want protection without a non-compete.',
+    clauses: ['Company, restricted party, and whether they are an employee or a contractor', 'What the restricted party receives in return', 'How many months the restrictions last after the relationship ends', 'Optional customer non-solicitation, limited to customers they dealt with in a look-back period', 'Optional employee and contractor non-solicitation, with general job advertisements allowed', 'Not a non-compete; unsolicited customers and reports to regulators are allowed', 'Optional notice to a new employer, a reasonableness clause and remedies', 'Governing law, applying only as far as local law allows, and signatures'],
+    faq: [['Are non-solicitation agreements enforceable?', 'In many places, yes, if they are limited to customers and staff the person actually dealt with and last a reasonable time, often 6 to 24 months. California treats most employee non-solicitation clauses as void, and other states set their own limits, so check local law before you use one with an employee.'], ['What is the difference between a non-solicitation agreement and a non-compete?', 'A non-compete stops someone working for a competitor at all. A non-solicitation agreement only stops them actively chasing your customers or staff. It is narrower, so courts and lawmakers treat it more kindly.'], ['Do I also need an NDA?', 'Often, yes. A non-solicitation agreement protects relationships; an NDA protects information such as customer lists and pricing. The employee NDA template covers the information side.']] },
   { slug: 'employee-nda', file: 'employee-nda.docx', name: 'Employee NDA', title: 'Free employee NDA template (Word)', category: 'Legal',
     description: 'Free employee NDA template for Word, with the Defend Trade Secrets Act notice and protected-disclosure wording. No non-compete, no sign-up.',
     intro: 'A confidentiality agreement for employees: what counts as confidential, how long it lasts after they leave, returning company property, and the notices US law expects, with no non-compete.',
@@ -346,14 +353,14 @@ for (const [t, [tool]] of Object.entries(TOOL_FOR)) if (!existsSync(`free-tools/
 
 export const pages = [
   {
-    path: 'templates/', title: 'Free Word document templates',
-    description: 'Free Word templates for NDAs, loans, bills of sale, landlord and tenant letters, freelance contracts and more. Fill them in your browser; nothing is uploaded.',
+    path: 'templates/', title: 'Free contract templates and legal forms (Word)',
+    description: `${LIB.length} free contract templates and legal forms for Word: NDAs, leases, loan agreements, freelance contracts, HR letters and more. No sign-up.`,
     extraHead: crumbsLd([['Home', ''], ['Templates', 'templates/']]),
     body: (rel) => `
 <section class="section"><div class="wrap">
   <p class="eyebrow">Free template library</p>
-  <h1>Free Word templates you can fill in without uploading anything</h1>
-  <p class="lead">Download any template as a normal Word file, or fill it in right here: answer a few questions and get a finished .docx. Everything happens in your browser, so client and employee details never leave your computer.</p>
+  <h1>Free contract templates and legal forms for Word</h1>
+  <p class="lead">${LIB.length} free templates, each with its full wording on its page. Download any template as a normal Word file, or fill it in right here: answer a few questions and get a finished .docx. Everything happens in your browser, so client and employee details never leave your computer.</p>
   <p style="margin-top:1.25rem"><a class="btn" href="${rel}samples/${PACK_FILE}" download>Download all ${LIB.length} templates</a> <span class="small muted">One .zip file (${packSize()}), in a folder per category.</span></p>
   <p style="margin-top:1rem">Looking for an NDA? <a href="${rel}nda-templates/">Compare the ${NDA_SLUGS.length} free NDA templates</a> and pick the right one.</p>
   <nav class="small" aria-label="Template categories" style="margin-top:1.5rem">${CATEGORY_ORDER.map(([c, label]) => `<a href="#${catId(c)}">${label}</a>`).join(' · ')}</nav>
@@ -371,7 +378,7 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <h2 id="${catId(c)}" style="margin-top:2
     return {
       path: `templates/${t.slug}.html`, title: t.title, ogImage: `assets/og/${t.slug}.png`,
       description: t.description || `Free ${/^[A-Z][a-z]/.test(t.name) ? t.name[0].toLowerCase() + t.name.slice(1) : t.name} template for Word. Fill it in online in minutes or download the .docx; nothing is uploaded. ${t.intro}`,
-      extraHead: faqLd(faq) + crumbsLd([['Home', ''], ['Templates', 'templates/'], [t.name, `templates/${t.slug}.html`]]),
+      extraHead: faqLd(faq) + crumbsLd([['Home', ''], ['Templates', 'templates/'], [t.name, `templates/${t.slug}.html`]]) + PREVIEW_CSS,
       body: (rel) => `
 <section class="section"><div class="wrap" style="max-width:52rem">
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}templates/">Templates</a> › ${esc(t.name)}</nav>
@@ -386,6 +393,10 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <h2 id="${catId(c)}" style="margin-top:2
 
   <h2 style="margin-top:2.5rem">What is in the ${esc(t.name.toLowerCase())}</h2>
   <ul>${t.clauses.map((c) => `<li>${esc(c)}</li>`).join('')}</ul>
+
+  <h2 style="margin-top:2.5rem">Read the full template</h2>
+  <p class="small muted">This is the complete wording. <span class="tpl-ph">[Labels]</span> are filled in from your answers, and <span class="tpl-opt">highlighted text</span> only appears when it applies; hover over it to see when.</p>
+  <div class="tpl-doc" tabindex="0" role="region" aria-label="Full text of the ${esc(t.name)} template">${previewHtml(t.file)}</div>
 
   <h2 style="margin-top:2.5rem">The questions you answer</h2>
   <p>Clausery turns the template into a short questionnaire. Optional parts only appear when they apply.</p>

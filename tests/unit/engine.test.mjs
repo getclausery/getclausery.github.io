@@ -445,4 +445,8 @@ test('shipped samples infer sensible questionnaires', async () => {
   assert.equal(bnda.broker_name.showIf, 'has_broker');
   assert.equal(bnda.non_solicit_months.showIf, 'include_non_solicit');
   assert.equal(bnda.non_solicit_months.type, 'number');
+  const nsa = q('non-solicitation-agreement');
+  assert.equal(nsa.job_title.showIf, 'is_employee');
+  assert.equal(nsa.lookback_months.showIf, 'include_customer_clause');
+  assert.deepEqual([nsa.restricted_months.type, nsa.consideration_description.type, nsa.include_employee_clause.type], ['number', 'textarea', 'checkbox']);
 });
