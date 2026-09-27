@@ -113,6 +113,7 @@ export function footer(rel) {
     <div>
       <h4>Resources</h4>
       <a href="${rel}templates/">Free templates</a>
+      <a href="${rel}nda-templates/">NDA templates</a>
       <a href="${rel}guides/">Guides</a>
       <a href="${rel}clauses/">Clause library</a>
       <a href="${rel}free-tools/">Free tools</a>

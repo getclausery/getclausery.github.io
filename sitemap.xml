@@ -68,6 +68,7 @@
   <url><loc>https://getclausery.github.io/guides/conditional-clauses-in-word.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/confidentiality-checklist-document-software.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/do-i-need-a-model-release.html</loc><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/guides/how-long-should-an-nda-last.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/how-to-lend-money-to-family.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/how-to-write-a-bill-of-sale.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/how-to-write-a-freelance-contract.html</loc><priority>0.8</priority></url>
@@ -77,6 +78,7 @@
   <url><loc>https://getclausery.github.io/guides/</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/is-an-mou-legally-binding.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/mail-merge-vs-document-automation.html</loc><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/guides/mutual-vs-one-way-nda.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/repeating-lists-and-tables-in-word.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/what-is-a-kill-fee.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/what-to-do-when-a-client-wont-pay.html</loc><priority>0.8</priority></url>
@@ -88,11 +90,15 @@
   <url><loc>https://getclausery.github.io/legal/dpa.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/legal/privacy.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/legal/terms.html</loc><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/nda-templates/</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/press/</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/pricing/</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/bill-of-sale.html</loc><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/business-sale-nda.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/cease-and-desist-letter.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/consulting-agreement.html</loc><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/contractor-nda.html</loc><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/employee-nda.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/employment-termination-letter.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/employment-verification-letter.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/engagement-letter.html</loc><priority>0.8</priority></url>

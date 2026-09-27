@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
-const PAGES = ['', 'pricing/', 'docs/', 'docs/templates.html', 'docs/security.html', 'legal/privacy.html', '404.html', 'templates/', 'templates/statement-of-work.html', 'compare/gavel-alternative.html', 'for/law-firms.html', 'guides/automate-word-templates.html', 'free-tools/amount-in-words.html', 'free-tools/deadline-calculator.html', 'free-tools/template-checker.html', 'free-tools/late-payment-interest.html', 'free-tools/freelance-rate.html', 'for/freelancers.html', 'press/', 'clauses/', 'clauses/indemnification-clause.html', 'guides/what-to-include-in-an-nda.html', 'guides/what-to-do-when-a-client-wont-pay.html', 'templates/payment-reminder-letter.html', 'compare/', 'compare/honeybook-alternative.html', 'free-tools/invoice-due-date.html', 'free-tools/embed/invoice-due-date.html', 'free-tools/embed/amount-in-words.html', 'free-tools/loan-repayment.html', 'free-tools/embed/loan-repayment.html', 'templates/memorandum-of-understanding.html', 'templates/bill-of-sale.html', 'guides/is-an-mou-legally-binding.html', 'compare/lawdepot-alternative.html', 'compare/eforms-alternative.html', 'templates/partnership-agreement.html', 'templates/general-release.html', 'guides/what-to-include-in-a-partnership-agreement.html', 'free-tools/sales-commission.html', 'free-tools/embed/sales-commission.html', 'guides/how-to-write-a-bill-of-sale.html', 'guides/how-to-lend-money-to-family.html', 'guides/do-i-need-a-model-release.html', 'templates/notice-to-vacate.html', 'templates/security-deposit-return-letter.html', 'for/landlords.html', 'guides/how-to-write-a-notice-to-vacate.html', 'templates/residential-lease-agreement.html', 'templates/move-in-checklist.html', 'free-tools/prorated-rent.html', 'free-tools/embed/prorated-rent.html', 'guides/what-to-include-in-a-lease-agreement.html', 'templates/rent-receipt.html', 'templates/rental-application.html', 'templates/lease-renewal-letter.html', 'templates/pet-addendum.html'];
+const PAGES = ['', 'pricing/', 'docs/', 'docs/templates.html', 'docs/security.html', 'legal/privacy.html', '404.html', 'templates/', 'templates/statement-of-work.html', 'compare/gavel-alternative.html', 'for/law-firms.html', 'guides/automate-word-templates.html', 'free-tools/amount-in-words.html', 'free-tools/deadline-calculator.html', 'free-tools/template-checker.html', 'free-tools/late-payment-interest.html', 'free-tools/freelance-rate.html', 'for/freelancers.html', 'press/', 'clauses/', 'clauses/indemnification-clause.html', 'guides/what-to-include-in-an-nda.html', 'guides/what-to-do-when-a-client-wont-pay.html', 'templates/payment-reminder-letter.html', 'compare/', 'compare/honeybook-alternative.html', 'free-tools/invoice-due-date.html', 'free-tools/embed/invoice-due-date.html', 'free-tools/embed/amount-in-words.html', 'free-tools/loan-repayment.html', 'free-tools/embed/loan-repayment.html', 'templates/memorandum-of-understanding.html', 'templates/bill-of-sale.html', 'guides/is-an-mou-legally-binding.html', 'compare/lawdepot-alternative.html', 'compare/eforms-alternative.html', 'templates/partnership-agreement.html', 'templates/general-release.html', 'guides/what-to-include-in-a-partnership-agreement.html', 'free-tools/sales-commission.html', 'free-tools/embed/sales-commission.html', 'guides/how-to-write-a-bill-of-sale.html', 'guides/how-to-lend-money-to-family.html', 'guides/do-i-need-a-model-release.html', 'templates/notice-to-vacate.html', 'templates/security-deposit-return-letter.html', 'for/landlords.html', 'guides/how-to-write-a-notice-to-vacate.html', 'templates/residential-lease-agreement.html', 'templates/move-in-checklist.html', 'free-tools/prorated-rent.html', 'free-tools/embed/prorated-rent.html', 'guides/what-to-include-in-a-lease-agreement.html', 'templates/rent-receipt.html', 'templates/rental-application.html', 'templates/lease-renewal-letter.html', 'templates/pet-addendum.html', 'nda-templates/', 'templates/employee-nda.html', 'templates/contractor-nda.html', 'templates/business-sale-nda.html', 'guides/mutual-vs-one-way-nda.html', 'guides/how-long-should-an-nda-last.html'];
 for (const p of PAGES) {
   test(`site page ${p || 'home'} renders and has no serious accessibility violations`, async ({ page }) => {
     const res = await page.goto(p);
@@ -176,4 +176,18 @@ test('the templates page offers every template in one zip download', async ({ pa
   expect((await res.body()).subarray(0, 2).toString()).toBe('PK');
   await page.goto('templates/bill-of-sale.html');
   await expect(page.locator('a[download]:has-text("Download all")')).toHaveAttribute('href', '../samples/clausery-word-templates.zip');
+});
+
+test('the NDA page links every NDA template, and each one links back', async ({ page, request }) => {
+  await page.goto('nda-templates/');
+  const slugs = ['mutual-nda', 'one-way-nda', 'employee-nda', 'contractor-nda', 'business-sale-nda'];
+  for (const s of slugs) {
+    await expect(page.locator(`table a[href="../templates/${s}.html"]`)).toHaveCount(1);
+    const file = page.locator(`table a[download][href="../samples/${s}.docx"]`);
+    expect((await request.get(new URL(await file.getAttribute('href'), page.url()).href)).status()).toBe(200);
+  }
+  for (const s of slugs) {
+    await page.goto(`templates/${s}.html`);
+    await expect(page.getByRole('link', { name: 'which NDA do you need?' })).toHaveAttribute('href', '../nda-templates/');
+  }
 });
