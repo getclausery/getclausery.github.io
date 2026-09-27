@@ -31,7 +31,7 @@ export const pages = [{
 <section class="section"><div class="wrap" style="max-width:56rem">
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}templates/">Templates</a> › NDA templates</nav>
   <h1 style="margin-top:1rem">Free NDA templates for Word</h1>
-  <p class="lead">Five free non-disclosure agreement templates, one for each common situation. Pick the one that matches who is sharing information, then download the Word file or fill it in online in a few minutes. There is no account, no trial and no card, and nothing you type is uploaded.</p>
+  <p class="lead">Five free non-disclosure agreement templates, also called confidentiality agreements, one for each common situation. Pick the one that matches who is sharing information, then download the Word file or fill it in online in a few minutes. There is no account, no trial and no card, and nothing you type is uploaded.</p>
 
   <h2 style="margin-top:2.5rem">Which NDA do you need?</h2>
   <div class="table-wrap" tabindex="0"><table class="compare"><thead><tr><th scope="col">Your situation</th><th scope="col">Template</th><th scope="col">Get it</th></tr></thead><tbody>
@@ -67,6 +67,8 @@ export const pages = [{
 
   <h2 style="margin-top:2.5rem">Related</h2>
   <ul>
+    <li><a href="${rel}templates/non-solicitation-agreement.html">Non-solicitation agreement</a>, to protect customer and staff relationships as well as information</li>
+    <li><a href="${rel}guides/nda-vs-confidentiality-agreement.html">NDA vs confidentiality agreement</a>, and how both differ from non-solicitation and non-compete agreements</li>
     <li><a href="${rel}clauses/non-solicitation-clause.html">Non-solicitation clause</a>, used in the business sale NDA</li>
     <li><a href="${rel}templates/letter-of-intent.html">Letter of intent</a>, the usual next step after a business sale NDA</li>
     <li><a href="${rel}templates/independent-contractor-agreement.html">Independent contractor agreement</a>, for the work itself alongside a contractor NDA</li>
