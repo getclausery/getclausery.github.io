@@ -1,7 +1,7 @@
 // Free drafting tools: small utilities people search for (amount in words, deadline calculator, template checker).
 // Each runs entirely in the page from an external module (strict CSP friendly) and points to Clausery for the full job.
 // The calculators also have bare embed pages (free-tools/embed/) that other sites can put in an iframe, with a credit link.
-import { SITE, esc, faqLd, faqHtml } from '../tools/partials.mjs';
+import { SITE, esc, faqLd, faqHtml, crumbsLd } from '../tools/partials.mjs';
 import { invoiceDue } from '../free-tools/invoice-due-date.js';
 import { formatDate } from '../app/lib/expr.js';
 const TOOL_CSS = `<style>
@@ -26,6 +26,7 @@ const crumbs = (rel, name) => `<nav class="small muted" aria-label="Breadcrumb">
 const moreTools = (rel, slug) => `<p class="small" style="margin-top:2rem"><strong>More free tools:</strong> ${TOOLS.filter((t) => t.slug !== slug).map((t) => `<a href="${rel}free-tools/${t.slug}.html">${t.name}</a>`).join(' · ')}</p>`;
 const cta = (rel, slug) => moreTools(rel, slug) + `<div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem">Draft the whole document, not just one line</h2><p>Clausery turns your Word templates into questionnaires and builds the finished document in your browser, with amounts in words, dates and totals calculated for you. Free for up to three templates.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free templates</a></p></div>`;
 const appLd = (name, desc, url) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebApplication', name, description: desc, url: SITE + url, applicationCategory: 'BusinessApplication', operatingSystem: 'Any (web browser)', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } })}</script>`;
+const toolLd = (name, desc, url) => appLd(name, desc, url) + crumbsLd([['Home', ''], ['Free tools', 'free-tools/'], [name, url]]);
 
 const TOOL_FAQ = [
   [['Why write an amount in both words and figures?', 'So that a typo in one is caught by the other. For cheques and promissory notes in the United States, the Uniform Commercial Code says that where words and numbers conflict, the words prevail, and many other countries follow the same rule.'],
@@ -254,7 +255,7 @@ export const pages = [
 <p>Every calculator except the template checker can be embedded on another site with one line of code, free. Open a calculator and scroll to <strong>Add this calculator to your website</strong> to copy its code. The embedded calculators run in your visitors' browsers with no cookies or tracking, and carry a small credit link to Clausery.</p></div></section>` },
 
   { path: 'free-tools/amount-in-words.html', title: 'Amount in words converter for contracts and cheques', description: T['amount-in-words'].desc,
-    extraHead: faqLd(TOOL_FAQ[0]) + TOOL_CSS + appLd(T['amount-in-words'].name, T['amount-in-words'].desc, 'free-tools/amount-in-words.html') + `<script type="module" src="amount-in-words.js"></script>`,
+    extraHead: faqLd(TOOL_FAQ[0]) + TOOL_CSS + toolLd(T['amount-in-words'].name, T['amount-in-words'].desc, 'free-tools/amount-in-words.html') + `<script type="module" src="amount-in-words.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Amount in words')}
 <h1 style="margin-top:1rem">Amount in words converter</h1>
 <p class="lead">Contracts, promissory notes and cheques often state an amount twice, in words and in figures, so a typo in one is caught by the other. Type an amount to get the wording.</p>
@@ -268,7 +269,7 @@ ${faqHtml(TOOL_FAQ[0])}
 ${cta(rel, 'amount-in-words')}</div></section>` },
 
   { path: 'free-tools/deadline-calculator.html', title: 'Contract deadline calculator (business days, months, years)', description: T['deadline-calculator'].desc,
-    extraHead: faqLd(TOOL_FAQ[1]) + TOOL_CSS + appLd(T['deadline-calculator'].name, T['deadline-calculator'].desc, 'free-tools/deadline-calculator.html') + `<script type="module" src="deadline-calculator.js"></script>`,
+    extraHead: faqLd(TOOL_FAQ[1]) + TOOL_CSS + toolLd(T['deadline-calculator'].name, T['deadline-calculator'].desc, 'free-tools/deadline-calculator.html') + `<script type="module" src="deadline-calculator.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Deadline calculator')}
 <h1 style="margin-top:1rem">Contract deadline calculator</h1>
 <p class="lead">Work out notice periods, payment due dates, renewal dates and response deadlines. Month arithmetic stops at month end, so January 31 plus one month is the last day of February.</p>
@@ -283,7 +284,7 @@ ${faqHtml(TOOL_FAQ[1])}
 ${cta(rel, 'deadline-calculator')}</div></section>` },
 
   { path: 'free-tools/invoice-due-date.html', title: 'Net 30 calculator: invoice due date for any payment terms', description: T['invoice-due-date'].desc,
-    extraHead: faqLd(TOOL_FAQ[5]) + TOOL_CSS + appLd(T['invoice-due-date'].name, T['invoice-due-date'].desc, 'free-tools/invoice-due-date.html') + `<script type="module" src="invoice-due-date.js"></script>`,
+    extraHead: faqLd(TOOL_FAQ[5]) + TOOL_CSS + toolLd(T['invoice-due-date'].name, T['invoice-due-date'].desc, 'free-tools/invoice-due-date.html') + `<script type="module" src="invoice-due-date.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Invoice due date')}
 <h1 style="margin-top:1rem">Invoice due date calculator</h1>
 <p class="lead">Pick the payment terms on the invoice, such as net 30, net 30 EOM or 2/10 net 30, to see the exact due date, how many days are left, and what paying early is worth.</p>
@@ -303,7 +304,7 @@ ${faqHtml(TOOL_FAQ[5])}
 ${cta(rel, 'invoice-due-date')}</div></section>` },
 
   { path: 'free-tools/late-payment-interest.html', title: 'Late payment interest calculator (contract or UK statutory)', description: T['late-payment-interest'].desc,
-    extraHead: faqLd(TOOL_FAQ[3]) + TOOL_CSS + appLd(T['late-payment-interest'].name, T['late-payment-interest'].desc, 'free-tools/late-payment-interest.html') + `<script type="module" src="late-payment-interest.js"></script>`,
+    extraHead: faqLd(TOOL_FAQ[3]) + TOOL_CSS + toolLd(T['late-payment-interest'].name, T['late-payment-interest'].desc, 'free-tools/late-payment-interest.html') + `<script type="module" src="late-payment-interest.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Late payment interest')}
 <h1 style="margin-top:1rem">Late payment interest calculator</h1>
 <p class="lead">Find out how much interest you can add to an overdue invoice, at the rate in your contract or at the UK statutory rate for business debts.</p>
@@ -318,7 +319,7 @@ ${faqHtml(TOOL_FAQ[3])}
 ${cta(rel, 'late-payment-interest')}</div></section>` },
 
   { path: 'free-tools/freelance-rate.html', title: 'Freelance rate calculator: hourly and day rate', description: T['freelance-rate'].desc,
-    extraHead: faqLd(TOOL_FAQ[4]) + TOOL_CSS + appLd(T['freelance-rate'].name, T['freelance-rate'].desc, 'free-tools/freelance-rate.html') + `<script type="module" src="freelance-rate.js"></script>`,
+    extraHead: faqLd(TOOL_FAQ[4]) + TOOL_CSS + toolLd(T['freelance-rate'].name, T['freelance-rate'].desc, 'free-tools/freelance-rate.html') + `<script type="module" src="freelance-rate.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Freelance rate')}
 <h1 style="margin-top:1rem">Freelance rate calculator</h1>
 <p class="lead">Start from what you want to take home and work back to the hourly and day rate that gets you there, after tax, business costs and time off.</p>
@@ -332,7 +333,7 @@ ${faqHtml(TOOL_FAQ[4])}
 ${cta(rel, 'freelance-rate')}</div></section>` },
 
   { path: 'free-tools/loan-repayment.html', title: 'Loan repayment calculator with amortization schedule', description: T['loan-repayment'].desc,
-    extraHead: faqLd(TOOL_FAQ[6]) + TOOL_CSS + appLd(T['loan-repayment'].name, T['loan-repayment'].desc, 'free-tools/loan-repayment.html') + `<script type="module" src="loan-repayment.js"></script>`,
+    extraHead: faqLd(TOOL_FAQ[6]) + TOOL_CSS + toolLd(T['loan-repayment'].name, T['loan-repayment'].desc, 'free-tools/loan-repayment.html') + `<script type="module" src="loan-repayment.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Loan repayment')}
 <h1 style="margin-top:1rem">Loan repayment calculator</h1>
 <p class="lead">Lending to family, a friend or a business? Enter the amount, the interest rate and the number of payments to see the payment, the total interest, and a full schedule you can attach to the loan agreement.</p>
@@ -345,7 +346,7 @@ ${embedSection('loan-repayment')}
 ${faqHtml(TOOL_FAQ[6])}
 ${cta(rel, 'loan-repayment')}</div></section>` },
   { path: 'free-tools/sales-commission.html', title: 'Sales commission calculator with tiers and draw', description: T['sales-commission'].desc,
-    extraHead: faqLd(TOOL_FAQ[7]) + TOOL_CSS + appLd(T['sales-commission'].name, T['sales-commission'].desc, 'free-tools/sales-commission.html') + `<script type="module" src="sales-commission.js"></script>`,
+    extraHead: faqLd(TOOL_FAQ[7]) + TOOL_CSS + toolLd(T['sales-commission'].name, T['sales-commission'].desc, 'free-tools/sales-commission.html') + `<script type="module" src="sales-commission.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Sales commission')}
 <h1 style="margin-top:1rem">Sales commission calculator</h1>
 <p class="lead">Enter the sales and the commission rate to see what is owed. Add up to two higher tiers for sales above a target, choose whether the higher rate covers only the extra sales or all of them, and subtract any draw already paid.</p>
@@ -358,7 +359,7 @@ ${embedSection('sales-commission')}
 ${faqHtml(TOOL_FAQ[7])}
 ${cta(rel, 'sales-commission')}</div></section>` },
   { path: 'free-tools/prorated-rent.html', title: 'Prorated rent calculator for move-in and move-out', description: T['prorated-rent'].desc,
-    extraHead: faqLd(TOOL_FAQ[8]) + TOOL_CSS + appLd(T['prorated-rent'].name, T['prorated-rent'].desc, 'free-tools/prorated-rent.html') + `<script type="module" src="prorated-rent.js"></script>`,
+    extraHead: faqLd(TOOL_FAQ[8]) + TOOL_CSS + toolLd(T['prorated-rent'].name, T['prorated-rent'].desc, 'free-tools/prorated-rent.html') + `<script type="module" src="prorated-rent.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Prorated rent')}
 <h1 style="margin-top:1rem">Prorated rent calculator</h1>
 <p class="lead">Moving in or out partway through a month? Enter the monthly rent and the date to see the rent for the days the tenant actually lives there, with the daily rate and a comparison of the three common methods.</p>
@@ -371,7 +372,7 @@ ${embedSection('prorated-rent')}
 ${faqHtml(TOOL_FAQ[8])}
 ${cta(rel, 'prorated-rent')}</div></section>` },
   { path: 'free-tools/template-checker.html', title: 'Word template tag checker', description: T['template-checker'].desc,
-    extraHead: faqLd(TOOL_FAQ[2]) + TOOL_CSS + appLd(T['template-checker'].name, T['template-checker'].desc, 'free-tools/template-checker.html') + `<script type="module" src="template-checker.js"></script>`,
+    extraHead: faqLd(TOOL_FAQ[2]) + TOOL_CSS + toolLd(T['template-checker'].name, T['template-checker'].desc, 'free-tools/template-checker.html') + `<script type="module" src="template-checker.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Template checker')}
 <h1 style="margin-top:1rem">Word template tag checker</h1>
 <p class="lead">Check a Word template before you use it: unclosed tags, mismatched sections and invalid names are reported with a plain-English fix, and you see the exact questionnaire it would produce. The file is read in your browser and never uploaded.</p>

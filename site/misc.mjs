@@ -7,6 +7,11 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'What changed in each Clausery release.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.11.0 <span class="small muted">— 27 September 2026</span></h2>
+<ul>
+  <li>Four more landlord and tenant templates: a rent receipt that handles partial payments, a rental application with a fair housing statement, a lease renewal letter and a pet addendum.</li>
+  <li>Guides and free tool pages now carry breadcrumb data for search engines.</li>
+</ul>
 <h2>1.10.0 <span class="small muted">— 26 September 2026</span></h2>
 <ul>
   <li>Four more landlord and tenant templates: a residential lease agreement, a sublease agreement, a move-in and move-out inspection checklist, and a late rent notice.</li>

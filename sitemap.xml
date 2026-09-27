@@ -104,6 +104,7 @@
   <url><loc>https://getclausery.github.io/templates/</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/internship-offer-letter.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/late-rent-notice.html</loc><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/lease-renewal-letter.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/letter-of-intent.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/loan-agreement.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/memorandum-of-understanding.html</loc><priority>0.8</priority></url>
@@ -116,11 +117,14 @@
   <url><loc>https://getclausery.github.io/templates/payment-demand-letter.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/payment-reminder-letter.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/personal-training-agreement.html</loc><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/pet-addendum.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/photo-release-form.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/photography-contract.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/promissory-note.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/reference-letter.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/rent-increase-letter.html</loc><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/rent-receipt.html</loc><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/rental-application.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/residential-lease-agreement.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/resignation-letter.html</loc><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/retainer-agreement.html</loc><priority>0.8</priority></url>

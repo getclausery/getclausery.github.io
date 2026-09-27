@@ -1,7 +1,7 @@
 // Clause library: one page per common contract clause (site/data/clauses.mjs) with a plain-English explanation,
 // copyable sample wording, what to check, and the same clause with Clausery tags. Pages link to the free templates
 // that use each clause, and template pages link back (site/library.mjs).
-import { esc, SITE } from '../tools/partials.mjs';
+import { esc, crumbsLd } from '../tools/partials.mjs';
 import { CLAUSES, GROUPS } from './data/clauses.mjs';
 import { LIB } from './library.mjs';
 
@@ -13,7 +13,6 @@ for (const c of CLAUSES) {
 }
 
 const faqLd = (faq) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) })}</script>`;
-const crumbsLd = (items) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map(([name, url], i) => ({ '@type': 'ListItem', position: i + 1, name, item: SITE + url })) })}</script>`;
 const paras = (text) => text.split(/\n\n+/).map((p) => `<p>${esc(p)}</p>`).join('');
 const short = (c) => c.name.replace(/ clause$/, '');
 
