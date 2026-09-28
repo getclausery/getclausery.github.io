@@ -70,11 +70,11 @@ export const pages = [{
 <section class="section section-alt" id="templates">
   <div class="wrap">
     <h2>Start with a free template</h2>
-    <p class="lead">Fifty-four ready-made Word templates, from NDAs and partnership agreements to leases and freelance contracts, each one click away from a finished document.</p>
+    <p class="lead">Fifty-eight ready-made Word templates, from NDAs and employment contracts to leases, liability waivers and freelance contracts, each one click away from a finished document.</p>
     <div class="grid grid-4">
       <a class="feature" style="text-decoration:none;color:inherit" href="${rel}nda-templates/"><h3>NDA templates</h3><p>Mutual, one-way, employee, contractor and business sale.</p></a>
       <a class="feature" style="text-decoration:none;color:inherit" href="${rel}templates/engagement-letter.html"><h3>Engagement letter</h3><p>Scope, team, fees and retainer.</p></a>
-      <a class="feature" style="text-decoration:none;color:inherit" href="${rel}templates/offer-letter.html"><h3>Offer letter</h3><p>Salary, bonus, equity, benefits.</p></a>
+      <a class="feature" style="text-decoration:none;color:inherit" href="${rel}for/hr-teams.html"><h3>HR letter templates</h3><p>Offer, contract, warning, promotion and more.</p></a>
       <a class="feature" style="text-decoration:none;color:inherit" href="${rel}templates/independent-contractor-agreement.html"><h3>Contractor agreement</h3><p>Hourly or fixed fee, IP, termination.</p></a>
     </div>
     <p style="margin-top:1.25rem"><a href="${rel}templates/">See all free templates →</a> &nbsp;·&nbsp; <a href="${rel}samples/${PACK_FILE}" download>Download them all (.zip) →</a> &nbsp;·&nbsp; <a href="${rel}clauses/">Contract clauses explained →</a> &nbsp;·&nbsp; <a href="${rel}free-tools/">Free drafting tools →</a> &nbsp;·&nbsp; <a href="${rel}for/freelancers.html">Freelance contracts →</a> &nbsp;·&nbsp; <a href="${rel}for/landlords.html">Landlord and tenant letters →</a></p>

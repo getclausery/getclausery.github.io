@@ -14,7 +14,7 @@ const SEO_TITLES = {
   'compare/clio-draft-alternative.html': 'Clio Draft alternative that never uploads client files',
   'compare/hotdocs-alternative.html': 'HotDocs alternative: document automation in the browser',
   'for/consultants.html': 'Proposal, SOW and contractor agreement automation',
-  'for/hr-teams.html': 'Generate offer letters and HR letters in minutes',
+  'for/hr-teams.html': 'Free HR letter templates: offer, warning, promotion (Word)',
   'for/law-firms.html': 'Document automation for small law firms, with no uploads',
   'guides/automate-word-templates.html': 'How to automate a Word template without uploading it',
   'guides/client-intake-without-a-portal.html': 'Client intake without a portal: collect answers privately',

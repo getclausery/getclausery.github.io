@@ -25,7 +25,7 @@ Each party gives the same indemnity to the other on reciprocal terms.
       ['What is the difference between "indemnify" and "hold harmless"?', 'Many courts treat the two as meaning the same thing. Some read "hold harmless" as also protecting the indemnified party from claims by the indemnifying party itself. Using both, as most contracts do, avoids the argument.'],
       ['Is an indemnity limited by the limitation of liability clause?', 'Only if the contract says so. If the liability clause is silent about indemnities, the result depends on how a court reads the two clauses together, so state the position expressly.'],
     ],
-    templates: ['service-agreement', 'independent-contractor-agreement', 'consulting-agreement'],
+    templates: ['service-agreement', 'independent-contractor-agreement', 'consulting-agreement', 'liability-waiver'],
   },
   {
     slug: 'limitation-of-liability-clause', name: 'Limitation of liability clause', group: 'Risk and liability',
@@ -45,7 +45,7 @@ Subject to the paragraph above: (a) neither party shall be liable to the other f
       ['What is a typical liability cap?', 'In service agreements, the fees paid in the previous twelve months is the most common starting point. Higher-risk contracts often use a multiple of annual fees or a fixed amount linked to insurance cover.'],
       ['Can a contract exclude all liability?', 'Generally no. Most legal systems do not allow a party to exclude liability for fraud, and many prohibit excluding liability for death or personal injury caused by negligence. A clause that tries to exclude everything risks being struck down entirely.'],
     ],
-    templates: ['service-agreement', 'consulting-agreement', 'statement-of-work', 'photography-contract'],
+    templates: ['service-agreement', 'consulting-agreement', 'statement-of-work', 'photography-contract', 'liability-waiver'],
   },
   {
     slug: 'force-majeure-clause', name: 'Force majeure clause', group: 'Risk and liability',
@@ -92,7 +92,7 @@ These obligations continue for {confidentiality_years} years after this Agreemen
       ['Is a confidentiality clause the same as an NDA?', 'It does the same job. An NDA is a standalone agreement, usually signed before a deal. A confidentiality clause sits inside a larger contract, such as a services or employment agreement.'],
       ['How long should confidentiality last?', 'Long enough for the information to lose its value. Two to five years suits most commercial information; trade secrets need protection for as long as they remain secret.'],
     ],
-    templates: ['mutual-nda', 'one-way-nda', 'consulting-agreement', 'independent-contractor-agreement', 'subcontractor-agreement', 'retainer-agreement', 'memorandum-of-understanding', 'letter-of-intent', 'sales-commission-agreement', 'general-release', 'employee-nda', 'contractor-nda', 'business-sale-nda'],
+    templates: ['mutual-nda', 'one-way-nda', 'consulting-agreement', 'independent-contractor-agreement', 'subcontractor-agreement', 'retainer-agreement', 'memorandum-of-understanding', 'letter-of-intent', 'sales-commission-agreement', 'general-release', 'employee-nda', 'contractor-nda', 'business-sale-nda', 'employment-agreement'],
   },
   {
     slug: 'non-solicitation-clause', name: 'Non-solicitation clause', group: 'Confidentiality and restrictions',
@@ -112,7 +112,7 @@ This clause does not prevent either party from placing general advertisements th
       ['Is a non-solicitation clause enforceable?', 'It is enforced more often than a non-compete, provided it protects a legitimate interest and is reasonable in length and scope. Some places are stricter: California, for example, treats many customer non-solicitation clauses in employment contracts as void.'],
       ['What is the difference between non-solicitation and non-compete?', 'A non-compete stops someone working for a competitor at all. A non-solicitation clause only stops them approaching specific people, so it restricts far less and is easier to justify.'],
     ],
-    templates: ['consulting-agreement', 'service-agreement', 'independent-contractor-agreement', 'subcontractor-agreement', 'business-sale-nda', 'non-solicitation-agreement'],
+    templates: ['consulting-agreement', 'service-agreement', 'independent-contractor-agreement', 'subcontractor-agreement', 'business-sale-nda', 'non-solicitation-agreement', 'employment-agreement'],
   },
   {
     slug: 'non-compete-clause', name: 'Non-compete clause', group: 'Confidentiality and restrictions',
@@ -204,7 +204,7 @@ The Contractor retains ownership of the Deliverables and grants the Client a non
       ['Who owns work created by a contractor?', 'Usually the contractor, unless a written agreement assigns it to the client. Employees are different: work created in the course of employment generally belongs to the employer.'],
       ['Is "work made for hire" the same as an assignment?', 'Not quite. In US copyright law, work made for hire applies automatically to employees, but for contractors only to certain categories of commissioned work with a signed agreement. That is why most contracts also include a backup assignment.'],
     ],
-    templates: ['independent-contractor-agreement', 'consulting-agreement', 'statement-of-work', 'web-design-contract', 'graphic-design-contract', 'freelance-writing-contract', 'subcontractor-agreement', 'retainer-agreement'],
+    templates: ['independent-contractor-agreement', 'consulting-agreement', 'statement-of-work', 'web-design-contract', 'graphic-design-contract', 'freelance-writing-contract', 'subcontractor-agreement', 'retainer-agreement', 'employment-agreement'],
   },
   {
     slug: 'warranty-clause', name: 'Warranty clause', group: 'Work and ownership',
@@ -288,7 +288,7 @@ On termination under this clause, the Customer shall pay the Supplier for all Se
       ['What counts as a material breach?', 'A breach serious enough to substantially deprive the other party of what it bargained for. Late payment of a single small invoice usually is not; a failure to deliver the core service usually is.'],
       ['What is a cure period?', 'The time the breaching party has, after receiving notice, to fix the breach before the other party can terminate.'],
     ],
-    templates: ['service-agreement', 'consulting-agreement', 'independent-contractor-agreement'],
+    templates: ['service-agreement', 'consulting-agreement', 'independent-contractor-agreement', 'employment-agreement'],
   },
   {
     slug: 'survival-clause', name: 'Survival clause', group: 'Ending the contract',
@@ -327,7 +327,7 @@ The courts of the State of New York sitting in New York County, and the United S
       ['What is the difference between governing law and jurisdiction?', 'Governing law is the set of legal rules used to interpret the contract. Jurisdiction is which court decides the dispute. A court in one country can apply another country\'s law, but it is slower and more expensive.'],
       ['What happens if a contract does not choose a governing law?', 'Courts apply conflict-of-laws rules to work it out, typically looking at where the parties are and where the contract is performed. The result can be uncertain and expensive to argue about.'],
     ],
-    templates: ['mutual-nda', 'one-way-nda', 'service-agreement', 'independent-contractor-agreement', 'consulting-agreement', 'promissory-note', 'subcontractor-agreement', 'retainer-agreement', 'memorandum-of-understanding', 'letter-of-intent', 'loan-agreement', 'bill-of-sale', 'partnership-agreement', 'sales-commission-agreement', 'photo-release-form', 'general-release', 'residential-lease-agreement', 'employee-nda', 'contractor-nda', 'business-sale-nda', 'non-solicitation-agreement'],
+    templates: ['mutual-nda', 'one-way-nda', 'service-agreement', 'independent-contractor-agreement', 'consulting-agreement', 'promissory-note', 'subcontractor-agreement', 'retainer-agreement', 'memorandum-of-understanding', 'letter-of-intent', 'loan-agreement', 'bill-of-sale', 'partnership-agreement', 'sales-commission-agreement', 'photo-release-form', 'general-release', 'residential-lease-agreement', 'employee-nda', 'contractor-nda', 'business-sale-nda', 'non-solicitation-agreement', 'employment-agreement', 'liability-waiver'],
   },
   {
     slug: 'dispute-resolution-clause', name: 'Dispute resolution clause', group: 'Law and disputes',
@@ -391,7 +391,7 @@ Each party acknowledges that in entering into this Agreement it does not rely on
       ['What is a merger clause?', 'Another name for an entire agreement clause, used mainly in the United States. "Integration clause" means the same.'],
       ['Can an entire agreement clause cancel an earlier NDA?', 'Yes, if the NDA covers the same subject matter and is not excluded. Many deals preserve the NDA expressly for that reason.'],
     ],
-    templates: ['service-agreement', 'consulting-agreement', 'mutual-nda', 'loan-agreement', 'partnership-agreement', 'sales-commission-agreement', 'general-release', 'residential-lease-agreement'],
+    templates: ['service-agreement', 'consulting-agreement', 'mutual-nda', 'loan-agreement', 'partnership-agreement', 'sales-commission-agreement', 'general-release', 'residential-lease-agreement', 'employment-agreement'],
   },
   {
     slug: 'severability-clause', name: 'Severability clause', group: 'Boilerplate',
@@ -410,7 +410,7 @@ Any modification to or deletion of a provision or part-provision under this clau
       ['Will a severability clause save an unenforceable non-compete?', 'Sometimes. Some US states let courts narrow an unreasonable non-compete; others strike it out entirely; English courts will only delete words and will not rewrite the clause.'],
       ['Is a severability clause necessary?', 'Courts often sever invalid terms anyway, but the clause makes the parties\' intention clear and costs nothing to include.'],
     ],
-    templates: ['service-agreement', 'independent-contractor-agreement', 'loan-agreement', 'partnership-agreement', 'sales-commission-agreement', 'general-release', 'residential-lease-agreement', 'employee-nda', 'contractor-nda', 'business-sale-nda', 'non-solicitation-agreement'],
+    templates: ['service-agreement', 'independent-contractor-agreement', 'loan-agreement', 'partnership-agreement', 'sales-commission-agreement', 'general-release', 'residential-lease-agreement', 'employee-nda', 'contractor-nda', 'business-sale-nda', 'non-solicitation-agreement', 'employment-agreement', 'liability-waiver'],
   },
   {
     slug: 'assignment-clause', name: 'Assignment clause', group: 'Boilerplate',
@@ -447,7 +447,7 @@ However, either party may assign this Agreement in its entirety, without consent
       ['Can a contract be changed by email?', 'Often yes, if the emails show both parties agreed, unless the contract requires a signed document and the governing law enforces that requirement.'],
       ['What is the difference between an amendment and an addendum?', 'An amendment changes existing terms. An addendum adds new terms or material. Both should be signed by both parties.'],
     ],
-    templates: ['service-agreement', 'statement-of-work', 'loan-agreement', 'partnership-agreement', 'sales-commission-agreement', 'general-release', 'residential-lease-agreement'],
+    templates: ['service-agreement', 'statement-of-work', 'loan-agreement', 'partnership-agreement', 'sales-commission-agreement', 'general-release', 'residential-lease-agreement', 'employment-agreement'],
   },
   {
     slug: 'waiver-clause', name: 'Waiver clause', group: 'Boilerplate',
@@ -504,6 +504,6 @@ Your employment with {company_name} is at will: you or the Company may end it at
       ['Does at-will employment apply outside the United States?', 'No. Most other countries require notice, a fair reason or a fair process to dismiss an employee, and the clause has no effect there.'],
       ['Which US state is not at will?', 'Montana. After a probationary period, its Wrongful Discharge from Employment Act requires good cause for dismissal.'],
     ],
-    templates: ['offer-letter', 'internship-offer-letter', 'employment-termination-letter'],
+    templates: ['offer-letter', 'internship-offer-letter', 'employment-termination-letter', 'employment-agreement'],
   },
 ];
