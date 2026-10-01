@@ -2,7 +2,7 @@
 // Run with `npm run build:site`. Outputs are committed so GitHub Pages needs no build step.
 import { writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { dirname } from 'node:path';
-import { head, footer, embedPage, SITE } from './partials.mjs';
+import { head, footer, embedPage, crumbsLd, SITE } from './partials.mjs';
 
 const pages = [];
 for (const f of readdirSync('site').filter((f) => f.endsWith('.mjs'))) {
@@ -23,6 +23,17 @@ const SEO_TITLES = {
   'guides/how-to-write-a-freelance-contract.html': 'How to write a freelance contract: 10 key clauses',
 };
 for (const k of Object.keys(SEO_TITLES)) if (!pages.some((p) => p.path === k)) throw new Error('SEO_TITLES: no page ' + k);
+// Pages without their own breadcrumb data get one from their path (Home › section › page), so every indexable page has
+// structured data. Sections listed here have an index page; anything else links straight from Home.
+const SECTIONS = { docs: 'Docs', compare: 'Compare', 'free-tools': 'Free tools', guides: 'Guides', clauses: 'Clauses', templates: 'Templates' };
+for (const p of pages) {
+  if (p.layout === 'embed' || p.path === '' || p.path === '404.html' || /BreadcrumbList/.test(p.extraHead || '')) continue;
+  const section = p.path.includes('/') ? p.path.split('/')[0] : null;
+  const items = [['Home', '']];
+  if (section && SECTIONS[section] && p.path !== section + '/') items.push([SECTIONS[section], section + '/']);
+  items.push([p.title, p.path]);
+  p.extraHead = (p.extraHead || '') + crumbsLd(items);
+}
 for (const p of pages) {
   // GitHub Pages serves 404.html for a miss at any depth, so its links must be root-relative, not relative to its file.
   const rel = p.path === '404.html' ? '/' : p.path.split('/').filter(Boolean).length - (p.path.endsWith('/') || p.path === '' ? 0 : 1) > 0 ? '../'.repeat(p.path.split('/').filter(Boolean).length - (p.path.endsWith('/') || p.path === '' ? 0 : 1)) : './';

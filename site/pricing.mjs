@@ -1,5 +1,19 @@
+import { faqLd, SITE } from '../tools/partials.mjs';
+
+// Questions shown at the foot of the page and published as FAQPage data.
+const FAQ = [
+  ['Is there a free trial of Pro?', 'The Free plan has no time limit, so you can evaluate the core product for as long as you like. If you need to test a Pro feature before buying, email us for a 14-day key.'],
+  ['What happens when a license expires?', 'The app falls back to the Free plan. Everything you created stays on your device and keeps working; only the Pro-gated features pause until you renew.'],
+  ['Do you offer discounts for legal aid, nonprofits or education?', 'Yes: 50% off Pro and Team. Email us from your organisation\'s address.'],
+  ['Can I get an invoice or pay by bank transfer?', 'Team and Enterprise customers can pay by invoice. Contact us.'],
+];
+// The paid plans as structured data, so search engines can read the prices on this page.
+const offer = (name, price, unitText) => ({ '@type': 'Offer', name, price, priceCurrency: 'USD', url: SITE + 'pricing/', priceSpecification: { '@type': 'UnitPriceSpecification', price, priceCurrency: 'USD', unitText } });
+const plansLd = `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'Clausery', applicationCategory: 'BusinessApplication', operatingSystem: 'Any (web browser)', url: SITE,
+  offers: [offer('Free', '0', 'up to 3 templates'), offer('Pro, monthly', '19', 'per user per month'), offer('Pro, yearly', '190', 'per user per year'), offer('Team, 5 seats', '49', 'per month')] })}</script>`;
+
 export const pages = [{
-  path: 'pricing/', title: 'Pricing',
+  path: 'pricing/', title: 'Pricing', extraHead: plansLd + faqLd(FAQ),
   description: 'Clausery pricing: free for up to three templates; Pro from $19 per user per month; Team and Enterprise plans for firms that want packs, encryption, intake forms and self-hosting.',
   body: (rel) => `
 <section class="section">
@@ -109,10 +123,7 @@ export const pages = [{
   <div class="wrap" style="max-width:48rem">
     <h2>Pricing questions</h2>
     <div class="faq">
-      <details><summary>Is there a free trial of Pro?</summary><p>The Free plan has no time limit, so you can evaluate the core product for as long as you like. If you need to test a Pro feature before buying, email us for a 14-day key.</p></details>
-      <details><summary>What happens when a license expires?</summary><p>The app falls back to the Free plan. Everything you created stays on your device and keeps working; only the Pro-gated features pause until you renew.</p></details>
-      <details><summary>Do you offer discounts for legal aid, nonprofits or education?</summary><p>Yes: 50% off Pro and Team. Email us from your organisation's address.</p></details>
-      <details><summary>Can I get an invoice or pay by bank transfer?</summary><p>Team and Enterprise customers can pay by invoice. Contact us.</p></details>
+      ${FAQ.map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join('\n      ')}
     </div>
   </div>
 </section>

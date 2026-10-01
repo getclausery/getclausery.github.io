@@ -1,5 +1,6 @@
 // Static checks for the deploy tree: every HTML page has lang, title, description and viewport; internal links
-// and asset references resolve to files; no external scripts or stylesheets (part of the no-third-party promise).
+// and asset references resolve to files; no external scripts or stylesheets (part of the no-third-party promise);
+// structured data parses, and every indexable page has some.
 import { readFileSync, existsSync, statSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { globSync } from 'node:fs';
@@ -15,6 +16,10 @@ for (const f of files) {
   if (!/<meta name="description" content="[^"]+"/i.test(html)) fail(f, 'missing meta description');
   if (!/<meta name="viewport"/i.test(html)) fail(f, 'missing viewport');
   if (!/<main[\s>]/i.test(html) && !/id="main"/.test(html)) fail(f, 'missing <main>');
+  // Structured data must parse, and every page search engines may index carries some (at least a breadcrumb).
+  const ld = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+  for (const [, json] of ld) { try { if (!JSON.parse(json)['@context']) fail(f, 'structured data without @context'); } catch { fail(f, 'structured data is not valid JSON'); } }
+  if (!ld.length && !/<meta name="robots" content="[^"]*noindex/i.test(html) && f !== '404.html') fail(f, 'no structured data');
   for (const m of html.matchAll(/<(?:script|link)[^>]+(?:src|href)="(https?:)?\/\/[^"]+"/gi)) if (!/rel="(?:canonical|noopener)"/.test(m[0])) fail(f, 'external script/stylesheet: ' + m[0].slice(0, 80));
   for (const m of html.matchAll(/(?:href|src)="([^"#?]+)(?:[#?][^"]*)?"/g)) {
     const url = m[1];

@@ -67,7 +67,7 @@ const TOOL_FAQ = [
 // widget at about 520px wide and up, so a narrow column shows a scrollbar and a wide one some space below.
 const TOOLS = [
   { slug: 'amount-in-words', name: 'Amount in words converter', desc: 'Write any amount in words for contracts, cheques and promissory notes, such as "One Thousand Two Hundred and Fifty Dollars and 50/100".', height: 540 },
-  { slug: 'deadline-calculator', name: 'Contract deadline calculator', desc: 'Add or subtract days, business days, weeks, months or years from a date, with month-end handling and your own holidays.', height: 540 },
+  { slug: 'deadline-calculator', name: 'Contract deadline calculator', desc: 'Add or subtract days, business days, weeks, months or years from a date, with month-end handling and your own holidays.', height: 570 },
   { slug: 'invoice-due-date', name: 'Invoice due date calculator', desc: 'Find the due date for Net 30, Net 60, EOM, 15 MFI or 2/10 net 30 invoices, the days left to pay and what an early payment discount is worth.', height: 460 },
   { slug: 'late-payment-interest', name: 'Late payment interest calculator', desc: 'Work out interest on an overdue invoice at your contract rate, or UK statutory interest at 8% above base rate plus the fixed compensation sum.', height: 540 },
   { slug: 'loan-repayment', name: 'Loan repayment calculator', desc: 'Work out the payment on a loan repaid in equal instalments, the total interest and a full repayment schedule with dates, for weekly to yearly payments.', height: 500 },
