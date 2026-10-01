@@ -65,7 +65,7 @@ const TOOL_FAQ = [
 
 // `height` is the iframe's fallback height (px) in the embed code, for sites that strip the resize script: it fits the
 // widget at about 520px wide and up, so a narrow column shows a scrollbar and a wide one some space below.
-const TOOLS = [
+export const TOOLS = [
   { slug: 'amount-in-words', name: 'Amount in words converter', desc: 'Write any amount in words for contracts, cheques and promissory notes, such as "One Thousand Two Hundred and Fifty Dollars and 50/100".', height: 540 },
   { slug: 'deadline-calculator', name: 'Contract deadline calculator', desc: 'Add or subtract days, business days, weeks, months or years from a date, with month-end handling and your own holidays.', height: 570 },
   { slug: 'invoice-due-date', name: 'Invoice due date calculator', desc: 'Find the due date for Net 30, Net 60, EOM, 15 MFI or 2/10 net 30 invoices, the days left to pay and what an early payment discount is worth.', height: 460 },

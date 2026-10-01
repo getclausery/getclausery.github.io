@@ -14,7 +14,7 @@ const CLAUSERY_FREELANCE = ['Your browser only; nothing is uploaded', 'No', 'Yes
 const FORMS_ROWS = ['Where documents are created', 'Account needed', 'Free Word download', 'Ongoing subscription', 'Use your own Word templates', 'Lawyer help', 'E-signature', 'State-specific forms', 'Price'];
 const CLAUSERY_FORMS = ['Your browser only; nothing is uploaded', 'No', `Yes, all ${LIB.length} templates, with no sign-up`, 'No: the free plan has no time limit', 'Yes: add {tags} to any .docx', 'No: Clausery is software, not a law firm', 'No: sign on paper or with any e-signature service', 'No: general templates you adapt', 'Free for 3 templates; Pro $19 per user per month'];
 
-const COMPETITORS = [
+export const COMPETITORS = [
   { slug: 'gavel-alternative', name: 'Gavel', title: 'Gavel alternative that keeps client data on your computer', group: 'legal', bestFor: 'Law firms that want hosted client portals and workflows',
     intro: 'Gavel is a well-regarded cloud platform for legal document automation and client workflows. Clausery does the core job, turning Word templates into guided questionnaires, without sending client data to a vendor.',
     them: ['Vendor cloud', 'Yes', 'No', 'Yes', 'Yes', 'Yes', 'Hosted, branded client portal', 'Yes, including Clio', 'Lite from about $83 to $99 per month; higher tiers about $250 to $417 per month'],

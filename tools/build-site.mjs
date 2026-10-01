@@ -21,6 +21,7 @@ const SEO_TITLES = {
   'guides/conditional-clauses-in-word.html': 'Conditional clauses in Word: include or remove paragraphs',
   'guides/confidentiality-checklist-document-software.html': 'Confidentiality checklist for choosing document software',
   'guides/how-to-write-a-freelance-contract.html': 'How to write a freelance contract: 10 key clauses',
+  'pricing/': 'Clausery pricing: free plan, Pro from $19 per user',
 };
 for (const k of Object.keys(SEO_TITLES)) if (!pages.some((p) => p.path === k)) throw new Error('SEO_TITLES: no page ' + k);
 // Pages without their own breadcrumb data get one from their path (Home › section › page), so every indexable page has

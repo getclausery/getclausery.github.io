@@ -129,3 +129,7 @@ a.sr-only:focus-visible { position: fixed !important; top: .5rem; left: .5rem; w
 @media (max-width: 800px) { .site-footer .wrap { grid-template-columns: 1fr 1fr; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 @media print { .site-header, .site-footer, .cta { display: none; } }
+/* Multi-column link lists (home page "most-used" lists) */
+.link-cols { list-style: none; padding: 0; margin: .75rem 0 0; columns: 3 14rem; column-gap: 1.5rem; }
+.link-cols li { break-inside: avoid; padding: .2rem 0; }
+.grid .link-cols { columns: 1; }
