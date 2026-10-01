@@ -1,12 +1,24 @@
-import { SITE } from '../tools/partials.mjs';
-import { PACK_FILE } from './library.mjs';
+import { SITE, esc } from '../tools/partials.mjs';
+import { PACK_FILE, LIB } from './library.mjs';
+import { GUIDES } from './audience.mjs';
+import { COMPETITORS } from './compare.mjs';
+import { TOOLS } from './free-tools.mjs';
+
+// The home page is the most-crawled URL on the site, so it links straight to the pages people search for most. That puts
+// them one click from the home page instead of two, which is the strongest crawl-priority signal a new site can give.
+const POPULAR_TEMPLATES = ['independent-contractor-agreement', 'residential-lease-agreement', 'mutual-nda', 'employment-agreement', 'bill-of-sale', 'promissory-note', 'liability-waiver', 'offer-letter', 'resignation-letter', 'consulting-agreement', 'partnership-agreement', 'loan-agreement', 'notice-to-vacate', 'rent-receipt', 'cease-and-desist-letter', 'service-agreement', 'statement-of-work', 'roommate-agreement', 'memorandum-of-understanding', 'letter-of-intent', 'rental-application', 'sublease-agreement', 'photo-release-form', 'general-release'];
+const POPULAR_GUIDES = ['how-to-write-a-bill-of-sale', 'what-to-include-in-a-lease-agreement', 'is-an-mou-legally-binding', 'are-liability-waivers-enforceable', 'how-long-should-an-nda-last', 'how-to-write-a-termination-letter', 'what-to-do-when-a-client-wont-pay', 'how-to-lend-money-to-family'];
+const pick = (list, slugs, what) => slugs.map((s) => list.find((x) => x.slug === s) || (() => { throw new Error(`home: no ${what} ${s}`); })());
+const linkList = (items) => `<ul class="link-cols">${items.map(([href, label]) => `<li><a href="${href}">${esc(label)}</a></li>`).join('')}</ul>`;
 const ico = (d) => `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;
 const I = { lock: 'M6 11h12v10H6zM9 11V7a3 3 0 016 0v4', file: 'M6 3h8l4 4v14H6zM14 3v4h4', bolt: 'M13 2L4 14h7l-1 8 9-12h-7z', users: 'M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM22 21v-2a4 4 0 00-3-3.9M16 3.1a4 4 0 010 7.8', wifi: 'M5 12.5a11 11 0 0114 0M8.5 16a6 6 0 017 0M12 20h.01M2 9a15 15 0 0120 0', calc: 'M4 3h16v18H4zM8 7h8M8 12h2M12 12h2M16 12h0M8 16h2M12 16h2M16 16h0', check: 'M5 12l5 5L20 7', shield: 'M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z' };
 
 export const pages = [{
   path: '', title: 'Clausery',
-  description: 'Clausery turns your own Word templates into guided questionnaires and generates finished documents entirely in your browser. No uploads, no account, works offline. For law firms, HR and consultancies.',
-  extraHead: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'Clausery', applicationCategory: 'BusinessApplication', operatingSystem: 'Any (web browser)', description: 'Document automation that never leaves your browser: Word templates become guided questionnaires that generate finished .docx files offline.', url: SITE, offers: [{ '@type': 'Offer', price: '0', priceCurrency: 'USD', name: 'Free' }, { '@type': 'Offer', price: '19', priceCurrency: 'USD', name: 'Pro (per user, monthly)' }], featureList: ['Client-side .docx generation', 'Conditional clauses and repeating groups', 'Calculations', 'Encrypted local workspace', 'Offline client intake forms', 'No account required'] })}</script>`,
+  description: `${LIB.length} free Word templates (NDAs, leases, employment and freelance contracts) you fill in online, and automation for your own templates. Nothing is uploaded.`,
+  extraHead: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebSite', name: 'Clausery', url: SITE })}</script>
+<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', name: 'Clausery', url: SITE, logo: `${SITE}assets/icon-512.png`, sameAs: ['https://github.com/getclausery/getclausery.github.io'] })}</script>
+<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'Clausery', applicationCategory: 'BusinessApplication', operatingSystem: 'Any (web browser)', description: 'Document automation that never leaves your browser: Word templates become guided questionnaires that generate finished .docx files offline.', url: SITE, offers: [{ '@type': 'Offer', price: '0', priceCurrency: 'USD', name: 'Free' }, { '@type': 'Offer', price: '19', priceCurrency: 'USD', name: 'Pro (per user, monthly)' }], featureList: ['Client-side .docx generation', 'Conditional clauses and repeating groups', 'Calculations', 'Encrypted local workspace', 'Offline client intake forms', 'No account required'] })}</script>`,
   body: (rel) => `
 <section class="hero">
   <div class="wrap">
@@ -16,7 +28,7 @@ export const pages = [{
       <p class="lead">Turn the Word templates you already use into guided questionnaires. Answer the questions, and Clausery assembles the finished .docx on your computer. Nothing is uploaded, no account is needed, and it works with the Wi‑Fi off.</p>
       <div class="actions">
         <a class="btn btn-primary btn-lg" href="${rel}app/">Open the app — it's free</a>
-        <a class="btn btn-lg" href="${rel}docs/">Read the docs</a>
+        <a class="btn btn-lg" href="${rel}templates/">Browse ${LIB.length} free templates</a>
       </div>
       <div class="proof">
         <span>${ico(I.check)} No sign-up</span>
@@ -30,10 +42,30 @@ export const pages = [{
   </div>
 </section>
 
-<section class="section section-alt" id="why">
+<section class="section section-alt" id="templates">
+  <div class="wrap">
+    <h2>Free Word templates, filled in online</h2>
+    <p class="lead">${LIB.length} ready-made Word templates, from NDAs and employment contracts to leases, liability waivers and freelance contracts. Read the full wording, answer a few questions, and download a finished .docx. No sign-up, and nothing you type leaves your browser.</p>
+    <div class="grid grid-4">
+      <a class="feature" style="text-decoration:none;color:inherit" href="${rel}nda-templates/"><h3>NDA templates</h3><p>Mutual, one-way, employee, contractor and business sale.</p></a>
+      <a class="feature" style="text-decoration:none;color:inherit" href="${rel}for/landlords.html"><h3>Landlord forms</h3><p>Lease, notice to vacate, rent receipt, late rent notice.</p></a>
+      <a class="feature" style="text-decoration:none;color:inherit" href="${rel}for/hr-teams.html"><h3>HR letter templates</h3><p>Offer, contract, warning, promotion and more.</p></a>
+      <a class="feature" style="text-decoration:none;color:inherit" href="${rel}for/freelancers.html"><h3>Freelance contracts</h3><p>Contractor, retainer, design, writing and SOW.</p></a>
+    </div>
+    <h3 style="margin-top:2rem">Most-used templates</h3>
+    ${linkList(pick(LIB, POPULAR_TEMPLATES, 'template').map((t) => [`${rel}templates/${t.slug}.html`, `${t.name} template`]))}
+    <div class="grid grid-2" style="margin-top:1.5rem">
+      <div><h3>Guides</h3>${linkList(pick(GUIDES, POPULAR_GUIDES, 'guide').map((g) => [`${rel}guides/${g.slug}.html`, g.title]))}</div>
+      <div><h3>Free calculators</h3>${linkList(TOOLS.map((t) => [`${rel}free-tools/${t.slug}.html`, t.name]))}</div>
+    </div>
+    <p style="margin-top:1.25rem"><a href="${rel}templates/">See all ${LIB.length} free templates →</a> &nbsp;·&nbsp; <a href="${rel}samples/${PACK_FILE}" download>Download them all (.zip) →</a> &nbsp;·&nbsp; <a href="${rel}clauses/">Contract clauses explained →</a> &nbsp;·&nbsp; <a href="${rel}guides/">All guides →</a></p>
+  </div>
+</section>
+
+<section class="section" id="why">
   <div class="wrap">
     <h2>Built for people who cannot upload client files</h2>
-    <p class="lead">Law firms, HR teams and consultancies draft the same documents every week from the same templates. The tools that automate this are cloud services that want the client's data first. Clausery does the same job with a different architecture: the browser does all the work, and the data never travels.</p>
+    <p class="lead"><a href="${rel}for/law-firms.html">Law firms</a>, <a href="${rel}for/hr-teams.html">HR teams</a> and <a href="${rel}for/consultants.html">consultancies</a> draft the same documents every week from the same templates. The tools that automate this are cloud services that want the client's data first. Clausery does the same job with a different architecture: the browser does all the work, and the data never travels.</p>
     <div class="grid grid-3">
       <div class="feature"><div class="ico">${ico(I.shield)}</div><h3>Confidentiality by construction</h3><p>Templates, answers and generated documents are processed in memory in your browser and stored only on your device. There is no server that could be breached, subpoenaed or misconfigured.</p></div>
       <div class="feature"><div class="ico">${ico(I.file)}</div><h3>Your Word templates, unchanged</h3><p>Add tags like <code>{client_name}</code> to any .docx. Fonts, numbering, headers, tables and tracked formatting come through exactly as you set them in Word.</p></div>
@@ -42,7 +74,7 @@ export const pages = [{
   </div>
 </section>
 
-<section class="section" id="how">
+<section class="section section-alt" id="how">
   <div class="wrap">
     <h2>Three steps from template to finished document</h2>
     <ol class="steps">
@@ -67,20 +99,6 @@ export const pages = [{
   </div>
 </section>
 
-<section class="section section-alt" id="templates">
-  <div class="wrap">
-    <h2>Start with a free template</h2>
-    <p class="lead">Fifty-eight ready-made Word templates, from NDAs and employment contracts to leases, liability waivers and freelance contracts, each one click away from a finished document.</p>
-    <div class="grid grid-4">
-      <a class="feature" style="text-decoration:none;color:inherit" href="${rel}nda-templates/"><h3>NDA templates</h3><p>Mutual, one-way, employee, contractor and business sale.</p></a>
-      <a class="feature" style="text-decoration:none;color:inherit" href="${rel}templates/engagement-letter.html"><h3>Engagement letter</h3><p>Scope, team, fees and retainer.</p></a>
-      <a class="feature" style="text-decoration:none;color:inherit" href="${rel}for/hr-teams.html"><h3>HR letter templates</h3><p>Offer, contract, warning, promotion and more.</p></a>
-      <a class="feature" style="text-decoration:none;color:inherit" href="${rel}templates/independent-contractor-agreement.html"><h3>Contractor agreement</h3><p>Hourly or fixed fee, IP, termination.</p></a>
-    </div>
-    <p style="margin-top:1.25rem"><a href="${rel}templates/">See all free templates →</a> &nbsp;·&nbsp; <a href="${rel}samples/${PACK_FILE}" download>Download them all (.zip) →</a> &nbsp;·&nbsp; <a href="${rel}clauses/">Contract clauses explained →</a> &nbsp;·&nbsp; <a href="${rel}free-tools/">Free drafting tools →</a> &nbsp;·&nbsp; <a href="${rel}for/freelancers.html">Freelance contracts →</a> &nbsp;·&nbsp; <a href="${rel}for/landlords.html">Landlord and tenant letters →</a></p>
-  </div>
-</section>
-
 <section class="section" id="compare">
   <div class="wrap">
     <h2>How it compares</h2>
@@ -99,6 +117,7 @@ export const pages = [{
     </table>
     </div>
     <p class="small muted" style="margin-top:.75rem">Price ranges are the published 2026 entry and mid tiers of two widely used legal document-automation products; see the <a href="${rel}pricing/">pricing page</a> for sources. Feature comparisons are general and vary by product.</p>
+    <p style="margin-top:1rem"><strong>Side-by-side comparisons:</strong> ${COMPETITORS.map((c) => `<a href="${rel}compare/${c.slug}.html">${esc(c.name)} alternative</a>`).join(' · ')} · <a href="${rel}compare/">all comparisons</a></p>
   </div>
 </section>
 
