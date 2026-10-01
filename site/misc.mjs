@@ -4,9 +4,16 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:40rem;text-align:center"><p class="eyebrow">404</p><h1>That page is not here.</h1><p class="lead" style="margin:0 auto 1.5rem">The address may be wrong, or the page moved. Nothing you do in Clausery is stored on a server, so there is nothing to recover from here.</p><div class="actions" style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap"><a class="btn btn-primary" href="${rel}">Go to the home page</a><a class="btn" href="${rel}app/">Open the app</a></div></div></section>`,
   },
   {
-    path: 'changelog.html', title: 'Changelog', description: 'What changed in each Clausery release.',
+    path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.15.0 <span class="small muted">— 1 October 2026</span></h2>
+<ul>
+  <li>Five new guides: how to write a termination letter, how to return a security deposit, how to write a rent increase letter, what to include in a roommate agreement, and the difference between a non-compete and a non-solicitation agreement.</li>
+  <li>Structured data on every indexable page, including the FAQ, the pricing plans and breadcrumbs for the docs, legal and index pages.</li>
+  <li>The guides page has a clearer title and introduction.</li>
+  <li>The embed code for the contract deadline calculator is taller, so the weekend note is no longer cut off on sites that remove the resize script.</li>
+</ul>
 <h2>1.14.0 <span class="small muted">— 28 September 2026</span></h2>
 <ul>
   <li>Four new templates: an employment agreement with at-will or notice terms, an employee warning letter for first or final written warnings, a promotion letter, and a liability waiver with a parent section for minors.</li>

@@ -15,7 +15,7 @@ const AUD = [
     intro: 'Offer letters, employment contracts, warning letters, promotions, pay rises, references and terminations: free HR letter templates for Word, with no sign-up. Managers answer a few questions, optional wording only appears when it applies, and employee details never leave your computer.',
     points: [['Free, with no account', 'Download any template as an ordinary Word file, or fill it in here and download the finished letter. There is nothing to sign up for and no trial that turns into a subscription.'], ['Approved wording, every time', 'HR owns the template; managers answer questions. Optional clauses such as equity, bonus, probation or a right of appeal only appear when they apply.'], ['Personal data stays on the device', 'Salary and personal details are never uploaded, which keeps your records of processing and vendor reviews simple.'], ['Share templates across the team', 'Export a template pack to your shared drive; colleagues import it and draft from the same approved version.']],
     templates: ['offer-letter', 'employment-agreement', 'employee-warning-letter', 'promotion-letter', 'salary-increase-letter', 'employment-termination-letter', 'employment-verification-letter', 'reference-letter', 'internship-offer-letter', 'resignation-letter', 'employee-nda', 'non-solicitation-agreement', 'sales-commission-agreement', 'independent-contractor-agreement'],
-    related: [['guides/how-to-write-an-offer-letter.html', 'How to write a job offer letter'], ['guides/how-to-write-an-employee-warning-letter.html', 'How to write a warning letter to an employee'], ['guides/nda-vs-confidentiality-agreement.html', 'NDA vs confidentiality agreement'], ['clauses/at-will-employment-clause.html', 'At-will employment clause'], ['clauses/non-compete-clause.html', 'Non-compete clause'], ['clauses/confidentiality-clause.html', 'Confidentiality clause'], ['free-tools/deadline-calculator.html', 'Deadline calculator: review dates and notice periods']],
+    related: [['guides/how-to-write-an-offer-letter.html', 'How to write a job offer letter'], ['guides/how-to-write-an-employee-warning-letter.html', 'How to write a warning letter to an employee'], ['guides/how-to-write-a-termination-letter.html', 'How to write a termination letter'], ['guides/non-compete-vs-non-solicitation.html', 'Non-compete vs non-solicitation agreement'], ['guides/nda-vs-confidentiality-agreement.html', 'NDA vs confidentiality agreement'], ['clauses/at-will-employment-clause.html', 'At-will employment clause'], ['clauses/non-compete-clause.html', 'Non-compete clause'], ['clauses/confidentiality-clause.html', 'Confidentiality clause'], ['free-tools/deadline-calculator.html', 'Deadline calculator: review dates and notice periods']],
     faq: [['Are these HR templates free?', 'Yes. Every template can be downloaded as a Word file or filled in online at no cost and with no account. The free plan keeps up to three templates in the app with unlimited letters; Pro adds unlimited templates and team features for $19 per user per month.'],
       ['Which letter do I need?', 'An offer letter to make the offer, then an employment agreement for the full terms. A salary increase letter for a pay rise, a promotion letter for a new title, a warning letter to put a problem in writing, and a termination letter if employment ends. Verification and reference letters confirm employment for others.'],
       ['Does employee data leave our computers?', 'No. Names, salaries and addresses are typed into the browser and the letter is generated there. Nothing is sent to Clausery or any other service.'],
@@ -39,7 +39,7 @@ const AUD = [
     intro: 'Leases, move-in checklists, late rent notices, rent increases and deposit returns follow the same pattern every time, and most have a deadline. Clausery fills in a free Word template from a few questions, so the dates, amounts and deductions are right, and tenant details stay on your computer.',
     points: [['No account, no trial, no card', 'Download any template as an ordinary Word file, or fill it in here and download the finished document. There is nothing to sign up for, and no free trial that turns into a subscription.'], ['Dates and amounts worked out', 'Each document states the dates that matter, from the first partial month to the deposit deadline. The free prorated rent and deadline calculators do the arithmetic.'], ['A clear record of the deposit', 'Record each room at move-in with the checklist, then list any deductions at move-out: the deposit letter sets out the deposit, interest, each deduction and the refund.'], ['Tenant details stay private', 'Names, addresses and amounts are typed into your browser and the document is built there. Nothing is uploaded, and it works offline.']],
     templates: ['residential-lease-agreement', 'rental-application', 'move-in-checklist', 'rent-receipt', 'late-rent-notice', 'pet-addendum', 'lease-renewal-letter', 'rent-increase-letter', 'security-deposit-return-letter', 'notice-to-vacate', 'sublease-agreement', 'roommate-agreement', 'payment-demand-letter'],
-    related: [['guides/what-to-include-in-a-lease-agreement.html', 'What to include in a residential lease agreement'], ['free-tools/prorated-rent.html', 'Prorated rent calculator'], ['guides/how-to-write-a-notice-to-vacate.html', 'How to write a notice to vacate letter'], ['free-tools/deadline-calculator.html', 'Deadline calculator: count notice periods in days'], ['free-tools/late-payment-interest.html', 'Late payment interest calculator'], ['guides/how-to-write-a-payment-demand-letter.html', 'How to write a demand letter for money owed'], ['clauses/notices-clause.html', 'Notices clause: how formal notices must be given'], ['compare/eforms-alternative.html', 'Clausery compared with eForms'], ['compare/lawdepot-alternative.html', 'Clausery compared with LawDepot']],
+    related: [['guides/what-to-include-in-a-lease-agreement.html', 'What to include in a residential lease agreement'], ['guides/how-to-return-a-security-deposit.html', 'How to return a security deposit: deadlines and deductions'], ['guides/how-to-write-a-rent-increase-letter.html', 'How to write a rent increase letter'], ['guides/what-to-include-in-a-roommate-agreement.html', 'What to include in a roommate agreement'], ['free-tools/prorated-rent.html', 'Prorated rent calculator'], ['guides/how-to-write-a-notice-to-vacate.html', 'How to write a notice to vacate letter'], ['free-tools/deadline-calculator.html', 'Deadline calculator: count notice periods in days'], ['free-tools/late-payment-interest.html', 'Late payment interest calculator'], ['guides/how-to-write-a-payment-demand-letter.html', 'How to write a demand letter for money owed'], ['clauses/notices-clause.html', 'Notices clause: how formal notices must be given'], ['compare/eforms-alternative.html', 'Clausery compared with eForms'], ['compare/lawdepot-alternative.html', 'Clausery compared with LawDepot']],
     faq: [['How much notice does a rent increase need?', 'It depends on the state and the lease. During a fixed-term lease the rent usually cannot rise unless the lease allows it. For a month-to-month tenancy many states require at least 30 days\' written notice, and some require more for larger increases: in California, 90 days for an increase of more than 10%. Some cities also limit increases under rent control.'],
       ['How long does a landlord have to return a security deposit?', 'It depends on the state: for example 21 days after the tenant moves out in California, 14 days in New York and 30 days in Texas. Most states expect an itemized list of any deductions, and missing the deadline can cost the landlord the right to keep any of it.'],
       ['Is a roommate agreement legally binding?', 'It can be enforced between the roommates like other agreements, but it does not change the lease. If you are all on the lease, the landlord can usually still claim the whole rent from any one of you.'],
@@ -431,6 +431,179 @@ GUARANTEE
 <h2>Use the free template</h2>
 <p>The free <a href="${rel}templates/liability-waiver.html">liability waiver template</a> follows the points above: a clear warning at the top, the specific risks you list, assumption of risk, a release that names negligence in capitals, the limits the law sets, optional emergency medical and photo consent, and a parent or guardian section for minors. Fill it in online, or download the Word file and add your insurer's wording. Personal trainers can pair it with the <a href="${rel}templates/personal-training-agreement.html">personal training agreement</a>.</p>
 <p class="small muted">General information, not legal advice. Waiver law varies a lot between states and countries; have a lawyer check your waiver for your activity and location.</p>` },
+  { slug: 'how-to-write-a-termination-letter', title: 'How to write a termination letter (with a free template)', published: '2026-10-01',
+    description: 'What an employee termination letter should say: the last day, notice, the reason, final pay, benefits and company property, plus what to leave out.',
+    body: (rel) => `
+<p class="lead">A termination letter confirms in writing that someone's employment is ending and what happens next. It does not replace the conversation; it records it. Keep it short, factual and consistent with what was said in the meeting.</p>
+<h2>Before you write it</h2>
+<ul>
+  <li><strong>Check the contract and your own procedure.</strong> Notice periods, probation terms and any disciplinary steps you promised. If the reason is performance or conduct, there should already be a record, such as a <a href="${rel}guides/how-to-write-an-employee-warning-letter.html">written warning</a>.</li>
+  <li><strong>Check the law where the employee works.</strong> Minimum notice, when final pay is due, and any notices you must give. These differ between countries and between US states.</li>
+  <li><strong>Tell them first.</strong> Hold a short, private meeting in person or by video, then hand over the letter or send it straight afterwards. Nobody should learn they have lost their job from an email.</li>
+</ul>
+<h2>What to include</h2>
+<ol>
+  <li><strong>The date, and the employee's name and job title.</strong></li>
+  <li><strong>That employment is ending, and the last day.</strong> One plain sentence.</li>
+  <li><strong>Notice.</strong> Whether they will work their notice, be paid instead of working it, or be on garden leave (paid, but not required to work).</li>
+  <li><strong>The reason, if you give one.</strong> One factual sentence that matches your records. See below.</li>
+  <li><strong>Final pay.</strong> The date, and what it includes: salary to the last day and, where the law or your policy requires it, accrued but unused holiday or paid time off.</li>
+  <li><strong>Severance, if any</strong>, and whether it depends on signing a separate agreement.</li>
+  <li><strong>Benefits.</strong> When they end, and that information about continuing cover will follow. In the US, health plan continuation (COBRA) notices usually come separately from the plan.</li>
+  <li><strong>Company property</strong> to return, such as a laptop, phone, keys and access cards, and by when.</li>
+  <li><strong>Obligations that continue</strong>, such as a confidentiality or non-solicitation agreement they signed.</li>
+  <li><strong>Who to contact</strong> with questions.</li>
+</ol>
+<h2>Should you give a reason?</h2>
+<p>In most US states employment is at will and no reason is legally required, but some states require one on request: in Minnesota and Missouri, for example, a former employee can ask for the reason in writing. Some states also require a separation notice for unemployment benefits. In the UK, an employee with two years' service can ask for written reasons for dismissal, and must be given them within 14 days; anyone dismissed while pregnant or on maternity or adoption leave gets written reasons automatically.</p>
+<p>If you give a reason, make it the real one and keep it consistent everywhere. A reason in the letter that differs from what you said in the meeting, or from what is on file, is one of the first things a lawyer looks for in a discrimination or unfair dismissal claim.</p>
+<h2>Notice and final pay: two rules that catch employers out</h2>
+<ul>
+  <li><strong>Final pay deadlines.</strong> Some states are strict. In California, final pay is due immediately when the employer ends employment. Check your state before you set the date in the letter.</li>
+  <li><strong>Minimum notice outside the US.</strong> In the UK, the legal minimum is one week after a month's service, rising to one week per full year of service after two years, up to 12 weeks. A contract can give more, but not less.</li>
+</ul>
+<h2>What to leave out</h2>
+<ul>
+  <li>Emotional or vague language, apologies that read as admissions, and comments about the person's character.</li>
+  <li>New reasons that were never raised with them.</li>
+  <li>Anything touching on a disability, pregnancy, family or medical leave, union activity or a complaint they have made. Take advice before any termination that comes near these.</li>
+  <li>Promises you cannot keep. Many employers confirm only dates and job title in references, so do not promise a glowing one.</li>
+</ul>
+<h2>Layoffs are different</h2>
+<p>Ending several jobs at once has extra rules. In the US, the federal WARN Act requires 60 days' notice of most plant closings and mass layoffs at employers with 100 or more employees, and some states add their own versions. In the UK, redundancies need fair selection and consultation, and collective consultation when 20 or more people are affected.</p>
+<h2>Use the free template</h2>
+<p>The free <a href="${rel}templates/employment-termination-letter.html">termination letter template</a> covers the list above: the last day, worked notice or pay instead of notice, optional garden leave, an optional reason, final pay, optional severance, benefits, company property and an HR contact. Answer the questions and download a Word letter; employee details stay on your computer. The other HR letters are on the <a href="${rel}for/hr-teams.html">free HR letter templates</a> page.</p>
+<p class="small muted">General information, not legal advice. Employment law varies by country and state; take advice before dismissing anyone.</p>` },
+  { slug: 'how-to-return-a-security-deposit', title: 'How to return a security deposit: deadlines and deductions', published: '2026-10-01',
+    description: 'How long landlords have to return a security deposit, what they can and cannot deduct, how to itemize deductions, and a free deposit return letter.',
+    body: (rel) => `
+<p class="lead">Most deposit disputes come down to two things: the landlord missed the deadline, or kept money without a clear, itemized reason. Get both right and there is rarely an argument.</p>
+<h2>The deadline</h2>
+<p>Every US state sets its own deadline, counted from the day the tenant moves out and returns the keys. Some examples:</p>
+<div class="table-wrap" tabindex="0"><table class="compare"><thead><tr><th scope="col">State</th><th scope="col">Deadline to return the deposit or send the itemized list</th></tr></thead><tbody>
+  <tr><td>California</td><td>21 days</td></tr>
+  <tr><td>New York</td><td>14 days</td></tr>
+  <tr><td>Texas</td><td>30 days</td></tr>
+  <tr><td>Massachusetts, New Jersey</td><td>30 days</td></tr>
+  <tr><td>Florida</td><td>15 days if nothing is deducted; 30 days to give written notice of a claim</td></tr>
+</tbody></table></div>
+<p>Missing the deadline is expensive. In several states the landlord loses the right to keep any of the deposit, and a landlord who keeps money in bad faith can owe two or three times the amount withheld. Rules change, and some cities add their own, so check the current law for the property before you rely on any figure here. The free <a href="${rel}free-tools/deadline-calculator.html">deadline calculator</a> counts the days from move-out.</p>
+<h2>What you can deduct</h2>
+<ul>
+  <li><strong>Unpaid rent</strong> and other charges the lease allows.</li>
+  <li><strong>Damage beyond normal wear and tear</strong>: holes in walls, broken fixtures, burns or stains, pet damage.</li>
+  <li><strong>Cleaning</strong> needed to bring the place back to how clean it was at move-in, not better.</li>
+</ul>
+<h2>What you cannot deduct</h2>
+<p>Normal wear and tear from ordinary living: faded paint, light scuffs, carpet worn by foot traffic, loose door handles, a few small nail holes. Nor can you charge the tenant for upgrades, or for the cost of fixing damage that was there before they moved in. That is what the <a href="${rel}templates/move-in-checklist.html">move-in checklist</a> and photos are for.</p>
+<h2>Itemize every deduction</h2>
+<p>Send a letter that lists the deposit, any interest, each deduction with what it was for and how much, the total deducted and the refund. Attach receipts or estimates where you have them; California, for example, requires copies of receipts for repair or cleaning charges over $125. Send it to the tenant's forwarding address in a way you can prove, and keep a copy with your move-in and move-out photos.</p>
+<h2>Two extras some places require</h2>
+<ul>
+  <li><strong>Interest.</strong> Some states and cities require interest on deposits, such as Massachusetts, and New York for buildings with six or more units.</li>
+  <li><strong>A pre-move-out inspection.</strong> In California, the landlord must offer the tenant an inspection before they leave, so they can fix problems and avoid deductions.</li>
+</ul>
+<h2>Use the free template</h2>
+<p>The free <a href="${rel}templates/security-deposit-return-letter.html">security deposit return letter</a> lists the deposit, any interest, each deduction with its amount, the total deducted and the refund. Fill it in online or download the Word file. The other landlord forms, including the move-in checklist and the notice to vacate, are on the <a href="${rel}for/landlords.html">landlord and tenant page</a>.</p>
+<p class="small muted">General information, not legal advice. Deposit rules vary by state and city and change from time to time.</p>` },
+  { slug: 'how-to-write-a-rent-increase-letter', title: 'How to write a rent increase letter: notice and wording', published: '2026-10-01',
+    description: 'When a landlord can raise the rent, how much notice the letter needs, rent caps to check, what to put in the letter, and a free rent increase letter template.',
+    body: (rel) => `
+<p class="lead">A rent increase letter tells a tenant the new rent and the date it starts. The wording is simple. What matters is that the increase is allowed, the notice is long enough, and the letter is delivered properly.</p>
+<h2>Can the rent go up yet?</h2>
+<ul>
+  <li><strong>Fixed-term lease:</strong> usually not until the lease ends, unless the lease itself allows an increase. At the end of the term, offer the new rent with a <a href="${rel}templates/lease-renewal-letter.html">lease renewal letter</a>.</li>
+  <li><strong>Month-to-month:</strong> yes, with written notice, subject to any rent cap.</li>
+  <li><strong>Never</strong> as retaliation for a complaint or a repair request, or for a discriminatory reason.</li>
+</ul>
+<h2>How much notice</h2>
+<p>Many US states require at least 30 days' written notice for a month-to-month tenancy, and some require more for larger increases or longer tenancies:</p>
+<ul>
+  <li><strong>California:</strong> 30 days for an increase of 10% or less in a year, 90 days for more than 10%.</li>
+  <li><strong>New York:</strong> for an increase of 5% or more, 30, 60 or 90 days, depending on whether the tenant has lived there less than a year, one to two years, or longer.</li>
+  <li><strong>Oregon:</strong> 90 days, and no increase in the first year of a tenancy.</li>
+</ul>
+<p>The free <a href="${rel}free-tools/deadline-calculator.html">deadline calculator</a> works out the earliest date the new rent can start. Notice usually has to be served before the start of a rental period, so check the date against the rent due date too.</p>
+<h2>Check for rent caps</h2>
+<p>A growing number of places limit how much rent can rise each year. California's statewide cap applies to many properties more than 15 years old, Oregon has a statewide cap, and cities including New York, Los Angeles and San Francisco have rent stabilization or rent control for covered units. Look up the rules for the property before you choose the new figure.</p>
+<p>Outside the US, rules differ. In England, for example, most private landlords must use a formal section 13 notice to raise the rent on a periodic tenancy, and the rules changed under the Renters' Rights Act, so check GOV.UK for the current form and notice period.</p>
+<h2>What to put in the letter</h2>
+<ol>
+  <li>The date, and every tenant's name and the property address.</li>
+  <li>The current rent and the new rent, as amounts, not just a percentage.</li>
+  <li>The date the new rent starts.</li>
+  <li>That all other terms of the tenancy stay the same, or what else is changing.</li>
+  <li>How to pay, if that is changing.</li>
+  <li>Optionally, a short reason, such as higher taxes or insurance. It is not usually required, but it helps.</li>
+  <li>Who to contact with questions, and your signature.</li>
+</ol>
+<h2>Deliver it properly</h2>
+<p>Use a method the lease or state law accepts, often in person or by mail, and keep proof of the date. If the notice is served late, the increase starts later, so allow a few extra days for mail.</p>
+<h2>Use the free template</h2>
+<p>The free <a href="${rel}templates/rent-increase-letter.html">rent increase letter template</a> sets out the current rent, the new rent, the start date and the notice given, with optional wording for a reason and a renewal offer. Fill it in online or download it as Word. All the landlord letters are on the <a href="${rel}for/landlords.html">landlord and tenant page</a>.</p>
+<p class="small muted">General information, not legal advice. Rent rules vary by state and city and change often.</p>` },
+  { slug: 'what-to-include-in-a-roommate-agreement', title: 'What to include in a roommate agreement (free template)', published: '2026-10-01',
+    description: 'The terms roommates should agree in writing: rent split, deposit, bills, chores, guests, quiet hours and moving out, and whether a roommate agreement is binding.',
+    body: (rel) => `
+<p class="lead">A roommate agreement is a short contract between the people who share a home. It sits alongside the lease with the landlord and settles the questions that cause most flatmate arguments: money, mess, guests and what happens when someone leaves.</p>
+<h2>What it does not change</h2>
+<p>The agreement binds the roommates to each other, not the landlord. If you all signed the lease, each of you is usually liable to the landlord for the full rent, not just your share. A roommate agreement lets you recover a share from a roommate who does not pay; it does not stop the landlord coming to you for all of it.</p>
+<h2>What to include</h2>
+<ol>
+  <li><strong>Who and where.</strong> Everyone's names, the address, and the lease dates.</li>
+  <li><strong>Rent.</strong> Each person's share, the due date, and who pays the landlord. Splits based on room size are common; write the amounts down.</li>
+  <li><strong>The deposit.</strong> What each person paid, and how deductions and the refund are shared at the end.</li>
+  <li><strong>Bills.</strong> Electricity, gas, water, internet and streaming: who holds each account and how costs are split and paid back.</li>
+  <li><strong>Shared supplies.</strong> Groceries, cleaning products and household items: shared or separate.</li>
+  <li><strong>Cleaning.</strong> A rota for shared spaces, or a cleaner and how it is paid.</li>
+  <li><strong>Quiet hours and guests.</strong> When it should be quiet, how much notice for guests, and how many nights a guest can stay. Check the lease too: many limit long-stay guests.</li>
+  <li><strong>Pets, smoking and parking.</strong> Even if the lease covers them, agree the details between you.</li>
+  <li><strong>Moving out.</strong> How much notice a roommate gives the others, whether they must find a replacement, and how their deposit share is handled. A replacement or a sublet usually needs the landlord's consent.</li>
+  <li><strong>Settling disagreements.</strong> A house meeting first, then a neutral third party.</li>
+</ol>
+<h2>Is a roommate agreement legally binding?</h2>
+<p>The money parts usually can be: an agreement to pay a share of rent, bills or the deposit is an ordinary contract, and a roommate who breaks it can be taken to small claims court. House rules such as chores and quiet hours are much harder to enforce in court. Their real value is that everyone agreed to them in writing before there was a problem.</p>
+<h2>Tips that prevent most disputes</h2>
+<ul>
+  <li>Sign it before anyone moves in, not after the first argument.</li>
+  <li>Pay each other by bank transfer or an expense app, so there is a record.</li>
+  <li>Do the <a href="${rel}templates/move-in-checklist.html">move-in checklist</a> together, so damage at move-out is not blamed on the wrong person.</li>
+  <li>If someone moves in partway through a month, the <a href="${rel}free-tools/prorated-rent.html">prorated rent calculator</a> works out their first payment.</li>
+</ul>
+<h2>Use the free template</h2>
+<p>The free <a href="${rel}templates/roommate-agreement.html">roommate agreement template</a> covers rent shares, the deposit, bills, quiet hours, guests, cleaning and moving out. Fill it in online in a few minutes or download the Word file. When someone leaves, the <a href="${rel}templates/sublease-agreement.html">sublease agreement</a> and <a href="${rel}templates/notice-to-vacate.html">notice to vacate</a> cover the next steps.</p>
+<p class="small muted">General information, not legal advice. Tenancy rules vary by state and country.</p>` },
+  { slug: 'non-compete-vs-non-solicitation', title: 'Non-compete vs non-solicitation agreement: the difference', published: '2026-10-01',
+    description: 'How a non-compete differs from a non-solicitation agreement, which one courts enforce, where non-competes are banned, and which one a small business needs.',
+    body: (rel) => `
+<p class="lead">A non-compete stops someone working for a competitor, or starting one. A non-solicitation agreement only stops them actively chasing your customers or staff. The second is narrower, which is exactly why courts and lawmakers treat it more kindly.</p>
+<div class="table-wrap" tabindex="0"><table class="compare"><thead><tr><th scope="col"></th><th scope="col">Non-compete</th><th scope="col">Non-solicitation</th></tr></thead><tbody>
+  <tr><td>What it stops</td><td>Working for a competitor, or starting a competing business, in an area</td><td>Asking your customers to move their business, or your staff to leave</td></tr>
+  <tr><td>What it allows</td><td>Work outside the restricted field or area</td><td>Working anywhere, including for a competitor, and serving customers who come unprompted</td></tr>
+  <tr><td>Typical length</td><td>6 to 12 months for employees; longer on the sale of a business</td><td>6 to 24 months</td></tr>
+  <tr><td>Enforceability</td><td>Banned or restricted in a growing number of places</td><td>Enforced in most places if limited to people the employee actually dealt with</td></tr>
+</tbody></table></div>
+<h2>Where non-competes are banned or limited</h2>
+<ul>
+  <li><strong>California</strong> treats almost all employee non-competes as void, including ones signed in other states, and generally treats employee non-solicits of customers as void too.</li>
+  <li><strong>Minnesota</strong> banned new employee non-competes from July 2023, and <strong>North Dakota</strong> and <strong>Oklahoma</strong> have long refused to enforce most of them.</li>
+  <li><strong>Several other states</strong>, including Illinois, Washington, Colorado and Massachusetts, ban them below a salary threshold, cap their length or require extra pay in return.</li>
+  <li><strong>The US federal ban</strong> that the Federal Trade Commission adopted in 2024 was set aside by a court and never took effect, so state law decides.</li>
+  <li><strong>In the UK</strong>, courts enforce restrictions only if they protect a legitimate business interest and go no further than necessary. Non-solicitation and non-dealing clauses are enforced far more often than outright non-competes.</li>
+</ul>
+<p>Almost everywhere, a non-compete given by the seller when a business is sold is treated differently and is much more likely to be enforced, because the buyer is paying for the goodwill.</p>
+<h2>Which one does a small business need?</h2>
+<p>For most employees and contractors: a confidentiality agreement to protect information, plus a non-solicitation agreement to protect customer and staff relationships. That combination covers what most owners actually worry about, and it is far more likely to hold up. Keep non-competes for senior people with genuine access to strategy, and for the sale of a business, and take local advice before using one.</p>
+<h2>Make a non-solicit more likely to hold up</h2>
+<ul>
+  <li>Limit it to customers and staff the person actually dealt with, for example in their last 12 months.</li>
+  <li>Keep it short.</li>
+  <li>Allow customers who approach them unprompted, and general job adverts.</li>
+  <li>Give something in return, especially for an existing employee.</li>
+</ul>
+<h2>Free templates</h2>
+<p>The free <a href="${rel}templates/non-solicitation-agreement.html">non-solicitation agreement</a> follows those rules and says plainly that it is not a non-compete. Pair it with the <a href="${rel}templates/employee-nda.html">employee NDA</a>, or use the <a href="${rel}templates/employment-agreement.html">employment agreement</a>, which has an optional non-solicitation clause built in. For more on the clauses themselves, see the <a href="${rel}clauses/non-compete-clause.html">non-compete clause</a> and <a href="${rel}clauses/non-solicitation-clause.html">non-solicitation clause</a> pages.</p>
+<p class="small muted">General information, not legal advice. Restrictive covenant law varies by state and country and is changing quickly.</p>` },
   { slug: 'how-to-write-a-freelance-contract', title: 'How to write a freelance contract: 10 clauses that prevent disputes',
     description: 'What every freelance contract should say about scope, revisions, deadlines, payment, deposits, kill fees, ownership and termination, with free templates for designers, photographers, writers and more.',
     body: (rel) => `
@@ -842,11 +1015,11 @@ export const pages = [
   <ul>${a.related.map(([href, label]) => `<li><a href="${rel}${href}">${esc(label)}</a></li>`).join('')}</ul>
 </div></section>`,
   })),
-  { path: 'guides/', title: 'Guides', description: 'Practical guides to automating Word documents, conditional clauses and client intake, without uploading client data.',
-    body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem"><h1>Guides</h1><ul>${GUIDES.map((g) => `<li><a href="${rel}guides/${g.slug}.html">${esc(g.title)}</a><div class="small muted">${esc(g.description)}</div></li>`).join('')}</ul></div></section>` },
+  { path: 'guides/', title: 'Free guides to contracts, HR letters and landlord forms', description: 'Plain-English guides to NDAs, contracts, HR letters, leases and landlord letters, each linked to a free template, plus how to automate Word templates.',
+    body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem"><h1>Guides to contracts, HR letters and landlord forms</h1><p class="lead">Plain-English answers to the questions people ask before they use a template, each linked to a free Word template you can fill in online.</p><ul>${GUIDES.map((g) => `<li><a href="${rel}guides/${g.slug}.html">${esc(g.title)}</a><div class="small muted">${esc(g.description)}</div></li>`).join('')}</ul></div></section>` },
   ...GUIDES.map((g) => ({
-    path: `guides/${g.slug}.html`, title: g.title, description: g.description, feed: true, published: '2026-09-26',
-    extraHead: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: g.title, description: g.description, datePublished: '2026-09-26', author: { '@type': 'Organization', name: 'Clausery' } })}</script>` + crumbsLd([['Home', ''], ['Guides', 'guides/'], [g.title, `guides/${g.slug}.html`]]),
+    path: `guides/${g.slug}.html`, title: g.title, description: g.description, feed: true, published: g.published || '2026-09-26',
+    extraHead: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: g.title, description: g.description, datePublished: g.published || '2026-09-26', author: { '@type': 'Organization', name: 'Clausery' } })}</script>` + crumbsLd([['Home', ''], ['Guides', 'guides/'], [g.title, `guides/${g.slug}.html`]]),
     body: (rel) => `<section class="section"><div class="wrap prose"><nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}guides/">Guides</a></nav><h1 style="margin-top:1rem">${esc(g.title)}</h1>${g.body(rel)}
 <h2>More guides</h2>
 <ul>${GUIDES.filter((x) => x.slug !== g.slug).map((x) => `<li><a href="${rel}guides/${x.slug}.html">${esc(x.title)}</a></li>`).join('')}</ul></div></section>`,

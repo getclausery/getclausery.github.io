@@ -1,5 +1,16 @@
-import { docsNav } from '../tools/partials.mjs';
-const page = (path, title, description, body) => ({ path, title, description, body: (rel) => `<div class="wrap docs">${docsNav(rel, path)}<article class="docs-body">${body(rel)}</article></div>` });
+import { docsNav, faqLd } from '../tools/partials.mjs';
+// The FAQ page's questions, also published as FAQPage structured data. Answers take `rel` for their links.
+const DOCS_FAQ = [
+  ['Which browsers are supported?', (rel) => `Current versions of Chrome, Edge, Firefox and Safari on desktop and mobile. License keys are verified with WebCrypto Ed25519 (Chrome/Edge 137+, Firefox 129+, Safari 17+). The encrypted workspace uses PBKDF2-SHA256 and AES-256-GCM, available in all current browsers.`],
+  ['Does it work with Google Docs or LibreOffice?', (rel) => `Yes, as long as you export or save as .docx. Tags are plain text, so any editor can write them.`],
+  ['My formatting looks different in the preview.', (rel) => `The on-screen preview is an approximation rendered in the browser. The downloaded .docx is assembled from your original file and opens in Word with your exact formatting. Use <em>Print / Save as PDF</em> for a quick PDF, or open the .docx in Word for a print-perfect one.`],
+  ['Is there a limit on template size or number of drafts?', (rel) => `No fixed limit. Browsers typically allow hundreds of megabytes of local storage; a template is usually well under a megabyte and a draft a few kilobytes.`],
+  ['Can several people work on one draft?', (rel) => `Not at the same time; there is no server to coordinate. Hand over a draft by exporting and importing its answers file.`],
+  ['Can I use it on my phone?', (rel) => `Yes. The app is responsive and installable. Drafting long documents is more comfortable on a larger screen.`],
+  ['What if Clausery disappears?', (rel) => `Your copy keeps working: it is cached in your browser and can be self-hosted from the repository. Your templates are your .docx files; your data exports are plain JSON.`],
+  ['How do I get a license key?', (rel) => `See <a href="${rel}pricing/">Pricing</a>. Keys are delivered by email and entered once per device.`],
+];
+const page = (path, title, description, body, extraHead = '') => ({ path, title, description, extraHead, body: (rel) => `<div class="wrap docs">${docsNav(rel, path)}<article class="docs-body">${body(rel)}</article></div>` });
 
 export const pages = [
 page('docs/', 'Getting started', 'Install nothing, sign up for nothing: tag a Word template, drop it into Clausery, answer the questions, download the document.', (rel) => `
@@ -278,20 +289,5 @@ Cache-Control: no-cache   (for HTML; long max-age for vendor/ and assets/)</code
 
 page('docs/faq.html', 'FAQ', 'Frequently asked questions about Clausery: compatibility, formatting, limits, browsers, offline use and licensing.', (rel) => `
 <h1>Frequently asked questions</h1>
-<h2>Which browsers are supported?</h2>
-<p>Current versions of Chrome, Edge, Firefox and Safari on desktop and mobile. License keys are verified with WebCrypto Ed25519 (Chrome/Edge 137+, Firefox 129+, Safari 17+). The encrypted workspace uses PBKDF2-SHA256 and AES-256-GCM, available in all current browsers.</p>
-<h2>Does it work with Google Docs or LibreOffice?</h2>
-<p>Yes, as long as you export or save as .docx. Tags are plain text, so any editor can write them.</p>
-<h2>My formatting looks different in the preview.</h2>
-<p>The on-screen preview is an approximation rendered in the browser. The downloaded .docx is assembled from your original file and opens in Word with your exact formatting. Use <em>Print / Save as PDF</em> for a quick PDF, or open the .docx in Word for a print-perfect one.</p>
-<h2>Is there a limit on template size or number of drafts?</h2>
-<p>No fixed limit. Browsers typically allow hundreds of megabytes of local storage; a template is usually well under a megabyte and a draft a few kilobytes.</p>
-<h2>Can several people work on one draft?</h2>
-<p>Not at the same time; there is no server to coordinate. Hand over a draft by exporting and importing its answers file.</p>
-<h2>Can I use it on my phone?</h2>
-<p>Yes. The app is responsive and installable. Drafting long documents is more comfortable on a larger screen.</p>
-<h2>What if Clausery disappears?</h2>
-<p>Your copy keeps working: it is cached in your browser and can be self-hosted from the repository. Your templates are your .docx files; your data exports are plain JSON.</p>
-<h2>How do I get a license key?</h2>
-<p>See <a href="${rel}pricing/">Pricing</a>. Keys are delivered by email and entered once per device.</p>`),
+${DOCS_FAQ.map(([q, a]) => `<h2>${q}</h2>\n<p>${a(rel)}</p>`).join('\n')}`, faqLd(DOCS_FAQ.map(([q, a]) => [q, a('../').replace(/<[^>]+>/g, '')]))),
 ];
