@@ -33,7 +33,7 @@ try {
     <div style="display:flex;align-items:center;gap:18px;margin-bottom:36px">${svg.replace(/width="64" height="64"/, 'width="64" height="64"')}<span style="font-size:36px;font-weight:800;letter-spacing:-.01em">Clausery</span></div>
     <div style="font-size:64px;font-weight:800;line-height:1.1;letter-spacing:-.02em;max-width:1000px">Document automation that never leaves your browser.</div>
     <div style="font-size:28px;color:#b9c3d4;margin-top:28px;max-width:960px">Word templates become guided questionnaires. Finished documents are assembled on your computer. No uploads, no account, works offline.</div>
-    <div style="position:absolute;right:72px;bottom:56px;background:#0f766e;color:#fff;font-size:22px;font-weight:700;padding:14px 22px;border-radius:10px">Free for up to 3 templates</div>
+    <div style="position:absolute;right:72px;bottom:56px;background:#0f766e;color:#fff;font-size:22px;font-weight:700;padding:14px 22px;border-radius:10px">Free templates, no sign-up</div>
   </body></html>`);
   writeFileSync('assets/og.png', await og.screenshot({ type: 'png' }));
   await og.close();

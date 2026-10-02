@@ -1,8 +1,9 @@
 // Builds the static marketing/docs/legal pages from site/*.mjs page modules into the deploy tree.
 // Run with `npm run build:site`. Outputs are committed so GitHub Pages needs no build step.
-import { writeFileSync, mkdirSync, readdirSync } from 'node:fs';
+import { writeFileSync, mkdirSync, readdirSync, readFileSync, existsSync } from 'node:fs';
 import { dirname } from 'node:path';
-import { head, footer, embedPage, crumbsLd, SITE } from './partials.mjs';
+import { createHash } from 'node:crypto';
+import { head, footer, embedPage, crumbsLd, SITE, LASTMOD, LASTMOD_LONG, longDate } from './partials.mjs';
 
 const pages = [];
 for (const f of readdirSync('site').filter((f) => f.endsWith('.mjs'))) {
@@ -35,23 +36,48 @@ for (const p of pages) {
   items.push([p.title, p.path]);
   p.extraHead = (p.extraHead || '') + crumbsLd(items);
 }
+// Last-modified dates (sitemap lastmod, dateModified, "Updated" lines) come from site/data/page-dates.json: each page's
+// date and a hash of its content. A page whose content hash changes gets today's date; an unchanged page keeps its
+// date, so rebuilding never makes old pages look new and CI's "generated files are up to date" check stays stable.
+// The hash covers the title, description, structured data and body, minus blocks wrapped in <!--nav-->…<!--/nav-->
+// (lists of related or all pages, and repeated calls to action), so adding a template elsewhere or rewording a sitewide
+// call to action does not mark every page as changed.
+const DATES_FILE = 'site/data/page-dates.json';
+const dates = existsSync(DATES_FILE) ? JSON.parse(readFileSync(DATES_FILE, 'utf8')) : {};
+const today = process.env.CLAUSERY_BUILD_DATE || new Date().toISOString().slice(0, 10);
+const contentHash = (p, rel) => createHash('sha256').update([p.title, p.description, p.extraHead || '', p.body(rel)].join('\n').replace(/<!--nav-->[\s\S]*?<!--\/nav-->/g, '')).digest('hex').slice(0, 16);
+const pageDate = (p, rel) => {
+  const hash = contentHash(p, rel);
+  const known = dates[p.path];
+  if (!known || known.hash !== hash) dates[p.path] = { date: known ? today : p.published || today, hash };
+  return dates[p.path].date;
+};
 for (const p of pages) {
   // GitHub Pages serves 404.html for a miss at any depth, so its links must be root-relative, not relative to its file.
   const rel = p.path === '404.html' ? '/' : p.path.split('/').filter(Boolean).length - (p.path.endsWith('/') || p.path === '' ? 0 : 1) > 0 ? '../'.repeat(p.path.split('/').filter(Boolean).length - (p.path.endsWith('/') || p.path === '' ? 0 : 1)) : './';
   const out = p.path === '' ? 'index.html' : p.path.endsWith('/') ? p.path + 'index.html' : p.path;
   const html = p.layout === 'embed' ? embedPage({ title: p.title, description: p.description, extraHead: p.extraHead, rel, body: p.body(rel) })
     : (head({ title: SEO_TITLES[p.path] || p.title, description: p.description, path: p.path, extraHead: p.extraHead || '', ogImage: p.ogImage, rel }) + p.body(rel) + footer(rel)).replace(/<pre>/g, '<pre tabindex="0">');
+  const modified = p.layout === 'embed' ? null : pageDate(p, rel);
+  p.modified = modified;
   mkdirSync(dirname(out), { recursive: true });
-  writeFileSync(out, html);
+  let final = modified ? html.split(LASTMOD_LONG).join(longDate(modified)).split(LASTMOD).join(modified) : html;
+  // "Updated …" only appears once a page has changed since it was published.
+  final = final.replace(/<!--upd-->([\s\S]*?)<!--\/upd-->/g, (m, inner) => (p.published && p.published === modified ? '' : inner));
+  writeFileSync(out, final);
   console.log('wrote', out);
 }
+// Keep only pages that still exist, in a stable order, so the file diffs cleanly.
+const live = new Set(pages.filter((p) => p.layout !== 'embed').map((p) => p.path));
+writeFileSync(DATES_FILE, JSON.stringify(Object.fromEntries(Object.keys(dates).filter((k) => live.has(k)).sort().map((k) => [k, dates[k]])), null, 1) + '\n');
+console.log(`wrote ${DATES_FILE}`);
 
-// Atom feed of guides and clause pages (pages marked `feed: true`), for feed readers and aggregators. Dates come from
-// each page's `published` field, never the build time, so rebuilding does not make every entry look new.
+// Atom feed of guides and clause pages (pages marked `feed: true`), for feed readers and aggregators. Entries are ordered
+// by their `published` date; <updated> is the page's last-modified date from page-dates.json, never the build time.
 const BASE = SITE;
 const xmlEsc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const feed = pages.filter((p) => p.feed).sort((a, b) => (b.published + b.path).localeCompare(a.published + a.path));
-const updated = feed.map((p) => p.published).sort().at(-1);
+const updated = feed.map((p) => p.modified).sort().at(-1);
 writeFileSync('feed.xml', `<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Clausery: guides and clause library</title>
@@ -65,7 +91,8 @@ ${feed.map((p) => `  <entry>
     <title>${xmlEsc(p.title)}</title>
     <link href="${BASE}${p.path}"/>
     <id>${BASE}${p.path}</id>
-    <updated>${p.published}T00:00:00Z</updated>
+    <published>${p.published}T00:00:00Z</published>
+    <updated>${p.modified}T00:00:00Z</updated>
     <summary>${xmlEsc(p.description)}</summary>
   </entry>`).join('\n')}
 </feed>
@@ -76,7 +103,7 @@ console.log(`wrote feed.xml (${feed.length} entries)`);
 const section = (prefix) => pages.filter((p) => p.path.startsWith(prefix) && !p.path.endsWith('/') && !p.noindex).map((p) => `- [${p.title}](${BASE}${p.path}): ${p.description}`).join('\n');
 writeFileSync('llms.txt', `# Clausery
 
-> Clausery is browser-based document automation. It turns ordinary Word (.docx) templates with {tags} into guided questionnaires and generates finished documents entirely on the user's device: no upload, no account, works offline. Free for up to three templates with unlimited documents; the Pro plan adds unlimited templates, calculations, an encrypted workspace and client intake forms.
+> Clausery is browser-based document automation. It turns ordinary Word (.docx) templates with {tags} into guided questionnaires and generates finished documents entirely on the user's device: no upload, no account, works offline. Every template in its free library can be downloaded or filled in at no cost, with no limit; up to three of the user's own templates are also free. The Pro plan adds unlimited own templates, calculations, an encrypted workspace and client intake forms.
 
 Key facts:
 - Documents are assembled in the browser; template files, answers and generated documents are never sent to a server.

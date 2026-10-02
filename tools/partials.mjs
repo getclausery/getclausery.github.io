@@ -1,7 +1,13 @@
 // Shared HTML fragments for the static site pages (used by tools/build-site.mjs).
 export const YEAR = '2026';
+// Contact and repository links come from the app's deployment config, so the site and the app never disagree.
+export { CONTACT_URL, KEY_REQUEST_URL, REPO_URL } from '../app/config.js';
 // The site's public origin. Every absolute URL (canonical, Open Graph, JSON-LD, sitemap, feed) is built from it.
 export const SITE = 'https://getclausery.github.io/';
+// Placeholders a page can use for its last-modified date; tools/build-site.mjs swaps in the date from page-dates.json.
+export const LASTMOD = '@@LASTMOD@@';
+export const LASTMOD_LONG = '@@LASTMOD_LONG@@';
+export const longDate = (d) => new Date(d + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 // Search results show about 155-160 characters of a description; cut longer ones at a sentence, else a word.
 // A sentence cut must keep at least 130 characters: stopping at a short first sentence drops the selling point
 // (the second sentence usually says what Clausery offers) and leaves a snippet Google is more likely to rewrite.
@@ -140,7 +146,8 @@ export function footer(rel) {
       <a href="${rel}legal/privacy.html">Privacy</a>
       <a href="${rel}legal/terms.html">Terms</a>
       <a href="${rel}legal/dpa.html">Data processing</a>
-      <a href="mailto:hello@clausery.app">Contact</a>
+      <a href="${rel}about/">About</a>
+      <a href="${rel}contact/">Contact</a>
     </div>
     <div class="legal">© ${YEAR} Clausery. Clausery is software, not legal advice; documents you generate are your responsibility. Not affiliated with Microsoft; Word is a trademark of Microsoft Corporation.</div>
   </div>
