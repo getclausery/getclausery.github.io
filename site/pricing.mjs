@@ -1,20 +1,27 @@
 import { faqLd, SITE } from '../tools/partials.mjs';
+import { CHECKOUT_URLS, KEY_REQUEST_URL } from '../app/config.js';
+
+// The page is built for the checkout setup in app/config.js, so crawlers and visitors without scripts see the right
+// buttons; pricing/checkout.js applies the same config at runtime for deployments that edit it without rebuilding.
+const CHECKOUT = Object.values(CHECKOUT_URLS).some(Boolean);
+const buy = (plan, name, cls) => CHECKOUT_URLS[plan] ? `<a class="${cls}" href="${CHECKOUT_URLS[plan]}" rel="noopener" data-checkout="${plan}">Get ${name}</a>`
+  : `<a class="${cls}" href="${KEY_REQUEST_URL}&amp;title=${encodeURIComponent(name + ' key request')}" rel="noopener" data-checkout="${plan}">Request a ${name} key</a>`;
 
 // Questions shown at the foot of the page and published as FAQPage data.
 const FAQ = [
-  ['Is there a free trial of Pro?', 'The Free plan has no time limit, so you can evaluate the core product for as long as you like. If you need to test a Pro feature before buying, email us for a 14-day key.'],
+  ['Is there a free trial of Pro?', 'The Free plan has no time limit, so you can evaluate the core product for as long as you like. If you need to test a Pro feature before buying, request a 14-day trial key.'],
   ['What happens when a license expires?', 'The app falls back to the Free plan. Everything you created stays on your device and keeps working; only the Pro-gated features pause until you renew.'],
-  ['Do you offer discounts for legal aid, nonprofits or education?', 'Yes: 50% off Pro and Team. Email us from your organisation\'s address.'],
-  ['Can I get an invoice or pay by bank transfer?', 'Team and Enterprise customers can pay by invoice. Contact us.'],
+  ['Do you offer discounts for legal aid, nonprofits or education?', 'Yes: 50% off Pro and Team. Say which organisation you work for when you request a key.'],
+  ['Can I get an invoice or pay by bank transfer?', 'Team and Enterprise customers can pay by invoice. Ask for one when you request a key.'],
 ];
 // The paid plans as structured data, so search engines can read the prices on this page.
 const offer = (name, price, unitText) => ({ '@type': 'Offer', name, price, priceCurrency: 'USD', url: SITE + 'pricing/', priceSpecification: { '@type': 'UnitPriceSpecification', price, priceCurrency: 'USD', unitText } });
 const plansLd = `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'Clausery', applicationCategory: 'BusinessApplication', operatingSystem: 'Any (web browser)', url: SITE,
-  offers: [offer('Free', '0', 'up to 3 templates'), offer('Pro, monthly', '19', 'per user per month'), offer('Pro, yearly', '190', 'per user per year'), offer('Team, 5 seats', '49', 'per month')] })}</script>`;
+  offers: [offer('Free', '0', 'every library template and up to 3 of your own'), offer('Pro, monthly', '19', 'per user per month'), offer('Pro, yearly', '190', 'per user per year'), offer('Team, 5 seats', '49', 'per month')] })}</script>`;
 
 export const pages = [{
   path: 'pricing/', title: 'Pricing', extraHead: plansLd + faqLd(FAQ),
-  description: 'Clausery pricing: free for up to three templates; Pro from $19 per user per month; Team and Enterprise plans for firms that want packs, encryption, intake forms and self-hosting.',
+  description: 'Clausery pricing: every library template free, plus three of your own; Pro from $19 per user per month for unlimited templates, calculations, encryption and intake forms.',
   body: (rel) => `
 <section class="section">
   <div class="wrap">
@@ -28,7 +35,8 @@ export const pages = [{
         <p class="muted">For trying it out and small practices.</p>
         <p class="price">$0</p>
         <ul>
-          <li>Up to 3 templates</li>
+          <li>Every template in the free library</li>
+          <li>Up to 3 of your own templates</li>
           <li>Unlimited drafts and documents</li>
           <li>Conditional clauses and repeating groups</li>
           <li>Preview, .docx download, print to PDF</li>
@@ -52,9 +60,9 @@ export const pages = [{
           <li>Encrypted workspace with auto-lock</li>
           <li>Client intake forms</li>
           <li>Template packs</li>
-          <li>Email support</li>
+          <li>Priority support</li>
         </ul>
-        <a class="btn btn-primary" href="#buy" data-checkout="pro">Get Pro</a>
+        ${buy('pro', 'Pro', 'btn btn-primary')}
       </div>
       <div class="plan">
         <h3>Team</h3>
@@ -67,7 +75,7 @@ export const pages = [{
           <li>Shared template packs and onboarding call</li>
           <li>Priority support</li>
         </ul>
-        <a class="btn" href="#buy" data-checkout="team">Get Team</a>
+        ${buy('team', 'Team', 'btn')}
       </div>
       <div class="plan">
         <h3>Enterprise</h3>
@@ -81,7 +89,7 @@ export const pages = [{
           <li>Security documentation and DPA</li>
           <li>Invoicing and volume pricing</li>
         </ul>
-        <a class="btn" href="mailto:hello@clausery.app?subject=Clausery%20Enterprise">Talk to us</a>
+        <a class="btn" href="${rel}contact/">Talk to us</a>
       </div>
     </div>
     <p class="small muted" style="text-align:center;margin-top:1.5rem">Prices in USD, excluding VAT/sales tax where applicable. Licenses are per named user; a Team license covers a number of seats.</p>
@@ -91,12 +99,21 @@ export const pages = [{
 <section class="section section-alt" id="buy">
   <div class="wrap" style="max-width:48rem">
     <h2>How buying works</h2>
-    <ol>
+    <ol${CHECKOUT ? '' : ' hidden'} data-when-checkout>
       <li><strong>Check out</strong> through our hosted payment page. You receive a license key by email within minutes.</li>
       <li><strong>Paste the key</strong> in the app under Settings → License. The key is verified offline with a cryptographic signature; the app never contacts a license server.</li>
       <li><strong>Use it on every device</strong> you work from. Keep the key somewhere safe; it is your proof of purchase.</li>
     </ol>
-    <p id="checkout-note" class="small muted">Checkout links are configured by the operator of this deployment. If a button above does nothing, email <a href="mailto:hello@clausery.app">hello@clausery.app</a> and we will send a key and an invoice.</p>
+    <div${CHECKOUT ? ' hidden' : ''} data-when-no-checkout>
+      <p>Online checkout is not open yet, so keys are issued on request:</p>
+      <ol>
+        <li><strong>Request a key</strong> with the form on GitHub. Say which plan you want, and whether you want a 14-day trial first. Requests are public, so do not include your email address or anything confidential.</li>
+        <li><strong>We reply in the request</strong> with how to pay and how we will send the key privately.</li>
+        <li><strong>Paste the key</strong> in the app under Settings → License. It is verified offline with a cryptographic signature; the app never contacts a license server.</li>
+      </ol>
+      <p><a class="btn btn-primary" href="${KEY_REQUEST_URL}" rel="noopener">Request a key</a></p>
+    </div>
+    <p class="small muted">Every template in the <a href="${rel}templates/">free library</a> stays free on every plan, with unlimited documents.</p>
   </div>
 </section>
 

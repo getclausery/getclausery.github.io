@@ -1,5 +1,5 @@
 // Pages for each buyer, and how-to guides that answer the searches those buyers make.
-import { esc, faqLd, faqHtml, crumbsLd, lowerFirst, SITE } from '../tools/partials.mjs';
+import { esc, faqLd, faqHtml, crumbsLd, lowerFirst, SITE, LASTMOD, LASTMOD_LONG } from '../tools/partials.mjs';
 
 const AUD = [
   { slug: 'law-firms', name: 'Law firms', title: 'Document automation for small law firms, without uploading client files',
@@ -10,29 +10,29 @@ const AUD = [
     faq: [['Is Clausery suitable for confidential client matters?', 'Documents are assembled in the browser on the lawyer\'s own computer, and nothing you type or generate is sent to Clausery. On the Pro plan you can also encrypt everything stored in the browser with a passphrase. Check the set-up against your own IT policies and professional rules.'],
       ['Can we use our existing Word precedents?', 'Yes. Add {tags} where details change, wrap optional clauses in a section, and upload the file. Styles, numbering, headers and letterhead are kept exactly.'],
       ['How is it different from Gavel, Clio Draft or HotDocs?', 'Those products run on a vendor\'s servers or need installing, and offer more, such as hosted client portals and practice management integrations. Clausery does the core job, templates into questionnaires into finished documents, in the browser with no server involved. The comparison pages set out the trade-offs honestly.'],
-      ['What does it cost?', 'Free for up to three templates with unlimited documents. Pro, with unlimited templates, calculations, encryption and client intake forms, is $19 per user per month.']] },
+      ['What does it cost?', 'Every library template is free, and you can automate up to three of your own Word templates free, with unlimited documents. Pro, with unlimited templates, calculations, encryption and client intake forms, is $19 per user per month.']] },
   { slug: 'hr-teams', name: 'HR teams', title: 'Free HR letter templates you can fill in online',
     intro: 'Offer letters, employment contracts, warning letters, promotions, pay rises, references and terminations: free HR letter templates for Word, with no sign-up. Managers answer a few questions, optional wording only appears when it applies, and employee details never leave your computer.',
     points: [['Free, with no account', 'Download any template as an ordinary Word file, or fill it in here and download the finished letter. There is nothing to sign up for and no trial that turns into a subscription.'], ['Approved wording, every time', 'HR owns the template; managers answer questions. Optional clauses such as equity, bonus, probation or a right of appeal only appear when they apply.'], ['Personal data stays on the device', 'Salary and personal details are never uploaded, which keeps your records of processing and vendor reviews simple.'], ['Share templates across the team', 'Export a template pack to your shared drive; colleagues import it and draft from the same approved version.']],
-    templates: ['offer-letter', 'employment-agreement', 'employee-warning-letter', 'promotion-letter', 'salary-increase-letter', 'employment-termination-letter', 'employment-verification-letter', 'reference-letter', 'internship-offer-letter', 'resignation-letter', 'employee-nda', 'non-solicitation-agreement', 'sales-commission-agreement', 'independent-contractor-agreement'],
+    templates: ['offer-letter', 'employment-agreement', 'employee-warning-letter', 'promotion-letter', 'salary-increase-letter', 'employment-termination-letter', 'employment-verification-letter', 'reference-letter', 'internship-offer-letter', 'resignation-letter', 'two-weeks-notice-letter', 'employee-nda', 'non-solicitation-agreement', 'sales-commission-agreement', 'independent-contractor-agreement'],
     related: [['guides/how-to-write-an-offer-letter.html', 'How to write a job offer letter'], ['guides/how-to-write-an-employee-warning-letter.html', 'How to write a warning letter to an employee'], ['guides/how-to-write-a-termination-letter.html', 'How to write a termination letter'], ['guides/non-compete-vs-non-solicitation.html', 'Non-compete vs non-solicitation agreement'], ['guides/nda-vs-confidentiality-agreement.html', 'NDA vs confidentiality agreement'], ['clauses/at-will-employment-clause.html', 'At-will employment clause'], ['clauses/non-compete-clause.html', 'Non-compete clause'], ['clauses/confidentiality-clause.html', 'Confidentiality clause'], ['free-tools/deadline-calculator.html', 'Deadline calculator: review dates and notice periods']],
-    faq: [['Are these HR templates free?', 'Yes. Every template can be downloaded as a Word file or filled in online at no cost and with no account. The free plan keeps up to three templates in the app with unlimited letters; Pro adds unlimited templates and team features for $19 per user per month.'],
+    faq: [['Are these HR templates free?', 'Yes. Every template can be downloaded as a Word file or filled in online at no cost and with no account. Library templates never count towards a limit, and the free plan also holds up to three of your own templates with unlimited letters; Pro adds unlimited templates and team features for $19 per user per month.'],
       ['Which letter do I need?', 'An offer letter to make the offer, then an employment agreement for the full terms. A salary increase letter for a pay rise, a promotion letter for a new title, a warning letter to put a problem in writing, and a termination letter if employment ends. Verification and reference letters confirm employment for others.'],
       ['Does employee data leave our computers?', 'No. Names, salaries and addresses are typed into the browser and the letter is generated there. Nothing is sent to Clausery or any other service.'],
       ['Can managers use it without training?', 'Yes. HR sets up the template once; managers answer plain-language questions and download the finished letter. Optional wording only appears when it applies.']] },
   { slug: 'consultants', name: 'Consultants and agencies', title: 'Proposals, SOWs and contractor agreements without another subscription',
     intro: 'Statements of work, contractor agreements and client letters follow the same pattern every time. Clausery turns your Word versions into a two-minute questionnaire and keeps client details on your laptop.',
     points: [['Repeat deliverables and line items', 'List as many deliverables, milestones or fee lines as you need; the document repeats the paragraph or table row for each one.'], ['Totals calculated for you', 'Add computed fields such as a sum of line items, a date 30 days after signing, or an amount in words.'], ['Works on the road', 'Once loaded, Clausery works offline, including on a train or a client site without Wi-Fi.'], ['Your branding, untouched', 'Your template keeps its logo, fonts and layout.']],
-    templates: ['consulting-agreement', 'statement-of-work', 'service-agreement', 'retainer-agreement', 'subcontractor-agreement', 'independent-contractor-agreement', 'memorandum-of-understanding', 'payment-reminder-letter', 'payment-demand-letter'],
+    templates: ['consulting-agreement', 'statement-of-work', 'quote', 'service-agreement', 'retainer-agreement', 'subcontractor-agreement', 'independent-contractor-agreement', 'memorandum-of-understanding', 'invoice', 'purchase-order', 'meeting-minutes', 'payment-reminder-letter', 'payment-demand-letter'],
     related: [['guides/what-to-include-in-a-statement-of-work.html', 'What to include in a statement of work'], ['guides/is-an-mou-legally-binding.html', 'Is an MOU legally binding?'], ['guides/how-to-write-a-payment-demand-letter.html', 'How to write a demand letter for unpaid invoices'], ['clauses/payment-terms-clause.html', 'Payment terms clause'], ['clauses/intellectual-property-clause.html', 'Intellectual property clause'], ['free-tools/deadline-calculator.html', 'Contract deadline calculator'], ['guides/what-to-do-when-a-client-wont-pay.html', 'What to do when a client won\'t pay'], ['compare/pandadoc-alternative.html', 'Clausery compared with PandaDoc']],
     faq: [['Can I add a table of deliverables or fees?', 'Yes. Put the repeat tags in a table row and the row repeats for each deliverable or line item, keeping your borders and shading.'],
       ['Can it calculate totals and dates?', 'Yes, on the Pro plan: computed fields can add up line items, work out a date 30 days after signing, or write an amount in words.'],
       ['Does it work without an internet connection?', 'Yes. Once the app has loaded, it works offline, so you can draft on a train or at a client site.'],
-      ['What does it cost?', 'Free for up to three templates with unlimited documents. Pro is $19 per user per month.']] },
+      ['What does it cost?', 'Every library template is free, plus up to three of your own templates, with unlimited documents. Pro is $19 per user per month.']] },
   { slug: 'freelancers', name: 'Freelancers', title: 'Free freelance contract templates you can fill in online',
     intro: 'Designers, photographers, videographers, virtual assistants, planners, trainers, tutors and writers all need a signed contract before work starts. Clausery turns a free Word contract into a two-minute questionnaire, so each client gets the right terms without you editing the document by hand.',
-    points: [['Contracts written for your trade', 'Page lists for web projects, concepts and file formats for designers, retainers and usage rights for photographers, platforms and posting schedules for social media, word counts and bylines for writers.'], ['Stop scope creep in writing', 'Revision rounds, content deadlines, hourly rates for extra work and kill fees are built in, so the conversation is already settled when a client asks for "one more change".'], ['Client details stay on your laptop', 'Names, fees and addresses are typed into your browser and the contract is built there. Nothing is uploaded, and it works offline.'], ['Free for your first three templates', 'Use up to three contracts free with unlimited documents; Pro removes the limit for $19 a month.']],
-    templates: ['web-design-contract', 'contractor-nda', 'graphic-design-contract', 'photography-contract', 'photo-release-form', 'video-production-contract', 'social-media-management-contract', 'freelance-writing-contract', 'virtual-assistant-agreement', 'event-planning-contract', 'personal-training-agreement', 'tutoring-agreement', 'retainer-agreement', 'subcontractor-agreement', 'independent-contractor-agreement', 'payment-reminder-letter', 'payment-demand-letter'],
+    points: [['Contracts written for your trade', 'Page lists for web projects, concepts and file formats for designers, retainers and usage rights for photographers, platforms and posting schedules for social media, word counts and bylines for writers.'], ['Stop scope creep in writing', 'Revision rounds, content deadlines, hourly rates for extra work and kill fees are built in, so the conversation is already settled when a client asks for "one more change".'], ['Client details stay on your laptop', 'Names, fees and addresses are typed into your browser and the contract is built there. Nothing is uploaded, and it works offline.'], ['Every library contract is free', 'Use any contract in the library free, with unlimited documents, and automate up to three of your own; Pro removes that limit for $19 a month.']],
+    templates: ['web-design-contract', 'contractor-nda', 'graphic-design-contract', 'photography-contract', 'photo-release-form', 'video-production-contract', 'social-media-management-contract', 'freelance-writing-contract', 'virtual-assistant-agreement', 'event-planning-contract', 'personal-training-agreement', 'tutoring-agreement', 'cleaning-services-contract', 'retainer-agreement', 'subcontractor-agreement', 'independent-contractor-agreement', 'quote', 'invoice', 'payment-receipt', 'payment-reminder-letter', 'payment-demand-letter'],
     related: [['guides/how-to-write-a-freelance-contract.html', 'How to write a freelance contract'], ['guides/what-to-do-when-a-client-wont-pay.html', 'What to do when a client won\'t pay'], ['guides/what-is-a-kill-fee.html', 'What is a kill fee?'], ['free-tools/freelance-rate.html', 'Freelance rate calculator'], ['free-tools/invoice-due-date.html', 'Invoice due date calculator (net 30)'], ['free-tools/late-payment-interest.html', 'Late payment interest calculator'], ['clauses/intellectual-property-clause.html', 'Who owns the work: intellectual property clause'], ['clauses/payment-terms-clause.html', 'Payment terms clause'], ['clauses/late-payment-interest-clause.html', 'Late payment interest clause'], ['guides/how-to-write-a-payment-demand-letter.html', 'How to write a demand letter for unpaid invoices'], ['free-tools/deadline-calculator.html', 'Contract deadline calculator'], ['compare/honeybook-alternative.html', 'Clausery compared with HoneyBook'], ['compare/bonsai-alternative.html', 'Clausery compared with Bonsai'], ['compare/dubsado-alternative.html', 'Clausery compared with Dubsado']],
     faq: [['Do I need a contract for small freelance jobs?', 'A short written agreement avoids most disputes about scope, revisions, payment and ownership, whatever the size of the job. Email acceptance of a clear contract is often enough, though some documents need a signature.'], ['Can I reuse the same contract for every client?', 'Yes. Answer the questions for each client and download a finished Word contract. Optional terms, such as a deposit, kill fee or maintenance plan, only appear when you switch them on.'], ['Are these contracts legally binding?', 'They are general templates. Whether a contract is enforceable depends on your country or state and how it is agreed, so have one reviewed for your situation, especially for large projects.'], ['Can I add my own clauses?', 'Yes. Download the Word file, edit anything, keep the {tags}, and upload it to Clausery. Your formatting is kept exactly.']] },
   { slug: 'landlords', name: 'Landlords and tenants', title: 'Free landlord and tenant letters, filled in online',
@@ -44,9 +44,9 @@ const AUD = [
       ['How long does a landlord have to return a security deposit?', 'It depends on the state: for example 21 days after the tenant moves out in California, 14 days in New York and 30 days in Texas. Most states expect an itemized list of any deductions, and missing the deadline can cost the landlord the right to keep any of it.'],
       ['Is a roommate agreement legally binding?', 'It can be enforced between the roommates like other agreements, but it does not change the lease. If you are all on the lease, the landlord can usually still claim the whole rent from any one of you.'],
       ['How is this different from TurboTenant, Zillow or eForms?', 'Landlord software such as TurboTenant and Zillow Rental Manager offers free tools inside an account, and sells or bundles state-specific leases and form packs. Form sites such as eForms often ask you to start a free trial that becomes a paid subscription before you can download. Clausery\'s templates are ordinary Word files with no account, filled in in your browser. They are general templates rather than state-specific forms, so check your state\'s rules and add any required disclosures.'],
-      ['What does it cost?', 'The templates are free to download. In the app, up to three templates are free with unlimited documents; Pro is $19 per user per month.']] },
+      ['What does it cost?', 'The templates are free to download or fill in, with no limit. In the app you can also automate up to three of your own templates free; Pro is $19 per user per month.']] },
 ];
-const NAMES = { 'employment-agreement': 'Employment agreement', 'employee-warning-letter': 'Employee warning letter', 'promotion-letter': 'Promotion letter', 'liability-waiver': 'Liability waiver', 'resignation-letter': 'Resignation letter', 'non-solicitation-agreement': 'Non-solicitation agreement', 'employee-nda': 'Employee NDA', 'contractor-nda': 'Contractor NDA', 'business-sale-nda': 'NDA for selling a business', 'rental-application': 'Rental application', 'rent-receipt': 'Rent receipt', 'lease-renewal-letter': 'Lease renewal letter', 'pet-addendum': 'Pet addendum', 'residential-lease-agreement': 'Residential lease agreement', 'sublease-agreement': 'Sublease agreement', 'move-in-checklist': 'Move-in and move-out checklist', 'late-rent-notice': 'Late rent notice', 'notice-to-vacate': 'Notice to vacate (tenant)', 'rent-increase-letter': 'Rent increase letter', 'security-deposit-return-letter': 'Security deposit return letter', 'roommate-agreement': 'Roommate agreement', 'partnership-agreement': 'Partnership agreement', 'sales-commission-agreement': 'Sales commission agreement', 'photo-release-form': 'Photo and model release', 'general-release': 'General release', 'memorandum-of-understanding': 'Memorandum of understanding (MOU)', 'letter-of-intent': 'Letter of intent (business purchase)', 'bill-of-sale': 'Bill of sale', 'loan-agreement': 'Loan agreement', 'payment-reminder-letter': 'Payment reminder letter', 'subcontractor-agreement': 'Subcontractor agreement', 'retainer-agreement': 'Retainer agreement', 'video-production-contract': 'Video production contract', 'virtual-assistant-agreement': 'Virtual assistant agreement', 'event-planning-contract': 'Event planning contract', 'personal-training-agreement': 'Personal training agreement', 'tutoring-agreement': 'Tutoring agreement', 'web-design-contract': 'Web design contract', 'graphic-design-contract': 'Graphic design contract', 'photography-contract': 'Photography contract', 'social-media-management-contract': 'Social media management contract', 'freelance-writing-contract': 'Freelance writing contract',  'one-way-nda': 'One-way NDA', 'cease-and-desist-letter': 'Cease and desist letter', 'promissory-note': 'Promissory note', 'internship-offer-letter': 'Internship offer letter', 'salary-increase-letter': 'Salary increase letter', 'reference-letter': 'Reference letter', 'employment-termination-letter': 'Termination letter', 'consulting-agreement': 'Consulting agreement', 'service-agreement': 'Service agreement', 'engagement-letter': 'Engagement letter', 'mutual-nda': 'Mutual NDA', 'payment-demand-letter': 'Payment demand letter', 'offer-letter': 'Offer letter', 'employment-verification-letter': 'Employment verification letter', 'independent-contractor-agreement': 'Independent contractor agreement', 'statement-of-work': 'Statement of work' };
+const NAMES = { 'employment-agreement': 'Employment agreement', 'employee-warning-letter': 'Employee warning letter', 'promotion-letter': 'Promotion letter', 'liability-waiver': 'Liability waiver', 'resignation-letter': 'Resignation letter', 'non-solicitation-agreement': 'Non-solicitation agreement', 'employee-nda': 'Employee NDA', 'contractor-nda': 'Contractor NDA', 'business-sale-nda': 'NDA for selling a business', 'rental-application': 'Rental application', 'rent-receipt': 'Rent receipt', 'lease-renewal-letter': 'Lease renewal letter', 'pet-addendum': 'Pet addendum', 'residential-lease-agreement': 'Residential lease agreement', 'sublease-agreement': 'Sublease agreement', 'move-in-checklist': 'Move-in and move-out checklist', 'late-rent-notice': 'Late rent notice', 'notice-to-vacate': 'Notice to vacate (tenant)', 'rent-increase-letter': 'Rent increase letter', 'security-deposit-return-letter': 'Security deposit return letter', 'roommate-agreement': 'Roommate agreement', 'partnership-agreement': 'Partnership agreement', 'sales-commission-agreement': 'Sales commission agreement', 'photo-release-form': 'Photo and model release', 'general-release': 'General release', 'memorandum-of-understanding': 'Memorandum of understanding (MOU)', 'letter-of-intent': 'Letter of intent (business purchase)', 'bill-of-sale': 'Bill of sale', 'loan-agreement': 'Loan agreement', 'payment-reminder-letter': 'Payment reminder letter', 'subcontractor-agreement': 'Subcontractor agreement', 'retainer-agreement': 'Retainer agreement', 'video-production-contract': 'Video production contract', 'virtual-assistant-agreement': 'Virtual assistant agreement', 'event-planning-contract': 'Event planning contract', 'personal-training-agreement': 'Personal training agreement', 'tutoring-agreement': 'Tutoring agreement', 'web-design-contract': 'Web design contract', 'graphic-design-contract': 'Graphic design contract', 'photography-contract': 'Photography contract', 'social-media-management-contract': 'Social media management contract', 'freelance-writing-contract': 'Freelance writing contract',  'one-way-nda': 'One-way NDA', 'cease-and-desist-letter': 'Cease and desist letter', 'promissory-note': 'Promissory note', 'internship-offer-letter': 'Internship offer letter', 'salary-increase-letter': 'Salary increase letter', 'reference-letter': 'Reference letter', 'employment-termination-letter': 'Termination letter', 'consulting-agreement': 'Consulting agreement', 'service-agreement': 'Service agreement', 'engagement-letter': 'Engagement letter', 'mutual-nda': 'Mutual NDA', 'payment-demand-letter': 'Payment demand letter', 'offer-letter': 'Offer letter', 'employment-verification-letter': 'Employment verification letter', 'independent-contractor-agreement': 'Independent contractor agreement', 'statement-of-work': 'Statement of work', 'invoice': 'Invoice', 'quote': 'Price quote', 'purchase-order': 'Purchase order', 'payment-receipt': 'Payment receipt', 'two-weeks-notice-letter': 'Two weeks notice letter', 'hold-harmless-agreement': 'Hold harmless agreement', 'equipment-rental-agreement': 'Equipment rental agreement', 'cleaning-services-contract': 'Cleaning services contract', 'meeting-minutes': 'Meeting minutes' };
 
 export const GUIDES = [
   { slug: 'automate-word-templates', title: 'How to automate a Word template without uploading it anywhere',
@@ -123,7 +123,7 @@ GUARANTEE
 <h2>A quick test</h2>
 <p>If every copy of your document has exactly the same paragraphs, use mail merge. If you ever delete, copy or rewrite paragraphs after merging, you need document automation.</p>
 <h2>Trying it on your own document</h2>
-<p>Clausery uses tags you type straight into Word, so your mail merge template is already most of the way there. Replace merge fields with tags like <code>{client_name}</code>, wrap optional paragraphs in <code>{#has_retainer}…{/has_retainer}</code>, and drop the file into <a href="${rel}app/">the app</a>. It is free for up to three templates and nothing is uploaded. The <a href="${rel}guides/automate-word-templates.html">step-by-step guide</a> walks through it.</p>` },
+<p>Clausery uses tags you type straight into Word, so your mail merge template is already most of the way there. Replace merge fields with tags like <code>{client_name}</code>, wrap optional paragraphs in <code>{#has_retainer}…{/has_retainer}</code>, and drop the file into <a href="${rel}app/">the app</a>. It is free for up to three of your own templates and nothing is uploaded. The <a href="${rel}guides/automate-word-templates.html">step-by-step guide</a> walks through it.</p>` },
   { slug: 'repeating-lists-and-tables-in-word', title: 'Repeating lists and table rows in Word templates',
     description: 'How to make a Word template repeat a paragraph, bullet or table row for every party, attorney, deliverable or line item, with separators and numbering.',
     body: (rel) => `
@@ -992,16 +992,172 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <h2>Free templates</h2>
 <p>The free <a href="${rel}templates/residential-lease-agreement.html">residential lease agreement</a> covers each point in the list above, for a fixed term or month to month, and builds the lease in your browser without an account. Work out a first partial month with the <a href="${rel}free-tools/prorated-rent.html">prorated rent calculator</a>. To choose a tenant, start with the <a href="${rel}templates/rental-application.html">rental application</a>; to allow a pet under an existing lease, add a <a href="${rel}templates/pet-addendum.html">pet addendum</a>. Tenants subletting while they are away can use the <a href="${rel}templates/sublease-agreement.html">sublease agreement</a>, and there are more letters on the <a href="${rel}for/landlords.html">landlord and tenant page</a>.</p>
 <p class="small muted">General information, not legal advice. Landlord and tenant law differs between states and cities and changes often; check the current rules for the property.</p>` },
+  { slug: 'how-to-write-an-invoice', title: 'How to write an invoice: what to include and how to number it', published: '2026-10-02',
+    description: 'What an invoice must include, how to number invoices, payment terms such as net 30, sales tax and VAT, late fees, and how to send one that gets paid.',
+    body: (rel) => `
+<p class="lead">An invoice is a request for payment for goods or services you have delivered. A clear, complete invoice gets paid faster, because the client's accounts team can approve it without coming back to you with questions.</p>
+<h2>What to include on an invoice</h2>
+<ol>
+  <li><strong>The word "Invoice"</strong> at the top, so it is not mistaken for a quote or a statement.</li>
+  <li><strong>Your details:</strong> business name, address, email and phone, and your tax registration number if you are registered for VAT, GST or sales tax.</li>
+  <li><strong>The client's details:</strong> the legal name of the business you are billing and its address, plus a contact or department if they asked for one.</li>
+  <li><strong>A unique invoice number</strong> (see below).</li>
+  <li><strong>The invoice date</strong>, and the date you delivered the goods or finished the work if it is different.</li>
+  <li><strong>The client's purchase order number</strong>, if they gave you one. Many larger companies will not pay an invoice without it.</li>
+  <li><strong>Line items:</strong> what you supplied, the quantity or hours, the rate and the amount for each line.</li>
+  <li><strong>Subtotal, discounts and tax</strong>, each shown separately, and the total due.</li>
+  <li><strong>Payment terms and the due date</strong>, such as "Net 30, due 15 November 2026".</li>
+  <li><strong>How to pay:</strong> bank transfer details, a payment link or where to send a check.</li>
+  <li><strong>Late payment terms</strong>, if your contract allows a late fee or interest.</li>
+</ol>
+<h2>How to number invoices</h2>
+<p>Give every invoice its own number in a sequence you never reuse, such as 2026-001, 2026-002 and so on. A year prefix keeps numbers short, and some businesses add a client code (ACME-014). Do not reuse or skip numbers without a reason: gaps invite questions from an accountant or a tax inspector, and some tax systems require sequential numbering; EU VAT rules, for example, require a sequential number that identifies each invoice.</p>
+<p>If an invoice you have sent is wrong, do not quietly edit it. Issue a credit note that cancels it, or part of it, and a new invoice with a new number, so every document in your records still matches what the client received.</p>
+<h2>Payment terms and due dates</h2>
+<p>Agree the payment terms in your contract before you start, and repeat them on every invoice. Common terms:</p>
+<ul>
+  <li><strong>Due on receipt:</strong> payable as soon as the client gets the invoice.</li>
+  <li><strong>Net 7, net 14, net 30:</strong> payable within that many days of the invoice date.</li>
+  <li><strong>EOM:</strong> payable at the end of the month the invoice is dated in, or a set number of days after it.</li>
+  <li><strong>2/10 net 30:</strong> a 2% discount if paid within 10 days, otherwise the full amount within 30.</li>
+</ul>
+<p>Always print the actual due date as well as the terms, so nobody has to work it out. The <a href="${rel}free-tools/invoice-due-date.html">invoice due date calculator</a> does it for any of these terms, including early payment discounts.</p>
+<h2>Sales tax, VAT and GST</h2>
+<p>If you are registered for VAT, GST or sales tax, the tax authority decides what a valid tax invoice must show, usually your registration number, the tax rate and the amount of tax, and sometimes the client's details too. Check the rules where you are registered. In the US, sales tax is set by each state, and whether a service is taxable differs from state to state. If you are not registered, do not add tax to your invoices.</p>
+<h2>Late fees and interest</h2>
+<p>Only charge a late fee or interest your contract allows, and say on the invoice what it is. In the UK, a business invoicing another business can claim statutory interest on late payment at 8% above the Bank of England base rate, plus fixed compensation of £40 to £100 per invoice, even if the contract says nothing. The <a href="${rel}free-tools/late-payment-interest.html">late payment interest calculator</a> works it out.</p>
+<h2>Sending the invoice</h2>
+<ul>
+  <li>Send it as soon as the work is delivered or the agreed milestone is reached. The payment clock starts when the client receives it.</li>
+  <li>Send a PDF, so it cannot be changed by accident, to the person or accounts address the client named. Put the invoice number and amount in the email subject.</li>
+  <li>Keep a copy of every invoice you send, and note when it was paid.</li>
+  <li>If the due date passes, send a polite <a href="${rel}templates/payment-reminder-letter.html">payment reminder</a>. If that does not work, see <a href="${rel}guides/what-to-do-when-a-client-wont-pay.html">what to do when a client won't pay</a>.</li>
+</ul>
+<h2>Invoices, quotes and receipts</h2>
+<p>A quote comes before the work and offers a price; an invoice comes after and asks for payment; a receipt confirms you were paid. The guide to the <a href="${rel}guides/quote-vs-estimate-vs-invoice.html">difference between a quote, an estimate and an invoice</a> explains when to use each one.</p>
+<h2>Free templates</h2>
+<p>The free <a href="${rel}templates/invoice.html">invoice template</a> asks for each item above, including line items, a discount, tax, any amount already paid and your bank details, and builds the invoice in your browser without an account. When the client pays, send a <a href="${rel}templates/payment-receipt.html">payment receipt</a>. Pricing a new job first? Start with the <a href="${rel}templates/quote.html">quote template</a>, and for repeat work a <a href="${rel}templates/retainer-agreement.html">retainer agreement</a> sets the monthly fee and payment terms once.</p>
+<p class="small muted">General information, not tax or legal advice. Invoicing and tax rules differ between countries and states; check the rules that apply to your business.</p>` },
+  { slug: 'quote-vs-estimate-vs-invoice', title: 'Quote vs estimate vs invoice: what is the difference?', published: '2026-10-02',
+    description: 'The difference between a quote, an estimate, a pro forma invoice, a purchase order and an invoice, when to use each one, and which of them are binding.',
+    body: (rel) => `
+<p class="lead">A quote offers a fixed price before the work starts. An estimate gives an approximate price that can change. An invoice asks for payment once the work is done. Using the right one, and labelling it clearly, avoids the most common argument in small business: what the price actually was.</p>
+<div class="table-wrap" tabindex="0"><table class="compare">
+  <thead><tr><th scope="col">Document</th><th scope="col">Sent by</th><th scope="col">When</th><th scope="col">What it does</th></tr></thead>
+  <tbody>
+    <tr><td>Estimate</td><td>Seller</td><td>Before the work</td><td>Gives a best guess at the price, which can change</td></tr>
+    <tr><td>Quote</td><td>Seller</td><td>Before the work</td><td>Offers a fixed price for defined work, until a set date</td></tr>
+    <tr><td>Purchase order</td><td>Buyer</td><td>Before delivery</td><td>Orders goods or services at agreed prices</td></tr>
+    <tr><td>Pro forma invoice</td><td>Seller</td><td>Before delivery</td><td>Shows what the invoice will be, for approval or an advance payment</td></tr>
+    <tr><td>Invoice</td><td>Seller</td><td>After delivery</td><td>Asks for payment by a due date</td></tr>
+    <tr><td>Receipt</td><td>Seller</td><td>After payment</td><td>Confirms that payment was received</td></tr>
+  </tbody>
+</table></div>
+<h2>Quote</h2>
+<p>A quote, or quotation, is a fixed price for work you have defined. It is an offer: if the customer accepts it, for example by signing it, it usually becomes a contract at that price. So describe the work precisely, list what is not included, and give a date the quote expires, so you are not held to an old price after your costs go up. The free <a href="${rel}templates/quote.html">quote template</a> includes each of these and a line for the customer to accept.</p>
+<h2>Estimate</h2>
+<p>An estimate is your best guess at the price when you cannot know it in advance, such as a repair where the problem only shows once the work starts. It is not normally binding as a fixed price, but a final bill far above the estimate, without warning, invites a dispute. Say on the estimate that it is an estimate, explain what could change the price, and agree to tell the customer before costs go beyond it by more than a set amount or percentage. Some places have rules for particular trades; several US states, for example, require written estimates for car repairs.</p>
+<h2>Purchase order</h2>
+<p>A purchase order (PO) comes from the buyer. It lists what they want, the quantities, prices and delivery date, and becomes a contract when the seller accepts it, by confirming it or by delivering. Larger customers often require a PO number on every invoice, so ask for it before you start. See the free <a href="${rel}templates/purchase-order.html">purchase order template</a>.</p>
+<h2>Pro forma invoice</h2>
+<p>A pro forma invoice looks like an invoice but is not a demand for payment. Sellers send one before delivery so the buyer can approve the cost, arrange an advance payment or, in international trade, prepare customs paperwork. It is not a tax invoice; the real invoice follows.</p>
+<h2>Invoice</h2>
+<p>An invoice is the bill. It is sent after the goods are delivered or the work is done, or at agreed milestones, and asks for payment by a due date. It should match the accepted quote or purchase order, with any agreed changes shown as separate lines. <a href="${rel}guides/how-to-write-an-invoice.html">How to write an invoice</a> lists what to include, and the free <a href="${rel}templates/invoice.html">invoice template</a> builds one.</p>
+<h2>Receipt</h2>
+<p>A receipt confirms payment. Send one when you are paid, especially in cash, and for a part payment show the balance still owed. See the free <a href="${rel}templates/payment-receipt.html">payment receipt template</a>.</p>
+<h2>A typical sequence</h2>
+<ol>
+  <li>The customer asks for a price; you send an <strong>estimate</strong> if the scope is uncertain, or a <strong>quote</strong> if it is defined.</li>
+  <li>The customer accepts the quote, or sends a <strong>purchase order</strong> that refers to it.</li>
+  <li>For larger jobs, you agree a contract such as a <a href="${rel}templates/service-agreement.html">service agreement</a> or a <a href="${rel}templates/statement-of-work.html">statement of work</a>, and may take a deposit.</li>
+  <li>You deliver, then send an <strong>invoice</strong> that quotes the quote or PO number.</li>
+  <li>The customer pays, and you send a <strong>receipt</strong>.</li>
+</ol>
+<p>Using the same reference numbers through the chain lets everyone match the documents without a phone call. If the invoice goes unpaid, a <a href="${rel}templates/payment-reminder-letter.html">payment reminder letter</a> is the next step.</p>
+<p class="small muted">General information, not legal advice. Contract and consumer protection rules differ between countries and states.</p>` },
+  { slug: 'how-to-write-a-two-weeks-notice-letter', title: 'How to write a two weeks notice letter (free template)', published: '2026-10-02',
+    description: 'What to put in a two weeks notice letter, how to count the two weeks, how to hand it in, and what happens to your final pay, vacation and benefits.',
+    body: (rel) => `
+<p class="lead">A two weeks notice letter tells your employer that you are resigning and when your last day will be. Keep it short and positive: it goes in your personnel file, and the people who read it may be your references later.</p>
+<h2>Do you have to give two weeks' notice?</h2>
+<p>In the US, most jobs are at will: either side can end the job at any time, and no federal law requires an employee to give notice. Two weeks is a professional custom, and leaving without it can cost you a good reference or a chance to be rehired. Some employment contracts, union agreements and handbooks require more notice, or make it a condition of being paid out for unused vacation, so check yours first.</p>
+<p>Elsewhere the rules are set by law and contract. In the UK, for example, the legal minimum an employee must give is one week once they have worked for a month, but most contracts require more, often a month or longer for senior roles. Give whatever your contract requires; two weeks is only the norm where nothing longer applies.</p>
+<h2>What to include</h2>
+<ol>
+  <li><strong>The date</strong> of the letter, and your manager's name.</li>
+  <li><strong>A clear statement that you are resigning</strong>, and from which job title.</li>
+  <li><strong>Your last working day.</strong> State the date itself, not just "two weeks from today".</li>
+  <li><strong>An offer to help with the handover</strong>: finishing or passing on your work and training a replacement.</li>
+  <li><strong>How you will return company property</strong>, such as a laptop, phone, badge or keys.</li>
+  <li><strong>A short thank-you</strong>, if you want to include one.</li>
+  <li><strong>A personal email address</strong> for your final pay slip and tax forms, if they might otherwise go to your work account.</li>
+</ol>
+<p>A reason is optional. "I have accepted a position elsewhere" is enough, and you do not have to say where.</p>
+<h2>What to leave out</h2>
+<p>Complaints about your manager, colleagues or pay, comparisons with your new job, and anything you would not want a future employer to read. If you want to give feedback, use an exit interview, and keep it constructive there too.</p>
+<h2>How to count the two weeks</h2>
+<p>Count from the day your manager receives the letter. If you hand it in on Friday 2 October, two weeks takes you to Friday 16 October. If you work shifts or part-time, make the last day the last day you are scheduled to work. The <a href="${rel}free-tools/deadline-calculator.html">deadline calculator</a> gives the date for any number of days or weeks.</p>
+<h2>How to hand it in</h2>
+<p>Tell your manager first, in person or on a call, then give them the letter or email it straight afterwards so there is a written record with a date. Send a copy to HR if your company has a process for resignations, and keep a copy yourself.</p>
+<h2>What happens next</h2>
+<ul>
+  <li><strong>Your employer may end the job sooner.</strong> In an at-will job they can usually accept your resignation straight away instead of having you work the notice period, and are not always required to pay for the two weeks unless a contract or policy says so.</li>
+  <li><strong>Final pay.</strong> Deadlines are set by state law. In California, for example, an employee who gives at least 72 hours' notice must be paid in full on their last day.</li>
+  <li><strong>Unused vacation.</strong> Some states, including California, require earned vacation to be paid out when you leave; in many others it depends on the company's policy.</li>
+  <li><strong>Health insurance</strong> often ends on your last day or at the end of that month. Employers with 20 or more employees must usually offer COBRA, which lets you keep the same coverage for a time if you pay the premiums.</li>
+  <li><strong>Retirement plans and stock</strong> may have vesting dates; check whether waiting a little before your last day would make a difference.</li>
+</ul>
+<h2>Free templates</h2>
+<p>The free <a href="${rel}templates/two-weeks-notice-letter.html">two weeks notice letter</a> asks for each detail above and builds the letter in your browser, with nothing uploaded. If your contract requires longer notice, use the general <a href="${rel}templates/resignation-letter.html">resignation letter</a>, which lets you set any notice period. Managers can use the <a href="${rel}templates/reference-letter.html">reference letter</a> and the <a href="${rel}templates/employment-verification-letter.html">employment verification letter</a> for staff who have left, and there are more on the <a href="${rel}for/hr-teams.html">HR templates page</a>.</p>
+<p class="small muted">General information, not legal advice. Employment law differs between countries and states and changes over time; check the rules that apply to your job.</p>` },
+  { slug: 'what-is-a-hold-harmless-agreement', title: 'What is a hold harmless agreement? Types, examples and limits', published: '2026-10-02',
+    description: 'What a hold harmless agreement does, one-way and mutual versions, broad and limited forms, how it differs from indemnity and a waiver, and when it holds up.',
+    body: (rel) => `
+<p class="lead">A hold harmless agreement is a promise by one party not to hold another responsible for certain losses, and usually to cover the cost of claims that other people bring. It moves the risk of an activity onto the party best placed to control it.</p>
+<h2>How it works: an example</h2>
+<p>A caterer rents a hall for a wedding. The hall's owner asks the caterer to sign a hold harmless agreement. If a guest is injured by the caterer's equipment and sues the owner, the caterer must pay for the claim and the owner's legal costs. The owner, who had no control over the caterer's work, is protected; the caterer, who did, carries the risk and insures against it.</p>
+<h2>Where they are used</h2>
+<ul>
+  <li>Renting a venue, premises or <a href="${rel}templates/equipment-rental-agreement.html">equipment</a>.</li>
+  <li>Contractors and tradespeople working on someone else's property.</li>
+  <li>Events, sponsorships and use of land, such as hunting, filming or a car show in a private car park.</li>
+  <li>Lending a vehicle, a boat or tools.</li>
+  <li>Subcontracts, where a contractor passes the risk of a subcontractor's work back to the subcontractor.</li>
+</ul>
+<h2>One-way or mutual</h2>
+<p>In a <strong>one-way</strong> (unilateral) agreement only one party gives the promise, usually the one carrying out the activity. In a <strong>mutual</strong> (reciprocal) agreement each party covers the other for claims caused by its own acts. Mutual agreements are common between businesses of similar size, where each controls part of the risk.</p>
+<h2>Broad, intermediate and limited forms</h2>
+<p>In construction, hold harmless clauses are often described by how much risk they shift:</p>
+<ul>
+  <li><strong>Broad form:</strong> the indemnifying party covers claims even when they are caused entirely by the other party's negligence.</li>
+  <li><strong>Intermediate form:</strong> it covers claims unless they are caused solely by the other party.</li>
+  <li><strong>Limited (comparative) form:</strong> it covers only the share of the loss caused by its own fault.</li>
+</ul>
+<p>Many US states have anti-indemnity laws that make broad-form clauses unenforceable in construction contracts, and some limit intermediate ones too, so check the rules before you rely on one for building work.</p>
+<h2>Hold harmless, indemnify and defend</h2>
+<p>The words often appear together: "indemnify, defend and hold harmless". Some courts treat "indemnify" and "hold harmless" as meaning the same thing; others read "hold harmless" as also giving up claims against the protected party. A <strong>duty to defend</strong> is separate and valuable: it means the indemnifying party must pay for the defence of a claim as it happens, rather than reimbursing costs only after a court decides who was at fault.</p>
+<h2>Hold harmless agreement or liability waiver?</h2>
+<p>A <a href="${rel}templates/liability-waiver.html">liability waiver</a> is signed by a participant who gives up their own right to sue, for example before a climbing class. A hold harmless agreement usually goes further: the signer also covers the other party against claims by third parties. A gym might use a waiver for members and a hold harmless agreement for a personal trainer who rents space there. <a href="${rel}guides/are-liability-waivers-enforceable.html">Are liability waivers enforceable?</a> covers how waivers are tested.</p>
+<h2>What makes one hold up</h2>
+<ul>
+  <li><strong>Clear wording.</strong> Say what activity is covered, which losses, and whether the protection extends to the protected party's own negligence. Courts read unclear indemnities narrowly.</li>
+  <li><strong>Signatures from both parties</strong>, before the activity starts.</li>
+  <li><strong>Sensible limits.</strong> Courts usually refuse to enforce an indemnity for gross negligence or deliberate wrongdoing, and some activities are protected by statute.</li>
+  <li><strong>Insurance behind the promise.</strong> An indemnity is only worth what the indemnifying party can pay. Ask for liability insurance, to be named as an additional insured, and a certificate of insurance, and check that your own policy covers any liability you take on under a contract.</li>
+</ul>
+<h2>Free templates</h2>
+<p>The free <a href="${rel}templates/hold-harmless-agreement.html">hold harmless agreement</a> can be one-way or mutual, with an optional duty to defend, insurance and additional insured status, and it excludes gross negligence and willful misconduct. For participants, use the <a href="${rel}templates/liability-waiver.html">liability waiver</a>; to settle a dispute that has already happened, the <a href="${rel}templates/general-release.html">general release</a>. The <a href="${rel}clauses/indemnification-clause.html">indemnification clause</a> page has sample wording to add to another contract.</p>
+<p class="small muted">General information, not legal advice. Whether a hold harmless agreement is enforceable depends on local law and the facts; have it reviewed for significant risks.</p>` },
 ];
 
 // Guides grouped by topic, for the guides index and the related-guides block at the foot of each guide.
 export const GUIDE_TOPICS = [
   ['Automating Word templates', ['automate-word-templates', 'conditional-clauses-in-word', 'repeating-lists-and-tables-in-word', 'mail-merge-vs-document-automation', 'client-intake-without-a-portal', 'confidentiality-checklist-document-software']],
   ['NDAs and restrictive covenants', ['what-to-include-in-an-nda', 'mutual-vs-one-way-nda', 'how-long-should-an-nda-last', 'nda-vs-confidentiality-agreement', 'non-compete-vs-non-solicitation']],
-  ['Hiring and HR letters', ['how-to-write-an-offer-letter', 'how-to-write-an-employee-warning-letter', 'how-to-write-a-termination-letter']],
-  ['Freelancing and getting paid', ['how-to-write-a-freelance-contract', 'what-to-include-in-a-statement-of-work', 'what-is-a-kill-fee', 'what-to-do-when-a-client-wont-pay', 'how-to-write-a-payment-demand-letter']],
+  ['Hiring and HR letters', ['how-to-write-an-offer-letter', 'how-to-write-an-employee-warning-letter', 'how-to-write-a-termination-letter', 'how-to-write-a-two-weeks-notice-letter']],
+  ['Freelancing and getting paid', ['how-to-write-a-freelance-contract', 'what-to-include-in-a-statement-of-work', 'quote-vs-estimate-vs-invoice', 'how-to-write-an-invoice', 'what-is-a-kill-fee', 'what-to-do-when-a-client-wont-pay', 'how-to-write-a-payment-demand-letter']],
   ['Landlords and tenants', ['what-to-include-in-a-lease-agreement', 'what-to-include-in-a-roommate-agreement', 'how-to-write-a-rent-increase-letter', 'how-to-write-a-notice-to-vacate', 'how-to-return-a-security-deposit']],
-  ['Business deals, money and releases', ['is-an-mou-legally-binding', 'what-to-include-in-a-partnership-agreement', 'how-to-write-a-bill-of-sale', 'how-to-lend-money-to-family', 'are-liability-waivers-enforceable', 'do-i-need-a-model-release']],
+  ['Business deals, money and releases', ['is-an-mou-legally-binding', 'what-to-include-in-a-partnership-agreement', 'how-to-write-a-bill-of-sale', 'how-to-lend-money-to-family', 'are-liability-waivers-enforceable', 'what-is-a-hold-harmless-agreement', 'do-i-need-a-model-release']],
 ];
 {
   const listed = GUIDE_TOPICS.flatMap(([, slugs]) => slugs);
@@ -1043,15 +1199,15 @@ ${GUIDE_TOPICS.map(([t, slugs]) => `  <h2 id="${topicId(t)}" style="margin-top:2
 </div></section>` },
   ...GUIDES.map((g) => ({
     path: `guides/${g.slug}.html`, title: g.title, description: g.description, feed: true, published: published(g),
-    extraHead: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: g.title, description: g.description, datePublished: published(g), dateModified: published(g), image: `${SITE}assets/og.png`, mainEntityOfPage: `${SITE}guides/${g.slug}.html`, author: { '@type': 'Organization', name: 'Clausery', url: SITE }, publisher: { '@type': 'Organization', name: 'Clausery', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}assets/icon-512.png` } } })}</script>` + crumbsLd([['Home', ''], ['Guides', 'guides/'], [g.title, `guides/${g.slug}.html`]]),
+    extraHead: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: g.title, description: g.description, datePublished: published(g), dateModified: LASTMOD, image: `${SITE}assets/og.png`, mainEntityOfPage: `${SITE}guides/${g.slug}.html`, author: { '@type': 'Organization', name: 'Clausery', url: SITE }, publisher: { '@type': 'Organization', name: 'Clausery', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}assets/icon-512.png` } } })}</script>` + crumbsLd([['Home', ''], ['Guides', 'guides/'], [g.title, `guides/${g.slug}.html`]]),
     body: (rel) => {
       const [topic, slugs] = topicOf(g.slug);
       return `<section class="section"><div class="wrap prose"><nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}guides/">Guides</a></nav><h1 style="margin-top:1rem">${esc(g.title)}</h1>
-<p class="small muted guide-meta">Published <time datetime="${published(g)}">${longDate(published(g))}</time> · <a href="${rel}guides/#${topicId(topic)}">${esc(topic)}</a></p>${g.body(rel)}
-<h2>More on ${esc(lowerFirst(topic))}</h2>
+<p class="small muted guide-meta">Published <time datetime="${published(g)}">${longDate(published(g))}</time><!--upd--> · Updated <time datetime="${LASTMOD}">${LASTMOD_LONG}</time><!--/upd--> · <a href="${rel}guides/#${topicId(topic)}">${esc(topic)}</a></p>${g.body(rel)}
+<!--nav--><h2>More on ${esc(lowerFirst(topic))}</h2>
 <ul>${slugs.filter((x) => x !== g.slug).map((x) => `<li><a href="${rel}guides/${x}.html">${esc(GUIDE_BY[x].title)}</a></li>`).join('')}</ul>
 <h2>All guides</h2>
-<div class="cat-lists">${GUIDE_TOPICS.filter(([t]) => t !== topic).map(([t, s]) => `<div><h3>${esc(t)}</h3><ul class="link-list">${s.map((x) => `<li><a href="${rel}guides/${x}.html">${esc(GUIDE_BY[x].title)}</a></li>`).join('')}</ul></div>`).join('')}</div></div></section>`;
+<div class="cat-lists">${GUIDE_TOPICS.filter(([t]) => t !== topic).map(([t, s]) => `<div><h3>${esc(t)}</h3><ul class="link-list">${s.map((x) => `<li><a href="${rel}guides/${x}.html">${esc(GUIDE_BY[x].title)}</a></li>`).join('')}</ul></div>`).join('')}</div><!--/nav--></div></section>`;
     },
   })),
 ];

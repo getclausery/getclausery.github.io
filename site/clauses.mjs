@@ -94,7 +94,7 @@ ${related.length ? `
   <h2>Related clauses</h2>
   <ul>${related.map((x) => `<li><a href="${rel}clauses/${x.slug}.html">${esc(x.name)}</a></li>`).join('')}</ul>` : ''}
 
-  <div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem;margin-top:0">Stop editing contracts by hand</h2><p>Clausery turns your Word templates into short questionnaires and builds the finished document in your browser. Nothing is uploaded, and it is free for up to three templates.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free templates</a></p></div>
+  <!--nav--><div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem;margin-top:0">Stop editing contracts by hand</h2><p>Clausery turns your Word templates into short questionnaires and builds the finished document in your browser. Nothing is uploaded, and every library template is free.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free templates</a></p></div><!--/nav-->
   <p class="small muted" style="margin-top:2rem">This page is general information, not legal advice. Laws differ between countries and states; have wording reviewed for your situation before you rely on it.</p>
 </div></section>`,
     };

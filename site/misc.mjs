@@ -7,6 +7,15 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.17.0 <span class="small muted">— 2 October 2026</span></h2>
+<ul>
+  <li>Nine new free templates: an invoice, a price quote, a purchase order, a payment receipt, meeting minutes, a two weeks notice letter, a hold harmless agreement, an equipment rental agreement and a cleaning services contract.</li>
+  <li>Four new guides: how to write an invoice, the difference between a quote, an estimate and an invoice, how to write a two weeks notice letter, and what a hold harmless agreement is.</li>
+  <li>Library templates no longer count towards the Free plan: open as many as you like. The three-template limit now applies only to your own uploaded templates.</li>
+  <li>New about and contact pages. Questions, key requests, template requests and bug reports go through GitHub, and security reports through GitHub's private vulnerability reporting.</li>
+  <li>Until online checkout opens, the Pro and Team buttons open a key request, and the pricing page explains how keys are issued.</li>
+  <li>Every page records the date its content last changed. Template and guide pages show it, and the sitemaps, the feed and the structured data use it, so search engines can tell what is new.</li>
+</ul>
 <h2>1.16.0 <span class="small muted">— 2 October 2026</span></h2>
 <ul>
   <li>Find a template: a search box on the templates page filters all the templates as you type, and the home page has a search form that opens it.</li>

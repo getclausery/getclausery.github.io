@@ -1,4 +1,4 @@
-import { docsNav, faqLd } from '../tools/partials.mjs';
+import { docsNav, faqLd, REPO_URL } from '../tools/partials.mjs';
 // The FAQ page's questions, also published as FAQPage structured data. Answers take `rel` for their links.
 const DOCS_FAQ = [
   ['Which browsers are supported?', (rel) => `Current versions of Chrome, Edge, Firefox and Safari on desktop and mobile. License keys are verified with WebCrypto Ed25519 (Chrome/Edge 137+, Firefox 129+, Safari 17+). The encrypted workspace uses PBKDF2-SHA256 and AES-256-GCM, available in all current browsers.`],
@@ -262,7 +262,7 @@ page('docs/security.html', 'Security', 'How Clausery keeps client data on the de
   <li>Read the source: it is served unminified except for two built files: the bundled document library (<code>vendor/docs.js</code>, upstream versions listed in Settings → About) and the intake-form runtime (<code>vendor/intake-runtime.js</code>, built from <code>src/intake/runtime.js</code> and the app's own modules), which is what exported intake forms contain.</li>
 </ol>
 <h2>Reporting a vulnerability</h2>
-<p>Email <a href="mailto:security@clausery.app">security@clausery.app</a>. We aim to acknowledge within two business days. Please do not test against other people's deployments.</p>`),
+<p>Report it privately with GitHub's <a href="${REPO_URL}/security/advisories/new" rel="noopener">private vulnerability reporting</a>, not in a public issue. We aim to acknowledge within two business days. Please do not test against other people's deployments. The full policy is in <a href="${REPO_URL}/blob/main/SECURITY.md" rel="noopener">SECURITY.md</a>.</p>`),
 
 page('docs/self-hosting.html', 'Self-hosting', 'Run Clausery on your own domain or intranet: it is a folder of static files with no build step and no server component.', (rel) => `
 <h1>Self-hosting</h1>
