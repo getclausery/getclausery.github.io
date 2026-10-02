@@ -232,3 +232,28 @@ test('template pages show the full wording with placeholders instead of tags', a
   await expect(doc.locator('.tpl-ph').first()).toHaveText(/^\[.+\]$/);
   await expect(doc).not.toContainText('{');
 });
+
+test('round 17: the template finder filters the index, and template and guide pages link related pages', async ({ page }) => {
+  await page.goto('templates/');
+  const box = page.getByLabel('Find a template');
+  await expect(box).toBeVisible();
+  await box.fill('lease');
+  await expect(page.locator('#tpl-groups a.feature:visible')).not.toHaveCount(0);
+  await expect(page.locator('#tpl-groups a.feature[href="../templates/mutual-nda.html"]')).toBeHidden();
+  await expect(page.locator('[data-filter-count]')).toHaveText(/^\d+ of \d+ templates match$/);
+  await box.fill('zzzz no such template');
+  await expect(page.locator('[data-filter-empty]')).toBeVisible();
+  await page.goto('');
+  await page.getByLabel('Find a template').fill('nda');
+  await page.getByRole('search', { name: 'Find a free template' }).getByRole('button', { name: 'Search' }).click();
+  await expect(page).toHaveURL(/templates\/\?q=nda$/);
+  await expect(page.getByLabel('Find a template')).toHaveValue('nda');
+  await expect(page.locator('#tpl-groups a.feature[href="../templates/mutual-nda.html"]')).toBeVisible();
+  await page.goto('templates/mutual-nda.html');
+  await expect(page.getByRole('heading', { name: 'What is in the mutual NDA' })).toBeVisible();
+  await expect(page.locator('.related-cards a.feature[href="../templates/one-way-nda.html"]')).toHaveCount(1);
+  await expect(page.locator('td', { hasText: 'If “Has jurisdiction” is yes' })).toHaveCount(1);
+  await page.goto('guides/what-is-a-kill-fee.html');
+  await expect(page.locator('.guide-meta time')).toHaveAttribute('datetime', /^\d{4}-\d{2}-\d{2}$/);
+  await expect(page.getByRole('heading', { name: 'More on freelancing and getting paid' })).toBeVisible();
+});
