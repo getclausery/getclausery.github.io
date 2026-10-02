@@ -149,6 +149,8 @@ export function footer(rel) {
 </html>
 `;
 }
+// Lower-cases a name for use mid-sentence without breaking acronyms: "Mutual NDA" -> "mutual NDA", "HR teams" stays "HR teams".
+export const lowerFirst = (s) => (/^[A-Z][a-z]/.test(s) ? s[0].toLowerCase() + s.slice(1) : s);
 export function esc(s) { return String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
 export function docsNav(rel, path) {
   const items = [
