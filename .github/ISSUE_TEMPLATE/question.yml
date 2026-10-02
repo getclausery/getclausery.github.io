@@ -1,0 +1,19 @@
+name: Question or feedback
+description: Ask a question, suggest a feature, or tell us what you think. Press and partnership enquiries are welcome here too.
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **This is public.** Please do not include personal details, client information or confidential documents. If you need to share something privately, say so and we will arrange a private channel.
+  - type: textarea
+    id: message
+    attributes:
+      label: Your question or feedback
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Page or template it is about (optional)
+      placeholder: https://getclausery.github.io/templates/mutual-nda.html

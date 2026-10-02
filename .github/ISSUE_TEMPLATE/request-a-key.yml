@@ -1,0 +1,50 @@
+name: Request a Pro or Team key
+description: Ask for a Pro, Team or Enterprise license, a 14-day trial key, or a nonprofit, legal aid or education discount.
+title: "Key request: "
+labels: ["key request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for your interest in Clausery Pro. **This request is public**, so please do not include your email address, phone number or anything confidential. We reply here with how to pay and how we will send your key privately.
+
+        Every template in the [free library](https://getclausery.github.io/templates/) stays free on every plan.
+  - type: dropdown
+    id: plan
+    attributes:
+      label: Which plan?
+      options:
+        - Pro, monthly ($19 per user per month)
+        - Pro, yearly ($190 per user per year)
+        - Team (5 seats, $49 per month)
+        - Enterprise (self-hosting, branding, invoicing)
+        - A 14-day Pro trial key first
+    validations:
+      required: true
+  - type: input
+    id: seats
+    attributes:
+      label: How many people will use it?
+      placeholder: "1"
+  - type: dropdown
+    id: discount
+    attributes:
+      label: Discount
+      description: 50% off Pro and Team for these organisations.
+      options:
+        - None
+        - Nonprofit
+        - Legal aid
+        - Education
+  - type: textarea
+    id: use
+    attributes:
+      label: What will you use Clausery for?
+      description: Optional, but it helps us decide which templates and features to build next.
+      placeholder: For example, engagement letters and NDAs for a three-lawyer firm.
+  - type: checkboxes
+    id: invoice
+    attributes:
+      label: Billing
+      options:
+        - label: I need an invoice (Team and Enterprise can pay by invoice)
