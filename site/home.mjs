@@ -46,6 +46,11 @@ export const pages = [{
   <div class="wrap">
     <h2>Free Word templates, filled in online</h2>
     <p class="lead">${LIB.length} ready-made Word templates, from NDAs and employment contracts to leases, liability waivers and freelance contracts. Read the full wording, answer a few questions, and download a finished .docx. No sign-up, and nothing you type leaves your browser.</p>
+    <form class="find-form" action="${rel}templates/" method="get" role="search" aria-label="Find a free template">
+      <label class="sr-only" for="home-q">Find a template</label>
+      <input id="home-q" name="q" type="search" placeholder="Find a template: lease, NDA, invoice…" autocomplete="off">
+      <button class="btn btn-primary" type="submit">Search</button>
+    </form>
     <div class="grid grid-4">
       <a class="feature" style="text-decoration:none;color:inherit" href="${rel}nda-templates/"><h3>NDA templates</h3><p>Mutual, one-way, employee, contractor and business sale.</p></a>
       <a class="feature" style="text-decoration:none;color:inherit" href="${rel}for/landlords.html"><h3>Landlord forms</h3><p>Lease, notice to vacate, rent receipt, late rent notice.</p></a>
