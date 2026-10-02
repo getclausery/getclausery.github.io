@@ -1,5 +1,5 @@
 /* Clausery app bootstrap: opens the local store, checks the license, handles the vault lock, wires routes. */
-import { APP_VERSION, DEFAULT_SETTINGS, licensePublicKey, CHECKOUT_URLS, CONTACT_EMAIL, SITE_URL } from './config.js';
+import { APP_VERSION, DEFAULT_SETTINGS, licensePublicKey, CHECKOUT_URLS, CONTACT_URL, KEY_REQUEST_URL, SITE_URL } from './config.js';
 import { Store, LockedError } from './lib/store.js';
 import { Plan, FEATURE_LABELS } from './lib/plan.js';
 import { verifyKey } from './lib/license.js';
@@ -21,7 +21,7 @@ const statusEl = document.getElementById('status');
 const isLocal = ['localhost', '127.0.0.1'].includes(location.hostname);
 
 const ctx = {
-  version: APP_VERSION, store, plan, router, main, settings: { ...DEFAULT_SETTINGS }, siteUrl: SITE_URL, contactEmail: CONTACT_EMAIL, checkoutUrls: CHECKOUT_URLS,
+  version: APP_VERSION, store, plan, router, main, settings: { ...DEFAULT_SETTINGS }, siteUrl: SITE_URL, contactUrl: CONTACT_URL, keyRequestUrl: KEY_REQUEST_URL, checkoutUrls: CHECKOUT_URLS,
   navigate: (p) => router.go(p),
   templates: {
     list: async () => (await store.all('templates')).sort((a, b) => (b.updatedAt || '').localeCompare(a.updatedAt || '')),
@@ -31,6 +31,8 @@ const ctx = {
     getFile: async (id) => { const f = await store.get('files', id); return f ? f.bytes : null; },
     saveFile: (id, bytes) => store.put('files', { id, bytes }),
     count: () => store.count('templates'),
+    /** Templates that count against the Free plan's limit: the user's own. Library samples (t.sample) are free and unlimited. */
+    ownCount: async () => (await store.all('templates')).filter((t) => !t.sample).length,
   },
   drafts: {
     list: async () => (await store.all('drafts')).sort((a, b) => (b.updatedAt || '').localeCompare(a.updatedAt || '')),
@@ -86,11 +88,12 @@ function renderStatus() {
 }
 
 function upgradeModal(feature) {
-  const label = feature === 'templates' ? 'More than 3 templates' : FEATURE_LABELS[feature] || feature;
+  const label = feature === 'templates' ? 'More than 3 of your own templates' : FEATURE_LABELS[feature] || feature;
   modal({
     title: 'Available on Pro',
     body: h('div.stack',
       h('p', h('strong', label), ' is part of Clausery Pro. Everything still runs in your browser; a license simply unlocks the feature.'),
+      feature === 'templates' ? h('p.small.muted', 'Templates from the free library never count towards the limit: open as many of them as you like.') : null,
       h('ul.feature-list', Object.values(FEATURE_LABELS).map((f) => h('li', icon('check', 16), f))),
       h('p.small.muted', 'Already have a key? Enter it under Settings → License.')),
     actions: [

@@ -1,6 +1,6 @@
 /* Clausery deployment configuration. Edit this file when you deploy your own copy. */
 export const APP_NAME = 'Clausery';
-export const APP_VERSION = '1.16.0';
+export const APP_VERSION = '1.17.0';
 
 /* Public site URL (no trailing slash). Used for links in exported files and the intake form footer. */
 export const SITE_URL = 'https://getclausery.github.io';
@@ -9,9 +9,14 @@ export const SITE_URL = 'https://getclausery.github.io';
    `npm run license -- keygen`; keep the private key offline and paste the public key here. */
 export const LICENSE_PUBLIC_KEY = 'q8doGh6iJJpRQVi1ow0EADMDQMw9oJhMTl_p1ZpE0GE';
 
-/* Hosted checkout links (Stripe Payment Links, Lemon Squeezy, Paddle...). Leave empty to show a contact link instead. */
+/* Hosted checkout links (Stripe Payment Links, Lemon Squeezy, Paddle...). Leave empty to show the key request form instead. */
 export const CHECKOUT_URLS = { pro: '', team: '' };
-export const CONTACT_EMAIL = 'hello@clausery.app';
+
+/* Where people reach the operator. The public instance uses GitHub: issue forms for questions, key requests and template
+   requests, and private vulnerability reporting for security. A deployment with its own inbox can point these at a mailto:. */
+export const REPO_URL = 'https://github.com/getclausery/getclausery.github.io';
+export const CONTACT_URL = REPO_URL + '/issues/new/choose';
+export const KEY_REQUEST_URL = REPO_URL + '/issues/new?template=request-a-key.yml';
 
 /* Locale defaults for new workspaces. */
 export const DEFAULT_SETTINGS = { locale: '', currency: 'USD', dateFormat: 'long', theme: 'system', firmName: '', autoLockMinutes: 15 };
