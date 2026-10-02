@@ -133,3 +133,35 @@ a.sr-only:focus-visible { position: fixed !important; top: .5rem; left: .5rem; w
 .link-cols { list-style: none; padding: 0; margin: .75rem 0 0; columns: 3 14rem; column-gap: 1.5rem; }
 .link-cols li { break-inside: avoid; padding: .2rem 0; }
 .grid .link-cols { columns: 1; }
+/* Template finder (templates index; shown by site.js) */
+.filter { margin-top: 1.5rem; max-width: 34rem; }
+.filter label { display: block; font-weight: 700; margin-bottom: .35rem; }
+.filter input { width: 100%; padding: .7rem .8rem; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--surface); color: var(--text); font: inherit; font-size: 1.05rem; }
+.filter input:focus-visible { outline: 3px solid var(--focus, var(--accent)); outline-offset: 1px; }
+.filter [data-filter-count] { min-height: 1.4em; margin: .4rem 0 0; }
+.filter-empty { margin-top: 2rem; }
+.feature[hidden], .filter-group[hidden], .filter[hidden], .filter-empty[hidden] { display: none; }
+/* Home page search form that opens the filtered templates index */
+.find-form { display: flex; gap: .5rem; max-width: 34rem; margin-top: 1.25rem; }
+.find-form input { flex: 1; min-width: 0; padding: .65rem .8rem; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--surface); color: var(--text); font: inherit; }
+/* Foot of template and guide pages: related cards and compact lists grouped by category */
+.related-cards { margin-top: 1rem; }
+.related-cards a.feature { text-decoration: none; color: inherit; padding: 1.1rem 1.25rem; transition: border-color .15s; }
+.related-cards a.feature:hover { border-color: var(--accent); }
+.related-cards h3 { font-size: 1.05rem; color: var(--accent); }
+.related-cards p { font-size: .92rem; }
+.cat-lists { display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: .5rem 1.75rem; margin-top: 1rem; }
+.cat-lists h3 { font-size: .95rem; margin: 1rem 0 .35rem; }
+.link-list { list-style: none; padding: 0; margin: 0; font-size: .92rem; }
+.link-list li { padding: .18rem 0; }
+.guide-meta { margin: .25rem 0 1.25rem; }
+.guide-list li { margin-bottom: .6rem; }
+.steps-compact li { padding: 1.1rem 1.25rem; }
+.steps-compact h3 { font-size: 1.05rem; }
+.related-cards p { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+@media (max-width: 600px) {
+  .related-cards { gap: .6rem; }
+  .related-cards a.feature { padding: .85rem 1rem; }
+  .related-cards p { -webkit-line-clamp: 2; }
+  .cat-lists.tight { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .25rem 1rem; }
+}
