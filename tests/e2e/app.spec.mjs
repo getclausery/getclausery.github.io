@@ -58,12 +58,20 @@ test.describe('core drafting flow', () => {
     expect(errors, errors.join('\n')).toEqual([]);
   });
 
-  test('free plan allows three templates and then asks to upgrade', async ({ page }) => {
+  test('library samples are unlimited on the free plan; three of your own templates, then it asks to upgrade', async ({ page }) => {
     await openApp(page);
-    for (let i = 0; i < 3; i++) { await useSample(page, i); await page.goto('app/#/templates'); await page.waitForSelector('h1:has-text("Templates")'); }
-    await expect(page.locator('.cards article[data-template-id]')).toHaveCount(3);
-    await page.locator('button:has-text("Use this sample")').nth(0).click();
+    for (let i = 0; i < 4; i++) { await useSample(page, i); await page.goto('app/#/templates'); await page.waitForSelector('h1:has-text("Templates")'); }
+    await expect(page.locator('.cards article[data-template-id]')).toHaveCount(4);
+    await expect(page.locator('.modal-title')).toHaveCount(0);
+    const upload = async () => {
+      const [chooser] = await Promise.all([page.waitForEvent('filechooser'), page.locator('.dropzone').click()]);
+      await chooser.setFiles('samples/mutual-nda.docx');
+    };
+    for (let i = 0; i < 3; i++) { await upload(); await page.waitForSelector('input[aria-label="Template name"]'); await page.goto('app/#/templates'); await page.waitForSelector('h1:has-text("Templates")'); }
+    await expect(page.locator('.cards article[data-template-id]')).toHaveCount(7);
+    await upload();
     await expect(page.locator('.modal-title')).toHaveText('Available on Pro');
+    await expect(page.locator('.modal')).toContainText('Templates from the free library never count');
   });
 
   test('draft answers survive a reload and validation blocks skipping required fields on Next', async ({ page }) => {
@@ -84,8 +92,8 @@ test.describe('core drafting flow', () => {
 });
 
 test('the newer templates open as drafts from their deep links', async ({ browser, baseURL }) => {
-  // a fresh browser profile for each, since the free plan holds three templates
-  for (const [slug, name] of [['memorandum-of-understanding', 'Memorandum of understanding (MOU)'], ['letter-of-intent', 'Letter of intent (business purchase)'], ['bill-of-sale', 'Bill of sale'], ['loan-agreement', 'Loan agreement'], ['partnership-agreement', 'Partnership agreement'], ['sales-commission-agreement', 'Sales commission agreement'], ['photo-release-form', 'Photo and model release'], ['general-release', 'General release'], ['notice-to-vacate', 'Notice to vacate (tenant)'], ['rent-increase-letter', 'Rent increase letter'], ['security-deposit-return-letter', 'Security deposit return letter'], ['roommate-agreement', 'Roommate agreement'], ['residential-lease-agreement', 'Residential lease agreement'], ['sublease-agreement', 'Sublease agreement'], ['move-in-checklist', 'Move-in and move-out checklist'], ['late-rent-notice', 'Late rent notice'], ['rent-receipt', 'Rent receipt'], ['rental-application', 'Rental application'], ['lease-renewal-letter', 'Lease renewal letter'], ['pet-addendum', 'Pet addendum'], ['employee-nda', 'Employee NDA'], ['contractor-nda', 'Contractor NDA'], ['business-sale-nda', 'NDA for selling a business'], ['non-solicitation-agreement', 'Non-solicitation agreement'], ['employment-agreement', 'Employment agreement'], ['employee-warning-letter', 'Employee warning letter'], ['promotion-letter', 'Promotion letter'], ['liability-waiver', 'Liability waiver']]) {
+  // a fresh browser profile for each, so every deep link imports its sample from scratch
+  for (const [slug, name] of [['memorandum-of-understanding', 'Memorandum of understanding (MOU)'], ['letter-of-intent', 'Letter of intent (business purchase)'], ['bill-of-sale', 'Bill of sale'], ['loan-agreement', 'Loan agreement'], ['partnership-agreement', 'Partnership agreement'], ['sales-commission-agreement', 'Sales commission agreement'], ['photo-release-form', 'Photo and model release'], ['general-release', 'General release'], ['notice-to-vacate', 'Notice to vacate (tenant)'], ['rent-increase-letter', 'Rent increase letter'], ['security-deposit-return-letter', 'Security deposit return letter'], ['roommate-agreement', 'Roommate agreement'], ['residential-lease-agreement', 'Residential lease agreement'], ['sublease-agreement', 'Sublease agreement'], ['move-in-checklist', 'Move-in and move-out checklist'], ['late-rent-notice', 'Late rent notice'], ['rent-receipt', 'Rent receipt'], ['rental-application', 'Rental application'], ['lease-renewal-letter', 'Lease renewal letter'], ['pet-addendum', 'Pet addendum'], ['employee-nda', 'Employee NDA'], ['contractor-nda', 'Contractor NDA'], ['business-sale-nda', 'NDA for selling a business'], ['non-solicitation-agreement', 'Non-solicitation agreement'], ['employment-agreement', 'Employment agreement'], ['employee-warning-letter', 'Employee warning letter'], ['promotion-letter', 'Promotion letter'], ['liability-waiver', 'Liability waiver'], ['invoice', 'Invoice'], ['quote', 'Price quote'], ['purchase-order', 'Purchase order'], ['payment-receipt', 'Payment receipt'], ['two-weeks-notice-letter', 'Two weeks notice letter'], ['hold-harmless-agreement', 'Hold harmless agreement'], ['equipment-rental-agreement', 'Equipment rental agreement'], ['cleaning-services-contract', 'Cleaning services contract'], ['meeting-minutes', 'Meeting minutes']]) {
     const context = await browser.newContext({ baseURL });
     const page = await context.newPage();
     await page.goto(`app/#/start/${slug}`);
