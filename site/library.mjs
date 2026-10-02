@@ -3,7 +3,7 @@
 import { readFileSync, existsSync, statSync } from 'node:fs';
 import { inspectDocx } from '../app/lib/render.js';
 import { inferQuestionnaire, FIELD_TYPES } from '../app/lib/schema.js';
-import { esc, crumbsLd } from '../tools/partials.mjs';
+import { esc, crumbsLd, lowerFirst } from '../tools/partials.mjs';
 import { CLAUSES } from './data/clauses.mjs';
 import { previewHtml, PREVIEW_CSS } from '../tools/preview.mjs';
 import { GUIDES } from './audience.mjs';
@@ -354,8 +354,19 @@ export const LIB = [
 function questionsFor(file) {
   const q = inferQuestionnaire(inspectDocx(readFileSync(new URL(`../samples/${file}`, import.meta.url))));
   const kind = (f) => (f.role === 'condition' && f.type === 'checkbox' ? 'Yes / no' : FIELD_TYPES[f.type].label);
-  return q.fields.map((f) => ({ label: f.label, kind: kind(f), when: f.showIf, children: (f.children || []).map((c) => c.label) }));
+  const label = Object.fromEntries(q.fields.map((f) => [f.key, f.label]));
+  return q.fields.map((f) => ({ label: f.label, kind: kind(f), when: f.showIf, whenText: f.showIf && readableCondition(f.showIf, label), children: (f.children || []).map((c) => c.label) }));
 }
+// "not is_paid and has_stipend" -> 'If "Is paid" is no and "Has stipend" is yes', so readers see the questions, not tag names.
+// Anything that is not a plain and/or chain of yes/no questions (brackets, comparisons) returns null and is shown as code.
+function readableCondition(expr, label) {
+  const joins = expr.match(/\s(and|or)\s/g) || [];
+  const terms = expr.split(/\s+(?:and|or)\s+/).map((t) => t.match(/^(not\s+)?([a-z_][a-z0-9_]*)$/));
+  if (terms.some((m) => !m || !label[m[2]])) return null;
+  return 'If ' + terms.map((m, i) => `${i ? `${joins[i - 1].trim()} ` : ''}“${label[m[2]]}” is ${m[1] ? 'no' : 'yes'}`).join(' ');
+}
+// One plain sentence for a template card: the first sentence of its intro, cut at a word boundary if it runs long.
+const cardLine = (t) => { const s = t.intro.split(/(?<=\.)\s/)[0]; return s.length <= 100 ? s : s.slice(0, s.lastIndexOf(' ', 97)).replace(/[,;:]$/, '') + '…'; };
 
 const faqLd = (faq) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) })}</script>`;
 const COMMON_FAQ = [
@@ -371,6 +382,25 @@ export const PACK_FILE = 'clausery-word-templates.zip';
 export const NDA_SLUGS = ['mutual-nda', 'one-way-nda', 'employee-nda', 'contractor-nda', 'business-sale-nda'];
 const packSize = () => { const f = new URL(`../samples/${PACK_FILE}`, import.meta.url); return existsSync(f) ? `${Math.round(statSync(f).size / 1024)} KB` : ''; };
 const catId = (c) => c.toLowerCase().replace(/\s+/g, '-');
+// Templates people use together, where the category alone is too broad (the "Legal" category mixes NDAs with a bill of
+// sale and a liability waiver). A template in a cluster is suggested its cluster first.
+const CLUSTERS = [
+  ['mutual-nda', 'one-way-nda', 'employee-nda', 'contractor-nda', 'business-sale-nda', 'non-solicitation-agreement'],
+  ['bill-of-sale', 'promissory-note', 'loan-agreement', 'letter-of-intent', 'general-release'],
+  ['liability-waiver', 'general-release', 'photo-release-form', 'personal-training-agreement', 'event-planning-contract'],
+  ['cease-and-desist-letter', 'payment-demand-letter', 'payment-reminder-letter', 'general-release'],
+  ['engagement-letter', 'retainer-agreement', 'consulting-agreement', 'service-agreement', 'statement-of-work'],
+];
+for (const c of CLUSTERS) for (const s of c) if (!LIB.some((x) => x.slug === s)) throw new Error(`CLUSTERS: no template ${s}`);
+// Up to six templates to suggest at the foot of a template page: its cluster, then its category, then shared clauses.
+function related(t) {
+  const shares = (x) => CLAUSES.filter((c) => c.templates.includes(t.slug) && c.templates.includes(x.slug)).length;
+  const clustered = (x) => CLUSTERS.some((c) => c.includes(t.slug) && c.includes(x.slug));
+  const inCluster = CLUSTERS.some((c) => c.includes(t.slug));
+  return LIB.filter((x) => x.slug !== t.slug)
+    .map((x) => [x, (clustered(x) ? 100 : 0) + (x.category === t.category ? (inCluster ? 1 : 10) : 0) + shares(x)])
+    .filter(([x, n]) => (inCluster ? clustered(x) || shares(x) >= 2 : n > 0)).sort((a, b) => b[1] - a[1] || LIB.indexOf(a[0]) - LIB.indexOf(b[0])).slice(0, 6).map(([x]) => x);
+}
 export const CATEGORY_ORDER = [['Business', 'Business agreements'], ['Freelance', 'Freelance contracts'], ['Finance', 'Loans and getting paid'], ['Real estate', 'Landlords and tenants'], ['Legal', 'NDAs, letters and sales'], ['HR', 'HR letters']];
 for (const t of LIB) if (!CATEGORY_ORDER.some(([c]) => c === t.category)) throw new Error(`templates index: no heading for category ${t.category}`);
 for (const [t, g] of Object.entries(GUIDE_FOR)) if (!GUIDE[g] || !LIB.some((x) => x.slug === t)) throw new Error(`GUIDE_FOR: ${t} -> ${g}`);
@@ -386,14 +416,22 @@ export const pages = [
   <p class="eyebrow">Free template library</p>
   <h1>Free contract templates and legal forms for Word</h1>
   <p class="lead">${LIB.length} free templates, each with its full wording on its page. Download any template as a normal Word file, or fill it in right here: answer a few questions and get a finished .docx. Everything happens in your browser, so client and employee details never leave your computer.</p>
+  <div class="filter" data-filter-for="tpl-groups" hidden>
+    <label for="tpl-q">Find a template</label>
+    <input id="tpl-q" type="search" placeholder="Try lease, NDA, invoice, freelance…" autocomplete="off" spellcheck="false">
+    <p class="small muted" role="status" aria-live="polite" data-filter-count></p>
+  </div>
   <p style="margin-top:1.25rem"><a class="btn" href="${rel}samples/${PACK_FILE}" download>Download all ${LIB.length} templates</a> <span class="small muted">One .zip file (${packSize()}), in a folder per category.</span></p>
   <p style="margin-top:1rem">Looking for an NDA? <a href="${rel}nda-templates/">Compare the ${NDA_SLUGS.length} free NDA templates</a> and pick the right one. Hiring or managing staff? See the <a href="${rel}for/hr-teams.html">free HR letter templates</a>.</p>
   <nav class="small" aria-label="Template categories" style="margin-top:1.5rem">${CATEGORY_ORDER.map(([c, label]) => `<a href="#${catId(c)}">${label}</a>`).join(' · ')}</nav>
-${CATEGORY_ORDER.map(([c, label]) => `  <h2 id="${catId(c)}" style="margin-top:2.5rem">${label}</h2>
+  <div id="tpl-groups">
+${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-labelledby="${catId(c)}"><h2 id="${catId(c)}" style="margin-top:2.5rem">${label}</h2>
   <div class="grid grid-3" style="margin-top:1rem">
     ${LIB.filter((t) => t.category === c).map((t) => `<a class="feature" style="text-decoration:none;color:inherit" href="${rel}templates/${t.slug}.html"><span class="badge">${t.category}</span><h3 style="font-size:1.15rem;margin-top:.75rem">${esc(t.name)}</h3><p>${esc(t.intro)}</p></a>`).join('')}
-  </div>`).join('\n')}
-  <p style="margin-top:2.5rem">Paying for LawDepot, Rocket Lawyer or eForms? See <a href="${rel}compare/">how they compare with Clausery</a>, including prices and free trials.</p>
+  </div></section>`).join('\n')}
+  </div>
+  <p class="filter-empty" data-filter-empty hidden>No template matches that. Try a broader word, such as the kind of agreement or who it is for.</p>
+  <p style="margin-top:2.5rem">Paying for <a href="${rel}compare/lawdepot-alternative.html">LawDepot</a>, <a href="${rel}compare/rocket-lawyer-alternative.html">Rocket Lawyer</a> or <a href="${rel}compare/eforms-alternative.html">eForms</a>? See <a href="${rel}compare/">how they compare with Clausery</a>, including prices and free trials.</p>
   <p class="small muted" style="margin-top:2rem">These are general samples, not legal advice. Have them reviewed for your jurisdiction before use.</p>
 </div></section>`,
   },
@@ -402,7 +440,7 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <h2 id="${catId(c)}" style="margin-top:2
     const faq = [...t.faq, ...COMMON_FAQ];
     return {
       path: `templates/${t.slug}.html`, title: t.title, ogImage: `assets/og/${t.slug}.png`,
-      description: t.description || `Free ${/^[A-Z][a-z]/.test(t.name) ? t.name[0].toLowerCase() + t.name.slice(1) : t.name} template for Word. Fill it in online in minutes or download the .docx; nothing is uploaded. ${t.intro}`,
+      description: t.description || `Free ${lowerFirst(t.name)} template for Word. Fill it in online in minutes or download the .docx; nothing is uploaded. ${t.intro}`,
       extraHead: faqLd(faq) + crumbsLd([['Home', ''], ['Templates', 'templates/'], [t.name, `templates/${t.slug}.html`]]) + PREVIEW_CSS,
       body: (rel) => `
 <section class="section"><div class="wrap" style="max-width:52rem">
@@ -416,7 +454,7 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <h2 id="${catId(c)}" style="margin-top:2
   <p class="small muted">No sign-up. Your answers stay in your browser. <strong>Who it is for:</strong> ${esc(t.who)}</p>
   <p class="small muted">Need more than one? <a href="${rel}samples/${PACK_FILE}" download>Download all ${LIB.length} templates</a> as one .zip file.</p>
 
-  <h2 style="margin-top:2.5rem">What is in the ${esc(t.name.toLowerCase())}</h2>
+  <h2 style="margin-top:2.5rem">What is in the ${esc(lowerFirst(t.name))}</h2>
   <ul>${t.clauses.map((c) => `<li>${esc(c)}</li>`).join('')}</ul>
 
   <h2 style="margin-top:2.5rem">Read the full template</h2>
@@ -426,11 +464,11 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <h2 id="${catId(c)}" style="margin-top:2
   <h2 style="margin-top:2.5rem">The questions you answer</h2>
   <p>Clausery turns the template into a short questionnaire. Optional parts only appear when they apply.</p>
   <div class="table-wrap" tabindex="0"><table class="compare"><thead><tr><th scope="col">Question</th><th scope="col">Type</th><th scope="col">Asked when</th></tr></thead><tbody>
-    ${qs.map((q) => `<tr><td>${esc(q.label)}${q.children.length ? `<div class="small muted">For each item: ${esc(q.children.join(', '))}</div>` : ''}</td><td>${esc(q.kind)}</td><td class="small">${q.when ? `<code>${esc(q.when)}</code>` : 'Always'}</td></tr>`).join('')}
+    ${qs.map((q) => `<tr><td>${esc(q.label)}${q.children.length ? `<div class="small muted">For each item: ${esc(q.children.join(', '))}</div>` : ''}</td><td>${esc(q.kind)}</td><td class="small">${q.whenText ? esc(q.whenText) : q.when ? `<code>${esc(q.when)}</code>` : 'Always'}</td></tr>`).join('')}
   </tbody></table></div>
 
   <h2 style="margin-top:2.5rem">How to use it</h2>
-  <ol class="steps" style="grid-template-columns:1fr">
+  <ol class="steps steps-compact">
     <li><h3>Open it</h3><p>Click <em>Fill it in now</em>. The template opens in Clausery with its questionnaire ready.</p></li>
     <li><h3>Answer the questions</h3><p>Work through the sections. Drafts save as you type, on your device.</p></li>
     <li><h3>Download the document</h3><p>Get a finished Word file with your formatting intact, or print it to PDF.</p></li>
@@ -445,8 +483,10 @@ ${CLAUSES.some((c) => c.templates.includes(t.slug)) ? `  <h2 style="margin-top:2
 ` : ''}${GUIDE_FOR[t.slug] ? `  <p style="margin-top:2rem"><strong>Guide:</strong> <a href="${rel}guides/${GUIDE_FOR[t.slug]}.html">${esc(GUIDE[GUIDE_FOR[t.slug]].title)}</a></p>
 ` : ''}${NDA_SLUGS.includes(t.slug) ? `  <p><strong>All NDA templates:</strong> <a href="${rel}nda-templates/">which NDA do you need?</a></p>
 ` : ''}${TOOL_FOR[t.slug] ? `  <p><strong>Free tool:</strong> <a href="${rel}free-tools/${TOOL_FOR[t.slug][0]}.html">${esc(TOOL_FOR[t.slug][1])}</a></p>
-` : ''}  <h2 style="margin-top:2.5rem">More free templates</h2>
-  <ul>${LIB.filter((x) => x.slug !== t.slug).map((x) => `<li><a href="${rel}templates/${x.slug}.html">${esc(x.name)}</a></li>`).join('')}</ul>
+` : ''}  <h2 style="margin-top:2.5rem">Related templates</h2>
+  <div class="grid grid-3 related-cards">${related(t).map((x) => `<a class="feature" href="${rel}templates/${x.slug}.html"><h3>${esc(x.name)}</h3><p>${esc(cardLine(x))}</p></a>`).join('')}</div>
+  <h2 style="margin-top:2.5rem">All ${LIB.length} free templates</h2>
+  <div class="cat-lists tight">${CATEGORY_ORDER.map(([c, label]) => `<div><h3>${label}</h3><ul class="link-list">${LIB.filter((x) => x.category === c && x.slug !== t.slug).map((x) => `<li><a href="${rel}templates/${x.slug}.html">${esc(x.name)}</a></li>`).join('')}</ul></div>`).join('')}</div>
   <p class="small muted" style="margin-top:2rem">This template is a general sample and not legal advice. Laws vary by jurisdiction; have it reviewed before use.</p>
 </div></section>`,
     };

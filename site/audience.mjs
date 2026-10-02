@@ -1,12 +1,12 @@
 // Pages for each buyer, and how-to guides that answer the searches those buyers make.
-import { esc, faqLd, faqHtml, crumbsLd } from '../tools/partials.mjs';
+import { esc, faqLd, faqHtml, crumbsLd, lowerFirst, SITE } from '../tools/partials.mjs';
 
 const AUD = [
   { slug: 'law-firms', name: 'Law firms', title: 'Document automation for small law firms, without uploading client files',
     intro: 'Engagement letters, NDAs, demand letters, wills and leases: most firms draft the same documents every week from Word files that already exist. Clausery turns those files into questionnaires and assembles the finished document on the lawyer\'s own computer.',
     points: [['Confidentiality you can explain in one sentence', 'Client information is typed into the browser and the document is built there. It is never sent to Clausery or anyone else, so there is no vendor holding client data.'], ['Keep your precedents', 'Your Word templates keep their styles, numbering and letterhead. Add tags where details change; nothing is re-created in a new editor.'], ['Clients answer without a portal', 'Send a questionnaire as a single file. The client fills it in offline and returns an answers file you import into the draft.'], ['Encrypted on the device', 'Turn on a passphrase and everything stored in the browser is encrypted, with automatic locking when you step away.']],
     templates: ['engagement-letter', 'mutual-nda', 'one-way-nda', 'business-sale-nda', 'cease-and-desist-letter', 'letter-of-intent', 'memorandum-of-understanding', 'loan-agreement', 'promissory-note', 'bill-of-sale', 'partnership-agreement', 'general-release', 'payment-demand-letter'],
-    related: [['compare/gavel-alternative.html', 'Clausery compared with Gavel'], ['compare/clio-draft-alternative.html', 'Clausery compared with Clio Draft'], ['compare/hotdocs-alternative.html', 'Clausery compared with HotDocs'], ['guides/confidentiality-checklist-document-software.html', 'Confidentiality checklist for document software'], ['guides/client-intake-without-a-portal.html', 'Client intake without a portal'], ['clauses/', 'Contract clauses explained']],
+    related: [['compare/gavel-alternative.html', 'Clausery compared with Gavel'], ['compare/clio-draft-alternative.html', 'Clausery compared with Clio Draft'], ['compare/hotdocs-alternative.html', 'Clausery compared with HotDocs'], ['compare/docassemble-alternative.html', 'Clausery compared with docassemble'], ['guides/confidentiality-checklist-document-software.html', 'Confidentiality checklist for document software'], ['guides/client-intake-without-a-portal.html', 'Client intake without a portal'], ['clauses/', 'Contract clauses explained']],
     faq: [['Is Clausery suitable for confidential client matters?', 'Documents are assembled in the browser on the lawyer\'s own computer, and nothing you type or generate is sent to Clausery. On the Pro plan you can also encrypt everything stored in the browser with a passphrase. Check the set-up against your own IT policies and professional rules.'],
       ['Can we use our existing Word precedents?', 'Yes. Add {tags} where details change, wrap optional clauses in a section, and upload the file. Styles, numbering, headers and letterhead are kept exactly.'],
       ['How is it different from Gavel, Clio Draft or HotDocs?', 'Those products run on a vendor\'s servers or need installing, and offer more, such as hosted client portals and practice management integrations. Clausery does the core job, templates into questionnaires into finished documents, in the browser with no server involved. The comparison pages set out the trade-offs honestly.'],
@@ -39,7 +39,7 @@ const AUD = [
     intro: 'Leases, move-in checklists, late rent notices, rent increases and deposit returns follow the same pattern every time, and most have a deadline. Clausery fills in a free Word template from a few questions, so the dates, amounts and deductions are right, and tenant details stay on your computer.',
     points: [['No account, no trial, no card', 'Download any template as an ordinary Word file, or fill it in here and download the finished document. There is nothing to sign up for, and no free trial that turns into a subscription.'], ['Dates and amounts worked out', 'Each document states the dates that matter, from the first partial month to the deposit deadline. The free prorated rent and deadline calculators do the arithmetic.'], ['A clear record of the deposit', 'Record each room at move-in with the checklist, then list any deductions at move-out: the deposit letter sets out the deposit, interest, each deduction and the refund.'], ['Tenant details stay private', 'Names, addresses and amounts are typed into your browser and the document is built there. Nothing is uploaded, and it works offline.']],
     templates: ['residential-lease-agreement', 'rental-application', 'move-in-checklist', 'rent-receipt', 'late-rent-notice', 'pet-addendum', 'lease-renewal-letter', 'rent-increase-letter', 'security-deposit-return-letter', 'notice-to-vacate', 'sublease-agreement', 'roommate-agreement', 'payment-demand-letter'],
-    related: [['guides/what-to-include-in-a-lease-agreement.html', 'What to include in a residential lease agreement'], ['guides/how-to-return-a-security-deposit.html', 'How to return a security deposit: deadlines and deductions'], ['guides/how-to-write-a-rent-increase-letter.html', 'How to write a rent increase letter'], ['guides/what-to-include-in-a-roommate-agreement.html', 'What to include in a roommate agreement'], ['free-tools/prorated-rent.html', 'Prorated rent calculator'], ['guides/how-to-write-a-notice-to-vacate.html', 'How to write a notice to vacate letter'], ['free-tools/deadline-calculator.html', 'Deadline calculator: count notice periods in days'], ['free-tools/late-payment-interest.html', 'Late payment interest calculator'], ['guides/how-to-write-a-payment-demand-letter.html', 'How to write a demand letter for money owed'], ['clauses/notices-clause.html', 'Notices clause: how formal notices must be given'], ['compare/eforms-alternative.html', 'Clausery compared with eForms'], ['compare/lawdepot-alternative.html', 'Clausery compared with LawDepot']],
+    related: [['compare/rocket-lawyer-alternative.html', 'Clausery compared with Rocket Lawyer'], ['guides/what-to-include-in-a-lease-agreement.html', 'What to include in a residential lease agreement'], ['guides/how-to-return-a-security-deposit.html', 'How to return a security deposit: deadlines and deductions'], ['guides/how-to-write-a-rent-increase-letter.html', 'How to write a rent increase letter'], ['guides/what-to-include-in-a-roommate-agreement.html', 'What to include in a roommate agreement'], ['free-tools/prorated-rent.html', 'Prorated rent calculator'], ['guides/how-to-write-a-notice-to-vacate.html', 'How to write a notice to vacate letter'], ['free-tools/deadline-calculator.html', 'Deadline calculator: count notice periods in days'], ['free-tools/late-payment-interest.html', 'Late payment interest calculator'], ['guides/how-to-write-a-payment-demand-letter.html', 'How to write a demand letter for money owed'], ['clauses/notices-clause.html', 'Notices clause: how formal notices must be given'], ['compare/eforms-alternative.html', 'Clausery compared with eForms'], ['compare/lawdepot-alternative.html', 'Clausery compared with LawDepot']],
     faq: [['How much notice does a rent increase need?', 'It depends on the state and the lease. During a fixed-term lease the rent usually cannot rise unless the lease allows it. For a month-to-month tenancy many states require at least 30 days\' written notice, and some require more for larger increases: in California, 90 days for an increase of more than 10%. Some cities also limit increases under rent control.'],
       ['How long does a landlord have to return a security deposit?', 'It depends on the state: for example 21 days after the tenant moves out in California, 14 days in New York and 30 days in Texas. Most states expect an itemized list of any deductions, and missing the deadline can cost the landlord the right to keep any of it.'],
       ['Is a roommate agreement legally binding?', 'It can be enforced between the roommates like other agreements, but it does not change the lease. If you are all on the lease, the landlord can usually still claim the whole rent from any one of you.'],
@@ -282,7 +282,7 @@ GUARANTEE
 </ul>
 <h2>Send one in two minutes</h2>
 <p>All five <a href="${rel}nda-templates/">NDA templates</a> are free to download as Word files or fill in online. Clausery asks for the parties, purpose, term and governing law, includes the optional clauses you choose, and produces a finished document without uploading anything.</p>` },
-  { slug: 'mutual-vs-one-way-nda', title: 'Mutual vs one-way NDA: which one do you need?',
+  { slug: 'mutual-vs-one-way-nda', published: '2026-09-27', title: 'Mutual vs one-way NDA: which one do you need?',
     description: 'The difference between a mutual and a one-way (unilateral) NDA, when to use each, and the special cases: employees, freelancers and business sales.',
     body: (rel) => `
 <p class="lead">The only question that matters is who will share confidential information. If just one side shares, a one-way NDA is enough. If both sides share, use a mutual NDA.</p>
@@ -311,7 +311,7 @@ GUARANTEE
 </ul>
 <h2>Get the right one</h2>
 <p>All five templates are free Word files, and you can fill any of them in online without uploading anything. <a href="${rel}nda-templates/">Compare the NDA templates</a>, or read <a href="${rel}guides/what-to-include-in-an-nda.html">what to include in an NDA</a> before you send one.</p>` },
-  { slug: 'how-long-should-an-nda-last', title: 'How long should an NDA last? Typical terms explained',
+  { slug: 'how-long-should-an-nda-last', published: '2026-09-27', title: 'How long should an NDA last? Typical terms explained',
     description: 'How long NDAs usually last: one to five years for most business information, longer for trade secrets. The two clocks in every NDA, and how to choose.',
     body: (rel) => `
 <p class="lead">Most NDAs protect ordinary business information for one to five years. Trade secrets are usually protected for as long as they stay secret. The right number depends on how long the information stays valuable.</p>
@@ -340,7 +340,7 @@ GUARANTEE
 </ol>
 <h2>Set it in the template</h2>
 <p>Each NDA template asks for the number of years as one of its questions. The <a href="${rel}templates/employee-nda.html">employee NDA</a> counts from the end of employment, the <a href="${rel}templates/contractor-nda.html">contractor NDA</a> from the end of the project, and the <a href="${rel}templates/mutual-nda.html">mutual</a> and <a href="${rel}templates/one-way-nda.html">one-way</a> NDAs from signing. <a href="${rel}nda-templates/">See all NDA templates</a>.</p>` },
-  { slug: 'nda-vs-confidentiality-agreement', title: 'NDA vs confidentiality agreement: is there a difference?',
+  { slug: 'nda-vs-confidentiality-agreement', published: '2026-09-27', title: 'NDA vs confidentiality agreement: is there a difference?',
     description: 'NDA and confidentiality agreement mean the same thing. How both differ from non-solicitation and non-compete agreements, and which one you need.',
     body: (rel) => `
 <p class="lead">There is no legal difference. "Non-disclosure agreement" and "confidentiality agreement" are two names for the same kind of contract. What matters is what the agreement says, not what it is called.</p>
@@ -362,7 +362,7 @@ GUARANTEE
 </ul>
 <h2>What every version needs</h2>
 <p>Whatever it is called, a confidentiality agreement needs clear parties, a narrow purpose, a definition of confidential information with the usual exclusions, a sensible length and a return-or-delete clause. The full list is in <a href="${rel}guides/what-to-include-in-an-nda.html">what to include in an NDA</a>.</p>` },
-  { slug: 'how-to-write-an-employee-warning-letter', title: 'How to write a warning letter to an employee (free template)',
+  { slug: 'how-to-write-an-employee-warning-letter', published: '2026-09-28', title: 'How to write a warning letter to an employee (free template)',
     description: 'What an employee warning letter should say, first vs final written warnings, how to deliver one fairly, and the mistakes that make a later dismissal harder.',
     body: (rel) => `
 <p class="lead">A warning letter puts a problem on record: what happened, what needs to change, and what happens if it does not. Written well, it gives the employee a fair chance to improve, and gives you a clear record if they do not.</p>
@@ -405,7 +405,7 @@ GUARANTEE
 <h2>Use the free template</h2>
 <p>The free <a href="${rel}templates/employee-warning-letter.html">employee warning letter template</a> covers everything above: first or final warning, a dated list of incidents, the standard not met, what must change, support, a review date, time on file, an optional appeal and an acknowledgement of receipt. Answer the questions and download a Word letter; employee details stay on your computer. If things do not improve, the <a href="${rel}templates/employment-termination-letter.html">termination letter</a> follows the same pattern. All the HR letters are on the <a href="${rel}for/hr-teams.html">free HR letter templates</a> page.</p>
 <p class="small muted">General information, not legal advice. Employment law varies by country and state; take advice before dismissing anyone.</p>` },
-  { slug: 'are-liability-waivers-enforceable', title: 'Are liability waivers enforceable? What makes one hold up',
+  { slug: 'are-liability-waivers-enforceable', published: '2026-09-28', title: 'Are liability waivers enforceable? What makes one hold up',
     description: 'When a liability waiver protects a business and when courts ignore it: negligence wording, gross negligence, minors, states that refuse waivers, and UK rules.',
     body: (rel) => `
 <p class="lead">Often, yes, but not always and not for everything. A waiver is a contract in which a participant agrees, before an activity, not to sue for injuries caused by its ordinary risks and, where the law allows, by the organizer's ordinary negligence. Whether a court enforces one depends on where you are and how it is written.</p>
@@ -994,11 +994,31 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <p class="small muted">General information, not legal advice. Landlord and tenant law differs between states and cities and changes often; check the current rules for the property.</p>` },
 ];
 
+// Guides grouped by topic, for the guides index and the related-guides block at the foot of each guide.
+export const GUIDE_TOPICS = [
+  ['Automating Word templates', ['automate-word-templates', 'conditional-clauses-in-word', 'repeating-lists-and-tables-in-word', 'mail-merge-vs-document-automation', 'client-intake-without-a-portal', 'confidentiality-checklist-document-software']],
+  ['NDAs and restrictive covenants', ['what-to-include-in-an-nda', 'mutual-vs-one-way-nda', 'how-long-should-an-nda-last', 'nda-vs-confidentiality-agreement', 'non-compete-vs-non-solicitation']],
+  ['Hiring and HR letters', ['how-to-write-an-offer-letter', 'how-to-write-an-employee-warning-letter', 'how-to-write-a-termination-letter']],
+  ['Freelancing and getting paid', ['how-to-write-a-freelance-contract', 'what-to-include-in-a-statement-of-work', 'what-is-a-kill-fee', 'what-to-do-when-a-client-wont-pay', 'how-to-write-a-payment-demand-letter']],
+  ['Landlords and tenants', ['what-to-include-in-a-lease-agreement', 'what-to-include-in-a-roommate-agreement', 'how-to-write-a-rent-increase-letter', 'how-to-write-a-notice-to-vacate', 'how-to-return-a-security-deposit']],
+  ['Business deals, money and releases', ['is-an-mou-legally-binding', 'what-to-include-in-a-partnership-agreement', 'how-to-write-a-bill-of-sale', 'how-to-lend-money-to-family', 'are-liability-waivers-enforceable', 'do-i-need-a-model-release']],
+];
+{
+  const listed = GUIDE_TOPICS.flatMap(([, slugs]) => slugs);
+  for (const g of GUIDES) if (listed.filter((x) => x === g.slug).length !== 1) throw new Error(`GUIDE_TOPICS: ${g.slug} must be listed exactly once`);
+  for (const x of listed) if (!GUIDES.some((g) => g.slug === x)) throw new Error(`GUIDE_TOPICS: no guide ${x}`);
+}
+const GUIDE_BY = Object.fromEntries(GUIDES.map((g) => [g.slug, g]));
+const topicOf = (slug) => GUIDE_TOPICS.find(([, slugs]) => slugs.includes(slug));
+const published = (g) => g.published || '2026-09-26';
+const topicId = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const longDate = (d) => new Date(d + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+
 export const pages = [
   ...AUD.map((a) => ({
     path: `for/${a.slug}.html`, title: a.title, description: a.intro.slice(0, 290), extraHead: faqLd(a.faq),
     body: (rel) => `<section class="hero"><div class="wrap" style="display:block;max-width:52rem">
-  <p class="eyebrow">For ${esc(a.name.toLowerCase())}</p>
+  <p class="eyebrow">For ${esc(lowerFirst(a.name))}</p>
   <h1>${esc(a.title)}</h1>
   <p class="lead">${esc(a.intro)}</p>
   <div class="actions"><a class="btn btn-primary btn-lg" href="${rel}app/">Open Clausery, free</a><a class="btn btn-lg" href="${rel}templates/">Browse free templates</a></div>
@@ -1016,12 +1036,22 @@ export const pages = [
 </div></section>`,
   })),
   { path: 'guides/', title: 'Free guides to contracts, HR letters and landlord forms', description: 'Plain-English guides to NDAs, contracts, HR letters, leases and landlord letters, each linked to a free template, plus how to automate Word templates.',
-    body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem"><h1>Guides to contracts, HR letters and landlord forms</h1><p class="lead">Plain-English answers to the questions people ask before they use a template, each linked to a free Word template you can fill in online.</p><ul>${GUIDES.map((g) => `<li><a href="${rel}guides/${g.slug}.html">${esc(g.title)}</a><div class="small muted">${esc(g.description)}</div></li>`).join('')}</ul></div></section>` },
+    body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem"><h1>Guides to contracts, HR letters and landlord forms</h1><p class="lead">Plain-English answers to the questions people ask before they use a template, each linked to a free Word template you can fill in online.</p>
+  <nav class="small" aria-label="Guide topics" style="margin-top:1.25rem">${GUIDE_TOPICS.map(([t]) => `<a href="#${topicId(t)}">${esc(t)}</a>`).join(' · ')}</nav>
+${GUIDE_TOPICS.map(([t, slugs]) => `  <h2 id="${topicId(t)}" style="margin-top:2.5rem">${esc(t)}</h2>
+  <ul class="guide-list">${slugs.map((x) => GUIDE_BY[x]).map((g) => `<li><a href="${rel}guides/${g.slug}.html">${esc(g.title)}</a><div class="small muted">${esc(g.description)}</div></li>`).join('')}</ul>`).join('\n')}
+</div></section>` },
   ...GUIDES.map((g) => ({
-    path: `guides/${g.slug}.html`, title: g.title, description: g.description, feed: true, published: g.published || '2026-09-26',
-    extraHead: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: g.title, description: g.description, datePublished: g.published || '2026-09-26', author: { '@type': 'Organization', name: 'Clausery' } })}</script>` + crumbsLd([['Home', ''], ['Guides', 'guides/'], [g.title, `guides/${g.slug}.html`]]),
-    body: (rel) => `<section class="section"><div class="wrap prose"><nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}guides/">Guides</a></nav><h1 style="margin-top:1rem">${esc(g.title)}</h1>${g.body(rel)}
-<h2>More guides</h2>
-<ul>${GUIDES.filter((x) => x.slug !== g.slug).map((x) => `<li><a href="${rel}guides/${x.slug}.html">${esc(x.title)}</a></li>`).join('')}</ul></div></section>`,
+    path: `guides/${g.slug}.html`, title: g.title, description: g.description, feed: true, published: published(g),
+    extraHead: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: g.title, description: g.description, datePublished: published(g), dateModified: published(g), image: `${SITE}assets/og.png`, mainEntityOfPage: `${SITE}guides/${g.slug}.html`, author: { '@type': 'Organization', name: 'Clausery', url: SITE }, publisher: { '@type': 'Organization', name: 'Clausery', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}assets/icon-512.png` } } })}</script>` + crumbsLd([['Home', ''], ['Guides', 'guides/'], [g.title, `guides/${g.slug}.html`]]),
+    body: (rel) => {
+      const [topic, slugs] = topicOf(g.slug);
+      return `<section class="section"><div class="wrap prose"><nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}guides/">Guides</a></nav><h1 style="margin-top:1rem">${esc(g.title)}</h1>
+<p class="small muted guide-meta">Published <time datetime="${published(g)}">${longDate(published(g))}</time> · <a href="${rel}guides/#${topicId(topic)}">${esc(topic)}</a></p>${g.body(rel)}
+<h2>More on ${esc(lowerFirst(topic))}</h2>
+<ul>${slugs.filter((x) => x !== g.slug).map((x) => `<li><a href="${rel}guides/${x}.html">${esc(GUIDE_BY[x].title)}</a></li>`).join('')}</ul>
+<h2>All guides</h2>
+<div class="cat-lists">${GUIDE_TOPICS.filter(([t]) => t !== topic).map(([t, s]) => `<div><h3>${esc(t)}</h3><ul class="link-list">${s.map((x) => `<li><a href="${rel}guides/${x}.html">${esc(GUIDE_BY[x].title)}</a></li>`).join('')}</ul></div>`).join('')}</div></div></section>`;
+    },
   })),
 ];
