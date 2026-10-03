@@ -1,4 +1,4 @@
-import { docsNav, faqLd, REPO_URL } from '../tools/partials.mjs';
+import { docsNav, faqLd, REPO_URL, ANALYTICS_ON } from '../tools/partials.mjs';
 // The FAQ page's questions, also published as FAQPage structured data. Answers take `rel` for their links.
 const DOCS_FAQ = [
   ['Which browsers are supported?', (rel) => `Current versions of Chrome, Edge, Firefox and Safari on desktop and mobile. License keys are verified with WebCrypto Ed25519 (Chrome/Edge 137+, Firefox 129+, Safari 17+). The encrypted workspace uses PBKDF2-SHA256 and AES-256-GCM, available in all current browsers.`],
@@ -234,7 +234,7 @@ page('docs/security.html', 'Security', 'How Clausery keeps client data on the de
   <li>The app only requests its own static files (code, sample templates, the intake-form runtime) from the site that serves it; it never uploads or posts anything, and it makes no request to any third party. The service worker caches those files for offline use and only handles same-origin requests.</li>
 </ul>
 <h2>What we can see</h2>
-<p>Nothing about your documents. The host serving the static files (GitHub Pages for the public instance) sees ordinary web-server traffic: the IP address and browser of whoever loads the app. There are no analytics, cookies, tracking pixels or third-party scripts. Fonts are system fonts.</p>
+<p>Nothing about your documents. The host serving the static files (GitHub Pages for the public instance) sees ordinary web-server traffic: the IP address and browser of whoever loads the app. ${ANALYTICS_ON ? 'The app has no analytics, cookies, tracking pixels or third-party scripts; the marketing website only counts anonymous page views (see the privacy policy).' : 'There are no analytics, cookies, tracking pixels or third-party scripts.'} Fonts are system fonts.</p>
 <h2>Cryptography</h2>
 <ul>
   <li><strong>Encrypted workspace:</strong> AES-256-GCM with a random 96-bit nonce per record; key derived from the passphrase with PBKDF2-SHA256 (600,000 iterations, 128-bit random salt). Implemented with the browser's WebCrypto API only.</li>
