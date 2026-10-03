@@ -4,6 +4,12 @@ export const YEAR = '2026';
 export { CONTACT_URL, KEY_REQUEST_URL, REPO_URL } from '../app/config.js';
 // The site's public origin. Every absolute URL (canonical, Open Graph, JSON-LD, sitemap, feed) is built from it.
 export const SITE = 'https://getclausery.github.io/';
+/* Cookieless page-view counts for the marketing pages only (never the app, never embedded calculators).
+   Paste the site token from Cloudflare Web Analytics to turn it on, and set the date it went live; leave empty for none. */
+export const ANALYTICS_TOKEN = '';
+export const ANALYTICS_SINCE = '';
+export const ANALYTICS_ON = Boolean(ANALYTICS_TOKEN);
+export const ANALYTICS_SRC = 'https://static.cloudflareinsights.com/beacon.min.js';
 // Placeholders a page can use for its last-modified date; tools/build-site.mjs swaps in the date from page-dates.json.
 export const LASTMOD = '@@LASTMOD@@';
 export const LASTMOD_LONG = '@@LASTMOD_LONG@@';
@@ -53,7 +59,7 @@ export function head({ title, description, path, extraHead = '', ogImage = 'asse
 <link rel="stylesheet" href="${rel}site.css">
 <script src="${rel}app/theme.js"></script>
 <script src="${rel}site.js" defer></script>
-${extraHead}
+${ANALYTICS_ON ? `<script defer src="${ANALYTICS_SRC}" data-cf-beacon='${JSON.stringify({ token: ANALYTICS_TOKEN })}'></script>\n` : ''}${extraHead}
 </head>
 <body>
 <a class="sr-only" href="#main">Skip to content</a>
