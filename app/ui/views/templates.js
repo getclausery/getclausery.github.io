@@ -71,6 +71,14 @@ export const SAMPLES = [
   { slug: 'equipment-rental-agreement', file: 'equipment-rental-agreement.docx', name: 'Equipment rental agreement', category: 'Business', description: 'Equipment list with serial numbers and replacement costs, rental period and rate, deposit, delivery, damage and insurance.' },
   { slug: 'cleaning-services-contract', file: 'cleaning-services-contract.docx', name: 'Cleaning services contract', category: 'Freelance', description: 'Regular cleaning: tasks and schedule, per-visit or hourly price, supplies, keys, cancellations, breakage and a re-clean promise.' },
   { slug: 'meeting-minutes', file: 'meeting-minutes.docx', name: 'Meeting minutes', category: 'Business', description: 'Attendees, quorum, approval of the last minutes, each agenda item with its decision, and action items with owners.' },
+  { slug: 'non-compete-agreement', file: 'non-compete-agreement.docx', name: 'Non-compete agreement', category: 'Legal', description: 'Restricted period, area and competing business, consideration, optional pay during the restriction, and state law limits.' },
+  { slug: 'nanny-contract', file: 'nanny-contract.docx', name: 'Nanny contract', category: 'Freelance', description: 'Children, duties, schedule, hourly pay and overtime, paid time off, driving, privacy and cameras, trial period and notice.' },
+  { slug: 'gift-letter', file: 'gift-letter.docx', name: 'Gift letter for a mortgage', category: 'Finance', description: 'Donor, relationship, gift amount and transfer date, a no-repayment statement, the property and both signatures.' },
+  { slug: 'lease-termination-agreement', file: 'lease-termination-agreement.docx', name: 'Lease termination agreement', category: 'Real estate', description: 'Agreed early end date, rent to that date, optional termination fee, the deposit, showings and a mutual release.' },
+  { slug: 'severance-agreement', file: 'severance-agreement.docx', name: 'Severance agreement', category: 'HR', description: 'Severance pay, optional health coverage, release of claims, protected rights, and review and revocation periods.' },
+  { slug: 'job-description', file: 'job-description.docx', name: 'Job description', category: 'HR', description: 'Role summary, responsibilities, requirements, nice-to-haves, pay range, benefits, how to apply and an EEO statement.' },
+  { slug: 'catering-contract', file: 'catering-contract.docx', name: 'Catering contract', category: 'Freelance', description: 'Event, menu, final guest count, per-guest price, service charge, deposit, dietary needs, alcohol and cancellation.' },
+  { slug: 'board-resolution', file: 'board-resolution.docx', name: 'Board resolution', category: 'Business', description: 'Resolutions at a meeting or by unanimous written consent, officer authority, director signatures and a certificate.' },
 ];
 
 export async function importDocxFile(ctx, file, { name, sample = false } = {}) {

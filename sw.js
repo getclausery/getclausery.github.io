@@ -3,7 +3,7 @@
    background requests (a new release ships a new VERSION, which installs a fresh cache). Pages are network-first so a
    deploy is visible at once; offline, app routes fall back to the app shell and other pages to offline.html.
    VERSION and PRECACHE are written by tools/release.mjs; do not edit them by hand. */
-const VERSION = '1.17.0';
+const VERSION = '1.18.0';
 const CACHE = 'clausery-' + VERSION;
 const BASE = new URL('./', self.location).pathname;
 // PRECACHE:BEGIN
@@ -41,7 +41,9 @@ const PRECACHE = [
   'index.html',
   'offline.html',
   'samples/bill-of-sale.docx',
+  'samples/board-resolution.docx',
   'samples/business-sale-nda.docx',
+  'samples/catering-contract.docx',
   'samples/cease-and-desist-letter.docx',
   'samples/cleaning-services-contract.docx',
   'samples/consulting-agreement.docx',
@@ -56,13 +58,16 @@ const PRECACHE = [
   'samples/event-planning-contract.docx',
   'samples/freelance-writing-contract.docx',
   'samples/general-release.docx',
+  'samples/gift-letter.docx',
   'samples/graphic-design-contract.docx',
   'samples/hold-harmless-agreement.docx',
   'samples/independent-contractor-agreement.docx',
   'samples/internship-offer-letter.docx',
   'samples/invoice.docx',
+  'samples/job-description.docx',
   'samples/late-rent-notice.docx',
   'samples/lease-renewal-letter.docx',
+  'samples/lease-termination-agreement.docx',
   'samples/letter-of-intent.docx',
   'samples/liability-waiver.docx',
   'samples/loan-agreement.docx',
@@ -70,6 +75,8 @@ const PRECACHE = [
   'samples/memorandum-of-understanding.docx',
   'samples/move-in-checklist.docx',
   'samples/mutual-nda.docx',
+  'samples/nanny-contract.docx',
+  'samples/non-compete-agreement.docx',
   'samples/non-solicitation-agreement.docx',
   'samples/notice-to-vacate.docx',
   'samples/offer-letter.docx',
@@ -98,6 +105,7 @@ const PRECACHE = [
   'samples/sales-commission-agreement.docx',
   'samples/security-deposit-return-letter.docx',
   'samples/service-agreement.docx',
+  'samples/severance-agreement.docx',
   'samples/social-media-management-contract.docx',
   'samples/statement-of-work.docx',
   'samples/subcontractor-agreement.docx',
