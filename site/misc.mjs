@@ -7,6 +7,12 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.18.0 <span class="small muted">— 3 October 2026</span></h2>
+<ul>
+  <li>Eight new free templates: a non-compete agreement, a nanny contract, a gift letter for a mortgage, a lease termination agreement, a severance agreement and release, a job description, a catering contract and a board resolution.</li>
+  <li>Four new guides: whether non-competes are enforceable in 2026, how to write a gift letter for a mortgage, what to include in a severance agreement, and how to write a job description.</li>
+  <li>The HR, landlord, freelancer and law firm pages, and the clause library, link the new templates.</li>
+</ul>
 <h2>1.17.0 <span class="small muted">— 2 October 2026</span></h2>
 <ul>
   <li>Nine new free templates: an invoice, a price quote, a purchase order, a payment receipt, meeting minutes, a two weeks notice letter, a hold harmless agreement, an equipment rental agreement and a cleaning services contract.</li>
