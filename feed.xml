@@ -5,12 +5,45 @@
   <link rel="self" href="https://getclausery.github.io/feed.xml"/>
   <link rel="alternate" href="https://getclausery.github.io/"/>
   <id>https://getclausery.github.io/</id>
-  <updated>2026-10-01T00:00:00Z</updated>
+  <updated>2026-10-02T00:00:00Z</updated>
   <author><name>Clausery</name></author>
+  <entry>
+    <title>What is a hold harmless agreement? Types, examples and limits</title>
+    <link href="https://getclausery.github.io/guides/what-is-a-hold-harmless-agreement.html"/>
+    <id>https://getclausery.github.io/guides/what-is-a-hold-harmless-agreement.html</id>
+    <published>2026-10-02T00:00:00Z</published>
+    <updated>2026-10-02T00:00:00Z</updated>
+    <summary>What a hold harmless agreement does, one-way and mutual versions, broad and limited forms, how it differs from indemnity and a waiver, and when it holds up.</summary>
+  </entry>
+  <entry>
+    <title>Quote vs estimate vs invoice: what is the difference?</title>
+    <link href="https://getclausery.github.io/guides/quote-vs-estimate-vs-invoice.html"/>
+    <id>https://getclausery.github.io/guides/quote-vs-estimate-vs-invoice.html</id>
+    <published>2026-10-02T00:00:00Z</published>
+    <updated>2026-10-02T00:00:00Z</updated>
+    <summary>The difference between a quote, an estimate, a pro forma invoice, a purchase order and an invoice, when to use each one, and which of them are binding.</summary>
+  </entry>
+  <entry>
+    <title>How to write an invoice: what to include and how to number it</title>
+    <link href="https://getclausery.github.io/guides/how-to-write-an-invoice.html"/>
+    <id>https://getclausery.github.io/guides/how-to-write-an-invoice.html</id>
+    <published>2026-10-02T00:00:00Z</published>
+    <updated>2026-10-02T00:00:00Z</updated>
+    <summary>What an invoice must include, how to number invoices, payment terms such as net 30, sales tax and VAT, late fees, and how to send one that gets paid.</summary>
+  </entry>
+  <entry>
+    <title>How to write a two weeks notice letter (free template)</title>
+    <link href="https://getclausery.github.io/guides/how-to-write-a-two-weeks-notice-letter.html"/>
+    <id>https://getclausery.github.io/guides/how-to-write-a-two-weeks-notice-letter.html</id>
+    <published>2026-10-02T00:00:00Z</published>
+    <updated>2026-10-02T00:00:00Z</updated>
+    <summary>What to put in a two weeks notice letter, how to count the two weeks, how to hand it in, and what happens to your final pay, vacation and benefits.</summary>
+  </entry>
   <entry>
     <title>What to include in a roommate agreement (free template)</title>
     <link href="https://getclausery.github.io/guides/what-to-include-in-a-roommate-agreement.html"/>
     <id>https://getclausery.github.io/guides/what-to-include-in-a-roommate-agreement.html</id>
+    <published>2026-10-01T00:00:00Z</published>
     <updated>2026-10-01T00:00:00Z</updated>
     <summary>The terms roommates should agree in writing: rent split, deposit, bills, chores, guests, quiet hours and moving out, and whether a roommate agreement is binding.</summary>
   </entry>
@@ -18,6 +51,7 @@
     <title>Non-compete vs non-solicitation agreement: the difference</title>
     <link href="https://getclausery.github.io/guides/non-compete-vs-non-solicitation.html"/>
     <id>https://getclausery.github.io/guides/non-compete-vs-non-solicitation.html</id>
+    <published>2026-10-01T00:00:00Z</published>
     <updated>2026-10-01T00:00:00Z</updated>
     <summary>How a non-compete differs from a non-solicitation agreement, which one courts enforce, where non-competes are banned, and which one a small business needs.</summary>
   </entry>
@@ -25,6 +59,7 @@
     <title>How to write a termination letter (with a free template)</title>
     <link href="https://getclausery.github.io/guides/how-to-write-a-termination-letter.html"/>
     <id>https://getclausery.github.io/guides/how-to-write-a-termination-letter.html</id>
+    <published>2026-10-01T00:00:00Z</published>
     <updated>2026-10-01T00:00:00Z</updated>
     <summary>What an employee termination letter should say: the last day, notice, the reason, final pay, benefits and company property, plus what to leave out.</summary>
   </entry>
@@ -32,6 +67,7 @@
     <title>How to write a rent increase letter: notice and wording</title>
     <link href="https://getclausery.github.io/guides/how-to-write-a-rent-increase-letter.html"/>
     <id>https://getclausery.github.io/guides/how-to-write-a-rent-increase-letter.html</id>
+    <published>2026-10-01T00:00:00Z</published>
     <updated>2026-10-01T00:00:00Z</updated>
     <summary>When a landlord can raise the rent, how much notice the letter needs, rent caps to check, what to put in the letter, and a free rent increase letter template.</summary>
   </entry>
@@ -39,6 +75,7 @@
     <title>How to return a security deposit: deadlines and deductions</title>
     <link href="https://getclausery.github.io/guides/how-to-return-a-security-deposit.html"/>
     <id>https://getclausery.github.io/guides/how-to-return-a-security-deposit.html</id>
+    <published>2026-10-01T00:00:00Z</published>
     <updated>2026-10-01T00:00:00Z</updated>
     <summary>How long landlords have to return a security deposit, what they can and cannot deduct, how to itemize deductions, and a free deposit return letter.</summary>
   </entry>
@@ -46,6 +83,7 @@
     <title>How to write a warning letter to an employee (free template)</title>
     <link href="https://getclausery.github.io/guides/how-to-write-an-employee-warning-letter.html"/>
     <id>https://getclausery.github.io/guides/how-to-write-an-employee-warning-letter.html</id>
+    <published>2026-09-28T00:00:00Z</published>
     <updated>2026-09-28T00:00:00Z</updated>
     <summary>What an employee warning letter should say, first vs final written warnings, how to deliver one fairly, and the mistakes that make a later dismissal harder.</summary>
   </entry>
@@ -53,6 +91,7 @@
     <title>Are liability waivers enforceable? What makes one hold up</title>
     <link href="https://getclausery.github.io/guides/are-liability-waivers-enforceable.html"/>
     <id>https://getclausery.github.io/guides/are-liability-waivers-enforceable.html</id>
+    <published>2026-09-28T00:00:00Z</published>
     <updated>2026-09-28T00:00:00Z</updated>
     <summary>When a liability waiver protects a business and when courts ignore it: negligence wording, gross negligence, minors, states that refuse waivers, and UK rules.</summary>
   </entry>
@@ -60,6 +99,7 @@
     <title>NDA vs confidentiality agreement: is there a difference?</title>
     <link href="https://getclausery.github.io/guides/nda-vs-confidentiality-agreement.html"/>
     <id>https://getclausery.github.io/guides/nda-vs-confidentiality-agreement.html</id>
+    <published>2026-09-27T00:00:00Z</published>
     <updated>2026-09-27T00:00:00Z</updated>
     <summary>NDA and confidentiality agreement mean the same thing. How both differ from non-solicitation and non-compete agreements, and which one you need.</summary>
   </entry>
@@ -67,6 +107,7 @@
     <title>Mutual vs one-way NDA: which one do you need?</title>
     <link href="https://getclausery.github.io/guides/mutual-vs-one-way-nda.html"/>
     <id>https://getclausery.github.io/guides/mutual-vs-one-way-nda.html</id>
+    <published>2026-09-27T00:00:00Z</published>
     <updated>2026-09-27T00:00:00Z</updated>
     <summary>The difference between a mutual and a one-way (unilateral) NDA, when to use each, and the special cases: employees, freelancers and business sales.</summary>
   </entry>
@@ -74,6 +115,7 @@
     <title>How long should an NDA last? Typical terms explained</title>
     <link href="https://getclausery.github.io/guides/how-long-should-an-nda-last.html"/>
     <id>https://getclausery.github.io/guides/how-long-should-an-nda-last.html</id>
+    <published>2026-09-27T00:00:00Z</published>
     <updated>2026-09-27T00:00:00Z</updated>
     <summary>How long NDAs usually last: one to five years for most business information, longer for trade secrets. The two clocks in every NDA, and how to choose.</summary>
   </entry>
@@ -81,6 +123,7 @@
     <title>What to include in an NDA: a clause-by-clause checklist</title>
     <link href="https://getclausery.github.io/guides/what-to-include-in-an-nda.html"/>
     <id>https://getclausery.github.io/guides/what-to-include-in-an-nda.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>The clauses a non-disclosure agreement needs, from the definition of confidential information to exclusions, term, return of information and governing law, and when to use a mutual or one-way NDA.</summary>
   </entry>
@@ -88,6 +131,7 @@
     <title>What to include in a statement of work (SOW)</title>
     <link href="https://getclausery.github.io/guides/what-to-include-in-a-statement-of-work.html"/>
     <id>https://getclausery.github.io/guides/what-to-include-in-a-statement-of-work.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>The sections every statement of work needs: scope, deliverables, timeline, fees, assumptions, acceptance and change control, with examples of what goes wrong when they are missing.</summary>
   </entry>
@@ -95,6 +139,7 @@
     <title>What to include in a partnership agreement: 10 key terms</title>
     <link href="https://getclausery.github.io/guides/what-to-include-in-a-partnership-agreement.html"/>
     <id>https://getclausery.github.io/guides/what-to-include-in-a-partnership-agreement.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>The ten terms every partnership agreement needs, what the law decides if you leave them out, common mistakes, and when an LLC or an MOU fits better.</summary>
   </entry>
@@ -102,6 +147,7 @@
     <title>What to include in a residential lease agreement</title>
     <link href="https://getclausery.github.io/guides/what-to-include-in-a-lease-agreement.html"/>
     <id>https://getclausery.github.io/guides/what-to-include-in-a-lease-agreement.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>A checklist of what a residential lease should cover, from rent and the deposit to repairs, entry and pets, and the state rules it cannot override.</summary>
   </entry>
@@ -109,6 +155,7 @@
     <title>What to do when a client won't pay: a step-by-step plan</title>
     <link href="https://getclausery.github.io/guides/what-to-do-when-a-client-wont-pay.html"/>
     <id>https://getclausery.github.io/guides/what-to-do-when-a-client-wont-pay.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>A calm plan for an unpaid invoice: reminders, a final notice, late fees, a demand letter and small claims, with reminder emails you can copy.</summary>
   </entry>
@@ -116,6 +163,7 @@
     <title>What is a kill fee? How to set one in a freelance contract</title>
     <link href="https://getclausery.github.io/guides/what-is-a-kill-fee.html"/>
     <id>https://getclausery.github.io/guides/what-is-a-kill-fee.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>A kill fee is what a client pays if they cancel a freelance project after work has started. How much to charge, how to word it, and how it differs from a deposit.</summary>
   </entry>
@@ -123,6 +171,7 @@
     <title>Repeating lists and table rows in Word templates</title>
     <link href="https://getclausery.github.io/guides/repeating-lists-and-tables-in-word.html"/>
     <id>https://getclausery.github.io/guides/repeating-lists-and-tables-in-word.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>How to make a Word template repeat a paragraph, bullet or table row for every party, attorney, deliverable or line item, with separators and numbering.</summary>
   </entry>
@@ -130,13 +179,15 @@
     <title>Mail merge vs document automation: which one do you need?</title>
     <link href="https://getclausery.github.io/guides/mail-merge-vs-document-automation.html"/>
     <id>https://getclausery.github.io/guides/mail-merge-vs-document-automation.html</id>
-    <updated>2026-09-26T00:00:00Z</updated>
+    <published>2026-09-26T00:00:00Z</published>
+    <updated>2026-10-02T00:00:00Z</updated>
     <summary>Mail merge fills the same blanks from a spreadsheet; document automation also includes or removes clauses, repeats lists and calculates. How to tell which one your documents need.</summary>
   </entry>
   <entry>
     <title>Is an MOU legally binding? How it differs from a contract</title>
     <link href="https://getclausery.github.io/guides/is-an-mou-legally-binding.html"/>
     <id>https://getclausery.github.io/guides/is-an-mou-legally-binding.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>When a memorandum of understanding or letter of intent becomes a binding contract, how courts decide, and how to word yours so it binds only what you mean.</summary>
   </entry>
@@ -144,6 +195,7 @@
     <title>How to write a job offer letter (with a free template)</title>
     <link href="https://getclausery.github.io/guides/how-to-write-an-offer-letter.html"/>
     <id>https://getclausery.github.io/guides/how-to-write-an-offer-letter.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>What to put in a job offer letter: role, start date, pay, bonus, equity, benefits, conditions and at-will wording, plus the mistakes that cause disputes later.</summary>
   </entry>
@@ -151,6 +203,7 @@
     <title>How to write a demand letter for unpaid invoices</title>
     <link href="https://getclausery.github.io/guides/how-to-write-a-payment-demand-letter.html"/>
     <id>https://getclausery.github.io/guides/how-to-write-a-payment-demand-letter.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>A step-by-step guide to asking a customer for overdue payment in writing: what to include, tone, deadlines, interest, and what to do if they still do not pay.</summary>
   </entry>
@@ -158,6 +211,7 @@
     <title>How to write a notice to vacate letter</title>
     <link href="https://getclausery.github.io/guides/how-to-write-a-notice-to-vacate.html"/>
     <id>https://getclausery.github.io/guides/how-to-write-a-notice-to-vacate.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>What a tenant's notice to vacate should say, how much notice to give, how to deliver it, and how to get the security deposit back after moving out.</summary>
   </entry>
@@ -165,6 +219,7 @@
     <title>How to write a freelance contract: 10 clauses that prevent disputes</title>
     <link href="https://getclausery.github.io/guides/how-to-write-a-freelance-contract.html"/>
     <id>https://getclausery.github.io/guides/how-to-write-a-freelance-contract.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>What every freelance contract should say about scope, revisions, deadlines, payment, deposits, kill fees, ownership and termination, with free templates for designers, photographers, writers and more.</summary>
   </entry>
@@ -172,6 +227,7 @@
     <title>How to write a bill of sale, with a free template</title>
     <link href="https://getclausery.github.io/guides/how-to-write-a-bill-of-sale.html"/>
     <id>https://getclausery.github.io/guides/how-to-write-a-bill-of-sale.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>What a bill of sale must include, extra details for a car or boat, when it needs a notary, and the steps after signing that protect the seller.</summary>
   </entry>
@@ -179,6 +235,7 @@
     <title>How to lend money to family or friends, in writing</title>
     <link href="https://getclausery.github.io/guides/how-to-lend-money-to-family.html"/>
     <id>https://getclausery.github.io/guides/how-to-lend-money-to-family.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>How to lend money to a family member or friend without falling out: deciding loan or gift, the terms to agree, interest and tax, and writing it down.</summary>
   </entry>
@@ -186,6 +243,7 @@
     <title>When do you need a model release? A plain guide</title>
     <link href="https://getclausery.github.io/guides/do-i-need-a-model-release.html"/>
     <id>https://getclausery.github.io/guides/do-i-need-a-model-release.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>When photographers, videographers and businesses need a signed model release, when they usually do not, what to put in one, and rules for minors.</summary>
   </entry>
@@ -193,6 +251,7 @@
     <title>Choosing document software when client confidentiality matters: a checklist</title>
     <link href="https://getclausery.github.io/guides/confidentiality-checklist-document-software.html"/>
     <id>https://getclausery.github.io/guides/confidentiality-checklist-document-software.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>Questions to ask before putting client or employee information into any document or drafting tool: where data is processed, who can access it, sub-processors, retention and exit.</summary>
   </entry>
@@ -200,6 +259,7 @@
     <title>Conditional clauses in Word: include or remove paragraphs automatically</title>
     <link href="https://getclausery.github.io/guides/conditional-clauses-in-word.html"/>
     <id>https://getclausery.github.io/guides/conditional-clauses-in-word.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>How to make parts of a Word document appear only when they apply: yes/no sections, either/or wording, clauses based on amounts or dates, and removing empty lines.</summary>
   </entry>
@@ -207,6 +267,7 @@
     <title>Client intake without a portal: collect answers by email, privately</title>
     <link href="https://getclausery.github.io/guides/client-intake-without-a-portal.html"/>
     <id>https://getclausery.github.io/guides/client-intake-without-a-portal.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>How to send clients a questionnaire they can fill in offline and return as a file, so you can generate documents from their answers without a client portal or account.</summary>
   </entry>
@@ -214,6 +275,7 @@
     <title>How to automate a Word template without uploading it anywhere</title>
     <link href="https://getclausery.github.io/guides/automate-word-templates.html"/>
     <id>https://getclausery.github.io/guides/automate-word-templates.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>A step-by-step guide to turning any Word document into a reusable, fill-in-the-blanks template with questions, conditional clauses and lists, entirely in your browser.</summary>
   </entry>
@@ -221,6 +283,7 @@
     <title>Warranty clause: meaning and sample wording</title>
     <link href="https://getclausery.github.io/clauses/warranty-clause.html"/>
     <id>https://getclausery.github.io/clauses/warranty-clause.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>Free sample warranty clause wording, explained in plain English: what it does, what to check and common questions. A warranty is a contractual promise about a fact or about quality, such as that services will be performed with reasonable skill and care, or that software will work as specified for 90 days. The warranty clause also sets the remedy when the promise is broken.</summary>
   </entry>
@@ -228,6 +291,7 @@
     <title>Waiver clause: meaning and sample wording</title>
     <link href="https://getclausery.github.io/clauses/waiver-clause.html"/>
     <id>https://getclausery.github.io/clauses/waiver-clause.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>Free sample waiver clause wording, explained in plain English: what it does, what to check and common questions. A no-waiver clause says that if a party does not enforce a right straight away, for example by accepting a late payment without complaint, it has not given that right up.</summary>
   </entry>
@@ -235,41 +299,47 @@
     <title>Termination for convenience clause: sample wording</title>
     <link href="https://getclausery.github.io/clauses/termination-for-convenience-clause.html"/>
     <id>https://getclausery.github.io/clauses/termination-for-convenience-clause.html</id>
-    <updated>2026-09-26T00:00:00Z</updated>
+    <published>2026-09-26T00:00:00Z</published>
+    <updated>2026-10-02T00:00:00Z</updated>
     <summary>Free sample termination for convenience clause wording, explained in plain English: what it does, what to check and common questions. A termination for convenience clause lets a party end the contract without giving any reason, usually on a period of written notice.</summary>
   </entry>
   <entry>
     <title>Termination for cause clause: meaning and sample wording</title>
     <link href="https://getclausery.github.io/clauses/termination-for-cause-clause.html"/>
     <id>https://getclausery.github.io/clauses/termination-for-cause-clause.html</id>
-    <updated>2026-09-26T00:00:00Z</updated>
+    <published>2026-09-26T00:00:00Z</published>
+    <updated>2026-10-02T00:00:00Z</updated>
     <summary>Free sample termination for cause clause wording, explained in plain English: what it does, what to check and common questions. A termination for cause clause lets a party end the contract when the other party commits a material breach and does not fix it in time, or becomes insolvent.</summary>
   </entry>
   <entry>
     <title>Survival clause: meaning and sample wording</title>
     <link href="https://getclausery.github.io/clauses/survival-clause.html"/>
     <id>https://getclausery.github.io/clauses/survival-clause.html</id>
-    <updated>2026-09-26T00:00:00Z</updated>
+    <published>2026-09-26T00:00:00Z</published>
+    <updated>2026-10-02T00:00:00Z</updated>
     <summary>Free sample survival clause wording, explained in plain English: what it does, what to check and common questions. A survival clause lists the obligations that continue after a contract ends, such as confidentiality, payment, indemnities and limits on liability.</summary>
   </entry>
   <entry>
     <title>Severability clause: meaning and sample wording</title>
     <link href="https://getclausery.github.io/clauses/severability-clause.html"/>
     <id>https://getclausery.github.io/clauses/severability-clause.html</id>
-    <updated>2026-09-26T00:00:00Z</updated>
+    <published>2026-09-26T00:00:00Z</published>
+    <updated>2026-10-02T00:00:00Z</updated>
     <summary>Free sample severability clause wording, explained in plain English: what it does, what to check and common questions. A severability clause says that if one part of the contract is invalid or unenforceable, the rest of the contract still stands, and the invalid part is trimmed or removed.</summary>
   </entry>
   <entry>
     <title>Payment terms clause: meaning and sample wording</title>
     <link href="https://getclausery.github.io/clauses/payment-terms-clause.html"/>
     <id>https://getclausery.github.io/clauses/payment-terms-clause.html</id>
-    <updated>2026-09-26T00:00:00Z</updated>
+    <published>2026-09-26T00:00:00Z</published>
+    <updated>2026-10-02T00:00:00Z</updated>
     <summary>Free sample payment terms clause wording, explained in plain English: what it does, what to check and common questions. The payment terms clause says when a party can invoice, how long the other party has to pay, in what currency and by what method, and what happens when an invoice is disputed.</summary>
   </entry>
   <entry>
     <title>Notices clause: meaning and sample wording</title>
     <link href="https://getclausery.github.io/clauses/notices-clause.html"/>
     <id>https://getclausery.github.io/clauses/notices-clause.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>Free sample notices clause wording, explained in plain English: what it does, what to check and common questions. A notices clause says how formal notices under the contract, such as notices of breach, renewal or termination, must be sent, to which address, and when they count as received.</summary>
   </entry>
@@ -277,13 +347,15 @@
     <title>Non-solicitation clause: meaning and sample wording</title>
     <link href="https://getclausery.github.io/clauses/non-solicitation-clause.html"/>
     <id>https://getclausery.github.io/clauses/non-solicitation-clause.html</id>
-    <updated>2026-09-26T00:00:00Z</updated>
+    <published>2026-09-26T00:00:00Z</published>
+    <updated>2026-10-02T00:00:00Z</updated>
     <summary>Free sample non-solicitation clause wording, explained in plain English: what it does, what to check and common questions. A non-solicitation clause stops a party from actively approaching the other party's employees, contractors or customers for a period, usually during the contract and for a time after it ends.</summary>
   </entry>
   <entry>
     <title>Non-compete clause: meaning and sample wording</title>
     <link href="https://getclausery.github.io/clauses/non-compete-clause.html"/>
     <id>https://getclausery.github.io/clauses/non-compete-clause.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>Free sample non-compete clause wording, explained in plain English: what it does, what to check and common questions. A non-compete clause prevents a person or business from working for, or running, a competing business for a period and within an area after a relationship ends.</summary>
   </entry>
@@ -291,13 +363,15 @@
     <title>Limitation of liability clause: meaning and sample wording</title>
     <link href="https://getclausery.github.io/clauses/limitation-of-liability-clause.html"/>
     <id>https://getclausery.github.io/clauses/limitation-of-liability-clause.html</id>
-    <updated>2026-09-26T00:00:00Z</updated>
+    <published>2026-09-26T00:00:00Z</published>
+    <updated>2026-10-02T00:00:00Z</updated>
     <summary>Free sample limitation of liability clause wording, explained in plain English: what it does, what to check and common questions. A limitation of liability clause caps how much one party can recover from the other, and usually excludes whole categories of loss, such as lost profits and indirect or consequential damages.</summary>
   </entry>
   <entry>
     <title>Late payment interest clause: meaning and sample wording</title>
     <link href="https://getclausery.github.io/clauses/late-payment-interest-clause.html"/>
     <id>https://getclausery.github.io/clauses/late-payment-interest-clause.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>Free sample late payment interest clause wording, explained in plain English: what it does, what to check and common questions. A late payment clause lets the party that is owed money charge interest on overdue amounts, and often suspend work until it is paid.</summary>
   </entry>
@@ -305,6 +379,7 @@
     <title>Intellectual property assignment clause: sample wording</title>
     <link href="https://getclausery.github.io/clauses/intellectual-property-clause.html"/>
     <id>https://getclausery.github.io/clauses/intellectual-property-clause.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>Free sample intellectual property assignment clause wording, explained in plain English: what it does, what to check and common questions. An intellectual property clause decides who owns the copyright, designs, inventions and other rights in the work created under a contract, and what each side may do with the other's pre-existing material.</summary>
   </entry>
@@ -312,27 +387,31 @@
     <title>Independent contractor clause: meaning and sample wording</title>
     <link href="https://getclausery.github.io/clauses/independent-contractor-clause.html"/>
     <id>https://getclausery.github.io/clauses/independent-contractor-clause.html</id>
-    <updated>2026-09-26T00:00:00Z</updated>
+    <published>2026-09-26T00:00:00Z</published>
+    <updated>2026-10-02T00:00:00Z</updated>
     <summary>Free sample independent contractor clause wording, explained in plain English: what it does, what to check and common questions. This clause records that a person is engaged as an independent business, not as an employee, and that they are responsible for their own taxes, insurance and working arrangements.</summary>
   </entry>
   <entry>
     <title>Indemnification clause: meaning and sample wording</title>
     <link href="https://getclausery.github.io/clauses/indemnification-clause.html"/>
     <id>https://getclausery.github.io/clauses/indemnification-clause.html</id>
-    <updated>2026-09-26T00:00:00Z</updated>
+    <published>2026-09-26T00:00:00Z</published>
+    <updated>2026-10-02T00:00:00Z</updated>
     <summary>Free sample indemnification clause wording, explained in plain English: what it does, what to check and common questions. An indemnity is a promise by one party to cover the other party's losses if a specified kind of claim arises, most often a claim by a third party caused by the first party's breach, negligence or infringement of someone else's intellectual property.</summary>
   </entry>
   <entry>
     <title>Governing law and jurisdiction clause: sample wording</title>
     <link href="https://getclausery.github.io/clauses/governing-law-clause.html"/>
     <id>https://getclausery.github.io/clauses/governing-law-clause.html</id>
-    <updated>2026-09-26T00:00:00Z</updated>
+    <published>2026-09-26T00:00:00Z</published>
+    <updated>2026-10-02T00:00:00Z</updated>
     <summary>Free sample governing law and jurisdiction clause wording, explained in plain English: what it does, what to check and common questions. A governing law clause chooses which country's or state's law applies to the contract. A jurisdiction clause chooses which courts will hear disputes about it. They are separate choices, usually placed together.</summary>
   </entry>
   <entry>
     <title>Force majeure clause: meaning and sample wording</title>
     <link href="https://getclausery.github.io/clauses/force-majeure-clause.html"/>
     <id>https://getclausery.github.io/clauses/force-majeure-clause.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>Free sample force majeure clause wording, explained in plain English: what it does, what to check and common questions. A force majeure clause excuses a party from performing, for as long as an extraordinary event outside its control prevents it: natural disasters, war, epidemics, government orders and similar events.</summary>
   </entry>
@@ -340,13 +419,15 @@
     <title>Entire agreement clause: meaning and sample wording</title>
     <link href="https://getclausery.github.io/clauses/entire-agreement-clause.html"/>
     <id>https://getclausery.github.io/clauses/entire-agreement-clause.html</id>
-    <updated>2026-09-26T00:00:00Z</updated>
+    <published>2026-09-26T00:00:00Z</published>
+    <updated>2026-10-02T00:00:00Z</updated>
     <summary>Free sample entire agreement clause wording, explained in plain English: what it does, what to check and common questions. An entire agreement clause, also called an integration or merger clause, says that the written contract contains everything the parties agreed, replacing earlier emails, proposals and conversations.</summary>
   </entry>
   <entry>
     <title>Counterparts and electronic signature clause: sample wording</title>
     <link href="https://getclausery.github.io/clauses/electronic-signature-clause.html"/>
     <id>https://getclausery.github.io/clauses/electronic-signature-clause.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>Free sample counterparts and electronic signature clause wording, explained in plain English: what it does, what to check and common questions. A counterparts clause lets each party sign a separate copy of the contract, with all copies together forming one agreement. An electronic signature clause confirms the parties accept e-signatures and signed PDFs.</summary>
   </entry>
@@ -354,6 +435,7 @@
     <title>Dispute resolution clause: meaning and sample wording</title>
     <link href="https://getclausery.github.io/clauses/dispute-resolution-clause.html"/>
     <id>https://getclausery.github.io/clauses/dispute-resolution-clause.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>Free sample dispute resolution clause wording, explained in plain English: what it does, what to check and common questions. A dispute resolution clause sets out the steps the parties must take when they disagree: usually negotiation between senior people first, then mediation, then arbitration or court.</summary>
   </entry>
@@ -361,6 +443,7 @@
     <title>Confidentiality clause: meaning and sample wording</title>
     <link href="https://getclausery.github.io/clauses/confidentiality-clause.html"/>
     <id>https://getclausery.github.io/clauses/confidentiality-clause.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>Free sample confidentiality clause wording, explained in plain English: what it does, what to check and common questions. A confidentiality clause obliges a party to keep the other party's non-public information secret, use it only for the purpose of the contract, and share it only with people who need to know it.</summary>
   </entry>
@@ -368,6 +451,7 @@
     <title>At-will employment clause: meaning and sample wording</title>
     <link href="https://getclausery.github.io/clauses/at-will-employment-clause.html"/>
     <id>https://getclausery.github.io/clauses/at-will-employment-clause.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>Free sample at-will employment clause wording, explained in plain English: what it does, what to check and common questions. An at-will clause states that either the employer or the employee can end the employment at any time, with or without cause or notice, as US law generally allows.</summary>
   </entry>
@@ -375,6 +459,7 @@
     <title>Assignment clause: meaning and sample wording</title>
     <link href="https://getclausery.github.io/clauses/assignment-clause.html"/>
     <id>https://getclausery.github.io/clauses/assignment-clause.html</id>
+    <published>2026-09-26T00:00:00Z</published>
     <updated>2026-09-26T00:00:00Z</updated>
     <summary>Free sample assignment clause wording, explained in plain English: what it does, what to check and common questions. An assignment clause says whether a party can transfer its rights under the contract to someone else, for example when it sells its business, and on what conditions.</summary>
   </entry>
@@ -382,7 +467,8 @@
     <title>Amendment clause: meaning and sample wording</title>
     <link href="https://getclausery.github.io/clauses/amendment-clause.html"/>
     <id>https://getclausery.github.io/clauses/amendment-clause.html</id>
-    <updated>2026-09-26T00:00:00Z</updated>
+    <published>2026-09-26T00:00:00Z</published>
+    <updated>2026-10-02T00:00:00Z</updated>
     <summary>Free sample amendment clause wording, explained in plain English: what it does, what to check and common questions. An amendment or variation clause says how the contract can be changed, usually only by a written document signed by both parties.</summary>
   </entry>
 </feed>

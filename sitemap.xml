@@ -1,68 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://getclausery.github.io/changelog.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/clauses/amendment-clause.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/about/</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/changelog.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/clauses/amendment-clause.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/clauses/assignment-clause.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/clauses/at-will-employment-clause.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/clauses/confidentiality-clause.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/clauses/dispute-resolution-clause.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/clauses/electronic-signature-clause.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/clauses/entire-agreement-clause.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/clauses/entire-agreement-clause.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/clauses/force-majeure-clause.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/clauses/governing-law-clause.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/clauses/indemnification-clause.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/clauses/independent-contractor-clause.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/clauses/</loc><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/clauses/governing-law-clause.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/clauses/indemnification-clause.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/clauses/independent-contractor-clause.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/clauses/</loc><lastmod>2026-09-27</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/clauses/intellectual-property-clause.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/clauses/late-payment-interest-clause.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/clauses/limitation-of-liability-clause.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/clauses/limitation-of-liability-clause.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/clauses/non-compete-clause.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/clauses/non-solicitation-clause.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/clauses/non-solicitation-clause.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/clauses/notices-clause.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/clauses/payment-terms-clause.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/clauses/severability-clause.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/clauses/survival-clause.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/clauses/termination-for-cause-clause.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/clauses/termination-for-convenience-clause.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/clauses/payment-terms-clause.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/clauses/severability-clause.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/clauses/survival-clause.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/clauses/termination-for-cause-clause.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/clauses/termination-for-convenience-clause.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/clauses/waiver-clause.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/clauses/warranty-clause.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/compare/bonsai-alternative.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/compare/clio-draft-alternative.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/compare/docassemble-alternative.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/compare/dubsado-alternative.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/compare/eforms-alternative.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/compare/gavel-alternative.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/compare/honeybook-alternative.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/compare/hotdocs-alternative.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/compare/</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/compare/lawdepot-alternative.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/compare/pandadoc-alternative.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/compare/rocket-lawyer-alternative.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/docs/backups.html</loc><priority>0.6</priority></url>
-  <url><loc>https://getclausery.github.io/docs/faq.html</loc><priority>0.6</priority></url>
-  <url><loc>https://getclausery.github.io/docs/</loc><priority>0.6</priority></url>
-  <url><loc>https://getclausery.github.io/docs/intake.html</loc><priority>0.6</priority></url>
-  <url><loc>https://getclausery.github.io/docs/logic.html</loc><priority>0.6</priority></url>
-  <url><loc>https://getclausery.github.io/docs/questionnaire.html</loc><priority>0.6</priority></url>
-  <url><loc>https://getclausery.github.io/docs/security.html</loc><priority>0.6</priority></url>
-  <url><loc>https://getclausery.github.io/docs/self-hosting.html</loc><priority>0.6</priority></url>
-  <url><loc>https://getclausery.github.io/docs/teams.html</loc><priority>0.6</priority></url>
-  <url><loc>https://getclausery.github.io/docs/templates.html</loc><priority>0.6</priority></url>
-  <url><loc>https://getclausery.github.io/for/consultants.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/for/freelancers.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/for/hr-teams.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/for/landlords.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/for/law-firms.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/free-tools/amount-in-words.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/free-tools/deadline-calculator.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/free-tools/freelance-rate.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/free-tools/</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/free-tools/invoice-due-date.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/free-tools/late-payment-interest.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/free-tools/loan-repayment.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/free-tools/prorated-rent.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/free-tools/sales-commission.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/free-tools/template-checker.html</loc><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/compare/bonsai-alternative.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/compare/clio-draft-alternative.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/compare/docassemble-alternative.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/compare/dubsado-alternative.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/compare/eforms-alternative.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/compare/gavel-alternative.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/compare/honeybook-alternative.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/compare/hotdocs-alternative.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/compare/</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/compare/lawdepot-alternative.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/compare/pandadoc-alternative.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/compare/rocket-lawyer-alternative.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/contact/</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/docs/backups.html</loc><lastmod>2026-10-01</lastmod><priority>0.6</priority></url>
+  <url><loc>https://getclausery.github.io/docs/faq.html</loc><lastmod>2026-10-01</lastmod><priority>0.6</priority></url>
+  <url><loc>https://getclausery.github.io/docs/</loc><lastmod>2026-10-01</lastmod><priority>0.6</priority></url>
+  <url><loc>https://getclausery.github.io/docs/intake.html</loc><lastmod>2026-10-01</lastmod><priority>0.6</priority></url>
+  <url><loc>https://getclausery.github.io/docs/logic.html</loc><lastmod>2026-10-01</lastmod><priority>0.6</priority></url>
+  <url><loc>https://getclausery.github.io/docs/questionnaire.html</loc><lastmod>2026-10-01</lastmod><priority>0.6</priority></url>
+  <url><loc>https://getclausery.github.io/docs/security.html</loc><lastmod>2026-10-02</lastmod><priority>0.6</priority></url>
+  <url><loc>https://getclausery.github.io/docs/self-hosting.html</loc><lastmod>2026-10-01</lastmod><priority>0.6</priority></url>
+  <url><loc>https://getclausery.github.io/docs/teams.html</loc><lastmod>2026-10-01</lastmod><priority>0.6</priority></url>
+  <url><loc>https://getclausery.github.io/docs/templates.html</loc><lastmod>2026-10-01</lastmod><priority>0.6</priority></url>
+  <url><loc>https://getclausery.github.io/for/consultants.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/for/freelancers.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/for/hr-teams.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/for/landlords.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/for/law-firms.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/free-tools/amount-in-words.html</loc><lastmod>2026-09-27</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/free-tools/deadline-calculator.html</loc><lastmod>2026-10-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/free-tools/freelance-rate.html</loc><lastmod>2026-09-27</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/free-tools/</loc><lastmod>2026-10-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/free-tools/invoice-due-date.html</loc><lastmod>2026-09-27</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/free-tools/late-payment-interest.html</loc><lastmod>2026-09-27</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/free-tools/loan-repayment.html</loc><lastmod>2026-09-27</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/free-tools/prorated-rent.html</loc><lastmod>2026-09-27</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/free-tools/sales-commission.html</loc><lastmod>2026-09-27</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/free-tools/template-checker.html</loc><lastmod>2026-09-27</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/are-liability-waivers-enforceable.html</loc><lastmod>2026-09-28</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/automate-word-templates.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/client-intake-without-a-portal.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
@@ -78,15 +80,19 @@
   <url><loc>https://getclausery.github.io/guides/how-to-write-a-payment-demand-letter.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/how-to-write-a-rent-increase-letter.html</loc><lastmod>2026-10-01</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/how-to-write-a-termination-letter.html</loc><lastmod>2026-10-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/guides/how-to-write-a-two-weeks-notice-letter.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/how-to-write-an-employee-warning-letter.html</loc><lastmod>2026-09-28</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/guides/how-to-write-an-invoice.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/how-to-write-an-offer-letter.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/guides/</loc><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/guides/</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/is-an-mou-legally-binding.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/guides/mail-merge-vs-document-automation.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/guides/mail-merge-vs-document-automation.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/mutual-vs-one-way-nda.html</loc><lastmod>2026-09-27</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/nda-vs-confidentiality-agreement.html</loc><lastmod>2026-09-27</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/non-compete-vs-non-solicitation.html</loc><lastmod>2026-10-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/guides/quote-vs-estimate-vs-invoice.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/repeating-lists-and-tables-in-word.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/guides/what-is-a-hold-harmless-agreement.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/what-is-a-kill-fee.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/what-to-do-when-a-client-wont-pay.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/what-to-include-in-a-lease-agreement.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
@@ -94,70 +100,79 @@
   <url><loc>https://getclausery.github.io/guides/what-to-include-in-a-roommate-agreement.html</loc><lastmod>2026-10-01</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/what-to-include-in-a-statement-of-work.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/what-to-include-in-an-nda.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/</loc><priority>1.0</priority></url>
-  <url><loc>https://getclausery.github.io/legal/dpa.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/legal/privacy.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/legal/terms.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/nda-templates/</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/press/</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/pricing/</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/bill-of-sale.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/business-sale-nda.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/cease-and-desist-letter.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/consulting-agreement.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/contractor-nda.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/employee-nda.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/employee-warning-letter.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/employment-agreement.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/employment-termination-letter.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/employment-verification-letter.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/engagement-letter.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/event-planning-contract.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/freelance-writing-contract.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/general-release.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/graphic-design-contract.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/independent-contractor-agreement.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/internship-offer-letter.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/late-rent-notice.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/lease-renewal-letter.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/letter-of-intent.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/liability-waiver.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/loan-agreement.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/memorandum-of-understanding.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/move-in-checklist.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/mutual-nda.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/non-solicitation-agreement.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/notice-to-vacate.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/offer-letter.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/one-way-nda.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/partnership-agreement.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/payment-demand-letter.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/payment-reminder-letter.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/personal-training-agreement.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/pet-addendum.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/photo-release-form.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/photography-contract.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/promissory-note.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/promotion-letter.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/reference-letter.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/rent-increase-letter.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/rent-receipt.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/rental-application.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/residential-lease-agreement.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/resignation-letter.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/retainer-agreement.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/roommate-agreement.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/salary-increase-letter.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/sales-commission-agreement.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/security-deposit-return-letter.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/service-agreement.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/social-media-management-contract.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/statement-of-work.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/subcontractor-agreement.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/sublease-agreement.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/tutoring-agreement.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/video-production-contract.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/virtual-assistant-agreement.html</loc><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/templates/web-design-contract.html</loc><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/</loc><lastmod>2026-10-02</lastmod><priority>1.0</priority></url>
+  <url><loc>https://getclausery.github.io/legal/dpa.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/legal/privacy.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/legal/terms.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/nda-templates/</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/press/</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/pricing/</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/bill-of-sale.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/business-sale-nda.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/cease-and-desist-letter.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/cleaning-services-contract.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/consulting-agreement.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/contractor-nda.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/employee-nda.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/employee-warning-letter.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/employment-agreement.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/employment-termination-letter.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/employment-verification-letter.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/engagement-letter.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/equipment-rental-agreement.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/event-planning-contract.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/freelance-writing-contract.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/general-release.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/graphic-design-contract.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/hold-harmless-agreement.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/independent-contractor-agreement.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/internship-offer-letter.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/invoice.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/late-rent-notice.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/lease-renewal-letter.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/letter-of-intent.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/liability-waiver.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/loan-agreement.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/meeting-minutes.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/memorandum-of-understanding.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/move-in-checklist.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/mutual-nda.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/non-solicitation-agreement.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/notice-to-vacate.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/offer-letter.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/one-way-nda.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/partnership-agreement.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/payment-demand-letter.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/payment-receipt.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/payment-reminder-letter.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/personal-training-agreement.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/pet-addendum.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/photo-release-form.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/photography-contract.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/promissory-note.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/promotion-letter.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/purchase-order.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/quote.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/reference-letter.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/rent-increase-letter.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/rent-receipt.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/rental-application.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/residential-lease-agreement.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/resignation-letter.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/retainer-agreement.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/roommate-agreement.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/salary-increase-letter.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/sales-commission-agreement.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/security-deposit-return-letter.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/service-agreement.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/social-media-management-contract.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/statement-of-work.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/subcontractor-agreement.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/sublease-agreement.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/tutoring-agreement.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/two-weeks-notice-letter.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/video-production-contract.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/virtual-assistant-agreement.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/templates/web-design-contract.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
 </urlset>
