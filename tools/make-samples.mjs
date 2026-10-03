@@ -1640,8 +1640,172 @@ const meetingMinutes = doc([
   P('Minutes approved as a correct record.'),
 ]);
 
+// 1.18.0: a non-compete agreement, a nanny contract, a mortgage gift letter, a lease termination agreement, a severance
+// agreement, a job description, a catering contract and a board resolution.
+const nonCompete = doc([
+  Title('NON-COMPETE AGREEMENT'),
+  P('This Non-Compete Agreement (the "Agreement") is made on {agreement_date} between {employer_name}, {employer_address} (the "Company"), and {employee_name} (the "Employee").'),
+  H('1. Background and consideration'),
+  P('The Employee {#is_new_hire}will work{/is_new_hire}{^is_new_hire}works{/is_new_hire} for the Company as {employee_job_title} and has access to the Company\'s confidential information, customer relationships and goodwill. {#is_new_hire}This Agreement is a condition of the Employee\'s employment, which begins on {start_date}.{/is_new_hire}{^is_new_hire}In exchange for this Agreement, the Employee receives {consideration_description}, which the Employee would not otherwise receive.{/is_new_hire}'),
+  H('2. Restriction'),
+  P('For {restricted_months} months after the Employee\'s employment ends, for any reason, the Employee will not, within {restricted_area}, work for, own, manage or provide services to a business that {competing_business_description}, in a role that is the same as or similar to the role the Employee held at the Company in the last two years of employment.'),
+  P('This Agreement does not stop the Employee from owning up to 2% of a publicly traded company, or from working in a role that does not compete with the Company.'),
+  P('{#pay_during_restriction}For as long as the restriction applies, the Company will pay the Employee {restriction_pay_amount} a month, and the restriction ends early if the Company stops paying.{/pay_during_restriction}'),
+  H('3. Notice'),
+  P('{#require_notice_to_new_employer}While the restriction applies, the Employee will tell any new employer about this Agreement before starting work, and will tell the Company the name of the new employer and the role.{/require_notice_to_new_employer}'),
+  H('4. Where the law limits this Agreement'),
+  P('To the extent the law of the place where the Employee mainly works does not allow a restriction in this Agreement, or allows it only in a narrower form, that restriction does not apply or applies only as far as the law allows. If a court finds a restriction too broad, the parties ask the court to narrow it so that it can be enforced.'),
+  H('5. Remedies'),
+  P('A breach of this Agreement may cause the Company harm that money cannot fully repair, so the Company may ask a court for an order to stop the breach, in addition to any other remedy.'),
+  H('6. General'),
+  P('This Agreement is governed by the laws of {governing_law}. It is the entire agreement between the parties on its subject and can only be changed in writing signed by both. It does not change the at-will or other terms of the Employee\'s employment.'),
+  P(''),
+  P('Company: ____________________________  By: {company_signatory}'),
+  P('Employee: ____________________________  {employee_name}'),
+]);
+
+const nannyContract = doc([
+  Title('NANNY AGREEMENT'),
+  P('This Nanny Agreement is made on {agreement_date} between {parent_names}, of {family_address} (the "Family"), and {nanny_name} (the "Nanny"). The Nanny\'s employment starts on {start_date}{#has_trial_period}, with a trial period of {trial_period_weeks} weeks during which either side may end it with one week\'s notice{/has_trial_period}.'),
+  H('1. The children'),
+  ...[new Paragraph({ children: [new TextRun('{#children}')] }), Bullet('{child_name}, age {child_age}'), new Paragraph({ children: [new TextRun('{/children}')] })],
+  H('2. Duties'),
+  P('The Nanny\'s duties are:'),
+  ...[new Paragraph({ children: [new TextRun('{#duties}')] }), Bullet('{duty}'), new Paragraph({ children: [new TextRun('{/duties}')] })],
+  P('The Nanny will never leave the children unattended, will follow the Family\'s instructions on meals, screen time, naps and discipline, and will call emergency services first and then the parents in an emergency.'),
+  H('3. Hours and pay'),
+  P('The Nanny works {work_schedule}, about {weekly_hours} hours a week. The Family pays {hourly_rate} an hour, paid {pay_frequency}. {^is_live_in}Hours worked over 40 in a workweek are paid at one and a half times the hourly rate.{/is_live_in}{#is_live_in}The Nanny lives in the Family\'s home, and overtime is paid as the law of {governing_law} requires.{/is_live_in}'),
+  P('The Family is the Nanny\'s employer. It will withhold and pay the employment taxes that the law requires and give the Nanny the year-end tax forms the law requires.'),
+  H('4. Time off'),
+  P('The Nanny receives {paid_vacation_days} days of paid vacation and {paid_sick_days} paid sick days each year, and these paid holidays: {paid_holidays}. If the Family cancels a scheduled day, the Nanny is paid for it.'),
+  H('5. Driving'),
+  P('{#will_drive_children}The Nanny may drive the children{#uses_family_car} in the Family\'s car, which the Family insures and maintains{/uses_family_car}{^uses_family_car} in the Nanny\'s own car, which the Nanny keeps insured; the Family reimburses mileage at {mileage_rate} a mile{/uses_family_car}. Children always ride in age-appropriate car seats.{/will_drive_children}{^will_drive_children}The Nanny will not drive the children.{/will_drive_children}'),
+  H('6. Privacy'),
+  P('The Nanny will keep the Family\'s private information confidential and will not post photos of the children or the home on social media without the parents\' written permission.{#has_cameras} The Family has told the Nanny that there are cameras in these areas of the home: {camera_locations}.{/has_cameras}'),
+  H('7. Ending the agreement'),
+  P('Either side may end this agreement by giving {notice_weeks} weeks\' written notice, or pay instead of notice. The Family may end it at once for serious misconduct, such as endangering the children. This agreement is governed by the laws of {governing_law}.'),
+  P(''),
+  P('Family: ____________________________  {parent_names}'),
+  P('Nanny: ____________________________  {nanny_name}'),
+]);
+
+const giftLetter = doc([
+  Title('GIFT LETTER'),
+  P('{letter_date}'),
+  P('To: {lender_name}'),
+  P('Re: Gift for the purchase of {property_address}', { bold: true }),
+  P('I, {donor_name}, am giving a gift of {gift_amount} to {borrower_name}, my {relationship}, to use towards the purchase of the property above.'),
+  P('{#funds_transferred}I transferred the gift on {transfer_date}.{/funds_transferred}{^funds_transferred}I will transfer the gift before or at closing.{/funds_transferred}{#show_source_bank} The funds come from my account at {source_bank_name}.{/show_source_bank}'),
+  P('This is a gift. No repayment is expected or required, in money or in services, now or in the future. I am not a party to the sale, and I am not the seller, a builder, a developer, a real estate agent or anyone else with an interest in the transaction.'),
+  P('{#lives_with_borrower}I have lived with {borrower_name} for the past 12 months and will continue to live with them in the new home.{/lives_with_borrower}'),
+  P('Donor: {donor_name}'),
+  P('Address: {donor_address}'),
+  P('Phone: {donor_phone}'),
+  P(''),
+  P('Donor signature: ____________________________  Date: ______________'),
+  P('Borrower signature: ____________________________  Date: ______________'),
+]);
+
+const leaseTermination = doc([
+  Title('LEASE TERMINATION AGREEMENT'),
+  P('This Lease Termination Agreement is made on {agreement_date} between {landlord_name} (the "Landlord") and {tenant_names} (the "Tenant"), about the lease dated {lease_date} for {property_address} (the "Lease").'),
+  H('1. Early end of the Lease'),
+  P('The Landlord and the Tenant agree that the Lease ends on {termination_date} (the "Termination Date"), before the end of its term. The Tenant will move out, remove all belongings and return all keys, fobs and remotes by then.'),
+  H('2. Rent and fees'),
+  P('The Tenant pays rent up to and including the Termination Date.{#has_termination_fee} The Tenant also pays a lease termination fee of {termination_fee}, due by {termination_fee_due_date}.{/has_termination_fee} No rent is due for any period after the Termination Date.'),
+  H('3. Security deposit'),
+  P('The Landlord holds a security deposit of {deposit_amount}. After the Tenant moves out, the Landlord will return it, less only the deductions the Lease and the law allow, with an itemized list of any deductions, within the time the law requires, to this forwarding address: {forwarding_address}.'),
+  P('{#landlord_may_show}Until the Termination Date, the Landlord may show the property to prospective tenants after giving the Tenant at least {showing_notice_hours} hours\' notice.{/landlord_may_show}'),
+  H('4. Release'),
+  P('{#include_mutual_release}Once the Tenant has moved out and paid what this Agreement requires, the Landlord and the Tenant release each other from all further obligations under the Lease, except the return of the security deposit and any claim for damage beyond normal wear and tear found at the move-out inspection.{/include_mutual_release}{^include_mutual_release}The Lease continues to apply until the Termination Date. This Agreement changes only its end date and the payments set out above.{/include_mutual_release}'),
+  H('5. General'),
+  P('This Agreement is governed by the law of the place where the property is located. If the Tenant does not move out by the Termination Date, the Landlord keeps every right it has under the Lease and the law.'),
+  P(''),
+  P('Landlord: ____________________________  Date: ______________'),
+  P('Tenant: ____________________________  Date: ______________'),
+]);
+
+const severance = doc([
+  Title('SEVERANCE AGREEMENT AND RELEASE'),
+  P('This Severance Agreement and Release (the "Agreement") is between {employer_name} (the "Company") and {employee_name} (the "Employee").'),
+  H('1. Separation'),
+  P('The Employee\'s employment ends on {separation_date} (the "Separation Date"). Whether or not the Employee signs this Agreement, the Company will pay the Employee\'s final wages and any accrued, unused vacation the law or Company policy requires, and the Employee keeps any vested retirement benefits.'),
+  H('2. Severance'),
+  P('If the Employee signs this Agreement and does not revoke it, the Company will pay the Employee {severance_amount}, less required withholdings, {#is_lump_sum}in a lump sum within {payment_days} days after this Agreement becomes effective{/is_lump_sum}{^is_lump_sum}in {installment_count} equal instalments on the Company\'s regular paydays, starting after this Agreement becomes effective{/is_lump_sum}.{#has_benefits_continuation} If the Employee elects continuation health coverage, the Company will also pay the premiums for {cobra_months} months.{/has_benefits_continuation} The Employee would not otherwise be entitled to these payments.'),
+  H('3. Release of claims'),
+  P('In exchange, the Employee releases the Company and its owners, officers, employees and agents from all claims arising from the Employee\'s employment or its ending, up to the date the Employee signs, including claims under federal, state and local employment and discrimination laws{#is_age_40_or_over}, including the Age Discrimination in Employment Act{/is_age_40_or_over}.'),
+  P('The Employee does not release: claims that cannot be released by law, such as for unemployment or workers\' compensation benefits; vested benefits; rights under this Agreement; or claims that arise after the Employee signs.'),
+  H('4. Protected rights'),
+  P('Nothing in this Agreement stops the Employee from filing a charge with, communicating with or taking part in an investigation by a government agency, such as the Equal Employment Opportunity Commission, from reporting possible violations of law, from testifying truthfully, or from discussing wages or working conditions as the law allows. The Employee waives only the right to recover money from the Company for released claims, except where the law forbids that waiver.'),
+  H('5. Time to consider and revoke'),
+  P('The Company advises the Employee in writing to consult a lawyer before signing.{#is_age_40_or_over} The Employee has {consideration_days} days to consider this Agreement and may revoke it within 7 days after signing by written notice to {revocation_contact}. This Agreement becomes effective on the eighth day after the Employee signs, if not revoked.{/is_age_40_or_over}{^is_age_40_or_over} The Employee has {consideration_days} days to consider this Agreement, and it becomes effective when the Employee signs it.{/is_age_40_or_over}'),
+  H('6. Other terms'),
+  P('The Employee will return all Company property by {property_return_date}.{#include_non_disparagement} The Employee will not make false or disparaging statements about the Company, and the Company will instruct {non_disparagement_contacts} not to make false or disparaging statements about the Employee, subject to the protected rights above.{/include_non_disparagement}{#provide_neutral_reference} In response to reference requests, the Company will confirm only the Employee\'s job title and dates of employment.{/provide_neutral_reference}'),
+  P('This Agreement is not an admission of wrongdoing by either party. It is governed by the laws of {governing_law} and is the entire agreement on its subject.'),
+  P(''),
+  P('Company: ____________________________  By: {company_signatory}   Date: ______________'),
+  P('Employee: ____________________________  {employee_name}   Date: ______________'),
+]);
+
+const jobDescription = doc([
+  Title('{job_title}'),
+  P('{company_name} · {department} · {work_location}', { bold: true }),
+  P('Employment type: {employment_type}. Reports to: {reports_to}.{#show_pay_range} Pay range: {pay_range}.{/show_pay_range}'),
+  H('About the role'),
+  P('{role_summary}'),
+  H('What you will do'),
+  ...[new Paragraph({ children: [new TextRun('{#responsibilities}')] }), Bullet('{responsibility}'), new Paragraph({ children: [new TextRun('{/responsibilities}')] })],
+  H('What you need'),
+  ...[new Paragraph({ children: [new TextRun('{#requirements}')] }), Bullet('{requirement}'), new Paragraph({ children: [new TextRun('{/requirements}')] })],
+  P('{#has_preferred_skills}Nice to have:{/has_preferred_skills}'),
+  ...[new Paragraph({ children: [new TextRun('{#preferred_skills}')] }), Bullet('{preferred_skill}'), new Paragraph({ children: [new TextRun('{/preferred_skills}')] })],
+  H('What we offer'),
+  ...[new Paragraph({ children: [new TextRun('{#benefits}')] }), Bullet('{benefit}'), new Paragraph({ children: [new TextRun('{/benefits}')] })],
+  H('How to apply'),
+  P('{how_to_apply}'),
+  P('{#include_eeo_statement}{company_name} is an equal opportunity employer. We consider all qualified applicants without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, age, disability, veteran status or any other characteristic protected by law, and we provide reasonable accommodations on request.{/include_eeo_statement}'),
+]);
+
+const cateringContract = doc([
+  Title('CATERING CONTRACT'),
+  P('This Catering Contract is made on {agreement_date} between {caterer_name} (the "Caterer") and {client_name} (the "Client").'),
+  H('1. The event'),
+  P('The Caterer will cater the Client\'s {event_type} on {event_date} at {event_location}, from {service_start_time} to {service_end_time}, for about {guest_count} guests. The Client will confirm the final guest count at least {final_count_days} days before the event; the Client pays for the confirmed count even if fewer guests attend.'),
+  H('2. Menu and service'),
+  ...[new Paragraph({ children: [new TextRun('{#menu_items}')] }), Bullet('{course}: {dish}'), new Paragraph({ children: [new TextRun('{/menu_items}')] })],
+  P('Service style: {service_style}, with {staff_count} staff. {#has_dietary_notes}Dietary needs to accommodate: {dietary_notes}.{/has_dietary_notes} The Caterer will label dishes that contain common allergens on request, but cannot guarantee a kitchen free from allergens.'),
+  P('{#serves_alcohol}Alcohol will be served by {alcohol_service_by}. Staff will refuse service to anyone underage or visibly intoxicated.{/serves_alcohol}'),
+  H('3. Price and payment'),
+  P('The price is {price_per_guest} per guest{#has_service_charge}, plus a service charge of {service_charge_percent}%{/has_service_charge}, plus any applicable tax. A deposit of {deposit_amount} is due on signing to reserve the date, and the balance is due {balance_due_days} days before the event.'),
+  H('4. Cancellation and changes'),
+  P('If the Client cancels more than {cancellation_days} days before the event, the deposit is kept and nothing more is owed. If the Client cancels later, the Client also pays for food and staff the Caterer has already committed to. Menu changes are possible up to the final count deadline, and may change the price.'),
+  H('5. Venue, food safety and leftovers'),
+  P('The Client will arrange access to the venue, a suitable preparation area and any permits the venue requires. The Caterer follows food safety law and its own insurance requirements; for safety reasons, food that has been served may not be taken away unless the Caterer agrees.'),
+  H('6. Liability'),
+  P('The Caterer carries liability insurance and is responsible for its own staff and equipment. The Client is responsible for damage caused by guests. Neither party is liable for failure caused by events beyond its reasonable control, in which case the deposit is refunded less costs already incurred. This Contract is governed by the laws of {governing_law}.'),
+  P(''),
+  P('Caterer: ____________________________  Date: ______________'),
+  P('Client: ____________________________  Date: ______________'),
+]);
+
+const boardResolution = doc([
+  Title('{#is_written_consent}UNANIMOUS WRITTEN CONSENT OF THE BOARD OF DIRECTORS{/is_written_consent}{^is_written_consent}RESOLUTIONS OF THE BOARD OF DIRECTORS{/is_written_consent}'),
+  P('{company_name}', { bold: true }),
+  P('A {state_of_incorporation} {entity_type}'),
+  P('{#is_written_consent}The undersigned, being all the directors of {company_name} (the "Company"), consent to the following resolutions in writing, without a meeting, as permitted by the Company\'s governing documents and the law of {state_of_incorporation}, effective {resolution_date}.{/is_written_consent}{^is_written_consent}At a meeting of the board of directors of {company_name} (the "Company") held on {resolution_date}, at which a quorum was present, the board adopted the following resolutions.{/is_written_consent}'),
+  ...[new Paragraph({ children: [new TextRun('{#resolutions}')] }), H2('{resolution_title}'), P('RESOLVED, that {resolution_details}'), new Paragraph({ children: [new TextRun('{/resolutions}')] })],
+  H2('General authority'),
+  P('RESOLVED, that the officers of the Company are authorized to sign all documents and take all actions they consider necessary to carry out the resolutions above, and any such action already taken is ratified.'),
+  P('{#is_written_consent}This consent may be signed in counterparts and by electronic signature.{/is_written_consent}'),
+  P(''),
+  new Paragraph({ children: [new TextRun('{#is_written_consent}')] }),
+  ...[new Paragraph({ children: [new TextRun('{#directors}')] }), P('____________________________  {director_name}, Director'), new Paragraph({ children: [new TextRun('{/directors}')] })],
+  new Paragraph({ children: [new TextRun('{/is_written_consent}')] }),
+  P('{#include_secretary_certificate}I certify that the above is a true copy of resolutions duly adopted by the board of directors of the Company and that they remain in effect. ____________________________  {secretary_name}, Secretary{/include_secretary_certificate}'),
+]);
+
 mkdirSync('samples', { recursive: true });
-for (const [file, d] of [['invoice.docx', invoice], ['quote.docx', quote], ['purchase-order.docx', purchaseOrder], ['payment-receipt.docx', paymentReceipt], ['two-weeks-notice-letter.docx', twoWeeksNotice], ['hold-harmless-agreement.docx', holdHarmless], ['equipment-rental-agreement.docx', equipmentRental], ['cleaning-services-contract.docx', cleaningContract], ['meeting-minutes.docx', meetingMinutes], ['employment-agreement.docx', employmentAgreement], ['employee-warning-letter.docx', warningLetter], ['promotion-letter.docx', promotionLetter], ['liability-waiver.docx', liabilityWaiver], ['non-solicitation-agreement.docx', nonSolicit], ['employee-nda.docx', employeeNda], ['contractor-nda.docx', contractorNda], ['business-sale-nda.docx', businessSaleNda], ['rent-receipt.docx', rentReceipt], ['rental-application.docx', rentalApplication], ['lease-renewal-letter.docx', leaseRenewal], ['pet-addendum.docx', petAddendum], ['residential-lease-agreement.docx', lease], ['sublease-agreement.docx', sublease], ['move-in-checklist.docx', moveInChecklist], ['late-rent-notice.docx', lateRent], ['notice-to-vacate.docx', noticeToVacate], ['rent-increase-letter.docx', rentIncrease], ['security-deposit-return-letter.docx', depositReturn], ['roommate-agreement.docx', roommate], ['partnership-agreement.docx', partnership], ['sales-commission-agreement.docx', commission], ['photo-release-form.docx', photoRelease], ['general-release.docx', generalRelease], ['memorandum-of-understanding.docx', mou], ['letter-of-intent.docx', loi], ['bill-of-sale.docx', billOfSale], ['loan-agreement.docx', loan], ['payment-reminder-letter.docx', reminder], ['subcontractor-agreement.docx', subcontractor], ['retainer-agreement.docx', retainer], ['video-production-contract.docx', video], ['virtual-assistant-agreement.docx', assistant], ['event-planning-contract.docx', eventPlanning], ['personal-training-agreement.docx', training], ['tutoring-agreement.docx', tutoring], ['web-design-contract.docx', webDesign], ['graphic-design-contract.docx', graphicDesign], ['photography-contract.docx', photography], ['social-media-management-contract.docx', socialMedia], ['freelance-writing-contract.docx', writing], ['mutual-nda.docx', nda], ['engagement-letter.docx', engagement], ['offer-letter.docx', offer], ['independent-contractor-agreement.docx', contractor], ['statement-of-work.docx', sow], ['employment-verification-letter.docx', verification], ['payment-demand-letter.docx', demand], ['one-way-nda.docx', unilateralNda], ['consulting-agreement.docx', consulting], ['employment-termination-letter.docx', termination], ['reference-letter.docx', reference], ['salary-increase-letter.docx', raise], ['internship-offer-letter.docx', internship], ['service-agreement.docx', service], ['cease-and-desist-letter.docx', cease], ['promissory-note.docx', promissory], ['resignation-letter.docx', resignation]]) {
+for (const [file, d] of [['non-compete-agreement.docx', nonCompete], ['nanny-contract.docx', nannyContract], ['gift-letter.docx', giftLetter], ['lease-termination-agreement.docx', leaseTermination], ['severance-agreement.docx', severance], ['job-description.docx', jobDescription], ['catering-contract.docx', cateringContract], ['board-resolution.docx', boardResolution], ['invoice.docx', invoice], ['quote.docx', quote], ['purchase-order.docx', purchaseOrder], ['payment-receipt.docx', paymentReceipt], ['two-weeks-notice-letter.docx', twoWeeksNotice], ['hold-harmless-agreement.docx', holdHarmless], ['equipment-rental-agreement.docx', equipmentRental], ['cleaning-services-contract.docx', cleaningContract], ['meeting-minutes.docx', meetingMinutes], ['employment-agreement.docx', employmentAgreement], ['employee-warning-letter.docx', warningLetter], ['promotion-letter.docx', promotionLetter], ['liability-waiver.docx', liabilityWaiver], ['non-solicitation-agreement.docx', nonSolicit], ['employee-nda.docx', employeeNda], ['contractor-nda.docx', contractorNda], ['business-sale-nda.docx', businessSaleNda], ['rent-receipt.docx', rentReceipt], ['rental-application.docx', rentalApplication], ['lease-renewal-letter.docx', leaseRenewal], ['pet-addendum.docx', petAddendum], ['residential-lease-agreement.docx', lease], ['sublease-agreement.docx', sublease], ['move-in-checklist.docx', moveInChecklist], ['late-rent-notice.docx', lateRent], ['notice-to-vacate.docx', noticeToVacate], ['rent-increase-letter.docx', rentIncrease], ['security-deposit-return-letter.docx', depositReturn], ['roommate-agreement.docx', roommate], ['partnership-agreement.docx', partnership], ['sales-commission-agreement.docx', commission], ['photo-release-form.docx', photoRelease], ['general-release.docx', generalRelease], ['memorandum-of-understanding.docx', mou], ['letter-of-intent.docx', loi], ['bill-of-sale.docx', billOfSale], ['loan-agreement.docx', loan], ['payment-reminder-letter.docx', reminder], ['subcontractor-agreement.docx', subcontractor], ['retainer-agreement.docx', retainer], ['video-production-contract.docx', video], ['virtual-assistant-agreement.docx', assistant], ['event-planning-contract.docx', eventPlanning], ['personal-training-agreement.docx', training], ['tutoring-agreement.docx', tutoring], ['web-design-contract.docx', webDesign], ['graphic-design-contract.docx', graphicDesign], ['photography-contract.docx', photography], ['social-media-management-contract.docx', socialMedia], ['freelance-writing-contract.docx', writing], ['mutual-nda.docx', nda], ['engagement-letter.docx', engagement], ['offer-letter.docx', offer], ['independent-contractor-agreement.docx', contractor], ['statement-of-work.docx', sow], ['employment-verification-letter.docx', verification], ['payment-demand-letter.docx', demand], ['one-way-nda.docx', unilateralNda], ['consulting-agreement.docx', consulting], ['employment-termination-letter.docx', termination], ['reference-letter.docx', reference], ['salary-increase-letter.docx', raise], ['internship-offer-letter.docx', internship], ['service-agreement.docx', service], ['cease-and-desist-letter.docx', cease], ['promissory-note.docx', promissory], ['resignation-letter.docx', resignation]]) {
   writeFileSync(`samples/${file}`, await deterministic(await Packer.toBuffer(d)));
   console.log('wrote samples/' + file);
 }
