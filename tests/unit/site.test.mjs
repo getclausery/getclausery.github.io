@@ -72,18 +72,19 @@ test('guides that cite sources list them on the page and in the Article data', a
   }
 });
 
-test('the page counter, when enabled, is only on website pages and never in the app or embeds', async () => {
+test('the page counter lives in site.js, which the app and embedded calculators never load', async () => {
   const { ANALYTICS_ON, ANALYTICS_SRC, ANALYTICS_SINCE } = await import('../../tools/partials.mjs');
+  assert.ok(html('site.js').includes(ANALYTICS_SRC));
   const pages = globSync('**/*.html', { exclude: (x) => /^(node_modules|test-results|playwright-report)/.test(x) });
   for (const f of pages) {
-    const has = html(f).includes(ANALYTICS_SRC);
-    if (!ANALYTICS_ON || f.startsWith('app/') || f.startsWith('free-tools/embed/')) assert.equal(has, false, f);
+    assert.ok(!html(f).includes(ANALYTICS_SRC), `${f} must not load the counter directly`);
+    if (f.startsWith('app/') || f.startsWith('free-tools/embed/')) assert.doesNotMatch(html(f), /site\.js/, f);
   }
   if (ANALYTICS_ON) {
     assert.match(ANALYTICS_SINCE, /^\d{4}-\d{2}-\d{2}$/);
-    assert.ok(html('index.html').includes(ANALYTICS_SRC));
     assert.match(html('legal/privacy.html'), /Cloudflare Web Analytics/);
   } else {
+    assert.equal(ANALYTICS_SINCE, '');
     assert.match(html('legal/privacy.html'), /We do not add cookies, analytics or tracking of any kind/);
   }
 });
