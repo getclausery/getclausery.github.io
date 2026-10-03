@@ -1,13 +1,13 @@
 /* Clausery deployment configuration. Edit this file when you deploy your own copy. */
 export const APP_NAME = 'Clausery';
-export const APP_VERSION = '1.18.0';
+export const APP_VERSION = '1.18.1';
 
 /* Public site URL (no trailing slash). Used for links in exported files and the intake form footer. */
 export const SITE_URL = 'https://getclausery.github.io';
 
 /* Base64url Ed25519 public key that license keys are verified against. Generate a key pair with
    `npm run license -- keygen`; keep the private key offline and paste the public key here. */
-export const LICENSE_PUBLIC_KEY = 'q8doGh6iJJpRQVi1ow0EADMDQMw9oJhMTl_p1ZpE0GE';
+export const LICENSE_PUBLIC_KEY = 'gRV3e8g0NYShNgtFnSrralyB_RVvOzaLwlSHSvjcFvo';
 
 /* Hosted checkout links (Stripe Payment Links, Lemon Squeezy, Paddle...). Leave empty to show the key request form instead. */
 export const CHECKOUT_URLS = { pro: '', team: '' };
