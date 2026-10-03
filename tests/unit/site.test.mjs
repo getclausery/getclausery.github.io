@@ -9,7 +9,8 @@ const html = (f) => readFileSync(f, 'utf8');
 const ld = (page) => [...page.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(([, j]) => JSON.parse(j));
 
 test('every sitemap URL has a real last-modified date from page-dates.json, none in the future', () => {
-  const today = new Date().toISOString().slice(0, 10);
+  // A page dated in the author's time zone can be a day ahead of UTC, where CI runs.
+  const today = new Date(Date.now() + 864e5).toISOString().slice(0, 10);
   for (const [path, { date, hash }] of Object.entries(dates)) {
     assert.match(date, /^\d{4}-\d{2}-\d{2}$/, path);
     assert.ok(date >= '2026-09-24' && date <= today, `${path}: ${date}`);
