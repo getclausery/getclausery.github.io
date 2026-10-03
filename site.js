@@ -1,4 +1,15 @@
 /* Clausery site script: the mobile menu, the copy buttons and the template finder. External so the pages work under a strict script-src 'self' policy. */
+// Cookieless page-view counts (Cloudflare Web Analytics) on the website pages that load this script; never the app or embedded calculators.
+// Empty token = off. The build reads these two values to switch the privacy, about and security wording, so change them only here.
+// Only the public site counts, so tests, previews and self-hosted copies never send page views.
+const CLAUSERY_ANALYTICS = { token: '20524027c20141ab8306d586c8518877', since: '2026-10-03', host: 'getclausery.github.io' };
+if (CLAUSERY_ANALYTICS.token && location.hostname === CLAUSERY_ANALYTICS.host) {
+  const s = document.createElement('script');
+  s.type = 'module';
+  s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+  s.setAttribute('data-cf-beacon', JSON.stringify({ token: CLAUSERY_ANALYTICS.token }));
+  document.head.appendChild(s);
+}
 document.addEventListener('click', (e) => {
   const btn = e.target.closest && e.target.closest('.menu-btn');
   if (!btn) return;

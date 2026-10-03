@@ -9,11 +9,11 @@
  },
  "about/": {
   "date": "2026-10-03",
-  "hash": "35bef46e31cae4ce"
+  "hash": "d1eca871c7c94adc"
  },
  "changelog.html": {
   "date": "2026-10-03",
-  "hash": "1637656664375600"
+  "hash": "54bf99b6b0e43834"
  },
  "clauses/": {
   "date": "2026-09-27",
@@ -192,8 +192,8 @@
   "hash": "18766ecc31f6a751"
  },
  "docs/security.html": {
-  "date": "2026-10-02",
-  "hash": "1f6f1453059acbcb"
+  "date": "2026-10-03",
+  "hash": "2789cb3bdd3d09c9"
  },
  "docs/self-hosting.html": {
   "date": "2026-10-01",
@@ -428,8 +428,8 @@
   "hash": "e23840fe9556e3ac"
  },
  "legal/privacy.html": {
-  "date": "2026-10-02",
-  "hash": "703a3023fa5f74b6"
+  "date": "2026-10-03",
+  "hash": "5b236289e4279bcb"
  },
  "legal/terms.html": {
   "date": "2026-10-02",

@@ -7,6 +7,11 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.18.2 <span class="small muted">— 3 October 2026</span></h2>
+<ul>
+  <li>The website now counts anonymous page views with Cloudflare Web Analytics, which uses no cookies and does not track individual visitors. The app and the embedded calculators are never counted; the privacy policy explains what is recorded.</li>
+  <li>Four guides now list the primary sources they rely on.</li>
+</ul>
 <h2>1.18.1 <span class="small muted">— 3 October 2026</span></h2>
 <ul>
   <li>License keys are signed with a new key, ready for online checkout of the Pro and Team plans.</li>
