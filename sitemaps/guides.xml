@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://getclausery.github.io/guides/are-liability-waivers-enforceable.html</loc><lastmod>2026-09-28</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/guides/are-non-competes-enforceable.html</loc><lastmod>2026-10-03</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/automate-word-templates.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/client-intake-without-a-portal.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/conditional-clauses-in-word.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
@@ -11,6 +12,8 @@
   <url><loc>https://getclausery.github.io/guides/how-to-return-a-security-deposit.html</loc><lastmod>2026-10-01</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/how-to-write-a-bill-of-sale.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/how-to-write-a-freelance-contract.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/guides/how-to-write-a-gift-letter-for-a-mortgage.html</loc><lastmod>2026-10-03</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/guides/how-to-write-a-job-description.html</loc><lastmod>2026-10-03</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/how-to-write-a-notice-to-vacate.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/how-to-write-a-payment-demand-letter.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/how-to-write-a-rent-increase-letter.html</loc><lastmod>2026-10-01</lastmod><priority>0.8</priority></url>
@@ -19,7 +22,7 @@
   <url><loc>https://getclausery.github.io/guides/how-to-write-an-employee-warning-letter.html</loc><lastmod>2026-09-28</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/how-to-write-an-invoice.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/how-to-write-an-offer-letter.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/guides/</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/guides/</loc><lastmod>2026-10-03</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/is-an-mou-legally-binding.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/mail-merge-vs-document-automation.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/mutual-vs-one-way-nda.html</loc><lastmod>2026-09-27</lastmod><priority>0.8</priority></url>
@@ -33,6 +36,7 @@
   <url><loc>https://getclausery.github.io/guides/what-to-include-in-a-lease-agreement.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/what-to-include-in-a-partnership-agreement.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/what-to-include-in-a-roommate-agreement.html</loc><lastmod>2026-10-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/guides/what-to-include-in-a-severance-agreement.html</loc><lastmod>2026-10-03</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/what-to-include-in-a-statement-of-work.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/what-to-include-in-an-nda.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
 </urlset>
