@@ -6,7 +6,22 @@ Clausery turns the Word templates a firm already uses into guided questionnaires
 
 - **Live site:** https://getclausery.github.io/
 - **App:** https://getclausery.github.io/app/
+- **Free Word templates:** https://getclausery.github.io/templates/
 - **Docs:** https://getclausery.github.io/docs/
+- **Contact:** https://getclausery.github.io/contact/
+
+## Free templates
+
+Every template in the library can be downloaded as a normal Word file or filled in online, free and without an account, and none of them count towards a plan limit. A few of the most used:
+
+| Business and money | Freelance and services | HR | Landlords and tenants | Legal |
+| --- | --- | --- | --- | --- |
+| [Invoice](https://getclausery.github.io/templates/invoice.html) | [Freelance contracts](https://getclausery.github.io/for/freelancers.html) | [Offer letter](https://getclausery.github.io/templates/offer-letter.html) | [Residential lease](https://getclausery.github.io/templates/residential-lease-agreement.html) | [Mutual NDA](https://getclausery.github.io/templates/mutual-nda.html) |
+| [Price quote](https://getclausery.github.io/templates/quote.html) | [Independent contractor agreement](https://getclausery.github.io/templates/independent-contractor-agreement.html) | [Employment agreement](https://getclausery.github.io/templates/employment-agreement.html) | [Rent receipt](https://getclausery.github.io/templates/rent-receipt.html) | [Hold harmless agreement](https://getclausery.github.io/templates/hold-harmless-agreement.html) |
+| [Purchase order](https://getclausery.github.io/templates/purchase-order.html) | [Statement of work](https://getclausery.github.io/templates/statement-of-work.html) | [Two weeks notice letter](https://getclausery.github.io/templates/two-weeks-notice-letter.html) | [Notice to vacate](https://getclausery.github.io/templates/notice-to-vacate.html) | [Liability waiver](https://getclausery.github.io/templates/liability-waiver.html) |
+| [Payment receipt](https://getclausery.github.io/templates/payment-receipt.html) | [Cleaning services contract](https://getclausery.github.io/templates/cleaning-services-contract.html) | [Employee warning letter](https://getclausery.github.io/templates/employee-warning-letter.html) | [Rental application](https://getclausery.github.io/templates/rental-application.html) | [Bill of sale](https://getclausery.github.io/templates/bill-of-sale.html) |
+
+See [all templates](https://getclausery.github.io/templates/), the [clause library](https://getclausery.github.io/clauses/), [guides](https://getclausery.github.io/guides/) and [free calculators](https://getclausery.github.io/free-tools/).
 
 ## Why
 
@@ -24,6 +39,7 @@ Law firms, HR teams and consultancies draft the same documents every week. The i
 - Backups, answer files, template packs for teams
 - Offline-capable installable PWA, strict CSP, zero third-party requests
 - Offline license keys (Ed25519) for Free / Pro / Team / Enterprise plans
+- Free template library (Word), clause library, guides and calculators; every page records when its content last changed (`site/data/page-dates.json`)
 
 ## Repository layout
 
@@ -65,7 +81,11 @@ npm run license -- issue --key keys/private.pem --plan pro --name "Jane Doe" --e
 npm run license -- verify --public <publicKey> <key>
 ```
 
-Put the public key in `app/config.js` (`LICENSE_PUBLIC_KEY`). Keys are verified in the browser with WebCrypto; no server is involved. Configure hosted checkout links in `CHECKOUT_URLS`.
+Put the public key in `app/config.js` (`LICENSE_PUBLIC_KEY`). Keys are verified in the browser with WebCrypto; no server is involved. Configure hosted checkout links in `CHECKOUT_URLS` and rebuild; until they are set, the plan buttons open the key request form (`KEY_REQUEST_URL`).
+
+## Contact and support
+
+Questions, key requests, template requests and bug reports use the [issue forms](https://github.com/getclausery/getclausery.github.io/issues/new/choose). Report security issues privately through [GitHub's private vulnerability reporting](https://github.com/getclausery/getclausery.github.io/security/advisories/new); see `SECURITY.md`.
 
 ## Security
 

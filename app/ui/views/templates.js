@@ -62,11 +62,20 @@ export const SAMPLES = [
   { slug: 'rent-increase-letter', file: 'rent-increase-letter.docx', name: 'Rent increase letter', category: 'Real estate', description: 'Landlord\'s notice of a rent increase: current and new rent, effective date, notice period, optional reason and renewal offer.' },
   { slug: 'security-deposit-return-letter', file: 'security-deposit-return-letter.docx', name: 'Security deposit return letter', category: 'Real estate', description: 'Itemized security deposit statement: interest, a list of deductions, the amount returned and how it is paid.' },
   { slug: 'roommate-agreement', file: 'roommate-agreement.docx', name: 'Roommate agreement', category: 'Real estate', description: 'Rent shares, deposit, bills, quiet time, guests, cleaning, pets and smoking, and notice before a roommate moves out.' },
+  { slug: 'invoice', file: 'invoice.docx', name: 'Invoice', category: 'Finance', description: 'Invoice with line items, optional discount and tax, amount paid and balance due, how to pay and a late fee.' },
+  { slug: 'quote', file: 'quote.docx', name: 'Price quote', category: 'Business', description: 'Itemized quote with discount and tax, exclusions, timeline, deposit, an expiry date and an acceptance signature.' },
+  { slug: 'purchase-order', file: 'purchase-order.docx', name: 'Purchase order', category: 'Business', description: 'PO with vendor and ship-to address, line items, tax and shipping, delivery date, payment terms and standard terms.' },
+  { slug: 'payment-receipt', file: 'payment-receipt.docx', name: 'Payment receipt', category: 'Finance', description: 'Receipt for a payment: amount in figures and words, what it was for, how it was paid and any balance due.' },
+  { slug: 'two-weeks-notice-letter', file: 'two-weeks-notice-letter.docx', name: 'Two weeks notice letter', category: 'HR', description: 'Resignation with two weeks\' notice: last day, optional reason, handover offer, returning property and thanks.' },
+  { slug: 'hold-harmless-agreement', file: 'hold-harmless-agreement.docx', name: 'Hold harmless agreement', category: 'Legal', description: 'One-way or mutual hold harmless and indemnity, optional duty to defend, insurance and additional insured.' },
+  { slug: 'equipment-rental-agreement', file: 'equipment-rental-agreement.docx', name: 'Equipment rental agreement', category: 'Business', description: 'Equipment list with serial numbers and replacement costs, rental period and rate, deposit, delivery, damage and insurance.' },
+  { slug: 'cleaning-services-contract', file: 'cleaning-services-contract.docx', name: 'Cleaning services contract', category: 'Freelance', description: 'Regular cleaning: tasks and schedule, per-visit or hourly price, supplies, keys, cancellations, breakage and a re-clean promise.' },
+  { slug: 'meeting-minutes', file: 'meeting-minutes.docx', name: 'Meeting minutes', category: 'Business', description: 'Attendees, quorum, approval of the last minutes, each agenda item with its decision, and action items with owners.' },
 ];
 
-export async function importDocxFile(ctx, file, { name } = {}) {
-  const count = await ctx.templates.count();
-  if (!ctx.requirePlan('templates', { count })) return null;
+export async function importDocxFile(ctx, file, { name, sample = false } = {}) {
+  // library samples are free and unlimited; only the user's own templates count towards the Free plan's limit
+  if (!sample && !ctx.requirePlan('templates', { count: await ctx.templates.ownCount() })) return null;
   if (!/\.docx$/i.test(file.name || name || '')) { toast('Choose a Word document (.docx). Older .doc files must be re-saved as .docx first.', { type: 'warn', timeout: 7000 }); return null; }
   const bytes = await readFile(file);
   try { checkDocxSize(bytes); } catch (e) { showTemplateErrors([e.message]); return null; }
@@ -98,13 +107,11 @@ export function showTemplateErrors(messages) {
 }
 
 async function importSample(ctx, s) {
-  const count = await ctx.templates.count();
-  if (!ctx.requirePlan('templates', { count })) return null;
   const res = await fetch('../samples/' + s.file);
   if (!res.ok) { toast('The sample could not be loaded.', { type: 'danger' }); return null; }
   const blob = await res.blob();
   const file = new File([blob], s.file, { type: blob.type });
-  const t = await importDocxFile(ctx, file, { name: s.name });
+  const t = await importDocxFile(ctx, file, { name: s.name, sample: true });
   if (t) { t.category = s.category; t.description = s.description; t.sample = s.slug; await ctx.templates.save(t); }
   return t;
 }
@@ -133,12 +140,14 @@ async function importPack(ctx) {
   try { bundle = decodeBundle(await readFile(file, 'text')); } catch (e) { toast(e.message, { type: 'danger', timeout: 7000 }); return; }
   if (bundle.kind === 'workspace') { toast('That is a full workspace backup. Restore it from Settings → Data.', { type: 'warn', timeout: 7000 }); return; }
   const existing = new Set((await ctx.templates.list()).map((t) => t.id));
-  let count = await ctx.templates.count(), added = 0;
+  let count = await ctx.templates.ownCount(), added = 0;
   for (const t of bundle.templates) {
     if (!existing.has(t.id) && !ctx.requirePlan('templates', { count })) break;
     const file = bundle.files.find((f) => f.id === t.id);
     if (!file) continue;
-    await ctx.templates.save(normalizeTemplate(t));
+    const imported = normalizeTemplate(t);
+    delete imported.sample;   // a template from a pack is someone's own template, whatever it started from
+    await ctx.templates.save(imported);
     await ctx.templates.saveFile(t.id, file.bytes);
     if (!existing.has(t.id)) count++;
     added++;
@@ -178,7 +187,7 @@ export async function render(ctx) {
 
 function moreMenu(ctx, t) {
   const m = modal({ title: t.name, size: 'sm', body: h('div.stack-sm',
-    h('button.btn', { type: 'button', style: { width: '100%', justifyContent: 'flex-start' }, onclick: async () => { m.close(); if (!ctx.requirePlan('templates', { count: await ctx.templates.count() })) return; const copy = { ...structuredClone(t), id: uid('t_'), name: t.name + ' (copy)' }; await ctx.templates.save(copy); await ctx.templates.saveFile(copy.id, await ctx.templates.getFile(t.id)); toast('Template duplicated.', { type: 'ok' }); ctx.router.resolve(); } }, icon('copy', 16), 'Duplicate'),
+    h('button.btn', { type: 'button', style: { width: '100%', justifyContent: 'flex-start' }, onclick: async () => { m.close(); if (!ctx.requirePlan('templates', { count: await ctx.templates.ownCount() })) return; const copy = { ...structuredClone(t), id: uid('t_'), name: t.name + ' (copy)' }; delete copy.sample; await ctx.templates.save(copy); await ctx.templates.saveFile(copy.id, await ctx.templates.getFile(t.id)); toast('Template duplicated.', { type: 'ok' }); ctx.router.resolve(); } }, icon('copy', 16), 'Duplicate'),
     h('button.btn', { type: 'button', style: { width: '100%', justifyContent: 'flex-start' }, onclick: async () => { m.close(); if (!ctx.requirePlan('packs')) return; const bytes = await ctx.templates.getFile(t.id); const pack = encodePack({ templates: [t], files: [{ id: t.id, bytes }], appVersion: ctx.version, name: t.name }); downloadBlob(new Blob([JSON.stringify(pack)], { type: 'application/json' }), safeFilename(t.name, 'clausery-pack.json')); } }, icon('share', 16), 'Export as template pack'),
     h('button.btn', { type: 'button', style: { width: '100%', justifyContent: 'flex-start' }, onclick: async () => { m.close(); const bytes = await ctx.templates.getFile(t.id); if (bytes) downloadBlob(new Blob([bytes], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' }), t.fileName || safeFilename(t.name, 'docx')); } }, icon('file', 16), 'Download original .docx'),
     h('button.btn.btn-danger', { type: 'button', style: { width: '100%', justifyContent: 'flex-start' }, onclick: async () => { m.close(); const n = (await ctx.drafts.list()).filter((d) => d.templateId === t.id).length; const ok = await confirmDialog({ title: 'Delete template?', message: n ? `"${t.name}" and its ${n} draft${n === 1 ? '' : 's'} will be deleted from this device.` : `"${t.name}" will be deleted from this device.`, confirmLabel: 'Delete', danger: true }); if (!ok) return; for (const d of (await ctx.drafts.list()).filter((d) => d.templateId === t.id)) await ctx.drafts.remove(d.id); await ctx.templates.remove(t.id); toast('Template deleted.'); ctx.router.resolve(); } }, icon('trash', 16), 'Delete'),

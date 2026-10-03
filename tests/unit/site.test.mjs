@@ -1,0 +1,59 @@
+/* The generated site: last-modified dates, contact links and structured data on the pages search engines index. */
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync, globSync } from 'node:fs';
+import { LIB } from '../../site/library.mjs';
+
+const dates = JSON.parse(readFileSync('site/data/page-dates.json', 'utf8'));
+const html = (f) => readFileSync(f, 'utf8');
+const ld = (page) => [...page.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(([, j]) => JSON.parse(j));
+
+test('every sitemap URL has a real last-modified date from page-dates.json, none in the future', () => {
+  const today = new Date().toISOString().slice(0, 10);
+  for (const [path, { date, hash }] of Object.entries(dates)) {
+    assert.match(date, /^\d{4}-\d{2}-\d{2}$/, path);
+    assert.ok(date >= '2026-09-24' && date <= today, `${path}: ${date}`);
+    assert.match(hash, /^[0-9a-f]{16}$/, path);
+  }
+  const urls = [...html('sitemap.xml').matchAll(/<url><loc>([^<]+)<\/loc>(<lastmod>[^<]+<\/lastmod>)?/g)];
+  assert.ok(urls.length > 150);
+  for (const [, loc, lastmod] of urls) assert.ok(lastmod, `no lastmod for ${loc}`);
+});
+
+test('no page is left with a date placeholder or a link to the unregistered clausery.app domain', () => {
+  for (const f of globSync('**/*.html', { exclude: (x) => /^(node_modules|test-results|playwright-report)/.test(x) })) {
+    const page = html(f);
+    assert.doesNotMatch(page, /@@LASTMOD/, f);
+    assert.doesNotMatch(page, /@clausery\.app/, f);
+  }
+});
+
+test('template pages describe the template as a free Word document with a modified date', () => {
+  for (const t of LIB) {
+    const page = html(`templates/${t.slug}.html`);
+    const doc = ld(page).find((x) => x['@type'] === 'DigitalDocument');
+    assert.ok(doc, t.slug);
+    assert.equal(doc.isAccessibleForFree, true);
+    assert.equal(doc.dateModified, dates[`templates/${t.slug}.html`].date, t.slug);
+    assert.match(doc.contentUrl, new RegExp(`/samples/${t.file}$`));
+    assert.match(page, new RegExp(`Updated <time datetime="${doc.dateModified}">`), t.slug);
+  }
+});
+
+test('guides are modified on or after they were published, and say "Updated" only when they changed', () => {
+  for (const f of globSync('guides/*.html').filter((x) => !x.endsWith('index.html'))) {
+    const page = html(f);
+    const a = ld(page).find((x) => x['@type'] === 'Article');
+    assert.ok(a.dateModified >= a.datePublished, f);
+    assert.equal(/· Updated <time/.test(page), a.dateModified !== a.datePublished, f);
+  }
+});
+
+test('pricing buttons are built for the checkout configuration', async () => {
+  const { CHECKOUT_URLS, KEY_REQUEST_URL } = await import('../../app/config.js');
+  const page = html('pricing/index.html');
+  for (const plan of ['pro', 'team']) {
+    const a = page.match(new RegExp(`<a [^>]*data-checkout="${plan}"[^>]*>`))[0];
+    assert.ok(a.includes(CHECKOUT_URLS[plan] || KEY_REQUEST_URL.replace(/&/g, '&amp;')), a);
+  }
+});

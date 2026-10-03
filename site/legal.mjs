@@ -1,8 +1,9 @@
+import { REPO_URL } from '../tools/partials.mjs';
 const page = (path, title, description, body) => ({ path, title, description, body: (rel) => `<section class="section"><div class="wrap prose">${body(rel)}</div></section>` });
 export const pages = [
 page('legal/privacy.html', 'Privacy policy', 'Clausery privacy policy: the app processes documents only in your browser and collects no personal data.', (rel) => `
 <h1>Privacy policy</h1>
-<p class="muted">Effective 24 September 2026</p>
+<p class="muted">Effective 2 October 2026</p>
 <h2>Summary</h2>
 <p>Clausery is designed so that we cannot see your data. The application runs entirely in your web browser, stores its data only on your device, and only ever requests its own files from the site that serves it; it never sends your templates, answers or documents anywhere. We do not operate accounts, analytics, or servers that receive your templates, answers or documents.</p>
 <h2>What the app processes</h2>
@@ -10,9 +11,9 @@ page('legal/privacy.html', 'Privacy policy', 'Clausery privacy policy: the app p
 <h2>What the website host receives</h2>
 <p>The public instance is served as static files by GitHub Pages. Like any web server, GitHub may log the IP address, browser type and requested URLs of visitors for security and operational purposes, under <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub's privacy statement</a>. We do not add cookies, analytics or tracking of any kind, and we receive no visitor data from GitHub.</p>
 <h2>Purchases and support</h2>
-<p>If you buy a license or contact us, we receive the information you provide (typically your name, email address and organisation) and payment details are handled by the payment provider shown at checkout, under their privacy policy. We use this information to issue license keys, provide support and send invoices, and keep it for as long as required by tax and accounting law. We do not sell or share it for marketing.</p>
+<p>If you buy a license or contact us, we receive the information you provide (typically your name, email address and organisation) and payment details are handled by the payment provider shown at checkout, under their privacy policy. Contact and key requests are made through issues on our <a href="${REPO_URL}" rel="noopener">GitHub repository</a>: they are public, and GitHub processes them under its own privacy statement, so please do not put personal or confidential details in them. We use this information to issue license keys, provide support and send invoices, and keep it for as long as required by tax and accounting law. We do not sell or share it for marketing.</p>
 <h2>Your rights</h2>
-<p>Because the app holds no data about you, the data-subject rights under the GDPR, UK GDPR and CCPA apply to the purchase and support records described above. Email <a href="mailto:privacy@clausery.app">privacy@clausery.app</a> to access, correct or delete them.</p>
+<p>Because the app holds no data about you, the data-subject rights under the GDPR, UK GDPR and CCPA apply to the purchase and support records described above. To access, correct or delete them, open a request through the <a href="${rel}contact/">contact page</a> saying only that you have a privacy request; we will reply with a private way to verify and complete it.</p>
 <h2>Children</h2>
 <p>Clausery is a business tool and is not directed at children.</p>
 <h2>Changes</h2>
@@ -40,7 +41,7 @@ page('legal/terms.html', 'Terms of service', 'Terms under which Clausery is prov
 <h2>9. Governing law</h2>
 <p>These terms are governed by the laws of the jurisdiction in which Clausery is established, and disputes are subject to the courts of that jurisdiction, without prejudice to mandatory consumer protection where it applies.</p>
 <h2>10. Contact</h2>
-<p><a href="mailto:hello@clausery.app">hello@clausery.app</a></p>`),
+<p>See the <a href="${rel}contact/">contact page</a>.</p>`),
 
 page('legal/dpa.html', 'Data processing statement', 'For procurement and compliance teams: why Clausery involves no processing of personal data by the vendor, and what to record.', (rel) => `
 <h1>Data processing statement</h1>
@@ -56,5 +57,5 @@ page('legal/dpa.html', 'Data processing statement', 'For procurement and complia
 <h2>International transfers</h2>
 <p>None by the vendor.</p>
 <h2>Contact</h2>
-<p><a href="mailto:privacy@clausery.app">privacy@clausery.app</a></p>`),
+<p>See the <a href="${rel}contact/">contact page</a>. For a signed attestation, say so in a question and we will arrange a private channel.</p>`),
 ];

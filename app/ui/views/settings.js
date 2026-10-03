@@ -29,7 +29,7 @@ export async function render(ctx) {
   // ---- license
   const keyInput = h('textarea.textarea#license-key', { rows: 3, placeholder: 'CLSY-…', spellcheck: false, 'aria-label': 'License key' });
   const licenseStatus = () => ctx.plan.payload ? h('div.notice.notice-ok', icon('check'), h('div', h('strong', describeLicense(ctx.plan.payload)), h('div.small', 'Licensed to this browser profile. Keep your key: you need it on each device.')))
-    : h('div.notice', icon('info'), h('div', h('strong', 'Free plan. '), 'Up to 3 templates, unlimited drafts and documents. ', h('a', { href: '../pricing/', target: '_blank', rel: 'noopener' }, 'Compare plans')));
+    : h('div.notice', icon('info'), h('div', h('strong', 'Free plan. '), 'Every library template plus up to 3 of your own, with unlimited drafts and documents. ', h('a', { href: '../pricing/', target: '_blank', rel: 'noopener' }, 'Compare plans')));
   const licenseBox = h('div', licenseStatus());
   const license = section('license', 'License', 'Keys are verified offline with a signature. No account, no phone-home.',
     licenseBox,

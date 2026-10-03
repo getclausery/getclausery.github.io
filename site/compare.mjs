@@ -4,15 +4,15 @@ import { esc, faqLd, faqHtml } from '../tools/partials.mjs';
 import { LIB } from './library.mjs';
 
 const ROWS = ['Where your documents are processed', 'Account needed', 'Works offline', 'Uses your own Word templates', 'Conditional clauses and repeating lists', 'Calculations', 'Client questionnaires', 'Integrations with practice management', 'Price'];
-const CLAUSERY = ['Your browser only; nothing is uploaded', 'No', 'Yes', 'Yes', 'Yes', 'Yes (Pro)', 'Offline intake file you email to the client', 'None: files in, files out', 'Free for 3 templates; Pro $19 per user per month'];
+const CLAUSERY = ['Your browser only; nothing is uploaded', 'No', 'Yes', 'Yes', 'Yes', 'Yes (Pro)', 'Offline intake file you email to the client', 'None: files in, files out', 'Free library templates, plus 3 of your own; Pro $19 per user per month'];
 // All-in-one freelancer tools compete on different things (payments, portals), so their table asks different questions.
 const FREELANCE_ROWS = ['Where contracts are created', 'Account needed', 'Works offline', 'Free contract templates', 'Use your own Word contract', 'Contract download', 'E-signature', 'Invoicing and payments', 'Client portal, scheduling and CRM', 'Price'];
-const CLAUSERY_FREELANCE = ['Your browser only; nothing is uploaded', 'No', 'Yes', `Yes, ${LIB.length} Word templates`, 'Yes: add {tags} to any .docx', 'Word (.docx), or print to PDF', 'No: sign on paper or with any e-signature service', 'No', 'No', 'Free for 3 templates; Pro $19 per user per month'];
+const CLAUSERY_FREELANCE = ['Your browser only; nothing is uploaded', 'No', 'Yes', `Yes, ${LIB.length} Word templates`, 'Yes: add {tags} to any .docx', 'Word (.docx), or print to PDF', 'No: sign on paper or with any e-signature service', 'No', 'No', 'Free library templates, plus 3 of your own; Pro $19 per user per month'];
 
 // Online legal form sites sell finished documents by subscription or per document, so their table asks about downloads,
 // ongoing charges and lawyer access.
 const FORMS_ROWS = ['Where documents are created', 'Account needed', 'Free Word download', 'Ongoing subscription', 'Use your own Word templates', 'Lawyer help', 'E-signature', 'State-specific forms', 'Price'];
-const CLAUSERY_FORMS = ['Your browser only; nothing is uploaded', 'No', `Yes, all ${LIB.length} templates, with no sign-up`, 'No: the free plan has no time limit', 'Yes: add {tags} to any .docx', 'No: Clausery is software, not a law firm', 'No: sign on paper or with any e-signature service', 'No: general templates you adapt', 'Free for 3 templates; Pro $19 per user per month'];
+const CLAUSERY_FORMS = ['Your browser only; nothing is uploaded', 'No', `Yes, all ${LIB.length} templates, with no sign-up`, 'No: the free plan has no time limit', 'Yes: add {tags} to any .docx', 'No: Clausery is software, not a law firm', 'No: sign on paper or with any e-signature service', 'No: general templates you adapt', 'Free library templates, plus 3 of your own; Pro $19 per user per month'];
 
 export const COMPETITORS = [
   { slug: 'gavel-alternative', name: 'Gavel', title: 'Gavel alternative that keeps client data on your computer', group: 'legal', bestFor: 'Law firms that want hosted client portals and workflows',
@@ -87,7 +87,7 @@ const compareFaq = (c) => [
     : c.group === 'freelance'
     ? `Yes. You could keep ${c.name} for the parts you use, such as invoicing and payments, and prepare contracts in Clausery. Clausery needs no integration: it produces a Word file you can send, sign and store however you like.`
     : `Yes. Many firms keep a platform like ${c.name} for the workflows it does best and use Clausery for documents whose details should not leave the office. Clausery needs no integration to run alongside it.`],
-  [`How much does Clausery cost compared with ${c.name}?`, `Clausery is free for up to three templates with unlimited documents, and Pro is $19 per user per month. The table above summarises ${c.name}'s published pricing as of 2026; check the vendor for current prices.`],
+  [`How much does Clausery cost compared with ${c.name}?`, `Every Clausery library template is free, you can automate up to three of your own templates free with unlimited documents, and Pro is $19 per user per month. The table above summarises ${c.name}'s published pricing as of 2026; check the vendor for current prices.`],
   c.group === 'forms'
     ? ['Is there a trial that turns into a subscription?', 'No. The free plan has no time limit and asks for no card, and every template can be downloaded as a Word file without an account. You only pay if you choose to buy Pro.']
     : c.group === 'freelance'

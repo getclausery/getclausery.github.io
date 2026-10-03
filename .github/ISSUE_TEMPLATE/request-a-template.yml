@@ -1,0 +1,38 @@
+name: Request a template
+description: Suggest a document for the free template library, or a change to an existing template.
+title: "Template request: "
+labels: ["template request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Tell us which document you draft again and again. Requests with the most votes (👍 on the issue) are built first. Please do not paste confidential documents; describe what the template should cover instead.
+  - type: input
+    id: document
+    attributes:
+      label: Which document?
+      placeholder: For example, a commercial lease, a severance agreement or a catering contract.
+    validations:
+      required: true
+  - type: dropdown
+    id: who
+    attributes:
+      label: Who would use it?
+      options:
+        - Freelancer or consultant
+        - Small business
+        - HR or people team
+        - Landlord or tenant
+        - Law firm
+        - Personal use
+        - Someone else
+  - type: input
+    id: where
+    attributes:
+      label: Country or state
+      description: Some documents depend on local law. Leave blank if it does not matter.
+  - type: textarea
+    id: details
+    attributes:
+      label: What should it cover?
+      description: The clauses, options or lists you would expect to see.

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability
+    url: https://github.com/getclausery/getclausery.github.io/security/advisories/new
+    about: Report it privately. Please do not open a public issue for a vulnerability.
+  - name: Read the documentation
+    url: https://getclausery.github.io/docs/
+    about: Template syntax, logic, client intake, backups and the FAQ.

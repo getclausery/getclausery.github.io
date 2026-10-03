@@ -4,7 +4,7 @@ Clausery is a client-side application: there is no server that stores customer d
 
 ## Reporting
 
-Email **security@clausery.app** with a description and, if possible, a minimal reproduction. We aim to acknowledge reports within two business days and to publish a fix and a changelog entry as soon as one is available. Please do not test against deployments you do not control.
+Report vulnerabilities privately through GitHub: open the repository's **Security** tab and choose **Report a vulnerability** ([direct link](https://github.com/getclausery/getclausery.github.io/security/advisories/new)). Include a description and, if possible, a minimal reproduction. Please do not open a public issue for a vulnerability. We aim to acknowledge reports within two business days and to publish a fix and a changelog entry as soon as one is available. Please do not test against deployments you do not control.
 
 ## Scope
 

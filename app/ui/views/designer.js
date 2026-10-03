@@ -46,6 +46,8 @@ export async function render(ctx, { id }) {
   }
 
   async function replaceFile() {
+    // a library sample with the user's own document in it becomes one of their own templates, so it counts towards the limit
+    if (t.sample && !ctx.requirePlan('templates', { count: await ctx.templates.ownCount() })) return;
     const file = await pickFile('.docx'); if (!file) return;
     const bytes = await readFile(file);
     try { checkDocxSize(bytes); } catch (e) { showTemplateErrors([e.message]); return; }
@@ -55,6 +57,7 @@ export async function render(ctx, { id }) {
     if (badTags.length) { showTemplateErrors(badTags); return; }
     // nothing is stored until Save: the file and the questionnaire are written together, so discarding discards both
     pendingBytes = bytes;
+    delete t.sample;
     t.fileName = file.name; t.tags = insp.order.map((o) => o.key); docTags = new Set(t.tags);
     const { added, blocked } = mergeTags(insp);
     markDirty();
