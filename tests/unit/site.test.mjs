@@ -58,3 +58,32 @@ test('pricing buttons are built for the checkout configuration', async () => {
     assert.ok(a.includes(CHECKOUT_URLS[plan] || KEY_REQUEST_URL.replace(/&/g, '&amp;')), a);
   }
 });
+
+test('guides that cite sources list them on the page and in the Article data', async () => {
+  const { GUIDES } = await import('../../site/audience.mjs');
+  const cited = GUIDES.filter((g) => g.sources);
+  assert.ok(cited.length >= 4);
+  for (const g of cited) {
+    const page = html(`guides/${g.slug}.html`);
+    assert.match(page, /<h2>Sources<\/h2>/, g.slug);
+    const a = ld(page).find((x) => x['@type'] === 'Article');
+    assert.deepEqual(a.citation, g.sources.map(([, u]) => u), g.slug);
+    for (const [, u] of g.sources) assert.match(u, /^https:\/\//, g.slug);
+  }
+});
+
+test('the page counter, when enabled, is only on website pages and never in the app or embeds', async () => {
+  const { ANALYTICS_ON, ANALYTICS_SRC, ANALYTICS_SINCE } = await import('../../tools/partials.mjs');
+  const pages = globSync('**/*.html', { exclude: (x) => /^(node_modules|test-results|playwright-report)/.test(x) });
+  for (const f of pages) {
+    const has = html(f).includes(ANALYTICS_SRC);
+    if (!ANALYTICS_ON || f.startsWith('app/') || f.startsWith('free-tools/embed/')) assert.equal(has, false, f);
+  }
+  if (ANALYTICS_ON) {
+    assert.match(ANALYTICS_SINCE, /^\d{4}-\d{2}-\d{2}$/);
+    assert.ok(html('index.html').includes(ANALYTICS_SRC));
+    assert.match(html('legal/privacy.html'), /Cloudflare Web Analytics/);
+  } else {
+    assert.match(html('legal/privacy.html'), /We do not add cookies, analytics or tracking of any kind/);
+  }
+});

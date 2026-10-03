@@ -1,5 +1,5 @@
 // About and contact pages: who runs Clausery, how it makes money, and how to reach the people behind it.
-import { SITE, REPO_URL, CONTACT_URL, KEY_REQUEST_URL } from '../tools/partials.mjs';
+import { SITE, REPO_URL, CONTACT_URL, KEY_REQUEST_URL, ANALYTICS_ON } from '../tools/partials.mjs';
 import { LIB } from './library.mjs';
 
 const ld = (o) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', ...o })}</script>`;
@@ -31,7 +31,7 @@ export const pages = [
   <li><strong>Automating your own templates is free for three.</strong> Upload up to three of your own Word templates and generate unlimited documents from them.</li>
   <li><strong>Pro pays for the work.</strong> Firms that automate more of their own documents, or need calculations, encryption or client intake forms, buy a <a href="${rel}pricing/">Pro or Team license</a>.</li>
 </ul>
-<p>There are no ads, no affiliate links, no analytics and no tracking cookies, and we never sell or share data. That is not a policy we could quietly change: the app has no server to send your data to.</p>
+<p>${ANALYTICS_ON ? 'There are no ads, no affiliate links and no tracking cookies, and we never sell or share data. The app has no analytics at all; this website counts anonymous page views with Cloudflare Web Analytics, which uses no cookies and does not track individual visitors.' : 'There are no ads, no affiliate links, no analytics and no tracking cookies, and we never sell or share data.'} That is not a policy we could quietly change: the app has no server to send your data to.</p>
 <h2>How it is built</h2>
 <ul>
   <li>Plain HTML, CSS and JavaScript modules, with no framework and no third-party requests at runtime.</li>
