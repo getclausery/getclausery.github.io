@@ -88,3 +88,33 @@ test('the page counter lives in site.js, which the app and embedded calculators 
     assert.match(html('legal/privacy.html'), /We do not add cookies, analytics or tracking of any kind/);
   }
 });
+
+test('license wording matches the checkout state, and the app CSP allows only the license service besides itself', async () => {
+  const { ONLINE_KEYS, CHECKOUT_SINCE } = await import('../../tools/partials.mjs');
+  const { LICENSE_SERVICE } = await import('../../app/config.js');
+  const csp = html('app/index.html').match(/connect-src ([^;]+);/)[1].trim().split(/\s+/);
+  assert.deepEqual(csp, LICENSE_SERVICE.api ? ["'self'", new URL(LICENSE_SERVICE.api).origin] : ["'self'"]);
+  const privacy = html('legal/privacy.html'), pricing = html('pricing/index.html');
+  if (ONLINE_KEYS) {
+    assert.match(CHECKOUT_SINCE, /^\d{4}-\d{2}-\d{2}$/, 'set CHECKOUT_SINCE in app/config.js when checkout goes live');
+    assert.match(privacy, /Lemon Squeezy/);
+    assert.doesNotMatch(pricing, /never contacts a license server|never checks in with a server/);
+  } else {
+    assert.doesNotMatch(privacy, /Lemon Squeezy/);
+    assert.match(pricing, /never checks in with a server/);
+  }
+});
+
+test('every template page shows a first-page preview that is up to date with its sample', async () => {
+  const { PREVIEW_DIR, PREVIEW_HASHES, previewHash } = await import('../../tools/preview.mjs');
+  const hashes = JSON.parse(readFileSync(PREVIEW_HASHES, 'utf8'));
+  for (const t of LIB) {
+    assert.equal(hashes[t.slug], previewHash(t), `${t.slug}: preview is stale, run npm run previews`);
+    assert.ok(readFileSync(`${PREVIEW_DIR}/${t.slug}.jpg`).length > 5000, t.slug);
+    const page = html(`templates/${t.slug}.html`);
+    assert.match(page, new RegExp(`<img src="\\.\\./assets/previews/${t.slug}\\.jpg" width="\\d+" height="\\d+" loading="lazy"`), t.slug);
+    const doc = ld(page).find((x) => x['@type'] === 'DigitalDocument');
+    assert.equal(doc.thumbnailUrl, `https://getclausery.github.io/assets/previews/${t.slug}.jpg`, t.slug);
+  }
+  assert.deepEqual(Object.keys(hashes).sort(), LIB.map((t) => t.slug).sort());
+});
