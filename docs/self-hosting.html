@@ -58,7 +58,7 @@ Referrer-Policy: no-referrer
 Permissions-Policy: camera=(), microphone=(), geolocation=()
 Cache-Control: no-cache   (for HTML; long max-age for vendor/ and assets/)</code></pre>
 <h2>Licensing your deployment</h2>
-<p>To issue your own license keys (Enterprise), generate a key pair with <code>npm run license -- keygen</code>, put the public key in <code>app/config.js</code> and keep the private key offline. Issue keys with <code>npm run license -- issue</code>. The app then accepts only keys signed by you.</p>
+<p>To issue your own license keys (Enterprise), generate a key pair with <code>npm run license -- keygen</code>, put the public key in <code>app/config.js</code> and keep the private key offline. Issue keys with <code>npm run license -- issue</code>. The app then accepts only keys signed by you. Set <code>LICENSE_SERVICE.api</code> to an empty string in the same file so the app never accepts or checks online keys; the headers above already leave the license service out of <code>connect-src</code>.</p>
 <h2>Updating</h2>
 <p>Replace the folder with the new version. The service worker version changes with each release and users are prompted to reload. User data is in their browsers, not in the folder, so updates never touch it.</p>
 <h2>GitHub Pages</h2>

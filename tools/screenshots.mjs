@@ -12,15 +12,19 @@ function startServer(port) {
   });
 }
 
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+
+// `--og-missing` renders only the social cards of templates that do not have one yet (after adding templates), and nothing else.
+const OG_MISSING = process.argv.includes('--og-missing');
 
 const port = 4177;
 const server = await startServer(port);
 const base = `http://127.0.0.1:${port}/`;
 const browser = await chromium.launch();
 try {
-  // icons from the SVG
   const svg = readFileSync('assets/icon.svg', 'utf8');
+  if (!OG_MISSING) {
+  // icons from the SVG
   for (const size of [192, 512]) {
     const p = await browser.newPage({ viewport: { width: size, height: size }, deviceScaleFactor: 1 });
     await p.setContent(`<html><body style="margin:0;background:#1b2a41">${svg.replace(/width="64" height="64"/, `width="${size}" height="${size}"`)}</body></html>`);
@@ -38,11 +42,13 @@ try {
   writeFileSync('assets/og.png', await og.screenshot({ type: 'png' }));
   await og.close();
 
+  }
   // one social card per library template, so shared links show the template's own name
   const { LIB } = await import('../site/library.mjs');
   mkdirSync('assets/og', { recursive: true });
   const card = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
   for (const t of LIB) {
+    if (OG_MISSING && existsSync(`assets/og/${t.slug}.png`)) continue;
     const name = t.name.replace(/[&<>]/g, '');
     await card.setContent(`<html><body style="margin:0;width:1200px;height:630px;background:#1b2a41;color:#fff;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;display:flex;flex-direction:column;justify-content:center;padding:72px;box-sizing:border-box">
       <div style="display:flex;align-items:center;gap:16px;margin-bottom:40px">${svg}<span style="font-size:32px;font-weight:800">Clausery</span><span style="margin-left:12px;font-size:20px;font-weight:700;background:#0f766e;padding:6px 14px;border-radius:8px">${t.category}</span></div>
@@ -53,6 +59,7 @@ try {
     writeFileSync(`assets/og/${t.slug}.png`, await card.screenshot({ type: 'png' }));
   }
   await card.close();
+  if (OG_MISSING) { await browser.close(); server.kill(); process.exit(0); }
 
   // app screenshots: seed a template + draft, then capture the interview and designer in light mode
   const page = await browser.newPage({ viewport: { width: 1200, height: 800 }, deviceScaleFactor: 1, colorScheme: 'light' });

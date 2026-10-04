@@ -1,4 +1,4 @@
-import { faqLd, SITE } from '../tools/partials.mjs';
+import { faqLd, SITE, ONLINE_KEYS } from '../tools/partials.mjs';
 import { CHECKOUT_URLS, KEY_REQUEST_URL } from '../app/config.js';
 
 // The page is built for the checkout setup in app/config.js, so crawlers and visitors without scripts see the right
@@ -12,6 +12,8 @@ const FAQ = [
   ['Is there a free trial of Pro?', 'The Free plan has no time limit, so you can evaluate the core product for as long as you like. If you need to test a Pro feature before buying, request a 14-day trial key.'],
   ['What happens when a license expires?', 'The app falls back to the Free plan. Everything you created stays on your device and keeps working; only the Pro-gated features pause until you renew.'],
   ['Do you offer discounts for legal aid, nonprofits or education?', 'Yes: 50% off Pro and Team. Say which organisation you work for when you request a key.'],
+  ONLINE_KEYS ? ['Does the app contact a server to check my license?', 'Only for keys bought online: the app checks the key with Lemon Squeezy, our payment provider, when you activate it and about once a week, and keeps working offline for up to 30 days between checks. Only the key is sent; your templates, answers and documents never leave your browser. Firms that need no network at all can ask for an offline key.']
+    : ['Does the app contact a server to check my license?', 'No. A license key is verified on your device with a cryptographic signature, so it works offline and nothing is sent anywhere.'],
   ['Can I get an invoice or pay by bank transfer?', 'Team and Enterprise customers can pay by invoice. Ask for one when you request a key.'],
 ];
 // The paid plans as structured data, so search engines can read the prices on this page.
@@ -21,13 +23,13 @@ const plansLd = `<script type="application/ld+json">${JSON.stringify({ '@context
 
 export const pages = [{
   path: 'pricing/', title: 'Pricing', extraHead: plansLd + faqLd(FAQ),
-  description: 'Clausery pricing: every library template free, plus three of your own; Pro from $19 per user per month for unlimited templates, calculations, encryption and intake forms.',
+  description: 'Clausery pricing: every library template free, plus three of your own. Pro from $19 per user per month for unlimited templates, calculations and encryption.',
   body: (rel) => `
 <section class="section">
   <div class="wrap">
     <div style="text-align:center;max-width:44rem;margin:0 auto 2.5rem">
       <h1>Simple pricing. No per-document fees.</h1>
-      <p class="lead" style="margin:0 auto">Every plan runs entirely in your browser. A license is a signed key that unlocks features offline; it never checks in with a server.</p>
+      <p class="lead" style="margin:0 auto">${ONLINE_KEYS ? 'Every plan runs entirely in your browser, and your documents never leave it. Buy online and your license key arrives straight away.' : 'Every plan runs entirely in your browser. A license is a signed key that unlocks features offline; it never checks in with a server.'}</p>
     </div>
     <div class="plans">
       <div class="plan">
@@ -100,9 +102,9 @@ export const pages = [{
   <div class="wrap" style="max-width:48rem">
     <h2>How buying works</h2>
     <ol${CHECKOUT ? '' : ' hidden'} data-when-checkout>
-      <li><strong>Check out</strong> through our hosted payment page. You receive a license key by email within minutes.</li>
-      <li><strong>Paste the key</strong> in the app under Settings → License. The key is verified offline with a cryptographic signature; the app never contacts a license server.</li>
-      <li><strong>Use it on every device</strong> you work from. Keep the key somewhere safe; it is your proof of purchase.</li>
+      <li><strong>Check out</strong> through our hosted payment page${ONLINE_KEYS ? ' (Lemon Squeezy). Your license key is on the confirmation page and in your receipt email straight away.' : '. You receive a license key by email within minutes.'}</li>
+      <li><strong>Paste the key</strong> in the app under Settings → License. ${ONLINE_KEYS ? 'The app checks it with Lemon Squeezy when you activate it and about once a week, sending only the key; your documents never leave your browser.' : 'The key is verified offline with a cryptographic signature; the app never contacts a license server.'}</li>
+      <li><strong>Use it on every device</strong> you work from. ${ONLINE_KEYS ? 'Renewals apply on their own, and you can cancel or switch plans any time from the customer portal.' : 'Keep the key somewhere safe; it is your proof of purchase.'}</li>
     </ol>
     <div${CHECKOUT ? ' hidden' : ''} data-when-no-checkout>
       <p>Online checkout is not open yet, so keys are issued on request:</p>

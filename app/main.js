@@ -1,8 +1,9 @@
 /* Clausery app bootstrap: opens the local store, checks the license, handles the vault lock, wires routes. */
-import { APP_VERSION, DEFAULT_SETTINGS, licensePublicKey, CHECKOUT_URLS, CONTACT_URL, KEY_REQUEST_URL, SITE_URL } from './config.js';
+import { APP_VERSION, DEFAULT_SETTINGS, licensePublicKey, CHECKOUT_URLS, CONTACT_URL, KEY_REQUEST_URL, SITE_URL, LICENSE_SERVICE } from './config.js';
 import { Store, LockedError } from './lib/store.js';
 import { Plan, FEATURE_LABELS } from './lib/plan.js';
 import { verifyKey } from './lib/license.js';
+import { isOnlineKey, isOnlineRecord, activateOnline, validateOnline, deactivateOnline, evaluateOnline } from './lib/onlinelicense.js';
 import { Router } from './ui/router.js';
 import { h, icon, toast, modal, confirmDialog, setTitle, setChildren, closeAllModals } from './ui/dom.js';
 import { nowISO } from './lib/schema.js';
@@ -21,7 +22,7 @@ const statusEl = document.getElementById('status');
 const isLocal = ['localhost', '127.0.0.1'].includes(location.hostname);
 
 const ctx = {
-  version: APP_VERSION, store, plan, router, main, settings: { ...DEFAULT_SETTINGS }, siteUrl: SITE_URL, contactUrl: CONTACT_URL, keyRequestUrl: KEY_REQUEST_URL, checkoutUrls: CHECKOUT_URLS,
+  version: APP_VERSION, store, plan, router, main, settings: { ...DEFAULT_SETTINGS }, siteUrl: SITE_URL, contactUrl: CONTACT_URL, keyRequestUrl: KEY_REQUEST_URL, checkoutUrls: CHECKOUT_URLS, licenseService: LICENSE_SERVICE,
   navigate: (p) => router.go(p),
   templates: {
     list: async () => (await store.all('templates')).sort((a, b) => (b.updatedAt || '').localeCompare(a.updatedAt || '')),
@@ -47,9 +48,32 @@ const ctx = {
     renderStatus();
   },
   async setLicense(key) {
-    if (!key) { await store.delete('settings', 'license'); plan.set('free'); renderStatus(); return { ok: true }; }
+    const previous = await store.getSetting('license', null);
+    // a key bought online holds an activation slot: give it back (best effort) when it is removed or replaced
+    const release = () => { if (isOnlineRecord(previous) && previous.key !== String(key || '').trim()) deactivateOnline(previous, LICENSE_SERVICE).catch(() => {}); };
+    if (!key) { await store.delete('settings', 'license'); plan.set('free'); renderStatus(); release(); return { ok: true }; }
+    if (isOnlineKey(key)) {
+      const res = await activateOnline(key, LICENSE_SERVICE);
+      if (res.ok) { await store.setSetting('license', res.record); plan.set(res.plan, res.payload); renderStatus(); release(); }
+      return res;
+    }
     const res = await verifyKey(key, licensePublicKey());
-    if (res.ok) { await store.setSetting('license', key); plan.set(res.plan, res.payload); renderStatus(); }
+    if (res.ok) { await store.setSetting('license', key); plan.set(res.plan, res.payload); renderStatus(); release(); }
+    return res;
+  },
+  /** Re-check a key bought online now. Returns { ok: true | false | null, error }; null means the service could not be reached. */
+  async recheckLicense() {
+    const rec = await store.getSetting('license', null);
+    if (!isOnlineRecord(rec)) return { ok: null };
+    const res = await validateOnline(rec, LICENSE_SERVICE);
+    if (res.ok === null) return res;
+    await store.setSetting('license', res.record);
+    const wasPaid = plan.isPaid;
+    if (res.ok) plan.set(res.plan, res.payload);
+    else plan.set('free', null, res.error);
+    renderStatus();
+    if (!res.ok && wasPaid) toast(res.error + ' The workspace is back on the Free plan; everything you made is still here.', { type: 'warn', timeout: 10000 });
+    if (res.ok && !wasPaid) toast(`${plan.name} plan restored.`, { type: 'ok' });
     return res;
   },
   requirePlan(feature, opts = {}) {
@@ -161,7 +185,13 @@ async function boot() {
   store.vaultMeta = await store.getSetting('vault', null);
   if (!store.vaultMeta && await store.hasEncryptedRecords()) store.vaultMeta = { missing: true };
   const licenseKey = await store.getSetting('license', null);
-  if (licenseKey) {
+  if (isOnlineRecord(licenseKey)) {
+    // decide from the stored record so the app opens instantly and offline; re-check in the background when due
+    const ev = evaluateOnline(licenseKey);
+    if (ev.ok) plan.set(ev.plan, ev.payload); else plan.set('free', null, ev.error);
+    if (ev.due && navigator.onLine !== false) ctx.recheckLicense().then((r) => { if (!ev.ok && r.ok !== true) toast(r.error || ev.error, { type: 'warn', timeout: 10000 }); }).catch(() => {});
+    else if (!ev.ok) toast(ev.error, { type: 'warn', timeout: 10000 });
+  } else if (licenseKey) {
     const res = await verifyKey(licenseKey, licensePublicKey());
     if (res.ok) plan.set(res.plan, res.payload); else { plan.set('free', null, res.error); toast(res.expired ? 'Your license has expired. The workspace is back on the Free plan.' : 'The stored license key is not valid for this deployment.', { type: 'warn', timeout: 8000 }); }
   }

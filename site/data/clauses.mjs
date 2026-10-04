@@ -6,6 +6,7 @@ export const GROUPS = ['Risk and liability', 'Confidentiality and restrictions',
 export const CLAUSES = [
   {
     slug: 'indemnification-clause', name: 'Indemnification clause', group: 'Risk and liability',
+    description: 'What an indemnification clause does: who covers which losses and third-party claims, with free sample wording to copy and what to check before signing.',
     what: 'An indemnity is a promise by one party to cover the other party\'s losses if a specified kind of claim arises, most often a claim by a third party caused by the first party\'s breach, negligence or infringement of someone else\'s intellectual property.',
     when: 'Use one wherever a party\'s mistakes could expose the other party to claims from outsiders: service and supply agreements, software and content licences, and contractor agreements where the contractor creates material the client will publish.',
     sample: `The Supplier shall indemnify, defend and hold harmless the Customer and its officers, employees and agents from and against all losses, damages, liabilities, costs and expenses (including reasonable legal fees) arising out of any third-party claim to the extent caused by (a) the Supplier's breach of this Agreement, (b) the negligence or wilful misconduct of the Supplier or its personnel, or (c) any allegation that the Deliverables infringe the intellectual property rights of a third party.
@@ -29,6 +30,7 @@ Each party gives the same indemnity to the other on reciprocal terms.
   },
   {
     slug: 'limitation-of-liability-clause', name: 'Limitation of liability clause', group: 'Risk and liability',
+    description: 'What a limitation of liability clause does: caps on damages, excluded losses and carve-outs, with free sample wording and what to check before signing.',
     what: 'A limitation of liability clause caps how much one party can recover from the other, and usually excludes whole categories of loss, such as lost profits and indirect or consequential damages.',
     when: 'Almost every commercial contract has one. It matters most for service providers and software vendors, whose fees are small compared with the losses a customer could claim if something goes wrong.',
     sample: `Nothing in this Agreement limits or excludes any liability that cannot be limited or excluded by law, including liability for fraud or for death or personal injury caused by negligence.
@@ -49,6 +51,7 @@ Subject to the paragraph above: (a) neither party shall be liable to the other f
   },
   {
     slug: 'force-majeure-clause', name: 'Force majeure clause', group: 'Risk and liability',
+    description: 'What a force majeure clause does: which events excuse performance, notice, suspension and termination, with free sample wording and what to check.',
     what: 'A force majeure clause excuses a party from performing, for as long as an extraordinary event outside its control prevents it: natural disasters, war, epidemics, government orders and similar events.',
     when: 'Use one in any contract with ongoing obligations, especially supply, services, events and construction work, where outside events could make performance impossible for a while.',
     sample: `Neither party shall be in breach of this Agreement or liable for any failure or delay in performing its obligations (other than an obligation to pay money) to the extent that the failure or delay results from an event beyond its reasonable control, including natural disaster, epidemic or pandemic, war, terrorism, riot, government action, fire, flood, or failure of public utilities or communications networks (a "Force Majeure Event").
@@ -71,6 +74,7 @@ If a Force Majeure Event prevents performance for more than {force_majeure_days}
   },
   {
     slug: 'confidentiality-clause', name: 'Confidentiality clause', group: 'Confidentiality and restrictions',
+    description: 'What a confidentiality clause covers: what counts as confidential, permitted use and disclosure, exceptions and duration, with free sample wording.',
     what: 'A confidentiality clause obliges a party to keep the other party\'s non-public information secret, use it only for the purpose of the contract, and share it only with people who need to know it.',
     when: 'Include one in any contract where either side will see non-public information: services, consulting, employment, contractor and partnership agreements. When there is no other contract yet, a standalone NDA does the same job.',
     sample: `Each party (the "Recipient") shall keep confidential all information disclosed to it by the other party (the "Discloser") that is marked as confidential or would reasonably be understood to be confidential ("Confidential Information"). The Recipient shall use Confidential Information only to perform its obligations or exercise its rights under this Agreement, and shall disclose it only to its employees, officers, professional advisers and subcontractors who need to know it for that purpose and who are bound by confidentiality obligations no less protective than this clause.
@@ -96,6 +100,7 @@ These obligations continue for {confidentiality_years} years after this Agreemen
   },
   {
     slug: 'non-solicitation-clause', name: 'Non-solicitation clause', group: 'Confidentiality and restrictions',
+    description: 'What a non-solicitation clause does: no poaching staff or clients for a set period, how far it can reach, with free sample wording and what to check.',
     what: 'A non-solicitation clause stops a party from actively approaching the other party\'s employees, contractors or customers for a period, usually during the contract and for a time after it ends.',
     when: 'Common in consulting, outsourcing and agency agreements, where one side\'s staff work closely with the other\'s, and in employment contracts to protect customer relationships.',
     sample: `During the term of this Agreement and for twelve (12) months after it ends, neither party shall, without the other party's prior written consent, directly or indirectly solicit or entice away, or attempt to solicit or entice away, any employee or contractor of the other party with whom it had material contact in connection with this Agreement.
@@ -116,6 +121,7 @@ This clause does not prevent either party from placing general advertisements th
   },
   {
     slug: 'non-compete-clause', name: 'Non-compete clause', group: 'Confidentiality and restrictions',
+    description: 'What a non-compete clause does: scope, duration and area limits, and when courts enforce them, with free sample wording and what to check before use.',
     what: 'A non-compete clause prevents a person or business from working for, or running, a competing business for a period and within an area after a relationship ends.',
     when: 'Mostly used in senior employment contracts and in the sale of a business, where the buyer pays for goodwill that the seller could otherwise take straight back.',
     sample: `For six (6) months after the Termination Date, the Employee shall not, within [the geographic area], be employed by, engaged by or provide services to any business that competes with the business of the Company in which the Employee was materially involved during the twelve (12) months before the Termination Date.
@@ -138,6 +144,7 @@ For {non_compete_months} months after the Termination Date, the Employee shall n
   },
   {
     slug: 'payment-terms-clause', name: 'Payment terms clause', group: 'Money',
+    description: 'What a payment terms clause sets out: invoicing, due dates, currency and payment method, with free sample wording and what to check before signing.',
     what: 'The payment terms clause says when a party can invoice, how long the other party has to pay, in what currency and by what method, and what happens when an invoice is disputed.',
     when: 'Every contract where money changes hands. Vague payment terms are one of the most common causes of cash-flow problems for small businesses.',
     sample: `The Supplier shall invoice the Customer monthly in arrears for the Services performed in the previous month. The Customer shall pay each invoice within thirty (30) days of the date of receipt, in US dollars, by bank transfer to the account specified on the invoice.
@@ -161,6 +168,7 @@ All amounts are exclusive of sales tax, value added tax and similar taxes, which
   },
   {
     slug: 'late-payment-interest-clause', name: 'Late payment interest clause', group: 'Money',
+    description: 'What a late payment clause does: interest on overdue invoices, fees and suspending work, with free sample wording and the limits to check.',
     what: 'A late payment clause lets the party that is owed money charge interest on overdue amounts, and often suspend work until it is paid.',
     when: 'Include one in any contract where you invoice for goods or services. Customers pay faster when late payment has a visible cost.',
     sample: `If the Customer fails to pay any amount due under this Agreement by the due date, the Supplier may charge interest on the overdue amount at the rate of one and one-half percent (1.5%) per month, or the maximum rate permitted by law if lower, from the due date until the date of actual payment, whether before or after judgment.
@@ -184,6 +192,7 @@ Overdue amounts bear interest at {interest_rate} from the due date until payment
   },
   {
     slug: 'intellectual-property-clause', name: 'Intellectual property assignment clause', group: 'Work and ownership',
+    description: 'What an intellectual property clause decides: who owns the work, licences back and pre-existing material, with free sample wording and what to check.',
     what: 'An intellectual property clause decides who owns the copyright, designs, inventions and other rights in the work created under a contract, and what each side may do with the other\'s pre-existing material.',
     when: 'Essential whenever a contractor, consultant, agency or developer creates something for a client: code, designs, content, reports or inventions.',
     sample: `The Contractor hereby assigns to the Client all intellectual property rights in the Deliverables, including by way of present assignment of future rights, with effect from their creation or, if later, from payment in full of the fees for the relevant Deliverables. The Contractor shall sign any documents and do anything else reasonably required to confirm or register the Client's ownership.
@@ -208,6 +217,7 @@ The Contractor retains ownership of the Deliverables and grants the Client a non
   },
   {
     slug: 'warranty-clause', name: 'Warranty clause', group: 'Work and ownership',
+    description: 'What a warranty clause promises: quality, fitness and compliance, remedies and disclaimers, with free sample wording and what to check before signing.',
     what: 'A warranty is a contractual promise about a fact or about quality, such as that services will be performed with reasonable skill and care, or that software will work as specified for 90 days. The warranty clause also sets the remedy when the promise is broken.',
     when: 'Used in services, software, supply and sale agreements. Buyers want clear promises; sellers want clear limits and a defined remedy.',
     sample: `The Supplier warrants that (a) the Services will be performed with reasonable skill and care and in accordance with good industry practice; (b) the Deliverables will conform in all material respects to their specification for ninety (90) days after delivery; and (c) it has all rights necessary to grant the rights granted under this Agreement.
@@ -230,6 +240,7 @@ Except as expressly set out in this Agreement, all warranties, conditions and ot
   },
   {
     slug: 'independent-contractor-clause', name: 'Independent contractor clause', group: 'Work and ownership',
+    description: 'What an independent contractor clause records: not an employee, own tools, taxes and benefits, with free sample wording and the misclassification risks.',
     what: 'This clause records that a person is engaged as an independent business, not as an employee, and that they are responsible for their own taxes, insurance and working arrangements.',
     when: 'Include it in every contractor, freelancer and consulting agreement. It sets expectations, although it does not decide the legal question on its own.',
     sample: `The Contractor is an independent contractor and not an employee, worker, partner or agent of the Client. The Contractor determines the manner and means by which the Services are performed, may provide services to other clients during the term of this Agreement, and supplies its own equipment.
@@ -250,6 +261,7 @@ The Contractor is solely responsible for all income tax, social security contrib
   },
   {
     slug: 'termination-for-convenience-clause', name: 'Termination for convenience clause', group: 'Ending the contract',
+    description: 'What a termination for convenience clause allows: ending a contract without a reason on notice, with free sample wording and what to check.',
     what: 'A termination for convenience clause lets a party end the contract without giving any reason, usually on a period of written notice.',
     when: 'Common in services, consulting and outsourcing contracts, and in public-sector contracts. Customers want flexibility; suppliers want enough notice to replace the work.',
     sample: `Either party may terminate this Agreement at any time for any reason by giving the other party at least thirty (30) days' written notice.
@@ -270,6 +282,7 @@ On termination under this clause, the Customer shall pay the Supplier for all Se
   },
   {
     slug: 'termination-for-cause-clause', name: 'Termination for cause clause', group: 'Ending the contract',
+    description: 'What a termination for cause clause allows: ending a contract after a material breach and cure period, with free sample wording and what to check.',
     what: 'A termination for cause clause lets a party end the contract when the other party commits a material breach and does not fix it in time, or becomes insolvent.',
     when: 'Every contract with ongoing obligations should have one, so both sides know exactly when a problem is serious enough to walk away.',
     sample: `Either party may terminate this Agreement with immediate effect by giving written notice to the other party if:
@@ -292,6 +305,7 @@ On termination under this clause, the Customer shall pay the Supplier for all Se
   },
   {
     slug: 'survival-clause', name: 'Survival clause', group: 'Ending the contract',
+    description: 'What a survival clause does: which obligations continue after a contract ends, such as confidentiality and payment, with free sample wording.',
     what: 'A survival clause lists the obligations that continue after a contract ends, such as confidentiality, payment, indemnities and limits on liability.',
     when: 'Include one in any contract with obligations that should outlive it. Without it, parties may argue about whether a clause ended with the contract.',
     sample: `Termination or expiry of this Agreement shall not affect any rights, remedies, obligations or liabilities of the parties that have accrued up to the date of termination or expiry, including the right to claim damages for any breach that existed at or before that date.
@@ -311,6 +325,7 @@ The clauses headed Confidentiality, Intellectual Property, Indemnity, Limitation
   },
   {
     slug: 'governing-law-clause', name: 'Governing law and jurisdiction clause', group: 'Law and disputes',
+    description: 'What a governing law clause does: which law applies to a contract and where disputes are heard, with free sample wording and what to check.',
     what: 'A governing law clause chooses which country\'s or state\'s law applies to the contract. A jurisdiction clause chooses which courts will hear disputes about it. They are separate choices, usually placed together.',
     when: 'Every contract should have both, and they matter most when the parties are in different states or countries.',
     sample: `This Agreement and any dispute or claim (including non-contractual disputes or claims) arising out of or in connection with it or its subject matter or formation shall be governed by and construed in accordance with the laws of the State of New York, without regard to its conflict of laws principles.
@@ -331,6 +346,7 @@ The courts of the State of New York sitting in New York County, and the United S
   },
   {
     slug: 'dispute-resolution-clause', name: 'Dispute resolution clause', group: 'Law and disputes',
+    description: 'What a dispute resolution clause sets out: negotiation, mediation, arbitration or court, with free sample wording and what to check before signing.',
     what: 'A dispute resolution clause sets out the steps the parties must take when they disagree: usually negotiation between senior people first, then mediation, then arbitration or court.',
     when: 'Useful in long-term commercial relationships, international contracts, and anywhere confidentiality or speed matters more than a public court judgment.',
     sample: `If any dispute arises out of or in connection with this Agreement, either party may give the other written notice of the dispute. Senior representatives of each party with authority to settle the dispute shall meet within fourteen (14) days of the notice and attempt in good faith to resolve it.
@@ -353,6 +369,7 @@ Nothing in this clause prevents either party from seeking urgent interim or inju
   },
   {
     slug: 'notices-clause', name: 'Notices clause', group: 'Boilerplate',
+    description: 'What a notices clause covers: how formal notices must be sent, to which address and when they count as received, with free sample wording.',
     what: 'A notices clause says how formal notices under the contract, such as notices of breach, renewal or termination, must be sent, to which address, and when they count as received.',
     when: 'Every contract that allows termination, renewal or claims on notice. A termination sent the wrong way can be invalid.',
     sample: `Any notice given under or in connection with this Agreement shall be in writing and shall be delivered by hand, sent by pre-paid first-class post or recorded delivery, or sent by email, to the address or email address set out at the start of this Agreement or such other address as a party notifies to the other in writing.
@@ -375,6 +392,7 @@ This clause does not apply to the service of any proceedings or other documents 
   },
   {
     slug: 'entire-agreement-clause', name: 'Entire agreement clause', group: 'Boilerplate',
+    description: 'What an entire agreement (integration) clause does: the written contract replaces earlier emails and promises, with free sample wording and what to check.',
     what: 'An entire agreement clause, also called an integration or merger clause, says that the written contract contains everything the parties agreed, replacing earlier emails, proposals and conversations.',
     when: 'Standard in almost every commercial contract. It stops a party later relying on something said in negotiations that was never written into the contract.',
     sample: `This Agreement constitutes the entire agreement between the parties and supersedes and extinguishes all previous agreements, promises, assurances, warranties, representations and understandings between them, whether written or oral, relating to its subject matter.
@@ -395,6 +413,7 @@ Each party acknowledges that in entering into this Agreement it does not rely on
   },
   {
     slug: 'severability-clause', name: 'Severability clause', group: 'Boilerplate',
+    description: 'What a severability clause does: an invalid term is cut out and the rest of the contract stands, with free sample wording and what to check.',
     what: 'A severability clause says that if one part of the contract is invalid or unenforceable, the rest of the contract still stands, and the invalid part is trimmed or removed.',
     when: 'Standard in commercial and employment contracts, and particularly useful where a clause, such as a restrictive covenant, might be found too wide.',
     sample: `If any provision or part-provision of this Agreement is or becomes invalid, illegal or unenforceable, it shall be deemed modified to the minimum extent necessary to make it valid, legal and enforceable. If such modification is not possible, the relevant provision or part-provision shall be deemed deleted.
@@ -414,6 +433,7 @@ Any modification to or deletion of a provision or part-provision under this clau
   },
   {
     slug: 'assignment-clause', name: 'Assignment clause', group: 'Boilerplate',
+    description: 'What an assignment clause decides: whether a party can transfer the contract or its rights, consent and change of control, with free sample wording.',
     what: 'An assignment clause says whether a party can transfer its rights under the contract to someone else, for example when it sells its business, and on what conditions.',
     when: 'Every contract. It matters most when either party might be acquired, reorganise into a new company, or want to subcontract the work.',
     sample: `Neither party may assign, transfer, subcontract or deal in any other manner with any of its rights or obligations under this Agreement without the prior written consent of the other party, such consent not to be unreasonably withheld or delayed.
@@ -434,6 +454,7 @@ However, either party may assign this Agreement in its entirety, without consent
   },
   {
     slug: 'amendment-clause', name: 'Amendment clause', group: 'Boilerplate',
+    description: 'What an amendment clause requires: changes in writing, signed by both parties, with free sample wording and what to check before you sign.',
     what: 'An amendment or variation clause says how the contract can be changed, usually only by a written document signed by both parties.',
     when: 'Every contract. It prevents arguments that a phone call or a casual email changed the deal.',
     sample: 'No amendment or variation of this Agreement shall be effective unless it is in writing, expressly refers to this Agreement, and is signed by an authorised representative of each party. For this purpose, "writing" does not include email unless the email attaches a document signed in accordance with this clause.',
@@ -451,6 +472,7 @@ However, either party may assign this Agreement in its entirety, without consent
   },
   {
     slug: 'waiver-clause', name: 'Waiver clause', group: 'Boilerplate',
+    description: 'What a no-waiver clause does: not enforcing a right once does not give it up, with free sample wording and what to check before signing.',
     what: 'A no-waiver clause says that if a party does not enforce a right straight away, for example by accepting a late payment without complaint, it has not given that right up.',
     when: 'Standard in commercial contracts, leases and loan documents, where one side routinely tolerates small breaches to keep the relationship working.',
     sample: 'A failure or delay by a party to exercise any right or remedy provided under this Agreement or by law shall not constitute a waiver of that or any other right or remedy, nor shall it prevent or restrict the further exercise of that or any other right or remedy. No single or partial exercise of any right or remedy shall prevent or restrict the further exercise of that or any other right or remedy. A waiver of any right or remedy is only effective if given in writing and shall apply only to the circumstances for which it is given.',
@@ -468,6 +490,7 @@ However, either party may assign this Agreement in its entirety, without consent
   },
   {
     slug: 'electronic-signature-clause', name: 'Counterparts and electronic signature clause', group: 'Boilerplate',
+    description: 'What counterparts and electronic signature clauses allow: signing separate copies and e-signatures, with free sample wording and what to check.',
     what: 'A counterparts clause lets each party sign a separate copy of the contract, with all copies together forming one agreement. An electronic signature clause confirms the parties accept e-signatures and signed PDFs.',
     when: 'In any contract that will be signed remotely, which today means most of them.',
     sample: `This Agreement may be executed in any number of counterparts, each of which when executed shall constitute a duplicate original, but all the counterparts together shall constitute one agreement.
@@ -487,6 +510,7 @@ Transmission of an executed counterpart of this Agreement by email (including in
   },
   {
     slug: 'at-will-employment-clause', name: 'At-will employment clause', group: 'Employment',
+    description: 'What an at-will employment clause says: either side can end employment at any time, the exceptions, with free sample wording and what to check.',
     what: 'An at-will clause states that either the employer or the employee can end the employment at any time, with or without cause or notice, as US law generally allows.',
     when: 'Used in US offer letters, employment agreements and handbooks to preserve at-will status and prevent an argument that employment was for a fixed term.',
     sample: `Your employment with the Company is at will. This means that you or the Company may terminate the employment relationship at any time, with or without cause and with or without notice.

@@ -13,6 +13,15 @@ export const ANALYTICS_TOKEN = SITE_ANALYTICS[1];
 export const ANALYTICS_SINCE = SITE_ANALYTICS[2];
 export const ANALYTICS_ON = Boolean(ANALYTICS_TOKEN);
 export const ANALYTICS_SRC = 'https://static.cloudflareinsights.com/beacon.min.js';
+/* Keys sold through the online checkout are checked with Lemon Squeezy's License API (app/lib/onlinelicense.js). The
+   site describes that only once checkout is live; until then every key is an offline CLSY- key. */
+import { CHECKOUT_URLS, CHECKOUT_SINCE, LICENSE_SERVICE } from '../app/config.js';
+export const ONLINE_KEYS = Object.values(CHECKOUT_URLS).some(Boolean) && Boolean(LICENSE_SERVICE.api);
+export { CHECKOUT_SINCE };
+/** One sentence on how keys are checked, for pages that mention licensing. */
+export const LICENSE_CHECK = ONLINE_KEYS
+  ? 'Keys bought online are checked with Lemon Squeezy, our payment provider, when you activate them and about once a week; only the key is sent, never your documents. Offline keys for air-gapped setups are available on request.'
+  : 'License keys are verified offline with a cryptographic signature; the app never contacts a license server.';
 // Placeholders a page can use for its last-modified date; tools/build-site.mjs swaps in the date from page-dates.json.
 export const LASTMOD = '@@LASTMOD@@';
 export const LASTMOD_LONG = '@@LASTMOD_LONG@@';
@@ -27,13 +36,27 @@ export function clipDescription(d, max = 160) {
   if (stop >= 130) return cut.slice(0, stop + 1);
   return cut.slice(0, cut.lastIndexOf(' ', max - 1)).replace(/[,;:]$/, '') + '…';
 }
+/** A description that fits a search snippet whole: the lead, then as many whole sentences of `text` as fit, then the
+    tail if it still fits. If not even one sentence fits, lead and tail alone (or a word-boundary cut) are used. */
+export function fitSnippet(text, { lead = '', tail = '', max = 158 } = {}) {
+  const join = (...xs) => xs.filter(Boolean).join(' ');
+  let out = lead;
+  for (const sentence of String(text).match(/[^.!?]+[.!?]+(?=\s|$)|[^.!?]+$/g) || []) {
+    const next = join(out, sentence.trim());
+    if (next.length > max) break;
+    out = next;
+  }
+  if (out === lead && !lead) return clipDescription(join(text, tail), max);
+  return join(out, tail).length <= max ? join(out, tail) : out;
+}
 export const faqLd = (faq) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) })}</script>`;
 export const crumbsLd = (items) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map(([name, url], i) => ({ '@type': 'ListItem', position: i + 1, name, item: SITE + url })) })}</script>`;
 export const faqHtml = (faq) => `<div class="faq">${faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>`;
 export function head({ title, description, path, extraHead = '', ogImage = 'assets/og.png', rel: relOverride }) {
   // Search results show about 60 characters of a title; drop the brand suffix rather than have the title cut off.
   // The home title leads with what people search for (free Word templates) and keeps the product positioning.
-  const full = title === 'Clausery' ? 'Clausery: free Word templates, private document automation' :`${title} · Clausery`.length <= 60 ? `${title} · Clausery` : title;
+  // A title that already names Clausery gets no suffix (no "About Clausery · Clausery").
+  const full = title === 'Clausery' ? 'Clausery: free Word templates, private document automation' : /\bClausery\b/.test(title) ? title : `${title} · Clausery`.length <= 60 ? `${title} · Clausery` : title;
   description = clipDescription(description);
   const url = `${SITE}${path}`;
   const depth = path.split('/').filter(Boolean).length - (path.endsWith('/') || path === '' ? 0 : 1);

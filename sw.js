@@ -3,7 +3,7 @@
    background requests (a new release ships a new VERSION, which installs a fresh cache). Pages are network-first so a
    deploy is visible at once; offline, app routes fall back to the app shell and other pages to offline.html.
    VERSION and PRECACHE are written by tools/release.mjs; do not edit them by hand. */
-const VERSION = '1.18.2';
+const VERSION = '1.19.0';
 const CACHE = 'clausery-' + VERSION;
 const BASE = new URL('./', self.location).pathname;
 // PRECACHE:BEGIN
@@ -18,6 +18,7 @@ const PRECACHE = [
   'app/lib/intake.js',
   'app/lib/license.js',
   'app/lib/logic.js',
+  'app/lib/onlinelicense.js',
   'app/lib/plan.js',
   'app/lib/render.js',
   'app/lib/schema.js',
@@ -45,9 +46,14 @@ const PRECACHE = [
   'samples/business-sale-nda.docx',
   'samples/catering-contract.docx',
   'samples/cease-and-desist-letter.docx',
+  'samples/change-order-form.docx',
   'samples/cleaning-services-contract.docx',
+  'samples/coaching-agreement.docx',
+  'samples/consignment-agreement.docx',
   'samples/consulting-agreement.docx',
+  'samples/contract-termination-letter.docx',
   'samples/contractor-nda.docx',
+  'samples/credit-note.docx',
   'samples/employee-nda.docx',
   'samples/employee-warning-letter.docx',
   'samples/employment-agreement.docx',
@@ -56,6 +62,7 @@ const PRECACHE = [
   'samples/engagement-letter.docx',
   'samples/equipment-rental-agreement.docx',
   'samples/event-planning-contract.docx',
+  'samples/expense-reimbursement-form.docx',
   'samples/freelance-writing-contract.docx',
   'samples/general-release.docx',
   'samples/gift-letter.docx',
@@ -65,6 +72,7 @@ const PRECACHE = [
   'samples/internship-offer-letter.docx',
   'samples/invoice.docx',
   'samples/job-description.docx',
+  'samples/landlord-reference-letter.docx',
   'samples/late-rent-notice.docx',
   'samples/lease-renewal-letter.docx',
   'samples/lease-termination-agreement.docx',
@@ -85,8 +93,10 @@ const PRECACHE = [
   'samples/payment-demand-letter.docx',
   'samples/payment-receipt.docx',
   'samples/payment-reminder-letter.docx',
+  'samples/performance-improvement-plan.docx',
   'samples/personal-training-agreement.docx',
   'samples/pet-addendum.docx',
+  'samples/pet-sitting-agreement.docx',
   'samples/photo-release-form.docx',
   'samples/photography-contract.docx',
   'samples/promissory-note.docx',
@@ -94,12 +104,15 @@ const PRECACHE = [
   'samples/purchase-order.docx',
   'samples/quote.docx',
   'samples/reference-letter.docx',
+  'samples/remote-work-agreement.docx',
   'samples/rent-increase-letter.docx',
+  'samples/rent-payment-plan-agreement.docx',
   'samples/rent-receipt.docx',
   'samples/rental-application.docx',
   'samples/residential-lease-agreement.docx',
   'samples/resignation-letter.docx',
   'samples/retainer-agreement.docx',
+  'samples/room-rental-agreement.docx',
   'samples/roommate-agreement.docx',
   'samples/salary-increase-letter.docx',
   'samples/sales-commission-agreement.docx',

@@ -27,16 +27,22 @@ export async function render(ctx) {
     h('fieldset', h('legend', 'Theme'), h('div.radios', [['system', 'Match the system'], ['light', 'Light'], ['dark', 'Dark']].map(([v, l]) => h('label.check', h('input', { type: 'radio', name: 'theme', value: v, checked: (s.theme || 'system') === v, onchange: () => ctx.saveSettings({ theme: v }) }), h('span', l))))));
 
   // ---- license
-  const keyInput = h('textarea.textarea#license-key', { rows: 3, placeholder: 'CLSY-…', spellcheck: false, 'aria-label': 'License key' });
-  const licenseStatus = () => ctx.plan.payload ? h('div.notice.notice-ok', icon('check'), h('div', h('strong', describeLicense(ctx.plan.payload)), h('div.small', 'Licensed to this browser profile. Keep your key: you need it on each device.')))
-    : h('div.notice', icon('info'), h('div', h('strong', 'Free plan. '), 'Every library template plus up to 3 of your own, with unlimited drafts and documents. ', h('a', { href: '../pricing/', target: '_blank', rel: 'noopener' }, 'Compare plans')));
+  const svc = ctx.licenseService || {};
+  const online = ctx.plan.payload && ctx.plan.payload.source === 'online';
+  const keyInput = h('textarea.textarea#license-key', { rows: 3, placeholder: 'Paste the license key from your receipt email', spellcheck: false, 'aria-label': 'License key' });
+  const checkedOn = (iso) => { const d = new Date(iso); return Number.isFinite(d.getTime()) ? d.toLocaleDateString(s.locale || undefined, { day: 'numeric', month: 'long', year: 'numeric' }) : 'never'; };
+  const licenseStatus = () => ctx.plan.payload ? h('div.notice.notice-ok', icon('check'), h('div', h('strong', describeLicense(ctx.plan.payload)),
+      h('div.small', online ? `Active in this browser. Last checked with our payment provider on ${checkedOn(ctx.plan.payload.checkedAt)}. Use the same key on your other devices.` : 'Licensed to this browser profile. Keep your key: you need it on each device.')))
+    : h('div.notice', icon('info'), h('div', h('strong', 'Free plan. '), ctx.plan.error ? h('span', ctx.plan.error, ' ') : 'Every library template plus up to 3 of your own, with unlimited drafts and documents. ', h('a', { href: '../pricing/', target: '_blank', rel: 'noopener' }, 'Compare plans')));
   const licenseBox = h('div', licenseStatus());
-  const license = section('license', 'License', 'Keys are verified offline with a signature. No account, no phone-home.',
+  const license = section('license', 'License', svc.api ? 'Your documents are never sent anywhere. A key bought online is checked with Lemon Squeezy, our payment provider, when you activate it and about once a week; only the key is sent. Offline keys (CLSY-…) are verified on this device with a signature.' : 'Keys are verified offline with a signature. No account, no phone-home.',
     licenseBox,
     h('ul.feature-list', { style: { margin: '1rem 0' } }, Object.entries(FEATURE_LABELS).map(([k, l]) => h('li', ctx.plan.can(k) ? icon('check', 16) : h('span', { style: { width: '16px', display: 'inline-block', color: 'var(--muted)' } }, '·'), l))),
     h('div.stack-sm', row('License key', keyInput), h('div.row',
-      h('button.btn.btn-primary', { type: 'button', onclick: async () => { const k = keyInput.value.trim(); if (!k) { toast('Paste a license key first.', { type: 'warn' }); keyInput.focus(); return; } const res = await ctx.setLicense(k); if (res.ok) { toast(`${ctx.plan.name} plan activated.`, { type: 'ok' }); keyInput.value = ''; ctx.router.resolve(); } else toast(res.error, { type: 'danger', timeout: 8000 }); } }, icon('key', 16), 'Activate'),
-      ctx.plan.payload ? h('button.btn.btn-ghost', { type: 'button', onclick: async () => { if (!await confirmDialog({ title: 'Remove license?', message: 'This browser goes back to the Free plan. Your templates and drafts are untouched.', confirmLabel: 'Remove' })) return; await ctx.setLicense(''); toast('License removed.'); ctx.router.resolve(); } }, 'Remove license') : null)));
+      h('button.btn.btn-primary', { type: 'button', onclick: async (e) => { const btn = e.currentTarget; const k = keyInput.value.trim(); if (!k) { toast('Paste a license key first.', { type: 'warn' }); keyInput.focus(); return; } btn.disabled = true; const res = await ctx.setLicense(k).finally(() => { btn.disabled = false; }); if (res.ok) { toast(`${ctx.plan.name} plan activated.`, { type: 'ok' }); keyInput.value = ''; ctx.router.resolve(); } else toast(res.error, { type: 'danger', timeout: 8000 }); } }, icon('key', 16), 'Activate'),
+      online ? h('button.btn', { type: 'button', onclick: async () => { const r = await ctx.recheckLicense(); if (r.ok === null) toast('Could not reach the license service. Try again when you are online.', { type: 'warn' }); else if (r.ok) toast('License checked: it is active.', { type: 'ok' }); ctx.router.resolve(); } }, 'Check now') : null,
+      online && svc.portal ? h('a.btn.btn-ghost', { href: svc.portal, target: '_blank', rel: 'noopener' }, 'Manage subscription') : null,
+      ctx.plan.payload ? h('button.btn.btn-ghost', { type: 'button', onclick: async () => { if (!await confirmDialog({ title: 'Remove license?', message: 'This browser goes back to the Free plan and frees its activation, so you can use the key in another browser. Your templates and drafts are untouched.', confirmLabel: 'Remove' })) return; await ctx.setLicense(''); toast('License removed.'); ctx.router.resolve(); } }, 'Remove license') : null)));
 
   // ---- security / vault
   const vaultOn = !!ctx.store.vaultMeta;
@@ -88,7 +94,7 @@ export async function render(ctx) {
 
   // ---- about
   const about = section('about', 'About', null,
-    h('dl.kv', h('dt', 'Version'), h('dd', ctx.version), h('dt', 'Document engine'), h('dd', `docxtemplater ${VERSIONS.docxtemplater} · pizzip ${VERSIONS.pizzip} · docx-preview ${VERSIONS['docx-preview']}`), h('dt', 'Network use'), h('dd', 'Only Clausery\'s own files, from the site that serves it. Nothing you enter is ever sent anywhere; check the Network tab of your browser to verify.'), h('dt', 'Links'), h('dd', h('a', { href: '../docs/', target: '_blank', rel: 'noopener' }, 'Documentation'), ' · ', h('a', { href: '../docs/security.html', target: '_blank', rel: 'noopener' }, 'Security'), ' · ', h('a', { href: '../legal/privacy.html', target: '_blank', rel: 'noopener' }, 'Privacy'), ' · ', h('a', { href: '../changelog.html', target: '_blank', rel: 'noopener' }, 'Changelog'))));
+    h('dl.kv', h('dt', 'Version'), h('dd', ctx.version), h('dt', 'Document engine'), h('dd', `docxtemplater ${VERSIONS.docxtemplater} · pizzip ${VERSIONS.pizzip} · docx-preview ${VERSIONS['docx-preview']}`), h('dt', 'Network use'), h('dd', 'Only Clausery\'s own files, from the site that serves it', svc.api ? ', plus the license check with Lemon Squeezy if you activate a key bought online (only the key is sent)' : '', '. Nothing you enter is ever sent anywhere; check the Network tab of your browser to verify.'), h('dt', 'Links'), h('dd', h('a', { href: '../docs/', target: '_blank', rel: 'noopener' }, 'Documentation'), ' · ', h('a', { href: '../docs/security.html', target: '_blank', rel: 'noopener' }, 'Security'), ' · ', h('a', { href: '../legal/privacy.html', target: '_blank', rel: 'noopener' }, 'Privacy'), ' · ', h('a', { href: '../changelog.html', target: '_blank', rel: 'noopener' }, 'Changelog'))));
 
   setChildren(ctx.main, h('div.narrow.stack', h('div.page-head', h('div', h('h1', 'Settings'))), profile, appearance, license, security, data, about));
 }

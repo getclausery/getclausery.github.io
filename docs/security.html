@@ -60,7 +60,7 @@
 </ul>
 <h2>Browser hardening</h2>
 <ul>
-  <li>Content Security Policy: <code>default-src 'self'</code>, no inline scripts, no remote scripts, <code>connect-src 'self'</code>, <code>object-src 'none'</code>, <code>form-action 'none'</code>.</li>
+  <li>Content Security Policy: <code>default-src 'self'</code>, no inline scripts, no remote scripts, <code>connect-src 'self' https://api.lemonsqueezy.com</code> (the second origin is used only to check a license key bought online), <code>object-src 'none'</code>, <code>form-action 'none'</code>.</li>
   <li>Referrer policy <code>no-referrer</code> in the app. The app page is marked <code>noindex</code>.</li>
   <li>Exported intake forms carry a CSP of <code>default-src 'none'</code> with inline-only script and style, so they cannot make network requests even when hosted.</li>
   <li>Expressions in templates are evaluated by a purpose-built interpreter, never by <code>eval</code>; identifiers resolve only against the answers object.</li>
