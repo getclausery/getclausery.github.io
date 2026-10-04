@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-10-04",
-  "hash": "2241c2ceb015da28"
+  "hash": "03b203ba49c0d5d7"
  },
  "404.html": {
   "date": "2026-09-27",
@@ -13,7 +13,7 @@
  },
  "changelog.html": {
   "date": "2026-10-04",
-  "hash": "3ec016b966a4bf5f"
+  "hash": "7621de27fa83de7e"
  },
  "clauses/": {
   "date": "2026-10-04",
@@ -269,7 +269,7 @@
  },
  "guides/": {
   "date": "2026-10-04",
-  "hash": "b8bd5544c91da30c"
+  "hash": "29e766163bd5c0c7"
  },
  "guides/are-liability-waivers-enforceable.html": {
   "date": "2026-09-28",
@@ -299,6 +299,10 @@
   "date": "2026-09-26",
   "hash": "4b66e115ee240135"
  },
+ "guides/how-does-consignment-work.html": {
+  "date": "2026-10-04",
+  "hash": "3d71cb1a3b9d6f6a"
+ },
  "guides/how-long-should-an-nda-last.html": {
   "date": "2026-09-27",
   "hash": "1104354ddc33621e"
@@ -310,6 +314,14 @@
  "guides/how-to-return-a-security-deposit.html": {
   "date": "2026-10-01",
   "hash": "8574d56cf72d0e4c"
+ },
+ "guides/how-to-set-up-a-rent-payment-plan.html": {
+  "date": "2026-10-04",
+  "hash": "3bfa9e36cc5466d8"
+ },
+ "guides/how-to-terminate-a-contract.html": {
+  "date": "2026-10-04",
+  "hash": "b8ffbdac51cc9cdc"
  },
  "guides/how-to-write-a-bill-of-sale.html": {
   "date": "2026-09-26",
@@ -338,6 +350,10 @@
  "guides/how-to-write-a-performance-improvement-plan.html": {
   "date": "2026-10-04",
   "hash": "6d4d80c41f049698"
+ },
+ "guides/how-to-write-a-remote-work-agreement.html": {
+  "date": "2026-10-04",
+  "hash": "797548e452ba9bf7"
  },
  "guides/how-to-write-a-rent-increase-letter.html": {
   "date": "2026-10-01",
@@ -501,7 +517,7 @@
  },
  "templates/consignment-agreement.html": {
   "date": "2026-10-04",
-  "hash": "ce58f934ef8fe971"
+  "hash": "1a37dee885185396"
  },
  "templates/consulting-agreement.html": {
   "date": "2026-10-04",
@@ -509,7 +525,7 @@
  },
  "templates/contract-termination-letter.html": {
   "date": "2026-10-04",
-  "hash": "a3925c81b94eaa46"
+  "hash": "8d8ef59827a20c93"
  },
  "templates/contractor-nda.html": {
   "date": "2026-10-04",
@@ -721,7 +737,7 @@
  },
  "templates/remote-work-agreement.html": {
   "date": "2026-10-04",
-  "hash": "14337ee1f9254505"
+  "hash": "9d5e9f6ac1481a39"
  },
  "templates/rent-increase-letter.html": {
   "date": "2026-10-04",
@@ -729,7 +745,7 @@
  },
  "templates/rent-payment-plan-agreement.html": {
   "date": "2026-10-04",
-  "hash": "dc499877ca248470"
+  "hash": "7498b18492f6c8c6"
  },
  "templates/rent-receipt.html": {
   "date": "2026-10-04",
