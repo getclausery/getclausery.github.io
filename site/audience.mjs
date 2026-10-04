@@ -1398,16 +1398,152 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <h2>Free templates</h2>
 <p>The free <a href="${rel}templates/room-rental-agreement.html">room rental agreement template</a> covers each item above, with options for a furnished room, parking, a fixed term or month to month, a late fee, and utilities included or shared. To screen applicants first, use the <a href="${rel}templates/rental-application.html">rental application</a>, and ask previous landlords to fill in a <a href="${rel}templates/landlord-reference-letter.html">landlord reference letter</a>.</p>
 <p class="small muted">General information, not legal advice. Rental law differs between countries, states and cities.</p>` },
+  { slug: 'how-to-write-a-remote-work-agreement', title: 'How to write a remote work agreement (free template)', published: '2026-10-04',
+    sources: [['OSHA Directive CPL 02-00-125: Home-Based Worksites', 'https://www.osha.gov/enforcement/directives/cpl-02-00-125']],
+    description: 'What a remote or hybrid work agreement should cover: work location, hours, equipment, home office costs, security, safety, expenses and how it ends.',
+    body: (rel) => `
+<p class="lead">A remote work agreement sets out how an employee works away from the office: where, when, with what equipment and under which rules. It sits alongside the employment contract and changes how the work is done, not the job itself.</p>
+<h2>Fully remote, hybrid or occasional?</h2>
+<p><strong>Fully remote</strong> means no regular office days. <strong>Hybrid</strong> means set office days each week, with the rest worked from home. Occasional work from home is often covered by a company policy instead of an individual agreement. Say which one applies, and name the office days for a hybrid arrangement.</p>
+<h2>What to include</h2>
+<ol>
+  <li><strong>The arrangement</strong>: fully remote or hybrid, its start date and any trial period.</li>
+  <li><strong>The work location</strong>, and a rule that the employee asks before working from anywhere else.</li>
+  <li><strong>Hours and availability</strong>: working hours, any core hours, time zone, and how to reach the employee.</li>
+  <li><strong>Equipment</strong>: what the company provides, who maintains it, and returning it when the arrangement ends.</li>
+  <li><strong>Home office costs</strong>: any allowance, which expenses are reimbursed and how to claim them.</li>
+  <li><strong>Security and confidentiality</strong>: company devices, secure connections, printed papers, and reporting a lost device.</li>
+  <li><strong>Workspace and safety</strong>: a suitable place to work, and reporting injuries during work as at the office.</li>
+  <li><strong>Review and ending</strong>: when the arrangement is reviewed, the notice either side gives, and the return to the office.</li>
+</ol>
+<h2>Why the work location matters</h2>
+<p>An employee who works from another state or country can bring the employer new payroll tax registrations, a different set of employment laws and insurance questions, even for a few months. That is why the agreement should require approval before any change of work location, including long temporary stays.</p>
+<h2>Hours and overtime</h2>
+<p>Working from home does not change overtime rules. In the US, non-exempt employees must still be paid for all the hours they work, so say how hours are recorded and that overtime needs approval in advance. Core hours (for example 10:00 to 15:00 in the employee's time zone) keep meetings possible without fixing every working minute.</p>
+<h2>Equipment and expenses</h2>
+<p>List what the company provides, and say the employee uses it for work and returns it at the end. Some places require employers to reimburse necessary work expenses; California does so under Labor Code section 2802, which can include part of a personal phone or internet bill used for work. A fixed monthly allowance is simpler to run than itemised claims, but check it covers the real costs where reimbursement is required.</p>
+<h2>Health and safety at home</h2>
+<p>In the US, OSHA's policy is that it will not inspect employees' home offices and does not hold employers liable for them, but work-related injuries at home are still recorded like any other. Other countries can expect more, such as a workstation assessment. Either way, ask employees to keep a safe workspace and report any injury during work promptly.</p>
+<h2>Free templates</h2>
+<p>The free <a href="${rel}templates/remote-work-agreement.html">remote work agreement template</a> covers each item above, with options for hybrid office days, core hours, a home office allowance and the notice to end the arrangement. Use the <a href="${rel}templates/expense-reimbursement-form.html">expense reimbursement form</a> for claims, and the <a href="${rel}templates/employee-nda.html">employee NDA</a> if the role handles confidential information.</p>
+<p class="small muted">General information, not legal advice. Employment, tax and safety rules differ between countries and states.</p>` },
+  { slug: 'how-to-terminate-a-contract', title: 'How to terminate a contract: notice, cause and the letter', published: '2026-10-04',
+    description: 'How to end a business contract properly: read the termination clause, choose cause or convenience, give notice the right way, and what the letter says.',
+    body: (rel) => `
+<p class="lead">Ending a contract is mostly about following the contract itself. Most business contracts say who may end them, for what reasons, with how much notice and how notice must be given. A termination letter that follows those rules ends the relationship cleanly. One that ignores them can itself be a breach.</p>
+<h2>Step 1: read the contract</h2>
+<p>Before writing anything, find these parts of the contract:</p>
+<ul>
+  <li><strong>The termination clause</strong>: whether either side may end the contract <a href="${rel}clauses/termination-for-convenience-clause.html">for convenience</a>, <a href="${rel}clauses/termination-for-cause-clause.html">for cause</a>, or both.</li>
+  <li><strong>The notice period</strong>, and any cure period for breaches.</li>
+  <li><strong>The <a href="${rel}clauses/notices-clause.html">notices clause</a></strong>: how notice must be sent, to which address and to whom.</li>
+  <li><strong>Payment on termination</strong>: work done to date, early termination fees or a kill fee.</li>
+  <li><strong>Terms that <a href="${rel}clauses/survival-clause.html">survive</a></strong>, such as confidentiality, payment and limits on liability.</li>
+  <li><strong>The term</strong>: if the contract ends on a set date or renews automatically, a notice of non-renewal before the deadline may be all you need.</li>
+</ul>
+<h2>For convenience or for cause?</h2>
+<p><strong>For convenience</strong> means ending the contract without giving a reason, as the contract allows, usually on notice and with payment for work done. <strong>For cause</strong> means ending it because the other side breached it. Many contracts require written notice of the breach and a chance to fix it, often 10 to 30 days, before you can terminate for cause.</p>
+<p>Terminating for cause without a valid reason, or skipping the cure period, can let the other side claim that you are the one in breach. Where the contract allows it, some businesses terminate for convenience and reserve their rights over the breach instead.</p>
+<h2>If the contract has no termination clause</h2>
+<p>Ending a fixed-term contract early with no right to do so is usually a breach, unless the other side has seriously breached it first or both sides agree. A short written agreement to end the contract on agreed terms is often the cleanest route. Contracts with no end date can often be ended on reasonable notice, but the rules vary, so get advice before relying on that.</p>
+<h2>What the termination letter should say</h2>
+<ol>
+  <li>The parties and the contract: its name, date and any reference number.</li>
+  <li>That you are terminating it, and the clause you rely on.</li>
+  <li>For cause: the breach, when you gave notice of it, and that it was not fixed in time.</li>
+  <li>The effective date, and how it follows from the notice period.</li>
+  <li>The final invoice or payment, and when it is due.</li>
+  <li>Return or destruction of materials and confidential information.</li>
+  <li>The terms that continue after termination.</li>
+  <li>A reservation of your other rights, and a contact for questions.</li>
+</ol>
+<h2>Sending it</h2>
+<p>Send the letter exactly as the notices clause requires: by email, courier or registered post, to the named address and person. Keep proof of when it was sent and received, because the notice period usually runs from then. The free <a href="${rel}free-tools/deadline-calculator.html">deadline calculator</a> gives the date a 30-day or other notice period ends.</p>
+<p>Keep the tone neutral. A termination letter may later be read by a lawyer or a judge, so stick to dates, clauses and facts.</p>
+<h2>Free template</h2>
+<p>The free <a href="${rel}templates/contract-termination-letter.html">contract termination letter template</a> ends a client, vendor or supplier contract for convenience or for cause, with the clause relied on, the notice period, final payment, return of materials and surviving terms. To change a project instead of ending it, use a <a href="${rel}templates/change-order-form.html">change order</a>. Ending employment or a tenancy follows different rules: see the <a href="${rel}templates/employment-termination-letter.html">employment termination letter</a> and the <a href="${rel}templates/notice-to-vacate.html">notice to vacate</a>.</p>
+<p class="small muted">General information, not legal advice. Contract law differs between countries and states.</p>` },
+  { slug: 'how-does-consignment-work', title: 'How does consignment work? Commission, payouts and risk', published: '2026-10-04',
+    sources: [['UCC § 9-102(a)(20): definition of consignment (Cornell LII)', 'https://www.law.cornell.edu/ucc/9/9-102']],
+    description: 'How consignment works for owners and shops: who owns the goods, typical commission, payouts, unsold items, risk of loss, and what the agreement says.',
+    body: (rel) => `
+<p class="lead">In a consignment, the owner of goods (the consignor) leaves them with a shop, gallery or reseller (the consignee), which sells them and keeps a commission. The consignor keeps ownership until each item sells, and is paid only when it does.</p>
+<h2>How it works, step by step</h2>
+<ol>
+  <li>Both sides agree the terms and list the items, each with a description and a minimum price.</li>
+  <li>The shop displays and sells the items, in store and sometimes online.</li>
+  <li>When an item sells, the shop keeps its commission and pays the rest to the consignor on an agreed schedule, with a statement of what sold.</li>
+  <li>At the end of the consignment period, unsold items are collected, marked down or left for a further period.</li>
+</ol>
+<h2>Consignment or selling to the shop?</h2>
+<p>If the shop buys your goods outright (wholesale), you are paid at once and the shop carries the risk of not selling, but you get a lower price. On consignment you usually get a larger share of the sale price, but only when an item sells, and unsold stock comes back to you. Consignment suits one-off, higher-value or slow-selling items; wholesale suits steady products a shop reorders.</p>
+<h2>Typical commission</h2>
+<p>It depends on the trade: often 20% to 40% for clothing and furniture consignment shops, and 40% to 50% for galleries. Just as important is what the commission is calculated on. Say whether it is a share of the price before or after sales tax, discounts and card fees.</p>
+<h2>What the agreement should cover</h2>
+<ol>
+  <li><strong>The item list</strong>: description, condition and minimum price for each item.</li>
+  <li><strong>Ownership</strong>: the consignor owns the items until they are sold.</li>
+  <li><strong>Where items are sold</strong>, and whether online sales are allowed.</li>
+  <li><strong>Discounts</strong>: whether the shop may mark items down after a set time, and never below the minimum without consent.</li>
+  <li><strong>Commission and payout</strong>: the rate, what it is calculated on, and when the consignor is paid.</li>
+  <li><strong>The consignment period</strong>, and collecting unsold items at the end.</li>
+  <li><strong>Items left behind</strong>: what happens to them after written notice.</li>
+  <li><strong>Care, risk of loss and insurance</strong>, and how either side can end the agreement early.</li>
+</ol>
+<h2>Theft, damage and insurance</h2>
+<p>Items can be stolen, damaged or lost in a fire or flood while at the shop. The agreement should say who bears that risk, and whether the shop's insurance covers goods it holds for others. Consignors should check that it does, since consigned goods are someone else's property and may need to be named on the policy.</p>
+<h2>If the shop goes out of business</h2>
+<p>In the US, some consignments fall under Article 9 of the Uniform Commercial Code: broadly, goods worth $1,000 or more per delivery, that were not consumer goods, delivered to a merchant who is not an auctioneer and is not generally known by its creditors to sell other people's goods. In those cases, a consignor who has not filed a financing statement can lose the goods to the shop's creditors if the shop fails. Many states also have laws for artists who consign work to galleries, which often treat the work and the sale proceeds as held in trust for the artist. Check the rules where you sell.</p>
+<h2>Free template</h2>
+<p>The free <a href="${rel}templates/consignment-agreement.html">consignment agreement template</a> has an item list with minimum prices, the commission and payout timing, optional online sales and discounts, the consignment period, unsold items and the risk of loss. The free <a href="${rel}free-tools/sales-commission.html">sales commission calculator</a> shows the shop's cut and your payout. To sell an item outright instead, use the <a href="${rel}templates/bill-of-sale.html">bill of sale</a>.</p>
+<p class="small muted">General information, not legal advice. Commercial law differs between countries and states.</p>` },
+  { slug: 'how-to-set-up-a-rent-payment-plan', title: 'How to set up a rent payment plan with a tenant', published: '2026-10-04',
+    description: 'How landlords and tenants can agree a payment plan for past-due rent: an affordable schedule, late fees, missed payments and what to put in writing.',
+    body: (rel) => `
+<p class="lead">When a tenant falls behind, a payment plan lets them catch up in instalments while they keep paying the regular rent. For a landlord it is usually quicker and cheaper than an eviction; for a tenant it keeps their home. It only works if the plan is realistic and written down.</p>
+<h2>When a payment plan makes sense</h2>
+<p>A plan works best after a temporary setback, such as a job loss, illness or reduced hours, when the tenant now has enough income to pay the current rent plus something extra. If the tenant cannot cover even the current rent, a plan only delays the problem; rental assistance or an agreed move-out may be better options.</p>
+<h2>Work out an affordable schedule</h2>
+<ol>
+  <li>Agree the exact amount owed up to a set date, itemised: rent, late fees and any other charges.</li>
+  <li>Look at what the tenant can pay on top of the regular rent each month.</li>
+  <li>Spread the balance over enough instalments to make that possible, often three to six months.</li>
+  <li>Set instalment dates that match the tenant's paydays.</li>
+</ol>
+<p>For example, $1,800 of past-due rent could be repaid at $300 a month for six months, on top of the regular rent. The free <a href="${rel}free-tools/late-payment-interest.html">late payment interest calculator</a> shows what the overdue amount has cost if your lease charges interest.</p>
+<h2>What to put in writing</h2>
+<ol>
+  <li>The landlord, the tenant, the property and the lease.</li>
+  <li>The past-due amount and the period it covers.</li>
+  <li>Each instalment date and amount.</li>
+  <li>That the regular rent stays due on time during the plan.</li>
+  <li>How payments are made, and that the tenant may pay off the balance early.</li>
+  <li>Whether late fees already charged are waived if the plan is kept.</li>
+  <li>What happens if a payment is missed: any grace period, and the notice the landlord will give.</li>
+  <li>That the landlord will not evict for the past-due amount while the plan is kept.</li>
+  <li>That the lease otherwise stays the same, and both signatures.</li>
+</ol>
+<h2>Late fees during the plan</h2>
+<p>Offering to waive late fees already charged if the tenant completes the plan gives them a reason to keep to it. Do not charge new late fees on instalments paid on time, and check any local limits on late fees.</p>
+<h2>Eviction rules and partial payments</h2>
+<p>In some places, accepting part of the rent can affect a landlord's right to continue an eviction that has already started, and some cities and states require particular notices or offer mediation first. If an eviction case has been filed, the plan may need to be agreed through the court. Check local rules before relying on the plan.</p>
+<h2>Rental assistance</h2>
+<p>Ask whether local emergency rental assistance is available. Some programmes pay part of the arrears straight to the landlord and set their own conditions, which the plan can then reflect.</p>
+<h2>Keep records</h2>
+<p>Give a receipt for every payment, showing what it was for: regular rent or an instalment. A short note of each payment against the plan avoids arguments about what is still owed.</p>
+<h2>Free templates</h2>
+<p>The free <a href="${rel}templates/rent-payment-plan-agreement.html">rent payment plan agreement template</a> sets out the past-due amount, each instalment, an optional late-fee waiver and what happens if a payment is missed. Use the <a href="${rel}templates/rent-receipt.html">rent receipt</a> for each payment, and the <a href="${rel}templates/late-rent-notice.html">late rent notice</a> if rent falls behind again.</p>
+<p class="small muted">General information, not legal advice. Rental and eviction law differs between countries, states and cities.</p>` },
 ];
 
 // Guides grouped by topic, for the guides index and the related-guides block at the foot of each guide.
 export const GUIDE_TOPICS = [
   ['Automating Word templates', ['automate-word-templates', 'conditional-clauses-in-word', 'repeating-lists-and-tables-in-word', 'mail-merge-vs-document-automation', 'client-intake-without-a-portal', 'confidentiality-checklist-document-software']],
   ['NDAs and restrictive covenants', ['what-to-include-in-an-nda', 'mutual-vs-one-way-nda', 'how-long-should-an-nda-last', 'nda-vs-confidentiality-agreement', 'non-compete-vs-non-solicitation', 'are-non-competes-enforceable']],
-  ['Hiring and HR letters', ['how-to-write-an-offer-letter', 'how-to-write-an-employee-warning-letter', 'how-to-write-a-termination-letter', 'how-to-write-a-two-weeks-notice-letter', 'how-to-write-a-job-description', 'what-to-include-in-a-severance-agreement', 'how-to-write-a-performance-improvement-plan']],
+  ['Hiring and HR letters', ['how-to-write-an-offer-letter', 'how-to-write-an-employee-warning-letter', 'how-to-write-a-termination-letter', 'how-to-write-a-two-weeks-notice-letter', 'how-to-write-a-job-description', 'what-to-include-in-a-severance-agreement', 'how-to-write-a-performance-improvement-plan', 'how-to-write-a-remote-work-agreement']],
   ['Freelancing and getting paid', ['how-to-write-a-freelance-contract', 'what-to-include-in-a-statement-of-work', 'quote-vs-estimate-vs-invoice', 'how-to-write-an-invoice', 'what-is-a-kill-fee', 'what-to-do-when-a-client-wont-pay', 'how-to-write-a-payment-demand-letter', 'what-is-a-change-order', 'what-is-a-credit-note']],
-  ['Landlords and tenants', ['what-to-include-in-a-lease-agreement', 'what-to-include-in-a-roommate-agreement', 'how-to-write-a-rent-increase-letter', 'how-to-write-a-notice-to-vacate', 'how-to-return-a-security-deposit', 'what-to-include-in-a-room-rental-agreement']],
-  ['Business deals, money and releases', ['is-an-mou-legally-binding', 'what-to-include-in-a-partnership-agreement', 'how-to-write-a-bill-of-sale', 'how-to-lend-money-to-family', 'how-to-write-a-gift-letter-for-a-mortgage', 'are-liability-waivers-enforceable', 'what-is-a-hold-harmless-agreement', 'do-i-need-a-model-release']],
+  ['Landlords and tenants', ['what-to-include-in-a-lease-agreement', 'what-to-include-in-a-roommate-agreement', 'how-to-write-a-rent-increase-letter', 'how-to-write-a-notice-to-vacate', 'how-to-return-a-security-deposit', 'what-to-include-in-a-room-rental-agreement', 'how-to-set-up-a-rent-payment-plan']],
+  ['Business deals, money and releases', ['is-an-mou-legally-binding', 'what-to-include-in-a-partnership-agreement', 'how-to-write-a-bill-of-sale', 'how-to-lend-money-to-family', 'how-to-write-a-gift-letter-for-a-mortgage', 'are-liability-waivers-enforceable', 'what-is-a-hold-harmless-agreement', 'do-i-need-a-model-release', 'how-to-terminate-a-contract', 'how-does-consignment-work']],
 ];
 {
   const listed = GUIDE_TOPICS.flatMap(([, slugs]) => slugs);

@@ -158,6 +158,7 @@ export const pages = [{
     <h2>Draft your next document without uploading anything.</h2>
     <p class="lead" style="margin:0 auto">Every library template free, plus three of your own. No account, no card, no trial clock.</p>
     <div class="actions"><a class="btn btn-primary btn-lg" href="${rel}app/">Open Clausery</a><a class="btn btn-lg" href="${rel}pricing/">See plans</a></div>
+    <p class="small muted" style="margin-top:1.5rem">Find Clausery on <a href="https://fazier.com">Fazier</a> · <a href="https://twelve.tools">Twelve Tools</a> · <a href="https://www.uneed.best">Uneed</a> · <a href="https://www.saashub.com">SaaSHub</a></p>
   </div>
 </section>`,
 }];
