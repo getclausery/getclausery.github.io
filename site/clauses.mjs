@@ -1,7 +1,7 @@
 // Clause library: one page per common contract clause (site/data/clauses.mjs) with a plain-English explanation,
 // copyable sample wording, what to check, and the same clause with Clausery tags. Pages link to the free templates
 // that use each clause, and template pages link back (site/library.mjs).
-import { esc, crumbsLd } from '../tools/partials.mjs';
+import { esc, crumbsLd, fitSnippet } from '../tools/partials.mjs';
 import { CLAUSES, GROUPS } from './data/clauses.mjs';
 import { LIB } from './library.mjs';
 
@@ -36,7 +36,7 @@ const COPY_CSS = `<style>
 export const pages = [
   {
     path: 'clauses/', title: 'Contract clause library: sample wording explained',
-    description: `Plain-English explanations and free sample wording for ${CLAUSES.length} common contract clauses: indemnity, limitation of liability, force majeure, confidentiality, non-compete, termination and more.`,
+    description: `Free sample wording for ${CLAUSES.length} common contract clauses, explained in plain English: indemnity, limitation of liability, force majeure, non-compete and more.`,
     extraHead: crumbsLd([['Home', ''], ['Clause library', 'clauses/']]),
     body: (rel) => `
 <section class="section"><div class="wrap" style="max-width:60rem">
@@ -60,7 +60,7 @@ export const pages = [
     const related = CLAUSES.filter((x) => x.group === c.group && x.slug !== c.slug);
     return {
       path: `clauses/${c.slug}.html`, title: `${c.name}: meaning and sample wording`.length <= 60 ? `${c.name}: meaning and sample wording` : `${c.name}: sample wording`, feed: true, published: PUBLISHED,
-      description: `Free sample ${c.name.toLowerCase()} wording, explained in plain English: what it does, what to check and common questions. ${c.what}`,
+      description: c.description || fitSnippet(c.what, { tail: `Free sample ${c.name.toLowerCase()} wording, and what to check.` }),
       extraHead: COPY_CSS + faqLd(faq) + crumbsLd([['Home', ''], ['Clause library', 'clauses/'], [c.name, `clauses/${c.slug}.html`]]),
       body: (rel) => `
 <section class="section"><div class="wrap prose">

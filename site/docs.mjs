@@ -1,4 +1,4 @@
-import { docsNav, faqLd, REPO_URL, ANALYTICS_ON } from '../tools/partials.mjs';
+import { docsNav, faqLd, REPO_URL, ANALYTICS_ON, ONLINE_KEYS } from '../tools/partials.mjs';
 // The FAQ page's questions, also published as FAQPage structured data. Answers take `rel` for their links.
 const DOCS_FAQ = [
   ['Which browsers are supported?', (rel) => `Current versions of Chrome, Edge, Firefox and Safari on desktop and mobile. License keys are verified with WebCrypto Ed25519 (Chrome/Edge 137+, Firefox 129+, Safari 17+). The encrypted workspace uses PBKDF2-SHA256 and AES-256-GCM, available in all current browsers.`],
@@ -8,7 +8,7 @@ const DOCS_FAQ = [
   ['Can several people work on one draft?', (rel) => `Not at the same time; there is no server to coordinate. Hand over a draft by exporting and importing its answers file.`],
   ['Can I use it on my phone?', (rel) => `Yes. The app is responsive and installable. Drafting long documents is more comfortable on a larger screen.`],
   ['What if Clausery disappears?', (rel) => `Your copy keeps working: it is cached in your browser and can be self-hosted from the repository. Your templates are your .docx files; your data exports are plain JSON.`],
-  ['How do I get a license key?', (rel) => `See <a href="${rel}pricing/">Pricing</a>. Keys are delivered by email and entered once per device.`],
+  ['How do I get a license key?', (rel) => `See <a href="${rel}pricing/">Pricing</a>. ${ONLINE_KEYS ? 'Buy online and the key is on your confirmation page and in your receipt email straight away; paste it under Settings → License on each device.' : 'Keys are delivered by email and entered once per device.'}`],
 ];
 const page = (path, title, description, body, extraHead = '') => ({ path, title, description, extraHead, body: (rel) => `<div class="wrap docs">${docsNav(rel, path)}<article class="docs-body">${body(rel)}</article></div>` });
 
@@ -203,7 +203,7 @@ page('docs/teams.html', 'Teams & template packs', 'Share approved templates acro
 <h2>Drafts stay personal</h2>
 <p>Drafts and their answers live in each person's browser. To hand a matter over, export the draft's answers (<em>Export answers</em> on the review step) and let the colleague import them into a draft of the same template.</p>
 <h2>Licensing a team</h2>
-<p>A Team license is one key with a seat count. Share the key with the people who use Clausery (Settings → License on each device). Keys are verified offline with a signature, so there is no activation server and no per-device registration. The honour system applies to seat counts, as it would with any offline license.</p>
+<p>A Team license is one key with a seat count. Share the key with the people who use Clausery (Settings → License on each device). ${ONLINE_KEYS ? 'A key bought online is activated in each browser that uses it; removing it in Settings frees that browser\'s activation for someone else. Teams that need no network at all can ask for an offline key, which is verified with a signature and relies on the honour system for seat counts.' : 'Keys are verified offline with a signature, so there is no activation server and no per-device registration. The honour system applies to seat counts, as it would with any offline license.'}</p>
 <h2>Enterprise deployments</h2>
 <p>Firms that want the app on their own domain (for example <code>draft.yourfirm.com</code>) or intranet can self-host it: it is a folder of static files. See <a href="${rel}docs/self-hosting.html">Self-hosting</a>.</p>`),
 
@@ -238,11 +238,11 @@ page('docs/security.html', 'Security', 'How Clausery keeps client data on the de
 <h2>Cryptography</h2>
 <ul>
   <li><strong>Encrypted workspace:</strong> AES-256-GCM with a random 96-bit nonce per record; key derived from the passphrase with PBKDF2-SHA256 (600,000 iterations, 128-bit random salt). Implemented with the browser's WebCrypto API only.</li>
-  <li><strong>License keys:</strong> Ed25519 signatures over the license payload, verified with a public key embedded in the app. No license server.</li>
+  <li><strong>License keys:</strong> ${ONLINE_KEYS ? 'keys bought online are activated, then re-checked about once a week, with Lemon Squeezy\'s License API; the request carries only the key and the browser\'s activation ID. Offline keys are Ed25519 signatures over the license payload, verified with a public key embedded in the app.' : 'Ed25519 signatures over the license payload, verified with a public key embedded in the app. No license server.'}</li>
 </ul>
 <h2>Browser hardening</h2>
 <ul>
-  <li>Content Security Policy: <code>default-src 'self'</code>, no inline scripts, no remote scripts, <code>connect-src 'self'</code>, <code>object-src 'none'</code>, <code>form-action 'none'</code>.</li>
+  <li>Content Security Policy: <code>default-src 'self'</code>, no inline scripts, no remote scripts, <code>connect-src 'self' https://api.lemonsqueezy.com</code> (the second origin is used only to check a license key bought online), <code>object-src 'none'</code>, <code>form-action 'none'</code>.</li>
   <li>Referrer policy <code>no-referrer</code> in the app. The app page is marked <code>noindex</code>.</li>
   <li>Exported intake forms carry a CSP of <code>default-src 'none'</code> with inline-only script and style, so they cannot make network requests even when hosted.</li>
   <li>Expressions in templates are evaluated by a purpose-built interpreter, never by <code>eval</code>; identifiers resolve only against the answers object.</li>
@@ -257,7 +257,7 @@ page('docs/security.html', 'Security', 'How Clausery keeps client data on the de
 </tbody></table>
 <h2>Verify it</h2>
 <ol>
-  <li>Open the app, then open the browser's developer tools → Network. Import a template, draft and generate. Every request is a GET for one of Clausery's own files on the same site (for example <code>samples/…docx</code> when you pick a sample); none carries your data, and none goes to another domain. After the app is installed these are answered by the service worker cache.</li>
+  <li>Open the app, then open the browser's developer tools → Network. Import a template, draft and generate. Every request is a GET for one of Clausery's own files on the same site (for example <code>samples/…docx</code> when you pick a sample); none carries your data, and none goes to another domain${ONLINE_KEYS ? ' (apart from the license check described above, if you activated a key bought online)' : ''}. After the app is installed these are answered by the service worker cache.</li>
   <li>Disconnect from the network. Everything continues to work.</li>
   <li>Read the source: it is served unminified except for two built files: the bundled document library (<code>vendor/docs.js</code>, upstream versions listed in Settings → About) and the intake-form runtime (<code>vendor/intake-runtime.js</code>, built from <code>src/intake/runtime.js</code> and the app's own modules), which is what exported intake forms contain.</li>
 </ol>
@@ -281,7 +281,7 @@ Referrer-Policy: no-referrer
 Permissions-Policy: camera=(), microphone=(), geolocation=()
 Cache-Control: no-cache   (for HTML; long max-age for vendor/ and assets/)</code></pre>
 <h2>Licensing your deployment</h2>
-<p>To issue your own license keys (Enterprise), generate a key pair with <code>npm run license -- keygen</code>, put the public key in <code>app/config.js</code> and keep the private key offline. Issue keys with <code>npm run license -- issue</code>. The app then accepts only keys signed by you.</p>
+<p>To issue your own license keys (Enterprise), generate a key pair with <code>npm run license -- keygen</code>, put the public key in <code>app/config.js</code> and keep the private key offline. Issue keys with <code>npm run license -- issue</code>. The app then accepts only keys signed by you. Set <code>LICENSE_SERVICE.api</code> to an empty string in the same file so the app never accepts or checks online keys; the headers above already leave the license service out of <code>connect-src</code>.</p>
 <h2>Updating</h2>
 <p>Replace the folder with the new version. The service worker version changes with each release and users are prompted to reload. User data is in their browsers, not in the folder, so updates never touch it.</p>
 <h2>GitHub Pages</h2>

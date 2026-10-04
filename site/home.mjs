@@ -1,4 +1,4 @@
-import { SITE, esc } from '../tools/partials.mjs';
+import { SITE, esc, ONLINE_KEYS } from '../tools/partials.mjs';
 import { PACK_FILE, LIB } from './library.mjs';
 import { GUIDES } from './audience.mjs';
 import { COMPETITORS } from './compare.mjs';
@@ -24,7 +24,7 @@ export const pages = [{
   <div class="wrap">
     <div>
       <div class="eyebrow">${ico(I.lock)} Client data stays on your machine</div>
-      <h1>Document automation that never leaves your browser.</h1>
+      <h1>Free Word templates and document automation that never leave your browser.</h1>
       <p class="lead">Turn the Word templates you already use into guided questionnaires. Answer the questions, and Clausery assembles the finished .docx on your computer. Nothing is uploaded, no account is needed, and it works with the Wi‑Fi off.</p>
       <div class="actions">
         <a class="btn btn-primary btn-lg" href="${rel}app/">Open the app — it's free</a>
@@ -148,7 +148,7 @@ export const pages = [{
       <details><summary>Which template features are supported?</summary><p>Tags, conditional sections, inverted sections, repeating groups (including in bullet lists and table rows), line breaks in answers, headers and footers. Formatting is whatever you set in Word. See the <a href="${rel}docs/templates.html">template syntax</a>.</p></details>
       <details><summary>Can clients fill in a questionnaire?</summary><p>Yes, without a portal. Export a client intake form (a single HTML file), send it, and import the answers file that comes back. It runs on their computer the same way the app runs on yours.</p></details>
       <details><summary>Is this legal advice? Is the output reviewed?</summary><p>No. Clausery is software that fills in the templates you give it. The content, review and sign-off of every document remain with you.</p></details>
-      <details><summary>How do teams share templates?</summary><p>With template packs: a file that carries a set of templates and their questionnaires. Put it on the shared drive; everyone imports it. Licensing is per user, verified offline with a signed key.</p></details>
+      <details><summary>How do teams share templates?</summary><p>With template packs: a file that carries a set of templates and their questionnaires. Put it on the shared drive; everyone imports it. Licensing is per user${ONLINE_KEYS ? ', with one key you activate on each device' : ', verified offline with a signed key'}.</p></details>
     </div>
   </div>
 </section>

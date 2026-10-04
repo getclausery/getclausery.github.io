@@ -1,5 +1,5 @@
 // About and contact pages: who runs Clausery, how it makes money, and how to reach the people behind it.
-import { SITE, REPO_URL, CONTACT_URL, KEY_REQUEST_URL, ANALYTICS_ON } from '../tools/partials.mjs';
+import { SITE, REPO_URL, CONTACT_URL, KEY_REQUEST_URL, ANALYTICS_ON, ONLINE_KEYS } from '../tools/partials.mjs';
 import { LIB } from './library.mjs';
 
 const ld = (o) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', ...o })}</script>`;
@@ -37,7 +37,7 @@ export const pages = [
   <li>Plain HTML, CSS and JavaScript modules, with no framework and no third-party requests at runtime.</li>
   <li>Served as static files by GitHub Pages, and installable as an offline app.</li>
   <li>The code is published on <a href="${REPO_URL}" rel="noopener">GitHub</a>, so anyone can check what it does, and every release is listed in the <a href="${rel}changelog.html">changelog</a>.</li>
-  <li>Optional encryption of everything stored in the browser (AES-256-GCM), and license keys verified offline with a signature. See the <a href="${rel}docs/security.html">security overview</a>.</li>
+  <li>Optional encryption of everything stored in the browser (AES-256-GCM)${ONLINE_KEYS ? ', and license checks that send only the key' : ', and license keys verified offline with a signature'}. See the <a href="${rel}docs/security.html">security overview</a>.</li>
 </ul>
 <h2>What Clausery is not</h2>
 <p>Clausery is software, not a law firm, and it does not give legal advice. The templates are general samples written in plain English; laws differ between countries and states, so have a document reviewed for your situation before you rely on it.</p>
