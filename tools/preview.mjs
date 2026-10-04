@@ -3,10 +3,11 @@
 // optional text is marked, and repeating groups say what repeats. Only handles what tools/make-samples.mjs produces:
 // paragraphs, headings and lists, no tables.
 import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import PizZip from 'pizzip';
 import { inspectDocx } from '../app/lib/render.js';
 import { inferQuestionnaire, humanize } from '../app/lib/schema.js';
-import { esc } from './partials.mjs';
+import { esc, lowerFirst } from './partials.mjs';
 
 const unxml = (s) => s.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&amp;/g, '&');
 const TAG = /\{([#^/]?)([a-z0-9_]+)\}/g;
@@ -87,3 +88,22 @@ export function previewHtml(file) {
   endList();
   return out + '</div>'.repeat(blocks.length);
 }
+
+// First-page images of each template (tools/make-previews.mjs renders them with Chromium; site/library.mjs shows them).
+export const PREVIEW_SIZE = { width: 680, height: 880 };
+export const PREVIEW_DIR = 'assets/previews';
+export const PREVIEW_HASHES = `${PREVIEW_DIR}/hashes.json`;   // per template: hash of its sample and preview page when last rendered
+
+export const previewPage = (t) => `<!doctype html><html><head><meta charset="utf-8">${PREVIEW_CSS}<style>
+:root { --surface: #fff; --surface-3: #e8edf5; --border: #fff; --radius-sm: 0; --accent: #0f766e; --accent-soft: #dff3f0; --warn: #b45309; --warn-soft: #fdf0dc; --muted: #6b7280; }
+html, body { margin: 0; background: #fff; }
+.sheet { width: ${PREVIEW_SIZE.width}px; height: ${PREVIEW_SIZE.height}px; box-sizing: border-box; padding: 44px 52px 0; overflow: hidden; position: relative; color: #1f2937; }
+.sheet .tpl-doc { max-height: none; overflow: visible; padding: 0; border: 0; font-size: 14px; line-height: 1.5; }
+.fade { position: absolute; left: 0; right: 0; bottom: 34px; height: 90px; background: linear-gradient(rgba(255,255,255,0), #fff); }
+.foot { position: absolute; left: 0; right: 0; bottom: 0; height: 34px; display: flex; align-items: center; justify-content: space-between; padding: 0 22px; background: #1b2a41; color: #fff; font: 600 13px system-ui, sans-serif; }
+.foot span:last-child { color: #b9c3d4; font-weight: 500; }
+</style></head><body><div class="sheet"><div class="tpl-doc">${previewHtml(t.file)}</div><div class="fade"></div>
+<div class="foot"><span>Free ${lowerFirst(t.name)} template (Word)</span><span>getclausery.github.io</span></div></div></body></html>`;
+
+// The preview page is built from the sample's text, so its hash changes exactly when the image would.
+export const previewHash = (t) => createHash('sha256').update(previewPage(t)).digest('hex').slice(0, 16);

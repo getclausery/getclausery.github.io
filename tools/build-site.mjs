@@ -23,6 +23,9 @@ const SEO_TITLES = {
   'guides/confidentiality-checklist-document-software.html': 'Confidentiality checklist for choosing document software',
   'guides/how-to-write-a-freelance-contract.html': 'How to write a freelance contract: 10 key clauses',
   'pricing/': 'Clausery pricing: free plan, Pro from $19 per user',
+  'guides/how-to-write-a-job-description.html': 'How to write a job description (with a free template)',
+  'guides/how-to-write-an-invoice.html': 'How to write an invoice: what to include, how to number it',
+  'guides/what-is-a-hold-harmless-agreement.html': 'What is a hold harmless agreement? Types and examples',
 };
 for (const k of Object.keys(SEO_TITLES)) if (!pages.some((p) => p.path === k)) throw new Error('SEO_TITLES: no page ' + k);
 // Pages without their own breadcrumb data get one from their path (Home › section › page), so every indexable page has
