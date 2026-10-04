@@ -255,6 +255,6 @@ test('round 17: the template finder filters the index, and template and guide pa
   await expect(page.locator('.related-cards a.feature[href="../templates/one-way-nda.html"]')).toHaveCount(1);
   await expect(page.locator('td', { hasText: 'If “Has jurisdiction” is yes' })).toHaveCount(1);
   await page.goto('guides/what-is-a-kill-fee.html');
-  await expect(page.locator('.guide-meta time')).toHaveAttribute('datetime', /^\d{4}-\d{2}-\d{2}$/);
+  await expect(page.locator('.guide-meta time').first()).toHaveAttribute('datetime', /^\d{4}-\d{2}-\d{2}$/);
   await expect(page.getByRole('heading', { name: 'More on freelancing and getting paid' })).toBeVisible();
 });

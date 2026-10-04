@@ -116,3 +116,15 @@ test('template library "Fill it in now" opens a ready draft, and reuses the temp
   await page.goto('app/#/drafts');
   await expect(page.locator('tbody tr')).toHaveCount(2);
 });
+
+test('the 1.19.0 templates open as drafts from their deep links', async ({ browser, baseURL }) => {
+  const names = { 'room-rental-agreement': 'Room rental agreement', 'rent-payment-plan-agreement': 'Rent payment plan agreement', 'landlord-reference-letter': 'Landlord reference letter', 'performance-improvement-plan': 'Performance improvement plan', 'remote-work-agreement': 'Remote work agreement', 'expense-reimbursement-form': 'Expense reimbursement form', 'change-order-form': 'Change order form', 'consignment-agreement': 'Consignment agreement', 'pet-sitting-agreement': 'Pet sitting agreement', 'coaching-agreement': 'Coaching agreement', 'contract-termination-letter': 'Contract termination letter', 'credit-note': 'Credit note' };
+  for (const [slug, name] of Object.entries(names)) {
+    const context = await browser.newContext({ baseURL });
+    const page = await context.newPage();
+    await page.goto(`app/#/start/${slug}`);
+    await page.waitForSelector('.stepper');
+    await expect(page.locator('#main .badge').first()).toHaveText(name);
+    await context.close();
+  }
+});
