@@ -13,7 +13,7 @@
  },
  "changelog.html": {
   "date": "2026-10-04",
-  "hash": "1941cf82a2cece64"
+  "hash": "3ec016b966a4bf5f"
  },
  "clauses/": {
   "date": "2026-10-04",
@@ -269,7 +269,7 @@
  },
  "guides/": {
   "date": "2026-10-04",
-  "hash": "94aa1f99eeb3b72f"
+  "hash": "b8bd5544c91da30c"
  },
  "guides/are-liability-waivers-enforceable.html": {
   "date": "2026-09-28",
@@ -335,6 +335,10 @@
   "date": "2026-09-26",
   "hash": "c12dcb7d4e578bd2"
  },
+ "guides/how-to-write-a-performance-improvement-plan.html": {
+  "date": "2026-10-04",
+  "hash": "6d4d80c41f049698"
+ },
  "guides/how-to-write-a-rent-increase-letter.html": {
   "date": "2026-10-01",
   "hash": "af62e0cd269970d6"
@@ -387,6 +391,14 @@
   "date": "2026-09-26",
   "hash": "67df83d1606dd884"
  },
+ "guides/what-is-a-change-order.html": {
+  "date": "2026-10-04",
+  "hash": "3c9fdce2873f0708"
+ },
+ "guides/what-is-a-credit-note.html": {
+  "date": "2026-10-04",
+  "hash": "410e9afcc60d1d1d"
+ },
  "guides/what-is-a-hold-harmless-agreement.html": {
   "date": "2026-10-02",
   "hash": "0651eab563ae78ac"
@@ -406,6 +418,10 @@
  "guides/what-to-include-in-a-partnership-agreement.html": {
   "date": "2026-09-26",
   "hash": "005c7be8f9c483d4"
+ },
+ "guides/what-to-include-in-a-room-rental-agreement.html": {
+  "date": "2026-10-04",
+  "hash": "a757acc2bd310f39"
  },
  "guides/what-to-include-in-a-roommate-agreement.html": {
   "date": "2026-10-04",
@@ -473,7 +489,7 @@
  },
  "templates/change-order-form.html": {
   "date": "2026-10-04",
-  "hash": "cee51d8697d39d8e"
+  "hash": "65ab0ac919652c72"
  },
  "templates/cleaning-services-contract.html": {
   "date": "2026-10-04",
@@ -501,7 +517,7 @@
  },
  "templates/credit-note.html": {
   "date": "2026-10-04",
-  "hash": "18c9924dbbcf9195"
+  "hash": "3ea9082d2a2dbe8f"
  },
  "templates/employee-nda.html": {
   "date": "2026-10-04",
@@ -661,7 +677,7 @@
  },
  "templates/performance-improvement-plan.html": {
   "date": "2026-10-04",
-  "hash": "d317ae1a3e647da3"
+  "hash": "54cc548039605be6"
  },
  "templates/personal-training-agreement.html": {
   "date": "2026-10-04",
@@ -737,7 +753,7 @@
  },
  "templates/room-rental-agreement.html": {
   "date": "2026-10-04",
-  "hash": "3fc5fa29b95e8b21"
+  "hash": "f4caf399b5bd3c67"
  },
  "templates/roommate-agreement.html": {
   "date": "2026-10-04",

@@ -1267,15 +1267,146 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <h2>Free templates</h2>
 <p>The free <a href="${rel}templates/job-description.html">job description template</a> has sections for each item above, including lists of responsibilities, requirements, nice-to-haves and benefits, an optional pay range and an equal opportunity statement. When you have chosen someone, the <a href="${rel}templates/offer-letter.html">offer letter</a> and <a href="${rel}templates/employment-agreement.html">employment agreement</a> come next; see <a href="${rel}guides/how-to-write-an-offer-letter.html">how to write an offer letter</a>.</p>
 <p class="small muted">General information, not legal advice. Employment and pay transparency laws differ between states and cities.</p>` },
+  { slug: 'how-to-write-a-performance-improvement-plan', title: 'How to write a performance improvement plan (PIP) that works', published: '2026-10-04',
+    sources: [['SHRM: 8 steps for effective performance improvement plans', 'https://www.shrm.org/in/topics-tools/news/employee-relations/8-steps-for-effective-performance-improvement-plans']],
+    description: 'How to write a performance improvement plan: specific concerns, measurable goals, support, check-ins, how long a PIP should last and mistakes to avoid.',
+    body: (rel) => `
+<p class="lead">A performance improvement plan (PIP) tells an employee, in writing, what is not working, what good performance looks like, what help they will get and by when they need to improve. Done well, it gives a struggling employee a real chance. Done badly, it reads as a formality before a dismissal, and nobody improves.</p>
+<h2>When a PIP makes sense</h2>
+<p>Use a PIP when the problem is performance (missed targets, poor quality, slow work) and earlier informal feedback has not worked. Misconduct, such as harassment or theft, calls for a disciplinary process instead, and a one-off mistake usually needs a conversation, not a plan. If the manager does not believe the employee can improve, or will not make time for regular check-ins, a PIP is the wrong tool.</p>
+<h2>What to include</h2>
+<ol>
+  <li><strong>The employee, the manager and the plan period</strong>, with start and end dates.</li>
+  <li><strong>The concerns, with examples.</strong> Name dates, figures and work products: "three of the last five client reports were sent after the agreed deadline", not "needs to raise the bar".</li>
+  <li><strong>Earlier discussions</strong>: when the issue was raised before, if it was.</li>
+  <li><strong>Goals that can be measured.</strong> Each one says what will be done, how it will be measured and by when.</li>
+  <li><strong>The support the company will give</strong>: training, closer supervision, clearer priorities, tools or time.</li>
+  <li><strong>The check-in schedule</strong>, usually weekly or every two weeks, with written notes after each one.</li>
+  <li><strong>The possible outcomes</strong>: the plan ends successfully, is extended, or further action follows, up to dismissal.</li>
+  <li><strong>An acknowledgement</strong> that the employee received and discussed the plan, with room for their comments.</li>
+</ol>
+<h2>How long a PIP should last</h2>
+<p>Long enough for the goals to be achievable and for improvement to show. Thirty days is a common minimum, and 60 or 90 days is typical for roles where results take longer to appear. Say in the plan that it can be extended, for example if the employee is on leave for part of it.</p>
+<h2>Writing goals people can meet</h2>
+<ul>
+  <li>Tie every goal to one of the concerns above it.</li>
+  <li>Use numbers or observable results where you can: response times, error rates, deadlines met.</li>
+  <li>Keep to three to five goals. A plan with fifteen reads as a list of reasons to fail.</li>
+  <li>Make sure the goals are the same standard others in the role are held to.</li>
+</ul>
+<h2>Running the plan</h2>
+<p>Hold every check-in you promised, and write a short summary after each one: what went well, what did not, and what changes before the next meeting. Recognise progress when you see it. At the end, meet to confirm the outcome in writing.</p>
+<h2>Mistakes to avoid</h2>
+<ul>
+  <li><strong>Vague concerns</strong> that the employee cannot act on.</li>
+  <li><strong>Skipping check-ins</strong>, which leaves the employee guessing and weakens the record.</li>
+  <li><strong>Asking the employee to agree</strong> rather than to acknowledge receipt. Disagreement does not stop the plan, and a refusal to sign can simply be noted.</li>
+  <li><strong>Timing that looks like retaliation</strong>, such as starting a PIP straight after a complaint or a request for leave. Check with HR or a lawyer first in that situation.</li>
+</ul>
+<h2>Free template</h2>
+<p>The free <a href="${rel}templates/performance-improvement-plan.html">performance improvement plan template</a> has each section above, with a list of goals (each with a measure and due date), a list of support items and an optional at-will statement for US employers. If the plan does not succeed, the <a href="${rel}templates/employee-warning-letter.html">employee warning letter</a> and <a href="${rel}templates/employment-termination-letter.html">termination letter</a> templates cover the next steps.</p>
+<p class="small muted">General information, not legal advice. Employment law differs between countries and states.</p>` },
+  { slug: 'what-is-a-credit-note', title: 'What is a credit note? When to issue one, what it must say', published: '2026-10-04',
+    sources: [['HMRC VAT Traders Records Manual VATREC13040: conditions of a valid credit note', 'https://www.gov.uk/hmrc-internal-manuals/vat-trader-records/vatrec13040']],
+    description: 'What a credit note is, when to issue one instead of editing an invoice, what it must include, how it handles tax, and refund versus credit.',
+    body: (rel) => `
+<p class="lead">A credit note is a document a seller issues to reduce or cancel an invoice it has already sent. It is the clean way to fix an overcharge, record a return or give a discount after the fact, without changing or deleting the original invoice.</p>
+<h2>When to issue a credit note</h2>
+<ul>
+  <li>The customer returned goods, or part of an order.</li>
+  <li>You charged the wrong price or quantity.</li>
+  <li>You agreed a discount or a goodwill reduction after invoicing.</li>
+  <li>The invoice should not have been issued at all, so it is cancelled in full.</li>
+</ul>
+<h2>Why not just edit the invoice?</h2>
+<p>Invoices are numbered in sequence and often already sit in the customer's accounts and your tax records. Changing one after it has been sent breaks that trail. A credit note keeps the original intact and records the correction as its own numbered document, which is what accountants and tax authorities expect.</p>
+<h2>What a credit note should include</h2>
+<ol>
+  <li>The words "Credit note" and its own number and date.</li>
+  <li>Your business name and address, and your tax number if you are registered.</li>
+  <li>The customer's name and address.</li>
+  <li><strong>The number and date of the original invoice.</strong></li>
+  <li>The reason for the credit.</li>
+  <li>Each credited item and amount, and the total credit.</li>
+  <li>Any tax being reversed, at the rate charged on the original invoice.</li>
+  <li>Whether the credit will be refunded or applied to another invoice.</li>
+</ol>
+<h2>Credit notes and sales tax or VAT</h2>
+<p>If the original invoice charged sales tax or VAT, the credit note should reverse the tax on the credited amount too, so both sides adjust what they report. In the UK, HMRC's rules say a valid VAT credit note must correct a genuine mistake or overcharge, or reflect an agreed reduction in the price; give value to the customer; and not be used for a bad debt. Other countries have their own rules, so check with your accountant.</p>
+<h2>Refund or credit?</h2>
+<p>A credit note does not move money by itself. Say on it what happens next: a refund by a set method and date, or a credit applied to an outstanding or future invoice. If you apply it, mention the credit note number on the invoice you apply it to.</p>
+<h2>Credit note, debit note and refund</h2>
+<p>A credit note reduces what the customer owes. A debit note works the other way: a buyer may send one to ask for a credit, or a seller may issue one to increase an amount already invoiced. A refund is the payment that may follow a credit note.</p>
+<h2>Free template</h2>
+<p>The free <a href="${rel}templates/credit-note.html">credit note template</a> links the credit to the original invoice and lists each credited item, optional tax and the total, and lets you choose a refund or a credit against another invoice. It sits alongside the <a href="${rel}templates/invoice.html">invoice</a>, <a href="${rel}templates/quote.html">quote</a> and <a href="${rel}templates/payment-receipt.html">payment receipt</a> templates.</p>
+<p class="small muted">General information, not tax advice. Invoicing and VAT rules differ between countries.</p>` },
+  { slug: 'what-is-a-change-order', title: 'What is a change order? How to handle scope changes', published: '2026-10-04',
+    description: 'What a change order is, when freelancers, agencies and contractors need one, what it should include, and how it protects both sides when scope changes.',
+    body: (rel) => `
+<p class="lead">A change order is a short written agreement that changes the scope, price or schedule of a contract that is already signed. It lets both sides agree extra or different work, and what it costs, before the work is done, so the final invoice holds no surprises.</p>
+<h2>When you need one</h2>
+<ul>
+  <li>The client asks for something the contract or statement of work does not cover.</li>
+  <li>The client wants to remove part of the work, which should lower the price.</li>
+  <li>Something outside your control, such as late content or a change in requirements, moves the deadline.</li>
+  <li>The agreed approach turns out not to work and a different one costs more or less.</li>
+</ul>
+<p>A useful test: if the change affects the price, the deadline or what you hand over, put it in a change order.</p>
+<h2>What a change order should include</h2>
+<ol>
+  <li><strong>A change order number and date</strong>, so several changes on one project stay in order.</li>
+  <li><strong>The original contract</strong>: its name, date and the parties.</li>
+  <li><strong>A description of the change</strong> in plain words.</li>
+  <li><strong>The items added, removed or changed</strong>, each with its cost or saving.</li>
+  <li><strong>The price change and the new contract total.</strong></li>
+  <li><strong>How the change is paid</strong>, if not on the contract's normal terms.</li>
+  <li><strong>Any new completion date.</strong></li>
+  <li><strong>A statement that everything else stays the same</strong>, and signatures from both sides before work starts.</li>
+</ol>
+<h2>Why it matters</h2>
+<p>Most scope disputes start with "I thought that was included". A signed change order records exactly what was agreed and when. It also makes it easier to say yes to clients: you do not have to refuse extra work, you just price it.</p>
+<h2>Write the process into your contract</h2>
+<p>Your contract or statement of work should say that changes need a written change order signed by both sides, how changes are priced (for example your hourly rate), and that the schedule moves with them. The change order then follows a process the client already agreed to.</p>
+<h2>Free templates</h2>
+<p>The free <a href="${rel}templates/change-order-form.html">change order form</a> lists each change with its amount, shows the price increase or decrease and the new total, and records any new completion date. Use it alongside the <a href="${rel}templates/statement-of-work.html">statement of work</a> that defines the original scope. If a project ends instead of changing, the <a href="${rel}templates/contract-termination-letter.html">contract termination letter</a> covers that.</p>
+<p class="small muted">General information, not legal advice.</p>` },
+  { slug: 'what-to-include-in-a-room-rental-agreement', title: 'Renting a room in your home: what the agreement should say', published: '2026-10-04',
+    sources: [['42 U.S.C. § 3603(b)(2): Fair Housing Act exemption for owner-occupied buildings of up to four units', 'https://www.law.cornell.edu/uscode/text/42/3603']],
+    description: 'What to put in a room rental agreement when you rent out a room in your home: rent, deposit, utilities, shared spaces, house rules, guests and notice.',
+    body: (rel) => `
+<p class="lead">Renting out a spare room is different from letting a whole home. You share a kitchen, a bathroom and a front door with the person, so the agreement needs to cover living together as well as rent. A short written agreement settles most of the questions that cause arguments later.</p>
+<h2>Room rental agreement, lease or roommate agreement?</h2>
+<p>A <strong>lease</strong> usually covers a whole home rented to a tenant. A <strong>room rental agreement</strong> is between the owner or head tenant and the person renting one room, with shared use of the rest. A <strong>roommate agreement</strong> is between co-tenants who are all on the same lease, and covers how they split rent and chores between themselves.</p>
+<h2>What to include</h2>
+<ol>
+  <li><strong>The room and the shared areas</strong>: which room, whether it is furnished, and which parts of the home the renter may use.</li>
+  <li><strong>The term</strong>: a fixed end date, or month to month with a notice period.</li>
+  <li><strong>Rent</strong>: the amount, the due date, how it is paid and any late fee the law allows.</li>
+  <li><strong>The deposit</strong> and how and when it is returned.</li>
+  <li><strong>Utilities</strong>: included in the rent, or a set percentage of each bill.</li>
+  <li><strong>House rules</strong>: quiet time, cleaning shared spaces, smoking, pets and overnight guests.</li>
+  <li><strong>Parking and storage</strong>, if offered.</li>
+  <li><strong>Entry</strong>: when you may enter the room, and how much notice you give.</li>
+  <li><strong>Ending the arrangement</strong>: notice, moving out and returning keys.</li>
+</ol>
+<h2>Utilities: include them or split them?</h2>
+<p>Including utilities in the rent is simpler and avoids monthly bill splitting, but you carry the risk of a high bill. A percentage share is fairer when usage varies; say which bills are shared and how quickly the renter pays their share once shown the bill.</p>
+<h2>Guests and house rules</h2>
+<p>Most disputes are about guests, noise and cleaning, not rent. Put a limit on overnight guests (for example a number of nights a month), set quiet hours, and say who cleans what. Clear rules written down at the start are easier to keep than rules made up after a problem.</p>
+<h2>The law still applies</h2>
+<p>Local rental law can still apply to a room in your own home, including rules on deposits, notice and eviction, and it can give the renter rights the agreement does not mention. In the US, the federal Fair Housing Act exempts some owner-occupied buildings with up to four units from parts of its rules, but not from its ban on discriminatory advertising, and state or city law may be stricter. Check the rules where you live.</p>
+<h2>Free templates</h2>
+<p>The free <a href="${rel}templates/room-rental-agreement.html">room rental agreement template</a> covers each item above, with options for a furnished room, parking, a fixed term or month to month, a late fee, and utilities included or shared. To screen applicants first, use the <a href="${rel}templates/rental-application.html">rental application</a>, and ask previous landlords to fill in a <a href="${rel}templates/landlord-reference-letter.html">landlord reference letter</a>.</p>
+<p class="small muted">General information, not legal advice. Rental law differs between countries, states and cities.</p>` },
 ];
 
 // Guides grouped by topic, for the guides index and the related-guides block at the foot of each guide.
 export const GUIDE_TOPICS = [
   ['Automating Word templates', ['automate-word-templates', 'conditional-clauses-in-word', 'repeating-lists-and-tables-in-word', 'mail-merge-vs-document-automation', 'client-intake-without-a-portal', 'confidentiality-checklist-document-software']],
   ['NDAs and restrictive covenants', ['what-to-include-in-an-nda', 'mutual-vs-one-way-nda', 'how-long-should-an-nda-last', 'nda-vs-confidentiality-agreement', 'non-compete-vs-non-solicitation', 'are-non-competes-enforceable']],
-  ['Hiring and HR letters', ['how-to-write-an-offer-letter', 'how-to-write-an-employee-warning-letter', 'how-to-write-a-termination-letter', 'how-to-write-a-two-weeks-notice-letter', 'how-to-write-a-job-description', 'what-to-include-in-a-severance-agreement']],
-  ['Freelancing and getting paid', ['how-to-write-a-freelance-contract', 'what-to-include-in-a-statement-of-work', 'quote-vs-estimate-vs-invoice', 'how-to-write-an-invoice', 'what-is-a-kill-fee', 'what-to-do-when-a-client-wont-pay', 'how-to-write-a-payment-demand-letter']],
-  ['Landlords and tenants', ['what-to-include-in-a-lease-agreement', 'what-to-include-in-a-roommate-agreement', 'how-to-write-a-rent-increase-letter', 'how-to-write-a-notice-to-vacate', 'how-to-return-a-security-deposit']],
+  ['Hiring and HR letters', ['how-to-write-an-offer-letter', 'how-to-write-an-employee-warning-letter', 'how-to-write-a-termination-letter', 'how-to-write-a-two-weeks-notice-letter', 'how-to-write-a-job-description', 'what-to-include-in-a-severance-agreement', 'how-to-write-a-performance-improvement-plan']],
+  ['Freelancing and getting paid', ['how-to-write-a-freelance-contract', 'what-to-include-in-a-statement-of-work', 'quote-vs-estimate-vs-invoice', 'how-to-write-an-invoice', 'what-is-a-kill-fee', 'what-to-do-when-a-client-wont-pay', 'how-to-write-a-payment-demand-letter', 'what-is-a-change-order', 'what-is-a-credit-note']],
+  ['Landlords and tenants', ['what-to-include-in-a-lease-agreement', 'what-to-include-in-a-roommate-agreement', 'how-to-write-a-rent-increase-letter', 'how-to-write-a-notice-to-vacate', 'how-to-return-a-security-deposit', 'what-to-include-in-a-room-rental-agreement']],
   ['Business deals, money and releases', ['is-an-mou-legally-binding', 'what-to-include-in-a-partnership-agreement', 'how-to-write-a-bill-of-sale', 'how-to-lend-money-to-family', 'how-to-write-a-gift-letter-for-a-mortgage', 'are-liability-waivers-enforceable', 'what-is-a-hold-harmless-agreement', 'do-i-need-a-model-release']],
 ];
 {
