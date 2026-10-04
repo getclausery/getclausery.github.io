@@ -10,7 +10,7 @@ export const pages = [
 <h2>1.19.0 <span class="small muted">— 4 October 2026</span></h2>
 <ul>
   <li>Twelve new free templates: a room rental agreement, a rent payment plan agreement, a landlord reference letter, a performance improvement plan, a remote work agreement, an expense reimbursement form, a change order form, a consignment agreement, a pet sitting agreement, a coaching agreement, a contract termination letter and a credit note.</li>
-  <li>Four new guides: how to write a performance improvement plan, what a credit note is, what a change order is, and what to put in an agreement when you rent out a room in your home.</li>
+  <li>Eight new guides: how to write a performance improvement plan and a remote work agreement, what a credit note and a change order are, how to terminate a contract, how consignment works, how to set up a rent payment plan, and what to put in an agreement when you rent out a room in your home.</li>
   <li>Every template page now shows a picture of the template's first page.</li>
   <li>The app accepts license keys bought through online checkout: activate the key from your receipt once, and renewals and cancellations apply on their own. The app checks the key with our payment provider about once a week, sending only the key; your documents never leave your browser. Offline keys keep working as before.</li>
   <li>Clearer page descriptions in search results for templates, clauses and guides.</li>
