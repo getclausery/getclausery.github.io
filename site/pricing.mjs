@@ -1,11 +1,11 @@
 import { faqLd, SITE, ONLINE_KEYS } from '../tools/partials.mjs';
-import { CHECKOUT_URLS, KEY_REQUEST_URL } from '../app/config.js';
+import { CHECKOUT_URLS, KEY_REQUEST_URL, CONTACT_EMAIL, keyRequestUrl } from '../app/config.js';
 
 // The page is built for the checkout setup in app/config.js, so crawlers and visitors without scripts see the right
 // buttons; pricing/checkout.js applies the same config at runtime for deployments that edit it without rebuilding.
 const CHECKOUT = Object.values(CHECKOUT_URLS).some(Boolean);
 const buy = (plan, name, cls) => CHECKOUT_URLS[plan] ? `<a class="${cls}" href="${CHECKOUT_URLS[plan]}" rel="noopener" data-checkout="${plan}">Get ${name}</a>`
-  : `<a class="${cls}" href="${KEY_REQUEST_URL}&amp;title=${encodeURIComponent(name + ' key request')}" rel="noopener" data-checkout="${plan}">Request a ${name} key</a>`;
+  : `<a class="${cls}" href="${keyRequestUrl(name)}" data-checkout="${plan}">Request a ${name} key</a>`;
 
 // Questions shown at the foot of the page and published as FAQPage data.
 const FAQ = [
@@ -109,11 +109,11 @@ export const pages = [{
     <div${CHECKOUT ? ' hidden' : ''} data-when-no-checkout>
       <p>Online checkout is not open yet, so keys are issued on request:</p>
       <ol>
-        <li><strong>Request a key</strong> with the form on GitHub. Say which plan you want, and whether you want a 14-day trial first. Requests are public, so do not include your email address or anything confidential.</li>
-        <li><strong>We reply in the request</strong> with how to pay and how we will send the key privately.</li>
+        <li><strong>Email ${CONTACT_EMAIL}</strong>. Say which plan you want, how many people will use it, and whether you want a 14-day trial first. No account is needed.</li>
+        <li><strong>We reply by email</strong> with how to pay and send the key.</li>
         <li><strong>Paste the key</strong> in the app under Settings → License. It is verified offline with a cryptographic signature; the app never contacts a license server.</li>
       </ol>
-      <p><a class="btn btn-primary" href="${KEY_REQUEST_URL}" rel="noopener">Request a key</a></p>
+      <p><a class="btn btn-primary" href="${KEY_REQUEST_URL}">Request a key by email</a> <span class="small muted">or write to ${CONTACT_EMAIL}</span></p>
     </div>
     <p class="small muted">Every template in the <a href="${rel}templates/">free library</a> stays free on every plan, with unlimited documents.</p>
   </div>
