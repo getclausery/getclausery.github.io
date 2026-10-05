@@ -1,17 +1,18 @@
 // About and contact pages: who runs Clausery, how it makes money, and how to reach the people behind it.
-import { SITE, REPO_URL, CONTACT_URL, KEY_REQUEST_URL, ANALYTICS_ON, ONLINE_KEYS } from '../tools/partials.mjs';
+import { SITE, REPO_URL, KEY_REQUEST_URL, CONTACT_EMAIL, mailto, ANALYTICS_ON, ONLINE_KEYS } from '../tools/partials.mjs';
 import { LIB } from './library.mjs';
 
 const ld = (o) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', ...o })}</script>`;
-const ORG = { '@type': 'Organization', name: 'Clausery', url: SITE, logo: `${SITE}assets/icon-512.png`, sameAs: [REPO_URL] };
+const ORG = { '@type': 'Organization', name: 'Clausery', url: SITE, logo: `${SITE}assets/icon-512.png`, email: CONTACT_EMAIL, sameAs: [REPO_URL] };
 const issue = (form) => `${REPO_URL}/issues/new?template=${form}`;
 
-// The ways to get in touch, in the order people most often need them. Everything but security reports is a public issue.
+// The ways to get in touch, in the order people most often need them. All of them start an email; bug reports can also
+// go to the public issue tracker, and security reports to GitHub's private reporting.
 const CHANNELS = [
-  ['Ask a question or send feedback', 'Questions about the app, a template or a calculator, feature ideas, and press or partnership enquiries.', issue('question.yml'), 'Ask a question'],
+  ['Ask a question or send feedback', 'Questions about the app, a template or a calculator, feature ideas, and press or partnership enquiries.', mailto('Question about Clausery'), 'Email a question'],
   ['Request a Pro or Team key', 'Buy a license, ask for a 14-day trial key, or claim the nonprofit, legal aid or education discount.', KEY_REQUEST_URL, 'Request a key'],
-  ['Request a template', 'Tell us which document you draft again and again. The most requested templates are built first.', issue('request-a-template.yml'), 'Request a template'],
-  ['Report a problem', 'Something in the app, a template, a calculator or the website does not work as it should.', issue('bug-report.yml'), 'Report a problem'],
+  ['Request a template', 'Tell us which document you draft again and again. The most requested templates are built first.', mailto('Template request'), 'Request a template'],
+  ['Report a problem', 'Something in the app, a template, a calculator or the website does not work as it should. Developers can also <a href="' + issue('bug-report.yml').replace(/&/g, '&amp;') + '" rel="noopener">open a GitHub issue</a>.', mailto('Problem report'), 'Report a problem'],
 ];
 
 export const pages = [
@@ -51,19 +52,19 @@ export const pages = [
     extraHead: ld({ '@type': 'ContactPage', name: 'Contact Clausery', url: `${SITE}contact/`, about: ORG }),
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">
 <h1>Contact Clausery</h1>
-<p class="lead">We use GitHub for support, so every answer helps the next person with the same question. Choose what you need:</p>
+<p class="lead">Email <a href="${mailto('')}">${CONTACT_EMAIL}</a>. A person reads every message, and no account is needed. The buttons below start an email with the right subject line:</p>
 <div class="grid grid-2" style="margin-top:1.5rem">
-${CHANNELS.map(([h, p, href, cta]) => `  <div class="feature"><h2 style="font-size:1.15rem;margin-top:0">${h}</h2><p>${p}</p><p style="margin-top:1rem"><a class="btn" href="${href.replace(/&/g, '&amp;')}" rel="noopener">${cta}</a></p></div>`).join('\n')}
+${CHANNELS.map(([h, p, href, cta]) => `  <div class="feature"><h2 style="font-size:1.15rem;margin-top:0">${h}</h2><p>${p}</p><p style="margin-top:1rem"><a class="btn" href="${href.replace(/&/g, '&amp;')}">${cta}</a></p></div>`).join('\n')}
   <div class="feature"><h2 style="font-size:1.15rem;margin-top:0">Report a security issue</h2><p>Report vulnerabilities privately with GitHub's private reporting. Please do not open a public issue for them.</p><p style="margin-top:1rem"><a class="btn" href="${REPO_URL}/security/advisories/new" rel="noopener">Report privately</a></p></div>
   <div class="feature"><h2 style="font-size:1.15rem;margin-top:0">Press and listings</h2><p>Product facts, short and long descriptions, screenshots and the logo, free to use.</p><p style="margin-top:1rem"><a class="btn" href="${rel}press/">Open the press kit</a></p></div>
 </div>
 <h2 style="margin-top:2.5rem">Before you write</h2>
 <ul>
-  <li><strong>Requests are public.</strong> Do not include your email address, phone number, client details or confidential documents. If something needs to be private, say so and we will arrange a private channel.</li>
-  <li><strong>You need a free GitHub account</strong> to open a request. Everything else on this site works without any account.</li>
+  <li><strong>Leave out client details and confidential documents.</strong> We never need them to help, and Clausery is built so they never leave your computer.</li>
+  <li><strong>If the buttons do not open your email app,</strong> copy the address: ${CONTACT_EMAIL}.</li>
   <li><strong>Many answers are already written:</strong> see the <a href="${rel}docs/faq.html">FAQ</a>, the <a href="${rel}docs/">documentation</a> and the <a href="${rel}pricing/#faq">pricing questions</a>.</li>
 </ul>
-<p class="small muted" style="margin-top:2rem">Clausery is software, not a law firm, and cannot advise on your legal situation. <a href="${CONTACT_URL}" rel="noopener">All contact options on GitHub</a>.</p>
+<p class="small muted" style="margin-top:2rem">Clausery is software, not a law firm, and cannot advise on your legal situation. The code and public issues are on <a href="${REPO_URL}" rel="noopener">GitHub</a>.</p>
 </div></section>`,
   },
 ];

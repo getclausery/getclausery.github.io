@@ -7,6 +7,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.20.1 <span class="small muted">— 5 October 2026</span></h2>
+<ul>
+  <li>Reach us by email at getclausery@gmail.com: key requests, questions, template requests and problem reports no longer need a GitHub account.</li>
+</ul>
 <h2>1.20.0 <span class="small muted">— 5 October 2026</span></h2>
 <ul>
   <li>Live preview: the document takes shape beside the questions as you answer, with unanswered questions shown as [labels]. Turn it off with the Live preview button; the app remembers your choice.</li>
