@@ -38,7 +38,7 @@ test('mobile menu opens under a strict script policy (no inline handlers)', asyn
   await expect(btn).toHaveAttribute('aria-expanded', 'true');
   expect(await page.locator('[onclick]').count()).toBe(0);
   await expect(page.locator('[data-checkout="pro"]')).toHaveText(/Request a Pro key|Get Pro/);
-  await expect(page.locator('[data-checkout="pro"]')).toHaveAttribute('href', /^https:\/\/github\.com\/getclausery\/getclausery\.github\.io\/issues\/new\?template=request-a-key\.yml|^https:\/\//);
+  await expect(page.locator('[data-checkout="pro"]')).toHaveAttribute('href', /^mailto:getclausery@gmail\.com\?subject=Clausery%20Pro%20key%20request$|^https:\/\//);
 });
 
 test('free tools work in the page', async ({ page }) => {
