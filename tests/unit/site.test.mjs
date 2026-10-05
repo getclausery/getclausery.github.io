@@ -51,11 +51,11 @@ test('guides are modified on or after they were published, and say "Updated" onl
 });
 
 test('pricing buttons are built for the checkout configuration', async () => {
-  const { CHECKOUT_URLS, KEY_REQUEST_URL } = await import('../../app/config.js');
+  const { CHECKOUT_URLS, keyRequestUrl } = await import('../../app/config.js');
   const page = html('pricing/index.html');
   for (const plan of ['pro', 'team']) {
     const a = page.match(new RegExp(`<a [^>]*data-checkout="${plan}"[^>]*>`))[0];
-    assert.ok(a.includes(CHECKOUT_URLS[plan] || KEY_REQUEST_URL.replace(/&/g, '&amp;')), a);
+    assert.ok(a.includes(CHECKOUT_URLS[plan] || keyRequestUrl(plan === 'pro' ? 'Pro' : 'Team').replace(/&/g, '&amp;')), a);
   }
 });
 
