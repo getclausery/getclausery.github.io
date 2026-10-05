@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { inspectDocx, renderDocx } from '../../app/lib/render.js';
 import { inferQuestionnaire, newTemplate, blankAnswers, normalizeTemplate, validateTemplate, humanize, makeField, singular } from '../../app/lib/schema.js';
-import { evaluateForm, buildRenderData, formatValue, coerce } from '../../app/lib/logic.js';
+import { evaluateForm, buildRenderData, buildPreviewData, formatValue, coerce } from '../../app/lib/logic.js';
 import { PizZip, Docxtemplater } from '../../vendor/docs.js';
 
 const load = (n) => readFileSync(new URL(`../../samples/${n}.docx`, import.meta.url));
@@ -145,4 +145,24 @@ test('normalize and validate templates', () => {
   assert.ok(problems.some((p) => /"9bad" is not valid/.test(p)));
   assert.ok(problems.some((p) => /needs at least one option/.test(p)));
   assert.ok(problems.some((p) => /has no expression/.test(p)));
+});
+
+test('the live preview shows unanswered questions as [labels] and only for what the answers include', async () => {
+  const t = newTemplate({ name: 'Invoice', ...inferQuestionnaire(inspectDocx(load('invoice'))) });
+  const answers = blankAnswers(t);
+  answers.client_name = 'Northwind Ltd';
+  let { data } = buildPreviewData(t, answers, {});
+  assert.equal(data.client_name, 'Northwind Ltd');
+  assert.equal(data.invoice_number, '[Invoice number]');
+  assert.equal(data.purchase_order_number, '');            // hidden while "has purchase order" is off
+  assert.equal(data.line_items.length, 1);                 // one placeholder row shows where items go
+  assert.match(Object.values(data.line_items[0]).join(' '), /\[/);
+  answers.has_purchase_order = true;
+  ({ data } = buildPreviewData(t, answers, {}));
+  assert.equal(data.purchase_order_number, '[Purchase order number]');
+  // the real render data is unchanged: blanks stay blank in the downloaded document
+  assert.equal(buildRenderData(t, answers, {}).data.invoice_number, '');
+  const text = await textOf(renderDocx(load('invoice'), data));
+  assert.match(text, /\[Invoice number\]/);
+  assert.match(text, /Northwind Ltd/);
 });

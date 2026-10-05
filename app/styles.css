@@ -1,4 +1,6 @@
 /* Clausery app styles. System fonts only: the app makes no third-party requests. */
+/* The hidden attribute always wins: component rules below set display, which would otherwise show hidden fields. */
+[hidden] { display: none !important; }
 :root {
   --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -180,6 +182,17 @@ details.section > .section-body { padding: 0 1rem 1rem; }
 .stepper .num { width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: .78rem; font-weight: 700; background: var(--surface-3); color: var(--text); flex: none; }
 .stepper li.done .num { background: var(--ok); color: var(--on-ok); } .stepper li.errors .num { background: var(--danger); color: var(--on-danger); }
 .stepper .cnt { margin-left: auto; font-size: .75rem; color: var(--muted); }
+/* Live preview beside the questions (wide screens), or below them */
+.container-wide { max-width: 1560px; }
+.interview.with-preview { grid-template-columns: 240px minmax(0, 1fr) minmax(0, 1.25fr); }
+.live-preview { position: sticky; top: 72px; min-width: 0; max-height: calc(100vh - 96px); overflow: auto; background: var(--surface-3); border-radius: var(--radius); padding: .75rem; }
+.live-preview-head { display: flex; align-items: baseline; justify-content: space-between; gap: .5rem; margin: 0 .25rem .6rem; }
+.live-preview-pages .docx-wrapper { background: transparent; padding: 0; display: flex; flex-direction: column; align-items: center; gap: .75rem; }
+.live-preview-pages section.docx { box-shadow: var(--shadow); color: #000; margin-bottom: 0 !important; }
+.btn[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+@media (max-width: 1279px) { .interview.with-preview { grid-template-columns: 260px minmax(0, 1fr); } .interview.with-preview .live-preview { grid-column: 1 / -1; position: static; max-height: 75vh; } }
+@media (max-width: 900px) { .interview.with-preview { grid-template-columns: minmax(0, 1fr); } }
+@media print { .live-preview { display: none !important; } }
 .interview-nav { display: flex; justify-content: space-between; gap: .5rem; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); }
 .repeat-group { border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; background: var(--surface-2); }
 .repeat-row { border: 1px solid var(--border); background: var(--surface); border-radius: var(--radius-sm); padding: 1rem 1rem .25rem; margin-bottom: .75rem; }
