@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 // Shared HTML fragments for the static site pages (used by tools/build-site.mjs).
 export const YEAR = '2026';
 // Contact and repository links come from the app's deployment config, so the site and the app never disagree.
-export { CONTACT_URL, KEY_REQUEST_URL, REPO_URL } from '../app/config.js';
+export { CONTACT_URL, KEY_REQUEST_URL, REPO_URL, CONTACT_EMAIL, mailto, keyRequestUrl } from '../app/config.js';
 // The site's public origin. Every absolute URL (canonical, Open Graph, JSON-LD, sitemap, feed) is built from it.
 export const SITE = 'https://getclausery.github.io/';
 /* Cookieless page-view counts: site.js loads Cloudflare Web Analytics on website pages when its token is set.
