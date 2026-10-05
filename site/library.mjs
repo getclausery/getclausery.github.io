@@ -3,6 +3,7 @@
 import { readFileSync, existsSync, statSync } from 'node:fs';
 import { inspectDocx } from '../app/lib/render.js';
 import { inferQuestionnaire, FIELD_TYPES } from '../app/lib/schema.js';
+import { applySetup, setupFor } from '../app/lib/setups.js';
 import { esc, crumbsLd, lowerFirst, fitSnippet, SITE, LASTMOD, LASTMOD_LONG } from '../tools/partials.mjs';
 import { CLAUSES } from './data/clauses.mjs';
 import { previewHtml, PREVIEW_CSS, PREVIEW_SIZE } from '../tools/preview.mjs';
@@ -573,11 +574,23 @@ export const LIB = [
 ];
 
 function questionsFor(file) {
-  const q = inferQuestionnaire(inspectDocx(readFileSync(new URL(`../samples/${file}`, import.meta.url))));
-  const kind = (f) => (f.role === 'condition' && f.type === 'checkbox' ? 'Yes / no' : FIELD_TYPES[f.type].label);
+  const q = applySetup(inferQuestionnaire(inspectDocx(readFileSync(new URL(`../samples/${file}`, import.meta.url)))), setupFor(file.replace(/\.docx$/, '')));
+  const kind = (f) => (f.role === 'condition' && f.type === 'checkbox' ? 'Yes / no' : f.type === 'computed' ? 'Calculated for you' : FIELD_TYPES[f.type].label);
   const label = Object.fromEntries(q.fields.map((f) => [f.key, f.label]));
-  return q.fields.map((f) => ({ label: f.label, kind: kind(f), when: f.showIf, whenText: f.showIf && readableCondition(f.showIf, label), children: (f.children || []).map((c) => c.label) }));
+  return q.fields.map((f) => ({ label: f.label, kind: kind(f), when: f.showIf, whenText: f.showIf && readableCondition(f.showIf, label), children: (f.children || []).map((c) => c.label), computed: f.type === 'computed' }));
 }
+// "Amount, Subtotal, Tax and Total": what the app works out for the visitor on a template with a ready-made setup
+function calculatedFor(slug) {
+  const s = setupFor(slug);
+  if (!s) return '';
+  const names = [];
+  for (const o of Object.values(s.fields || {})) {
+    if (o.type === 'computed') names.push(o.label);
+    for (const c of Object.values(o.children || {})) if (c.type === 'computed') { const l = c.label.toLowerCase(); names.push((l.startsWith('line ') ? l : 'line ' + l) + 's'); }   // a row's amount is each line's
+  }
+  return [...new Set(names)];
+}
+const andList = (xs) => (xs.length < 2 ? xs.join('') : xs.slice(0, -1).join(', ') + ' and ' + xs.at(-1));
 // "not is_paid and has_stipend" -> 'If "Is paid" is no and "Has stipend" is yes', so readers see the questions, not tag names.
 // Anything that is not a plain and/or chain of yes/no questions (brackets, comparisons) returns null and is shown as code.
 function readableCondition(expr, label) {
@@ -694,7 +707,8 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-label
     <a class="btn btn-primary btn-lg" href="${rel}app/#/start/${t.slug}">Fill it in now, free</a>
     <a class="btn btn-lg" href="${rel}samples/${t.file}" download>Download the Word template</a>
   </div>
-  <p class="small muted">No sign-up. Your answers stay in your browser. <strong>Who it is for:</strong> ${esc(t.who)}</p>
+  ${calculatedFor(t.slug).length ? `<p class="small"><strong>Does the maths for you:</strong> fill it in online and the ${esc(andList(calculatedFor(t.slug).map(lowerFirst)))} ${calculatedFor(t.slug).length > 1 ? 'are' : 'is'} calculated as you type.</p>
+  ` : ''}<p class="small muted">No sign-up. Your answers stay in your browser. <strong>Who it is for:</strong> ${esc(t.who)}</p>
   <p class="small muted">Updated <time datetime="${LASTMOD}">${LASTMOD_LONG}</time> · Word (.docx) · Free to use and adapt</p>
   <!--nav--><p class="small muted">Need more than one? <a href="${rel}samples/${PACK_FILE}" download>Download all ${LIB.length} templates</a> as one .zip file.</p><!--/nav-->
 
@@ -711,7 +725,7 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-label
   <div class="tpl-doc" tabindex="0" role="region" aria-label="Full text of the ${esc(t.name)} template">${previewHtml(t.file)}</div>
 
   <h2 style="margin-top:2.5rem">The questions you answer</h2>
-  <p>Clausery turns the template into a short questionnaire. Optional parts only appear when they apply.</p>
+  <p>Clausery turns the template into a short questionnaire. Optional parts only appear when they apply${calculatedFor(t.slug).length ? ', and anything marked <em>Calculated for you</em> is worked out from your other answers' : ''}.</p>
   <div class="table-wrap" tabindex="0"><table class="compare"><thead><tr><th scope="col">Question</th><th scope="col">Type</th><th scope="col">Asked when</th></tr></thead><tbody>
     ${qs.map((q) => `<tr><td>${esc(q.label)}${q.children.length ? `<div class="small muted">For each item: ${esc(q.children.join(', '))}</div>` : ''}</td><td>${esc(q.kind)}</td><td class="small">${q.whenText ? esc(q.whenText) : q.when ? `<code>${esc(q.when)}</code>` : 'Always'}</td></tr>`).join('')}
   </tbody></table></div>

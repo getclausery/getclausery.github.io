@@ -108,7 +108,9 @@ export function renderForm({ template, answers, settings = {}, sectionId = null,
       const visible = ev.visible[path] !== false;
       n.wrap.hidden = !visible;
       if (n.computed) {
-        const v = ev.values[n.field.key];
+        // a computed field inside a repeating group is read from its own row ("items[2].amount"), not from the top level
+        const m = /^([A-Za-z][\w]*)\[(\d+)\]\.(.+)$/.exec(path);
+        const v = m ? ev.values[m[1]]?.[+m[2]]?.[m[3]] : ev.values[n.field.key];
         const err = ev.exprErrors[path];
         n.input.textContent = err ? '' : (v == null || v === '' ? '—' : String(formatValue(n.field, v, settings)));
         n.error.textContent = err || ''; n.error.hidden = !err;

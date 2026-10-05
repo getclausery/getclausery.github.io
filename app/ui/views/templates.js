@@ -1,6 +1,7 @@
 import { h, icon, toast, modal, confirmDialog, pickFile, readFile, relativeTime, setChildren } from '../dom.js';
 import { inspectDocx, describeTemplateError, isDocxError } from '../../lib/render.js';
 import { inferQuestionnaire, newTemplate, newDraft, normalizeTemplate, uid, KEY_RX, isReservedKey } from '../../lib/schema.js';
+import { applySetup, setupFor, SETUP_VERSION } from '../../lib/setups.js';
 import { decodeBundle, encodePack, downloadBlob, safeFilename, checkDocxSize } from '../../lib/backup.js';
 
 export const SAMPLES = [
@@ -93,7 +94,7 @@ export const SAMPLES = [
   { slug: 'credit-note', file: 'credit-note.docx', name: 'Credit note', category: 'Finance', description: 'Original invoice, reason, credited items, optional tax, total credit, and refund or credit to another invoice.' },
 ];
 
-export async function importDocxFile(ctx, file, { name, sample = false } = {}) {
+export async function importDocxFile(ctx, file, { name, sample = false, setup = null } = {}) {
   // library samples are free and unlimited; only the user's own templates count towards the Free plan's limit
   if (!sample && !ctx.requirePlan('templates', { count: await ctx.templates.ownCount() })) return null;
   if (!/\.docx$/i.test(file.name || name || '')) { toast('Choose a Word document (.docx). Older .doc files must be re-saved as .docx first.', { type: 'warn', timeout: 7000 }); return null; }
@@ -107,7 +108,7 @@ export async function importDocxFile(ctx, file, { name, sample = false } = {}) {
   }
   const badTags = invalidTagMessages(inspection);
   if (badTags.length) { showTemplateErrors(badTags); return null; }
-  const q = inferQuestionnaire(inspection);
+  const q = applySetup(inferQuestionnaire(inspection), setup);
   const t = newTemplate({ name: name || file.name.replace(/\.docx$/i, '').replace(/[-_]+/g, ' '), fileName: file.name, sections: q.sections, fields: q.fields, tags: inspection.order.map((o) => o.key), warnings: q.warnings });
   await ctx.templates.save(t);
   await ctx.templates.saveFile(t.id, bytes);
@@ -131,8 +132,9 @@ async function importSample(ctx, s) {
   if (!res.ok) { toast('The sample could not be loaded.', { type: 'danger' }); return null; }
   const blob = await res.blob();
   const file = new File([blob], s.file, { type: blob.type });
-  const t = await importDocxFile(ctx, file, { name: s.name, sample: true });
-  if (t) { t.category = s.category; t.description = s.description; t.sample = s.slug; await ctx.templates.save(t); }
+  const setup = setupFor(s.slug);
+  const t = await importDocxFile(ctx, file, { name: s.name, sample: true, setup });
+  if (t) { t.category = s.category; t.description = s.description; t.sample = s.slug; if (setup) t.setup = SETUP_VERSION; await ctx.templates.save(t); }
   return t;
 }
 
@@ -146,7 +148,10 @@ async function loadSample(ctx, s) {
 export async function startFromSample(ctx, { slug }) {
   const s = SAMPLES.find((x) => x.slug === slug);
   if (!s) { toast('That template is not available.', { type: 'warn' }); ctx.navigate('/templates'); return; }
-  const existing = (await ctx.templates.list()).find((t) => t.sample === slug || t.fileName === s.file);
+  // a copy imported before the library template gained its setup (or an older one) is left alone, untouched, and a fresh
+  // copy is imported, so nobody's edits are overwritten and the new calculations and layout reach everyone
+  const current = (t) => !setupFor(slug) || t.setup === SETUP_VERSION;
+  const existing = (await ctx.templates.list()).find((t) => (t.sample === slug || t.fileName === s.file) && current(t));
   const t = existing || await importSample(ctx, s);
   if (!t) { ctx.router.go('/templates', true); return; }
   const d = newDraft(t);
