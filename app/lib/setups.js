@@ -25,11 +25,11 @@ const less = (flag, key) => `if(${flag}, ${key}, 0)`;
 export const SETUPS = {
   invoice: {
     sections: [
-      ['Your business', 'Printed at the top of the invoice.', ['business_name', 'business_address', 'business_email', 'has_business_phone', 'business_phone', 'has_tax_registration', 'tax_registration_number']],
-      ['Invoice details', '', ['invoice_number', 'invoice_date', 'due_date', 'has_purchase_order', 'purchase_order_number']],
+      ['Your business', 'Printed at the top of the invoice.', ['business_name', 'business_address', 'business_email', 'has_business_phone', 'business_phone', 'has_tax_registration', 'tax_registration_label', 'tax_registration_number']],
+      ['Invoice details', '', ['invoice_number', 'invoice_date', 'has_supply_date', 'supply_date', 'due_date', 'has_purchase_order', 'purchase_order_number', 'is_tax_invoice']],
       ['Bill to', 'Who pays this invoice.', ['client_name', 'client_address']],
       ['Items and totals', 'Add a line for each product or service. Amounts and totals are calculated for you.', ['line_items', 'subtotal_amount', 'has_discount', 'discount_amount', 'has_tax', 'tax_name', 'tax_rate', 'tax_amount', 'invoice_total', 'has_amount_paid', 'amount_paid', 'balance_due']],
-      ['Payment', 'How and when to pay you.', ['how_to_pay', 'has_bank_details', 'bank_details', 'has_late_fee', 'late_fee_amount', 'late_fee_grace_days', 'has_notes', 'invoice_notes']],
+      ['Payment', 'How and when to pay you.', ['how_to_pay', 'has_bank_details', 'bank_details', 'warn_about_bank_changes', 'has_late_fee', 'late_fee_amount', 'late_fee_grace_days', 'has_notes', 'invoice_notes']],
     ],
     fields: {
       business_name: { label: 'Business or trading name' },
@@ -37,9 +37,13 @@ export const SETUPS = {
       has_business_phone: yes('Show a phone number'),
       business_phone: { label: 'Phone number' },
       has_tax_registration: yes('Show a tax registration number', 'A VAT, GST/HST or other tax number, if you are registered.'),
-      tax_registration_number: { label: 'Tax registration number', placeholder: 'e.g. GB123456789' },
+      tax_registration_label: { label: 'What your tax number is called', placeholder: 'e.g. VAT number, GST/HST number, ABN', default: 'Tax registration number' },
+      tax_registration_number: { label: 'Tax registration number', placeholder: 'e.g. GB123456789 or 123456789 RT0001' },
       invoice_number: { label: 'Invoice number', placeholder: 'e.g. INV-0042', help: 'Use a new number for every invoice, in sequence.' },
+      has_supply_date: yes('Show a separate date of supply', 'UK VAT invoices must show the time of supply (tax point) when it differs from the invoice date.'),
+      supply_date: { label: 'Date of supply' },
       due_date: { label: 'Payment due date' },
+      is_tax_invoice: yes('Title it "Tax invoice"', 'In Australia, a tax invoice from a GST-registered seller must say it is a tax invoice.'),
       has_purchase_order: yes('The client gave a purchase order number'),
       purchase_order_number: { label: 'Purchase order number' },
       client_name: { label: 'Client name' },
@@ -58,6 +62,7 @@ export const SETUPS = {
       how_to_pay: { label: 'How to pay', placeholder: 'e.g. bank transfer, card or cheque' },
       has_bank_details: yes('Add bank details'),
       bank_details: { label: 'Bank details', placeholder: 'Account name, bank, account number and sort code, IBAN or routing number' },
+      warn_about_bank_changes: { ...yes('Warn that your bank details never change by email', 'Protects your client from fake "our bank details have changed" emails, a common fraud.'), default: true },
       has_late_fee: yes('Charge a late fee'),
       late_fee_amount: money('Late fee'),
       late_fee_grace_days: { label: 'Days after the due date before the fee applies', default: 7 },
