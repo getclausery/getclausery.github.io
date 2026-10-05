@@ -36,7 +36,7 @@ test.describe('core drafting flow', () => {
     await page.click('button:has-text("Next")');
     await expect(page.locator('.field-label:has-text("Client full name")')).toBeVisible();
     await fill(page, 'client_name', 'Acme Ltd'); await fill(page, 'client_address', '1 Main St\nSpringfield'); await fill(page, 'client_salutation', 'Ms Smith');
-    await page.click('button:has-text("Review")');
+    await page.click('.interview-nav button:has-text("Review")');
     await expect(page.locator('.notice-ok')).toContainText('Everything is answered');
 
     const [download] = await Promise.all([page.waitForEvent('download'), page.click('button:has-text("Download .docx")')]);
@@ -50,7 +50,7 @@ test.describe('core drafting flow', () => {
     expect(text).not.toContain('No advance deposit');
     expect(text).toContain('October 1, 2026');
 
-    await page.click('button:has-text("Preview")');
+    await page.click('.card button:has-text("Preview")');
     await expect(page.locator('.preview-wrap section.docx').first()).toBeVisible();
     await page.goto('app/#/drafts');
     await expect(page.locator('tbody tr')).toHaveCount(1);
@@ -127,4 +127,37 @@ test('the 1.19.0 templates open as drafts from their deep links', async ({ brows
     await expect(page.locator('#main .badge').first()).toHaveText(name);
     await context.close();
   }
+});
+
+test('questions inside a condition stay hidden until the condition is ticked', async ({ page }) => {
+  await page.goto('app/#/start/invoice');
+  await page.waitForSelector('.stepper');
+  const po = page.locator('.field[data-path="purchase_order_number"]');
+  await expect(po).toBeHidden();
+  await page.check('#f_has_purchase_order');
+  await expect(po).toBeVisible();
+  await page.uncheck('#f_has_purchase_order');
+  await expect(po).toBeHidden();
+  // missing answers read as "left" until the person tries to move on
+  await expect(page.locator('.stepper .cnt').first()).toContainText('left');
+  await page.click('.interview-nav button:has-text("Next")');
+  await expect(page.locator('.stepper .cnt').first()).toContainText('to fix');
+});
+
+test('the live preview shows the document beside the questions and follows the answers', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('app/#/start/invoice');
+  await page.waitForSelector('.stepper');
+  const panel = page.locator('.live-preview');
+  await expect(panel).toBeVisible();
+  await expect(panel.locator('section.docx').first()).toContainText('[Client name]');
+  await page.fill('[name="client_name"]', 'Northwind Logistics');
+  await expect(panel.locator('section.docx').first()).toContainText('Northwind Logistics');
+  // the choice is remembered
+  await page.click('button:has-text("Live preview")');
+  await expect(panel).toBeHidden();
+  await page.reload();
+  await page.waitForSelector('.stepper');
+  await expect(page.locator('.live-preview')).toBeHidden();
+  await expect(page.locator('button:has-text("Live preview")')).toHaveAttribute('aria-pressed', 'false');
 });
