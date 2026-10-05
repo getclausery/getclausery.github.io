@@ -1,6 +1,6 @@
 /* Clausery deployment configuration. Edit this file when you deploy your own copy. */
 export const APP_NAME = 'Clausery';
-export const APP_VERSION = '1.20.0';
+export const APP_VERSION = '1.20.1';
 
 /* Public site URL (no trailing slash). Used for links in exported files and the intake form footer. */
 export const SITE_URL = 'https://getclausery.github.io';
@@ -19,11 +19,16 @@ export const CHECKOUT_URLS = { pro: '', team: '' };
 /* The day the checkout links above went live (YYYY-MM-DD). The privacy policy's effective date follows it. */
 export const CHECKOUT_SINCE = '';
 
-/* Where people reach the operator. The public instance uses GitHub: issue forms for questions, key requests and template
-   requests, and private vulnerability reporting for security. A deployment with its own inbox can point these at a mailto:. */
+/* Where people reach the operator. Email works for everyone, with no account; GitHub stays available for public bug reports
+   and for private security reports. */
 export const REPO_URL = 'https://github.com/getclausery/getclausery.github.io';
-export const CONTACT_URL = REPO_URL + '/issues/new/choose';
-export const KEY_REQUEST_URL = REPO_URL + '/issues/new?template=request-a-key.yml';
+export const CONTACT_EMAIL = 'getclausery@gmail.com';
+/** A mailto: link that opens a new email to the operator with this subject line. */
+export const mailto = (subject) => 'mailto:' + CONTACT_EMAIL + (subject ? '?subject=' + encodeURIComponent(subject) : '');
+export const CONTACT_URL = mailto('Question about Clausery');
+export const KEY_REQUEST_URL = mailto('Clausery key request');
+/** The key request link for one plan ("Pro", "Team"). */
+export const keyRequestUrl = (plan) => mailto(`Clausery ${plan} key request`);
 
 /* Locale defaults for new workspaces. */
 export const DEFAULT_SETTINGS = { locale: '', currency: 'USD', dateFormat: 'long', theme: 'system', firmName: '', autoLockMinutes: 15 };
