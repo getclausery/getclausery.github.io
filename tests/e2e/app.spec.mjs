@@ -132,6 +132,8 @@ test('the 1.19.0 templates open as drafts from their deep links', async ({ brows
 test('questions inside a condition stay hidden until the condition is ticked', async ({ page }) => {
   await page.goto('app/#/start/invoice');
   await page.waitForSelector('.stepper');
+  // jumping ahead from the section list is a skip, so the skipped section is not flagged
+  await page.click('.stepper button:has-text("Invoice details")');
   const po = page.locator('.field[data-path="purchase_order_number"]');
   await expect(po).toBeHidden();
   await page.check('#f_has_purchase_order');
@@ -139,9 +141,37 @@ test('questions inside a condition stay hidden until the condition is ticked', a
   await page.uncheck('#f_has_purchase_order');
   await expect(po).toBeHidden();
   // missing answers read as "left" until the person tries to move on
-  await expect(page.locator('.stepper .cnt').first()).toContainText('left');
+  await expect(page.locator('.stepper li:has-text("Your business") .cnt')).toContainText('left');
+  await expect(page.locator('.stepper li:has-text("Invoice details") .cnt')).toContainText('left');
   await page.click('.interview-nav button:has-text("Next")');
-  await expect(page.locator('.stepper .cnt').first()).toContainText('to fix');
+  await expect(page.locator('.stepper li:has-text("Invoice details") .cnt')).toContainText('to fix');
+  await expect(page.locator('.stepper li:has-text("Your business") .cnt')).toContainText('left');
+});
+
+test('the invoice works out line amounts, tax and totals as you type', async ({ page }) => {
+  await page.goto('app/#/start/invoice');
+  await page.waitForSelector('.stepper');
+  await page.click('.stepper button:has-text("Items and totals")');
+  await page.fill('[data-path="line_items[0].item_name"] input', 'Website design');
+  await page.fill('[data-path="line_items[0].item_quantity"] input', '2');
+  await page.fill('[data-path="line_items[0].item_rate"] input', '1200');
+  await page.click('button:has-text("Add line item")');
+  await page.fill('[data-path="line_items[1].item_name"] input', 'Hosting');
+  await page.fill('[data-path="line_items[1].item_quantity"] input', '12');
+  await page.fill('[data-path="line_items[1].item_rate"] input', '15');
+  await page.check('#f_has_discount');
+  await page.fill('[data-path="discount_amount"] input', '100');
+  await page.check('#f_has_tax');
+  await page.fill('[data-path="tax_name"] input', 'HST');
+  await page.fill('[data-path="tax_rate"] input', '13');
+  await expect(page.locator('[data-path="line_items[0].item_amount"] .computed-value')).toHaveText('$2,400.00');
+  await expect(page.locator('[data-path="line_items[1].item_amount"] .computed-value')).toHaveText('$180.00');
+  await expect(page.locator('[data-path="subtotal_amount"] .computed-value')).toHaveText('$2,580.00');
+  await expect(page.locator('[data-path="tax_amount"] .computed-value')).toHaveText('$322.40');   // 13% of 2,480
+  await expect(page.locator('[data-path="invoice_total"] .computed-value')).toHaveText('$2,802.40');
+  await page.check('#f_has_amount_paid');
+  await page.fill('[data-path="amount_paid"] input', '802.40');
+  await expect(page.locator('[data-path="balance_due"] .computed-value')).toHaveText('$2,000.00');
 });
 
 test('the live preview shows the document beside the questions and follows the answers', async ({ page }) => {
@@ -150,8 +180,8 @@ test('the live preview shows the document beside the questions and follows the a
   await page.waitForSelector('.stepper');
   const panel = page.locator('.live-preview');
   await expect(panel).toBeVisible();
-  await expect(panel.locator('section.docx').first()).toContainText('[Client name]');
-  await page.fill('[name="client_name"]', 'Northwind Logistics');
+  await expect(panel.locator('section.docx').first()).toContainText('[Business or trading name]');
+  await page.fill('[name="business_name"]', 'Northwind Logistics');
   await expect(panel.locator('section.docx').first()).toContainText('Northwind Logistics');
   // the choice is remembered
   await page.click('button:has-text("Live preview")');
