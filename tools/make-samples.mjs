@@ -1,6 +1,6 @@
 // Generates the sample .docx templates shipped in samples/ (run with `npm run build:samples`).
 // Each template uses plain docxtemplater tags: {field}, {#section}...{/section}, {^section}...{/section}, {#list}{item}{/list}.
-import { Document, Packer, Paragraph, TextRun, HeadingLevel, AlignmentType } from 'docx';
+import { Document, Packer, Paragraph, TextRun, HeadingLevel, AlignmentType, Table, TableRow, TableCell, WidthType, BorderStyle, ShadingType, TableLayoutType } from 'docx';
 import { writeFileSync, mkdirSync } from 'node:fs';
 import JSZip from 'jszip';
 
@@ -1415,28 +1415,81 @@ const liabilityWaiver = doc([
 // letter, a hold harmless agreement, an equipment rental agreement and a cleaning services contract.
 const loop = (key, ...children) => [new Paragraph({ children: [new TextRun(`{#${key}}`)] }), ...children, new Paragraph({ children: [new TextRun(`{/${key}}`)] })];
 
+// 1.21.0: business documents (invoice, quote, purchase order, credit note, expense form) are laid out like the real thing:
+// a header with the sender on the left and the document details on the right, an item table whose row repeats, and a
+// totals block on the right. A section tag that opens in a row's first cell and closes in its last cell repeats (or,
+// for a yes/no, keeps or drops) the whole table row.
+const NAVY = '1B2A41', RULE = 'D0D7E2';
+const NONE = { style: BorderStyle.NONE, size: 0, color: 'FFFFFF' };
+const NO_BORDERS = { top: NONE, bottom: NONE, left: NONE, right: NONE, insideHorizontal: NONE, insideVertical: NONE };
+const line = (color = RULE, size = 4) => ({ style: BorderStyle.SINGLE, size, color });
+const cp = (text, { bold = false, align, size, color, after = 40 } = {}) => new Paragraph({ alignment: align, spacing: { after }, children: [new TextRun({ text, bold, size, color })] });
+const cell = (width, children, { fill, borders, align } = {}) => new TableCell({
+  width: { size: width, type: WidthType.DXA }, margins: { top: 70, bottom: 70, left: 110, right: 110 },
+  shading: fill ? { type: ShadingType.CLEAR, color: 'auto', fill } : undefined, borders,
+  children: children.map((c) => (typeof c === 'string' ? cp(c, { align }) : c)),
+});
+const table = (widths, rows, { align, borders = NO_BORDERS } = {}) => new Table({
+  width: { size: widths.reduce((a, b) => a + b, 0), type: WidthType.DXA }, columnWidths: widths, layout: TableLayoutType.FIXED, alignment: align, borders, rows,
+});
+const gap = (after = 200) => new Paragraph({ spacing: { after }, children: [] });
+/** Sender block on the left, document title and details on the right. */
+function letterhead(title, left, right) {
+  const W = [4800, 4200];
+  return table(W, [new TableRow({ children: [
+    cell(W[0], left),
+    cell(W[1], [cp(title, { bold: true, size: 40, color: NAVY, align: AlignmentType.RIGHT, after: 120 }), ...right.map((t) => cp(t, { align: AlignmentType.RIGHT }))]),
+  ] })]);
+}
+/** Item table: a navy header row, then one row that repeats for each entry of `key`. cols: [header, tag text, width, right-aligned]. */
+function itemTable(key, cols) {
+  const W = cols.map((c) => c[2]);
+  const ruled = { top: NONE, left: NONE, right: NONE, bottom: line() };
+  return table(W, [
+    new TableRow({ tableHeader: true, children: cols.map(([head, , w, right]) => cell(w, [cp(head, { bold: true, color: 'FFFFFF', align: right ? AlignmentType.RIGHT : undefined })], { fill: NAVY, borders: { top: NONE, left: NONE, right: NONE, bottom: NONE } })) }),
+    new TableRow({ children: cols.map(([, text, w, right], i) => cell(w, [cp((i === 0 ? `{#${key}}` : '') + text + (i === cols.length - 1 ? `{/${key}}` : ''), { align: right ? AlignmentType.RIGHT : undefined })], { borders: ruled })) }),
+  ]);
+}
+/** Totals block on the right. rows: [label, value, { when, unless, strong }]; when/unless keep the row only if a yes/no is yes/no. */
+function totalsTable(rows) {
+  const W = [2700, 1900];
+  return table(W, rows.map(([label, value, o = {}]) => {
+    const open = o.when ? `{#${o.when}}` : o.unless ? `{^${o.unless}}` : '', close = o.when ? `{/${o.when}}` : o.unless ? `{/${o.unless}}` : '';
+    const borders = o.strong ? { top: line(NAVY, 8), left: NONE, right: NONE, bottom: NONE } : { top: NONE, left: NONE, right: NONE, bottom: NONE };
+    return new TableRow({ children: [
+      cell(W[0], [cp(open + label, { bold: !!o.strong })], { borders, fill: o.strong ? 'EEF2F7' : undefined }),
+      cell(W[1], [cp(value + close, { bold: !!o.strong, align: AlignmentType.RIGHT })], { borders, fill: o.strong ? 'EEF2F7' : undefined }),
+    ] });
+  }), { align: AlignmentType.RIGHT });
+}
+const Label = (text) => new Paragraph({ spacing: { before: 120, after: 60 }, children: [new TextRun({ text: text.toUpperCase(), bold: true, size: 18, color: NAVY })] });
+
 const invoice = doc([
-  Title('INVOICE'),
-  P('{business_name}', { bold: true }),
-  P('{business_address}'),
-  P('{business_email}{#has_business_phone} · {business_phone}{/has_business_phone}'),
-  P('{#has_tax_registration}Tax registration number: {tax_registration_number}{/has_tax_registration}'),
-  P('Invoice number: {invoice_number}'),
-  P('Invoice date: {invoice_date}'),
-  P('Payment due: {due_date}'),
-  P('{#has_purchase_order}Your purchase order: {purchase_order_number}{/has_purchase_order}'),
-  H2('Bill to'),
-  P('{client_name}'),
+  letterhead('INVOICE', [
+    cp('{business_name}', { bold: true, size: 28, color: NAVY, after: 80 }),
+    cp('{business_address}'),
+    cp('{business_email}{#has_business_phone} · {business_phone}{/has_business_phone}'),
+    cp('{#has_tax_registration}Tax registration number: {tax_registration_number}{/has_tax_registration}'),
+  ], ['Invoice number: {invoice_number}', 'Invoice date: {invoice_date}', 'Payment due: {due_date}', '{#has_purchase_order}Your purchase order: {purchase_order_number}{/has_purchase_order}']),
+  gap(),
+  Label('Bill to'),
+  P('{client_name}', { bold: true }),
   P('{client_address}'),
-  H2('Items'),
-  ...loop('line_items', Bullet('{item_name}: {item_quantity} × {item_rate} = {item_amount}')),
-  P('Subtotal: {subtotal_amount}'),
-  P('{#has_discount}Discount: −{discount_amount}{/has_discount}'),
-  P('{#has_tax}{tax_name}: {tax_amount}{/has_tax}'),
-  P('{#has_amount_paid}Total: {invoice_total}. Paid so far: {amount_paid}.{/has_amount_paid}'),
-  P('{#has_amount_paid}Balance due: {balance_due}{/has_amount_paid}{^has_amount_paid}Total due: {invoice_total}{/has_amount_paid}', { bold: true }),
-  H2('How to pay'),
-  P('Please pay by {due_date} by {how_to_pay}, quoting invoice number {invoice_number}.'),
+  gap(80),
+  itemTable('line_items', [['Description', '{item_name}', 4500, false], ['Qty', '{item_quantity}', 1000, true], ['Unit price', '{item_rate}', 1700, true], ['Amount', '{item_amount}', 1800, true]]),
+  gap(120),
+  totalsTable([
+    ['Subtotal', '{subtotal_amount}'],
+    ['Discount', '−{discount_amount}', { when: 'has_discount' }],
+    ['{tax_name} ({tax_rate}%)', '{tax_amount}', { when: 'has_tax' }],
+    ['Total', '{invoice_total}', { strong: true, unless: 'has_amount_paid' }],
+    ['Total', '{invoice_total}', { when: 'has_amount_paid' }],
+    ['Paid so far', '−{amount_paid}', { when: 'has_amount_paid' }],
+    ['Balance due', '{balance_due}', { strong: true, when: 'has_amount_paid' }],
+  ]),
+  gap(),
+  Label('How to pay'),
+  P('Please pay {#has_amount_paid}{balance_due}{/has_amount_paid}{^has_amount_paid}{invoice_total}{/has_amount_paid} by {due_date} by {how_to_pay}, quoting invoice number {invoice_number}.'),
   P('{#has_bank_details}{bank_details}{/has_bank_details}'),
   P('{#has_late_fee}A late fee of {late_fee_amount} applies to payments received more than {late_fee_grace_days} days after the due date.{/has_late_fee}'),
   P('{#has_notes}{invoice_notes}{/has_notes}'),
@@ -1444,56 +1497,62 @@ const invoice = doc([
 ]);
 
 const quote = doc([
-  Title('QUOTE'),
-  P('{business_name}', { bold: true }),
-  P('{business_address}'),
-  P('{business_email}'),
-  P('Quote number: {quote_number}'),
-  P('Date: {quote_date}'),
-  P('Valid until: {valid_until_date}'),
-  H2('Prepared for'),
-  P('{customer_name}'),
+  letterhead('QUOTE', [
+    cp('{business_name}', { bold: true, size: 28, color: NAVY, after: 80 }),
+    cp('{business_address}'),
+    cp('{business_email}'),
+  ], ['Quote number: {quote_number}', 'Date: {quote_date}', 'Valid until: {valid_until_date}']),
+  gap(),
+  Label('Prepared for'),
+  P('{customer_name}', { bold: true }),
   P('{customer_address}'),
-  H2('The work'),
+  Label('The work'),
   P('{project_description}'),
-  ...loop('quote_items', Bullet('{item_name}: {item_quantity} × {item_rate} = {item_amount}')),
-  P('Subtotal: {subtotal_amount}'),
-  P('{#has_discount}Discount: −{discount_amount}{/has_discount}'),
-  P('{#has_tax}{tax_name}: {tax_amount}{/has_tax}'),
-  P('Total: {quote_total}', { bold: true }),
-  H2('Terms'),
+  itemTable('quote_items', [['Description', '{item_name}', 4500, false], ['Qty', '{item_quantity}', 1000, true], ['Unit price', '{item_rate}', 1700, true], ['Amount', '{item_amount}', 1800, true]]),
+  gap(120),
+  totalsTable([
+    ['Subtotal', '{subtotal_amount}'],
+    ['Discount', '−{discount_amount}', { when: 'has_discount' }],
+    ['{tax_name} ({tax_rate}%)', '{tax_amount}', { when: 'has_tax' }],
+    ['Total', '{quote_total}', { strong: true }],
+    ['Deposit due on acceptance', '{deposit_amount}', { when: 'has_deposit' }],
+  ]),
+  gap(),
+  Label('Terms'),
   Numbered('This quote is a fixed price for the work described above. Work that is not described, or changes you ask for after acceptance, will be quoted separately before it is done.'),
   Numbered('{#has_exclusions}This quote does not include: {excluded_work_description}.{/has_exclusions}{^has_exclusions}Anything not listed above is not included.{/has_exclusions}'),
   Numbered('{#has_timeline}Work is expected to start on {start_date} and to be completed by {completion_date}, provided the quote is accepted by {valid_until_date}.{/has_timeline}{^has_timeline}We will agree start and completion dates with you when you accept.{/has_timeline}'),
   Numbered('{#has_deposit}A deposit of {deposit_amount} is due on acceptance, and the balance is due {balance_terms}.{/has_deposit}{^has_deposit}Payment is due {balance_terms}.{/has_deposit}'),
   Numbered('Prices are valid until {valid_until_date}. After that date, please ask us to confirm the price before you accept.'),
-  H2('Acceptance'),
+  Label('Acceptance'),
   P('To accept this quote, sign below and return it to {business_email}, or reply in writing quoting {quote_number}.'),
   P('Accepted by: ____________________________  Name: ______________________  Date: ______________'),
   P('For {customer_name}'),
 ]);
 
 const purchaseOrder = doc([
-  Title('PURCHASE ORDER'),
-  P('{buyer_company}', { bold: true }),
-  P('{buyer_address}'),
-  P('Purchase order number: {purchase_order_number}'),
-  P('Order date: {order_date}'),
-  H2('Vendor'),
-  P('{vendor_name}'),
-  P('{vendor_address}'),
-  H2('Ship to'),
-  P('{#has_ship_to_address}{ship_to_address}{/has_ship_to_address}{^has_ship_to_address}The buyer\'s address above.{/has_ship_to_address}'),
-  P('Deliver by: {delivery_date}{#has_shipping_method}, by {shipping_method}{/has_shipping_method}'),
-  H2('Order'),
-  ...loop('order_items', Bullet('{item_name}: {item_quantity} × {item_unit_price} = {item_total}')),
-  P('Subtotal: {subtotal_amount}'),
-  P('{#has_tax}{tax_name}: {tax_amount}{/has_tax}'),
-  P('{#has_shipping_cost}Shipping: {shipping_cost}{/has_shipping_cost}'),
-  P('Order total: {order_total}', { bold: true }),
+  letterhead('PURCHASE ORDER', [
+    cp('{buyer_company}', { bold: true, size: 28, color: NAVY, after: 80 }),
+    cp('{buyer_address}'),
+  ], ['PO number: {purchase_order_number}', 'Order date: {order_date}', 'Deliver by: {delivery_date}']),
+  gap(),
+  table([4500, 4500], [new TableRow({ children: [
+    cell(4500, [Label('Vendor'), cp('{vendor_name}', { bold: true }), cp('{vendor_address}')]),
+    cell(4500, [Label('Ship to'), cp('{#has_ship_to_address}{ship_to_address}{/has_ship_to_address}{^has_ship_to_address}{buyer_company}, at the address above{/has_ship_to_address}'), cp('{#has_shipping_method}Shipping method: {shipping_method}{/has_shipping_method}')]),
+  ] })]),
+  gap(80),
+  itemTable('order_items', [['Item', '{item_name}', 4500, false], ['Qty', '{item_quantity}', 1000, true], ['Unit price', '{item_unit_price}', 1700, true], ['Line total', '{item_total}', 1800, true]]),
+  gap(120),
+  totalsTable([
+    ['Subtotal', '{subtotal_amount}'],
+    ['{tax_name} ({tax_rate}%)', '{tax_amount}', { when: 'has_tax' }],
+    ['Shipping', '{shipping_cost}', { when: 'has_shipping_cost' }],
+    ['Order total', '{order_total}', { strong: true }],
+  ]),
+  gap(),
   P('Payment terms: {payment_terms}'),
   P('{#has_special_instructions}Special instructions: {special_instructions}{/has_special_instructions}'),
-  H2('Terms'),
+  Label('Terms'),
   Numbered('Please confirm this order, the prices and the delivery date in writing within {confirm_days} days. Shipping the goods or starting the work also accepts this order on these terms.'),
   Numbered('Every invoice, delivery note and package must show purchase order number {purchase_order_number}. Invoices without it may be returned unpaid.'),
   Numbered('The buyer may inspect the goods on delivery and reject any that are damaged, defective or not as ordered. Rejected goods are returned at the vendor\'s cost.'),
@@ -1909,16 +1968,23 @@ const remoteWork = doc([
 ]);
 
 const expenseForm = doc([
-  Title('EXPENSE REIMBURSEMENT FORM'),
-  P('Name: {claimant_name}'),
-  P('Company: {company_name}'),
-  P('Department or project: {department}'),
-  P('Expense period: {period_start_date} to {period_end_date}'),
-  H('Expenses'),
-  ...[new Paragraph({ children: [new TextRun('{#expenses}')] }), Bullet('{expense_date} · {expense_description} · {expense_category} · {expense_amount}'), new Paragraph({ children: [new TextRun('{/expenses}')] })],
-  P('{#has_mileage}Mileage: {miles_driven} miles at {mileage_rate} per mile, for {mileage_purpose}: {mileage_amount}.{/has_mileage}'),
-  P('Total to reimburse: {total_amount}', { bold: true }),
-  P('{#has_advance}Less advance already received: {advance_amount}. Balance due: {balance_due}.{/has_advance}'),
+  letterhead('EXPENSE CLAIM', [
+    cp('{company_name}', { bold: true, size: 28, color: NAVY, after: 80 }),
+    cp('Claimant: {claimant_name}'),
+    cp('Department or project: {department}'),
+  ], ['Expense period:', '{period_start_date} to {period_end_date}']),
+  gap(),
+  itemTable('expenses', [['Date', '{expense_date}', 1700, false], ['Description', '{expense_description}', 3600, false], ['Category', '{expense_category}', 1900, false], ['Amount', '{expense_amount}', 1800, true]]),
+  gap(120),
+  totalsTable([
+    ['Expenses', '{expenses_subtotal}'],
+    ['Mileage, {miles_driven} mi × {mileage_rate}', '{mileage_amount}', { when: 'has_mileage' }],
+    ['Total to reimburse', '{total_amount}', { strong: true }],
+    ['Less advance received', '−{advance_amount}', { when: 'has_advance' }],
+    ['Balance due', '{balance_due}', { strong: true, when: 'has_advance' }],
+  ]),
+  gap(),
+  P('{#has_mileage}Mileage was for: {mileage_purpose}.{/has_mileage}'),
   P('{#receipts_attached}Receipts for every expense are attached.{/receipts_attached}{^receipts_attached}Missing receipts and why: {missing_receipt_reason}{/receipts_attached}'),
   P('Pay to: {payment_details}'),
   P('I confirm that these expenses were incurred for business purposes, have not been claimed before and are not being claimed from anyone else.'),
@@ -1938,7 +2004,7 @@ const changeOrder = doc([
   P('This change order adds, removes or changes the following:'),
   ...[new Paragraph({ children: [new TextRun('{#change_items}')] }), Bullet('{change_item}: {change_item_amount}'), new Paragraph({ children: [new TextRun('{/change_items}')] })],
   H('2. Price'),
-  P('{#is_price_increase}The contract price increases by {price_change_amount}.{/is_price_increase}{^is_price_increase}The contract price decreases by {price_change_amount}.{/is_price_increase} The new total contract price is {new_contract_total}. {#has_payment_change}The change is paid as follows: {payment_terms_for_change}.{/has_payment_change}{^has_payment_change}It is invoiced and paid on the same terms as the original contract.{/has_payment_change}'),
+  P('The contract price was {original_contract_price}. {#is_price_increase}This change increases it by {price_change_amount}.{/is_price_increase}{^is_price_increase}This change decreases it by {price_change_amount}.{/is_price_increase} The new total contract price is {new_contract_total}. {#has_payment_change}The change is paid as follows: {payment_terms_for_change}.{/has_payment_change}{^has_payment_change}It is invoiced and paid on the same terms as the original contract.{/has_payment_change}'),
   H('3. Schedule'),
   P('{#changes_schedule}The completion date moves from {original_completion_date} to {new_completion_date}.{/changes_schedule}{^changes_schedule}The schedule does not change.{/changes_schedule}'),
   H('4. Everything else stays the same'),
@@ -2029,23 +2095,25 @@ const contractTermination = doc([
 ]);
 
 const creditNote = doc([
-  Title('CREDIT NOTE'),
-  P('{business_name}'),
-  P('{business_address}'),
-  P('Credit note number: {credit_note_number}'),
-  P('Date: {credit_note_date}'),
-  P('Original invoice: {original_invoice_number}, dated {original_invoice_date}'),
-  H('Credit to'),
-  P('{customer_name}'),
+  letterhead('CREDIT NOTE', [
+    cp('{business_name}', { bold: true, size: 28, color: NAVY, after: 80 }),
+    cp('{business_address}'),
+  ], ['Credit note number: {credit_note_number}', 'Date: {credit_note_date}', 'Original invoice: {original_invoice_number}', 'Invoice date: {original_invoice_date}']),
+  gap(),
+  Label('Credit to'),
+  P('{customer_name}', { bold: true }),
   P('{customer_address}'),
-  H('Reason'),
+  Label('Reason'),
   P('{credit_reason}'),
-  H('Credited items'),
-  ...[new Paragraph({ children: [new TextRun('{#credited_items}')] }), Bullet('{credited_item_description}: {credited_item_amount}'), new Paragraph({ children: [new TextRun('{/credited_items}')] })],
-  P('Subtotal: {subtotal_amount}'),
-  P('{#includes_tax}{tax_name}: {tax_amount}{/includes_tax}'),
-  P('Total credit: {total_credit_amount}', { bold: true }),
-  H('How the credit is applied'),
+  itemTable('credited_items', [['Credited item', '{credited_item_description}', 7200, false], ['Amount', '{credited_item_amount}', 1800, true]]),
+  gap(120),
+  totalsTable([
+    ['Subtotal', '{subtotal_amount}'],
+    ['{tax_name} ({tax_rate}%)', '{tax_amount}', { when: 'includes_tax' }],
+    ['Total credit', '{total_credit_amount}', { strong: true }],
+  ]),
+  gap(),
+  Label('How the credit is applied'),
   P('{#is_refund}We will refund {total_credit_amount} by {refund_method} within {refund_days} days.{/is_refund}{^is_refund}The credit of {total_credit_amount} will be applied to {credit_application}.{/is_refund}'),
   P('{#has_notes}{notes}{/has_notes}'),
   P('Questions about this credit note: {contact_email}'),
