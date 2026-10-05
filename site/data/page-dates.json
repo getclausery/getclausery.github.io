@@ -12,8 +12,8 @@
   "hash": "9cef9f70afe2e4db"
  },
  "changelog.html": {
-  "date": "2026-10-04",
-  "hash": "7621de27fa83de7e"
+  "date": "2026-10-05",
+  "hash": "b6257e88b37ead93"
  },
  "clauses/": {
   "date": "2026-10-04",
@@ -544,8 +544,8 @@
   "hash": "80a0fc100d96c377"
  },
  "templates/employment-agreement.html": {
-  "date": "2026-10-04",
-  "hash": "9cdc7e2e3f703de9"
+  "date": "2026-10-05",
+  "hash": "ec564fe613ac92d2"
  },
  "templates/employment-termination-letter.html": {
   "date": "2026-10-04",
@@ -600,8 +600,8 @@
   "hash": "95c05272dff0cc94"
  },
  "templates/invoice.html": {
-  "date": "2026-10-04",
-  "hash": "0eeec92018e3ffea"
+  "date": "2026-10-05",
+  "hash": "04239b8dae4d343f"
  },
  "templates/job-description.html": {
   "date": "2026-10-04",
@@ -684,8 +684,8 @@
   "hash": "ba6ac92e0777af17"
  },
  "templates/payment-receipt.html": {
-  "date": "2026-10-04",
-  "hash": "018bb76b0703366b"
+  "date": "2026-10-05",
+  "hash": "3c2d42107c37dcf6"
  },
  "templates/payment-reminder-letter.html": {
   "date": "2026-10-04",
