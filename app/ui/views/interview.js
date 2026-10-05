@@ -1,13 +1,20 @@
 /* Interview: answer a template's questionnaire section by section, then preview and generate the document. */
 import { h, icon, toast, modal, confirmDialog, pickFile, readFile, setTitle, announce, setChildren } from '../dom.js';
 import { renderForm, scrollBehavior } from '../../lib/form.js';
-import { evaluateForm, buildRenderData, summarize } from '../../lib/logic.js';
+import { evaluateForm, buildRenderData, buildPreviewData, summarize } from '../../lib/logic.js';
 import { renderDocx, previewDocx, describeTemplateError, isDocxError } from '../../lib/render.js';
 import { downloadBlob, safeFilename } from '../../lib/backup.js';
 import { nowISO } from '../../lib/schema.js';
 import { buildIntakeHtml, parseAnswersFile, sanitizeAnswers } from '../../lib/intake.js';
 
 const SAVE_DELAY = 400;
+const PREVIEW_DELAY = 600;
+const PREVIEW_KEY = 'clausery.livePreview';
+/** The live preview is on by default where there is room for it beside the questions; the choice is remembered. */
+function livePreviewWanted() {
+  try { const v = localStorage.getItem(PREVIEW_KEY); if (v === '1' || v === '0') return v === '1'; } catch { /* storage blocked */ }
+  return !!(globalThis.matchMedia && globalThis.matchMedia('(min-width: 1280px)').matches);
+}
 
 export async function render(ctx, { id }) {
   const draft = await ctx.drafts.get(id);
@@ -32,7 +39,7 @@ export async function render(ctx, { id }) {
     catch (e) { pendingSave = true; console.error(e); toast('The draft could not be saved: ' + (e.message || e), { type: 'danger', timeout: 6000 }); }
   }
   function persist() { if (stopped) return; pendingSave = true; clearTimeout(saveTimer); saveTimer = setTimeout(flush, SAVE_DELAY); }
-  const onChange = (answers, path, ev) => { evaluation = ev; draft.status = 'draft'; renderStepper(); persist(); };
+  const onChange = (answers, path, ev) => { evaluation = ev; draft.status = 'draft'; renderStepper(); persist(); schedulePreview(); };
 
   const heading = h('h1.sr-only', draft.title || template.name);
   const titleInput = h('input.input', { value: draft.title || '', placeholder: 'Draft name (optional)', 'aria-label': 'Draft name', oninput: (e) => { draft.title = e.target.value; setTitle(draft.title || template.name); heading.textContent = draft.title || template.name; persist(); } });
@@ -40,6 +47,52 @@ export async function render(ctx, { id }) {
   const bodyEl = h('div');
   const noticeEl = h('div');
   const mounted = () => stepperEl.isConnected;
+
+  // Live preview: the document as it stands, with unanswered questions shown as [labels]. Rendered off-screen and swapped
+  // in, so a slow render never overwrites a newer one.
+  let live = livePreviewWanted();
+  let previewTimer = null, previewSeq = 0;
+  const livePages = h('div.live-preview-pages');
+  const liveStatus = h('span.small.muted', 'Updates as you answer');
+  const livePanel = h('aside.live-preview', { 'aria-label': 'Live preview of the document', hidden: !live }, h('div.live-preview-head', h('strong', 'Live preview'), liveStatus), livePages);
+  const liveBtn = h('button.btn.btn-sm', { type: 'button', 'aria-pressed': String(live), title: 'Show the document beside the questions', onclick: () => setLive(!live) }, icon('eye', 14), 'Live preview');
+  const layout = h('div.interview', { class: live ? 'interview with-preview' : 'interview' });
+  const page = h('div.container', { class: live ? 'container container-wide' : 'container' });
+  function setLive(on) {
+    live = on; liveBtn.setAttribute('aria-pressed', String(on)); livePanel.hidden = !on;
+    layout.classList.toggle('with-preview', on); page.classList.toggle('container-wide', on);
+    try { localStorage.setItem(PREVIEW_KEY, on ? '1' : '0'); } catch { /* storage blocked */ }
+    if (on) refreshPreview(); else { previewSeq++; livePages.replaceChildren(); }
+  }
+  function schedulePreview() { if (!live) return; clearTimeout(previewTimer); previewTimer = setTimeout(refreshPreview, PREVIEW_DELAY); }
+  async function refreshPreview() {
+    clearTimeout(previewTimer);
+    if (!live || !mounted()) return;
+    const seq = ++previewSeq;
+    try {
+      const { data } = buildPreviewData(template, draft.answers, ctx.settings);
+      const staging = h('div');
+      await previewDocx(renderDocx(bytes, data), staging);
+      if (seq !== previewSeq || !mounted()) return;
+      livePages.replaceChildren(...staging.childNodes);
+      liveStatus.textContent = 'Updates as you answer';
+      fitPreview();
+    } catch (e) {
+      if (seq !== previewSeq) return;
+      if (!isDocxError(e)) console.error(e);
+      liveStatus.textContent = isDocxError(e) ? 'This template has an error, so it cannot be previewed.' : 'The preview could not be drawn.';
+    }
+  }
+  // scale the pages down to the panel's width
+  function fitPreview() {
+    const sheet = livePages.querySelector('section.docx'); const wrap = livePages.querySelector('.docx-wrapper');
+    if (!sheet || !wrap) return;
+    wrap.style.zoom = '';
+    const width = sheet.offsetWidth; if (!width) return;
+    wrap.style.zoom = String(Math.max(0.3, Math.min(1, (livePages.clientWidth - 8) / width)));
+  }
+  const resizer = globalThis.ResizeObserver ? new ResizeObserver(() => { if (!mounted()) { resizer.disconnect(); return; } fitPreview(); }) : null;
+  if (resizer) resizer.observe(livePanel);
 
   ctx.lockHooks.add(flush);
   const onPageHide = () => { if (mounted()) flush(); else window.removeEventListener('pagehide', onPageHide); };
@@ -62,18 +115,21 @@ export async function render(ctx, { id }) {
   function sectionErrors(sid) { return Object.keys(evaluation.errors).filter((p) => { const key = p.split(/[[.]/)[0]; const f = template.fields.find((x) => x.key === key); return f && f.sectionId === sid && evaluation.visible[key] !== false; }).length; }
   function sectionAnswered(sid) { return template.fields.filter((f) => f.sectionId === sid && f.type !== 'computed' && evaluation.visible[f.key] !== false).every((f) => { const v = draft.answers[f.key]; return f.type === 'checkbox' || f.type === 'repeat' || (v !== '' && v != null); }); }
 
+  // a section's missing answers read as "left" until the person has tried to move past it; only then are they "to fix"
+  const checked = new Set();
   function renderStepper() {
     const total = Object.keys(evaluation.errors).length;
     setChildren(stepperEl, 
       h('div.progress', { 'aria-hidden': 'true' }, h('div', { style: { width: Math.round(100 * (stepIndex) / (steps.length - 1)) + '%' } })),
-      h('ol', { style: { marginTop: '.75rem' } }, steps.map((s, i) => { const errs = s.id === '__review' ? 0 : sectionErrors(s.id); const done = s.id !== '__review' && !errs && sectionAnswered(s.id); const name = `${s.title}${errs ? `, ${errs} answer${errs === 1 ? '' : 's'} to fix` : done ? ', complete' : ''}`; return h('li', { class: [errs ? 'errors' : '', done ? 'done' : ''].join(' ') }, h('button.step', { type: 'button', 'aria-current': i === stepIndex ? 'step' : null, 'aria-label': name, onclick: () => go(i, true) }, h('span.num', done ? icon('check', 13) : String(i + 1)), h('span', s.title), errs ? h('span.cnt', { 'aria-hidden': 'true' }, `${errs} to fix`) : null)); })),
+      h('ol', { style: { marginTop: '.75rem' } }, steps.map((s, i) => { const errs = s.id === '__review' ? 0 : sectionErrors(s.id); const flagged = errs && checked.has(s.id); const done = s.id !== '__review' && !errs && sectionAnswered(s.id); const word = flagged ? 'to fix' : 'left'; const name = `${s.title}${errs ? `, ${errs} answer${errs === 1 ? '' : 's'} ${word}` : done ? ', complete' : ''}`; return h('li', { class: [flagged ? 'errors' : '', done ? 'done' : ''].join(' ') }, h('button.step', { type: 'button', 'aria-current': i === stepIndex ? 'step' : null, 'aria-label': name, onclick: () => go(i, true) }, h('span.num', done ? icon('check', 13) : String(i + 1)), h('span', s.title), errs ? h('span.cnt', { 'aria-hidden': 'true' }, `${errs} ${word}`) : null)); })),
       total ? h('p.small.muted', { style: { marginTop: '.75rem' } }, `${total} answer${total === 1 ? '' : 's'} still needed.`) : h('p.small', { style: { marginTop: '.75rem', color: 'var(--ok)' } }, 'All required answers are in.'),
     );
   }
 
   function go(i, force = false) {
     if (i < 0 || i >= steps.length) return;
-    if (i > stepIndex && form && !force) { form.setShowErrors(true); if (sectionErrors(steps[stepIndex].id) && form.focusFirstError()) { toast('Complete the highlighted answers, or use the section list to skip ahead.', { type: 'warn' }); return; } }
+    if (i > stepIndex && form && !force) { checked.add(steps[stepIndex].id); form.setShowErrors(true); if (sectionErrors(steps[stepIndex].id) && form.focusFirstError()) { renderStepper(); toast('Complete the highlighted answers, or use the section list to skip ahead.', { type: 'warn' }); return; } }
+    if (stepIndex < steps.length - 1 && i !== stepIndex) checked.add(steps[stepIndex].id);
     stepIndex = i; sessionStorage.setItem('clausery.step.' + id, String(i)); renderStep(); window.scrollTo({ top: 0, behavior: scrollBehavior() });
   }
 
@@ -149,10 +205,13 @@ export async function render(ctx, { id }) {
     await m.closed;
   }
 
-  setChildren(ctx.main, h('div.container', heading,
-    h('div.row.row-between', { style: { marginBottom: '1rem' } }, h('div.row', h('a.btn.btn-ghost.btn-sm', { href: '#/drafts' }, icon('back', 16), 'Drafts'), h('span.badge', template.name)), h('div', { style: { minWidth: '260px' } }, titleInput)),
+  setChildren(layout, stepperEl, bodyEl, livePanel);
+  setChildren(page, heading,
+    h('div.row.row-between', { style: { marginBottom: '1rem' } }, h('div.row', h('a.btn.btn-ghost.btn-sm', { href: '#/drafts' }, icon('back', 16), 'Drafts'), h('span.badge', template.name)), h('div.row', liveBtn, h('div', { style: { minWidth: '240px' } }, titleInput))),
     noticeEl,
-    h('div.interview', stepperEl, bodyEl),
-  ));
+    layout,
+  );
+  setChildren(ctx.main, page);
   renderStep();
+  refreshPreview();
 }
