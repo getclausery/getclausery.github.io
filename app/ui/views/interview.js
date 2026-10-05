@@ -129,7 +129,8 @@ export async function render(ctx, { id }) {
   function go(i, force = false) {
     if (i < 0 || i >= steps.length) return;
     if (i > stepIndex && form && !force) { checked.add(steps[stepIndex].id); form.setShowErrors(true); if (sectionErrors(steps[stepIndex].id) && form.focusFirstError()) { renderStepper(); toast('Complete the highlighted answers, or use the section list to skip ahead.', { type: 'warn' }); return; } }
-    if (stepIndex < steps.length - 1 && i !== stepIndex) checked.add(steps[stepIndex].id);
+    // Next and Back count as trying to move on; jumping ahead from the section list is a deliberate skip and flags nothing
+    if (!force && stepIndex < steps.length - 1 && i !== stepIndex) checked.add(steps[stepIndex].id);
     stepIndex = i; sessionStorage.setItem('clausery.step.' + id, String(i)); renderStep(); window.scrollTo({ top: 0, behavior: scrollBehavior() });
   }
 
