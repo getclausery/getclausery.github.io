@@ -264,6 +264,28 @@ export function buildRenderData(template, answers, settings = {}) {
   return { data, evaluation: ev };
 }
 
+/**
+ * Data for the live preview: like buildRenderData, but every question that is shown and not yet answered prints as
+ * "[Its label]", and an empty repeating group shows one placeholder row, so the document's shape is visible from the start.
+ */
+export function buildPreviewData(template, answers, settings = {}) {
+  const { data, evaluation: ev } = buildRenderData(template, answers, settings);
+  const asked = (f) => f.type !== 'checkbox' && f.type !== 'computed' && f.role !== 'condition' && !isReservedKey(f.key);
+  const mark = (f) => `[${f.label || f.key}]`;
+  for (const f of template.fields || []) {
+    if (ev.visible[f.key] === false) continue;
+    if (f.type === 'repeat') {
+      const kids = (f.children || []).filter(asked);
+      const rows = data[f.key] || [];
+      if (!rows.length) data[f.key] = [Object.assign(Object.fromEntries(kids.map((c) => [c.key, mark(c)])), { _index: 1, _first: true, _last: true, _count: 1 })];
+      else for (const [i, row] of rows.entries()) for (const c of kids) if (row[c.key] === '' && ev.visible[`${f.key}[${i}].${c.key}`] !== false) row[c.key] = mark(c);
+      continue;
+    }
+    if (asked(f) && data[f.key] === '') data[f.key] = mark(f);
+  }
+  return { data, evaluation: ev };
+}
+
 /** Human summary of a draft for lists: first non-empty text answers. */
 export function summarize(template, answers, max = 3) {
   const out = [];
