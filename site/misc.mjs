@@ -7,6 +7,15 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.21.0 <span class="small muted">— 6 October 2026</span></h2>
+<ul>
+  <li>The invoice, quote, purchase order, credit note and expense claim templates do the maths: line amounts, subtotal, discount, tax from a percentage, totals and the balance due are calculated as you type.</li>
+  <li>Those five templates have a new layout: your details and the document's number and dates side by side, a proper item table, and a totals block, as in accounting software.</li>
+  <li>Receipts can write the amount in words for you, and change orders work out the new contract price.</li>
+  <li>Clearer questions, in the order you think about the document: your business, the details, the client, the items, then payment.</li>
+  <li>Calculated amounts inside a list, such as each line's amount, now show as you type.</li>
+  <li>Jumping ahead with the section list no longer marks the sections you skipped as needing fixes.</li>
+</ul>
 <h2>1.20.1 <span class="small muted">— 5 October 2026</span></h2>
 <ul>
   <li>Reach us by email at getclausery@gmail.com: key requests, questions, template requests and problem reports no longer need a GitHub account.</li>
