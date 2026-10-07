@@ -6,7 +6,9 @@ import { verifyKey } from './lib/license.js';
 import { isOnlineKey, isOnlineRecord, activateOnline, validateOnline, deactivateOnline, evaluateOnline } from './lib/onlinelicense.js';
 import { Router } from './ui/router.js';
 import { h, icon, toast, modal, confirmDialog, setTitle, setChildren, closeAllModals } from './ui/dom.js';
-import { nowISO } from './lib/schema.js';
+import { nowISO, newDraft } from './lib/schema.js';
+import { prefillAnswers, prefillNote } from './lib/prefill.js';
+import { countEvent } from './lib/usage.js';
 import * as templatesView from './ui/views/templates.js';
 import * as designerView from './ui/views/designer.js';
 import * as draftsView from './ui/views/drafts.js';
@@ -40,6 +42,19 @@ const ctx = {
     get: (id) => store.get('drafts', id),
     save: async (d) => { d.updatedAt = nowISO(); return store.put('drafts', d); },
     remove: (id) => store.delete('drafts', id),
+  },
+  /** Start a new draft of a template and open it. Library templates start from your last document (prefill.js): your own
+      details, the next number and today's date, so a repeat invoice is a few answers rather than a dozen. */
+  async startDraft(t, { replace = false } = {}) {
+    const d = newDraft(t);
+    const { answers, info } = prefillAnswers(t, d.answers, await ctx.drafts.list(), await ctx.templates.list());
+    d.answers = answers;
+    await ctx.drafts.save(d);
+    countEvent('draft-started', t);
+    router.go('/drafts/' + d.id, replace);
+    const note = prefillNote(info, t);
+    if (note) toast(note, { type: 'ok', timeout: 8000 });
+    return d;
   },
   async saveSettings(patch) {
     Object.assign(ctx.settings, patch);
@@ -205,6 +220,7 @@ async function boot() {
   router.beforeLeave = async () => { if (!ctx.dirty) return true; const ok = await confirmDialog({ title: 'Discard unsaved changes?', message: 'You have unsaved changes in this template. Leave without saving?', confirmLabel: 'Discard', danger: true }); if (ok) ctx.dirty = false; return ok; };
   await router.resolve();
   armIdle();
+  countEvent('app-opened');
 }
 boot();
 window.__clausery = ctx;   // for debugging and end-to-end tests

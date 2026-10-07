@@ -241,3 +241,5 @@ details.section > .section-body { padding: 0 1rem 1rem; }
 .history-list li > div + div { margin-top: .15rem; overflow-wrap: anywhere; }
 .history-list li > button { margin-top: .4rem; }
 .card h3 .icon { vertical-align: -3px; }
+.first-run { margin-top: .5rem; }
+.first-run > p { color: var(--muted); max-width: 48rem; margin: .25rem 0 1rem; }
