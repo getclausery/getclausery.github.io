@@ -252,6 +252,26 @@ export const SETUPS = {
   },
 };
 
+/* What a new draft reuses from earlier ones (see prefill.js). `remember` lists only the person's own details and habits:
+   never the other party, the items or the amounts. `sequence` numbers documents; `today` dates them; `keepGap` keeps a
+   due or expiry date the same number of days after the document date as last time. */
+const TAX = ['has_tax', 'tax_name', 'tax_rate'];
+const REUSE = {
+  invoice: {
+    remember: ['business_name', 'business_address', 'business_email', 'has_business_phone', 'business_phone', 'has_tax_registration', 'tax_registration_label', 'tax_registration_number', ...TAX,
+      'how_to_pay', 'has_bank_details', 'bank_details', 'warn_about_bank_changes', 'has_late_fee', 'late_fee_amount', 'late_fee_grace_days'],
+    sequence: ['invoice_number'], today: ['invoice_date'], keepGap: { due_date: 'invoice_date' },
+  },
+  quote: { remember: ['business_name', 'business_address', 'business_email', ...TAX, 'balance_terms'], sequence: ['quote_number'], today: ['quote_date'], keepGap: { valid_until_date: 'quote_date' } },
+  'purchase-order': { remember: ['buyer_company', 'buyer_address', ...TAX, 'payment_terms', 'confirm_days', 'authorized_by_name', 'authorized_by_title'], sequence: ['purchase_order_number'], today: ['order_date'] },
+  'credit-note': { remember: ['business_name', 'business_address', 'contact_email', 'tax_name', 'tax_rate'], sequence: ['credit_note_number'], today: ['credit_note_date'] },
+  'expense-reimbursement-form': { remember: ['claimant_name', 'company_name', 'department', 'payment_details', 'approver_name', 'mileage_rate'] },
+  'payment-receipt': { remember: ['business_name', 'business_address', 'received_by_name'], sequence: ['receipt_number'], today: ['payment_date'] },
+  'rent-receipt': { remember: ['landlord_name', 'has_manager', 'owner_name', 'has_landlord_contact', 'landlord_phone', 'landlord_email'], sequence: ['receipt_number'], today: ['receipt_date'] },
+  'change-order-form': { remember: ['provider_name'], today: ['change_order_date'] },
+};
+for (const [slug, reuse] of Object.entries(REUSE)) SETUPS[slug].reuse = reuse;
+
 /** The setup for a library template slug, or null. */
 export const setupFor = (slug) => SETUPS[slug] || null;
 
