@@ -116,6 +116,7 @@ Key facts:
 - Drafts save automatically, as the user types, to the browser's IndexedDB database. They survive reloads, restarts and closed tabs, stay until deleted, and move between devices with a backup file.
 - The output is an editable Word .docx (printing to PDF is optional). A draft can be reopened, changed and downloaded again; each draft keeps a history of every document made from it, with the time and a SHA-256 fingerprint of the answers, and can restore earlier answers.
 - Logic: conditional sections, show-when rules with expressions such as contract_value > 5000, and calculations. The free invoice, quote, purchase order, credit note and expense templates add up line items and tax.
+- Repeat documents: a new invoice, quote, receipt, purchase order or credit note starts with the user's own details from the last one, the next number in their sequence and today's date; the client, items and amounts are never copied.
 - Bulk generation: one document per row of a CSV spreadsheet (Free plan: 5 per spreadsheet; Pro: unlimited), assembled in the browser.
 - Not included, by design: e-signatures (users sign with their own e-signature service), live co-editing and server integrations. Documents can be handed to Mail, Slack or Teams with the system share sheet where supported.
 - Library templates are general samples written mainly for the US, Canada and the UK; guides cite official sources. The only official site is getclausery.github.io, released regularly (see the changelog).

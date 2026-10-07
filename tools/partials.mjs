@@ -15,7 +15,10 @@ export const ANALYTICS_ON = Boolean(ANALYTICS_TOKEN);
 export const ANALYTICS_SRC = 'https://static.cloudflareinsights.com/beacon.min.js';
 /* Keys sold through the online checkout are checked with Lemon Squeezy's License API (app/lib/onlinelicense.js). The
    site describes that only once checkout is live; until then every key is an offline CLSY- key. */
-import { CHECKOUT_URLS, CHECKOUT_SINCE, LICENSE_SERVICE } from '../app/config.js';
+import { CHECKOUT_URLS, CHECKOUT_SINCE, LICENSE_SERVICE, USAGE_COUNTER } from '../app/config.js';
+/* Anonymous app usage counts (app/lib/usage.js): the privacy wording describes them only once an endpoint is set. */
+export const USAGE_ON = Boolean(USAGE_COUNTER.endpoint);
+export const USAGE_SINCE = USAGE_COUNTER.since;
 export const ONLINE_KEYS = Object.values(CHECKOUT_URLS).some(Boolean) && Boolean(LICENSE_SERVICE.api);
 export { CHECKOUT_SINCE };
 /** One sentence on how keys are checked, for pages that mention licensing. */
@@ -54,9 +57,9 @@ export const crumbsLd = (items) => `<script type="application/ld+json">${JSON.st
 export const faqHtml = (faq) => `<div class="faq">${faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>`;
 export function head({ title, description, path, extraHead = '', ogImage = 'assets/og.png', rel: relOverride }) {
   // Search results show about 60 characters of a title; drop the brand suffix rather than have the title cut off.
-  // The home title leads with what people search for (free Word templates) and keeps the product positioning.
+  // The home title leads with what the site is for (small businesses making invoices in Word) and what people search for.
   // A title that already names Clausery gets no suffix (no "About Clausery · Clausery").
-  const full = title === 'Clausery' ? 'Clausery: free Word templates, private document automation' : /\bClausery\b/.test(title) ? title : `${title} · Clausery`.length <= 60 ? `${title} · Clausery` : title;
+  const full = title === 'Clausery' ? 'Clausery: free invoice maker and Word templates' : /\bClausery\b/.test(title) ? title : `${title} · Clausery`.length <= 60 ? `${title} · Clausery` : title;
   description = clipDescription(description);
   const url = `${SITE}${path}`;
   const depth = path.split('/').filter(Boolean).length - (path.endsWith('/') || path === '' ? 0 : 1);
