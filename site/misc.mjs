@@ -7,6 +7,14 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.23.0 <span class="small muted">— 7 October 2026</span></h2>
+<ul>
+  <li>From a spreadsheet: make one document per row of a CSV file, such as an invoice for each client, downloaded together as a .zip. Each row fills in the draft's answers and empty cells keep them. The Free plan makes up to 5 per spreadsheet; Pro has no limit. The spreadsheet never leaves your browser.</li>
+  <li>History: every draft records each document made from it (downloaded, printed, shared or from a spreadsheet) with the time, the file name and a SHA-256 fingerprint of the exact answers, and can restore any earlier answers.</li>
+  <li>Share: send a finished document straight to Mail, Slack, Teams or Drive, where your device supports the share sheet.</li>
+  <li>The first time you make a document, Clausery asks the browser to protect its storage from automatic clean-up.</li>
+  <li>Clearer answers on the home page and in the FAQ about saving, editing documents later, rules and calculations, e-signatures, working with others and local law.</li>
+</ul>
 <h2>1.22.0 <span class="small muted">— 6 October 2026</span></h2>
 <ul>
   <li>Invoice: name your tax number (VAT number, GST/HST number, ABN), add a separate date of supply for UK VAT, and title it "Tax invoice" for Australian GST.</li>
