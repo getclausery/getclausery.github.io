@@ -19,6 +19,8 @@ import { CHECKOUT_URLS, CHECKOUT_SINCE, LICENSE_SERVICE, USAGE_COUNTER } from '.
 /* Anonymous app usage counts (app/lib/usage.js): the privacy wording describes them only once an endpoint is set. */
 export const USAGE_ON = Boolean(USAGE_COUNTER.endpoint);
 export const USAGE_SINCE = USAGE_COUNTER.since;
+/** The one request the app makes beyond its own files when counting is on, for pages that describe its network traffic. */
+export const USAGE_REQUEST = 'an anonymous count to GoatCounter when the app opens, a draft starts or a document is made, carrying only the event and, for a library template, its name';
 export const ONLINE_KEYS = Object.values(CHECKOUT_URLS).some(Boolean) && Boolean(LICENSE_SERVICE.api);
 export { CHECKOUT_SINCE };
 /** One sentence on how keys are checked, for pages that mention licensing. */
