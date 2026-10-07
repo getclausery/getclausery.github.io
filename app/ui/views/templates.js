@@ -1,8 +1,11 @@
 import { h, icon, toast, modal, confirmDialog, pickFile, readFile, relativeTime, setChildren } from '../dom.js';
 import { inspectDocx, describeTemplateError, isDocxError } from '../../lib/render.js';
-import { inferQuestionnaire, newTemplate, newDraft, normalizeTemplate, uid, KEY_RX, isReservedKey } from '../../lib/schema.js';
+import { inferQuestionnaire, newTemplate, normalizeTemplate, uid, KEY_RX, isReservedKey } from '../../lib/schema.js';
 import { applySetup, setupFor, SETUP_VERSION } from '../../lib/setups.js';
 import { decodeBundle, encodePack, downloadBlob, safeFilename, checkDocxSize } from '../../lib/backup.js';
+
+/** Shown first to a new visitor: what small businesses make most, each calculated and remembered (setups.js). */
+const FEATURED = ['invoice', 'quote', 'payment-receipt', 'rent-receipt', 'purchase-order', 'credit-note'];
 
 export const SAMPLES = [
   { slug: 'mutual-nda', file: 'mutual-nda.docx', name: 'Mutual NDA', category: 'Legal', description: 'Two-party confidentiality agreement with optional carve-outs, jurisdiction and notice emails.' },
@@ -154,9 +157,7 @@ export async function startFromSample(ctx, { slug }) {
   const existing = (await ctx.templates.list()).find((t) => (t.sample === slug || t.fileName === s.file) && current(t));
   const t = existing || await importSample(ctx, s);
   if (!t) { ctx.router.go('/templates', true); return; }
-  const d = newDraft(t);
-  await ctx.drafts.save(d);
-  ctx.router.go('/drafts/' + d.id, true);
+  await ctx.startDraft(t, { replace: true });
 }
 
 async function importPack(ctx) {
@@ -196,17 +197,36 @@ export async function render(ctx) {
     h('h3', { style: { marginTop: '.6rem' } }, t.name),
     h('p.meta', t.description || `${t.fields.length} question${t.fields.length === 1 ? '' : 's'} · ${draftCount(t.id)} draft${draftCount(t.id) === 1 ? '' : 's'}`),
     h('div.card-actions',
-      h('button.btn.btn-primary.btn-sm', { type: 'button', onclick: async () => { const d = newDraft(t); await ctx.drafts.save(d); ctx.navigate('/drafts/' + d.id); } }, icon('plus', 15), 'New draft'),
+      h('button.btn.btn-primary.btn-sm', { type: 'button', onclick: () => ctx.startDraft(t) }, icon('plus', 15), 'New draft'),
       h('a.btn.btn-sm', { href: '#/templates/' + t.id }, icon('edit', 15), 'Edit'),
       h('button.btn.btn-ghost.btn-sm', { type: 'button', 'aria-label': 'More actions for ' + t.name, onclick: () => moreMenu(ctx, t) }, '…')));
 
+  // first visit: the documents small businesses make most come first, one click from a finished file; customising a
+  // library template or bringing your own Word file comes after
+  const bySlug = new Map(SAMPLES.map((s) => [s.slug, s]));
+  const sampleCard = (s, primary) => h('article.card.card-sm', { dataset: { sample: s.slug, text: `${s.name} ${s.category} ${s.description}`.toLowerCase() } },
+    h('span.badge', s.category), h('h3', { style: { marginTop: '.5rem' } }, s.name), h('p.meta', s.description),
+    h('div.card-actions',
+      h(primary ? 'a.btn.btn-primary.btn-sm' : 'a.btn.btn-sm', { href: '#/start/' + s.slug }, icon('edit', 15), 'Fill it in'),
+      h('button.btn.btn-ghost.btn-sm', { type: 'button', 'aria-label': `Customise the ${s.name} template`, onclick: () => loadSample(ctx, s) }, 'Customise')));
+  const allGrid = h('div.cards#all-samples', SAMPLES.map((s) => sampleCard(s, false)));
+  const noMatch = h('p.muted', { hidden: true }, 'No template matches. Try another word, or upload your own Word file below.');
+  const filter = h('input.input', { type: 'search', placeholder: 'Find a template: lease, NDA, receipt…', 'aria-label': 'Find a template', autocomplete: 'off', style: { maxWidth: '26rem', marginBottom: '1rem' },
+    oninput: (e) => { const q = e.target.value.trim().toLowerCase(); let shown = 0; for (const el of allGrid.children) { el.hidden = Boolean(q) && !el.dataset.text.includes(q); if (!el.hidden) shown++; } noMatch.hidden = shown > 0; } });
+
   setChildren(ctx.main, h('div.container',
-    h('div.page-head', h('div', h('h1', 'Templates'), h('p.sub', 'Your Word templates, turned into guided questionnaires.')),
-      h('div.row', h('button.btn', { type: 'button', onclick: () => importPack(ctx) }, icon('download', 16), 'Import pack'), h('button.btn.btn-primary', { type: 'button', onclick: async () => { const f = await pickFile('.docx'); if (f) upload(f); } }, icon('upload', 16), 'Upload .docx'))),
-    templates.length ? [h('h2.sr-only', 'Your templates'), h('div.cards', templates.map(card))] : h('div.empty', h('h2', 'No templates yet'), h('p', 'Upload one of your own Word documents with {tags}, or start from a sample to see how it works.')),
-    h('div', { style: { marginTop: '1.5rem' } }, drop),
-    h('h2', { style: { marginTop: '2rem' } }, 'Start from a sample'),
-    h('div.cards', SAMPLES.map((s) => h('article.card.card-sm', h('span.badge', s.category), h('h3', { style: { marginTop: '.5rem' } }, s.name), h('p.meta', s.description), h('div.card-actions', h('button.btn.btn-sm', { type: 'button', onclick: () => loadSample(ctx, s) }, icon('plus', 15), 'Use this sample'))))),
+    h('div.page-head', h('div', h('h1', 'Templates'), h('p.sub', 'Pick a document, answer a few questions and download a finished Word file.')),
+      h('div.row', h('button.btn', { type: 'button', onclick: () => importPack(ctx) }, icon('download', 16), 'Import pack'), h('button.btn', { type: 'button', onclick: async () => { const f = await pickFile('.docx'); if (f) upload(f); } }, icon('upload', 16), 'Upload .docx'))),
+    templates.length
+      ? [h('h2.sr-only', 'Your templates'), h('div.cards', templates.map(card))]
+      : h('section.first-run', h('h2', 'Make your first document'),
+        h('p', 'Totals, tax and dates are worked out for you, and next time your own details and the next number are filled in. Nothing you type leaves this device.'),
+        h('div.cards', FEATURED.map((slug) => sampleCard(bySlug.get(slug), true)))),
+    h('h2', { style: { marginTop: '2rem' } }, `All ${SAMPLES.length} templates`),
+    filter, allGrid, noMatch,
+    h('h2', { style: { marginTop: '2rem' } }, 'Use your own Word template'),
+    h('p.muted', 'Put tags like {client_name} where the details change, and each tag becomes a question. Fonts, tables and numbering stay exactly as you set them in Word.'),
+    drop,
   ));
 }
 

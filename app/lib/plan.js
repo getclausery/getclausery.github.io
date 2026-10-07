@@ -3,7 +3,7 @@ import { PLANS, planFeatures } from './license.js';
 
 export const FEATURE_LABELS = {
   maxTemplates: 'Unlimited templates', computed: 'Computed fields and calculations', intake: 'Client intake forms',
-  vault: 'Workspace encryption', packs: 'Template packs for teams',
+  vault: 'Workspace encryption', packs: 'Template packs for teams', bulk: 'Unlimited documents from a spreadsheet',
 };
 
 export class Plan {

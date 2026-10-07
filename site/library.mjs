@@ -401,8 +401,8 @@ export const LIB = [
     description: 'Free invoice template for Microsoft Word: line items, discount, VAT or sales tax, bank details, amount paid and balance due. Fill it in online, no sign-up.',
     intro: 'An invoice with your business details and tax number, an invoice number and due date, the client\'s purchase order number, a list of items with quantity, rate and amount, an optional discount and tax, any amount already paid, and how to pay.',
     who: 'Freelancers, consultants, tradespeople and small businesses who bill clients and want a clean, consistent invoice without accounting software.',
-    clauses: ['Your business name, address, email and phone', 'Optional tax registration number', 'Invoice number, invoice date and due date', 'The client\'s purchase order number', 'Line items: what you supplied, quantity, rate and amount', 'Subtotal, optional discount and tax', 'Amount already paid and the balance due', 'How to pay, with optional bank details', 'Optional late fee and notes'],
-    faq: [['What must an invoice include?', 'At least your business name and contact details, the client\'s name, a unique invoice number, the invoice date, what you supplied with the amounts, the total due, and when and how to pay. If you are registered for VAT, GST or sales tax, the tax authority adds requirements, such as your registration number and the tax charged.'], ['How should I number my invoices?', 'Give every invoice a unique number in a sequence you never reuse, such as 2026-001, 2026-002. Sequential numbers make invoices easy to track, and some tax systems require them; EU VAT rules, for example, require a sequential number that identifies each invoice.'], ['Does the template add up the totals?', 'You type the line amounts and totals, and they are printed exactly as entered, so check them with a calculator or spreadsheet. On the Pro plan you can make them computed fields that add themselves up.']] },
+    clauses: ['Your business name, address, email and phone', 'Optional VAT, GST/HST, ABN or other tax number, named as you choose', 'Optional "Tax invoice" title for Australian GST', 'Invoice number, invoice date, optional date of supply, and due date', 'The client\'s purchase order number', 'A line item table: description, quantity, unit price and amount, calculated for you', 'Subtotal, optional discount, and tax worked out from the rate', 'Amount already paid and the balance due', 'How to pay, with optional bank details and a warning against fake change-of-bank-details emails', 'Optional late fee and notes'],
+    faq: [['What must an invoice include?', 'At least your business name and contact details, the client\'s name, a unique invoice number, the invoice date, what you supplied with the amounts, the total due, and when and how to pay. If you are registered for VAT, GST or sales tax, the tax authority adds requirements, such as your registration number and the tax charged.'], ['How should I number my invoices?', 'Give every invoice a unique number in a sequence you never reuse, such as 2026-001, 2026-002. Sequential numbers make invoices easy to track, and some tax systems require them; EU VAT rules, for example, require a sequential number that identifies each invoice.'], ['Does the template add up the totals?', 'Yes, when you fill it in online. Each line\'s amount is quantity times unit price, and the subtotal, discount, tax, total and any balance due are worked out as you type. The Word download has placeholders you fill in by hand.'], ['Can I use it as a VAT, GST/HST or Australian tax invoice?', 'Yes. Show your VAT number, GST/HST number or ABN, enter the tax rate (for example 20 for UK VAT, 13 for Ontario HST or 10 for Australian GST), and add a date of supply or the "Tax invoice" title where the rules ask for them. It applies one tax rate to the whole invoice.'], ['Where do I put my bank details?', 'Tick the bank details option in the Payment section and enter what your clients\' banks need, such as a sort code and account number, routing and account numbers, or an IBAN. The invoice adds a line warning clients that your bank details never change by email.']] },
   { slug: 'quote', file: 'quote.docx', name: 'Price quote', title: 'Free price quote template (quotation, Word)', category: 'Business',
     description: 'Free quote template for Word: itemized prices, discount and tax, what is not included, a timeline, a deposit, an expiry date and a signature to accept.',
     intro: 'A price quote for a job or an order: a quote number and the date it expires, a description of the work, itemized prices with an optional discount and tax, what is not included, an optional timeline and deposit, and a line for the customer to sign and accept.',
@@ -579,6 +579,16 @@ function questionsFor(file) {
   const label = Object.fromEntries(q.fields.map((f) => [f.key, f.label]));
   return q.fields.map((f) => ({ label: f.label, kind: kind(f), when: f.showIf, whenText: f.showIf && readableCondition(f.showIf, label), children: (f.children || []).map((c) => c.label), computed: f.type === 'computed' }));
 }
+// "the next one starts with ...": what a second draft of this template fills in by itself (app/lib/prefill.js)
+function reuseFor(slug) {
+  const r = (setupFor(slug) || {}).reuse;
+  if (!r) return '';
+  const parts = [];
+  if ((r.remember || []).length) parts.push('your own details');
+  if ((r.sequence || []).length) parts.push('the next number');
+  if ((r.today || []).length) parts.push("today's date");
+  return parts.length ? `the next one you make starts with ${andList(parts)} already filled in, so only what is new needs typing.` : '';
+}
 // "Amount, Subtotal, Tax and Total": what the app works out for the visitor on a template with a ready-made setup
 function calculatedFor(slug) {
   const s = setupFor(slug);
@@ -708,6 +718,7 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-label
     <a class="btn btn-lg" href="${rel}samples/${t.file}" download>Download the Word template</a>
   </div>
   ${calculatedFor(t.slug).length ? `<p class="small"><strong>Does the maths for you:</strong> fill it in online and the ${esc(andList(calculatedFor(t.slug).map(lowerFirst)))} ${calculatedFor(t.slug).length > 1 ? 'are' : 'is'} calculated as you type.</p>
+  ` : ''}${reuseFor(t.slug) ? `<p class="small"><strong>Remembers you:</strong> ${esc(reuseFor(t.slug))}</p>
   ` : ''}<p class="small muted">No sign-up. Your answers stay in your browser. <strong>Who it is for:</strong> ${esc(t.who)}</p>
   <p class="small muted">Updated <time datetime="${LASTMOD}">${LASTMOD_LONG}</time> · Word (.docx) · Free to use and adapt</p>
   <!--nav--><p class="small muted">Need more than one? <a href="${rel}samples/${PACK_FILE}" download>Download all ${LIB.length} templates</a> as one .zip file.</p><!--/nav-->

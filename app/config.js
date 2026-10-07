@@ -1,6 +1,6 @@
 /* Clausery deployment configuration. Edit this file when you deploy your own copy. */
 export const APP_NAME = 'Clausery';
-export const APP_VERSION = '1.21.0';
+export const APP_VERSION = '1.24.0';
 
 /* Public site URL (no trailing slash). Used for links in exported files and the intake form footer. */
 export const SITE_URL = 'https://getclausery.github.io';
@@ -18,6 +18,13 @@ export const LICENSE_SERVICE = { api: 'https://api.lemonsqueezy.com/v1/licenses'
 export const CHECKOUT_URLS = { pro: '', team: '' };
 /* The day the checkout links above went live (YYYY-MM-DD). The privacy policy's effective date follows it. */
 export const CHECKOUT_SINCE = '';
+
+/* Anonymous usage counts with GoatCounter (https://www.goatcounter.com), which sets no cookies and does not store IP
+   addresses. The app reports only that something happened (the app opened, a draft started, a document was made) and,
+   for a library template, which one; never answers, file names or your own templates. Leave endpoint empty to send
+   nothing. Only the public site counts (host), so tests, previews and self-hosted copies never report. When endpoint
+   is set, add its origin to img-src in app/index.html and set since to the day it went live (the privacy policy's date). */
+export const USAGE_COUNTER = { endpoint: '', host: 'getclausery.github.io', since: '' };
 
 /* Where people reach the operator. Email works for everyone, with no account; GitHub stays available for public bug reports
    and for private security reports. */

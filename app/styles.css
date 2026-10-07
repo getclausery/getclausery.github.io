@@ -234,3 +234,12 @@ details.section > .section-body { padding: 0 1rem 1rem; }
 .lock { min-height: 100vh; display: grid; place-items: center; padding: 1rem; }
 .lock .card { max-width: 420px; width: 100%; }
 .logo-mark { width: 44px; height: 44px; }
+
+/* generation history on the review step */
+.history-list { list-style: none; padding: 0; margin: .75rem 0 0; }
+.history-list li { padding: .6rem 0; border-top: 1px solid var(--border); }
+.history-list li > div + div { margin-top: .15rem; overflow-wrap: anywhere; }
+.history-list li > button { margin-top: .4rem; }
+.card h3 .icon { vertical-align: -3px; }
+.first-run { margin-top: .5rem; }
+.first-run > p { color: var(--muted); max-width: 48rem; margin: .25rem 0 1rem; }

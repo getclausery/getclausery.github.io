@@ -1,5 +1,5 @@
 import { h, icon, toast, modal, confirmDialog, relativeTime, setChildren } from '../dom.js';
-import { newDraft, uid } from '../../lib/schema.js';
+import { uid } from '../../lib/schema.js';
 import { summarize } from '../../lib/logic.js';
 
 export async function render(ctx) {
@@ -10,7 +10,7 @@ export async function render(ctx) {
     if (!templates.length) { toast('Add a template first.', { type: 'warn' }); ctx.navigate('/templates'); return; }
     let sel;
     const m = modal({ title: 'New draft', body: h('div.stack', h('label.field', h('span.field-label', 'Template'), sel = h('select.select', { autofocus: true }, templates.map((t) => h('option', { value: t.id }, t.name))))),
-      actions: [{ label: 'Cancel' }, { label: 'Start', primary: true, onClick: async () => { const t = tmap.get(sel.value); const d = newDraft(t); await ctx.drafts.save(d); ctx.navigate('/drafts/' + d.id); } }] });
+      actions: [{ label: 'Cancel' }, { label: 'Start', primary: true, onClick: () => ctx.startDraft(tmap.get(sel.value)) }] });
     await m.closed;
   }
 

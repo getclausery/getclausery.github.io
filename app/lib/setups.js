@@ -25,11 +25,11 @@ const less = (flag, key) => `if(${flag}, ${key}, 0)`;
 export const SETUPS = {
   invoice: {
     sections: [
-      ['Your business', 'Printed at the top of the invoice.', ['business_name', 'business_address', 'business_email', 'has_business_phone', 'business_phone', 'has_tax_registration', 'tax_registration_number']],
-      ['Invoice details', '', ['invoice_number', 'invoice_date', 'due_date', 'has_purchase_order', 'purchase_order_number']],
+      ['Your business', 'Printed at the top of the invoice.', ['business_name', 'business_address', 'business_email', 'has_business_phone', 'business_phone', 'has_tax_registration', 'tax_registration_label', 'tax_registration_number']],
+      ['Invoice details', '', ['invoice_number', 'invoice_date', 'has_supply_date', 'supply_date', 'due_date', 'has_purchase_order', 'purchase_order_number', 'is_tax_invoice']],
       ['Bill to', 'Who pays this invoice.', ['client_name', 'client_address']],
       ['Items and totals', 'Add a line for each product or service. Amounts and totals are calculated for you.', ['line_items', 'subtotal_amount', 'has_discount', 'discount_amount', 'has_tax', 'tax_name', 'tax_rate', 'tax_amount', 'invoice_total', 'has_amount_paid', 'amount_paid', 'balance_due']],
-      ['Payment', 'How and when to pay you.', ['how_to_pay', 'has_bank_details', 'bank_details', 'has_late_fee', 'late_fee_amount', 'late_fee_grace_days', 'has_notes', 'invoice_notes']],
+      ['Payment', 'How and when to pay you.', ['how_to_pay', 'has_bank_details', 'bank_details', 'warn_about_bank_changes', 'has_late_fee', 'late_fee_amount', 'late_fee_grace_days', 'has_notes', 'invoice_notes']],
     ],
     fields: {
       business_name: { label: 'Business or trading name' },
@@ -37,9 +37,13 @@ export const SETUPS = {
       has_business_phone: yes('Show a phone number'),
       business_phone: { label: 'Phone number' },
       has_tax_registration: yes('Show a tax registration number', 'A VAT, GST/HST or other tax number, if you are registered.'),
-      tax_registration_number: { label: 'Tax registration number', placeholder: 'e.g. GB123456789' },
+      tax_registration_label: { label: 'What your tax number is called', placeholder: 'e.g. VAT number, GST/HST number, ABN', default: 'Tax registration number' },
+      tax_registration_number: { label: 'Tax registration number', placeholder: 'e.g. GB123456789 or 123456789 RT0001' },
       invoice_number: { label: 'Invoice number', placeholder: 'e.g. INV-0042', help: 'Use a new number for every invoice, in sequence.' },
+      has_supply_date: yes('Show a separate date of supply', 'UK VAT invoices must show the time of supply (tax point) when it differs from the invoice date.'),
+      supply_date: { label: 'Date of supply' },
       due_date: { label: 'Payment due date' },
+      is_tax_invoice: yes('Title it "Tax invoice"', 'In Australia, a tax invoice from a GST-registered seller must say it is a tax invoice.'),
       has_purchase_order: yes('The client gave a purchase order number'),
       purchase_order_number: { label: 'Purchase order number' },
       client_name: { label: 'Client name' },
@@ -58,6 +62,7 @@ export const SETUPS = {
       how_to_pay: { label: 'How to pay', placeholder: 'e.g. bank transfer, card or cheque' },
       has_bank_details: yes('Add bank details'),
       bank_details: { label: 'Bank details', placeholder: 'Account name, bank, account number and sort code, IBAN or routing number' },
+      warn_about_bank_changes: { ...yes('Warn that your bank details never change by email', 'Protects your client from fake "our bank details have changed" emails, a common fraud.'), default: true },
       has_late_fee: yes('Charge a late fee'),
       late_fee_amount: money('Late fee'),
       late_fee_grace_days: { label: 'Days after the due date before the fee applies', default: 7 },
@@ -246,6 +251,26 @@ export const SETUPS = {
     },
   },
 };
+
+/* What a new draft reuses from earlier ones (see prefill.js). `remember` lists only the person's own details and habits:
+   never the other party, the items or the amounts. `sequence` numbers documents; `today` dates them; `keepGap` keeps a
+   due or expiry date the same number of days after the document date as last time. */
+const TAX = ['has_tax', 'tax_name', 'tax_rate'];
+const REUSE = {
+  invoice: {
+    remember: ['business_name', 'business_address', 'business_email', 'has_business_phone', 'business_phone', 'has_tax_registration', 'tax_registration_label', 'tax_registration_number', ...TAX,
+      'how_to_pay', 'has_bank_details', 'bank_details', 'warn_about_bank_changes', 'has_late_fee', 'late_fee_amount', 'late_fee_grace_days'],
+    sequence: ['invoice_number'], today: ['invoice_date'], keepGap: { due_date: 'invoice_date' },
+  },
+  quote: { remember: ['business_name', 'business_address', 'business_email', ...TAX, 'balance_terms'], sequence: ['quote_number'], today: ['quote_date'], keepGap: { valid_until_date: 'quote_date' } },
+  'purchase-order': { remember: ['buyer_company', 'buyer_address', ...TAX, 'payment_terms', 'confirm_days', 'authorized_by_name', 'authorized_by_title'], sequence: ['purchase_order_number'], today: ['order_date'] },
+  'credit-note': { remember: ['business_name', 'business_address', 'contact_email', 'tax_name', 'tax_rate'], sequence: ['credit_note_number'], today: ['credit_note_date'] },
+  'expense-reimbursement-form': { remember: ['claimant_name', 'company_name', 'department', 'payment_details', 'approver_name', 'mileage_rate'] },
+  'payment-receipt': { remember: ['business_name', 'business_address', 'received_by_name'], sequence: ['receipt_number'], today: ['payment_date'] },
+  'rent-receipt': { remember: ['landlord_name', 'has_manager', 'owner_name', 'has_landlord_contact', 'landlord_phone', 'landlord_email'], sequence: ['receipt_number'], today: ['receipt_date'] },
+  'change-order-form': { remember: ['provider_name'], today: ['change_order_date'] },
+};
+for (const [slug, reuse] of Object.entries(REUSE)) SETUPS[slug].reuse = reuse;
 
 /** The setup for a library template slug, or null. */
 export const setupFor = (slug) => SETUPS[slug] || null;

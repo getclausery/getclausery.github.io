@@ -266,7 +266,7 @@ export async function render(ctx, { id }) {
   setChildren(ctx.main, h('div.container', heading,
     h('div.row', { style: { marginBottom: '.75rem' } }, h('a.btn.btn-ghost.btn-sm', { href: '#/templates' }, icon('back', 16), 'Templates')),
     h('div.card', { style: { marginBottom: '1rem' } }, h('div.grid-2', h('label.field', h('span.field-label', 'Template name'), nameInput), h('label.field', h('span.field-label', 'Category'), catSelect)), h('label.field', { style: { marginBottom: 0 } }, h('span.field-label', 'Description'), descInput)),
-    h('div.row.row-between', { style: { marginBottom: '.5rem' } }, tabs, h('div.row', h('button.btn', { type: 'button', onclick: async () => { if (ctx.dirty && !(await save())) return; const { newDraft } = await import('../../lib/schema.js'); const d = newDraft(t); await ctx.drafts.save(d); ctx.navigate('/drafts/' + d.id); } }, icon('plus', 16), 'New draft'), saveBtn)),
+    h('div.row.row-between', { style: { marginBottom: '.5rem' } }, tabs, h('div.row', h('button.btn', { type: 'button', onclick: async () => { if (ctx.dirty && !(await save())) return; await ctx.startDraft(t); } }, icon('plus', 16), 'New draft'), saveBtn)),
     content,
   ));
   renderTab();

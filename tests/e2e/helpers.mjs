@@ -15,7 +15,8 @@ export async function openApp(page) {
   await page.goto('app/');
   await page.waitForSelector('h1:has-text("Templates")');
 }
+/** Open a library template in the designer ("Customise"), by its position in the full template list. */
 export async function useSample(page, index) {
-  await page.locator('button:has-text("Use this sample")').nth(index).click();
+  await page.locator('#all-samples button:has-text("Customise")').nth(index).click();
   await page.waitForSelector('input[aria-label="Template name"]');
 }

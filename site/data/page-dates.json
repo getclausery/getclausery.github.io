@@ -1,7 +1,7 @@
 {
  "": {
-  "date": "2026-10-04",
-  "hash": "fc3d7b4c4ec89edf"
+  "date": "2026-10-07",
+  "hash": "8205c36c17275d4c"
  },
  "404.html": {
   "date": "2026-09-27",
@@ -12,8 +12,8 @@
   "hash": "c44ed806a9c40dea"
  },
  "changelog.html": {
-  "date": "2026-10-06",
-  "hash": "44edd5d456079515"
+  "date": "2026-10-07",
+  "hash": "c9b0ecce015fb90a"
  },
  "clauses/": {
   "date": "2026-10-04",
@@ -168,16 +168,16 @@
   "hash": "fa0e83dd7e2ceab3"
  },
  "docs/": {
-  "date": "2026-10-01",
-  "hash": "a2ab029044f9aa3e"
+  "date": "2026-10-07",
+  "hash": "6352636d3afbf2c0"
  },
  "docs/backups.html": {
   "date": "2026-10-01",
   "hash": "207a1269e89d4b8e"
  },
  "docs/faq.html": {
-  "date": "2026-10-01",
-  "hash": "3ee68c7bf306e414"
+  "date": "2026-10-07",
+  "hash": "42ea7665d4ff6f20"
  },
  "docs/intake.html": {
   "date": "2026-10-01",
@@ -208,8 +208,8 @@
   "hash": "740c927eff8948b2"
  },
  "for/consultants.html": {
-  "date": "2026-10-04",
-  "hash": "abe70ac0dae62dfe"
+  "date": "2026-10-06",
+  "hash": "0e9d9b95354d2af8"
  },
  "for/freelancers.html": {
   "date": "2026-10-04",
@@ -268,8 +268,8 @@
   "hash": "0524916b3c455222"
  },
  "guides/": {
-  "date": "2026-10-04",
-  "hash": "29e766163bd5c0c7"
+  "date": "2026-10-06",
+  "hash": "dbed027d6f0194a7"
  },
  "guides/are-liability-waivers-enforceable.html": {
   "date": "2026-09-28",
@@ -298,6 +298,10 @@
  "guides/do-i-need-a-model-release.html": {
   "date": "2026-09-26",
   "hash": "4b66e115ee240135"
+ },
+ "guides/gst-hst-invoice-requirements-canada.html": {
+  "date": "2026-10-06",
+  "hash": "fa43ee8efaadb62b"
  },
  "guides/how-does-consignment-work.html": {
   "date": "2026-10-04",
@@ -372,8 +376,8 @@
   "hash": "0a735e3aa3041f62"
  },
  "guides/how-to-write-an-invoice.html": {
-  "date": "2026-10-02",
-  "hash": "9fdc999a7f75f4bb"
+  "date": "2026-10-06",
+  "hash": "557476048999baa0"
  },
  "guides/how-to-write-an-offer-letter.html": {
   "date": "2026-09-26",
@@ -406,6 +410,14 @@
  "guides/repeating-lists-and-tables-in-word.html": {
   "date": "2026-09-26",
   "hash": "67df83d1606dd884"
+ },
+ "guides/tax-invoice-requirements-australia.html": {
+  "date": "2026-10-06",
+  "hash": "bee3a65d57e763af"
+ },
+ "guides/what-bank-details-to-put-on-an-invoice.html": {
+  "date": "2026-10-06",
+  "hash": "49f9ef07743ce04e"
  },
  "guides/what-is-a-change-order.html": {
   "date": "2026-10-04",
@@ -455,6 +467,10 @@
   "date": "2026-10-04",
   "hash": "0496bf2086dc9278"
  },
+ "guides/what-to-include-on-a-vat-invoice.html": {
+  "date": "2026-10-06",
+  "hash": "b55f73ff4431ac85"
+ },
  "legal/dpa.html": {
   "date": "2026-10-02",
   "hash": "e23840fe9556e3ac"
@@ -476,8 +492,8 @@
   "hash": "d5827ad75dea7884"
  },
  "pricing/": {
-  "date": "2026-10-05",
-  "hash": "ff53d583e0ceceed"
+  "date": "2026-10-07",
+  "hash": "02f5aa4f40a390a6"
  },
  "templates/": {
   "date": "2026-10-06",
@@ -504,8 +520,8 @@
   "hash": "de4f663faf14ad65"
  },
  "templates/change-order-form.html": {
-  "date": "2026-10-06",
-  "hash": "06d7b950885786c9"
+  "date": "2026-10-07",
+  "hash": "03f77724aefca247"
  },
  "templates/cleaning-services-contract.html": {
   "date": "2026-10-06",
@@ -532,8 +548,8 @@
   "hash": "3af6d0486fbe71f6"
  },
  "templates/credit-note.html": {
-  "date": "2026-10-06",
-  "hash": "7e08146015f9e42e"
+  "date": "2026-10-07",
+  "hash": "3c1de7a78f5a5c0c"
  },
  "templates/employee-nda.html": {
   "date": "2026-10-06",
@@ -568,8 +584,8 @@
   "hash": "c38ad671ae88e543"
  },
  "templates/expense-reimbursement-form.html": {
-  "date": "2026-10-06",
-  "hash": "44575c33fc46f178"
+  "date": "2026-10-07",
+  "hash": "cafcf87510db1460"
  },
  "templates/freelance-writing-contract.html": {
   "date": "2026-10-06",
@@ -600,8 +616,8 @@
   "hash": "bc3e39324c4b2f59"
  },
  "templates/invoice.html": {
-  "date": "2026-10-06",
-  "hash": "6399754e1e8ffbaa"
+  "date": "2026-10-07",
+  "hash": "f4e3ce0572050157"
  },
  "templates/job-description.html": {
   "date": "2026-10-06",
@@ -684,8 +700,8 @@
   "hash": "212754751150216c"
  },
  "templates/payment-receipt.html": {
-  "date": "2026-10-06",
-  "hash": "b1cd0ea136d5ff68"
+  "date": "2026-10-07",
+  "hash": "04646761ebc13b5a"
  },
  "templates/payment-reminder-letter.html": {
   "date": "2026-10-06",
@@ -724,12 +740,12 @@
   "hash": "811bcc22490509ea"
  },
  "templates/purchase-order.html": {
-  "date": "2026-10-06",
-  "hash": "e6dd167bd684cac6"
+  "date": "2026-10-07",
+  "hash": "dfbd9083f7ec7185"
  },
  "templates/quote.html": {
-  "date": "2026-10-06",
-  "hash": "24bb31d810339412"
+  "date": "2026-10-07",
+  "hash": "4a83fbe2ce8e5b94"
  },
  "templates/reference-letter.html": {
   "date": "2026-10-06",
@@ -748,8 +764,8 @@
   "hash": "53ff378c86bc9662"
  },
  "templates/rent-receipt.html": {
-  "date": "2026-10-06",
-  "hash": "f56be10bd1ed3a7e"
+  "date": "2026-10-07",
+  "hash": "838c601be863b3ff"
  },
  "templates/rental-application.html": {
   "date": "2026-10-06",

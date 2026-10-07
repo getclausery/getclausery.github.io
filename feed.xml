@@ -5,8 +5,40 @@
   <link rel="self" href="https://getclausery.github.io/feed.xml"/>
   <link rel="alternate" href="https://getclausery.github.io/"/>
   <id>https://getclausery.github.io/</id>
-  <updated>2026-10-04T00:00:00Z</updated>
+  <updated>2026-10-06T00:00:00Z</updated>
   <author><name>Clausery</name></author>
+  <entry>
+    <title>What a VAT invoice must include (UK): full and simplified invoices</title>
+    <link href="https://getclausery.github.io/guides/what-to-include-on-a-vat-invoice.html"/>
+    <id>https://getclausery.github.io/guides/what-to-include-on-a-vat-invoice.html</id>
+    <published>2026-10-06T00:00:00Z</published>
+    <updated>2026-10-06T00:00:00Z</updated>
+    <summary>The details HMRC requires on a full VAT invoice and a simplified invoice of £250 or less, the 30-day deadline, the tax point and invoices in foreign currency.</summary>
+  </entry>
+  <entry>
+    <title>What bank details to put on an invoice, and how to stop invoice fraud</title>
+    <link href="https://getclausery.github.io/guides/what-bank-details-to-put-on-an-invoice.html"/>
+    <id>https://getclausery.github.io/guides/what-bank-details-to-put-on-an-invoice.html</id>
+    <published>2026-10-06T00:00:00Z</published>
+    <updated>2026-10-06T00:00:00Z</updated>
+    <summary>The bank details clients need to pay an invoice in the UK, US, Canada, Europe and Australia, plus how to protect them from fake change-of-bank-details emails.</summary>
+  </entry>
+  <entry>
+    <title>Tax invoice requirements in Australia: the seven details the ATO asks for</title>
+    <link href="https://getclausery.github.io/guides/tax-invoice-requirements-australia.html"/>
+    <id>https://getclausery.github.io/guides/tax-invoice-requirements-australia.html</id>
+    <published>2026-10-06T00:00:00Z</published>
+    <updated>2026-10-06T00:00:00Z</updated>
+    <summary>What an Australian tax invoice must show: the seven details for sales under $1,000, the buyer's identity or ABN from $1,000, and the 28-day rule.</summary>
+  </entry>
+  <entry>
+    <title>GST/HST invoice requirements in Canada: what to show at each amount</title>
+    <link href="https://getclausery.github.io/guides/gst-hst-invoice-requirements-canada.html"/>
+    <id>https://getclausery.github.io/guides/gst-hst-invoice-requirements-canada.html</id>
+    <published>2026-10-06T00:00:00Z</published>
+    <updated>2026-10-06T00:00:00Z</updated>
+    <summary>What a Canadian invoice must show so customers can claim input tax credits: the CRA thresholds of $100 and $500, your registration number, and GST and HST rates.</summary>
+  </entry>
   <entry>
     <title>Renting a room in your home: what the agreement should say</title>
     <link href="https://getclausery.github.io/guides/what-to-include-in-a-room-rental-agreement.html"/>
@@ -124,7 +156,7 @@
     <link href="https://getclausery.github.io/guides/how-to-write-an-invoice.html"/>
     <id>https://getclausery.github.io/guides/how-to-write-an-invoice.html</id>
     <published>2026-10-02T00:00:00Z</published>
-    <updated>2026-10-02T00:00:00Z</updated>
+    <updated>2026-10-06T00:00:00Z</updated>
     <summary>What an invoice must include, how to number invoices, payment terms such as net 30, sales tax and VAT, late fees, and how to send one that gets paid.</summary>
   </entry>
   <entry>

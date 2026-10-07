@@ -26,7 +26,7 @@ const AUD = [
     templates: ['consulting-agreement', 'statement-of-work', 'quote', 'service-agreement', 'retainer-agreement', 'subcontractor-agreement', 'independent-contractor-agreement', 'memorandum-of-understanding', 'invoice', 'purchase-order', 'meeting-minutes', 'payment-reminder-letter', 'payment-demand-letter', 'change-order-form', 'contract-termination-letter', 'credit-note'],
     related: [['guides/what-to-include-in-a-statement-of-work.html', 'What to include in a statement of work'], ['guides/is-an-mou-legally-binding.html', 'Is an MOU legally binding?'], ['guides/how-to-write-a-payment-demand-letter.html', 'How to write a demand letter for unpaid invoices'], ['clauses/payment-terms-clause.html', 'Payment terms clause'], ['clauses/intellectual-property-clause.html', 'Intellectual property clause'], ['free-tools/deadline-calculator.html', 'Contract deadline calculator'], ['guides/what-to-do-when-a-client-wont-pay.html', 'What to do when a client won\'t pay'], ['compare/pandadoc-alternative.html', 'Clausery compared with PandaDoc']],
     faq: [['Can I add a table of deliverables or fees?', 'Yes. Put the repeat tags in a table row and the row repeats for each deliverable or line item, keeping your borders and shading.'],
-      ['Can it calculate totals and dates?', 'Yes, on the Pro plan: computed fields can add up line items, work out a date 30 days after signing, or write an amount in words.'],
+      ['Can it calculate totals and dates?', 'Yes. The free invoice, quote and purchase order templates already add up line items and work out tax as you type. In your own templates, computed fields (Pro plan) can add up line items, work out a date 30 days after signing, or write an amount in words.'],
       ['Does it work without an internet connection?', 'Yes. Once the app has loaded, it works offline, so you can draft on a train or at a client site.'],
       ['What does it cost?', 'Every library template is free, plus up to three of your own templates, with unlimited documents. Pro is $19 per user per month.']] },
   { slug: 'freelancers', name: 'Freelancers', title: 'Free freelance contract templates you can fill in online',
@@ -1024,6 +1024,7 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <p>Always print the actual due date as well as the terms, so nobody has to work it out. The <a href="${rel}free-tools/invoice-due-date.html">invoice due date calculator</a> does it for any of these terms, including early payment discounts.</p>
 <h2>Sales tax, VAT and GST</h2>
 <p>If you are registered for VAT, GST or sales tax, the tax authority decides what a valid tax invoice must show, usually your registration number, the tax rate and the amount of tax, and sometimes the client's details too. Check the rules where you are registered. In the US, sales tax is set by each state, and whether a service is taxable differs from state to state. If you are not registered, do not add tax to your invoices.</p>
+<p>The details for the most common systems: <a href="${rel}guides/what-to-include-on-a-vat-invoice.html">VAT invoices in the UK</a>, <a href="${rel}guides/gst-hst-invoice-requirements-canada.html">GST/HST invoices in Canada</a> and <a href="${rel}guides/tax-invoice-requirements-australia.html">tax invoices in Australia</a>. For the payment section, see <a href="${rel}guides/what-bank-details-to-put-on-an-invoice.html">what bank details to put on an invoice</a>.</p>
 <h2>Late fees and interest</h2>
 <p>Only charge a late fee or interest your contract allows, and say on the invoice what it is. In the UK, a business invoicing another business can claim statutory interest on late payment at 8% above the Bank of England base rate, plus fixed compensation of £40 to £100 per invoice, even if the contract says nothing. The <a href="${rel}free-tools/late-payment-interest.html">late payment interest calculator</a> works it out.</p>
 <h2>Sending the invoice</h2>
@@ -1533,7 +1534,118 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <p>Give a receipt for every payment, showing what it was for: regular rent or an instalment. A short note of each payment against the plan avoids arguments about what is still owed.</p>
 <h2>Free templates</h2>
 <p>The free <a href="${rel}templates/rent-payment-plan-agreement.html">rent payment plan agreement template</a> sets out the past-due amount, each instalment, an optional late-fee waiver and what happens if a payment is missed. Use the <a href="${rel}templates/rent-receipt.html">rent receipt</a> for each payment, and the <a href="${rel}templates/late-rent-notice.html">late rent notice</a> if rent falls behind again.</p>
-<p class="small muted">General information, not legal advice. Rental and eviction law differs between countries, states and cities.</p>` },
+<p class="small muted">General information, not legal advice. Rental and eviction law differs between countries, states and cities.</p>` },  { slug: 'what-to-include-on-a-vat-invoice', title: 'What a VAT invoice must include (UK): full and simplified invoices', published: '2026-10-06',
+    description: 'The details HMRC requires on a full VAT invoice and a simplified invoice of £250 or less, the 30-day deadline, the tax point and invoices in foreign currency.',
+    sources: [['HMRC: Record keeping for VAT (VAT Notice 700/21), section 4: VAT invoices', 'https://www.gov.uk/guidance/record-keeping-for-vat-notice-70021'], ['HMRC: VAT guide (VAT Notice 700)', 'https://www.gov.uk/guidance/vat-guide-notice-700']],
+    body: (rel) => `
+<p class="lead">If you are registered for VAT and sell standard-rated or reduced-rated goods or services to another VAT-registered business, you normally have to issue a VAT invoice within 30 days of the supply. HMRC sets out what it must show, and your customer needs a valid VAT invoice to reclaim the VAT you charged.</p>
+<h2>What a full VAT invoice must show</h2>
+<ol>
+  <li>A <strong>unique invoice number</strong> that follows on from the last one.</li>
+  <li>The <strong>time of supply</strong>, also called the tax point, and the date of issue if it is different.</li>
+  <li>Your <strong>name, address and VAT registration number</strong>.</li>
+  <li>Your <strong>customer's name and address</strong>.</li>
+  <li>A <strong>description</strong> that identifies the goods or services.</li>
+  <li>For each item: the <strong>quantity</strong>, the <strong>unit price</strong>, the <strong>rate of VAT</strong> and the <strong>amount excluding VAT</strong>.</li>
+  <li>The <strong>total excluding VAT</strong>.</li>
+  <li>The rate of any <strong>cash discount</strong> you offer.</li>
+  <li>The <strong>total VAT charged</strong>, shown in sterling.</li>
+</ol>
+<h2>Simplified VAT invoices for £250 or less</h2>
+<p>If the total including VAT is £250 or less, you can issue a simplified invoice instead. It needs your name, address and VAT registration number, the time of supply, a description of what you supplied, and for each VAT rate, the total amount payable including VAT and the rate charged. Above £250, use a full invoice.</p>
+<h2>The time of supply</h2>
+<p>The time of supply is the date that decides which VAT return the sale belongs to. It is usually the date you deliver the goods or finish the service, but it can be earlier if you are paid or invoice first. When it differs from the date you issue the invoice, show both. HMRC's VAT guide, Notice 700, explains the rules in full.</p>
+<h2>When you do not need a VAT invoice</h2>
+<p>You do not have to issue a VAT invoice for sales that are only zero-rated or exempt, or under the second-hand margin schemes, among other cases set out in the notice. If you are not registered for VAT, do not show VAT on your invoices at all.</p>
+<h2>Invoicing in another currency</h2>
+<p>Prices and the total excluding VAT can be in any currency, but the total VAT must also be shown in sterling, so your customer can enter it on their return.</p>
+<h2>Correcting a VAT invoice</h2>
+<p>Do not edit an invoice you have already sent. Issue a <a href="${rel}guides/what-is-a-credit-note.html">credit note</a> that cancels it, or the wrong part of it, and a new invoice with a new number.</p>
+<h2>Free template</h2>
+<p>The free <a href="${rel}templates/invoice.html">invoice template</a> can show your VAT number and a separate date of supply, and works out the VAT from the rate you enter. It applies one VAT rate to the whole invoice, so it fits when every line is at the same rate; if you sell at more than one rate, put the rate in each line's description or issue separate invoices. The <a href="${rel}templates/credit-note.html">credit note template</a> reverses VAT the same way.</p>
+<p class="small muted">General information, not tax advice. Check HMRC's current guidance or an accountant for your situation.</p>` },
+  { slug: 'gst-hst-invoice-requirements-canada', title: 'GST/HST invoice requirements in Canada: what to show at each amount', published: '2026-10-06',
+    description: 'What a Canadian invoice must show so customers can claim input tax credits: the CRA thresholds of $100 and $500, your registration number, and GST and HST rates.',
+    sources: [['Canada Revenue Agency: Input tax credits, information you need', 'https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/calculate-prepare-report/input-tax-credit.html'], ['Canada Revenue Agency: GST/HST rates by province', 'https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/charge-collect-which-rate/calculator.html'], ['Input Tax Credit Information (GST/HST) Regulations, SOR/91-45', 'https://laws.justice.gc.ca/eng/regulations/SOR-91-45/page-1.html']],
+    body: (rel) => `
+<p class="lead">The Canada Revenue Agency does not prescribe an invoice layout. What it does set is the information a business customer needs to claim back the GST or HST you charged, as an input tax credit. That depends on the total, so a complete invoice is one that meets the highest threshold.</p>
+<h2>What to show, by total amount</h2>
+<div class="table-wrap" tabindex="0"><table class="compare"><thead><tr><th scope="col">Total of the sale</th><th scope="col">Information needed</th></tr></thead><tbody>
+<tr><td>Under $100</td><td>Your business or trading name, the invoice date, and the total amount paid or payable.</td></tr>
+<tr><td>$100 to $499.99</td><td>All of the above, plus your GST/HST registration number, the total GST or HST charged (or a statement that the price includes it, with the rate), and which items are taxable if some are not.</td></tr>
+<tr><td>$500 or more</td><td>All of the above, plus your customer's name or trading name, a brief description of what you supplied, and the terms of payment.</td></tr>
+</tbody></table></div>
+<p>These thresholds were raised from $30 and $150 in 2021. Older guides on the web still quote the old figures.</p>
+<h2>Your registration number</h2>
+<p>Show your GST/HST number as your nine-digit business number followed by the program identifier, for example 123456789 RT0001. If you are a small supplier and have not registered, do not charge GST or HST, and do not show a registration number.</p>
+<h2>Which rate to charge</h2>
+<p>The rate depends on where the supply is made, usually where your customer is. Since 1 April 2025 the rates are:</p>
+<ul>
+  <li><strong>GST 5%</strong>: Alberta, British Columbia, Manitoba, Quebec, Saskatchewan, and the three territories (provincial sales tax, where it applies, is separate).</li>
+  <li><strong>HST 13%</strong>: Ontario.</li>
+  <li><strong>HST 14%</strong>: Nova Scotia, down from 15% on 1 April 2025.</li>
+  <li><strong>HST 15%</strong>: New Brunswick, Newfoundland and Labrador, and Prince Edward Island.</li>
+</ul>
+<h2>Good practice beyond the minimum</h2>
+<p>Give every invoice a unique number, show the due date and how to pay, and list the GST or HST as its own line rather than only saying it is included. Your customer's bookkeeper will thank you, and the invoice will meet every threshold whatever the amount.</p>
+<h2>Free template</h2>
+<p>The free <a href="${rel}templates/invoice.html">invoice template</a> shows your GST/HST number, the customer's details, a description of each item and the payment terms, and works out the tax from the rate you enter, such as 13 for Ontario HST. For a refund or correction, use the <a href="${rel}templates/credit-note.html">credit note template</a>.</p>
+<p class="small muted">General information, not tax advice. Check the Canada Revenue Agency's current guidance or an accountant for your situation.</p>` },
+  { slug: 'tax-invoice-requirements-australia', title: 'Tax invoice requirements in Australia: the seven details the ATO asks for', published: '2026-10-06',
+    description: 'What an Australian tax invoice must show: the seven details for sales under $1,000, the buyer\'s identity or ABN from $1,000, and the 28-day rule.',
+    sources: [['Australian Taxation Office: Tax invoices', 'https://www.ato.gov.au/businesses-and-organisations/gst-excise-and-indirect-taxes/gst/tax-invoices']],
+    body: (rel) => `
+<p class="lead">If you are registered for GST in Australia, a business customer needs a tax invoice from you to claim the GST back. If a customer asks for one, you must provide it within 28 days, unless the sale was $82.50 or less including GST.</p>
+<h2>The seven details for sales under $1,000</h2>
+<ol>
+  <li>That the document is intended to be a <strong>tax invoice</strong>, usually by putting those words at the top.</li>
+  <li>Your <strong>identity</strong>, such as your business name.</li>
+  <li>Your <strong>Australian business number (ABN)</strong>.</li>
+  <li>The <strong>date</strong> the invoice was issued.</li>
+  <li>A brief <strong>description</strong> of what you sold, with the quantity if relevant, and the price.</li>
+  <li>The <strong>GST amount</strong>, or a statement such as "Total price includes GST" when the GST is exactly one eleventh of the total.</li>
+  <li>The <strong>extent to which each sale is taxable</strong>, when the invoice mixes taxable and GST-free items.</li>
+</ol>
+<h2>Sales of $1,000 or more</h2>
+<p>Tax invoices for sales of $1,000 or more must also show the <strong>buyer's identity or ABN</strong>. An invoice that meets this higher standard is valid for smaller sales too, so it is simplest to always include the buyer.</p>
+<h2>If you are not registered for GST</h2>
+<p>Do not call the document a tax invoice and do not add GST. Issue an ordinary invoice that shows your ABN, if you have one.</p>
+<h2>GST rate</h2>
+<p>GST is 10%. On a GST-exclusive price of $1,000, the GST is $100 and the total $1,100; on a GST-inclusive total, the GST is one eleventh of it.</p>
+<h2>Free template</h2>
+<p>The free <a href="${rel}templates/invoice.html">invoice template</a> can be titled "Tax invoice", show your ABN, the buyer's details and each item with its quantity and price, and works out the GST when you enter a rate of 10. Untick the tax option for GST-free work, or use it without the tax invoice title if you are not registered.</p>
+<p class="small muted">General information, not tax advice. Check the ATO's current guidance or a registered tax agent for your situation.</p>` },
+  { slug: 'what-bank-details-to-put-on-an-invoice', title: 'What bank details to put on an invoice, and how to stop invoice fraud', published: '2026-10-06',
+    description: 'The bank details clients need to pay an invoice in the UK, US, Canada, Europe and Australia, plus how to protect them from fake change-of-bank-details emails.',
+    sources: [['FBI Internet Crime Complaint Center: 2025 Internet Crime Report', 'https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf'], ['Take Five to Stop Fraud (UK Finance): Invoice and mandate fraud', 'https://www.takefive-stopfraud.org.uk/protect-your-business/invoice-and-mandate/']],
+    body: (rel) => `
+<p class="lead">An invoice that tells the client exactly how to pay gets paid sooner. Put the full details on every invoice, in the format your client's bank expects, and add one line that protects them from the most common invoice scam.</p>
+<h2>Always include</h2>
+<ul>
+  <li>The <strong>account name</strong>, exactly as the bank holds it. Banks increasingly check the name against the account before a payment goes through.</li>
+  <li>The <strong>bank's name</strong>.</li>
+  <li>The <strong>invoice number as the payment reference</strong>, so you can match the payment.</li>
+</ul>
+<h2>The details by country</h2>
+<div class="table-wrap" tabindex="0"><table class="compare"><thead><tr><th scope="col">Where your account is</th><th scope="col">Details clients need</th></tr></thead><tbody>
+<tr><td>United Kingdom</td><td>Sort code (6 digits) and account number (8 digits). Add your IBAN and BIC for payments from abroad.</td></tr>
+<tr><td>United States</td><td>ABA routing number (9 digits) and account number. Wire transfers can use a different routing number from ACH, so check with your bank. Add the SWIFT code for international payments.</td></tr>
+<tr><td>Canada</td><td>Institution number (3 digits), transit number (5 digits) and account number, or the email address for Interac e-Transfer. Add the SWIFT code for payments from abroad.</td></tr>
+<tr><td>Euro area (SEPA)</td><td>IBAN, and the BIC if your clients' banks ask for it.</td></tr>
+<tr><td>Australia</td><td>BSB (6 digits) and account number. Add the SWIFT code for international payments.</td></tr>
+</tbody></table></div>
+<p>If you take card or online payments, a payment link works too. Whatever you use, show the due date beside it.</p>
+<h2>Protect your clients from invoice fraud</h2>
+<p>The bigger risk is not that someone sees your bank details. It is that a criminal sends your client an email, apparently from you, saying your bank details have changed. Business email compromise, which includes these scams, led to 24,768 complaints and over $3 billion in reported losses in the FBI's 2025 internet crime report.</p>
+<ul>
+  <li>Add a line to your invoices: <em>"Our bank details will never change by email. If you receive a message saying they have, call us on a number you already know before paying."</em></li>
+  <li>If your details really do change, tell clients by phone as well as in writing, and expect them to check.</li>
+  <li>Send invoices as PDFs from your usual email address, and do not let them circulate as editable documents.</li>
+  <li>For a new client or a large first payment, suggest a small test payment, as the UK's Take Five campaign advises payers to do.</li>
+</ul>
+<h2>Free template</h2>
+<p>The free <a href="${rel}templates/invoice.html">invoice template</a> has a bank details box and adds the fraud warning line for you, with the invoice number as the reference. Print it to PDF from the app before you send it. If a payment is late, the <a href="${rel}templates/payment-reminder-letter.html">payment reminder letter</a> is the next step.</p>
+<p class="small muted">General information. Check with your bank for the exact details it needs for incoming payments.</p>` },
 ];
 
 // Guides grouped by topic, for the guides index and the related-guides block at the foot of each guide.
@@ -1541,7 +1653,7 @@ export const GUIDE_TOPICS = [
   ['Automating Word templates', ['automate-word-templates', 'conditional-clauses-in-word', 'repeating-lists-and-tables-in-word', 'mail-merge-vs-document-automation', 'client-intake-without-a-portal', 'confidentiality-checklist-document-software']],
   ['NDAs and restrictive covenants', ['what-to-include-in-an-nda', 'mutual-vs-one-way-nda', 'how-long-should-an-nda-last', 'nda-vs-confidentiality-agreement', 'non-compete-vs-non-solicitation', 'are-non-competes-enforceable']],
   ['Hiring and HR letters', ['how-to-write-an-offer-letter', 'how-to-write-an-employee-warning-letter', 'how-to-write-a-termination-letter', 'how-to-write-a-two-weeks-notice-letter', 'how-to-write-a-job-description', 'what-to-include-in-a-severance-agreement', 'how-to-write-a-performance-improvement-plan', 'how-to-write-a-remote-work-agreement']],
-  ['Freelancing and getting paid', ['how-to-write-a-freelance-contract', 'what-to-include-in-a-statement-of-work', 'quote-vs-estimate-vs-invoice', 'how-to-write-an-invoice', 'what-is-a-kill-fee', 'what-to-do-when-a-client-wont-pay', 'how-to-write-a-payment-demand-letter', 'what-is-a-change-order', 'what-is-a-credit-note']],
+  ['Freelancing and getting paid', ['how-to-write-a-freelance-contract', 'what-to-include-in-a-statement-of-work', 'quote-vs-estimate-vs-invoice', 'how-to-write-an-invoice', 'what-is-a-kill-fee', 'what-to-do-when-a-client-wont-pay', 'how-to-write-a-payment-demand-letter', 'what-is-a-change-order', 'what-is-a-credit-note', 'what-to-include-on-a-vat-invoice', 'gst-hst-invoice-requirements-canada', 'tax-invoice-requirements-australia', 'what-bank-details-to-put-on-an-invoice']],
   ['Landlords and tenants', ['what-to-include-in-a-lease-agreement', 'what-to-include-in-a-roommate-agreement', 'how-to-write-a-rent-increase-letter', 'how-to-write-a-notice-to-vacate', 'how-to-return-a-security-deposit', 'what-to-include-in-a-room-rental-agreement', 'how-to-set-up-a-rent-payment-plan']],
   ['Business deals, money and releases', ['is-an-mou-legally-binding', 'what-to-include-in-a-partnership-agreement', 'how-to-write-a-bill-of-sale', 'how-to-lend-money-to-family', 'how-to-write-a-gift-letter-for-a-mortgage', 'are-liability-waivers-enforceable', 'what-is-a-hold-harmless-agreement', 'do-i-need-a-model-release', 'how-to-terminate-a-contract', 'how-does-consignment-work']],
 ];

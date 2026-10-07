@@ -4,10 +4,10 @@
    public key, so it works with no network and no vendor dependency. Works in browsers and Node via WebCrypto. */
 
 export const PLANS = {
-  free: { name: 'Free', maxTemplates: 3, computed: false, intake: false, vault: false, packs: false },
-  pro: { name: 'Pro', maxTemplates: Infinity, computed: true, intake: true, vault: true, packs: true },
-  team: { name: 'Team', maxTemplates: Infinity, computed: true, intake: true, vault: true, packs: true },
-  enterprise: { name: 'Enterprise', maxTemplates: Infinity, computed: true, intake: true, vault: true, packs: true },
+  free: { name: 'Free', maxTemplates: 3, computed: false, intake: false, vault: false, packs: false, bulk: false },
+  pro: { name: 'Pro', maxTemplates: Infinity, computed: true, intake: true, vault: true, packs: true, bulk: true },
+  team: { name: 'Team', maxTemplates: Infinity, computed: true, intake: true, vault: true, packs: true, bulk: true },
+  enterprise: { name: 'Enterprise', maxTemplates: Infinity, computed: true, intake: true, vault: true, packs: true, bulk: true },
 };
 
 const PREFIX = 'CLSY-';

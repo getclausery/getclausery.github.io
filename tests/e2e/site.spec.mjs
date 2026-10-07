@@ -17,7 +17,7 @@ test('the app has no serious accessibility violations on its main screens', asyn
   await page.goto('app/');
   await page.waitForSelector('h1:has-text("Templates")');
   for (const step of ['templates', 'designer', 'interview', 'settings']) {
-    if (step === 'designer') { await page.locator('button:has-text("Use this sample")').nth(1).click(); await page.waitForSelector('input[aria-label="Template name"]'); await page.click('.field-item[data-key="client_name"] .field-main'); }
+    if (step === 'designer') { await page.locator('#all-samples button:has-text("Customise")').nth(1).click(); await page.waitForSelector('input[aria-label="Template name"]'); await page.click('.field-item[data-key="client_name"] .field-main'); }
     if (step === 'interview') { await page.click('button:has-text("New draft")'); await page.waitForSelector('.stepper'); }
     if (step === 'settings') { await page.goto('app/#/settings'); await page.waitForSelector('h1:has-text("Settings")'); }
     const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();

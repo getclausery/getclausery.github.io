@@ -106,13 +106,20 @@ console.log(`wrote feed.xml (${feed.length} entries)`);
 const section = (prefix) => pages.filter((p) => p.path.startsWith(prefix) && !p.path.endsWith('/') && !p.noindex).map((p) => `- [${p.title}](${BASE}${p.path}): ${p.description}`).join('\n');
 writeFileSync('llms.txt', `# Clausery
 
-> Clausery is browser-based document automation. It turns ordinary Word (.docx) templates with {tags} into guided questionnaires and generates finished documents entirely on the user's device: no upload, no account, works offline. Every template in its free library can be downloaded or filled in at no cost, with no limit; up to three of the user's own templates are also free. The Pro plan adds unlimited own templates, calculations, an encrypted workspace and client intake forms.
+> Clausery is browser-based document automation. It turns ordinary Word (.docx) templates with {tags} into guided questionnaires and generates finished documents entirely on the user's device: no upload, no account, works offline. Every template in its free library can be downloaded or filled in at no cost, with no limit; up to three of the user's own templates are also free. The Pro plan adds unlimited own templates, calculations in the user's own templates, unlimited documents from a spreadsheet, an encrypted workspace and client intake forms.
 
 Key facts:
 - Documents are assembled in the browser; template files, answers and generated documents are never sent to a server.
 - Templates are normal Word files. Tags: {name} for a value, {#condition}...{/condition} for optional text, {^condition}...{/condition} for the opposite, and {#list}...{/list} for repeating paragraphs or table rows.
 - Pro plan: optional passphrase encryption of everything stored in the browser (AES-256-GCM) with auto-lock.
 - Free Word templates, a contract clause library and free drafting tools are available without sign-up.
+- Drafts save automatically, as the user types, to the browser's IndexedDB database. They survive reloads, restarts and closed tabs, stay until deleted, and move between devices with a backup file.
+- The output is an editable Word .docx (printing to PDF is optional). A draft can be reopened, changed and downloaded again; each draft keeps a history of every document made from it, with the time and a SHA-256 fingerprint of the answers, and can restore earlier answers.
+- Logic: conditional sections, show-when rules with expressions such as contract_value > 5000, and calculations. The free invoice, quote, purchase order, credit note and expense templates add up line items and tax.
+- Repeat documents: a new invoice, quote, receipt, purchase order or credit note starts with the user's own details from the last one, the next number in their sequence and today's date; the client, items and amounts are never copied.
+- Bulk generation: one document per row of a CSV spreadsheet (Free plan: 5 per spreadsheet; Pro: unlimited), assembled in the browser.
+- Not included, by design: e-signatures (users sign with their own e-signature service), live co-editing and server integrations. Documents can be handed to Mail, Slack or Teams with the system share sheet where supported.
+- Library templates are general samples written mainly for the US, Canada and the UK; guides cite official sources. The only official site is getclausery.github.io, released regularly (see the changelog).
 - Clausery is software, not a law firm, and does not give legal advice.
 
 ## Product
