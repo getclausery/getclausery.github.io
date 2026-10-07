@@ -83,6 +83,21 @@ export function renderDocx(bytes, data) {
   return doc.getZip().generate({ type: 'blob', mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', compression: 'DEFLATE' });
 }
 
+/** The same document as bytes, for packing several into one .zip. */
+export function renderDocxBytes(bytes, data) {
+  const zip = loadZip(bytes);
+  const doc = new Docxtemplater(zip, { ...OPTIONS, nullGetter });
+  doc.render(data);
+  return doc.getZip().generate({ type: 'uint8array', compression: 'DEFLATE' });
+}
+
+/** Pack files ({ name, bytes }) into one .zip Blob. Word files are already compressed, so they are stored as they are. */
+export function zipFiles(files) {
+  const zip = new PizZip();
+  for (const f of files) zip.file(f.name, f.bytes, { binary: true });
+  return zip.generate({ type: 'blob', mimeType: 'application/zip', compression: 'STORE' });
+}
+
 export async function previewDocx(blobOrBytes, container, styleContainer) {
   container.replaceChildren();
   await renderAsync(blobOrBytes, container, styleContainer || container, {
