@@ -579,6 +579,16 @@ function questionsFor(file) {
   const label = Object.fromEntries(q.fields.map((f) => [f.key, f.label]));
   return q.fields.map((f) => ({ label: f.label, kind: kind(f), when: f.showIf, whenText: f.showIf && readableCondition(f.showIf, label), children: (f.children || []).map((c) => c.label), computed: f.type === 'computed' }));
 }
+// "the next one starts with ...": what a second draft of this template fills in by itself (app/lib/prefill.js)
+function reuseFor(slug) {
+  const r = (setupFor(slug) || {}).reuse;
+  if (!r) return '';
+  const parts = [];
+  if ((r.remember || []).length) parts.push('your own details');
+  if ((r.sequence || []).length) parts.push('the next number');
+  if ((r.today || []).length) parts.push("today's date");
+  return parts.length ? `the next one you make starts with ${andList(parts)} already filled in, so only what is new needs typing.` : '';
+}
 // "Amount, Subtotal, Tax and Total": what the app works out for the visitor on a template with a ready-made setup
 function calculatedFor(slug) {
   const s = setupFor(slug);
@@ -708,6 +718,7 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-label
     <a class="btn btn-lg" href="${rel}samples/${t.file}" download>Download the Word template</a>
   </div>
   ${calculatedFor(t.slug).length ? `<p class="small"><strong>Does the maths for you:</strong> fill it in online and the ${esc(andList(calculatedFor(t.slug).map(lowerFirst)))} ${calculatedFor(t.slug).length > 1 ? 'are' : 'is'} calculated as you type.</p>
+  ` : ''}${reuseFor(t.slug) ? `<p class="small"><strong>Remembers you:</strong> ${esc(reuseFor(t.slug))}</p>
   ` : ''}<p class="small muted">No sign-up. Your answers stay in your browser. <strong>Who it is for:</strong> ${esc(t.who)}</p>
   <p class="small muted">Updated <time datetime="${LASTMOD}">${LASTMOD_LONG}</time> · Word (.docx) · Free to use and adapt</p>
   <!--nav--><p class="small muted">Need more than one? <a href="${rel}samples/${PACK_FILE}" download>Download all ${LIB.length} templates</a> as one .zip file.</p><!--/nav-->

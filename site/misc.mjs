@@ -7,6 +7,13 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.24.0 <span class="small muted">— 7 October 2026</span></h2>
+<ul>
+  <li>Your next invoice fills itself in: a new invoice, quote, receipt, purchase order or credit note starts with your own details, bank details and usual tax rate from the last one you made, the next number in your sequence and today's date. A due date keeps the same number of days after the invoice date as last time. The client, the items and the amounts are never copied.</li>
+  <li>A clearer first visit: the app opens on the documents small businesses make most, each one click from a draft, with a search across all the templates. "Fill it in" starts a draft; "Customise" opens a library template's questions for editing.</li>
+  <li>The home page now leads with invoices, quotes and receipts.</li>
+  <li>Groundwork for anonymous usage counts (which templates are used, never what is typed). It is switched off, and the privacy policy will say so before it is ever switched on.</li>
+</ul>
 <h2>1.23.0 <span class="small muted">— 7 October 2026</span></h2>
 <ul>
   <li>From a spreadsheet: make one document per row of a CSV file, such as an invoice for each client, downloaded together as a .zip. Each row fills in the draft's answers and empty cells keep them. The Free plan makes up to 5 per spreadsheet; Pro has no limit. The spreadsheet never leaves your browser.</li>
