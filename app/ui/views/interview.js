@@ -9,6 +9,7 @@ import { requestPersistence } from '../../lib/store.js';
 import { downloadBlob, safeFilename } from '../../lib/backup.js';
 import { nowISO } from '../../lib/schema.js';
 import { buildIntakeHtml, parseAnswersFile, sanitizeAnswers } from '../../lib/intake.js';
+import { countEvent } from '../../lib/usage.js';
 
 const SAVE_DELAY = 400;
 const DOCX_MIME = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
@@ -210,7 +211,7 @@ export async function render(ctx, { id }) {
   function docxName() { return safeFilename((draft.title || summarize(template, draft.answers, 1) || template.name) + ' - ' + template.name, 'docx'); }
   async function recordMade(kind, extra = {}) {
     await recordHistory(draft, { kind, template: template.name, app: ctx.version, ...extra });
-    if (kind !== 'restore') { draft.status = 'generated'; draft.generatedAt = nowISO(); }
+    if (kind !== 'restore') { draft.status = 'generated'; draft.generatedAt = nowISO(); countEvent('document-' + kind, template); }
     pendingSave = true; await flush(); refreshHistory(); renderStepper();
   }
   function refreshHistory() {
