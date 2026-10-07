@@ -4,6 +4,7 @@ import { readFileSync, existsSync, statSync } from 'node:fs';
 import { inspectDocx } from '../app/lib/render.js';
 import { inferQuestionnaire, FIELD_TYPES } from '../app/lib/schema.js';
 import { applySetup, setupFor } from '../app/lib/setups.js';
+import { PRESETS } from '../app/lib/presets.js';
 import { esc, crumbsLd, lowerFirst, fitSnippet, SITE, LASTMOD, LASTMOD_LONG } from '../tools/partials.mjs';
 import { CLAUSES } from './data/clauses.mjs';
 import { previewHtml, PREVIEW_CSS, PREVIEW_SIZE } from '../tools/preview.mjs';
@@ -754,6 +755,7 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-label
 
 ${CLAUSES.some((c) => c.templates.includes(t.slug)) ? `  <h2 style="margin-top:2.5rem">Clauses in this template, explained</h2>
   <ul>${CLAUSES.filter((c) => c.templates.includes(t.slug)).map((c) => `<li><a href="${rel}clauses/${c.slug}.html">${esc(c.name)}</a></li>`).join('')}</ul>
+` : ''}${PRESETS[t.slug] ? `  <p style="margin-top:2rem"><strong>By trade:</strong> start with the lines your trade usually bills: ${Object.entries(PRESETS[t.slug]).map(([slug, p]) => `<a href="${rel}invoice-templates/${slug}.html">${esc(p.name)}</a>`).join(' · ')} · <a href="${rel}invoice-templates/">all trades</a></p>
 ` : ''}${GUIDE_FOR[t.slug] ? `  <p style="margin-top:2rem"><strong>Guide:</strong> <a href="${rel}guides/${GUIDE_FOR[t.slug]}.html">${esc(GUIDE[GUIDE_FOR[t.slug]].title)}</a></p>
 ` : ''}${NDA_SLUGS.includes(t.slug) ? `  <p><strong>All NDA templates:</strong> <a href="${rel}nda-templates/">which NDA do you need?</a></p>
 ` : ''}${TOOL_FOR[t.slug] ? `  <p><strong>Free tool:</strong> <a href="${rel}free-tools/${TOOL_FOR[t.slug][0]}.html">${esc(TOOL_FOR[t.slug][1])}</a></p>

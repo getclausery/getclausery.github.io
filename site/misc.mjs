@@ -8,6 +8,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.25.0 <span class="small muted">— 7 October 2026</span></h2>
+<ul>
+  <li>Invoice templates by trade: contractor, handyman, cleaning, landscaping, photography, video, graphic design, web design, consulting, writing, tutoring and personal training. Each opens an invoice with the lines that trade usually bills, ready for your prices, and explains what that trade should put on an invoice and how it usually gets paid.</li>
+</ul>
 <h2>1.24.1 <span class="small muted">— 7 October 2026</span></h2>
 <ul>
   <li>Anonymous usage counts are on: the app tells GoatCounter when it is opened, when a draft is started and when a document is made, and which library template it was. Nothing you type, no file names and none of your own templates are ever part of it, and GoatCounter sets no cookies and does not store IP addresses. The <a href="${rel}legal/privacy.html">privacy policy</a> has the details.</li>

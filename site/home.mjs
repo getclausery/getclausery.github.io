@@ -3,6 +3,7 @@ import { PACK_FILE, LIB } from './library.mjs';
 import { GUIDES } from './audience.mjs';
 import { COMPETITORS } from './compare.mjs';
 import { TOOLS } from './free-tools.mjs';
+import { PRESETS } from '../app/lib/presets.js';
 
 // The home page is the most-crawled URL on the site, so it links straight to the pages people search for most. That puts
 // them one click from the home page instead of two, which is the strongest crawl-priority signal a new site can give.
@@ -59,6 +60,7 @@ export const pages = [{
     <div class="grid grid-3">
 ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a href="${rel}templates/${slug}.html">${esc(name)}</a></h3><p>${esc(what)}</p><p><a class="btn btn-sm btn-primary" href="${rel}app/#/start/${slug}">Fill it in</a></p></div>`).join('\n')}
     </div>
+    <p style="margin-top:1.25rem"><strong>Invoice templates by trade:</strong> ${Object.entries(PRESETS.invoice).map(([slug, p]) => `<a href="${rel}invoice-templates/${slug}.html">${esc(p.name)}</a>`).join(' · ')} · <a href="${rel}invoice-templates/">all trades →</a></p>
     <div class="grid grid-3" style="margin-top:2rem">
       <div class="feature"><div class="ico">${ico(I.calc)}</div><h3>Adds itself up</h3><p>Line amounts, discount, VAT, GST or sales tax, total and balance due update as you type. No formula to break.</p></div>
       <div class="feature"><div class="ico">${ico(I.check)}</div><h3>Remembers your details</h3><p>Your next invoice starts with your business details, bank details, tax rate and the next number filled in. Only the client and the items are new.</p></div>
