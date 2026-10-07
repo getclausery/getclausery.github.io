@@ -49,10 +49,10 @@
   <li>The product is a set of static files (HTML, CSS, JavaScript) served from a web host. There is no backend, database, API or account system operated by us.</li>
   <li>All processing (reading .docx templates, evaluating answers, generating documents, encrypting storage) happens in the browser's JavaScript engine.</li>
   <li>Data at rest is in the browser's IndexedDB, scoped to the site origin and the browser profile.</li>
-  <li>The app only requests its own static files (code, sample templates, the intake-form runtime) from the site that serves it; it never uploads or posts anything, and it makes no request to any third party. The service worker caches those files for offline use and only handles same-origin requests.</li>
+  <li>The app only requests its own static files (code, sample templates, the intake-form runtime) from the site that serves it; it never uploads or posts anything, and its only request to a third party is an anonymous count to GoatCounter when the app opens, a draft starts or a document is made, carrying only the event and, for a library template, its name. The service worker caches those files for offline use and only handles same-origin requests.</li>
 </ul>
 <h2>What we can see</h2>
-<p>Nothing about your documents. The host serving the static files (GitHub Pages for the public instance) sees ordinary web-server traffic: the IP address and browser of whoever loads the app. The app has no analytics, cookies, tracking pixels or third-party scripts; the marketing website only counts anonymous page views (see the privacy policy). Fonts are system fonts.</p>
+<p>Nothing about your documents. The host serving the static files (GitHub Pages for the public instance) sees ordinary web-server traffic: the IP address and browser of whoever loads the app. The app has no cookies or third-party scripts; it counts anonymous events (a draft started, a document made) with no content, as the privacy policy describes, and the marketing website only counts anonymous page views (see the privacy policy). Fonts are system fonts.</p>
 <h2>Cryptography</h2>
 <ul>
   <li><strong>Encrypted workspace:</strong> AES-256-GCM with a random 96-bit nonce per record; key derived from the passphrase with PBKDF2-SHA256 (600,000 iterations, 128-bit random salt). Implemented with the browser's WebCrypto API only.</li>
@@ -60,7 +60,7 @@
 </ul>
 <h2>Browser hardening</h2>
 <ul>
-  <li>Content Security Policy: <code>default-src 'self'</code>, no inline scripts, no remote scripts, <code>connect-src 'self' https://api.lemonsqueezy.com</code> (the second origin is used only to check a license key bought online), <code>object-src 'none'</code>, <code>form-action 'none'</code>.</li>
+  <li>Content Security Policy: <code>default-src 'self'</code>, no inline scripts, no remote scripts, <code>connect-src 'self' https://api.lemonsqueezy.com</code> (the second origin is used only to check a license key bought online), <code>img-src 'self' data: blob: https://getclausery.goatcounter.com</code> (the last origin receives only the anonymous usage counts), <code>object-src 'none'</code>, <code>form-action 'none'</code>.</li>
   <li>Referrer policy <code>no-referrer</code> in the app. The app page is marked <code>noindex</code>.</li>
   <li>Exported intake forms carry a CSP of <code>default-src 'none'</code> with inline-only script and style, so they cannot make network requests even when hosted.</li>
   <li>Expressions in templates are evaluated by a purpose-built interpreter, never by <code>eval</code>; identifiers resolve only against the answers object.</li>
