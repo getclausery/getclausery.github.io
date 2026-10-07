@@ -245,3 +245,49 @@ test('a spreadsheet makes one invoice per row, and every document made is record
   await expect(page.locator('[name="business_name"]')).toHaveValue('Northwind Studio');
   expect(errors).toEqual([]);
 });
+
+test('a new visitor sees the everyday documents first, can search all templates, and is one click from a draft', async ({ page }) => {
+  await page.goto('app/');
+  await expect(page.locator('.first-run h2')).toHaveText('Make your first document');
+  await expect(page.locator('.first-run article h3')).toHaveText(['Invoice', 'Price quote', 'Payment receipt', 'Rent receipt', 'Purchase order', 'Credit note']);
+  await page.fill('input[aria-label="Find a template"]', 'lease');
+  const visible = page.locator('#all-samples article:visible');
+  expect(await visible.count()).toBeGreaterThan(2);
+  for (const t of await visible.locator('h3').allInnerTexts()) expect(t.toLowerCase() + (await page.locator(`#all-samples article:visible:has(h3:text-is("${t}")) .meta`).innerText()).toLowerCase()).toMatch(/lease/);
+  await page.fill('input[aria-label="Find a template"]', 'zzzz');
+  await expect(page.locator('#all-samples article:visible')).toHaveCount(0);
+  await expect(page.locator('text=No template matches')).toBeVisible();
+  await page.locator('.first-run article:has(h3:text-is("Invoice")) a:has-text("Fill it in")').click();
+  await page.waitForSelector('.stepper');
+  await expect(page).toHaveURL(/#\/drafts\/d_/);
+});
+
+test('the next invoice starts with your details, the next number and today\'s date, but not the client', async ({ page }) => {
+  const errors = [];
+  page.on('pageerror', (e) => errors.push(e.message));
+  await page.goto('app/#/start/invoice');
+  await page.waitForSelector('.stepper');
+  const today = await page.evaluate(() => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; });
+  await fill(page, 'business_name', 'Northwind Studio');
+  await fill(page, 'business_address', '1 High St');
+  await fill(page, 'business_email', 'hi@northwind.test');
+  await page.click('.stepper button:has-text("Invoice details")');
+  await expect(page.locator('[name="invoice_date"]')).toHaveValue(today);
+  await fill(page, 'invoice_number', 'INV-0041');
+  await page.click('.stepper button:has-text("Bill to")');
+  await fill(page, 'client_name', 'Acme Ltd');
+  await page.click('.stepper button:has-text("Review")');
+  await Promise.all([page.waitForEvent('download'), page.click('button:has-text("Download .docx")')]);
+
+  await page.goto('app/#/start/invoice');
+  await page.waitForSelector('.stepper');
+  await expect(page.locator('.toast:has-text("Filled in")')).toHaveText(/Filled in your details from your last invoice, number INV-0042 and today's date\. Check them before you send this invoice\./);
+  await expect(page.locator('[name="business_name"]')).toHaveValue('Northwind Studio');
+  await expect(page.locator('[name="business_email"]')).toHaveValue('hi@northwind.test');
+  await page.click('.stepper button:has-text("Invoice details")');
+  await expect(page.locator('[name="invoice_number"]')).toHaveValue('INV-0042');
+  await expect(page.locator('[name="invoice_date"]')).toHaveValue(today);
+  await page.click('.stepper button:has-text("Bill to")');
+  await expect(page.locator('[name="client_name"]')).toHaveValue('');
+  expect(errors).toEqual([]);
+});
