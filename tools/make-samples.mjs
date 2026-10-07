@@ -1465,12 +1465,12 @@ function totalsTable(rows) {
 const Label = (text) => new Paragraph({ spacing: { before: 120, after: 60 }, children: [new TextRun({ text: text.toUpperCase(), bold: true, size: 18, color: NAVY })] });
 
 const invoice = doc([
-  letterhead('INVOICE', [
+  letterhead('{#is_tax_invoice}TAX {/is_tax_invoice}INVOICE', [
     cp('{business_name}', { bold: true, size: 28, color: NAVY, after: 80 }),
     cp('{business_address}'),
     cp('{business_email}{#has_business_phone} · {business_phone}{/has_business_phone}'),
-    cp('{#has_tax_registration}Tax registration number: {tax_registration_number}{/has_tax_registration}'),
-  ], ['Invoice number: {invoice_number}', 'Invoice date: {invoice_date}', 'Payment due: {due_date}', '{#has_purchase_order}Your purchase order: {purchase_order_number}{/has_purchase_order}']),
+    cp('{#has_tax_registration}{tax_registration_label}: {tax_registration_number}{/has_tax_registration}'),
+  ], ['Invoice number: {invoice_number}', 'Invoice date: {invoice_date}', '{#has_supply_date}Date of supply: {supply_date}{/has_supply_date}', 'Payment due: {due_date}', '{#has_purchase_order}Your purchase order: {purchase_order_number}{/has_purchase_order}']),
   gap(),
   Label('Bill to'),
   P('{client_name}', { bold: true }),
@@ -1491,6 +1491,7 @@ const invoice = doc([
   Label('How to pay'),
   P('Please pay {#has_amount_paid}{balance_due}{/has_amount_paid}{^has_amount_paid}{invoice_total}{/has_amount_paid} by {due_date} by {how_to_pay}, quoting invoice number {invoice_number}.'),
   P('{#has_bank_details}{bank_details}{/has_bank_details}'),
+  P('{#has_bank_details}{#warn_about_bank_changes}Our bank details will never change by email. If you receive a message saying they have, call us on a number you already know before paying.{/warn_about_bank_changes}{/has_bank_details}'),
   P('{#has_late_fee}A late fee of {late_fee_amount} applies to payments received more than {late_fee_grace_days} days after the due date.{/has_late_fee}'),
   P('{#has_notes}{invoice_notes}{/has_notes}'),
   P('Thank you for your business.'),
