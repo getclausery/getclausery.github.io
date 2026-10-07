@@ -7,6 +7,12 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.22.0 <span class="small muted">— 6 October 2026</span></h2>
+<ul>
+  <li>Invoice: name your tax number (VAT number, GST/HST number, ABN), add a separate date of supply for UK VAT, and title it "Tax invoice" for Australian GST.</li>
+  <li>Invoice: an optional line, on by default with bank details, telling clients your bank details never change by email, the most common invoice fraud.</li>
+  <li>Four new guides: what a UK VAT invoice must include, GST/HST invoice requirements in Canada, Australian tax invoices, and what bank details to put on an invoice.</li>
+</ul>
 <h2>1.21.0 <span class="small muted">— 6 October 2026</span></h2>
 <ul>
   <li>The invoice, quote, purchase order, credit note and expense claim templates do the maths: line amounts, subtotal, discount, tax from a percentage, totals and the balance due are calculated as you type.</li>
