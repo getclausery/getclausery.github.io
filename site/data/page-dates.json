@@ -13,7 +13,7 @@
  },
  "changelog.html": {
   "date": "2026-10-06",
-  "hash": "44edd5d456079515"
+  "hash": "c0ab036b3560717e"
  },
  "clauses/": {
   "date": "2026-10-04",
@@ -208,8 +208,8 @@
   "hash": "740c927eff8948b2"
  },
  "for/consultants.html": {
-  "date": "2026-10-04",
-  "hash": "abe70ac0dae62dfe"
+  "date": "2026-10-06",
+  "hash": "0e9d9b95354d2af8"
  },
  "for/freelancers.html": {
   "date": "2026-10-04",
@@ -268,8 +268,8 @@
   "hash": "0524916b3c455222"
  },
  "guides/": {
-  "date": "2026-10-04",
-  "hash": "29e766163bd5c0c7"
+  "date": "2026-10-06",
+  "hash": "dbed027d6f0194a7"
  },
  "guides/are-liability-waivers-enforceable.html": {
   "date": "2026-09-28",
@@ -298,6 +298,10 @@
  "guides/do-i-need-a-model-release.html": {
   "date": "2026-09-26",
   "hash": "4b66e115ee240135"
+ },
+ "guides/gst-hst-invoice-requirements-canada.html": {
+  "date": "2026-10-06",
+  "hash": "fa43ee8efaadb62b"
  },
  "guides/how-does-consignment-work.html": {
   "date": "2026-10-04",
@@ -372,8 +376,8 @@
   "hash": "0a735e3aa3041f62"
  },
  "guides/how-to-write-an-invoice.html": {
-  "date": "2026-10-02",
-  "hash": "9fdc999a7f75f4bb"
+  "date": "2026-10-06",
+  "hash": "557476048999baa0"
  },
  "guides/how-to-write-an-offer-letter.html": {
   "date": "2026-09-26",
@@ -406,6 +410,14 @@
  "guides/repeating-lists-and-tables-in-word.html": {
   "date": "2026-09-26",
   "hash": "67df83d1606dd884"
+ },
+ "guides/tax-invoice-requirements-australia.html": {
+  "date": "2026-10-06",
+  "hash": "bee3a65d57e763af"
+ },
+ "guides/what-bank-details-to-put-on-an-invoice.html": {
+  "date": "2026-10-06",
+  "hash": "49f9ef07743ce04e"
  },
  "guides/what-is-a-change-order.html": {
   "date": "2026-10-04",
@@ -454,6 +466,10 @@
  "guides/what-to-include-in-an-nda.html": {
   "date": "2026-10-04",
   "hash": "0496bf2086dc9278"
+ },
+ "guides/what-to-include-on-a-vat-invoice.html": {
+  "date": "2026-10-06",
+  "hash": "b55f73ff4431ac85"
  },
  "legal/dpa.html": {
   "date": "2026-10-02",
@@ -601,7 +617,7 @@
  },
  "templates/invoice.html": {
   "date": "2026-10-06",
-  "hash": "6399754e1e8ffbaa"
+  "hash": "5893fdcc4c6a7c1b"
  },
  "templates/job-description.html": {
   "date": "2026-10-06",
