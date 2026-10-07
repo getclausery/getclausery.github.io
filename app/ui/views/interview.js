@@ -2,12 +2,24 @@
 import { h, icon, toast, modal, confirmDialog, pickFile, readFile, setTitle, announce, setChildren } from '../dom.js';
 import { renderForm, scrollBehavior } from '../../lib/form.js';
 import { evaluateForm, buildRenderData, buildPreviewData, summarize } from '../../lib/logic.js';
-import { renderDocx, previewDocx, describeTemplateError, isDocxError } from '../../lib/render.js';
+import { renderDocx, renderDocxBytes, zipFiles, previewDocx, describeTemplateError, isDocxError } from '../../lib/render.js';
+import { recordHistory, KIND_LABELS } from '../../lib/history.js';
+import { parseCsv, mapHeaders, rowsToAnswers, templateCsv, uniqueNames, FREE_BULK_ROWS, MAX_BULK_ROWS } from '../../lib/bulk.js';
+import { requestPersistence } from '../../lib/store.js';
 import { downloadBlob, safeFilename } from '../../lib/backup.js';
 import { nowISO } from '../../lib/schema.js';
 import { buildIntakeHtml, parseAnswersFile, sanitizeAnswers } from '../../lib/intake.js';
 
 const SAVE_DELAY = 400;
+const DOCX_MIME = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+let askedPersist = false;
+/** The first time someone makes a document, ask the browser to protect this site's storage from automatic clean-up
+    (Chrome and Edge grant it silently for sites people use; Firefox may ask). Drafts already survive reloads and restarts. */
+function keepStorage() { if (askedPersist) return; askedPersist = true; requestPersistence().catch(() => {}); }
+/** Whether this browser can hand a file to the system share sheet (Mail, Slack, Teams, Drive...). */
+function canShareFiles() {
+  try { return !!(navigator.canShare && navigator.share && navigator.canShare({ files: [new File([new Blob(['x'])], 'x.docx', { type: DOCX_MIME })] })); } catch { return false; }
+}
 const PREVIEW_DELAY = 600;
 const PREVIEW_KEY = 'clausery.livePreview';
 /** The live preview is on by default where there is room for it beside the questions; the choice is remembered. */
@@ -152,13 +164,22 @@ export async function render(ctx, { id }) {
     const previewWrap = h('div.preview-wrap.print-area', { hidden: true, tabindex: 0, role: 'region', 'aria-label': 'Document preview' });
     const previewBtn = h('button.btn', { type: 'button', onclick: async () => { previewBtn.disabled = true; try { const blob = renderDocx(bytes, data); previewWrap.hidden = false; await previewDocx(blob, previewWrap); previewWrap.focus({ preventScroll: true }); previewWrap.scrollIntoView({ behavior: scrollBehavior(), block: 'start' }); } catch (e) { fail(e); } finally { previewBtn.disabled = false; } } }, icon('eye', 16), 'Preview');
     const fail = (e) => { if (isDocxError(e)) modal({ title: 'The document could not be generated', body: h('ul', describeTemplateError(e).map((m) => h('li', m))), actions: [{ label: 'OK', primary: true }] }); else { console.error(e); toast('Generation failed: ' + (e.message || e), { type: 'danger', timeout: 8000 }); } };
+    const fileName = docxName();
+    const record = (kind, extra = {}) => recordMade(kind, { file: fileName, ...extra });
     const generate = async () => {
       try {
         const blob = renderDocx(bytes, data);
-        downloadBlob(blob, safeFilename((draft.title || summarize(template, draft.answers, 1) || template.name) + ' - ' + template.name, 'docx'));
-        draft.status = 'generated'; draft.generatedAt = nowISO(); await ctx.drafts.save(draft); renderStepper();
-        toast('Document downloaded. It was generated entirely in this browser.', { type: 'ok', timeout: 6000 });
+        downloadBlob(blob, fileName);
+        await record('download'); keepStorage();
+        toast('Document downloaded. It was generated entirely in this browser, and this version is recorded in the history below.', { type: 'ok', timeout: 6000 });
       } catch (e) { fail(e); }
+    };
+    const share = async () => {
+      try {
+        const file = new File([renderDocx(bytes, data)], fileName, { type: DOCX_MIME });
+        await navigator.share({ files: [file], title: fileName });
+        await record('share'); keepStorage();
+      } catch (e) { if (e && e.name === 'AbortError') return; fail(e); }
     };
     const answered = template.fields.filter((f) => f.type !== 'computed' && f.type !== 'repeat' && ev.visible[f.key] !== false && draft.answers[f.key] !== '' && draft.answers[f.key] != null).length;
     const totalQ = template.fields.filter((f) => f.type !== 'computed' && f.type !== 'repeat' && ev.visible[f.key] !== false).length;
@@ -167,8 +188,10 @@ export async function render(ctx, { id }) {
         h('h2', 'Review & generate'),
         errs.length ? h('div.notice.notice-warn', icon('warn'), h('div', h('strong', `${errs.length} answer${errs.length === 1 ? '' : 's'} still needed. `), 'You can generate anyway; missing answers render blank.', h('ul', { style: { margin: '.5rem 0 0' } }, errs.slice(0, 8).map(([p, m]) => { const key = p.split(/[[.]/)[0]; const f = template.fields.find((x) => x.key === key); const si = steps.findIndex((s) => s.id === (f && f.sectionId)); return h('li', h('a', { href: '#', onclick: (e) => { e.preventDefault(); go(si); } }, f ? f.label : p), ': ', m); }), errs.length > 8 ? h('li', `…and ${errs.length - 8} more`) : null)))
           : h('div.notice.notice-ok', icon('check'), h('div', h('strong', 'Everything is answered. '), `${answered} of ${totalQ} questions.`)),
-        h('div.row', { style: { marginTop: '1rem' } }, h('button.btn.btn-primary.btn-lg', { type: 'button', onclick: generate }, icon('download', 18), 'Download .docx'), previewBtn, h('button.btn', { type: 'button', onclick: async () => { if (previewWrap.hidden) { previewBtn.click(); await new Promise((r) => setTimeout(r, 800)); } window.print(); } }, icon('print', 16), 'Print / Save as PDF')),
-        h('p.small.muted', { style: { marginTop: '1rem', marginBottom: 0 } }, 'The Word file is assembled in your browser from the template and these answers. Nothing is uploaded.')),
+        h('div.row', { style: { marginTop: '1rem' } }, h('button.btn.btn-primary.btn-lg', { type: 'button', onclick: generate }, icon('download', 18), 'Download .docx'), previewBtn, h('button.btn', { type: 'button', onclick: async () => { if (previewWrap.hidden) { previewBtn.click(); await new Promise((r) => setTimeout(r, 800)); } window.print(); await record('print'); } }, icon('print', 16), 'Print / Save as PDF'),
+          canShareFiles() ? h('button.btn', { type: 'button', onclick: share }, icon('share', 16), 'Share…') : null,
+          h('button.btn', { type: 'button', onclick: openBulk }, icon('table', 16), 'From a spreadsheet')),
+        h('p.small.muted', { style: { marginTop: '1rem', marginBottom: 0 } }, 'The Word file is assembled in your browser from the template and these answers. Nothing is uploaded. This draft stays saved here, so you can change any answer and download it again later.')),
       h('div.card',
         h('h3', 'Answers'),
         h('dl.kv', template.fields.filter((f) => ev.visible[f.key] !== false).flatMap((f) => { const v = data[f.key]; const shown = f.type === 'repeat' ? (v.length ? v.map((r) => (f.children || []).filter((c) => c.type !== 'checkbox').map((c) => r[c.key]).filter(Boolean).join(', ')).join('; ') : '—') : typeof v === 'boolean' ? (v ? 'Yes' : 'No') : (v === '' ? '—' : String(v)); return [h('dt', f.label), h('dd', { style: { color: shown === '—' ? 'var(--muted)' : '' } }, shown)]; })),
@@ -176,8 +199,91 @@ export async function render(ctx, { id }) {
           h('button.btn.btn-sm', { type: 'button', onclick: importAnswers }, icon('upload', 14), 'Import answers (.json)'),
           h('button.btn.btn-sm', { type: 'button', onclick: exportAnswers }, icon('download', 14), 'Export answers (.json)'),
           h('button.btn.btn-sm', { type: 'button', onclick: exportIntake }, icon('share', 14), 'Create client intake form'))),
+      historyBox,
       previewWrap,
     ));
+    refreshHistory();
+  }
+
+  // ---------------------------------------------------------------- history of generated documents
+  const historyBox = h('div');
+  function docxName() { return safeFilename((draft.title || summarize(template, draft.answers, 1) || template.name) + ' - ' + template.name, 'docx'); }
+  async function recordMade(kind, extra = {}) {
+    await recordHistory(draft, { kind, template: template.name, app: ctx.version, ...extra });
+    if (kind !== 'restore') { draft.status = 'generated'; draft.generatedAt = nowISO(); }
+    pendingSave = true; await flush(); refreshHistory(); renderStepper();
+  }
+  function refreshHistory() {
+    const list = Array.isArray(draft.history) ? draft.history : [];
+    setChildren(historyBox, h('div.card',
+      h('h3', icon('clock', 18), ' History'),
+      list.length
+        ? [h('p.small.muted', 'Each document made from this draft, with the time and a SHA-256 fingerprint of the exact answers used. Restore puts those answers back, so you can make the same document again or start a change from it.'),
+          h('ol.history-list', list.map((e) => h('li',
+            h('div', h('strong', KIND_LABELS[e.kind] || e.kind), e.count > 1 ? ` (${e.count} documents)` : '', h('span.muted', ' · ' + new Date(e.at).toLocaleString())),
+            h('div.small.muted', e.file ? e.file + ' · ' : '', 'answers ', h('code', { title: e.fingerprint }, String(e.fingerprint || '').slice(0, 12))),
+            e.answers ? h('button.btn.btn-sm', { type: 'button', onclick: () => restore(e) }, 'Restore these answers') : null)))]
+        : h('p.small.muted', 'Nothing made yet. Every document you download, print, share or make from a spreadsheet is recorded here with the time and a fingerprint of its answers.')));
+  }
+  async function restore(e) {
+    if (!await confirmDialog({ title: 'Restore these answers?', message: `The answers used on ${new Date(e.at).toLocaleString()} replace the current ones. The current answers are kept in the history first.`, confirmLabel: 'Restore' })) return;
+    await recordHistory(draft, { kind: 'restore', template: template.name, app: ctx.version });
+    draft.answers = structuredClone(e.answers); draft.status = 'draft';
+    pendingSave = true; await flush(); evaluation = evaluateForm(template, draft.answers, ctx.settings);
+    toast('Answers restored.', { type: 'ok' }); renderStepper(); renderStep();
+  }
+
+  // ---------------------------------------------------------------- many documents from a spreadsheet
+  function openBulk() {
+    const limit = ctx.plan.can('bulk') ? MAX_BULK_ROWS : FREE_BULK_ROWS;
+    const status = h('div.stack-sm', { role: 'status', 'aria-live': 'polite' });
+    let batch = null;
+    const goBtn = h('button.btn.btn-primary', { type: 'button', disabled: true, onclick: () => makeBatch() }, icon('download', 16), 'Generate');
+    const downloadCsv = () => downloadBlob(new Blob(['\uFEFF' + templateCsv(template, draft.answers)], { type: 'text/csv' }), safeFilename(template.name + ' spreadsheet', 'csv'));
+    const chooseCsv = async () => {
+      const file = await pickFile('.csv,text/csv'); if (!file) return;
+      batch = null; goBtn.disabled = true;
+      const rows = parseCsv(await readFile(file, 'text'));
+      if (rows.length < 2) { setChildren(status, h('div.notice.notice-warn', icon('warn'), h('div', 'No rows found. The first row should hold the column headings and each row after it one document.'))); return; }
+      const { map, unknown, matched } = mapHeaders(rows[0], template);
+      if (!matched.length) { setChildren(status, h('div.notice.notice-warn', icon('warn'), h('div', 'None of the column headings match this template\'s questions. Download the spreadsheet template to see the headings it expects.'))); return; }
+      const all = rowsToAnswers(template, draft.answers, rows.slice(1), map);
+      const items = all.items.slice(0, limit);
+      // name each file after the first column whose values differ between rows (a client, an invoice number...)
+      const varying = map.findIndex((k, c) => k && new Set(rows.slice(1).map((r) => (r[c] || '').trim())).size > 1);
+      const names = uniqueNames(items.map((it, i) => (varying >= 0 && (rows[i + 1][varying] || '').trim()) || `Row ${it.row}`)).map((n) => n + ' - ' + template.name + '.docx');
+      batch = { items, names, file: file.name };
+      setChildren(status,
+        h('div.notice.notice-ok', icon('check'), h('div', h('strong', `${items.length} document${items.length === 1 ? '' : 's'} ready. `), `${matched.length} column${matched.length === 1 ? '' : 's'} matched questions.`)),
+        all.items.length > limit ? h('div.notice.notice-warn', icon('warn'), h('div', `The spreadsheet has ${all.items.length} rows; ${limit === FREE_BULK_ROWS ? `the Free plan makes the first ${limit}. ` : `the first ${limit} are made. `}`, limit === FREE_BULK_ROWS ? h('a', { href: '#', onclick: (e) => { e.preventDefault(); ctx.requirePlan('bulk'); } }, 'Pro has no limit.') : null)) : null,
+        unknown.length ? h('p.small.muted', 'Ignored columns (no matching question): ' + unknown.join(', ')) : null,
+        all.problems.length ? h('div.notice.notice-warn', icon('warn'), h('div', h('strong', 'Some cells were skipped; the draft\'s answer is used instead:'), h('ul', all.problems.slice(0, 6).map((p) => h('li', p)), all.problems.length > 6 ? h('li', `…and ${all.problems.length - 6} more`) : null))) : null);
+      goBtn.disabled = false;
+      setChildren(goBtn, icon('download', 16), `Generate ${items.length} document${items.length === 1 ? '' : 's'} (.zip)`);
+    };
+    const makeBatch = async () => {
+      if (!batch) return;
+      goBtn.disabled = true;
+      try {
+        const files = batch.items.map((it, i) => ({ name: batch.names[i], bytes: renderDocxBytes(bytes, buildRenderData(template, it.answers, ctx.settings).data) }));
+        const zipName = safeFilename(`${template.name} - ${files.length} documents`, 'zip');
+        downloadBlob(zipFiles(files), zipName);
+        await recordMade('bulk', { file: zipName, count: files.length }); keepStorage();
+        m.close();
+        toast(`${files.length} documents made from ${batch.file} and downloaded as one .zip. Nothing was uploaded.`, { type: 'ok', timeout: 7000 });
+      } catch (e) { goBtn.disabled = false; fail(e); }
+    };
+    const fail = (e) => { if (isDocxError(e)) modal({ title: 'The documents could not be generated', body: h('ul', describeTemplateError(e).map((x) => h('li', x))), actions: [{ label: 'OK', primary: true }] }); else { console.error(e); toast('Generation failed: ' + (e.message || e), { type: 'danger', timeout: 8000 }); } };
+    const m = modal({ title: 'Documents from a spreadsheet', body: h('div.stack',
+      h('p', 'Make one document per row of a spreadsheet, such as an invoice for each client. Each row fills in or replaces this draft\'s answers, and empty cells keep them, so set what stays the same here first.'),
+      h('ol.stack-sm',
+        h('li', h('button.btn.btn-sm', { type: 'button', onclick: downloadCsv }, icon('download', 14), 'Download the spreadsheet template (.csv)'), h('div.small.muted', 'One column per question, with this draft\'s answers as the first row.')),
+        h('li', 'Add a row for each document in Excel, Google Sheets or Numbers, and save it as CSV.'),
+        h('li', h('button.btn.btn-sm', { type: 'button', onclick: chooseCsv }, icon('upload', 14), 'Choose the .csv file'))),
+      status,
+      h('div.row', goBtn),
+      h('p.small.muted', (ctx.plan.can('bulk') ? `Up to ${MAX_BULK_ROWS} documents at a time. ` : `The Free plan makes up to ${FREE_BULK_ROWS} documents per spreadsheet; Pro has no limit. `) + 'The spreadsheet is read in this browser and never uploaded. Repeating lists, such as line items, come from this draft.')),
+      actions: [{ label: 'Close' }] });
   }
 
   async function importAnswers() {
