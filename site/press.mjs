@@ -1,6 +1,6 @@
 // Press kit: facts, boilerplate and assets for journalists, directories and bloggers.
 import { LIB } from './library.mjs';
-import { REPO_URL } from '../tools/partials.mjs';
+import { REPO_URL, USAGE_ON } from '../tools/partials.mjs';
 export const pages = [{
   path: 'press/', title: 'Press kit',
   description: 'Clausery press kit: product facts, a short and a long description, screenshots, logo and contact details.',
@@ -23,7 +23,7 @@ export const pages = [{
 <tr><th scope="row">For</th><td>Solo and small law firms, HR teams, consultants and agencies</td></tr>
 <tr><th scope="row">Platform</th><td>Any modern browser on desktop or mobile; installable; works offline</td></tr>
 <tr><th scope="row">Free resources</th><td><a href="${rel}templates/">${LIB.length} Word templates</a>, <a href="${rel}free-tools/">drafting tools</a>, <a href="${rel}guides/">guides</a></td></tr>
-<tr><th scope="row">Security</th><td>Client-side processing, AES-256-GCM encryption at rest, strict content security policy, no third-party requests. <a href="${rel}docs/security.html">Security overview</a></td></tr>
+<tr><th scope="row">Security</th><td>Client-side processing, AES-256-GCM encryption at rest, strict content security policy, ${USAGE_ON ? 'no third-party requests other than anonymous usage counts' : 'no third-party requests'}. <a href="${rel}docs/security.html">Security overview</a></td></tr>
 </tbody></table>
 <h2>Images</h2>
 <ul>
