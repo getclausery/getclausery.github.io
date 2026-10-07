@@ -47,7 +47,7 @@ const ICONS = {
   list: 'M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01', up: 'M12 19V5m0 0l-6 6m6-6l6 6', down: 'M12 5v14m0 0l6-6m-6 6l-6-6',
   eye: 'M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7zM12 15a3 3 0 100-6 3 3 0 000 6z', warn: 'M12 3l10 18H2zM12 9v5M12 17h.01',
   info: 'M12 22a10 10 0 100-20 10 10 0 000 20zM12 11v6M12 7h.01', print: 'M6 9V3h12v6M6 18H4V9h16v9h-2M6 14h12v7H6z',
-  share: 'M4 12v8h16v-8M12 3v13m0-13l-4 4m4-4l4 4', key: 'M14 10a4 4 0 11-8 0 4 4 0 018 0zM14 10h7l-2 2 2 2', search: 'M11 4a7 7 0 100 14 7 7 0 000-14zM20 20l-4-4', sparkle: 'M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z',
+  share: 'M4 12v8h16v-8M12 3v13m0-13l-4 4m4-4l4 4', table: 'M4 5h16v14H4zM4 10h16M4 15h16M10 5v14', clock: 'M12 22a10 10 0 100-20 10 10 0 000 20zM12 7v5l3 3', key: 'M14 10a4 4 0 11-8 0 4 4 0 018 0zM14 10h7l-2 2 2 2', search: 'M11 4a7 7 0 100 14 7 7 0 000-14zM20 20l-4-4', sparkle: 'M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z',
 };
 export function icon(name, size = 18) {
   const path = ICONS[name] || ICONS.info;
