@@ -1,7 +1,7 @@
 {
  "": {
-  "date": "2026-10-04",
-  "hash": "fc3d7b4c4ec89edf"
+  "date": "2026-10-07",
+  "hash": "b363b4b3cf9826cc"
  },
  "404.html": {
   "date": "2026-09-27",
@@ -12,8 +12,8 @@
   "hash": "c44ed806a9c40dea"
  },
  "changelog.html": {
-  "date": "2026-10-06",
-  "hash": "c0ab036b3560717e"
+  "date": "2026-10-07",
+  "hash": "3a33fcda82375d5f"
  },
  "clauses/": {
   "date": "2026-10-04",
@@ -168,16 +168,16 @@
   "hash": "fa0e83dd7e2ceab3"
  },
  "docs/": {
-  "date": "2026-10-01",
-  "hash": "a2ab029044f9aa3e"
+  "date": "2026-10-07",
+  "hash": "6352636d3afbf2c0"
  },
  "docs/backups.html": {
   "date": "2026-10-01",
   "hash": "207a1269e89d4b8e"
  },
  "docs/faq.html": {
-  "date": "2026-10-01",
-  "hash": "3ee68c7bf306e414"
+  "date": "2026-10-07",
+  "hash": "42ea7665d4ff6f20"
  },
  "docs/intake.html": {
   "date": "2026-10-01",
@@ -492,8 +492,8 @@
   "hash": "d5827ad75dea7884"
  },
  "pricing/": {
-  "date": "2026-10-05",
-  "hash": "ff53d583e0ceceed"
+  "date": "2026-10-07",
+  "hash": "02f5aa4f40a390a6"
  },
  "templates/": {
   "date": "2026-10-06",
