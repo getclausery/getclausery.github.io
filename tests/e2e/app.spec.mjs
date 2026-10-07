@@ -191,3 +191,57 @@ test('the live preview shows the document beside the questions and follows the a
   await expect(page.locator('.live-preview')).toBeHidden();
   await expect(page.locator('button:has-text("Live preview")')).toHaveAttribute('aria-pressed', 'false');
 });
+
+test('a spreadsheet makes one invoice per row, and every document made is recorded in the history', async ({ page }) => {
+  const errors = [];
+  page.on('pageerror', (e) => errors.push(e.message));
+  await page.goto('app/#/start/invoice');
+  await page.waitForSelector('.stepper');
+  await fill(page, 'business_name', 'Northwind Studio');
+  await page.click('.stepper button:has-text("Items and totals")');
+  await page.fill('[data-path="line_items[0].item_name"] input', 'Monthly retainer');
+  await page.fill('[data-path="line_items[0].item_rate"] input', '1000');
+  await page.click('.stepper button:has-text("Review")');
+  await expect(page.locator('.card h3:has-text("History")')).toBeVisible();
+  await expect(page.locator('.history-list li')).toHaveCount(0);
+
+  // one document: recorded with a fingerprint
+  const [single] = await Promise.all([page.waitForEvent('download'), page.click('button:has-text("Download .docx")')]);
+  expect(single.suggestedFilename()).toMatch(/\.docx$/);
+  await expect(page.locator('.history-list li')).toHaveCount(1);
+  await expect(page.locator('.history-list li').first()).toContainText('Downloaded .docx');
+  await expect(page.locator('.history-list li code').first()).toHaveText(/^[0-9a-f]{12}$/);
+
+  // the spreadsheet template and a filled-in spreadsheet
+  await page.click('button:has-text("From a spreadsheet")');
+  const [csvDownload] = await Promise.all([page.waitForEvent('download'), page.click('button:has-text("Download the spreadsheet template")')]);
+  expect(csvDownload.suggestedFilename()).toMatch(/\.csv$/);
+  const [chooser] = await Promise.all([page.waitForEvent('filechooser'), page.click('button:has-text("Choose the .csv file")')]);
+  await chooser.setFiles({ name: 'clients.csv', mimeType: 'text/csv', buffer: Buffer.from('client_name,Client address,invoice_number,Shoe size\nAcme Ltd,1 Main St,INV-001,9\nBolt Inc,2 High St,INV-002,10\nCobalt LLC,3 Low Rd,INV-003,11\n') });
+  await expect(page.locator('.modal')).toContainText('3 documents ready');
+  await expect(page.locator('.modal')).toContainText('Ignored columns (no matching question): Shoe size');
+  const [zip] = await Promise.all([page.waitForEvent('download'), page.click('button:has-text("Generate 3 documents")')]);
+  expect(zip.suggestedFilename()).toMatch(/\.zip$/);
+  const { PizZip, Docxtemplater } = await import('../../vendor/docs.js');
+  const { readFileSync } = await import('node:fs');
+  const outer = new PizZip(readFileSync(await zip.path()));
+  const names = Object.keys(outer.files).sort();
+  expect(names).toEqual(['Acme Ltd - Invoice.docx', 'Bolt Inc - Invoice.docx', 'Cobalt LLC - Invoice.docx']);
+  const text = new Docxtemplater(new PizZip(outer.file('Bolt Inc - Invoice.docx').asUint8Array()), { paragraphLoop: true }).getFullText();
+  expect(text).toContain('Bolt Inc');
+  expect(text).toContain('INV-002');
+  expect(text).toContain('Northwind Studio');   // from the draft
+  expect(text).toContain('$1,000.00');          // the draft's line item, calculated
+  await expect(page.locator('.history-list li').first()).toContainText('Made from a spreadsheet (3 documents)');
+
+  // restore puts earlier answers back and keeps the current ones in the history
+  await page.click('.stepper button:has-text("Your business")');
+  await fill(page, 'business_name', 'Renamed Ltd');
+  await page.click('.stepper button:has-text("Review")');
+  page.once('dialog', (d) => d.accept());
+  await page.locator('.history-list li').last().locator('button:has-text("Restore these answers")').click();
+  await page.locator('.modal button:has-text("Restore")').click();
+  await page.click('.stepper button:has-text("Your business")');
+  await expect(page.locator('[name="business_name"]')).toHaveValue('Northwind Studio');
+  expect(errors).toEqual([]);
+});
