@@ -1,4 +1,5 @@
-import { docsNav, faqLd, REPO_URL, ANALYTICS_ON, ONLINE_KEYS, USAGE_ON } from '../tools/partials.mjs';
+import { docsNav, faqLd, REPO_URL, ANALYTICS_ON, ONLINE_KEYS, USAGE_ON, USAGE_REQUEST } from '../tools/partials.mjs';
+import { USAGE_COUNTER } from '../app/config.js';
 // The FAQ page's questions, also published as FAQPage structured data. Answers take `rel` for their links.
 const DOCS_FAQ = [
   ['Which browsers are supported?', (rel) => `Current versions of Chrome, Edge, Firefox and Safari on desktop and mobile. License keys are verified with WebCrypto Ed25519 (Chrome/Edge 137+, Firefox 129+, Safari 17+). The encrypted workspace uses PBKDF2-SHA256 and AES-256-GCM, available in all current browsers.`],
@@ -34,7 +35,7 @@ and {party_b_name} ("{party_b_short}").</code></pre>
 <p>The template opens in the designer. Rename questions, add help text, reorder, group into sections, and adjust anything the automatic guesses got wrong. Save.</p>
 <h2>3. Draft a document</h2>
 <p>Click <strong>New draft</strong>. Work through the sections; answers save as you type. On the <strong>Review &amp; generate</strong> step, preview the result, download the .docx, or print to PDF. The draft stays in your list and can be regenerated after edits.</p>
-<div class="note">Nothing in steps 1–3 leaves your computer. The app only ever requests its own files from the site that serves it and never sends your data anywhere. You can confirm this in your browser's developer tools (Network tab).</div>
+<div class="note">Nothing in steps 1–3 leaves your computer. The app only ever requests its own files from the site that serves it${USAGE_ON ? ', plus anonymous usage counts with nothing you type in them,' : ''} and never sends your data anywhere. You can confirm this in your browser's developer tools (Network tab).</div>
 <h2>Where things are stored</h2>
 <p>Templates, the original .docx files and drafts are kept in your browser's local database (IndexedDB) for this site. That means:</p>
 <ul>
@@ -238,7 +239,7 @@ page('docs/security.html', 'Security', 'How Clausery keeps client data on the de
   <li>The product is a set of static files (HTML, CSS, JavaScript) served from a web host. There is no backend, database, API or account system operated by us.</li>
   <li>All processing (reading .docx templates, evaluating answers, generating documents, encrypting storage) happens in the browser's JavaScript engine.</li>
   <li>Data at rest is in the browser's IndexedDB, scoped to the site origin and the browser profile.</li>
-  <li>The app only requests its own static files (code, sample templates, the intake-form runtime) from the site that serves it; it never uploads or posts anything, and it makes no request to any third party. The service worker caches those files for offline use and only handles same-origin requests.</li>
+  <li>The app only requests its own static files (code, sample templates, the intake-form runtime) from the site that serves it; it never uploads or posts anything${USAGE_ON ? `, and its only request to a third party is ${USAGE_REQUEST}` : ', and it makes no request to any third party'}. The service worker caches those files for offline use and only handles same-origin requests.</li>
 </ul>
 <h2>What we can see</h2>
 <p>Nothing about your documents. The host serving the static files (GitHub Pages for the public instance) sees ordinary web-server traffic: the IP address and browser of whoever loads the app. ${ANALYTICS_ON ? '' + (USAGE_ON ? 'The app has no cookies or third-party scripts; it counts anonymous events (a draft started, a document made) with no content, as the privacy policy describes, and' : 'The app has no analytics, cookies, tracking pixels or third-party scripts;') + ' the marketing website only counts anonymous page views (see the privacy policy).' : 'There are no analytics, cookies, tracking pixels or third-party scripts.'} Fonts are system fonts.</p>
@@ -249,7 +250,7 @@ page('docs/security.html', 'Security', 'How Clausery keeps client data on the de
 </ul>
 <h2>Browser hardening</h2>
 <ul>
-  <li>Content Security Policy: <code>default-src 'self'</code>, no inline scripts, no remote scripts, <code>connect-src 'self' https://api.lemonsqueezy.com</code> (the second origin is used only to check a license key bought online), <code>object-src 'none'</code>, <code>form-action 'none'</code>.</li>
+  <li>Content Security Policy: <code>default-src 'self'</code>, no inline scripts, no remote scripts, <code>connect-src 'self' https://api.lemonsqueezy.com</code> (the second origin is used only to check a license key bought online), ${USAGE_ON ? `<code>img-src 'self' data: blob: ${new URL(USAGE_COUNTER.endpoint).origin}</code> (the last origin receives only the anonymous usage counts), ` : ''}<code>object-src 'none'</code>, <code>form-action 'none'</code>.</li>
   <li>Referrer policy <code>no-referrer</code> in the app. The app page is marked <code>noindex</code>.</li>
   <li>Exported intake forms carry a CSP of <code>default-src 'none'</code> with inline-only script and style, so they cannot make network requests even when hosted.</li>
   <li>Expressions in templates are evaluated by a purpose-built interpreter, never by <code>eval</code>; identifiers resolve only against the answers object.</li>

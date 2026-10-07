@@ -43,12 +43,16 @@
 <main id="main" tabindex="-1">
 <section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.24.1 <span class="small muted">— 7 October 2026</span></h2>
+<ul>
+  <li>Anonymous usage counts are on: the app tells GoatCounter when it is opened, when a draft is started and when a document is made, and which library template it was. Nothing you type, no file names and none of your own templates are ever part of it, and GoatCounter sets no cookies and does not store IP addresses. The <a href="./legal/privacy.html">privacy policy</a> has the details.</li>
+</ul>
 <h2>1.24.0 <span class="small muted">— 7 October 2026</span></h2>
 <ul>
   <li>Your next invoice fills itself in: a new invoice, quote, receipt, purchase order or credit note starts with your own details, bank details and usual tax rate from the last one you made, the next number in your sequence and today's date. A due date keeps the same number of days after the invoice date as last time. The client, the items and the amounts are never copied.</li>
   <li>A clearer first visit: the app opens on the documents small businesses make most, each one click from a draft, with a search across all the templates. "Fill it in" starts a draft; "Customise" opens a library template's questions for editing.</li>
   <li>The home page now leads with invoices, quotes and receipts.</li>
-  <li>Groundwork for anonymous usage counts (which templates are used, never what is typed). It is switched off, and the privacy policy will say so before it is ever switched on.</li>
+  <li>Groundwork for anonymous usage counts (which templates are used, never what is typed), switched on in 1.24.1.</li>
 </ul>
 <h2>1.23.0 <span class="small muted">— 7 October 2026</span></h2>
 <ul>
@@ -247,7 +251,7 @@
   <li>Local workspace in the browser database, backups, answer files, template packs.</li>
   <li>Optional encryption at rest (AES-256-GCM, PBKDF2) with auto-lock.</li>
   <li>Offline client intake forms as single HTML files.</li>
-  <li>Offline-capable installable app (service worker), strict Content Security Policy, no third-party requests.</li>
+  <li>Offline-capable installable app (service worker), strict Content Security Policy, no third-party requests other than anonymous usage counts.</li>
   <li>Offline license keys (Ed25519 signatures) with Free, Pro, Team and Enterprise plans.</li>
 </ul>
 </div></section></main>

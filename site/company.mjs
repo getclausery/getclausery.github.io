@@ -35,7 +35,7 @@ export const pages = [
 <p>${ANALYTICS_ON ? 'There are no ads, no affiliate links and no tracking cookies, and we never sell or share data. ' + (USAGE_ON ? 'The app counts only anonymous events, such as a document being made from the invoice template, never what you type; ' : 'The app has no analytics at all; ') + 'this website counts anonymous page views with Cloudflare Web Analytics, which uses no cookies and does not track individual visitors.' : 'There are no ads, no affiliate links, no analytics and no tracking cookies, and we never sell or share data.'} That is not a policy we could quietly change: the app has no server to send your data to.</p>
 <h2>How it is built</h2>
 <ul>
-  <li>Plain HTML, CSS and JavaScript modules, with no framework and no third-party requests at runtime.</li>
+  <li>Plain HTML, CSS and JavaScript modules, with no framework and ${USAGE_ON ? 'no third-party requests at runtime other than anonymous usage counts' : 'no third-party requests at runtime'}.</li>
   <li>Served as static files by GitHub Pages, and installable as an offline app.</li>
   <li>The code is published on <a href="${REPO_URL}" rel="noopener">GitHub</a>, so anyone can check what it does, and every release is listed in the <a href="${rel}changelog.html">changelog</a>.</li>
   <li>Optional encryption of everything stored in the browser (AES-256-GCM)${ONLINE_KEYS ? ', and license checks that send only the key' : ', and license keys verified offline with a signature'}. See the <a href="${rel}docs/security.html">security overview</a>.</li>

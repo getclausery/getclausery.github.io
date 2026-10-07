@@ -1,6 +1,6 @@
 /* Clausery deployment configuration. Edit this file when you deploy your own copy. */
 export const APP_NAME = 'Clausery';
-export const APP_VERSION = '1.24.0';
+export const APP_VERSION = '1.24.1';
 
 /* Public site URL (no trailing slash). Used for links in exported files and the intake form footer. */
 export const SITE_URL = 'https://getclausery.github.io';
@@ -24,7 +24,7 @@ export const CHECKOUT_SINCE = '';
    for a library template, which one; never answers, file names or your own templates. Leave endpoint empty to send
    nothing. Only the public site counts (host), so tests, previews and self-hosted copies never report. When endpoint
    is set, add its origin to img-src in app/index.html and set since to the day it went live (the privacy policy's date). */
-export const USAGE_COUNTER = { endpoint: '', host: 'getclausery.github.io', since: '' };
+export const USAGE_COUNTER = { endpoint: 'https://getclausery.goatcounter.com/count', host: 'getclausery.github.io', since: '2026-10-07' };
 
 /* Where people reach the operator. Email works for everyone, with no account; GitHub stays available for public bug reports
    and for private security reports. */
