@@ -16,7 +16,7 @@ const pages = globSync('**/*.html').map((f) => f.split('\\').join('/')).filter((
 const dates = existsSync('site/data/page-dates.json') ? JSON.parse(readFileSync('site/data/page-dates.json', 'utf8')) : {};
 const lastmod = Object.fromEntries(Object.entries(dates).map(([path, { date }]) => [`${base}${path}`, date]));
 
-const SECTIONS = ['templates', 'guides', 'clauses', 'free-tools', 'compare', 'docs'];   // everything else goes in "pages"
+const SECTIONS = ['templates', 'invoice-templates', 'guides', 'clauses', 'free-tools', 'compare', 'docs'];   // everything else goes in "pages"
 const sectionOf = (p) => SECTIONS.find((s) => p.startsWith(s + '/')) || 'pages';
 const entry = (f) => {
   const p = f.replace(/index\.html$/, '');
