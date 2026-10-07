@@ -2,6 +2,7 @@ import { h, icon, toast, modal, confirmDialog, pickFile, readFile, relativeTime,
 import { inspectDocx, describeTemplateError, isDocxError } from '../../lib/render.js';
 import { inferQuestionnaire, newTemplate, normalizeTemplate, uid, KEY_RX, isReservedKey } from '../../lib/schema.js';
 import { applySetup, setupFor, SETUP_VERSION } from '../../lib/setups.js';
+import { presetFor } from '../../lib/presets.js';
 import { decodeBundle, encodePack, downloadBlob, safeFilename, checkDocxSize } from '../../lib/backup.js';
 
 /** Shown first to a new visitor: what small businesses make most, each calculated and remembered (setups.js). */
@@ -148,7 +149,7 @@ async function loadSample(ctx, s) {
 
 /** Deep link from the public template library (#/start/<slug>): reuse the sample if it is already in the workspace,
     otherwise import it, then open a new draft straight away so a visitor is filling it in within one click. */
-export async function startFromSample(ctx, { slug }) {
+export async function startFromSample(ctx, { slug, preset: presetSlug }) {
   const s = SAMPLES.find((x) => x.slug === slug);
   if (!s) { toast('That template is not available.', { type: 'warn' }); ctx.navigate('/templates'); return; }
   // a copy imported before the library template gained its setup (or an older one) is left alone, untouched, and a fresh
@@ -157,7 +158,8 @@ export async function startFromSample(ctx, { slug }) {
   const existing = (await ctx.templates.list()).find((t) => (t.sample === slug || t.fileName === s.file) && current(t));
   const t = existing || await importSample(ctx, s);
   if (!t) { ctx.router.go('/templates', true); return; }
-  await ctx.startDraft(t, { replace: true });
+  const p = presetSlug ? presetFor(slug, presetSlug) : null;
+  await ctx.startDraft(t, { replace: true, preset: p && { ...p, slug: presetSlug } });
 }
 
 async function importPack(ctx) {
