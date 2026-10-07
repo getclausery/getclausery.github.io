@@ -8,6 +8,7 @@ import { Router } from './ui/router.js';
 import { h, icon, toast, modal, confirmDialog, setTitle, setChildren, closeAllModals } from './ui/dom.js';
 import { nowISO, newDraft } from './lib/schema.js';
 import { prefillAnswers, prefillNote } from './lib/prefill.js';
+import { applyPreset } from './lib/presets.js';
 import { countEvent } from './lib/usage.js';
 import * as templatesView from './ui/views/templates.js';
 import * as designerView from './ui/views/designer.js';
@@ -45,15 +46,15 @@ const ctx = {
   },
   /** Start a new draft of a template and open it. Library templates start from your last document (prefill.js): your own
       details, the next number and today's date, so a repeat invoice is a few answers rather than a dozen. */
-  async startDraft(t, { replace = false } = {}) {
+  async startDraft(t, { replace = false, preset = null } = {}) {
     const d = newDraft(t);
     const { answers, info } = prefillAnswers(t, d.answers, await ctx.drafts.list(), await ctx.templates.list());
-    d.answers = answers;
+    d.answers = applyPreset(t, answers, preset);
     await ctx.drafts.save(d);
-    countEvent('draft-started', t);
+    countEvent(preset ? `draft-started/${t.sample}/${preset.slug}` : 'draft-started', preset ? null : t);
     router.go('/drafts/' + d.id, replace);
-    const note = prefillNote(info, t);
-    if (note) toast(note, { type: 'ok', timeout: 8000 });
+    const note = [preset && `Started with the lines a ${preset.name.toLowerCase()} business usually bills. Add your prices and remove what you don't need.`, prefillNote(info, t)].filter(Boolean).join(' ');
+    if (note) toast(note, { type: 'ok', timeout: 9000 });
     return d;
   },
   async saveSettings(patch) {
@@ -168,7 +169,8 @@ router
   .add('/drafts', (p) => guarded(draftsView.render, p, 'drafts', 'Drafts'))
   .add('/drafts/:id', (p) => guarded(interviewView.render, p, 'drafts', 'Draft'))
   .add('/settings', (p) => guarded(settingsView.render, p, 'settings', 'Settings'))
-  .add('/start/:slug', (p) => guarded(templatesView.startFromSample, p, 'drafts', 'New draft'));
+  .add('/start/:slug', (p) => guarded(templatesView.startFromSample, p, 'drafts', 'New draft'))
+  .add('/start/:slug/:preset', (p) => guarded(templatesView.startFromSample, p, 'drafts', 'New draft'));
 router.notFound = () => router.go('/templates', true);
 
 // auto-lock after inactivity when a vault is enabled

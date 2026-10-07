@@ -30,7 +30,7 @@ const SEO_TITLES = {
 for (const k of Object.keys(SEO_TITLES)) if (!pages.some((p) => p.path === k)) throw new Error('SEO_TITLES: no page ' + k);
 // Pages without their own breadcrumb data get one from their path (Home › section › page), so every indexable page has
 // structured data. Sections listed here have an index page; anything else links straight from Home.
-const SECTIONS = { docs: 'Docs', compare: 'Compare', 'free-tools': 'Free tools', guides: 'Guides', clauses: 'Clauses', templates: 'Templates' };
+const SECTIONS = { docs: 'Docs', compare: 'Compare', 'free-tools': 'Free tools', guides: 'Guides', clauses: 'Clauses', templates: 'Templates', 'invoice-templates': 'Invoice templates' };
 for (const p of pages) {
   if (p.layout === 'embed' || p.path === '' || p.path === '404.html' || /BreadcrumbList/.test(p.extraHead || '')) continue;
   const section = p.path.includes('/') ? p.path.split('/')[0] : null;
@@ -117,6 +117,7 @@ Key facts:
 - The output is an editable Word .docx (printing to PDF is optional). A draft can be reopened, changed and downloaded again; each draft keeps a history of every document made from it, with the time and a SHA-256 fingerprint of the answers, and can restore earlier answers.
 - Logic: conditional sections, show-when rules with expressions such as contract_value > 5000, and calculations. The free invoice, quote, purchase order, credit note and expense templates add up line items and tax.
 - Repeat documents: a new invoice, quote, receipt, purchase order or credit note starts with the user's own details from the last one, the next number in their sequence and today's date; the client, items and amounts are never copied.
+- Invoice templates by trade (contractor, cleaning, photography, consulting and more) open an invoice with that trade's usual lines; prices are always the user's own.
 - Bulk generation: one document per row of a CSV spreadsheet (Free plan: 5 per spreadsheet; Pro: unlimited), assembled in the browser.
 - Not included, by design: e-signatures (users sign with their own e-signature service), live co-editing and server integrations. Documents can be handed to Mail, Slack or Teams with the system share sheet where supported.
 - Library templates are general samples written mainly for the US, Canada and the UK; guides cite official sources. The only official site is getclausery.github.io, released regularly (see the changelog).

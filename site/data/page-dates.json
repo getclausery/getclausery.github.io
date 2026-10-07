@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-10-07",
-  "hash": "11589cc5e299213d"
+  "hash": "3c8068dd6dcf0336"
  },
  "404.html": {
   "date": "2026-09-27",
@@ -13,7 +13,7 @@
  },
  "changelog.html": {
   "date": "2026-10-07",
-  "hash": "d8308f91bcf520f2"
+  "hash": "d3de8ad814f5396d"
  },
  "clauses/": {
   "date": "2026-10-04",
@@ -471,6 +471,58 @@
   "date": "2026-10-06",
   "hash": "b55f73ff4431ac85"
  },
+ "invoice-templates/": {
+  "date": "2026-10-07",
+  "hash": "51e83899421e4ce9"
+ },
+ "invoice-templates/cleaning.html": {
+  "date": "2026-10-07",
+  "hash": "f42feb7aff57c4b3"
+ },
+ "invoice-templates/construction-contractor.html": {
+  "date": "2026-10-07",
+  "hash": "75875eb9385fc991"
+ },
+ "invoice-templates/consulting.html": {
+  "date": "2026-10-07",
+  "hash": "1da766c6c32ec914"
+ },
+ "invoice-templates/freelance-writing.html": {
+  "date": "2026-10-07",
+  "hash": "b4f3ad41b88bf833"
+ },
+ "invoice-templates/graphic-design.html": {
+  "date": "2026-10-07",
+  "hash": "1de08b47bdc125a5"
+ },
+ "invoice-templates/handyman.html": {
+  "date": "2026-10-07",
+  "hash": "8e92e4046d17f1c1"
+ },
+ "invoice-templates/landscaping.html": {
+  "date": "2026-10-07",
+  "hash": "6be374c534580bfd"
+ },
+ "invoice-templates/personal-training.html": {
+  "date": "2026-10-07",
+  "hash": "2b77695c351ff5c5"
+ },
+ "invoice-templates/photography.html": {
+  "date": "2026-10-07",
+  "hash": "b91f676f71107b93"
+ },
+ "invoice-templates/tutoring.html": {
+  "date": "2026-10-07",
+  "hash": "d89d8fb2dd786357"
+ },
+ "invoice-templates/videography.html": {
+  "date": "2026-10-07",
+  "hash": "41e416bb2797b26b"
+ },
+ "invoice-templates/web-design.html": {
+  "date": "2026-10-07",
+  "hash": "3b5d1cccfc54bff4"
+ },
  "legal/dpa.html": {
   "date": "2026-10-02",
   "hash": "e23840fe9556e3ac"
@@ -617,7 +669,7 @@
  },
  "templates/invoice.html": {
   "date": "2026-10-07",
-  "hash": "f4e3ce0572050157"
+  "hash": "7178b565f70149ff"
  },
  "templates/job-description.html": {
   "date": "2026-10-06",

@@ -291,3 +291,18 @@ test('the next invoice starts with your details, the next number and today\'s da
   await expect(page.locator('[name="client_name"]')).toHaveValue('');
   expect(errors).toEqual([]);
 });
+
+test('a trade invoice page opens an invoice with that trade\'s usual lines, quantities in and prices left to you', async ({ page }) => {
+  await page.goto('invoice-templates/cleaning.html');
+  await expect(page.locator('h1')).toHaveText('Cleaning invoice template');
+  await page.click('a:has-text("Start this invoice, free")');
+  await page.waitForSelector('.stepper');
+  await expect(page.locator('.toast:has-text("cleaning business")')).toBeVisible();
+  await page.click('.stepper button:has-text("Items and totals")');
+  await expect(page.locator('[data-path="line_items[0].item_name"] input')).toHaveValue('Regular cleaning visit');
+  await expect(page.locator('[data-path="line_items[0].item_quantity"] input')).toHaveValue('4');
+  await expect(page.locator('[data-path="line_items[0].item_rate"] input')).toHaveValue('');
+  await expect(page.locator('[data-path^="line_items["][data-path$="].item_name"]')).toHaveCount(4);
+  await page.fill('[data-path="line_items[0].item_rate"] input', '120');
+  await expect(page.locator('[data-path="line_items[0].item_amount"] .computed-value')).toHaveText('$480.00');
+});
