@@ -321,4 +321,6 @@ test('a country invoice page opens an invoice set up for that country\'s tax, ra
   await page.fill('[data-path="line_items[0].item_quantity"] input', '2');
   await page.fill('[data-path="line_items[0].item_rate"] input', '50');
   await expect(page.locator('[data-path="tax_amount"] .computed-value')).toHaveText('£20.00');
+  await page.goto('app/#/settings');
+  await expect(page.locator('select:near(:text("Locale for dates and numbers"))').first()).toHaveValue('en-GB');
 });
