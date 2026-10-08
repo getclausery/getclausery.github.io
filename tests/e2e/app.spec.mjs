@@ -306,3 +306,19 @@ test('a trade invoice page opens an invoice with that trade\'s usual lines, quan
   await page.fill('[data-path="line_items[0].item_rate"] input', '120');
   await expect(page.locator('[data-path="line_items[0].item_amount"] .computed-value')).toHaveText('$480.00');
 });
+
+test('a country invoice page opens an invoice set up for that country\'s tax, rate, tax number and currency', async ({ page }) => {
+  await page.goto('invoice-templates/uk-vat-invoice.html');
+  await expect(page.locator('h1')).toHaveText('VAT invoice template (UK)');
+  await page.click('a:has-text("Start this invoice, free")');
+  await page.waitForSelector('.stepper');
+  await expect(page.locator('.toast:has-text("Set up for UK VAT")')).toContainText('Amounts are in GBP');
+  await expect(page.locator('[name="tax_registration_label"]')).toHaveValue('VAT registration number');
+  await page.click('.stepper button:has-text("Items and totals")');
+  await expect(page.locator('[name="tax_name"]')).toHaveValue('VAT');
+  await expect(page.locator('[name="tax_rate"]')).toHaveValue('20');
+  await page.fill('[data-path="line_items[0].item_name"] input', 'Bookkeeping');
+  await page.fill('[data-path="line_items[0].item_quantity"] input', '2');
+  await page.fill('[data-path="line_items[0].item_rate"] input', '50');
+  await expect(page.locator('[data-path="tax_amount"] .computed-value')).toHaveText('£20.00');
+});
