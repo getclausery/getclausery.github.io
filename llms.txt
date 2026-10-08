@@ -1,6 +1,6 @@
 # Clausery
 
-> Clausery is browser-based document automation. It turns ordinary Word (.docx) templates with {tags} into guided questionnaires and generates finished documents entirely on the user's device: no upload, no account, works offline. Every template in its free library can be downloaded or filled in at no cost, with no limit; up to three of the user's own templates are also free. The Pro plan adds unlimited own templates, calculations in the user's own templates, unlimited documents from a spreadsheet, an encrypted workspace and client intake forms.
+> Clausery helps small businesses and freelancers make invoices, quotes and receipts in editable Word (.docx) files with calculated totals. Document processing happens on the user's device. Its free business document kit contains six Word templates and instructions, with no email signup. It also turns ordinary Word templates with {tags} into guided questionnaires. Every library template can be downloaded or filled in free, with no account or document limit; up to three of the user's own templates are also free. Pro adds unlimited own templates, calculations in those templates, unlimited documents from a spreadsheet, an encrypted workspace and client intake forms.
 
 Key facts:
 - Documents are assembled in the browser; template files, answers and generated documents are never sent to a server.
@@ -23,6 +23,7 @@ Key facts:
 - [Home](https://getclausery.github.io/): what Clausery does and who it is for
 - [Open the app](https://getclausery.github.io/app/): runs in the browser, no sign-up
 - [Pricing](https://getclausery.github.io/pricing/): Free, Pro, Team and Enterprise plans
+- [Free business document kit](https://getclausery.github.io/business-document-kit/): six Word templates and instructions, no email signup
 - [Security](https://getclausery.github.io/docs/security.html): how data stays on the device
 - [Documentation](https://getclausery.github.io/docs/): getting started, template syntax, logic, client intake
 

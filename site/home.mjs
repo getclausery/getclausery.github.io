@@ -31,7 +31,7 @@ export const pages = [{
   description: `Make invoices, quotes and receipts in Word with totals, tax and numbering done for you, plus ${LIB.length} free templates. No sign-up, and nothing is uploaded.`,
   extraHead: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebSite', name: 'Clausery', url: SITE })}</script>
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', name: 'Clausery', url: SITE, logo: `${SITE}assets/icon-512.png`, sameAs: ['https://github.com/getclausery/getclausery.github.io'] })}</script>
-<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'Clausery', applicationCategory: 'BusinessApplication', operatingSystem: 'Any (web browser)', description: 'Document automation that never leaves your browser: Word templates become guided questionnaires that generate finished .docx files offline.', url: SITE, offers: [{ '@type': 'Offer', price: '0', priceCurrency: 'USD', name: 'Free' }, { '@type': 'Offer', price: '19', priceCurrency: 'USD', name: 'Pro (per user, monthly)' }], featureList: ['Client-side .docx generation', 'Conditional clauses and repeating groups', 'Calculations', 'Encrypted local workspace', 'Offline client intake forms', 'No account required'] })}</script>`,
+<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'Clausery', applicationCategory: 'BusinessApplication', operatingSystem: 'Any (web browser)', description: 'Create invoices, quotes and receipts from free Word templates. Guided questions generate editable .docx files on your device.', url: SITE, offers: [{ '@type': 'Offer', price: '0', priceCurrency: 'USD', name: 'Free' }, { '@type': 'Offer', price: '19', priceCurrency: 'USD', name: 'Pro (per user, monthly)' }], featureList: ['Client-side .docx generation', 'Conditional clauses and repeating groups', 'Calculations', 'Encrypted local workspace', 'Offline client intake forms', 'No account required'] })}</script>`,
   body: (rel) => `
 <section class="hero">
   <div class="wrap">
@@ -66,6 +66,7 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
     <p style="margin-top:1.25rem"><strong>Invoice templates by trade:</strong> ${Object.entries(PRESETS.invoice).map(([slug, p]) => `<a href="${rel}invoice-templates/${slug}.html">${esc(p.name)}</a>`).join(' · ')} · <a href="${rel}invoice-templates/">all trades →</a></p>
     <p><strong>By country (VAT and GST set up for you):</strong> ${COUNTRIES.map((c) => `<a href="${rel}invoice-templates/${c.slug}.html">${esc(c.country)}</a>`).join(' · ')}</p>
     <!--nav--><p><strong>By billing task:</strong> ${workflowLinks(rel)}. Worked examples and a starter for each stage of the job.</p><!--/nav-->
+    <p><a class="btn" href="${rel}business-document-kit/">Get the free six-template business kit</a> <span class="small muted">Quote, scope, invoice, receipt, purchase order and credit note. No email signup.</span></p>
     <div class="grid grid-3" style="margin-top:2rem">
       <div class="feature"><div class="ico">${ico(I.calc)}</div><h3>Adds itself up</h3><p>Line amounts, discount, VAT, GST or sales tax, total and balance due update as you type. No formula to break.</p></div>
       <div class="feature"><div class="ico">${ico(I.check)}</div><h3>Remembers your details</h3><p>Your next invoice starts with your business details, bank details, tax rate and the next number filled in. Only the client and the items are new.</p></div>
@@ -101,12 +102,12 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
 
 <section class="section" id="why">
   <div class="wrap">
-    <h2>Built for people who cannot upload client files</h2>
-    <p class="lead"><a href="${rel}for/law-firms.html">Law firms</a>, <a href="${rel}for/hr-teams.html">HR teams</a> and <a href="${rel}for/consultants.html">consultancies</a> draft the same documents every week from the same templates. The tools that automate this are cloud services that want the client's data first. Clausery does the same job with a different architecture: the browser does all the work, and the data never travels.</p>
+    <h2>For the paperwork around a small business job</h2>
+    <p class="lead">Send a quote, define the scope, request a deposit, bill the work and record the payment. Clausery helps <a href="${rel}for/freelancers.html">freelancers</a>, <a href="${rel}for/consultants.html">consultants</a> and service businesses prepare the Word documents they send repeatedly, while keeping document contents on their own device.</p>
     <div class="grid grid-3">
-      <div class="feature"><div class="ico">${ico(I.shield)}</div><h3>Confidentiality by construction</h3><p>Templates, answers and generated documents are processed in memory in your browser and stored only on your device. There is no server that could be breached, subpoenaed or misconfigured.</p></div>
+      <div class="feature"><div class="ico">${ico(I.shield)}</div><h3>Your document contents stay local</h3><p>Templates, answers and generated documents are processed in your browser and saved on your device. Download backups to keep a separate copy or move your work.</p></div>
       <div class="feature"><div class="ico">${ico(I.file)}</div><h3>Your Word templates, unchanged</h3><p>Add tags like <code>{client_name}</code> to any .docx. Fonts, numbering, headers, tables and tracked formatting come through exactly as you set them in Word.</p></div>
-      <div class="feature"><div class="ico">${ico(I.wifi)}</div><h3>Works offline, forever</h3><p>Once loaded, Clausery runs with no connection at all. Install it as an app and keep drafting on a train, in court, or on a client site with no guest Wi‑Fi.</p></div>
+      <div class="feature"><div class="ico">${ico(I.wifi)}</div><h3>Keep working offline</h3><p>Once the required app and template files are available, keep drafting on a train or at a client site. Online license checks have their own offline grace period.</p></div>
     </div>
   </div>
 </section>
@@ -140,21 +141,20 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
 <section class="section" id="compare">
   <div class="wrap">
     <h2>How it compares</h2>
-    <p class="lead">Cloud document-automation platforms are excellent products with a price and an architecture designed for larger firms. Clausery is for everyone else.</p>
+    <p class="lead">Choose the tool that matches your workflow. Clausery focuses on local document generation and editable Word output; check another product's current features when you need hosted collaboration or signatures.</p>
     <div class="table-wrap">
     <table class="compare">
       <thead><tr><th scope="col">Capability</th><th scope="col">Clausery</th><th scope="col">Cloud automation platforms</th><th scope="col">Manual find-and-replace</th></tr></thead>
       <tbody>
         <tr><td>Where client data is processed</td><td class="yes">Your browser only</td><td class="no">Vendor's servers</td><td class="yes">Your computer</td></tr>
         <tr><td>Conditional clauses, repeats, calculations</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="no">No</td></tr>
-        <tr><td>Works offline</td><td class="yes">Yes</td><td class="no">No</td><td class="yes">Yes</td></tr>
-        <tr><td>Setup time</td><td class="yes">Minutes</td><td class="no">Days to weeks, often with onboarding</td><td class="yes">None</td></tr>
-        <tr><td>Vendor security questionnaire needed</td><td class="yes">No data shared, so usually no</td><td class="no">Yes</td><td class="yes">No</td></tr>
-        <tr><td>Typical price</td><td class="yes">Free, or from $19 per user per month</td><td class="no">From about $83 to $417 per month, or $49 to $149 per user</td><td class="yes">Your time</td></tr>
+        <tr><td>Works offline</td><td class="yes">After required files are loaded</td><td>Check the product</td><td class="yes">Yes</td></tr>
+        <tr><td>Ready-made business templates</td><td class="yes">Free library and six-template business kit</td><td>Check the product</td><td>You supply the document</td></tr>
+        <tr><td>Price</td><td class="yes">Free; Pro from $19 per user per month</td><td>Check current vendor pricing</td><td>Your existing Word software and time</td></tr>
       </tbody>
     </table>
     </div>
-    <p class="small muted" style="margin-top:.75rem">Price ranges are the published 2026 entry and mid tiers of two widely used legal document-automation products; see the <a href="${rel}pricing/">pricing page</a> for sources. Feature comparisons are general and vary by product.</p>
+    <p class="small muted" style="margin-top:.75rem">Product features vary. See <a href="${rel}pricing/">Clausery's current plans</a> and confirm the features you need before choosing a tool.</p>
     <p style="margin-top:1rem"><strong>Side-by-side comparisons:</strong> ${COMPETITORS.map((c) => `<a href="${rel}compare/${c.slug}.html">${esc(c.name)} alternative</a>`).join(' · ')} · <a href="${rel}compare/">all comparisons</a></p>
   </div>
 </section>
@@ -167,7 +167,7 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
         <p>Open your browser's Network panel while you draft. The requests are for Clausery's own files from the site that serves it (the app, the sample templates, the intake-form runtime), and once installed they come from the offline cache${USAGE_ON ? `. The one other request is ${USAGE_REQUEST}` : ''}. Nothing you type or upload is ever sent: not to us, not to analytics, not to anyone. The source is readable, the document engine is open-source, and you can host a copy on your own domain or intranet.</p>
         <p><a href="${rel}docs/security.html">Read the security overview →</a></p>
       </div>
-      <blockquote class="quote">"Seventy percent of respondents prioritized a data privacy policy when vetting vendors." <cite>Legal professionals surveyed on 2026 technology adoption; the cheapest privacy policy to audit is the one that says the data never left your machine.</cite></blockquote>
+      <div class="feature"><h3>Check the parts that matter to you</h3><p>Try a free invoice, reopen its saved draft and download the Word output. Read the <a href="${rel}legal/privacy.html">privacy policy</a> for cookieless analytics and license checks, and the <a href="${rel}docs/security.html">security overview</a> for local storage and backups.</p></div>
     </div>
   </div>
 </section>
@@ -176,7 +176,7 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
   <div class="wrap" style="max-width:48rem">
     <h2>Questions</h2>
     <div class="faq">
-      <details><summary>Does it really not send anything anywhere?</summary><p>Correct. The app is static files. Once your browser has loaded them, everything (reading the template, evaluating your answers, assembling the .docx) happens in the page. Storage is your browser's local database. ${USAGE_ON || ONLINE_KEYS ? `Apart from fetching the app itself, the only requests are ${[USAGE_ON && USAGE_REQUEST, ONLINE_KEYS && 'a license check with Lemon Squeezy if you activate a key bought online'].filter(Boolean).join(', and ')}. None of them carries anything you typed.` : 'The only outbound requests in the entire product are the ones that fetch the app itself.'}</p></details>
+      <details><summary>Are my document contents uploaded?</summary><p>No. Reading templates, evaluating document answers and assembling the .docx happen in your browser. Saved documents use its local database. ${USAGE_ON || ONLINE_KEYS ? `Separate from document processing, requests include ${[USAGE_ON && USAGE_REQUEST, ONLINE_KEYS && 'a license check with Lemon Squeezy if you activate a key bought online'].filter(Boolean).join(', and ')}. These do not carry document contents.` : 'The app requests its own files from the site that serves it.'}</p></details>
       <details><summary>Is my work saved if I close the tab or my laptop dies?</summary><p>Yes. Every answer is saved as you type to your browser's built-in database, so drafts survive a refresh, a restart or a flat battery, and stay in your Drafts list until you delete them. The first time you make a document, Clausery also asks the browser to protect that storage from automatic clean-up.</p></details>
       <details><summary>Do I have to type my business details on every invoice?</summary><p>No. Your next invoice, quote or receipt starts with your business details, bank details and usual tax rate from the last one you made, the next number in your sequence (INV-0042 becomes INV-0043) and today's date. Only the client and the items are new. It all comes from the drafts saved in your browser; nothing is stored anywhere else.</p></details>
       <details><summary>Is the result a PDF I can't edit?</summary><p>No. You get a normal Word file (.docx) with your own formatting, which you can edit in Word, Google Docs or LibreOffice; printing to PDF is optional. To change a document later, reopen its draft, change any answer and download it again. Each draft keeps a history of every document made from it, with a fingerprint of the exact answers and a one-click restore.</p></details>
@@ -196,8 +196,8 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
     <h2>Make your next invoice in a couple of minutes.</h2>
     <p class="lead" style="margin:0 auto">Every library template is free, plus three of your own. No account, no card, no trial clock.</p>
     <div class="actions"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free</a><a class="btn btn-lg" href="${rel}pricing/">See plans</a></div>
-    <p class="small muted" style="margin-top:1.5rem">Find Clausery on <a href="https://fazier.com">Fazier</a> · <a href="https://twelve.tools">Twelve Tools</a> · <a href="https://www.uneed.best">Uneed</a> · <a href="https://www.saashub.com">SaaSHub</a></p>
-    <p style="margin-top:.75rem"><a href="https://fazier.com" title="Clausery on Fazier"><img src="${rel}assets/badges/fazier.svg" width="182" height="43" alt="Featured on Fazier" loading="lazy"></a></p>
+    <p class="small muted" style="margin-top:1.5rem">See Clausery's <a href="https://fazier.com/launches/clausery" rel="noopener">Fazier launch</a>, or use the <a href="${rel}press/">press kit</a> to share a useful resource with your audience.</p>
+    <p style="margin-top:.75rem"><a href="https://fazier.com/launches/clausery" title="Clausery on Fazier" rel="noopener"><img src="${rel}assets/badges/fazier.svg" width="182" height="43" alt="Featured on Fazier" loading="lazy"></a></p>
   </div>
 </section>`,
 }];

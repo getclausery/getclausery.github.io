@@ -106,7 +106,7 @@ console.log(`wrote feed.xml (${feed.length} entries)`);
 const section = (prefix) => pages.filter((p) => p.path.startsWith(prefix) && !p.path.endsWith('/') && !p.noindex).map((p) => `- [${p.title}](${BASE}${p.path}): ${p.description}`).join('\n');
 writeFileSync('llms.txt', `# Clausery
 
-> Clausery is browser-based document automation. It turns ordinary Word (.docx) templates with {tags} into guided questionnaires and generates finished documents entirely on the user's device: no upload, no account, works offline. Every template in its free library can be downloaded or filled in at no cost, with no limit; up to three of the user's own templates are also free. The Pro plan adds unlimited own templates, calculations in the user's own templates, unlimited documents from a spreadsheet, an encrypted workspace and client intake forms.
+> Clausery helps small businesses and freelancers make invoices, quotes and receipts in editable Word (.docx) files with calculated totals. Document processing happens on the user's device. Its free business document kit contains six Word templates and instructions, with no email signup. It also turns ordinary Word templates with {tags} into guided questionnaires. Every library template can be downloaded or filled in free, with no account or document limit; up to three of the user's own templates are also free. Pro adds unlimited own templates, calculations in those templates, unlimited documents from a spreadsheet, an encrypted workspace and client intake forms.
 
 Key facts:
 - Documents are assembled in the browser; template files, answers and generated documents are never sent to a server.
@@ -129,6 +129,7 @@ Key facts:
 - [Home](${BASE}): what Clausery does and who it is for
 - [Open the app](${BASE}app/): runs in the browser, no sign-up
 - [Pricing](${BASE}pricing/): Free, Pro, Team and Enterprise plans
+- [Free business document kit](${BASE}business-document-kit/): six Word templates and instructions, no email signup
 - [Security](${BASE}docs/security.html): how data stays on the device
 - [Documentation](${BASE}docs/): getting started, template syntax, logic, client intake
 

@@ -1,19 +1,23 @@
 {
  "": {
   "date": "2026-10-08",
-  "hash": "3ac17ff524a2a492"
+  "hash": "51cefca2154584bf"
  },
  "404.html": {
   "date": "2026-09-27",
   "hash": "f0df1fd9cdfa1f81"
  },
  "about/": {
-  "date": "2026-10-07",
-  "hash": "834e4f2e3564845a"
+  "date": "2026-10-08",
+  "hash": "c28574af1fc9ec47"
+ },
+ "business-document-kit/": {
+  "date": "2026-10-08",
+  "hash": "f89f385b6d89ed45"
  },
  "changelog.html": {
   "date": "2026-10-08",
-  "hash": "ee5e81254efae9ec"
+  "hash": "33046afe863d404e"
  },
  "clauses/": {
   "date": "2026-10-04",
@@ -576,12 +580,12 @@
   "hash": "9d5442157d72f06e"
  },
  "press/": {
-  "date": "2026-10-07",
-  "hash": "97bff05bcaadbf5f"
+  "date": "2026-10-08",
+  "hash": "4228c079f6f0e0ca"
  },
  "pricing/": {
-  "date": "2026-10-07",
-  "hash": "02f5aa4f40a390a6"
+  "date": "2026-10-08",
+  "hash": "ea058a538dd099c2"
  },
  "templates/": {
   "date": "2026-10-08",

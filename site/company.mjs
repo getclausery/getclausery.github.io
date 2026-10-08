@@ -18,24 +18,24 @@ const CHANNELS = [
 export const pages = [
   {
     path: 'about/', title: 'About Clausery',
-    description: `Why Clausery exists, how it is built and how it makes money: free Word templates and browser-only document automation, with no uploads, no tracking and no ads.`,
+    description: 'Clausery helps small businesses make invoices, quotes and receipts in Word. Read how local document processing, the free library and paid plans work.',
     extraHead: ld({ '@type': 'AboutPage', name: 'About Clausery', url: `${SITE}about/`, mainEntity: ORG }),
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>About Clausery</h1>
 <p class="lead">Clausery makes the documents people draft every week faster to produce, without asking them to upload anything. Your templates, answers and finished documents stay on your own computer.</p>
 <h2>Why it exists</h2>
-<p>Law firms, HR teams, landlords and freelancers fill in the same documents over and over: NDAs, offer letters, leases, invoices and contracts. Document automation saves hours, but the established tools are cloud services, typically priced from about $83 to $417 a month, and they work by uploading your templates and your clients' details to the vendor. For anyone with a duty of confidentiality, that upload is the problem.</p>
-<p>Clausery removes it. The app is a folder of static files that runs in your browser: it reads an ordinary Word template, asks you its questions, and builds the finished .docx on your device. There is no vendor database, so there is nothing of yours for us to lose, sell or hand over.</p>
+<p>Small businesses and freelancers repeatedly prepare quotes, invoices and receipts. Re-entering business details, checking totals and updating a Word document take attention away from the job itself. Clausery brings those steps together: answer the questions, check the amounts and download an editable document.</p>
+<p>The app reads a Word template and builds the finished .docx on your device. Your templates, answers and documents are not uploaded to a document-processing server. Start with the <a href="${rel}business-document-kit/">free business document kit</a> or choose a <a href="${rel}invoice-templates/">billing workflow</a> for the task at hand.</p>
 <h2>What is free, and how Clausery makes money</h2>
 <ul>
   <li><strong>The template library is free.</strong> All ${LIB.length} <a href="${rel}templates/">Word templates</a>, the <a href="${rel}clauses/">clause library</a>, the <a href="${rel}guides/">guides</a> and the <a href="${rel}free-tools/">calculators</a> are free, with no sign-up. Library templates never count towards any plan limit.</li>
   <li><strong>Automating your own templates is free for three.</strong> Upload up to three of your own Word templates and generate unlimited documents from them.</li>
-  <li><strong>Pro pays for the work.</strong> Firms that automate more of their own documents, or need calculations, encryption or client intake forms, buy a <a href="${rel}pricing/">Pro or Team license</a>.</li>
+  <li><strong>Pro pays for the work.</strong> Businesses that automate more of their own documents, or need calculations in those templates, encryption or client intake forms, buy a <a href="${rel}pricing/">Pro or Team license</a>.</li>
 </ul>
-<p>${ANALYTICS_ON ? 'There are no ads, no affiliate links and no tracking cookies, and we never sell or share data. ' + (USAGE_ON ? 'The app counts only anonymous events, such as a document being made from the invoice template, never what you type; ' : 'The app has no analytics at all; ') + 'this website counts anonymous page views with Cloudflare Web Analytics, which uses no cookies and does not track individual visitors.' : 'There are no ads, no affiliate links, no analytics and no tracking cookies, and we never sell or share data.'} That is not a policy we could quietly change: the app has no server to send your data to.</p>
+<p>${ANALYTICS_ON ? 'There are no ads, no affiliate links and no tracking cookies. ' + (USAGE_ON ? 'The app counts anonymous events, such as making a document from a library template, without recording document contents; ' : 'The app has no usage analytics; ') + 'this website uses cookieless Cloudflare Web Analytics.' : 'There are no ads, no affiliate links, no analytics and no tracking cookies.'} ${ONLINE_KEYS ? 'Activating an online license sends the license key to Lemon Squeezy, separately from document processing. ' : ''}Read the <a href="${rel}legal/privacy.html">privacy policy</a> for the current data flows.</p>
 <h2>How it is built</h2>
 <ul>
-  <li>Plain HTML, CSS and JavaScript modules, with no framework and ${USAGE_ON ? 'no third-party requests at runtime other than anonymous usage counts' : 'no third-party requests at runtime'}.</li>
+  <li>Plain HTML, CSS and JavaScript modules, with document generation running locally in the browser.</li>
   <li>Served as static files by GitHub Pages, and installable as an offline app.</li>
   <li>The code is published on <a href="${REPO_URL}" rel="noopener">GitHub</a>, so anyone can check what it does, and every release is listed in the <a href="${rel}changelog.html">changelog</a>.</li>
   <li>Optional encryption of everything stored in the browser (AES-256-GCM)${ONLINE_KEYS ? ', and license checks that send only the key' : ', and license keys verified offline with a signature'}. See the <a href="${rel}docs/security.html">security overview</a>.</li>

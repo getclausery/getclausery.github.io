@@ -25,7 +25,7 @@ See [all templates](https://getclausery.github.io/templates/), the [clause libra
 
 ## Why
 
-Law firms, HR teams and consultancies draft the same documents every week. The incumbent document-automation products (Gavel, Clio Draft, HotDocs and others) are cloud services priced from roughly $83 to $417 per month, and they require uploading client data to a vendor. Confidentiality is the top concern legal professionals raise about new tools. Clausery keeps the automation and removes the upload.
+Small businesses and freelancers repeatedly prepare quotes, invoices and receipts. Clausery keeps document contents on the device, calculates the totals from the values supplied and produces ordinary Word output. The [free business document kit](https://getclausery.github.io/business-document-kit/) brings six common templates together, with online questionnaires and setup instructions.
 
 ## Features
 
@@ -87,7 +87,7 @@ Put the public key in `app/config.js` (`LICENSE_PUBLIC_KEY`). Keys are verified 
 
 ## Contact and support
 
-Questions, key requests, template requests and bug reports use the [issue forms](https://github.com/getclausery/getclausery.github.io/issues/new/choose). Report security issues privately through [GitHub's private vulnerability reporting](https://github.com/getclausery/getclausery.github.io/security/advisories/new); see `SECURITY.md`.
+Questions, key requests and template requests go to [getclausery@gmail.com](mailto:getclausery@gmail.com). Public bug reports can use the [issue forms](https://github.com/getclausery/getclausery.github.io/issues/new/choose). Report security issues privately through [GitHub's private vulnerability reporting](https://github.com/getclausery/getclausery.github.io/security/advisories/new); see `SECURITY.md`.
 
 ## Security
 
