@@ -1,7 +1,7 @@
 {
  "": {
-  "date": "2026-10-07",
-  "hash": "3c8068dd6dcf0336"
+  "date": "2026-10-08",
+  "hash": "435c24981aaccbdc"
  },
  "404.html": {
   "date": "2026-09-27",
@@ -12,8 +12,8 @@
   "hash": "834e4f2e3564845a"
  },
  "changelog.html": {
-  "date": "2026-10-07",
-  "hash": "d3de8ad814f5396d"
+  "date": "2026-10-08",
+  "hash": "b8bf6ed3b56c7079"
  },
  "clauses/": {
   "date": "2026-10-04",
@@ -472,8 +472,16 @@
   "hash": "b55f73ff4431ac85"
  },
  "invoice-templates/": {
-  "date": "2026-10-07",
-  "hash": "51e83899421e4ce9"
+  "date": "2026-10-08",
+  "hash": "e84515475e510604"
+ },
+ "invoice-templates/australia-tax-invoice.html": {
+  "date": "2026-10-08",
+  "hash": "495347c2114323b7"
+ },
+ "invoice-templates/canada-gst-hst-invoice.html": {
+  "date": "2026-10-08",
+  "hash": "b9cd2ca783339fad"
  },
  "invoice-templates/cleaning.html": {
   "date": "2026-10-07",
@@ -499,9 +507,17 @@
   "date": "2026-10-07",
   "hash": "8e92e4046d17f1c1"
  },
+ "invoice-templates/ireland-vat-invoice.html": {
+  "date": "2026-10-08",
+  "hash": "291a3138d889baed"
+ },
  "invoice-templates/landscaping.html": {
   "date": "2026-10-07",
   "hash": "6be374c534580bfd"
+ },
+ "invoice-templates/new-zealand-gst-invoice.html": {
+  "date": "2026-10-08",
+  "hash": "cfd6505b7da20692"
  },
  "invoice-templates/personal-training.html": {
   "date": "2026-10-07",
@@ -511,9 +527,17 @@
   "date": "2026-10-07",
   "hash": "b91f676f71107b93"
  },
+ "invoice-templates/south-africa-tax-invoice.html": {
+  "date": "2026-10-08",
+  "hash": "ac7ec09559c23456"
+ },
  "invoice-templates/tutoring.html": {
   "date": "2026-10-07",
   "hash": "d89d8fb2dd786357"
+ },
+ "invoice-templates/uk-vat-invoice.html": {
+  "date": "2026-10-08",
+  "hash": "627ae7bcf4764f0b"
  },
  "invoice-templates/videography.html": {
   "date": "2026-10-07",
@@ -668,8 +692,8 @@
   "hash": "bc3e39324c4b2f59"
  },
  "templates/invoice.html": {
-  "date": "2026-10-07",
-  "hash": "7178b565f70149ff"
+  "date": "2026-10-08",
+  "hash": "5e48e38922e52e1d"
  },
  "templates/job-description.html": {
   "date": "2026-10-06",

@@ -7,6 +7,7 @@ import { PRESETS } from '../app/lib/presets.js';
 import { LIB } from './library.mjs';
 import { GUIDES } from './audience.mjs';
 import { TOOLS } from './free-tools.mjs';
+import { COUNTRIES } from './countries.mjs';
 
 const T = (slug, o) => ({ slug, preset: PRESETS.invoice[slug], ...o });
 export const TRADES = [
@@ -166,13 +167,18 @@ const example = (t) => {
 
 export const pages = [
   {
-    path: 'invoice-templates/', title: 'Invoice templates by trade (free, Word)',
-    description: `Free Word invoice templates for ${TRADES.length} trades, from contractors and cleaners to photographers and consultants. Each starts with that trade's usual lines and adds up totals and tax.`,
+    path: 'invoice-templates/', title: 'Invoice templates by trade and country (free, Word)',
+    description: `Free Word invoice templates for ${TRADES.length} trades and ${COUNTRIES.length} countries' VAT and GST rules. Each starts with the right lines or tax set-up and adds up totals and tax for you.`,
     body: (rel) => `<section class="section"><div class="wrap">
-  <h1>Invoice templates by trade</h1>
-  <p class="lead">Pick your trade and the invoice opens with the lines that trade usually bills, ready for your prices. Totals and tax are worked out for you, your next invoice remembers your details and number, and you download an editable Word file. Free, no sign-up, nothing uploaded.</p>
+  <h1>Invoice templates by trade and country</h1>
+  <p class="lead">Pick your trade and the invoice opens with the lines that trade usually bills, ready for your prices. Pick your country and it opens with the right tax, rate and tax number. Totals and tax are worked out for you, your next invoice remembers your details and number, and you download an editable Word file. Free, no sign-up, nothing uploaded.</p>
+  <h2 style="margin-top:2rem">By trade</h2>
   <div class="grid grid-3" style="margin-top:1.5rem">
     ${TRADES.map((t) => `<a class="feature" style="text-decoration:none;color:inherit" href="${rel}invoice-templates/${t.slug}.html"><h3>${esc(t.title.replace(/ \(free, Word\)| template \(Word\)/, '').replace(/ template$/, ''))}</h3><p>${esc(t.preset.lines.slice(0, 3).map(([d]) => d.replace(/ \(.*\)$/, '')).join(', '))}</p></a>`).join('\n    ')}
+  </div>
+  <h2 style="margin-top:2.5rem">By country: VAT, GST and HST</h2>
+  <div class="grid grid-3" style="margin-top:1rem">
+    ${COUNTRIES.map((c) => `<a class="feature" style="text-decoration:none;color:inherit" href="${rel}invoice-templates/${c.slug}.html"><h3>${esc(c.h1.replace(/ template( for)?/, ''))}</h3><p>${esc(c.preset.answers.tax_name)} at ${c.preset.answers.tax_rate}%, your ${esc(c.preset.answers.tax_registration_label)}, amounts in ${esc(c.preset.currency)}</p></a>`).join('\n    ')}
   </div>
   <h2 style="margin-top:2.5rem">Not listed?</h2>
   <p>Start from the general <a href="${rel}templates/invoice.html">invoice template</a> and add your own lines. For quotes before the work, use the <a href="${rel}templates/quote.html">price quote template</a>; for payments received, the <a href="${rel}templates/payment-receipt.html">payment receipt</a>.</p>

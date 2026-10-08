@@ -118,6 +118,7 @@ Key facts:
 - Logic: conditional sections, show-when rules with expressions such as contract_value > 5000, and calculations. The free invoice, quote, purchase order, credit note and expense templates add up line items and tax.
 - Repeat documents: a new invoice, quote, receipt, purchase order or credit note starts with the user's own details from the last one, the next number in their sequence and today's date; the client, items and amounts are never copied.
 - Invoice templates by trade (contractor, cleaning, photography, consulting and more) open an invoice with that trade's usual lines; prices are always the user's own.
+- Invoice templates by country (UK VAT, Ireland VAT, Australia GST, New Zealand GST, Canada GST/HST, South Africa VAT) open an invoice with that country's tax name, standard rate, tax number label and currency set up; each page lists what the tax authority requires and links to it.
 - Bulk generation: one document per row of a CSV spreadsheet (Free plan: 5 per spreadsheet; Pro: unlimited), assembled in the browser.
 - Not included, by design: e-signatures (users sign with their own e-signature service), live co-editing and server integrations. Documents can be handed to Mail, Slack or Teams with the system share sheet where supported.
 - Library templates are general samples written mainly for the US, Canada and the UK; guides cite official sources. The only official site is getclausery.github.io, released regularly (see the changelog).
@@ -132,6 +133,9 @@ Key facts:
 
 ## Free Word templates
 ${section('templates/')}
+
+## Invoice templates by trade and country
+${section('invoice-templates/')}
 
 ## Contract clause library
 ${section('clauses/')}
