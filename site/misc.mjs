@@ -8,6 +8,13 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.27.0 <span class="small muted">— 8 October 2026</span></h2>
+<ul>
+  <li>New billing workflows: <a href="${rel}invoice-templates/deposit-invoice.html">deposit invoices</a>, <a href="${rel}invoice-templates/hourly-invoice.html">hourly invoices</a> and <a href="${rel}invoice-templates/final-invoice.html">final invoices</a>. Each has its own app starter, worked example and checklist.</li>
+  <li>The deposit invoice page calculates an agreed percentage and remaining balance on your device.</li>
+  <li>The Word invoice page explains how to prepare an invoice, what the online and Word downloads do, and how to keep amounts correct after editing.</li>
+  <li>Invoice pages are easier to find from the main navigation, template library and related documents.</li>
+</ul>
 <h2>1.26.0 <span class="small muted">— 8 October 2026</span></h2>
 <ul>
   <li>Invoice templates by country: <a href="${rel}invoice-templates/uk-vat-invoice.html">UK VAT</a>, <a href="${rel}invoice-templates/ireland-vat-invoice.html">Ireland VAT</a>, <a href="${rel}invoice-templates/australia-tax-invoice.html">Australia GST</a>, <a href="${rel}invoice-templates/new-zealand-gst-invoice.html">New Zealand GST</a>, <a href="${rel}invoice-templates/canada-gst-hst-invoice.html">Canada GST/HST</a> and <a href="${rel}invoice-templates/south-africa-tax-invoice.html">South Africa VAT</a>. Each opens an invoice with that country's tax, standard rate, tax number and currency set up, and lists what the tax authority says an invoice must show.</li>

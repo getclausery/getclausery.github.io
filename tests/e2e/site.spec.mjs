@@ -13,6 +13,32 @@ for (const p of PAGES) {
   });
 }
 
+for (const slug of ['deposit-invoice', 'hourly-invoice', 'final-invoice']) {
+  test(`billing page ${slug} is usable and accessible on a narrow screen`, async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(`invoice-templates/${slug}.html`);
+    await expect(page.locator('h1')).toBeVisible();
+    await expect(page.locator('a:has-text("Start this invoice, free")')).toHaveAttribute('href', `../app/#/start/invoice/${slug}`);
+    const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
+    expect(results.violations.filter((v) => ['serious', 'critical'].includes(v.impact)).map((v) => v.id)).toEqual([]);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+  });
+}
+
+test('the deposit calculator updates locally and clearly handles invalid input', async ({ page }) => {
+  await page.goto('invoice-templates/deposit-invoice.html');
+  await expect(page.locator('#deposit-result')).toHaveText('$600.00 deposit · $1,400.00 remaining');
+  await page.fill('#deposit-amount', '100.01');
+  await page.fill('#deposit-percentage', '33.33');
+  await expect(page.locator('#deposit-result')).toHaveText('$33.33 deposit · $66.68 remaining');
+  await page.selectOption('#deposit-currency', 'GBP');
+  await expect(page.locator('#deposit-result')).toContainText('£33.33');
+  await page.fill('#deposit-percentage', '120');
+  await expect(page.locator('#deposit-result')).toContainText('0% to 100%');
+  await page.fill('#deposit-percentage', '0');
+  await expect(page.locator('#deposit-result')).toContainText('£0.00 deposit');
+});
+
 test('the app has no serious accessibility violations on its main screens', async ({ page }) => {
   await page.goto('app/');
   await page.waitForSelector('h1:has-text("Templates")');

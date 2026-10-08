@@ -27,6 +27,7 @@ jobs:
       - run: npm run lint
       - run: npm test
       - run: npm run check:html
+      - run: npm run check:seo
       - name: Generated files are up to date
         run: |
           npm run build

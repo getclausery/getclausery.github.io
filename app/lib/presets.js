@@ -19,6 +19,28 @@ export const PRESETS = {
   },
 };
 
+/* Billing stages are separate from trades: they change what is being invoiced, not the business's tax or currency.
+   A deposit requests only the agreed deposit; a final invoice shows the full job and deducts actual money received. */
+export const WORKFLOW_PRESETS = {
+  invoice: {
+    'deposit-invoice': {
+      name: 'Deposit invoice', lines: [['Agreed project deposit — add project or quote reference', 1]],
+      answers: { has_amount_paid: false, amount_paid: 0, has_notes: true, invoice_notes: 'Deposit toward the agreed project. The remaining balance will be invoiced separately.' },
+      note: 'This invoice requests the deposit only. Enter the agreed deposit as the unit price; do not put it in Amount already paid until it has been received.',
+    },
+    'hourly-invoice': {
+      name: 'Hourly invoice', lines: [['Professional services — add work dates and task', 1]],
+      answers: { has_amount_paid: false, amount_paid: 0 },
+      note: 'Enter hours in Quantity and your hourly rate in Unit price. Add one line for each task or rate; hours can include decimals.',
+    },
+    'final-invoice': {
+      name: 'Final invoice', lines: [['Completed project — add project or quote reference', 1]],
+      answers: { has_amount_paid: true, amount_paid: '', has_notes: true, invoice_notes: 'Final invoice for the completed project. Amount already paid includes only payments actually received.' },
+      note: 'Enter the full project price, then the amount actually received in Amount already paid. The balance is calculated; an unpaid deposit request is not a payment.',
+    },
+  },
+};
+
 /* Tax set-ups by country: the tax, its standard rate, what the tax number is called and the details that country asks
    for, so an invoice starts right for where the business is registered. `answers` are invoice answers; `currency` is
    the workspace currency the invoice should be in, and `locale` (where set) how dates and numbers are written there,
@@ -37,7 +59,7 @@ export const TAX_PRESETS = {
 };
 
 /** The preset (trade or country) for a template slug and preset slug, or null. */
-export const presetFor = (sample, slug) => (PRESETS[sample] && PRESETS[sample][slug]) || (TAX_PRESETS[sample] && TAX_PRESETS[sample][slug]) || null;
+export const presetFor = (sample, slug) => (PRESETS[sample] && PRESETS[sample][slug]) || (TAX_PRESETS[sample] && TAX_PRESETS[sample][slug]) || (WORKFLOW_PRESETS[sample] && WORKFLOW_PRESETS[sample][slug]) || null;
 
 /**
  * Apply a preset to a new draft's answers. A trade preset's `lines` replace the template's repeating list of items (the
@@ -64,6 +86,7 @@ export function applyPreset(template, answers, preset) {
 /** The sentence shown when a draft starts from a preset. */
 export function presetNote(preset) {
   if (!preset) return '';
+  if (preset.note) return preset.note;
   if (preset.lines) return `Started with the lines a ${preset.name.toLowerCase()} business usually bills. Add your prices and remove what you don't need.`;
   const a = preset.answers || {};
   return `Set up for ${preset.name}: ${a.tax_name} at ${a.tax_rate}%, with your ${a.tax_registration_label}${a.is_tax_invoice ? ' and the title "Tax invoice"' : ''}. Change the rate if you charge a different one.`;
