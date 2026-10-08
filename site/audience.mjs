@@ -1689,8 +1689,9 @@ export const pages = [
   <ul>${a.related.map(([href, label]) => `<li><a href="${rel}${href}">${esc(label)}</a></li>`).join('')}</ul>
 </div></section>`,
   })),
-  { path: 'guides/', title: 'Free guides to contracts, HR letters and landlord forms', description: 'Plain-English guides to NDAs, contracts, HR letters, leases and landlord letters, each linked to a free template, plus how to automate Word templates.',
-    body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem"><h1>Guides to contracts, HR letters and landlord forms</h1><p class="lead">Plain-English answers to the questions people ask before they use a template, each linked to a free Word template you can fill in online.</p>
+  { path: 'guides/', title: 'Invoice, payment and business document guides', description: 'Practical guides to invoices, getting paid, contracts, HR letters and landlord forms. Worked explanations linked to free editable Word templates.',
+    body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem"><h1>Invoice, payment and business document guides</h1><p class="lead">Plain-English answers to the questions people ask before they use a template, each linked to a free Word template you can fill in online.</p>
+  <!--nav--><p><strong>Start with billing:</strong> <a href="${rel}guides/how-to-write-an-invoice.html">how to write an invoice</a>, <a href="${rel}invoice-templates/deposit-invoice.html">request a deposit</a>, <a href="${rel}invoice-templates/hourly-invoice.html">bill hours</a>, or <a href="${rel}invoice-templates/final-invoice.html">show the final balance</a>.</p><!--/nav-->
   <nav class="small" aria-label="Guide topics" style="margin-top:1.25rem">${GUIDE_TOPICS.map(([t]) => `<a href="#${topicId(t)}">${esc(t)}</a>`).join(' · ')}</nav>
 ${GUIDE_TOPICS.map(([t, slugs]) => `  <h2 id="${topicId(t)}" style="margin-top:2.5rem">${esc(t)}</h2>
   <ul class="guide-list">${slugs.map((x) => GUIDE_BY[x]).map((g) => `<li><a href="${rel}guides/${g.slug}.html">${esc(g.title)}</a><div class="small muted">${esc(g.description)}</div></li>`).join('')}</ul>`).join('\n')}

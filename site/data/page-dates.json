@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-10-08",
-  "hash": "435c24981aaccbdc"
+  "hash": "3ac17ff524a2a492"
  },
  "404.html": {
   "date": "2026-09-27",
@@ -13,7 +13,7 @@
  },
  "changelog.html": {
   "date": "2026-10-08",
-  "hash": "b8bf6ed3b56c7079"
+  "hash": "ee5e81254efae9ec"
  },
  "clauses/": {
   "date": "2026-10-04",
@@ -268,8 +268,8 @@
   "hash": "0524916b3c455222"
  },
  "guides/": {
-  "date": "2026-10-06",
-  "hash": "dbed027d6f0194a7"
+  "date": "2026-10-08",
+  "hash": "dd1182b1102590e5"
  },
  "guides/are-liability-waivers-enforceable.html": {
   "date": "2026-09-28",
@@ -473,7 +473,7 @@
  },
  "invoice-templates/": {
   "date": "2026-10-08",
-  "hash": "e84515475e510604"
+  "hash": "593eed6393cbda69"
  },
  "invoice-templates/australia-tax-invoice.html": {
   "date": "2026-10-08",
@@ -495,6 +495,14 @@
   "date": "2026-10-07",
   "hash": "1da766c6c32ec914"
  },
+ "invoice-templates/deposit-invoice.html": {
+  "date": "2026-10-08",
+  "hash": "7c9765753eeffb38"
+ },
+ "invoice-templates/final-invoice.html": {
+  "date": "2026-10-08",
+  "hash": "8144057c2d336498"
+ },
  "invoice-templates/freelance-writing.html": {
   "date": "2026-10-07",
   "hash": "b4f3ad41b88bf833"
@@ -506,6 +514,10 @@
  "invoice-templates/handyman.html": {
   "date": "2026-10-07",
   "hash": "8e92e4046d17f1c1"
+ },
+ "invoice-templates/hourly-invoice.html": {
+  "date": "2026-10-08",
+  "hash": "ef7e866ae4ca295f"
  },
  "invoice-templates/ireland-vat-invoice.html": {
   "date": "2026-10-08",
@@ -572,8 +584,8 @@
   "hash": "02f5aa4f40a390a6"
  },
  "templates/": {
-  "date": "2026-10-06",
-  "hash": "e7eb8deeee401443"
+  "date": "2026-10-08",
+  "hash": "cfe857a8dc46a3cf"
  },
  "templates/bill-of-sale.html": {
   "date": "2026-10-06",
@@ -693,7 +705,7 @@
  },
  "templates/invoice.html": {
   "date": "2026-10-08",
-  "hash": "5e48e38922e52e1d"
+  "hash": "17ebc1af3609bac5"
  },
  "templates/job-description.html": {
   "date": "2026-10-06",

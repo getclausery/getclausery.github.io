@@ -1,8 +1,8 @@
 # Clausery
 
-**Document automation that never leaves your browser.**
+**Invoices, quotes and receipts in Word, with the maths done for you.**
 
-Clausery turns the Word templates a firm already uses into guided questionnaires and assembles finished `.docx` documents entirely client-side. No uploads, no account, no server: the product is a folder of static files that runs in the browser, stores data in IndexedDB, and works offline.
+Clausery helps small businesses and freelancers make invoices, quotes and receipts, with calculated totals and editable Word output. It also turns existing Word templates into guided questionnaires and assembles `.docx` documents entirely client-side. Document contents stay on the device; the static app stores drafts in IndexedDB and works offline. Anonymous app usage counts go to GoatCounter, website page views use cookieless Cloudflare Web Analytics, and online licenses can be checked with Lemon Squeezy.
 
 - **Live site:** https://getclausery.github.io/
 - **App:** https://getclausery.github.io/app/
@@ -37,7 +37,8 @@ Law firms, HR teams and consultancies draft the same documents every week. The i
 - Optional encryption at rest (AES-256-GCM, PBKDF2) with auto-lock
 - Offline client intake forms: a single HTML file the client fills in and returns as an answers file
 - Backups, answer files, template packs for teams
-- Offline-capable installable PWA, strict CSP, zero third-party requests
+- Offline-capable installable PWA, strict CSP, local document processing
+- Deposit, hourly and final-balance invoice starters, with worked examples and a local deposit calculator
 - Offline license keys (Ed25519) for Free / Pro / Team / Enterprise plans
 - Free template library (Word), clause library, guides and calculators; every page records when its content last changed (`site/data/page-dates.json`)
 
@@ -65,7 +66,8 @@ cd clausery
 npm ci
 npm run build        # vendor bundle, samples, site pages, sitemap, release stamp
 npm run serve        # http://127.0.0.1:4173/
-npm run verify       # lint + HTML checks + unit tests
+npm run verify       # lint + HTML + SEO checks + unit tests
+npm run check:seo    # canonical/sitemap consistency, unique titles, structured data, crawlable page paths
 npm run test:e2e     # Playwright (needs Chromium: npx playwright install chromium)
 npm run screenshots  # regenerate marketing images and icons
 npm run release      # after bumping "version" in package.json: stamps sw.js and app/config.js, regenerates the precache list

@@ -324,3 +324,35 @@ test('a country invoice page opens an invoice set up for that country\'s tax, ra
   await page.goto('app/#/settings');
   await expect(page.locator('select:near(:text("Locale for dates and numbers"))').first()).toHaveValue('en-GB');
 });
+
+test('deposit and final invoice starters request the correct stage and deduct only received money', async ({ page }) => {
+  await page.goto('invoice-templates/deposit-invoice.html');
+  await page.click('a:has-text("Start this invoice, free")');
+  await page.waitForSelector('.stepper');
+  await page.click('.stepper button:has-text("Items and totals")');
+  await expect(page.locator('[data-path="line_items[0].item_quantity"] input')).toHaveValue('1');
+  await expect(page.locator('[data-path="line_items[0].item_rate"] input')).toHaveValue('');
+  await expect(page.locator('[name="has_amount_paid"]')).not.toBeChecked();
+  await page.fill('[data-path="line_items[0].item_rate"] input', '600');
+  await expect(page.locator('[data-path="invoice_total"] .computed-value')).toHaveText('$600.00');
+  await page.goto('invoice-templates/final-invoice.html');
+  await page.click('a:has-text("Start this invoice, free")');
+  await page.waitForSelector('.stepper');
+  await page.click('.stepper button:has-text("Items and totals")');
+  await expect(page.locator('[name="has_amount_paid"]')).toBeChecked();
+  await page.fill('[data-path="line_items[0].item_rate"] input', '2000');
+  await page.fill('[name="amount_paid"]', '600');
+  await expect(page.locator('[data-path="balance_due"] .computed-value')).toHaveText('$1,400.00');
+  await page.fill('[name="amount_paid"]', '0');
+  await expect(page.locator('[data-path="balance_due"] .computed-value')).toHaveText('$2,000.00');
+});
+
+test('an hourly invoice starter calculates fractional hours', async ({ page }) => {
+  await page.goto('invoice-templates/hourly-invoice.html');
+  await page.click('a:has-text("Start this invoice, free")');
+  await page.waitForSelector('.stepper');
+  await page.click('.stepper button:has-text("Items and totals")');
+  await page.fill('[data-path="line_items[0].item_quantity"] input', '3.5');
+  await page.fill('[data-path="line_items[0].item_rate"] input', '80');
+  await expect(page.locator('[data-path="invoice_total"] .computed-value')).toHaveText('$280.00');
+});

@@ -5,6 +5,7 @@ import { inspectDocx } from '../app/lib/render.js';
 import { inferQuestionnaire, FIELD_TYPES } from '../app/lib/schema.js';
 import { applySetup, setupFor } from '../app/lib/setups.js';
 import { PRESETS } from '../app/lib/presets.js';
+import { invoiceWordHelp, workflowLinks } from './invoice-workflows.mjs';
 import { esc, crumbsLd, lowerFirst, fitSnippet, SITE, LASTMOD, LASTMOD_LONG } from '../tools/partials.mjs';
 import { CLAUSES } from './data/clauses.mjs';
 import { previewHtml, PREVIEW_CSS, PREVIEW_SIZE } from '../tools/preview.mjs';
@@ -399,8 +400,8 @@ export const LIB = [
     who: 'Roommates, housemates and friends sharing an apartment or house, whether or not they are all on the lease.',
     clauses: ['Roommates and each rent share', 'Total rent, paid through one roommate or directly to the landlord', 'Late fees caused by one roommate', 'Security deposit shares and damage', 'Utilities and shared costs, and who manages the bills', 'Quiet time and overnight guests', 'Cleaning of shared areas', 'Pets and smoking', 'Notice before moving out, with an optional replacement rule', 'Optional house meetings and signatures'],
     faq: [['Is a roommate agreement legally binding?', 'It can be, as an agreement between the roommates about things such as rent shares and bills. It does not change the lease with the landlord: if you are all on the lease, the landlord can usually still claim the full rent from any one of you.'], ['Do we need one if we are all on the lease?', 'It still helps. The lease covers your relationship with the landlord; a roommate agreement covers how you split rent, bills and chores, and what happens if one of you leaves early.'], ['What if a roommate wants to leave early?', 'The template sets a notice period and can require the roommate who leaves to keep paying their share until an approved replacement moves in. Check whether the landlord must approve a new tenant too.']] },
-  { slug: 'invoice', file: 'invoice.docx', name: 'Invoice', title: 'Free invoice template for Word, with VAT and bank details', category: 'Finance',
-    description: 'Free invoice template for Microsoft Word: line items, discount, VAT or sales tax, bank details, amount paid and balance due. Fill it in online, no sign-up.',
+  { slug: 'invoice', file: 'invoice.docx', name: 'Invoice', title: 'Free invoice template for Word (editable .docx)', category: 'Finance',
+    description: 'Free invoice template for Word. Fill it in online to calculate totals, tax and balance due, then download an editable .docx. No sign-up or document uploads.',
     intro: 'An invoice with your business details and tax number, an invoice number and due date, the client\'s purchase order number, a list of items with quantity, rate and amount, an optional discount and tax, any amount already paid, and how to pay.',
     who: 'Freelancers, consultants, tradespeople and small businesses who bill clients and want a clean, consistent invoice without accounting software.',
     clauses: ['Your business name, address, email and phone', 'Optional VAT, GST/HST, ABN or other tax number, named as you choose', 'Optional "Tax invoice" title for Australian GST', 'Invoice number, invoice date, optional date of supply, and due date', 'The client\'s purchase order number', 'A line item table: description, quantity, unit price and amount, calculated for you', 'Subtotal, optional discount, and tax worked out from the rate', 'Amount already paid and the balance due', 'How to pay, with optional bank details and a warning against fake change-of-bank-details emails', 'Optional late fee and notes'],
@@ -669,20 +670,20 @@ function related(t) {
     .map((x) => [x, (clustered(x) ? 100 : 0) + (x.category === t.category ? (inCluster ? 1 : 10) : 0) + shares(x)])
     .filter(([x, n]) => (inCluster ? clustered(x) || shares(x) >= 2 : n > 0)).sort((a, b) => b[1] - a[1] || LIB.indexOf(a[0]) - LIB.indexOf(b[0])).slice(0, 6).map(([x]) => x);
 }
-export const CATEGORY_ORDER = [['Business', 'Business agreements'], ['Freelance', 'Freelance contracts'], ['Finance', 'Loans and getting paid'], ['Real estate', 'Landlords and tenants'], ['Legal', 'NDAs, letters and sales'], ['HR', 'HR letters']];
+export const CATEGORY_ORDER = [['Finance', 'Invoices, receipts and money'], ['Business', 'Business agreements'], ['Freelance', 'Freelance contracts'], ['Real estate', 'Landlords and tenants'], ['Legal', 'NDAs, letters and sales'], ['HR', 'HR letters']];
 for (const t of LIB) if (!CATEGORY_ORDER.some(([c]) => c === t.category)) throw new Error(`templates index: no heading for category ${t.category}`);
 for (const [t, g] of Object.entries(GUIDE_FOR)) if (!GUIDE[g] || !LIB.some((x) => x.slug === t)) throw new Error(`GUIDE_FOR: ${t} -> ${g}`);
 for (const [t, [tool]] of Object.entries(TOOL_FOR)) if (!existsSync(`free-tools/${tool}.js`) || !LIB.some((x) => x.slug === t)) throw new Error(`TOOL_FOR: ${t} -> ${tool}`);
 
 export const pages = [
   {
-    path: 'templates/', title: 'Free contract templates and legal forms (Word)',
-    description: `${LIB.length} free contract templates and legal forms for Word: NDAs, leases, loan agreements, freelance contracts, HR letters and more. No sign-up.`,
+    path: 'templates/', title: 'Free Word templates: invoices, business and contracts',
+    description: `${LIB.length} free Word templates: invoices, quotes, receipts, business contracts, HR letters and landlord forms. Fill them in online or download the .docx.`,
     extraHead: crumbsLd([['Home', ''], ['Templates', 'templates/']]),
     body: (rel) => `
 <section class="section"><div class="wrap">
   <p class="eyebrow">Free template library</p>
-  <h1>Free contract templates and legal forms for Word</h1>
+  <h1>Free Word templates for invoices, business and contracts</h1>
   <p class="lead">${LIB.length} free templates, each with its full wording on its page. Download any template as a normal Word file, or fill it in right here: answer a few questions and get a finished .docx. Everything happens in your browser, so client and employee details never leave your computer.</p>
   <div class="filter" data-filter-for="tpl-groups" hidden>
     <label for="tpl-q">Find a template</label>
@@ -690,7 +691,7 @@ export const pages = [
     <p class="small muted" role="status" aria-live="polite" data-filter-count></p>
   </div>
   <p style="margin-top:1.25rem"><a class="btn" href="${rel}samples/${PACK_FILE}" download>Download all ${LIB.length} templates</a> <span class="small muted">One .zip file (${packSize()}), in a folder per category.</span></p>
-  <p style="margin-top:1rem">Looking for an NDA? <a href="${rel}nda-templates/">Compare the ${NDA_SLUGS.length} free NDA templates</a> and pick the right one. Hiring or managing staff? See the <a href="${rel}for/hr-teams.html">free HR letter templates</a>.</p>
+  <p style="margin-top:1rem">Billing a client? <a href="${rel}invoice-templates/">Choose an invoice by billing task, trade or country</a>, or start with a <a href="${rel}templates/quote.html">price quote</a> and confirm payment with a <a href="${rel}templates/payment-receipt.html">receipt</a>. Looking for an NDA? <a href="${rel}nda-templates/">Compare the ${NDA_SLUGS.length} NDA templates</a>.</p>
   <nav class="small" aria-label="Template categories" style="margin-top:1.5rem">${CATEGORY_ORDER.map(([c, label]) => `<a href="#${catId(c)}">${label}</a>`).join(' · ')}</nav>
   <div id="tpl-groups">
 ${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-labelledby="${catId(c)}"><h2 id="${catId(c)}" style="margin-top:2.5rem">${label}</h2>
@@ -731,7 +732,7 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-label
       <ul>${t.clauses.map((c) => `<li>${esc(c)}</li>`).join('')}</ul>
     </div>
     <a class="tpl-thumb" href="#full-text"><img src="${rel}assets/previews/${t.slug}.jpg" width="${PREVIEW_SIZE.width}" height="${PREVIEW_SIZE.height}" loading="lazy" decoding="async" alt="First page of the free ${esc(lowerFirst(t.name))} template for Word"></a>
-  </div>
+  </div>${t.slug === 'invoice' ? '\n\n  ' + invoiceWordHelp(rel) : ''}
 
   <h2 style="margin-top:2.5rem" id="full-text">Read the full template</h2>
   <p class="small muted">This is the complete wording. <span class="tpl-ph">[Labels]</span> are filled in from your answers, and <span class="tpl-opt">highlighted text</span> only appears when it applies; hover over it to see when.</p>
@@ -754,7 +755,7 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-label
   <h2 style="margin-top:2.5rem">Questions</h2>
   <div class="faq">${faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>
 
-${CLAUSES.some((c) => c.templates.includes(t.slug)) ? `  <h2 style="margin-top:2.5rem">Clauses in this template, explained</h2>
+${['quote', 'payment-receipt', 'credit-note'].includes(t.slug) ? `<!--nav--><p style="margin-top:2rem"><strong>Invoice workflows:</strong> ${workflowLinks(rel)}. Match the invoice to the stage of the job and record actual payments separately.</p><!--/nav-->` : ''}${CLAUSES.some((c) => c.templates.includes(t.slug)) ? `  <h2 style="margin-top:2.5rem">Clauses in this template, explained</h2>
   <ul>${CLAUSES.filter((c) => c.templates.includes(t.slug)).map((c) => `<li><a href="${rel}clauses/${c.slug}.html">${esc(c.name)}</a></li>`).join('')}</ul>
 ` : ''}${PRESETS[t.slug] ? `  <p style="margin-top:2rem"><strong>By trade:</strong> start with the lines your trade usually bills: ${Object.entries(PRESETS[t.slug]).map(([slug, p]) => `<a href="${rel}invoice-templates/${slug}.html">${esc(p.name)}</a>`).join(' · ')} · <a href="${rel}invoice-templates/">all trades</a></p>${t.slug === 'invoice' ? `\n  <p><strong>By country:</strong> set up for your VAT or GST: ${COUNTRIES.map((c) => `<a href="${rel}invoice-templates/${c.slug}.html">${esc(c.country)}</a>`).join(' · ')}</p>` : ''}
 ` : ''}${GUIDE_FOR[t.slug] ? `  <p style="margin-top:2rem"><strong>Guide:</strong> <a href="${rel}guides/${GUIDE_FOR[t.slug]}.html">${esc(GUIDE[GUIDE_FOR[t.slug]].title)}</a></p>

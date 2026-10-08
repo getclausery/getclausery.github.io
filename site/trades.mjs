@@ -8,6 +8,7 @@ import { LIB } from './library.mjs';
 import { GUIDES } from './audience.mjs';
 import { TOOLS } from './free-tools.mjs';
 import { COUNTRIES } from './countries.mjs';
+import { WORKFLOWS } from './invoice-workflows.mjs';
 
 const T = (slug, o) => ({ slug, preset: PRESETS.invoice[slug], ...o });
 export const TRADES = [
@@ -167,11 +168,14 @@ const example = (t) => {
 
 export const pages = [
   {
-    path: 'invoice-templates/', title: 'Invoice templates by trade and country (free, Word)',
-    description: `Free Word invoice templates for ${TRADES.length} trades and ${COUNTRIES.length} countries' VAT and GST rules. Each starts with the right lines or tax set-up and adds up totals and tax for you.`,
+    path: 'invoice-templates/', title: 'Free Word invoice templates: task, trade and country',
+    description: 'Free Word invoice templates for deposits, hourly work and final balances, plus trade and country starters. Totals calculated online; editable .docx download.',
     body: (rel) => `<section class="section"><div class="wrap">
-  <h1>Invoice templates by trade and country</h1>
+  <h1>Free Word invoice templates by task, trade and country</h1>
   <p class="lead">Pick your trade and the invoice opens with the lines that trade usually bills, ready for your prices. Pick your country and it opens with the right tax, rate and tax number. Totals and tax are worked out for you, your next invoice remembers your details and number, and you download an editable Word file. Free, no sign-up, nothing uploaded.</p>
+  <h2 style="margin-top:2rem">By billing task</h2>
+  <p>Request an upfront deposit, bill hours, or reconcile the final balance. Each page has a worked example and an app starter for that task.</p>
+  <div class="grid grid-3" style="margin-top:1rem">${WORKFLOWS.map((w) => `<a class="feature" href="${rel}invoice-templates/${w.slug}.html"><h3>${esc(w.name)}</h3><p>${esc(w.description)}</p></a>`).join('')}</div>
   <h2 style="margin-top:2rem">By trade</h2>
   <div class="grid grid-3" style="margin-top:1.5rem">
     ${TRADES.map((t) => `<a class="feature" style="text-decoration:none;color:inherit" href="${rel}invoice-templates/${t.slug}.html"><h3>${esc(t.title.replace(/ \(free, Word\)| template \(Word\)/, '').replace(/ template$/, ''))}</h3><p>${esc(t.preset.lines.slice(0, 3).map(([d]) => d.replace(/ \(.*\)$/, '')).join(', '))}</p></a>`).join('\n    ')}

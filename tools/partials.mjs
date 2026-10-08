@@ -129,6 +129,7 @@ export function header(rel, path) {
     <a class="brand" href="${rel}"><img src="${rel}assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
+      <a href="${rel}invoice-templates/"${cur('invoice-templates/')}>Invoices</a>
       <a href="${rel}templates/"${cur('templates/')}>Templates</a>
       <a href="${rel}#features">Features</a>
       <a href="${rel}pricing/"${cur('pricing/')}>Pricing</a>
@@ -146,7 +147,7 @@ export function footer(rel) {
   <div class="wrap">
     <div>
       <h4>Clausery</h4>
-      <p>Document automation that never leaves your browser. Turn your own Word templates into guided questionnaires and generate finished documents, offline, with no account.</p>
+      <p>Make invoices, quotes and receipts in Word with the maths done for you. Your documents stay in your browser; no account is needed.</p>
     </div>
     <div>
       <h4>Product</h4>
@@ -158,6 +159,10 @@ export function footer(rel) {
     </div>
     <div>
       <h4>Resources</h4>
+      <a href="${rel}invoice-templates/">Invoice templates</a>
+      <a href="${rel}invoice-templates/deposit-invoice.html">Deposit invoice</a>
+      <a href="${rel}invoice-templates/hourly-invoice.html">Hourly invoice</a>
+      <a href="${rel}invoice-templates/final-invoice.html">Final invoice</a>
       <a href="${rel}templates/">Free templates</a>
       <a href="${rel}nda-templates/">NDA templates</a>
       <a href="${rel}guides/">Guides</a>
