@@ -21,16 +21,17 @@ export const PRESETS = {
 
 /* Tax set-ups by country: the tax, its standard rate, what the tax number is called and the details that country asks
    for, so an invoice starts right for where the business is registered. `answers` are invoice answers; `currency` is
-   the workspace currency the invoice should be in. Rates are each country's standard rate as of October 2026 (the
+   the workspace currency the invoice should be in, and `locale` (where set) how dates and numbers are written there,
+   such as 8 October 2026 in the UK. Rates are each country's standard rate as of October 2026 (the
    public pages in site/countries.mjs say so and link the tax authority). Canada starts on Ontario's 13% HST, the
    largest province, and says how to change it. */
 export const TAX_PRESETS = {
   invoice: {
-    'uk-vat-invoice': { name: 'UK VAT', currency: 'GBP', answers: { has_tax: true, tax_name: 'VAT', tax_rate: 20, has_tax_registration: true, tax_registration_label: 'VAT registration number' } },
-    'ireland-vat-invoice': { name: 'Irish VAT', currency: 'EUR', answers: { has_tax: true, tax_name: 'VAT', tax_rate: 23, has_tax_registration: true, tax_registration_label: 'VAT number', has_supply_date: true } },
-    'australia-tax-invoice': { name: 'Australian GST', currency: 'AUD', answers: { has_tax: true, tax_name: 'GST', tax_rate: 10, has_tax_registration: true, tax_registration_label: 'ABN', is_tax_invoice: true } },
-    'new-zealand-gst-invoice': { name: 'New Zealand GST', currency: 'NZD', answers: { has_tax: true, tax_name: 'GST', tax_rate: 15, has_tax_registration: true, tax_registration_label: 'GST number' } },
-    'canada-gst-hst-invoice': { name: 'Canadian GST/HST', currency: 'CAD', answers: { has_tax: true, tax_name: 'HST', tax_rate: 13, has_tax_registration: true, tax_registration_label: 'GST/HST number' } },
+    'uk-vat-invoice': { name: 'UK VAT', currency: 'GBP', locale: 'en-GB', answers: { has_tax: true, tax_name: 'VAT', tax_rate: 20, has_tax_registration: true, tax_registration_label: 'VAT registration number' } },
+    'ireland-vat-invoice': { name: 'Irish VAT', currency: 'EUR', locale: 'en-IE', answers: { has_tax: true, tax_name: 'VAT', tax_rate: 23, has_tax_registration: true, tax_registration_label: 'VAT number', has_supply_date: true } },
+    'australia-tax-invoice': { name: 'Australian GST', currency: 'AUD', locale: 'en-AU', answers: { has_tax: true, tax_name: 'GST', tax_rate: 10, has_tax_registration: true, tax_registration_label: 'ABN', is_tax_invoice: true } },
+    'new-zealand-gst-invoice': { name: 'New Zealand GST', currency: 'NZD', locale: 'en-NZ', answers: { has_tax: true, tax_name: 'GST', tax_rate: 15, has_tax_registration: true, tax_registration_label: 'GST number' } },
+    'canada-gst-hst-invoice': { name: 'Canadian GST/HST', currency: 'CAD', locale: 'en-CA', answers: { has_tax: true, tax_name: 'HST', tax_rate: 13, has_tax_registration: true, tax_registration_label: 'GST/HST number' } },
     'south-africa-tax-invoice': { name: 'South African VAT', currency: 'ZAR', answers: { has_tax: true, tax_name: 'VAT', tax_rate: 15, has_tax_registration: true, tax_registration_label: 'VAT registration number', is_tax_invoice: true } },
   },
 };
