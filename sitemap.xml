@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://getclausery.github.io/about/</loc><lastmod>2026-10-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/about/</loc><lastmod>2026-10-08</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/business-document-kit/</loc><lastmod>2026-10-08</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/changelog.html</loc><lastmod>2026-10-08</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/clauses/amendment-clause.html</loc><lastmod>2026-10-04</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/clauses/assignment-clause.html</loc><lastmod>2026-10-04</lastmod><priority>0.8</priority></url>
@@ -143,8 +144,8 @@
   <url><loc>https://getclausery.github.io/legal/privacy.html</loc><lastmod>2026-10-07</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/legal/terms.html</loc><lastmod>2026-10-02</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/nda-templates/</loc><lastmod>2026-10-04</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/press/</loc><lastmod>2026-10-07</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/pricing/</loc><lastmod>2026-10-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/press/</loc><lastmod>2026-10-08</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/pricing/</loc><lastmod>2026-10-08</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/bill-of-sale.html</loc><lastmod>2026-10-06</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/board-resolution.html</loc><lastmod>2026-10-06</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/business-sale-nda.html</loc><lastmod>2026-10-06</lastmod><priority>0.8</priority></url>

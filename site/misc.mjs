@@ -8,6 +8,12 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.28.0 <span class="small muted">— 8 October 2026</span></h2>
+<ul>
+  <li>A <a href="${rel}business-document-kit/">free small business Word document kit</a>: quote, statement of work, invoice, receipt, purchase order and credit note in one download, with instructions for editing the templates or filling them in online.</li>
+  <li>The <a href="${rel}press/">press kit</a> includes seven downloadable graphics for invoices, quotes, receipts and the business kit, with matching resource links.</li>
+  <li>About, pricing and home page copy now lead with small business document workflows. The directory link points to the verified Clausery listing on Fazier.</li>
+</ul>
 <h2>1.27.0 <span class="small muted">— 8 October 2026</span></h2>
 <ul>
   <li>New billing workflows: <a href="${rel}invoice-templates/deposit-invoice.html">deposit invoices</a>, <a href="${rel}invoice-templates/hourly-invoice.html">hourly invoices</a> and <a href="${rel}invoice-templates/final-invoice.html">final invoices</a>. Each has its own app starter, worked example and checklist.</li>

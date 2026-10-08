@@ -35,8 +35,8 @@ try {
   const og = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
   await og.setContent(`<html><body style="margin:0;width:1200px;height:630px;background:#1b2a41;color:#fff;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;display:flex;flex-direction:column;justify-content:center;padding:72px;box-sizing:border-box">
     <div style="display:flex;align-items:center;gap:18px;margin-bottom:36px">${svg.replace(/width="64" height="64"/, 'width="64" height="64"')}<span style="font-size:36px;font-weight:800;letter-spacing:-.01em">Clausery</span></div>
-    <div style="font-size:64px;font-weight:800;line-height:1.1;letter-spacing:-.02em;max-width:1000px">Document automation that never leaves your browser.</div>
-    <div style="font-size:28px;color:#b9c3d4;margin-top:28px;max-width:960px">Word templates become guided questionnaires. Finished documents are assembled on your computer. No uploads, no account, works offline.</div>
+    <div style="font-size:64px;font-weight:800;line-height:1.1;letter-spacing:-.02em;max-width:1000px">Invoices, quotes and receipts in Word.</div>
+    <div style="font-size:28px;color:#b9c3d4;margin-top:28px;max-width:960px">Fill in guided questions and download an editable .docx. Free library templates, no account. Your document contents stay on your device.</div>
     <div style="position:absolute;right:72px;bottom:56px;background:#0f766e;color:#fff;font-size:22px;font-weight:700;padding:14px 22px;border-radius:10px">Free templates, no sign-up</div>
   </body></html>`);
   writeFileSync('assets/og.png', await og.screenshot({ type: 'png' }));
