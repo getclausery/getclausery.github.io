@@ -216,6 +216,7 @@ Key facts:
 - [GST/HST invoice requirements in Canada: what to show at each amount](https://getclausery.github.io/guides/gst-hst-invoice-requirements-canada.html): What a Canadian invoice must show so customers can claim input tax credits: the CRA thresholds of $100 and $500, your registration number, and GST and HST rates.
 - [Tax invoice requirements in Australia: the seven details the ATO asks for](https://getclausery.github.io/guides/tax-invoice-requirements-australia.html): What an Australian tax invoice must show: the seven details for sales under $1,000, the buyer's identity or ABN from $1,000, and the 28-day rule.
 - [What bank details to put on an invoice, and how to stop invoice fraud](https://getclausery.github.io/guides/what-bank-details-to-put-on-an-invoice.html): The bank details clients need to pay an invoice in the UK, US, Canada, Europe and Australia, plus how to protect them from fake change-of-bank-details emails.
+- [How to save an invoice as PDF from Word or Clausery](https://getclausery.github.io/guides/how-to-save-an-invoice-as-pdf.html): Make an invoice PDF from your Word file or the free Clausery app. Follow the export steps, check the layout and totals, and keep an editable copy.
 
 ## Free tools
 - [Amount in words converter for contracts and cheques](https://getclausery.github.io/free-tools/amount-in-words.html): Write any amount in words for contracts, cheques and promissory notes, such as "One Thousand Two Hundred and Fifty Dollars and 50/100".
