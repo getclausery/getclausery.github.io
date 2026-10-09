@@ -6,6 +6,7 @@ import { inferQuestionnaire, FIELD_TYPES } from '../app/lib/schema.js';
 import { applySetup, setupFor } from '../app/lib/setups.js';
 import { PRESETS } from '../app/lib/presets.js';
 import { invoiceWordHelp, workflowLinks } from './invoice-workflows.mjs';
+import { paymentReceiptHelp, receiptHelpHead } from './payment-receipt.mjs';
 import { esc, crumbsLd, lowerFirst, fitSnippet, SITE, LASTMOD, LASTMOD_LONG } from '../tools/partials.mjs';
 import { CLAUSES } from './data/clauses.mjs';
 import { previewHtml, PREVIEW_CSS, PREVIEW_SIZE } from '../tools/preview.mjs';
@@ -423,7 +424,7 @@ export const LIB = [
     intro: 'A receipt for a payment you received: a receipt number and date, who paid, the amount in figures and optionally in words, what the payment was for and its invoice number, how it was paid, and whether it was paid in full or leaves a balance.',
     who: 'Small businesses, freelancers, tutors, sellers and clubs who take payments by cash, check or transfer and need to give the payer proof.',
     clauses: ['Receipt number and date', 'Who paid', 'Amount received, with an optional amount in words', 'What the payment was for, and its invoice number', 'How it was paid, and an optional reference', 'Paid in full, or the balance still due and when', 'Optional notes and signature'],
-    faq: [['What should a payment receipt include?', 'The date, a receipt number, who paid, the amount, what it was for, how it was paid and who received it. For a part payment, add the balance still owed and when it is due.'], ['Is a receipt the same as an invoice?', 'No. An invoice asks for payment; a receipt confirms that payment was received. Many businesses send an invoice first and a receipt once it is paid.'], ['Why write the amount in words?', 'An amount written in words as well as figures is harder to alter and settles any doubt if the figures are unclear. The free amount in words converter writes it for you.']] },
+    faq: [['What should a payment receipt include?', 'The date, a receipt number, who paid, the amount, what it was for, how it was paid and who received it. For a part payment, add the balance still owed and when it is due.'], ['Is a receipt the same as an invoice?', 'No. An invoice asks for payment; a receipt confirms that payment was received. Many businesses send an invoice first and a receipt once it is paid.'], ['Why write the amount in words?', 'Writing the amount in words gives you a second way to check it. The words and figures must agree. The free amount in words converter can write the wording for you.']] },
   { slug: 'two-weeks-notice-letter', file: 'two-weeks-notice-letter.docx', name: 'Two weeks notice letter', title: 'Free two weeks notice letter template (Word)', category: 'HR',
     description: 'Free two weeks notice letter for Word: your last day, an optional reason, an offer to help with the handover, returning company property and a thank-you.',
     intro: 'A short, professional resignation letter giving two weeks\' notice: your job title and last working day, an optional reason, an offer to help hand over your work, returning company property, a thank-you, and how to reach you after you leave.',
@@ -710,7 +711,7 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-label
     return {
       path: `templates/${t.slug}.html`, title: t.title, ogImage: `assets/og/${t.slug}.png`,
       description: t.description || fitSnippet(t.intro, { lead: `Free ${lowerFirst(t.name)} template for Word.`, tail: 'Fill it in online or download the .docx, free.' }),
-      extraHead: docLd(t) + faqLd(faq) + crumbsLd([['Home', ''], ['Templates', 'templates/'], [t.name, `templates/${t.slug}.html`]]) + PREVIEW_CSS + THUMB_CSS,
+      extraHead: docLd(t) + faqLd(faq) + crumbsLd([['Home', ''], ['Templates', 'templates/'], [t.name, `templates/${t.slug}.html`]]) + PREVIEW_CSS + THUMB_CSS + (t.slug === 'payment-receipt' ? receiptHelpHead : ''),
       body: (rel) => `
 <section class="section"><div class="wrap" style="max-width:52rem">
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}templates/">Templates</a> › ${esc(t.name)}</nav>
@@ -732,7 +733,7 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-label
       <ul>${t.clauses.map((c) => `<li>${esc(c)}</li>`).join('')}</ul>
     </div>
     <a class="tpl-thumb" href="#full-text"><img src="${rel}assets/previews/${t.slug}.jpg" width="${PREVIEW_SIZE.width}" height="${PREVIEW_SIZE.height}" loading="lazy" decoding="async" alt="First page of the free ${esc(lowerFirst(t.name))} template for Word"></a>
-  </div>${t.slug === 'invoice' ? '\n\n  ' + invoiceWordHelp(rel) : ''}
+  </div>${t.slug === 'invoice' ? '\n\n  ' + invoiceWordHelp(rel) : ''}${t.slug === 'payment-receipt' ? '\n\n  ' + paymentReceiptHelp(rel) : ''}
 
   <h2 style="margin-top:2.5rem" id="full-text">Read the full template</h2>
   <p class="small muted">This is the complete wording. <span class="tpl-ph">[Labels]</span> are filled in from your answers, and <span class="tpl-opt">highlighted text</span> only appears when it applies; hover over it to see when.</p>
