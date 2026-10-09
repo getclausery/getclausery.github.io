@@ -23,10 +23,12 @@ test('missing or malformed receipt links are cleared and cannot activate a plan'
 });
 test('ambiguous receipt credentials are rejected', () => {
   assert.ok(read('#key=' + KEY + '&key=' + KEY).result.error);
+  assert.ok(read('', '?key=' + KEY + '&key=' + KEY).result.error);
+  assert.ok(read('#key=' + KEY, '?key=' + KEY).result.error);
 });
-test('query strings do not supply a purchase credential and are removed from this return page', () => {
+test('the merchant-compatible query credential is read and immediately removed from the address', () => {
   const { result, calls } = read('', '?key=' + KEY);
-  assert.ok(result.error);
+  assert.deepEqual(result, { key: KEY });
   assert.equal(calls[0][2], '/app/activate.html');
 });
 test('a failed local save releases the new activation instead of using an extra slot on retry', async () => {

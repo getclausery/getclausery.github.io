@@ -1,10 +1,11 @@
-/* Lemon Squeezy's confirmation and receipt buttons pass proof of purchase in the fragment, never in the
-   query string. Remove it before routing, analytics or activation; the License API still verifies the purchase. */
+/* Lemon Squeezy's button validator requires its documented query-string format. Also accept fragment
+   links. Clear both before routing or activation; the License API still verifies the purchase. */
 import { isOnlineKey, isOnlineRecord, activateOnline, validateOnline, deactivateOnline } from './onlinelicense.js';
 
 export function consumePurchaseReturn(loc = globalThis.location, hist = globalThis.history) {
   const params = new URLSearchParams(String(loc?.hash || '').replace(/^#/, ''));
-  const keys = params.getAll('key');
+  const query = new URLSearchParams(String(loc?.search || '').replace(/^\?/, ''));
+  const keys = [...params.getAll('key'), ...query.getAll('key')];
   hist.replaceState(null, '', loc.pathname);
   const key = String(keys[0] || '').trim();
   if (keys.length !== 1 || !isOnlineKey(key)) return { error: 'This purchase link is incomplete. Open Clausery using the button in your receipt email, or contact support.' };
