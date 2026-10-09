@@ -8,6 +8,11 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.29.0 <span class="small muted">— 9 October 2026</span></h2>
+<ul>
+  <li>A <a href="${rel}guides/how-to-save-an-invoice-as-pdf.html">guide to saving an invoice as PDF</a> from Clausery or Word, with export instructions and a checklist for the finished file.</li>
+  <li>Print / Save as PDF waits for the document preview, fonts and images to finish preparing. A failed preview no longer opens the print dialog or records a print action.</li>
+</ul>
 <h2>1.28.0 <span class="small muted">— 8 October 2026</span></h2>
 <ul>
   <li>A <a href="${rel}business-document-kit/">free small business Word document kit</a>: quote, statement of work, invoice, receipt, purchase order and credit note in one download, with instructions for editing the templates or filling them in online.</li>

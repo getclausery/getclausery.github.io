@@ -5,8 +5,16 @@
   <link rel="self" href="https://getclausery.github.io/feed.xml"/>
   <link rel="alternate" href="https://getclausery.github.io/"/>
   <id>https://getclausery.github.io/</id>
-  <updated>2026-10-06T00:00:00Z</updated>
+  <updated>2026-10-09T00:00:00Z</updated>
   <author><name>Clausery</name></author>
+  <entry>
+    <title>How to save an invoice as PDF from Word or Clausery</title>
+    <link href="https://getclausery.github.io/guides/how-to-save-an-invoice-as-pdf.html"/>
+    <id>https://getclausery.github.io/guides/how-to-save-an-invoice-as-pdf.html</id>
+    <published>2026-10-09T00:00:00Z</published>
+    <updated>2026-10-09T00:00:00Z</updated>
+    <summary>Make an invoice PDF from your Word file or the free Clausery app. Follow the export steps, check the layout and totals, and keep an editable copy.</summary>
+  </entry>
   <entry>
     <title>What a VAT invoice must include (UK): full and simplified invoices</title>
     <link href="https://getclausery.github.io/guides/what-to-include-on-a-vat-invoice.html"/>

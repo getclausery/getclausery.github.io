@@ -163,10 +163,34 @@ export async function render(ctx, { id }) {
     evaluation = ev;
     const errs = Object.entries(ev.errors).filter(([p]) => ev.visible[p.split(/[[.]/)[0]] !== false);
     const previewWrap = h('div.preview-wrap.print-area', { hidden: true, tabindex: 0, role: 'region', 'aria-label': 'Document preview' });
-    const previewBtn = h('button.btn', { type: 'button', onclick: async () => { previewBtn.disabled = true; try { const blob = renderDocx(bytes, data); previewWrap.hidden = false; await previewDocx(blob, previewWrap); previewWrap.focus({ preventScroll: true }); previewWrap.scrollIntoView({ behavior: scrollBehavior(), block: 'start' }); } catch (e) { fail(e); } finally { previewBtn.disabled = false; } } }, icon('eye', 16), 'Preview');
+    let previewReady = false, previewJob = null;
+    const preparePreview = () => {
+      if (previewReady) return Promise.resolve();
+      if (previewJob) return previewJob;
+      previewBtn.disabled = true;
+      previewJob = (async () => {
+        const blob = renderDocx(bytes, data);
+        previewWrap.hidden = false;
+        await previewDocx(blob, previewWrap);
+        previewReady = true;
+      })().catch((e) => { previewWrap.hidden = true; throw e; }).finally(() => { previewBtn.disabled = false; previewJob = null; });
+      return previewJob;
+    };
+    const previewBtn = h('button.btn', { type: 'button', onclick: async () => { try { await preparePreview(); previewWrap.focus({ preventScroll: true }); previewWrap.scrollIntoView({ behavior: scrollBehavior(), block: 'start' }); } catch (e) { fail(e); } } }, icon('eye', 16), 'Preview');
     const fail = (e) => { if (isDocxError(e)) modal({ title: 'The document could not be generated', body: h('ul', describeTemplateError(e).map((m) => h('li', m))), actions: [{ label: 'OK', primary: true }] }); else { console.error(e); toast('Generation failed: ' + (e.message || e), { type: 'danger', timeout: 8000 }); } };
     const fileName = docxName();
     const record = (kind, extra = {}) => recordMade(kind, { file: fileName, ...extra });
+    const printBtn = h('button.btn', { type: 'button', onclick: async () => {
+      printBtn.disabled = true;
+      try {
+        await preparePreview();
+        await document.fonts.ready;
+        await Promise.all([...previewWrap.querySelectorAll('img')].map((img) => img.decode().catch(() => {})));
+        if (!previewWrap.isConnected) return;
+        window.print();
+        await record('print');
+      } catch (e) { fail(e); } finally { printBtn.disabled = false; }
+    } }, icon('print', 16), 'Print / Save as PDF');
     const generate = async () => {
       try {
         const blob = renderDocx(bytes, data);
@@ -189,7 +213,7 @@ export async function render(ctx, { id }) {
         h('h2', 'Review & generate'),
         errs.length ? h('div.notice.notice-warn', icon('warn'), h('div', h('strong', `${errs.length} answer${errs.length === 1 ? '' : 's'} still needed. `), 'You can generate anyway; missing answers render blank.', h('ul', { style: { margin: '.5rem 0 0' } }, errs.slice(0, 8).map(([p, m]) => { const key = p.split(/[[.]/)[0]; const f = template.fields.find((x) => x.key === key); const si = steps.findIndex((s) => s.id === (f && f.sectionId)); return h('li', h('a', { href: '#', onclick: (e) => { e.preventDefault(); go(si); } }, f ? f.label : p), ': ', m); }), errs.length > 8 ? h('li', `…and ${errs.length - 8} more`) : null)))
           : h('div.notice.notice-ok', icon('check'), h('div', h('strong', 'Everything is answered. '), `${answered} of ${totalQ} questions.`)),
-        h('div.row', { style: { marginTop: '1rem' } }, h('button.btn.btn-primary.btn-lg', { type: 'button', onclick: generate }, icon('download', 18), 'Download .docx'), previewBtn, h('button.btn', { type: 'button', onclick: async () => { if (previewWrap.hidden) { previewBtn.click(); await new Promise((r) => setTimeout(r, 800)); } window.print(); await record('print'); } }, icon('print', 16), 'Print / Save as PDF'),
+        h('div.row', { style: { marginTop: '1rem' } }, h('button.btn.btn-primary.btn-lg', { type: 'button', onclick: generate }, icon('download', 18), 'Download .docx'), previewBtn, printBtn,
           canShareFiles() ? h('button.btn', { type: 'button', onclick: share }, icon('share', 16), 'Share…') : null,
           h('button.btn', { type: 'button', onclick: openBulk }, icon('table', 16), 'From a spreadsheet')),
         h('p.small.muted', { style: { marginTop: '1rem', marginBottom: 0 } }, 'The Word file is assembled in your browser from the template and these answers. Nothing is uploaded. This draft stays saved here, so you can change any answer and download it again later.')),

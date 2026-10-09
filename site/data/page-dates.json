@@ -12,12 +12,12 @@
   "hash": "c28574af1fc9ec47"
  },
  "business-document-kit/": {
-  "date": "2026-10-08",
-  "hash": "f89f385b6d89ed45"
+  "date": "2026-10-09",
+  "hash": "7129e0d5d02d292c"
  },
  "changelog.html": {
-  "date": "2026-10-08",
-  "hash": "33046afe863d404e"
+  "date": "2026-10-09",
+  "hash": "3f9c687ee522f096"
  },
  "clauses/": {
   "date": "2026-10-04",
@@ -180,8 +180,8 @@
   "hash": "207a1269e89d4b8e"
  },
  "docs/faq.html": {
-  "date": "2026-10-07",
-  "hash": "42ea7665d4ff6f20"
+  "date": "2026-10-09",
+  "hash": "5f7be5010c32b7c6"
  },
  "docs/intake.html": {
   "date": "2026-10-01",
@@ -322,6 +322,10 @@
  "guides/how-to-return-a-security-deposit.html": {
   "date": "2026-10-01",
   "hash": "8574d56cf72d0e4c"
+ },
+ "guides/how-to-save-an-invoice-as-pdf.html": {
+  "date": "2026-10-09",
+  "hash": "a7e12c752ac14f0e"
  },
  "guides/how-to-set-up-a-rent-payment-plan.html": {
   "date": "2026-10-04",
@@ -500,12 +504,12 @@
   "hash": "1da766c6c32ec914"
  },
  "invoice-templates/deposit-invoice.html": {
-  "date": "2026-10-08",
-  "hash": "7c9765753eeffb38"
+  "date": "2026-10-09",
+  "hash": "8b388efc15978b72"
  },
  "invoice-templates/final-invoice.html": {
-  "date": "2026-10-08",
-  "hash": "8144057c2d336498"
+  "date": "2026-10-09",
+  "hash": "76c3a4a32db91032"
  },
  "invoice-templates/freelance-writing.html": {
   "date": "2026-10-07",
@@ -520,8 +524,8 @@
   "hash": "8e92e4046d17f1c1"
  },
  "invoice-templates/hourly-invoice.html": {
-  "date": "2026-10-08",
-  "hash": "ef7e866ae4ca295f"
+  "date": "2026-10-09",
+  "hash": "8c3d3f2b2d1f55e7"
  },
  "invoice-templates/ireland-vat-invoice.html": {
   "date": "2026-10-08",
@@ -708,8 +712,8 @@
   "hash": "bc3e39324c4b2f59"
  },
  "templates/invoice.html": {
-  "date": "2026-10-08",
-  "hash": "17ebc1af3609bac5"
+  "date": "2026-10-09",
+  "hash": "a08f329732895be2"
  },
  "templates/job-description.html": {
   "date": "2026-10-06",

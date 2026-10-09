@@ -192,6 +192,45 @@ test('the live preview shows the document beside the questions and follows the a
   await expect(page.locator('button:has-text("Live preview")')).toHaveAttribute('aria-pressed', 'false');
 });
 
+test('printing waits for an invoice preview that is still rendering', async ({ page }) => {
+  await page.route('**/app/lib/render.js', async (route) => {
+    const response = await route.fetch();
+    const body = (await response.text()).replace('export async function previewDocx(blobOrBytes, container, styleContainer) {', 'export async function previewDocx(blobOrBytes, container, styleContainer) {\n  if (container.classList.contains("print-area")) await new Promise((resolve) => { window.finishInvoicePreview = resolve; });');
+    await route.fulfill({ response, body });
+  });
+  await page.addInitScript(() => { window.print = () => { window.printedInvoice = { pages: document.querySelectorAll('.print-area section.docx').length, text: document.querySelector('.print-area')?.textContent }; }; });
+  await page.goto('app/#/start/invoice');
+  await page.waitForSelector('.stepper');
+  await fill(page, 'business_name', 'Northwind Studio');
+  await page.click('.stepper button:has-text("Review")');
+  await page.getByRole('button', { name: 'Preview', exact: true }).click();
+  await expect.poll(() => page.evaluate(() => typeof window.finishInvoicePreview)).toBe('function');
+  await page.getByRole('button', { name: 'Print / Save as PDF', exact: true }).click();
+  expect(await page.evaluate(() => window.printedInvoice)).toBeUndefined();
+  await page.evaluate(() => window.finishInvoicePreview());
+  await expect.poll(() => page.evaluate(() => window.printedInvoice?.pages)).toBeGreaterThan(0);
+  expect(await page.evaluate(() => window.printedInvoice.text)).toContain('Northwind Studio');
+  await expect(page.locator('.history-list li')).toHaveCount(1);
+  await expect(page.locator('.history-list li')).toContainText('Printed or saved as PDF');
+});
+
+test('a failed invoice preview does not open printing or record a made document', async ({ page }) => {
+  await page.route('**/app/lib/render.js', async (route) => {
+    const response = await route.fetch();
+    const body = (await response.text()).replace('export async function previewDocx(blobOrBytes, container, styleContainer) {', 'export async function previewDocx(blobOrBytes, container, styleContainer) {\n  if (container.classList.contains("print-area")) throw new Error("Preview unavailable");');
+    await route.fulfill({ response, body });
+  });
+  await page.addInitScript(() => { window.print = () => { window.invoicePrintOpened = true; }; });
+  await page.goto('app/#/start/invoice');
+  await page.waitForSelector('.stepper');
+  await page.click('.stepper button:has-text("Review")');
+  await page.getByRole('button', { name: 'Print / Save as PDF', exact: true }).click();
+  await expect(page.locator('.toast')).toContainText('Preview unavailable');
+  await expect(page.locator('.preview-wrap.print-area')).toBeHidden();
+  expect(await page.evaluate(() => window.invoicePrintOpened)).toBeUndefined();
+  await expect(page.locator('.history-list li')).toHaveCount(0);
+});
+
 test('a spreadsheet makes one invoice per row, and every document made is recorded in the history', async ({ page }) => {
   const errors = [];
   page.on('pageerror', (e) => errors.push(e.message));
