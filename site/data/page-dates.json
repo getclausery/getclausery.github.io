@@ -13,11 +13,11 @@
  },
  "business-document-kit/": {
   "date": "2026-10-09",
-  "hash": "7129e0d5d02d292c"
+  "hash": "881225e4ea0c8fca"
  },
  "changelog.html": {
   "date": "2026-10-09",
-  "hash": "3f9c687ee522f096"
+  "hash": "8f15fb4617ec7fba"
  },
  "clauses/": {
   "date": "2026-10-04",
@@ -358,6 +358,10 @@
  "guides/how-to-write-a-payment-demand-letter.html": {
   "date": "2026-09-26",
   "hash": "c12dcb7d4e578bd2"
+ },
+ "guides/how-to-write-a-payment-receipt.html": {
+  "date": "2026-10-09",
+  "hash": "cdae8e32d2934c65"
  },
  "guides/how-to-write-a-performance-improvement-plan.html": {
   "date": "2026-10-04",
@@ -713,7 +717,7 @@
  },
  "templates/invoice.html": {
   "date": "2026-10-09",
-  "hash": "a08f329732895be2"
+  "hash": "58ab1019f24bac9c"
  },
  "templates/job-description.html": {
   "date": "2026-10-06",
@@ -796,8 +800,8 @@
   "hash": "212754751150216c"
  },
  "templates/payment-receipt.html": {
-  "date": "2026-10-07",
-  "hash": "04646761ebc13b5a"
+  "date": "2026-10-09",
+  "hash": "47c49b6cd080fc91"
  },
  "templates/payment-reminder-letter.html": {
   "date": "2026-10-06",

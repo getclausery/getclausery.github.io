@@ -8,6 +8,11 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.30.0 <span class="small muted">— 9 October 2026</span></h2>
+<ul>
+  <li>A <a href="${rel}guides/how-to-write-a-payment-receipt.html">payment receipt guide</a> with a Word example, partial-payment instructions and a sending checklist.</li>
+  <li>The <a href="${rel}templates/payment-receipt.html">Word receipt page</a> explains how to record a payment and includes a local balance calculator. The calculator distinguishes earlier payments from the current payment and flags overpayments.</li>
+</ul>
 <h2>1.29.0 <span class="small muted">— 9 October 2026</span></h2>
 <ul>
   <li>A <a href="${rel}guides/how-to-save-an-invoice-as-pdf.html">guide to saving an invoice as PDF</a> from Clausery or Word, with export instructions and a checklist for the finished file.</li>
