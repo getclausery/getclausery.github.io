@@ -186,7 +186,7 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
       <details><summary>Which template features are supported?</summary><p>Tags, conditional sections, inverted sections, repeating groups (including in bullet lists and table rows), line breaks in answers, headers and footers. Formatting is whatever you set in Word. See the <a href="${rel}docs/templates.html">template syntax</a>.</p></details>
       <details><summary>Can clients fill in a questionnaire?</summary><p>Yes, without a portal. Export a client intake form (a single HTML file), send it, and import the answers file that comes back. It runs on their computer the same way the app runs on yours.</p></details>
       <details><summary>Is this legal advice? Is the output reviewed?</summary><p>No. Clausery is software that fills in the templates you give it. The content, review and sign-off of every document remain with you.</p></details>
-      <details><summary>How do teams share templates?</summary><p>With template packs: a file that carries a set of templates and their questionnaires. Put it on the shared drive; everyone imports it. Licensing is per user${ONLINE_KEYS ? ', with one key you activate on each device' : ', verified offline with a signed key'}.</p></details>
+      <details><summary>How do teams share templates?</summary><p>With template packs: a file that carries a set of templates and their questionnaires. Put it on the shared drive; everyone imports it. Licensing is per user${ONLINE_KEYS ? '; the private Open Clausery link from your receipt activates each licensed browser automatically' : ', verified offline with a signed key'}.</p></details>
     </div>
   </div>
 </section>

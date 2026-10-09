@@ -15,6 +15,11 @@ export async function openApp(page) {
   await page.goto('app/');
   await page.waitForSelector('h1:has-text("Templates")');
 }
+/** Manual keys are a support/offline option; ordinary paid purchases use the receipt button. */
+export async function openManualActivation(page) {
+  const details = page.locator('#manual-activation');
+  if (await details.getAttribute('open') === null) await details.locator('summary').click();
+}
 /** Open a library template in the designer ("Customise"), by its position in the full template list. */
 export async function useSample(page, index) {
   await page.locator('#all-samples button:has-text("Customise")').nth(index).click();

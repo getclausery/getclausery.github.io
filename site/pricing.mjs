@@ -9,13 +9,14 @@ const buy = (plan, name, cls) => CHECKOUT_URLS[plan] ? `<a class="${cls}" href="
 
 // Questions shown at the foot of the page and published as FAQPage data.
 const FAQ = [
-  ['Is there a free trial of Pro?', 'The Free plan has no time limit, so you can evaluate the core product for as long as you like. If you need to test a Pro feature before buying, request a 14-day trial key.'],
+  ['Is there a free trial of Pro?', 'The Free plan has no time limit, so you can evaluate the core product for as long as you like. If you need to test a Pro feature before buying, contact us for a 14-day trial.'],
   ['What happens when a license expires?', 'The app falls back to the Free plan. Everything you created stays on your device and keeps working; only the Pro-gated features pause until you renew.'],
   ['Do you offer discounts for legal aid, nonprofits or education?', 'Yes: 50% off Pro and Team. Contact getclausery@gmail.com with your organisation details before buying so we can arrange the discount.'],
-  ONLINE_KEYS ? ['Does the app contact a server to check my license?', 'For keys bought online, the app checks the key with Lemon Squeezy when you activate it and about once a week, and keeps working offline for up to 30 days between checks. It sends the key and this browser\'s activation ID, not your templates, answers or documents. Anonymous app usage counts are separate and contain nothing you type. Businesses that need no network can ask for an offline key.']
+  ONLINE_KEYS ? ['Does the app contact a server to check my subscription?', 'The app activates your purchase automatically when you select Open Clausery after payment or in your receipt email. Behind the scenes, Lemon Squeezy supplies a license credential, which the app checks on activation and about once a week. It works offline for up to 30 days between checks. The credential and browser activation ID are sent, not your templates, answers or documents. Anonymous app usage counts are separate and contain nothing you type. Businesses that need no network can ask for an offline license.']
     : ['Does the app contact a server to check my license?', 'No. A license key is verified on your device with a cryptographic signature, so it works offline and nothing is sent anywhere.'],
   ['Can I get an invoice or pay by bank transfer?', 'Team and Enterprise customers can pay by invoice. Ask for one when you request a key.'],
-  ['How many devices can use a license?', 'Pro is for one named user and allows activation in up to five browser profiles. Team covers five named users and allows up to fifteen browser profiles. Remove the license in an unused browser to free an activation, or contact support if you cannot access it.'],
+  ['How do I activate my purchase?', 'After paying, select Open Clausery on the confirmation page or in your receipt email. Your plan activates automatically and opens the app, with no separate account and no key to copy. Use that receipt button on another device too. Keep the access link private.'],
+  ['How many devices can use a plan?', 'Pro is for one named user and allows activation in up to five browser profiles. Team covers five named users and allows up to fifteen browser profiles. In an unused browser, go to Settings → Advanced activation → Remove from this browser to free an activation, or contact support if you cannot access it.'],
   ['How do I add Team seats?', 'The online Team checkout covers five named users at $49/month. Additional seats cost $9 per user/month and are arranged by request at getclausery@gmail.com. Contact us before purchasing for a larger team.'],
 ];
 // The paid plans as structured data, so search engines can read the prices on this page.
@@ -31,7 +32,7 @@ export const pages = [{
   <div class="wrap">
     <div style="text-align:center;max-width:44rem;margin:0 auto 2.5rem">
       <h1>Simple pricing. No per-document fees.</h1>
-      <p class="lead" style="margin:0 auto">${ONLINE_KEYS ? 'Every plan runs entirely in your browser, and your documents never leave it. Buy online and your license key arrives straight away.' : 'Every plan runs entirely in your browser. A license is a signed key that unlocks features offline; it never checks in with a server.'}</p>
+      <p class="lead" style="margin:0 auto">${ONLINE_KEYS ? 'Choose a plan, pay securely, then select Open Clausery. Your plan activates automatically. No separate account or key to copy; your documents stay on your device.' : 'Every plan runs entirely in your browser. A license is a signed key that unlocks features offline; it never checks in with a server.'}</p>
     </div>
     <div class="plans">
       <div class="plan">
@@ -108,9 +109,9 @@ export const pages = [{
   <div class="wrap" style="max-width:48rem">
     <h2>How buying works</h2>
     <ol${CHECKOUT ? '' : ' hidden'} data-when-checkout>
-      <li><strong>Check out</strong> through our hosted payment page${ONLINE_KEYS ? ' (Lemon Squeezy). Your license key is on the confirmation page and in your receipt email straight away.' : '. You receive a license key by email within minutes.'}</li>
-      <li><strong>Paste the key</strong> in the app under Settings → License. ${ONLINE_KEYS ? 'The app checks it with Lemon Squeezy when you activate it and about once a week, sending the key and this browser\'s activation ID; your documents never leave your browser.' : 'The key is verified offline with a cryptographic signature; the app never contacts a license server.'}</li>
-      <li><strong>Activate your other devices</strong> within your plan's browser limit. ${ONLINE_KEYS ? 'Renewals apply automatically. Manage billing or cancel from the customer portal linked in app Settings. For a change between Pro and Team or more seats, contact us.' : 'Keep the key somewhere safe; it is your proof of purchase.'}</li>
+      <li><strong>Choose a plan and pay</strong> through our secure hosted checkout${ONLINE_KEYS ? ' (Lemon Squeezy).' : '. You receive a license key by email within minutes.'}</li>
+      <li>${ONLINE_KEYS ? '<strong>Select Open Clausery</strong> after payment or in your receipt email. Your plan activates automatically and the app opens, ready to use. No separate account or key to copy.' : '<strong>Paste the key</strong> in the app under Settings → Advanced activation. The key is verified offline with a cryptographic signature; the app never contacts a license server.'}</li>
+      <li><strong>Start making documents.</strong> ${ONLINE_KEYS ? 'For another device, use the receipt button there. Renewals apply automatically; manage billing or cancel from app Settings. Keep the receipt access link private. For a change between Pro and Team or more seats, contact us.' : 'Keep the key somewhere safe; it is your proof of purchase.'}</li>
     </ol>
     <div${CHECKOUT ? ' hidden' : ''} data-when-no-checkout>
       <p>Online checkout is not open yet, so keys are issued on request:</p>

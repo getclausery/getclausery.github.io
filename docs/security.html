@@ -57,7 +57,7 @@
 <h2>Cryptography</h2>
 <ul>
   <li><strong>Encrypted workspace:</strong> AES-256-GCM with a random 96-bit nonce per record; key derived from the passphrase with PBKDF2-SHA256 (600,000 iterations, 128-bit random salt). Implemented with the browser's WebCrypto API only.</li>
-  <li><strong>License keys:</strong> keys bought online are activated, then re-checked about once a week, with Lemon Squeezy's License API; the request carries only the key and the browser's activation ID. Offline keys are Ed25519 signatures over the license payload, verified with a public key embedded in the app.</li>
+  <li><strong>Paid-plan verification:</strong> the Open Clausery button after purchase or in a receipt supplies a credential in the URL fragment. The app removes it from the URL before routing or counting usage, verifies it with Lemon Squeezy's License API, and stores the browser activation locally. Opening the same receipt again validates the existing activation rather than using another slot. Checks repeat about once a week and carry only the credential and browser activation ID. Offline keys use Ed25519 signatures verified with a public key embedded in the app.</li>
 </ul>
 <h2>Browser hardening</h2>
 <ul>

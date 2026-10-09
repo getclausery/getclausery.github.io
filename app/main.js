@@ -149,10 +149,10 @@ function upgradeModal(feature) {
       h('p', h('strong', label), ' is part of Clausery Pro. Everything still runs in your browser; a license simply unlocks the feature.'),
       feature === 'templates' ? h('p.small.muted', 'Templates from the free library never count towards the limit: open as many of them as you like.') : null,
       h('ul.feature-list', Object.values(FEATURE_LABELS).map((f) => h('li', icon('check', 16), f))),
-      h('p.small.muted', 'Already have a key? Enter it under Settings → License.')),
+      h('p.small.muted', LICENSE_SERVICE.api ? 'Already paid? Open Clausery using the button in your receipt email. No key to copy.' : 'Already have an offline key? Enter it in Settings → Advanced activation.')),
     actions: [
-      { label: 'Enter license key', onClick: () => { router.go('/settings'); setTimeout(() => document.getElementById('license-key')?.focus(), 300); } },
-      { label: 'See plans', primary: true, onClick: () => { window.open('../pricing/', '_blank', 'noopener'); return false; } },
+      { label: 'Plan and billing', onClick: () => router.go('/settings') },
+      { label: CHECKOUT_URLS.pro ? 'Get Pro — $19/month' : 'See plans', primary: true, onClick: () => { location.assign(CHECKOUT_URLS.pro || '../pricing/'); return false; } },
     ],
   });
 }

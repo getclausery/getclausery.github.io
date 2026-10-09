@@ -8,6 +8,12 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.32.0 <span class="small muted">— 9 October 2026</span></h2>
+<ul>
+  <li>Choose a plan, pay, then select Open Clausery after payment or in your receipt. Your plan activates automatically and opens the app, with no separate account or key to copy.</li>
+  <li>Repeated receipt clicks reuse the existing browser activation. Purchase credentials are removed from the address before routing or usage counts; the payment provider still verifies the purchase.</li>
+  <li>Settings now leads with Plan and billing and direct checkout buttons. Manual activation remains under Advanced activation for offline licenses and support.</li>
+</ul>
 <h2>1.31.0 <span class="small muted">— 9 October 2026</span></h2>
 <ul>
   <li>Online checkout is open through Lemon Squeezy: <a href="${rel}pricing/">Pro monthly, Pro yearly and five-seat Team</a>, with license keys delivered after purchase.</li>

@@ -16,7 +16,7 @@ const DOCS_FAQ = [
   ['Is there an official version?', (rel) => `Yes: <a href="${rel}">getclausery.github.io</a>. The source code is public on GitHub, but copies hosted elsewhere are not maintained by us. Releases are listed in the <a href="${rel}changelog.html">changelog</a>.`],
   ['Can I use it on my phone?', (rel) => `Yes. The app is responsive and installable. Drafting long documents is more comfortable on a larger screen.`],
   ['What if Clausery disappears?', (rel) => `Your copy keeps working: it is cached in your browser and can be self-hosted from the repository. Your templates are your .docx files; your data exports are plain JSON.`],
-  ['How do I get a license key?', (rel) => `See <a href="${rel}pricing/">Pricing</a>. ${ONLINE_KEYS ? 'Buy online and the key is on your confirmation page and in your receipt email straight away; paste it under Settings → License on each device.' : 'Keys are delivered by email and entered once per device.'}`],
+  [ONLINE_KEYS ? 'How do I activate a paid plan?' : 'How do I get a license key?', (rel) => `See <a href="${rel}pricing/">Pricing</a>. ${ONLINE_KEYS ? 'Choose a plan and pay, then select Open Clausery after payment or in your receipt email. The plan activates automatically and opens the app. No separate account or key to copy. Use the receipt button on another device too, and keep that access link private.' : 'Keys are delivered by email and entered once per device.'}`],
 ];
 const page = (path, title, description, body, extraHead = '') => ({ path, title, description, extraHead, body: (rel) => `<div class="wrap docs">${docsNav(rel, path)}<article class="docs-body">${body(rel)}</article></div>` });
 
@@ -212,7 +212,7 @@ page('docs/teams.html', 'Teams & template packs', 'Share approved templates acro
 <h2>Drafts stay personal</h2>
 <p>Drafts and their answers live in each person's browser. To hand a matter over, export the draft's answers (<em>Export answers</em> on the review step) and let the colleague import them into a draft of the same template.</p>
 <h2>Licensing a team</h2>
-<p>A Team license is one key with a seat count. Share the key with the people who use Clausery (Settings → License on each device). ${ONLINE_KEYS ? 'A key bought online is activated in each browser that uses it; removing it in Settings frees that browser\'s activation for someone else. Teams that need no network at all can ask for an offline key, which is verified with a signature and relies on the honour system for seat counts.' : 'Keys are verified offline with a signature, so there is no activation server and no per-device registration. The honour system applies to seat counts, as it would with any offline license.'}</p>
+<p>${ONLINE_KEYS ? 'The online Team plan covers five named users. Share only the private Open Clausery access link from your receipt with those licensed users; each opens it to activate their browser automatically, with no key to copy. Up to fifteen browser profiles can be activated. Settings → Advanced activation → Remove from this browser frees an unused activation without cancelling the subscription. Additional named users are $9 each/month by request before buying. Teams that need no network can ask for an offline license.' : 'A Team license is one key with a seat count. Share it with the licensed users under Settings → Advanced activation. Keys are verified offline with a signature; the honour system applies to seat counts.'}</p>
 <h2>Enterprise deployments</h2>
 <p>Firms that want the app on their own domain (for example <code>draft.yourfirm.com</code>) or intranet can self-host it: it is a folder of static files. See <a href="${rel}docs/self-hosting.html">Self-hosting</a>.</p>`),
 
@@ -224,7 +224,7 @@ page('docs/backups.html', 'Backups & data', 'Where Clausery stores data, how to 
 <p>Settings → Your data → <strong>Download backup</strong> saves a single JSON file with all templates, documents, drafts and settings (except the license key and the encryption passphrase). Restore it with <strong>Restore backup</strong>, choosing <em>Merge</em> or <em>Replace everything</em>.</p>
 <p>Backups are not encrypted, even when the workspace is. Store them where you store client files.</p>
 <h2>Moving to a new computer</h2>
-<p>Download a backup, restore it on the new machine, enter your license key again. If you use the encrypted workspace, turn it on again on the new machine with the passphrase of your choice.</p>
+<p>Download a backup and restore it on the new machine. ${ONLINE_KEYS ? 'Open the Open Clausery button in your receipt email there to activate your paid plan automatically.' : 'Enter your offline license under Settings → Advanced activation.'} If you use the encrypted workspace, turn it on again on the new machine with the passphrase of your choice.</p>
 <h2>Protected storage</h2>
 <p>Browsers may evict site data under storage pressure. Settings shows whether this site's storage is protected and lets you request it; installing the app (browser menu → Install) usually grants it permanently.</p>
 <h2>Encrypted workspace</h2>
@@ -247,7 +247,7 @@ page('docs/security.html', 'Security', 'How Clausery keeps client data on the de
 <h2>Cryptography</h2>
 <ul>
   <li><strong>Encrypted workspace:</strong> AES-256-GCM with a random 96-bit nonce per record; key derived from the passphrase with PBKDF2-SHA256 (600,000 iterations, 128-bit random salt). Implemented with the browser's WebCrypto API only.</li>
-  <li><strong>License keys:</strong> ${ONLINE_KEYS ? 'keys bought online are activated, then re-checked about once a week, with Lemon Squeezy\'s License API; the request carries only the key and the browser\'s activation ID. Offline keys are Ed25519 signatures over the license payload, verified with a public key embedded in the app.' : 'Ed25519 signatures over the license payload, verified with a public key embedded in the app. No license server.'}</li>
+  <li><strong>Paid-plan verification:</strong> ${ONLINE_KEYS ? 'the Open Clausery button after purchase or in a receipt supplies a credential in the URL fragment. The app removes it from the URL before routing or counting usage, verifies it with Lemon Squeezy\'s License API, and stores the browser activation locally. Opening the same receipt again validates the existing activation rather than using another slot. Checks repeat about once a week and carry only the credential and browser activation ID. Offline keys use Ed25519 signatures verified with a public key embedded in the app.' : 'Ed25519 signatures over the license payload, verified with a public key embedded in the app. No license server.'}</li>
 </ul>
 <h2>Browser hardening</h2>
 <ul>
