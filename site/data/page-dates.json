@@ -13,11 +13,11 @@
  },
  "business-document-kit/": {
   "date": "2026-10-09",
-  "hash": "881225e4ea0c8fca"
+  "hash": "b924156b20fcbae3"
  },
  "changelog.html": {
   "date": "2026-10-09",
-  "hash": "569319415f5070cc"
+  "hash": "e91ca21f59a4bb94"
  },
  "clauses/": {
   "date": "2026-10-04",
@@ -232,8 +232,8 @@
   "hash": "3b04261325095098"
  },
  "free-tools/": {
-  "date": "2026-10-01",
-  "hash": "82a425d30ee81dc5"
+  "date": "2026-10-09",
+  "hash": "6822545fbf9a8713"
  },
  "free-tools/amount-in-words.html": {
   "date": "2026-09-27",
@@ -394,6 +394,10 @@
  "guides/how-to-write-an-offer-letter.html": {
   "date": "2026-09-26",
   "hash": "4c3ae867d656392c"
+ },
+ "guides/invoice-email-template.html": {
+  "date": "2026-10-09",
+  "hash": "91e41396a27fc7ad"
  },
  "guides/is-an-mou-legally-binding.html": {
   "date": "2026-09-26",
