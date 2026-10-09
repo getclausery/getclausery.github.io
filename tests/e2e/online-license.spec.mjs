@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { openApp } from './helpers.mjs';
+import { openApp, openManualActivation } from './helpers.mjs';
 
 // Keys bought through the Lemon Squeezy checkout. The License API is mocked: these tests check what the app sends,
 // when it sends it, and what it does with each answer.
@@ -25,7 +25,7 @@ async function mockLicenseApi(page, answers = {}) {
 
 async function activate(page) {
   await page.goto('app/#/settings');
-  await page.fill('#license-key', KEY);
+  await openManualActivation(page); await page.fill('#license-key', KEY);
   await page.click('button:has-text("Activate")');
   await expect(page.locator('.toast-ok').last()).toContainText('Pro plan activated');
   await expect(page.locator('#status .badge')).toContainText('Pro');
@@ -67,7 +67,7 @@ test('removing an online license frees its activation', async ({ page }) => {
   const sent = await mockLicenseApi(page);
   await openApp(page);
   await activate(page);
-  await page.click('button:has-text("Remove license")');
+  await openManualActivation(page); await page.click('button:has-text("Remove from this browser")');
   await page.click('.modal button:has-text("Remove")');
   await expect(page.locator('#status .badge')).toContainText('Free');
   await expect.poll(() => sent.map((c) => c.action)).toEqual(['activate', 'deactivate']);
@@ -78,7 +78,7 @@ test('a test-mode product key does not unlock the live paid app and its activati
   const sent = await mockLicenseApi(page, { activate: { activated: true, license_key: { status: 'active', key: KEY }, instance: { id: 'inst-e2e' }, meta: { ...META, product_id: 1408953 } } });
   await openApp(page);
   await page.goto('app/#/settings');
-  await page.fill('#license-key', KEY);
+  await openManualActivation(page); await page.fill('#license-key', KEY);
   await page.click('button:has-text("Activate")');
   await expect(page.locator('.toast').last()).toContainText('not for a Clausery plan');
   await expect(page.locator('#status .badge')).toContainText('Free');
@@ -89,8 +89,78 @@ test('the live Team product activates Team features', async ({ page }) => {
   await mockLicenseApi(page, { activate: { activated: true, license_key: { status: 'active', key: KEY, activation_limit: 15 }, instance: { id: 'inst-e2e' }, meta: { ...META, product_id: 1426183, product_name: 'Clausery Team' } } });
   await openApp(page);
   await page.goto('app/#/settings');
-  await page.fill('#license-key', KEY);
+  await openManualActivation(page); await page.fill('#license-key', KEY);
   await page.click('button:has-text("Activate")');
   await expect(page.locator('.toast-ok').last()).toContainText('Team plan activated');
   await expect(page.locator('#status .badge')).toContainText('Team');
+});
+
+for (const [name, productId] of [['Pro', 1426177], ['Team', 1426183]]) {
+  test(`the receipt button automatically activates ${name} and opens the workspace without key entry`, async ({ page }) => {
+    const sent = await mockLicenseApi(page, { activate: { activated: true, license_key: { status: 'active', key: KEY }, instance: { id: 'inst-e2e' }, meta: { ...META, product_id: productId } } });
+    const urls = [];
+    page.on('request', r => urls.push(r.url()));
+    await page.goto('app/activate.html#key=' + KEY);
+    await expect(page.locator('#status .badge')).toHaveText(name);
+    await expect(page.locator('h1')).toHaveText('Templates');
+    expect(page.url()).toMatch(/app\/#\/templates$/);
+    expect(urls.some(u => u.includes(KEY))).toBe(false);
+    expect(sent.map(c => c.action)).toEqual(['activate']);
+    await page.goto('app/#/settings');
+    await expect(page.locator('#license-key')).toBeHidden();
+    await expect(page.locator('#license')).toContainText('Open Clausery button');
+  });
+}
+
+test('opening the receipt again reuses the existing activation instead of consuming another slot', async ({ page }) => {
+  const sent = await mockLicenseApi(page);
+  await page.goto('app/activate.html#key=' + KEY);
+  await expect(page.locator('#status .badge')).toHaveText('Pro');
+  await page.goto('app/activate.html#key=' + KEY);
+  await expect(page.locator('#status .badge')).toHaveText('Pro');
+  expect(sent.map(c => c.action)).toEqual(['activate', 'validate']);
+  expect(sent[1].body.instance_id).toBe('inst-e2e');
+});
+
+test('a temporary activation failure offers a retry without revealing or re-entering a key', async ({ page }) => {
+  let online = false;
+  await mockLicenseApi(page, { activate: () => online ? { activated: true, license_key: { status: 'active', key: KEY }, instance: { id: 'inst-e2e' }, meta: META } : null });
+  await page.goto('app/activate.html#key=' + KEY);
+  await expect(page.locator('#purchase-status')).toContainText('Could not reach');
+  expect(page.url()).toMatch(/app\/activate\.html$/);
+  await expect(page.locator('body')).not.toContainText(KEY);
+  await expect(page.locator('input, textarea')).toHaveCount(0);
+  online = true;
+  await page.getByRole('button', { name: 'Try again', exact: true }).click();
+  await expect(page.locator('#status .badge')).toHaveText('Pro');
+});
+
+test('a receipt for a test or unrelated product cannot unlock a paid plan', async ({ page }) => {
+  const sent = await mockLicenseApi(page, { activate: { activated: true, license_key: { status: 'active', key: KEY }, instance: { id: 'inst-e2e' }, meta: { ...META, product_id: 1408953 } } });
+  await page.goto('app/activate.html#key=' + KEY);
+  await expect(page.locator('#purchase-status')).toContainText('not for a Clausery plan');
+  expect(sent.map(c => c.action)).toEqual(['activate', 'deactivate']);
+  await page.goto('app/');
+  await expect(page.locator('#status .badge')).toHaveText('Free');
+});
+
+test('an incomplete receipt link is cleared and never treated as payment proof', async ({ page }) => {
+  const sent = await mockLicenseApi(page);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('app/activate.html#key=[license_key]');
+  await expect(page.locator('#purchase-status')).toContainText('incomplete');
+  expect(page.url()).toMatch(/app\/activate\.html$/);
+  expect(sent).toHaveLength(0);
+  await expect(page.locator('#purchase-retry')).toBeHidden();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+});
+
+test('two receipt tabs in one browser share one activation', async ({ page, context }) => {
+  const second = await context.newPage();
+  const firstSent = await mockLicenseApi(page);
+  const secondSent = await mockLicenseApi(second);
+  await Promise.all([page.goto('app/activate.html#key=' + KEY), second.goto('app/activate.html#key=' + KEY)]);
+  await expect(page.locator('#status .badge')).toHaveText('Pro');
+  await expect(second.locator('#status .badge')).toHaveText('Pro');
+  expect([...firstSent, ...secondSent].map(c => c.action).sort()).toEqual(['activate', 'validate']);
 });

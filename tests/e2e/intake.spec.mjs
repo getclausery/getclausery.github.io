@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { openApp, useSample, fill } from './helpers.mjs';
+import { openApp, useSample, fill, openManualActivation } from './helpers.mjs';
 import { webcrypto } from 'node:crypto';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
@@ -11,7 +11,7 @@ test('client intake form round trip: export, fill offline, import answers', asyn
   const key = await signPayload({ v: 1, id: 'E2E', plan: 'pro', expires: '2099-01-01' }, kp.privateKey);
   await openApp(page);
   await page.evaluate((k) => localStorage.setItem('clausery.dev.publicKey', k), pub);
-  await page.goto('app/#/settings'); await page.fill('#license-key', key); await page.click('button:has-text("Activate")');
+  await page.goto('app/#/settings'); await openManualActivation(page); await page.fill('#license-key', key); await page.click('button:has-text("Activate")');
   await expect(page.locator('.toast-ok').last()).toBeVisible();
   await page.goto('app/#/templates'); await useSample(page, 2);   // offer letter
   await page.click('button:has-text("New draft")'); await page.waitForSelector('.stepper');

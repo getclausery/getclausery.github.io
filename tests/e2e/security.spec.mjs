@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { openApp, useSample } from './helpers.mjs';
+import { openApp, useSample, openManualActivation } from './helpers.mjs';
 import { webcrypto } from 'node:crypto';
 
 async function devLicense(plan = 'pro') {
@@ -16,11 +16,11 @@ test('license activation unlocks Pro features, bad keys are rejected', async ({ 
   await page.evaluate((k) => localStorage.setItem('clausery.dev.publicKey', k), pub);
   await page.reload();
   await page.goto('app/#/settings');
-  await page.waitForSelector('#license-key');
-  await page.fill('#license-key', 'CLSY-nope.nope');
+  await openManualActivation(page); await page.waitForSelector('#license-key');
+  await openManualActivation(page); await page.fill('#license-key', 'CLSY-nope.nope');
   await page.click('button:has-text("Activate")');
   await expect(page.locator('.toast')).toContainText('corrupted');
-  await page.fill('#license-key', key);
+  await openManualActivation(page); await page.fill('#license-key', key);
   await page.click('button:has-text("Activate")');
   await expect(page.locator('.toast-ok').last()).toContainText('Pro plan activated');
   await expect(page.locator('#status .badge')).toContainText('Pro');
@@ -34,7 +34,7 @@ test('encrypted workspace: enable, lock, wrong passphrase, unlock, data intact',
   await page.evaluate((k) => localStorage.setItem('clausery.dev.publicKey', k), pub);
   await useSample(page, 0);
   await page.goto('app/#/settings');
-  await page.fill('#license-key', key); await page.click('button:has-text("Activate")');
+  await openManualActivation(page); await page.fill('#license-key', key); await page.click('button:has-text("Activate")');
   await expect(page.locator('.toast-ok').last()).toBeVisible();
   await page.click('button:has-text("Turn on encryption")');
   await page.fill('.modal input[type=password] >> nth=0', 'correct horse battery');
@@ -75,7 +75,7 @@ async function enableEncryption(page, passphrase = 'correct horse battery') {
   await page.evaluate((k) => localStorage.setItem('clausery.dev.publicKey', k), pub);
   await useSample(page, 0);
   await page.goto('app/#/settings');
-  await page.fill('#license-key', key); await page.click('button:has-text("Activate")');
+  await openManualActivation(page); await page.fill('#license-key', key); await page.click('button:has-text("Activate")');
   await expect(page.locator('.toast-ok').last()).toBeVisible();
   await page.click('button:has-text("Turn on encryption")');
   await page.fill('.modal input[type=password] >> nth=0', passphrase);

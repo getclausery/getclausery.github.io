@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-10-09",
-  "hash": "15c3de07c7f031c4"
+  "hash": "b264a44aefe158d6"
  },
  "404.html": {
   "date": "2026-09-27",
@@ -17,7 +17,7 @@
  },
  "changelog.html": {
   "date": "2026-10-09",
-  "hash": "95ed7e3ed6745776"
+  "hash": "79418145c67a6174"
  },
  "clauses/": {
   "date": "2026-10-04",
@@ -168,20 +168,20 @@
   "hash": "02cc5c19e543d33f"
  },
  "contact/": {
-  "date": "2026-10-05",
-  "hash": "fa0e83dd7e2ceab3"
+  "date": "2026-10-09",
+  "hash": "54abaa9702291069"
  },
  "docs/": {
   "date": "2026-10-07",
   "hash": "f2c7b9c574875c52"
  },
  "docs/backups.html": {
-  "date": "2026-10-01",
-  "hash": "207a1269e89d4b8e"
+  "date": "2026-10-09",
+  "hash": "099ea0d02674697f"
  },
  "docs/faq.html": {
   "date": "2026-10-09",
-  "hash": "33c9c405601d9430"
+  "hash": "73d79bbee78f052a"
  },
  "docs/intake.html": {
   "date": "2026-10-01",
@@ -197,7 +197,7 @@
  },
  "docs/security.html": {
   "date": "2026-10-09",
-  "hash": "18d2b9b7f5980e5c"
+  "hash": "783e00faec20b74f"
  },
  "docs/self-hosting.html": {
   "date": "2026-10-04",
@@ -205,7 +205,7 @@
  },
  "docs/teams.html": {
   "date": "2026-10-09",
-  "hash": "5b10d18343966dca"
+  "hash": "fc0105480f6694aa"
  },
  "docs/templates.html": {
   "date": "2026-10-01",
@@ -577,7 +577,7 @@
  },
  "legal/privacy.html": {
   "date": "2026-10-09",
-  "hash": "03f168e839299861"
+  "hash": "0ff03ff7ffbd61dc"
  },
  "legal/terms.html": {
   "date": "2026-10-02",
@@ -593,7 +593,7 @@
  },
  "pricing/": {
   "date": "2026-10-09",
-  "hash": "8c87b1b234628efa"
+  "hash": "6f9a907e4634db9d"
  },
  "templates/": {
   "date": "2026-10-08",

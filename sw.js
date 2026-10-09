@@ -3,7 +3,7 @@
    background requests (a new release ships a new VERSION, which installs a fresh cache). Pages are network-first so a
    deploy is visible at once; offline, app routes fall back to the app shell and other pages to offline.html.
    VERSION and PRECACHE are written by tools/release.mjs; do not edit them by hand. */
-const VERSION = '1.31.0';
+const VERSION = '1.32.0';
 const CACHE = 'clausery-' + VERSION;
 const BASE = new URL('./', self.location).pathname;
 // PRECACHE:BEGIN
@@ -24,6 +24,7 @@ const PRECACHE = [
   'app/lib/plan.js',
   'app/lib/prefill.js',
   'app/lib/presets.js',
+  'app/lib/purchase.js',
   'app/lib/render.js',
   'app/lib/schema.js',
   'app/lib/setups.js',
@@ -33,6 +34,7 @@ const PRECACHE = [
   'app/lib/versions.js',
   'app/main.js',
   'app/manifest.webmanifest',
+  'app/purchase-entry.js',
   'app/styles.css',
   'app/theme.js',
   'app/ui/dom.js',
@@ -137,7 +139,8 @@ const PRECACHE = [
   'site.css',
   'site.js',
   'vendor/docs.js',
-  'vendor/intake-runtime.js'
+  'vendor/intake-runtime.js',
+  'vendor/purchase-runtime-1.32.0.js'
 ];
 // PRECACHE:END
 const PRECACHE_URLS = new Set(PRECACHE.map((p) => BASE + p));

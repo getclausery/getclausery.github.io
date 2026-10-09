@@ -83,7 +83,7 @@ npm run license -- issue --key keys/private.pem --plan pro --name "Jane Doe" --e
 npm run license -- verify --public <publicKey> <key>
 ```
 
-Put the public key in `app/config.js` (`LICENSE_PUBLIC_KEY`). Keys are verified in the browser with WebCrypto; no server is involved. The public deployment uses live Lemon Squeezy checkout links in `CHECKOUT_URLS` (Pro monthly, Pro yearly and Team), with `CHECKOUT_SINCE` recording when billing opened. `LICENSE_SERVICE.products` maps the published live product IDs to their plans, excluding test products. For your own deployment, replace those values with your store and product IDs, or leave the checkout links empty for key requests (`KEY_REQUEST_URL`), then rebuild. Never put a Lemon Squeezy private API key in the static app.
+Put the public key in `app/config.js` (`LICENSE_PUBLIC_KEY`). Keys are verified in the browser with WebCrypto; no server is involved. The public deployment uses live Lemon Squeezy checkout links in `CHECKOUT_URLS` (Pro monthly, Pro yearly and Team), with `CHECKOUT_SINCE` recording when billing opened. Lemon Squeezy confirmation and receipt buttons use `https://getclausery.github.io/app/activate.html#key=[license_key]`: the fragment is cleared before routing, the purchase is verified automatically, and the app opens with the paid plan ready. Customers do not copy keys or create a separate account. `LICENSE_SERVICE.products` maps the published live product IDs to their plans, excluding test products. For your own deployment, replace those values with your store and product IDs, or leave the checkout links empty for key requests (`KEY_REQUEST_URL`), then rebuild. Never put a Lemon Squeezy private API key in the static app.
 
 ## Contact and support
 

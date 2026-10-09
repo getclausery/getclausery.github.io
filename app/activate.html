@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="description" content="Clausery activates your purchase automatically and opens your paid workspace, with no key to copy.">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.lemonsqueezy.com; object-src 'none'; base-uri 'self'; form-action 'none'">
+<title>Opening your paid plan — Clausery</title>
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../site.css">
+<style>#purchase-retry[hidden] { display: none; }</style>
+</head>
+<body>
+<header class="site-header"><div class="wrap"><a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a></div></header>
+<main class="section"><div class="wrap" style="max-width:40rem">
+<h1>Opening your paid plan</h1>
+<p id="purchase-status" role="status">Checking your payment and opening Clausery…</p>
+<p><button class="btn btn-primary" id="purchase-retry" type="button" hidden>Try again</button></p>
+<p class="small muted">No key to copy. This browser will open your workspace with your paid plan ready.</p>
+<p class="small muted">If you closed this page, open the Open Clausery button in your receipt email again. Keep that access link private.</p>
+<p><a href="mailto:getclausery@gmail.com?subject=Clausery%20purchase%20help">Contact support</a></p>
+<noscript><p>Enable JavaScript to finish activating your purchase, then reopen the button from your receipt email.</p></noscript>
+</div></main>
+<script type="module" src="../vendor/purchase-runtime-1.32.0.js"></script>
+</body>
+</html>

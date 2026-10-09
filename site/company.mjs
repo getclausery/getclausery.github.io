@@ -10,7 +10,7 @@ const issue = (form) => `${REPO_URL}/issues/new?template=${form}`;
 // go to the public issue tracker, and security reports to GitHub's private reporting.
 const CHANNELS = [
   ['Ask a question or send feedback', 'Questions about the app, a template or a calculator, feature ideas, and press or partnership enquiries.', mailto('Question about Clausery'), 'Email a question'],
-  ['Request a Pro or Team key', 'Buy a license, ask for a 14-day trial key, or claim the nonprofit, legal aid or education discount.', KEY_REQUEST_URL, 'Request a key'],
+  ONLINE_KEYS ? ['Billing, trials and discounts', 'Buy Pro or Team directly from Pricing. Email us for billing help, a 14-day trial, extra Team seats or the nonprofit, legal aid or education discount.', mailto('Clausery billing help'), 'Email billing support'] : ['Request a Pro or Team key', 'Buy a license, ask for a 14-day trial key, or claim the nonprofit, legal aid or education discount.', KEY_REQUEST_URL, 'Request a key'],
   ['Request a template', 'Tell us which document you draft again and again. The most requested templates are built first.', mailto('Template request'), 'Request a template'],
   ['Report a problem', 'Something in the app, a template, a calculator or the website does not work as it should. Developers can also <a href="' + issue('bug-report.yml').replace(/&/g, '&amp;') + '" rel="noopener">open a GitHub issue</a>.', mailto('Problem report'), 'Report a problem'],
 ];
