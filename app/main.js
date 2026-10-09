@@ -218,7 +218,7 @@ async function boot() {
   const licenseKey = await store.getSetting('license', null);
   if (isOnlineRecord(licenseKey)) {
     // decide from the stored record so the app opens instantly and offline; re-check in the background when due
-    const ev = evaluateOnline(licenseKey);
+    const ev = evaluateOnline(licenseKey, new Date(), LICENSE_SERVICE);
     if (ev.ok) plan.set(ev.plan, ev.payload); else plan.set('free', null, ev.error);
     if (ev.due && navigator.onLine !== false) ctx.recheckLicense().then((r) => { if (!ev.ok && r.ok !== true) toast(r.error || ev.error, { type: 'warn', timeout: 10000 }); }).catch(() => {});
     else if (!ev.ok) toast(ev.error, { type: 'warn', timeout: 10000 });

@@ -6,6 +6,7 @@ import { encodeWorkspace, decodeBundle, downloadBlob, safeFilename } from '../..
 import { estimateUsage, requestPersistence } from '../../lib/store.js';
 import { normalizeTemplate, DATE_FORMATS } from '../../lib/schema.js';
 import { VERSIONS } from '../../lib/versions.js';
+import { USAGE_COUNTER } from '../../config.js';
 
 const CURRENCIES = ['USD', 'EUR', 'GBP', 'CAD', 'AUD', 'CHF', 'JPY', 'INR', 'SGD', 'NZD', 'ZAR', 'BRL', 'MXN', 'SEK', 'NOK', 'DKK'];
 
@@ -35,7 +36,7 @@ export async function render(ctx) {
       h('div.small', online ? `Active in this browser. Last checked with our payment provider on ${checkedOn(ctx.plan.payload.checkedAt)}. Use the same key on your other devices.` : 'Licensed to this browser profile. Keep your key: you need it on each device.')))
     : h('div.notice', icon('info'), h('div', h('strong', 'Free plan. '), ctx.plan.error ? h('span', ctx.plan.error, ' ') : 'Every library template plus up to 3 of your own, with unlimited drafts and documents. ', h('a', { href: '../pricing/', target: '_blank', rel: 'noopener' }, 'Compare plans')));
   const licenseBox = h('div', licenseStatus());
-  const license = section('license', 'License', svc.api ? 'Your documents are never sent anywhere. A key bought online is checked with Lemon Squeezy, our payment provider, when you activate it and about once a week; only the key is sent. Offline keys (CLSY-…) are verified on this device with a signature.' : 'Keys are verified offline with a signature. No account, no phone-home.',
+  const license = section('license', 'License', svc.api ? 'Your documents are never sent anywhere. A key bought online is checked with Lemon Squeezy, our payment provider, when you activate it and about once a week; the key and this browser\'s activation ID are sent. Offline keys (CLSY-…) are verified on this device with a signature.' : 'Keys are verified offline with a signature. No account, no phone-home.',
     licenseBox,
     h('ul.feature-list', { style: { margin: '1rem 0' } }, Object.entries(FEATURE_LABELS).map(([k, l]) => h('li', ctx.plan.can(k) ? icon('check', 16) : h('span', { style: { width: '16px', display: 'inline-block', color: 'var(--muted)' } }, '·'), l))),
     h('div.stack-sm', row('License key', keyInput), h('div.row',
@@ -94,7 +95,7 @@ export async function render(ctx) {
 
   // ---- about
   const about = section('about', 'About', null,
-    h('dl.kv', h('dt', 'Version'), h('dd', ctx.version), h('dt', 'Document engine'), h('dd', `docxtemplater ${VERSIONS.docxtemplater} · pizzip ${VERSIONS.pizzip} · docx-preview ${VERSIONS['docx-preview']}`), h('dt', 'Network use'), h('dd', 'Only Clausery\'s own files, from the site that serves it', svc.api ? ', plus the license check with Lemon Squeezy if you activate a key bought online (only the key is sent)' : '', '. Nothing you enter is ever sent anywhere; check the Network tab of your browser to verify.'), h('dt', 'Links'), h('dd', h('a', { href: '../docs/', target: '_blank', rel: 'noopener' }, 'Documentation'), ' · ', h('a', { href: '../docs/security.html', target: '_blank', rel: 'noopener' }, 'Security'), ' · ', h('a', { href: '../legal/privacy.html', target: '_blank', rel: 'noopener' }, 'Privacy'), ' · ', h('a', { href: '../changelog.html', target: '_blank', rel: 'noopener' }, 'Changelog'))));
+    h('dl.kv', h('dt', 'Version'), h('dd', ctx.version), h('dt', 'Document engine'), h('dd', `docxtemplater ${VERSIONS.docxtemplater} · pizzip ${VERSIONS.pizzip} · docx-preview ${VERSIONS['docx-preview']}`), h('dt', 'Network use'), h('dd', 'Clausery\'s own files, from the site that serves it', svc.api ? ', plus the license check with Lemon Squeezy if you activate a key bought online (the key and browser activation ID are sent)' : '', USAGE_COUNTER.endpoint ? ', plus anonymous app usage counts on the public site (no answers, file names or document contents)' : '', '. Your templates, answers and documents stay on your device.'), h('dt', 'Links'), h('dd', h('a', { href: '../docs/', target: '_blank', rel: 'noopener' }, 'Documentation'), ' · ', h('a', { href: '../docs/security.html', target: '_blank', rel: 'noopener' }, 'Security'), ' · ', h('a', { href: '../legal/privacy.html', target: '_blank', rel: 'noopener' }, 'Privacy'), ' · ', h('a', { href: '../changelog.html', target: '_blank', rel: 'noopener' }, 'Changelog'))));
 
   setChildren(ctx.main, h('div.narrow.stack', h('div.page-head', h('div', h('h1', 'Settings'))), profile, appearance, license, security, data, about));
 }

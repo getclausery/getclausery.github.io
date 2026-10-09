@@ -88,6 +88,21 @@ test('mobile menu opens under a strict script policy (no inline handlers)', asyn
   await expect(page.locator('[data-checkout="pro"]')).toHaveAttribute('href', /^mailto:getclausery@gmail\.com\?subject=Clausery%20Pro%20key%20request$|^https:\/\//);
 });
 
+test('pricing offers the live monthly, yearly and Team checkouts with accurate purchase instructions', async ({ page }) => {
+  const { CHECKOUT_URLS } = await import('../../app/config.js');
+  await page.goto('pricing/');
+  for (const plan of ['pro', 'proYearly', 'team']) {
+    await expect(page.locator(`[data-checkout="${plan}"]`)).toHaveAttribute('href', CHECKOUT_URLS[plan]);
+    await expect(page.locator(`[data-checkout="${plan}"]`)).toHaveText(/^Get /);
+  }
+  await expect(page.locator('[data-when-checkout]')).toBeVisible();
+  await expect(page.locator('[data-when-no-checkout]')).toBeHidden();
+  await expect(page.locator('#buy')).toContainText('Lemon Squeezy');
+  await page.goto('legal/privacy.html');
+  await expect(page.locator('main')).toContainText('Lemon Squeezy');
+  await expect(page.locator('main')).toContainText('getclausery@gmail.com');
+});
+
 test('free tools work in the page', async ({ page }) => {
   await page.goto('free-tools/amount-in-words.html');
   await page.fill('#amount', '3500');

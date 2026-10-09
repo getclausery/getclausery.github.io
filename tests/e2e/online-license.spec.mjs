@@ -4,7 +4,7 @@ import { openApp } from './helpers.mjs';
 // Keys bought through the Lemon Squeezy checkout. The License API is mocked: these tests check what the app sends,
 // when it sends it, and what it does with each answer.
 const KEY = '38B1460A-5104-4067-A91D-77B872934D51';
-const META = { store_id: 488876, order_id: 1, product_id: 1408953, product_name: 'Clausery Pro', variant_id: 2199554, variant_name: 'Monthly', customer_name: 'E2E Buyer', customer_email: 'buyer@example.com' };
+const META = { store_id: 488876, order_id: 1, product_id: 1426177, product_name: 'Clausery Pro', variant_id: 2227470, variant_name: 'Monthly', customer_name: 'E2E Buyer', customer_email: 'buyer@example.com' };
 
 async function mockLicenseApi(page, answers = {}) {
   const sent = [];
@@ -72,4 +72,25 @@ test('removing an online license frees its activation', async ({ page }) => {
   await expect(page.locator('#status .badge')).toContainText('Free');
   await expect.poll(() => sent.map((c) => c.action)).toEqual(['activate', 'deactivate']);
   expect(sent[1].body).toEqual({ license_key: KEY, instance_id: 'inst-e2e' });
+});
+
+test('a test-mode product key does not unlock the live paid app and its activation is released', async ({ page }) => {
+  const sent = await mockLicenseApi(page, { activate: { activated: true, license_key: { status: 'active', key: KEY }, instance: { id: 'inst-e2e' }, meta: { ...META, product_id: 1408953 } } });
+  await openApp(page);
+  await page.goto('app/#/settings');
+  await page.fill('#license-key', KEY);
+  await page.click('button:has-text("Activate")');
+  await expect(page.locator('.toast').last()).toContainText('not for a Clausery plan');
+  await expect(page.locator('#status .badge')).toContainText('Free');
+  expect(sent.map(c => c.action)).toEqual(['activate', 'deactivate']);
+});
+
+test('the live Team product activates Team features', async ({ page }) => {
+  await mockLicenseApi(page, { activate: { activated: true, license_key: { status: 'active', key: KEY, activation_limit: 15 }, instance: { id: 'inst-e2e' }, meta: { ...META, product_id: 1426183, product_name: 'Clausery Team' } } });
+  await openApp(page);
+  await page.goto('app/#/settings');
+  await page.fill('#license-key', KEY);
+  await page.click('button:has-text("Activate")');
+  await expect(page.locator('.toast-ok').last()).toContainText('Team plan activated');
+  await expect(page.locator('#status .badge')).toContainText('Team');
 });
