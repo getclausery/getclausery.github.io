@@ -762,7 +762,7 @@ ${['quote', 'payment-receipt', 'credit-note'].includes(t.slug) ? `<!--nav--><p s
 ` : ''}${GUIDE_FOR[t.slug] ? `  <p style="margin-top:2rem"><strong>Guide:</strong> <a href="${rel}guides/${GUIDE_FOR[t.slug]}.html">${esc(GUIDE[GUIDE_FOR[t.slug]].title)}</a></p>
 ` : ''}${NDA_SLUGS.includes(t.slug) ? `  <p><strong>All NDA templates:</strong> <a href="${rel}nda-templates/">which NDA do you need?</a></p>
 ` : ''}${TOOL_FOR[t.slug] ? `  <p><strong>Free tool:</strong> <a href="${rel}free-tools/${TOOL_FOR[t.slug][0]}.html">${esc(TOOL_FOR[t.slug][1])}</a></p>
-` : ''}<!--nav-->  <h2 style="margin-top:2.5rem">Related templates</h2>
+` : ''}<!--nav-->${['invoice', 'payment-reminder-letter', 'payment-receipt'].includes(t.slug) ? `<p>Ready to write the message? Use the <a href="${rel}guides/invoice-email-template.html">invoice email generator with sending, reminder and payment acknowledgement templates</a>.</p>` : ''}  <h2 style="margin-top:2.5rem">Related templates</h2>
   <div class="grid grid-3 related-cards">${related(t).map((x) => `<a class="feature" href="${rel}templates/${x.slug}.html"><h3>${esc(x.name)}</h3><p>${esc(cardLine(x))}</p></a>`).join('')}</div>
   <h2 style="margin-top:2.5rem">All ${LIB.length} free templates</h2>
   <div class="cat-lists tight">${CATEGORY_ORDER.map(([c, label]) => `<div><h3>${label}</h3><ul class="link-list">${LIB.filter((x) => x.category === c && x.slug !== t.slug).map((x) => `<li><a href="${rel}templates/${x.slug}.html">${esc(x.name)}</a></li>`).join('')}</ul></div>`).join('')}</div><!--/nav-->

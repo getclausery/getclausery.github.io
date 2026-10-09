@@ -8,6 +8,8 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.33.0 <span class="small muted">— 9 October 2026</span></h2>
+<ul><li>A free <a href="${rel}guides/invoice-email-template.html">invoice email generator and four message templates</a> for sending an invoice, reminding a client, following up on overdue payment and acknowledging money received. Details stay on your device; copy the message into your own email app.</li></ul>
 <h2>1.32.1 <span class="small muted">— 9 October 2026</span></h2>
 <ul>
   <li>The automatic activation page accepts the return-link format supported by Lemon Squeezy's confirmation and receipt buttons. Access links are cleared from the address before activation and are not sent as referrers.</li>
