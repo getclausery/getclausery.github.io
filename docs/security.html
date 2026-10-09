@@ -57,7 +57,7 @@
 <h2>Cryptography</h2>
 <ul>
   <li><strong>Encrypted workspace:</strong> AES-256-GCM with a random 96-bit nonce per record; key derived from the passphrase with PBKDF2-SHA256 (600,000 iterations, 128-bit random salt). Implemented with the browser's WebCrypto API only.</li>
-  <li><strong>License keys:</strong> Ed25519 signatures over the license payload, verified with a public key embedded in the app. No license server.</li>
+  <li><strong>License keys:</strong> keys bought online are activated, then re-checked about once a week, with Lemon Squeezy's License API; the request carries only the key and the browser's activation ID. Offline keys are Ed25519 signatures over the license payload, verified with a public key embedded in the app.</li>
 </ul>
 <h2>Browser hardening</h2>
 <ul>
@@ -76,7 +76,7 @@
 </tbody></table>
 <h2>Verify it</h2>
 <ol>
-  <li>Open the app, then open the browser's developer tools → Network. Import a template, draft and generate. Every request is a GET for one of Clausery's own files on the same site (for example <code>samples/…docx</code> when you pick a sample); none carries your data, and none goes to another domain. After the app is installed these are answered by the service worker cache.</li>
+  <li>Open the app, then open the browser's developer tools → Network. Import a template, draft and generate. Every request is a GET for one of Clausery's own files on the same site (for example <code>samples/…docx</code> when you pick a sample); none carries your data, and none goes to another domain (apart from the license check described above, if you activated a key bought online). After the app is installed these are answered by the service worker cache.</li>
   <li>Disconnect from the network. Everything continues to work.</li>
   <li>Read the source: it is served unminified except for two built files: the bundled document library (<code>vendor/docs.js</code>, upstream versions listed in Settings → About) and the intake-form runtime (<code>vendor/intake-runtime.js</code>, built from <code>src/intake/runtime.js</code> and the app's own modules), which is what exported intake forms contain.</li>
 </ol>

@@ -1,6 +1,6 @@
 /* Clausery deployment configuration. Edit this file when you deploy your own copy. */
 export const APP_NAME = 'Clausery';
-export const APP_VERSION = '1.30.0';
+export const APP_VERSION = '1.31.0';
 
 /* Public site URL (no trailing slash). Used for links in exported files and the intake form footer. */
 export const SITE_URL = 'https://getclausery.github.io';
@@ -11,13 +11,18 @@ export const LICENSE_PUBLIC_KEY = 'gRV3e8g0NYShNgtFnSrralyB_RVvOzaLwlSHSvjcFvo';
 
 /* Keys bought through the Lemon Squeezy checkout (UUIDs) are activated, then re-checked about once a week, with Lemon
    Squeezy's public License API. Only the key and this browser's activation ID are sent. storeId limits which store's keys
-   count; portal is where buyers manage their subscription. Set api to '' to accept only offline CLSY- keys. */
-export const LICENSE_SERVICE = { api: 'https://api.lemonsqueezy.com/v1/licenses', storeId: 488876, portal: 'https://getclausery.lemonsqueezy.com/billing' };
+   count; products maps published live product IDs to plans, excluding test-mode products. The portal is where buyers
+   manage subscriptions. Set api to '' to accept only offline CLSY- keys. */
+export const LICENSE_SERVICE = { api: 'https://api.lemonsqueezy.com/v1/licenses', storeId: 488876, portal: 'https://getclausery.lemonsqueezy.com/billing', products: { 1426177: 'pro', 1426183: 'team' } };
 
 /* Hosted checkout links (Stripe Payment Links, Lemon Squeezy, Paddle...). Leave empty to show the key request form instead. */
-export const CHECKOUT_URLS = { pro: '', team: '' };
+export const CHECKOUT_URLS = {
+  pro: 'https://getclausery.lemonsqueezy.com/checkout/buy/33635620-0033-4ace-8193-b2eb734b51f2?enabled=2227470',
+  proYearly: 'https://getclausery.lemonsqueezy.com/checkout/buy/c3012391-8a2f-47ba-807e-31877967b105?enabled=2227471',
+  team: 'https://getclausery.lemonsqueezy.com/checkout/buy/0c7c74e8-7be4-4fe4-b869-1fa585bce7de',
+};
 /* The day the checkout links above went live (YYYY-MM-DD). The privacy policy's effective date follows it. */
-export const CHECKOUT_SINCE = '';
+export const CHECKOUT_SINCE = '2026-10-09';
 
 /* Anonymous usage counts with GoatCounter (https://www.goatcounter.com), which sets no cookies and does not store IP
    addresses. The app reports only that something happened (the app opened, a draft started, a document was made) and,

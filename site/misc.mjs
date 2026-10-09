@@ -8,6 +8,12 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.31.0 <span class="small muted">— 9 October 2026</span></h2>
+<ul>
+  <li>Online checkout is open through Lemon Squeezy: <a href="${rel}pricing/">Pro monthly, Pro yearly and five-seat Team</a>, with license keys delivered after purchase.</li>
+  <li>Paid licenses are matched to the published live products. Test-mode products cannot unlock a paid plan. Existing cached online keys without product information are checked again.</li>
+  <li>Pricing, activation instructions and privacy disclosures now describe online billing, device activation limits and extra Team seats by request.</li>
+</ul>
 <h2>1.30.0 <span class="small muted">— 9 October 2026</span></h2>
 <ul>
   <li>A <a href="${rel}guides/how-to-write-a-payment-receipt.html">payment receipt guide</a> with a Word example, partial-payment instructions and a sending checklist.</li>
