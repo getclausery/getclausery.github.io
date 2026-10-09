@@ -140,7 +140,6 @@ const PRECACHE = [
   'site.js',
   'vendor/docs.js',
   'vendor/intake-runtime.js',
-  'vendor/purchase-runtime-1.32.0.js',
   'vendor/purchase-runtime-1.32.1.js'
 ];
 // PRECACHE:END
