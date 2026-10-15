@@ -11,7 +11,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync, globSync } from 'no
 import { SITE } from './partials.mjs';
 
 const base = SITE;
-const skip = (f) => /^(node_modules|app|test-results|playwright-report|free-tools\/embed)\//.test(f) || f === '404.html' || f === 'offline.html' || /^google[0-9a-f]+\.html$/.test(f);   // search-console verification files; embed pages are noindex
+const skip = (f) => /^(node_modules|app|test-results|playwright-report|free-tools\/embed)\//.test(f) || f === '404.html' || f === 'offline.html' || f === 'made-with/index.html' || /^google[0-9a-f]+\.html$/.test(f);   // search-console verification files; embed pages are noindex
 const pages = globSync('**/*.html').map((f) => f.split('\\').join('/')).filter((f) => !skip(f)).sort();
 const dates = existsSync('site/data/page-dates.json') ? JSON.parse(readFileSync('site/data/page-dates.json', 'utf8')) : {};
 const lastmod = Object.fromEntries(Object.entries(dates).map(([path, { date }]) => [`${base}${path}`, date]));
@@ -34,5 +34,5 @@ const newest = (name) => pages.filter((f) => sectionOf(f.replace(/index\.html$/,
 writeFileSync('sitemap_index.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${names.map((n) => `  <sitemap><loc>${base}sitemaps/${n}.xml</loc>${newest(n) ? `<lastmod>${newest(n)}</lastmod>` : ''}</sitemap>`).join('\n')}\n</sitemapindex>\n`);
 // Every page loads app/theme.js and app/manifest.webmanifest, so those two stay crawlable for rendering. Sample .docx
 // files are kept out of results so searchers land on the template page (preview, guidance, fill-in-online) instead.
-writeFileSync('robots.txt', `User-agent: *\nAllow: /\nAllow: /app/theme.js\nAllow: /app/manifest.webmanifest\nDisallow: /app/\nDisallow: /samples/\nSitemap: ${base}sitemap_index.xml\nSitemap: ${base}sitemap.xml\n`);
+writeFileSync('robots.txt', `User-agent: *\nAllow: /\nAllow: /app/theme.js\nAllow: /app/manifest.webmanifest\nDisallow: /app/\nDisallow: /samples/\nDisallow: /marketing/\nSitemap: ${base}sitemap_index.xml\nSitemap: ${base}sitemap.xml\n`);
 console.log(`sitemap: ${pages.length} pages in sitemap.xml and ${names.length} section sitemaps (${pages.filter((f) => lastmod[`${base}${f.replace(/index\.html$/, '')}`]).length} with lastmod); robots.txt written`);

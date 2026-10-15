@@ -2,6 +2,7 @@
 // trust a page that admits trade-offs, and every claim here must stay accurate.
 import { esc, faqLd, faqHtml } from '../tools/partials.mjs';
 import { LIB } from './library.mjs';
+import { PRICES, TRIAL_DAYS } from '../app/config.js';
 
 const ROWS = ['Where your documents are processed', 'Account needed', 'Works offline', 'Uses your own Word templates', 'Conditional clauses and repeating lists', 'Calculations', 'Client questionnaires', 'Integrations with practice management', 'Price'];
 const CLAUSERY = ['Your browser only; nothing is uploaded', 'No', 'Yes', 'Yes', 'Yes', 'Yes (Pro)', 'Offline intake file you email to the client', 'None: files in, files out', 'Free library templates, plus 3 of your own; Pro $19 per user per month'];
@@ -87,9 +88,9 @@ const compareFaq = (c) => [
     : c.group === 'freelance'
     ? `Yes. You could keep ${c.name} for the parts you use, such as invoicing and payments, and prepare contracts in Clausery. Clausery needs no integration: it produces a Word file you can send, sign and store however you like.`
     : `Yes. Many firms keep a platform like ${c.name} for the workflows it does best and use Clausery for documents whose details should not leave the office. Clausery needs no integration to run alongside it.`],
-  [`How much does Clausery cost compared with ${c.name}?`, `Every Clausery library template is free, you can automate up to three of your own templates free with unlimited documents, and Pro is $19 per user per month. The table above summarises ${c.name}'s published pricing as of 2026; check the vendor for current prices.`],
+  [`How much does Clausery cost compared with ${c.name}?`, `Every Clausery library template is free, you can automate up to three of your own templates free with unlimited documents, and Pro is $${PRICES.pro} per user per month, with a ${TRIAL_DAYS}-day free trial that needs no card. The table above summarises ${c.name}'s published pricing as of 2026; check the vendor for current prices.`],
   c.group === 'forms'
-    ? ['Is there a trial that turns into a subscription?', 'No. The free plan has no time limit and asks for no card, and every template can be downloaded as a Word file without an account. You only pay if you choose to buy Pro.']
+    ? ['Is there a trial that turns into a subscription?', `No. The free plan has no time limit and asks for no card, and every template can be downloaded as a Word file without an account. Pro has an optional ${TRIAL_DAYS}-day free trial in the app that needs no card either and simply ends. You only pay if you choose to buy Pro.`]
     : c.group === 'freelance'
     ? ['Can clients sign a Clausery contract?', 'Clausery does not collect signatures itself. Send the Word file, or a PDF printed from it, through any e-signature service, or sign on paper. Several e-signature services have a free plan for a limited number of documents.']
     : ['Does Clausery need IT to set up?', 'No. It runs in any modern browser with nothing to install, and firms that prefer can host the files on their own server.'],

@@ -4,6 +4,7 @@
    - previewDocx: render a .docx into an HTML container for on-screen preview and printing
    - describeTemplateError: turn docxtemplater's error objects into messages a template author can act on */
 import { PizZip, Docxtemplater, InspectModule, renderAsync } from '../../vendor/docs.js';
+import { addCredit } from './credit.js';
 
 const OPTIONS = { paragraphLoop: true, linebreaks: true };
 
@@ -76,19 +77,22 @@ export function inspectDocx(bytes) {
   return { tags: im.getAllTags(), order, inverted: [...inverted], text: texts.join('\n\n') };
 }
 
-export function renderDocx(bytes, data) {
+/** Fill the template and return its zip. `credit` adds the "Made with Clausery" line (Free plan, library templates). */
+function renderZip(bytes, data, { credit = false } = {}) {
   const zip = loadZip(bytes);
   const doc = new Docxtemplater(zip, { ...OPTIONS, nullGetter });
   doc.render(data);
-  return doc.getZip().generate({ type: 'blob', mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', compression: 'DEFLATE' });
+  const out = doc.getZip();
+  return credit ? addCredit(out) : out;
+}
+
+export function renderDocx(bytes, data, opts) {
+  return renderZip(bytes, data, opts).generate({ type: 'blob', mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', compression: 'DEFLATE' });
 }
 
 /** The same document as bytes, for packing several into one .zip. */
-export function renderDocxBytes(bytes, data) {
-  const zip = loadZip(bytes);
-  const doc = new Docxtemplater(zip, { ...OPTIONS, nullGetter });
-  doc.render(data);
-  return doc.getZip().generate({ type: 'uint8array', compression: 'DEFLATE' });
+export function renderDocxBytes(bytes, data, opts) {
+  return renderZip(bytes, data, opts).generate({ type: 'uint8array', compression: 'DEFLATE' });
 }
 
 /** Pack files ({ name, bytes }) into one .zip Blob. Word files are already compressed, so they are stored as they are. */
@@ -105,6 +109,8 @@ export async function previewDocx(blobOrBytes, container, styleContainer) {
     breakPages: true, ignoreLastRenderedPageBreak: true, experimental: true, trimXmlDeclaration: true,
     useBase64URL: true, renderHeaders: true, renderFooters: true, renderFootnotes: true, renderEndnotes: true, renderChanges: false, renderComments: false,
   });
+  // a link in a document (such as the Free plan's credit line) opens in a new tab instead of leaving the draft
+  for (const a of container.querySelectorAll('a[href^="http"]')) { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
 }
 
 /** Human explanations for docxtemplater template errors (unclosed tags, mismatched sections, etc.). */

@@ -1,6 +1,7 @@
 // Press kit: facts, boilerplate and assets for journalists, directories and bloggers.
 import { LIB } from './library.mjs';
-import { REPO_URL, CONTACT_EMAIL, mailto } from '../tools/partials.mjs';
+import { REPO_URL, CONTACT_EMAIL, ONLINE_KEYS, mailto } from '../tools/partials.mjs';
+import { PRICES, TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 import { MARKETING_ASSETS } from './data/marketing-assets.mjs';
 export const pages = [{
   path: 'press/', title: 'Press kit',
@@ -15,18 +16,18 @@ export const pages = [{
 <h2>Long description</h2>
 <p>Small businesses repeatedly prepare quotes, invoices and receipts. Clausery turns those documents into guided questions and creates editable Word output. Its invoice templates calculate line items, discounts, tax and balances from the values the user enters. Repeat documents can reuse the business details and continue the numbering saved in the same browser.</p>
 <p>The <a href="${rel}invoice-templates/deposit-invoice.html">deposit invoice</a> requests an agreed upfront amount, the <a href="${rel}invoice-templates/hourly-invoice.html">hourly invoice</a> uses hours as quantities, and the <a href="${rel}invoice-templates/final-invoice.html">final invoice</a> deducts payments actually received. A <a href="${rel}business-document-kit/">free business document kit</a> brings six Word templates together in one download.</p>
-<p>Document processing happens locally in the browser, and saved drafts stay in that browser's storage. The app works offline once its required files are available. Anonymous usage counts and online license checks are separate from document processing; neither receives document contents. Users can also automate their own Word templates. Pro adds unlimited own templates, calculations in those templates, workspace encryption, client intake forms and unlimited documents per spreadsheet.</p>
+<p>Document processing happens locally in the browser, and saved drafts stay in that browser's storage. The app works offline once its required files are available. Anonymous usage counts and online license checks are separate from document processing; neither receives document contents. Users can also automate their own Word templates. Documents made from library templates on the Free plan carry a small “Made with Clausery” line. Pro leaves it out and adds unlimited own templates, calculations in those templates, workspace encryption, client intake forms and unlimited documents per spreadsheet, with a ${TRIAL_DAYS}-day free trial that needs no card.</p>
 <h2>Facts</h2>
 <table><tbody>
 <tr><th scope="row">Launched</th><td>September 2026</td></tr>
 <tr><th scope="row">Website</th><td><a href="${rel}">getclausery.github.io</a></td></tr>
 <tr><th scope="row">Source and issues</th><td><a href="${REPO_URL}" rel="noopener">github.com/getclausery</a></td></tr>
-<tr><th scope="row">Pricing</th><td>Free: every library template plus 3 of your own; Pro $19 per user per month; Team $49 per month for 5 seats; Enterprise on request</td></tr>
+<tr><th scope="row">Pricing</th><td>Free: every library template plus 3 of your own; Pro $${PRICES.pro} per user per month or $${PRICES.proYearly} per year; Team $${PRICES.team} per month for 5 seats; Enterprise on request</td></tr>
 <tr><th scope="row">For</th><td>Small businesses, freelancers, consultants, agencies and service businesses</td></tr>
 <tr><th scope="row">Platform</th><td>Any modern browser on desktop or mobile; installable; works offline</td></tr>
 <tr><th scope="row">Free resources</th><td><a href="${rel}templates/">${LIB.length} Word templates</a>, <a href="${rel}free-tools/">drafting tools</a>, <a href="${rel}guides/">guides</a></td></tr>
 <tr><th scope="row">Document privacy</th><td>Templates, answers and generated documents are processed on the user's device. Pro includes optional workspace encryption. Cookieless website analytics, anonymous app usage counts and online license checks are explained in the <a href="${rel}legal/privacy.html">privacy policy</a>.</td></tr>
-<tr><th scope="row">Paid checkout</th><td>Keys are currently requested by email. Published prices are in USD; hosted checkout is not yet linked on the site.</td></tr>
+<tr><th scope="row">Paid checkout</th><td>${ONLINE_KEYS ? `Hosted checkout through Lemon Squeezy, the merchant of record; the plan activates in the app from the receipt, with no account. ${TRIAL_DAYS}-day free trial in the app with no card, and a ${REFUND_DAYS}-day money-back guarantee. Prices in USD.` : 'Keys are currently requested by email. Published prices are in USD; hosted checkout is not yet linked on the site.'}</td></tr>
 </tbody></table>
 <h2>Images</h2>
 <ul>

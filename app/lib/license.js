@@ -3,11 +3,12 @@
    over the payload bytes made with the vendor's private key (tools/license.mjs). Verification needs only the
    public key, so it works with no network and no vendor dependency. Works in browsers and Node via WebCrypto. */
 
+// unbranded: documents made from library templates carry no "Made with Clausery" line (app/lib/credit.js).
 export const PLANS = {
-  free: { name: 'Free', maxTemplates: 3, computed: false, intake: false, vault: false, packs: false, bulk: false },
-  pro: { name: 'Pro', maxTemplates: Infinity, computed: true, intake: true, vault: true, packs: true, bulk: true },
-  team: { name: 'Team', maxTemplates: Infinity, computed: true, intake: true, vault: true, packs: true, bulk: true },
-  enterprise: { name: 'Enterprise', maxTemplates: Infinity, computed: true, intake: true, vault: true, packs: true, bulk: true },
+  free: { name: 'Free', maxTemplates: 3, computed: false, intake: false, vault: false, packs: false, bulk: false, unbranded: false },
+  pro: { name: 'Pro', maxTemplates: Infinity, computed: true, intake: true, vault: true, packs: true, bulk: true, unbranded: true },
+  team: { name: 'Team', maxTemplates: Infinity, computed: true, intake: true, vault: true, packs: true, bulk: true, unbranded: true },
+  enterprise: { name: 'Enterprise', maxTemplates: Infinity, computed: true, intake: true, vault: true, packs: true, bulk: true, unbranded: true },
 };
 
 const PREFIX = 'CLSY-';

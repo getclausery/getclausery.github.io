@@ -1,4 +1,5 @@
 import { docsNav, faqLd, REPO_URL, ANALYTICS_ON, ONLINE_KEYS, USAGE_ON, USAGE_REQUEST } from '../tools/partials.mjs';
+import { TRIAL_DAYS } from '../app/config.js';
 import { USAGE_COUNTER } from '../app/config.js';
 // The FAQ page's questions, also published as FAQPage structured data. Answers take `rel` for their links.
 const DOCS_FAQ = [
@@ -15,6 +16,8 @@ const DOCS_FAQ = [
   ['Are the templates valid where I live?', (rel) => `The library templates are general samples, written mainly for the US, Canada and the UK, with notes where the law commonly differs, such as non-compete limits or tax invoice rules. Each page shows when it was last updated, and the guides cite their sources. Laws differ by country, state and city, so have a lawyer review anything important for your situation.`],
   ['Is there an official version?', (rel) => `Yes: <a href="${rel}">getclausery.github.io</a>. The source code is public on GitHub, but copies hosted elsewhere are not maintained by us. Releases are listed in the <a href="${rel}changelog.html">changelog</a>.`],
   ['Can I use it on my phone?', (rel) => `Yes. The app is responsive and installable. Drafting long documents is more comfortable on a larger screen.`],
+  ['Why do some documents end with “Made with Clausery”?', (rel) => `On the Free plan, documents made from library templates end with that one small line, linked to this site; it is how people who receive them find Clausery. Pro, Team and the free trial leave it out, and templates you upload yourself never get it. See <a href="${rel}pricing/">Pricing</a>.`],
+  ['Is there a free trial of Pro?', (rel) => `Yes. <a href="${rel}app/#/trial">Start it in the app</a> with one click: every Pro feature for ${TRIAL_DAYS} days, with no card, no account and no email. It runs in your browser and simply ends, and you keep everything you made.`],
   ['What if Clausery disappears?', (rel) => `Your copy keeps working: it is cached in your browser and can be self-hosted from the repository. Your templates are your .docx files; your data exports are plain JSON.`],
   [ONLINE_KEYS ? 'How do I activate a paid plan?' : 'How do I get a license key?', (rel) => `See <a href="${rel}pricing/">Pricing</a>. ${ONLINE_KEYS ? 'Choose a plan and pay, then select Open Clausery after payment or in your receipt email. The plan activates automatically and opens the app. No separate account or key to copy. Use the receipt button on another device too, and keep that access link private.' : 'Keys are delivered by email and entered once per device.'}`],
 ];

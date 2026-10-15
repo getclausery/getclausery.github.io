@@ -1,6 +1,7 @@
 // About and contact pages: who runs Clausery, how it makes money, and how to reach the people behind it.
 import { SITE, REPO_URL, KEY_REQUEST_URL, CONTACT_EMAIL, mailto, ANALYTICS_ON, ONLINE_KEYS, USAGE_ON } from '../tools/partials.mjs';
 import { LIB } from './library.mjs';
+import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 
 const ld = (o) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', ...o })}</script>`;
 const ORG = { '@type': 'Organization', name: 'Clausery', url: SITE, logo: `${SITE}assets/icon-512.png`, email: CONTACT_EMAIL, sameAs: [REPO_URL] };
@@ -10,7 +11,7 @@ const issue = (form) => `${REPO_URL}/issues/new?template=${form}`;
 // go to the public issue tracker, and security reports to GitHub's private reporting.
 const CHANNELS = [
   ['Ask a question or send feedback', 'Questions about the app, a template or a calculator, feature ideas, and press or partnership enquiries.', mailto('Question about Clausery'), 'Email a question'],
-  ONLINE_KEYS ? ['Billing, trials and discounts', 'Buy Pro or Team directly from Pricing. Email us for billing help, a 14-day trial, extra Team seats or the nonprofit, legal aid or education discount.', mailto('Clausery billing help'), 'Email billing support'] : ['Request a Pro or Team key', 'Buy a license, ask for a 14-day trial key, or claim the nonprofit, legal aid or education discount.', KEY_REQUEST_URL, 'Request a key'],
+  ONLINE_KEYS ? ['Billing, refunds and discounts', `Buy Pro or Team directly from Pricing, or start the ${TRIAL_DAYS}-day free trial in the app. Email us for billing help, a refund under the ${REFUND_DAYS}-day guarantee, extra Team seats or the nonprofit, legal aid or education discount.`, mailto('Clausery billing help'), 'Email billing support'] : ['Request a Pro or Team key', `Buy a license or claim the nonprofit, legal aid or education discount. To try Pro first, start the ${TRIAL_DAYS}-day free trial in the app.`, KEY_REQUEST_URL, 'Request a key'],
   ['Request a template', 'Tell us which document you draft again and again. The most requested templates are built first.', mailto('Template request'), 'Request a template'],
   ['Report a problem', 'Something in the app, a template, a calculator or the website does not work as it should. Developers can also <a href="' + issue('bug-report.yml').replace(/&/g, '&amp;') + '" rel="noopener">open a GitHub issue</a>.', mailto('Problem report'), 'Report a problem'],
 ];
@@ -30,7 +31,8 @@ export const pages = [
 <ul>
   <li><strong>The template library is free.</strong> All ${LIB.length} <a href="${rel}templates/">Word templates</a>, the <a href="${rel}clauses/">clause library</a>, the <a href="${rel}guides/">guides</a> and the <a href="${rel}free-tools/">calculators</a> are free, with no sign-up. Library templates never count towards any plan limit.</li>
   <li><strong>Automating your own templates is free for three.</strong> Upload up to three of your own Word templates and generate unlimited documents from them.</li>
-  <li><strong>Pro pays for the work.</strong> Businesses that automate more of their own documents, or need calculations in those templates, encryption or client intake forms, buy a <a href="${rel}pricing/">Pro or Team license</a>.</li>
+  <li><strong>Free documents carry a small credit.</strong> Documents made in the app from library templates on the Free plan end with one line, “Made with Clausery”, which is how people who receive them find the tool. Templates you upload yourself never get it.</li>
+  <li><strong>Pro pays for the work.</strong> Businesses that want documents without that line, automate more of their own documents, or need calculations in those templates, encryption or client intake forms, buy a <a href="${rel}pricing/">Pro or Team license</a>, after a ${TRIAL_DAYS}-day free trial if they like, with a ${REFUND_DAYS}-day money-back guarantee.</li>
 </ul>
 <p>${ANALYTICS_ON ? 'There are no ads, no affiliate links and no tracking cookies. ' + (USAGE_ON ? 'The app counts anonymous events, such as making a document from a library template, without recording document contents; ' : 'The app has no usage analytics; ') + 'this website uses cookieless Cloudflare Web Analytics.' : 'There are no ads, no affiliate links, no analytics and no tracking cookies.'} ${ONLINE_KEYS ? 'Activating an online license sends the license key to Lemon Squeezy, separately from document processing. ' : ''}Read the <a href="${rel}legal/privacy.html">privacy policy</a> for the current data flows.</p>
 <h2>How it is built</h2>
@@ -48,7 +50,7 @@ export const pages = [
   },
   {
     path: 'contact/', title: 'Contact Clausery',
-    description: 'Contact Clausery: ask a question, request a Pro key or a 14-day trial, suggest a template, report a problem, or report a security issue privately.',
+    description: 'Contact Clausery: ask a question, get billing help or a refund, suggest a template, report a problem, or report a security issue privately.',
     extraHead: ld({ '@type': 'ContactPage', name: 'Contact Clausery', url: `${SITE}contact/`, about: ORG }),
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">
 <h1>Contact Clausery</h1>
@@ -65,6 +67,29 @@ ${CHANNELS.map(([h, p, href, cta]) => `  <div class="feature"><h2 style="font-si
   <li><strong>Many answers are already written:</strong> see the <a href="${rel}docs/faq.html">FAQ</a>, the <a href="${rel}docs/">documentation</a> and the <a href="${rel}pricing/#faq">pricing questions</a>.</li>
 </ul>
 <p class="small muted" style="margin-top:2rem">Clausery is software, not a law firm, and cannot advise on your legal situation. The code and public issues are on <a href="${REPO_URL}" rel="noopener">GitHub</a>.</p>
+</div></section>`,
+  },
+  {
+    // Where the "Made with Clausery" line in Free-plan documents links (app/lib/credit.js). The people arriving here
+    // received a document, so the page says what Clausery is and where questions about the document belong. It is
+    // noindex: it would only repeat the home page in search results.
+    path: 'made-with/', title: 'Made with Clausery', noindex: true,
+    description: 'You received a document made with Clausery: free invoices, quotes, receipts and Word templates for small businesses, filled in privately in the browser.',
+    extraHead: '<meta name="robots" content="noindex, follow">',
+    body: (rel) => `<section class="section"><div class="wrap" style="max-width:46rem;text-align:center">
+<div class="eyebrow">Made with Clausery</div>
+<h1>The document you received was made with Clausery</h1>
+<p class="lead">Clausery makes invoices, quotes, receipts and contracts in Word for small businesses and freelancers. Answer a few questions and download a finished document you can still edit, with the totals and tax worked out. It is free, with no sign-up.</p>
+<p style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free</a><a class="btn btn-lg" href="${rel}templates/">Browse ${LIB.length} free templates</a></p>
+<div class="feature" style="text-align:left;margin-top:2rem"><p style="margin:0;color:inherit"><strong>A question about the document itself?</strong> Amounts, due dates, payments and terms are set by the business that sent it, so please contact them. Clausery never sees the documents people make: each one is created in the sender's own browser and nothing is uploaded.</p></div>
+</div></section>
+<section class="section section-alt"><div class="wrap">
+<div class="grid grid-3">
+  <div class="feature"><h2 style="font-size:1.15rem;margin-top:0">Free, with no account</h2><p>Every one of the ${LIB.length} library templates can be downloaded or filled in at no cost, with unlimited documents.</p></div>
+  <div class="feature"><h2 style="font-size:1.15rem;margin-top:0">The maths done for you</h2><p>Line items, discounts, tax and balances are calculated, and your next invoice continues the numbering with your details already filled in.</p></div>
+  <div class="feature"><h2 style="font-size:1.15rem;margin-top:0">Private by design</h2><p>Everything runs in your browser. Your clients' details and your documents are never uploaded to a server.</p></div>
+</div>
+<p class="small muted" style="text-align:center;margin-top:1.5rem"><a href="${rel}">What Clausery does</a> · <a href="${rel}pricing/">Pricing</a> · <a href="${rel}about/">About</a></p>
 </div></section>`,
   },
 ];

@@ -118,3 +118,44 @@ test('every template page shows a first-page preview that is up to date with its
   }
   assert.deepEqual(Object.keys(hashes).sort(), LIB.map((t) => t.slug).sort());
 });
+
+test('pricing states the free trial, the guarantee and the Free plan credit line, with no invented popularity', async () => {
+  const { CHECKOUT_URLS, PRICES, TRIAL_DAYS, REFUND_DAYS } = await import('../../app/config.js');
+  const pricing = html('pricing/index.html');
+  assert.match(pricing, /href="\.\.\/app\/#\/trial"/);
+  assert.match(pricing, new RegExp(`${TRIAL_DAYS}-day free Pro trial: no card, nothing renews`));
+  assert.match(pricing, new RegExp(`${REFUND_DAYS}-day money-back guarantee`));
+  assert.match(pricing, /<li class="no">Remove the “Made with Clausery” line from library documents<\/li>/);
+  assert.doesNotMatch(pricing, /Most popular/);
+  assert.match(pricing, new RegExp(`\\$${PRICES.pro} <small>/ user / month</small>`));
+  // the one-time purchase appears only once its checkout link exists
+  assert.equal(/data-checkout="lifetime"|Lifetime Pro/.test(pricing), Boolean(CHECKOUT_URLS.lifetime));
+  const offers = ld(pricing).find((x) => x['@type'] === 'SoftwareApplication').offers.map((o) => o.price);
+  assert.deepEqual(offers, ['0', String(PRICES.pro), String(PRICES.proYearly), ...(CHECKOUT_URLS.lifetime ? [String(PRICES.lifetime)] : []), String(PRICES.team)]);
+});
+
+test('the terms carry the money-back guarantee and the trial, and do not forbid editing generated documents', async () => {
+  const { REFUND_DAYS, TRIAL_DAYS } = await import('../../app/config.js');
+  const terms = html('legal/terms.html');
+  assert.match(terms, new RegExp(`<strong>${REFUND_DAYS}-day money-back guarantee\\.</strong>`));
+  assert.match(terms, new RegExp(`lasts ${TRIAL_DAYS} days, needs no payment details and ends by itself`));
+  assert.match(terms, /This does not cover your generated documents, which are yours/);
+  assert.match(html('legal/privacy.html'), /“Made with Clausery” line that links to our website/);
+});
+
+test('the page the credit line links to exists, is noindex and stays out of the sitemap', async () => {
+  const { CREDIT_URL } = await import('../../app/lib/credit.js');
+  const { SITE } = await import('../../tools/partials.mjs');
+  const path = CREDIT_URL.replace(SITE, '');
+  const page = html(`${path}index.html`);
+  assert.match(page, /<meta name="robots" content="noindex, follow">/);
+  assert.match(page, /contact them\. Clausery never sees the documents people make/);
+  assert.ok(!html('sitemap.xml').includes(CREDIT_URL));
+  assert.ok(!html('llms.txt').includes(CREDIT_URL));
+});
+
+test('the press kit describes the live checkout', async () => {
+  const { ONLINE_KEYS } = await import('../../tools/partials.mjs');
+  const press = html('press/index.html');
+  assert.equal(/hosted checkout is not yet linked/.test(press), !ONLINE_KEYS);
+});

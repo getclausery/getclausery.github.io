@@ -10,6 +10,8 @@ import { downloadBlob, safeFilename } from '../../lib/backup.js';
 import { nowISO } from '../../lib/schema.js';
 import { buildIntakeHtml, parseAnswersFile, sanitizeAnswers } from '../../lib/intake.js';
 import { countEvent } from '../../lib/usage.js';
+import { daysLeftText } from '../../lib/trial.js';
+import { TRIAL_DAYS } from '../../config.js';
 
 const SAVE_DELAY = 400;
 const DOCX_MIME = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
@@ -36,6 +38,10 @@ export async function render(ctx, { id }) {
   if (!template) { setChildren(ctx.main, h('div.empty', h('h2', 'The template for this draft was deleted'), h('p', 'The answers are still stored. Re-import the template pack or delete the draft.'), h('a.btn', { href: '#/drafts' }, 'Back to drafts'))); return; }
   const bytes = await ctx.templates.getFile(template.id);
   setTitle(draft.title || template.name);
+  // the Free plan's "Made with Clausery" line: library templates only, decided at each render so a trial or a purchase
+  // made while this draft is open applies straight away
+  const credited = () => !!template.sample && !ctx.plan.can('unbranded');
+  const opts = () => ({ credit: credited() });
 
   const steps = [...template.sections.map((s) => ({ id: s.id, title: s.title, description: s.description })), { id: '__review', title: 'Review & generate' }];
   let stepIndex = Math.max(0, Math.min(steps.length - 1, Number(sessionStorage.getItem('clausery.step.' + id)) || 0));
@@ -85,7 +91,7 @@ export async function render(ctx, { id }) {
     try {
       const { data } = buildPreviewData(template, draft.answers, ctx.settings);
       const staging = h('div');
-      await previewDocx(renderDocx(bytes, data), staging);
+      await previewDocx(renderDocx(bytes, data, opts()), staging);
       if (seq !== previewSeq || !mounted()) return;
       livePages.replaceChildren(...staging.childNodes);
       liveStatus.textContent = 'Updates as you answer';
@@ -169,7 +175,7 @@ export async function render(ctx, { id }) {
       if (previewJob) return previewJob;
       previewBtn.disabled = true;
       previewJob = (async () => {
-        const blob = renderDocx(bytes, data);
+        const blob = renderDocx(bytes, data, opts());
         previewWrap.hidden = false;
         await previewDocx(blob, previewWrap);
         previewReady = true;
@@ -193,7 +199,7 @@ export async function render(ctx, { id }) {
     } }, icon('print', 16), 'Print / Save as PDF');
     const generate = async () => {
       try {
-        const blob = renderDocx(bytes, data);
+        const blob = renderDocx(bytes, data, opts());
         downloadBlob(blob, fileName);
         await record('download'); keepStorage();
         toast('Document downloaded. It was generated entirely in this browser, and this version is recorded in the history below.', { type: 'ok', timeout: 6000 });
@@ -201,11 +207,22 @@ export async function render(ctx, { id }) {
     };
     const share = async () => {
       try {
-        const file = new File([renderDocx(bytes, data)], fileName, { type: DOCX_MIME });
+        const file = new File([renderDocx(bytes, data, opts())], fileName, { type: DOCX_MIME });
         await navigator.share({ files: [file], title: fileName });
         await record('share'); keepStorage();
       } catch (e) { if (e && e.name === 'AbortError') return; fail(e); }
     };
+    const startTrial = async (e) => {
+      e.preventDefault();
+      await ctx.trial.start();
+      toast(`Your free Pro trial has started: ${daysLeftText(TRIAL_DAYS)}. Documents you make now leave the line out.`, { type: 'ok', timeout: 7000 });
+      renderReview(); refreshPreview();
+    };
+    const trialUnused = ctx.trial.state().status === 'unused';
+    const creditNote = credited() ? h('div.notice#credit-note', { style: { marginTop: '1rem' } }, icon('info'), h('div.small',
+      h('strong', 'Free plan: '), 'documents from library templates end with a small “Made with Clausery” line. ',
+      trialUnused ? [h('a', { href: '#', onclick: startTrial }, `Leave it out with a free ${TRIAL_DAYS}-day Pro trial`), ' (no card needed).']
+        : [h('a', { href: '#/settings' }, 'Leave it out with Pro'), '.'])) : null;
     const answered = template.fields.filter((f) => f.type !== 'computed' && f.type !== 'repeat' && ev.visible[f.key] !== false && draft.answers[f.key] !== '' && draft.answers[f.key] != null).length;
     const totalQ = template.fields.filter((f) => f.type !== 'computed' && f.type !== 'repeat' && ev.visible[f.key] !== false).length;
     setChildren(bodyEl, h('div.stack',
@@ -216,6 +233,7 @@ export async function render(ctx, { id }) {
         h('div.row', { style: { marginTop: '1rem' } }, h('button.btn.btn-primary.btn-lg', { type: 'button', onclick: generate }, icon('download', 18), 'Download .docx'), previewBtn, printBtn,
           canShareFiles() ? h('button.btn', { type: 'button', onclick: share }, icon('share', 16), 'Share…') : null,
           h('button.btn', { type: 'button', onclick: openBulk }, icon('table', 16), 'From a spreadsheet')),
+        creditNote,
         h('p.small.muted', { style: { marginTop: '1rem', marginBottom: 0 } }, 'The Word file is assembled in your browser from the template and these answers. Nothing is uploaded. This draft stays saved here, so you can change any answer and download it again later.')),
       h('div.card',
         h('h3', 'Answers'),
@@ -290,7 +308,7 @@ export async function render(ctx, { id }) {
       if (!batch) return;
       goBtn.disabled = true;
       try {
-        const files = batch.items.map((it, i) => ({ name: batch.names[i], bytes: renderDocxBytes(bytes, buildRenderData(template, it.answers, ctx.settings).data) }));
+        const files = batch.items.map((it, i) => ({ name: batch.names[i], bytes: renderDocxBytes(bytes, buildRenderData(template, it.answers, ctx.settings).data, opts()) }));
         const zipName = safeFilename(`${template.name} - ${files.length} documents`, 'zip');
         downloadBlob(zipFiles(files), zipName);
         await recordMade('bulk', { file: zipName, count: files.length }); keepStorage();
