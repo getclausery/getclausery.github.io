@@ -1,6 +1,6 @@
 /* Clausery deployment configuration. Edit this file when you deploy your own copy. */
 export const APP_NAME = 'Clausery';
-export const APP_VERSION = '1.33.0';
+export const APP_VERSION = '1.34.0';
 
 /* Public site URL (no trailing slash). Used for links in exported files and the intake form footer. */
 export const SITE_URL = 'https://getclausery.github.io';
@@ -15,12 +15,25 @@ export const LICENSE_PUBLIC_KEY = 'gRV3e8g0NYShNgtFnSrralyB_RVvOzaLwlSHSvjcFvo';
    manage subscriptions. Set api to '' to accept only offline CLSY- keys. */
 export const LICENSE_SERVICE = { api: 'https://api.lemonsqueezy.com/v1/licenses', storeId: 488876, portal: 'https://getclausery.lemonsqueezy.com/billing', products: { 1426177: 'pro', 1426183: 'team' } };
 
-/* Hosted checkout links (Stripe Payment Links, Lemon Squeezy, Paddle...). Leave empty to show the key request form instead. */
+/* Hosted checkout links (Stripe Payment Links, Lemon Squeezy, Paddle...). Leave empty to show the key request form instead.
+   lifetime is an optional one-time purchase of Pro. It stays hidden everywhere until a link is set. To offer it: create a
+   single-payment product in Lemon Squeezy with license keys on (activation limit 5), point its confirmation and receipt
+   buttons at app/activate.html?key=[license_key] like the other products, add its product ID to LICENSE_SERVICE.products
+   as 'pro', set PRICES.lifetime to its price, paste its checkout link here and run npm run build. */
 export const CHECKOUT_URLS = {
   pro: 'https://getclausery.lemonsqueezy.com/checkout/buy/33635620-0033-4ace-8193-b2eb734b51f2?enabled=2227470',
   proYearly: 'https://getclausery.lemonsqueezy.com/checkout/buy/c3012391-8a2f-47ba-807e-31877967b105?enabled=2227471',
   team: 'https://getclausery.lemonsqueezy.com/checkout/buy/0c7c74e8-7be4-4fe4-b869-1fa585bce7de',
+  lifetime: '',
 };
+/* Prices in USD, shown on the website and in the app. They must match what the checkout links above charge. */
+export const PRICES = { pro: 19, proYearly: 190, team: 49, teamSeat: 9, lifetime: 99 };
+/** Months of Pro a yearly plan saves against paying monthly (2 at $19/$190). */
+export const YEARLY_MONTHS_FREE = Math.round((PRICES.pro * 12 - PRICES.proYearly) / PRICES.pro);
+/* The free Pro trial: one per browser, no card and no account. It starts and ends on the device and never renews. */
+export const TRIAL_DAYS = 14;
+/* Money-back guarantee on a first payment for a plan, in days. The terms of service and pricing page state it. */
+export const REFUND_DAYS = 30;
 /* The day the checkout links above went live (YYYY-MM-DD). The privacy policy's effective date follows it. */
 export const CHECKOUT_SINCE = '2026-10-09';
 

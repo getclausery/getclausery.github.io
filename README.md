@@ -40,6 +40,7 @@ Small businesses and freelancers repeatedly prepare quotes, invoices and receipt
 - Offline-capable installable PWA, strict CSP, local document processing
 - Deposit, hourly and final-balance invoice starters, with worked examples and a local deposit calculator
 - Offline license keys (Ed25519) for Free / Pro / Team / Enterprise plans
+- A one-click 14-day Pro trial that runs in the browser (no card, no account, nothing renews), and a small linked "Made with Clausery" line on Free-plan documents made from library templates (never on a user's own templates)
 - Free template library (Word), clause library, guides and calculators; every page records when its content last changed (`site/data/page-dates.json`)
 
 ## Repository layout
@@ -48,14 +49,15 @@ Small businesses and freelancers repeatedly prepare quotes, invoices and receipt
 clausery/
   index.html, pricing/, docs/, legal/, 404.html   generated static pages (from site/*.mjs)
   app/                the application (ES modules, no framework, no build step)
-    lib/              expr, schema, logic, render, store, vault, license, backup, form, intake, plan
+    lib/              expr, schema, logic, render, store, vault, license, backup, form, intake, plan, trial, credit
     ui/               dom helpers, router, views
   vendor/             bundled document engine (docxtemplater, pizzip, docx-preview) – built by tools/build-vendor.mjs
   samples/            sample templates – built by tools/make-samples.mjs
   site/               page modules for the static site generator
   tools/              build, license CLI, dev server, checks, screenshots
   tests/unit          node:test suites
-  tests/e2e           Playwright suites (app flow, security, intake, site accessibility)
+  tests/e2e           Playwright suites (app flow, plans and trial, security, intake, site accessibility)
+  marketing/          growth playbook: 30-day plan, launch posts, directories, outreach (not linked; robots.txt disallows it)
   sw.js               service worker
 ```
 
@@ -83,7 +85,7 @@ npm run license -- issue --key keys/private.pem --plan pro --name "Jane Doe" --e
 npm run license -- verify --public <publicKey> <key>
 ```
 
-Put the public key in `app/config.js` (`LICENSE_PUBLIC_KEY`). Keys are verified in the browser with WebCrypto; no server is involved. The public deployment uses live Lemon Squeezy checkout links in `CHECKOUT_URLS` (Pro monthly, Pro yearly and Team), with `CHECKOUT_SINCE` recording when billing opened. Lemon Squeezy confirmation and receipt buttons use `https://getclausery.github.io/app/activate.html?key=[license_key]`, matching the merchant's accepted link-variable format. The access credential is cleared from the address before activation, the purchase is verified automatically, and the app opens with the paid plan ready. The no-referrer activation page has no visitor analytics; the initial URL is still sent to the website host. Fragment links are also supported. Customers do not copy keys or create a separate account. `LICENSE_SERVICE.products` maps the published live product IDs to their plans, excluding test products. For your own deployment, replace those values with your store and product IDs, or leave the checkout links empty for key requests (`KEY_REQUEST_URL`), then rebuild. Never put a Lemon Squeezy private API key in the static app.
+Put the public key in `app/config.js` (`LICENSE_PUBLIC_KEY`). Keys are verified in the browser with WebCrypto; no server is involved. The public deployment uses live Lemon Squeezy checkout links in `CHECKOUT_URLS` (Pro monthly, Pro yearly and Team), with `CHECKOUT_SINCE` recording when billing opened. Lemon Squeezy confirmation and receipt buttons use `https://getclausery.github.io/app/activate.html?key=[license_key]`, matching the merchant's accepted link-variable format. The access credential is cleared from the address before activation, the purchase is verified automatically, and the app opens with the paid plan ready. The no-referrer activation page has no visitor analytics; the initial URL is still sent to the website host. Fragment links are also supported. Customers do not copy keys or create a separate account. Prices shown on the site and in the app come from `PRICES` in `app/config.js`, which must match what the checkout links charge; `TRIAL_DAYS` and `REFUND_DAYS` set the free trial and the money-back guarantee the pricing page and terms state. A one-time Lifetime Pro option stays hidden until `CHECKOUT_URLS.lifetime` is set (see the comment there). `LICENSE_SERVICE.products` maps the published live product IDs to their plans, excluding test products. For your own deployment, replace those values with your store and product IDs, or leave the checkout links empty for key requests (`KEY_REQUEST_URL`), then rebuild. Never put a Lemon Squeezy private API key in the static app.
 
 ## Contact and support
 

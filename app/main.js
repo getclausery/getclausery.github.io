@@ -1,5 +1,5 @@
 /* Clausery app bootstrap: opens the local store, checks the license, handles the vault lock, wires routes. */
-import { APP_VERSION, DEFAULT_SETTINGS, licensePublicKey, CHECKOUT_URLS, CONTACT_URL, KEY_REQUEST_URL, SITE_URL, LICENSE_SERVICE } from './config.js';
+import { APP_VERSION, DEFAULT_SETTINGS, licensePublicKey, CHECKOUT_URLS, CONTACT_URL, KEY_REQUEST_URL, SITE_URL, LICENSE_SERVICE, TRIAL_DAYS } from './config.js';
 import { Store, LockedError } from './lib/store.js';
 import { Plan, FEATURE_LABELS } from './lib/plan.js';
 import { verifyKey } from './lib/license.js';
@@ -10,12 +10,15 @@ import { nowISO, newDraft } from './lib/schema.js';
 import { prefillAnswers, prefillNote } from './lib/prefill.js';
 import { applyPreset, presetNote } from './lib/presets.js';
 import { countEvent } from './lib/usage.js';
+import { newTrial, trialState, trialPayload, daysLeftText } from './lib/trial.js';
+import { priceLine, buyLabel } from './ui/offer.js';
 import * as templatesView from './ui/views/templates.js';
 import * as designerView from './ui/views/designer.js';
 import * as draftsView from './ui/views/drafts.js';
 import * as interviewView from './ui/views/interview.js';
 import * as settingsView from './ui/views/settings.js';
 import * as lockView from './ui/views/lock.js';
+import * as trialView from './ui/views/trial.js';
 
 const store = new Store();
 const plan = new Plan();
@@ -23,10 +26,37 @@ const router = new Router();
 const main = document.getElementById('main');
 const statusEl = document.getElementById('status');
 const isLocal = ['localhost', '127.0.0.1'].includes(location.hostname);
+/** This browser's free Pro trial record (settings store, never encrypted, so it is readable while the workspace is locked). */
+let trialRec = null;
+/** Back to the Free plan, unless the free trial is still running, which unlocks Pro by itself. */
+function fallBack(error = null) {
+  if (trialState(trialRec).status === 'active') plan.set('pro', trialPayload(trialRec));
+  else plan.set('free', null, error);
+}
 
 const ctx = {
   version: APP_VERSION, store, plan, router, main, settings: { ...DEFAULT_SETTINGS }, siteUrl: SITE_URL, contactUrl: CONTACT_URL, keyRequestUrl: KEY_REQUEST_URL, checkoutUrls: CHECKOUT_URLS, licenseService: LICENSE_SERVICE,
   navigate: (p) => router.go(p),
+  trial: {
+    state: () => trialState(trialRec),
+    /** Start this browser's one free trial. Returns its state; a trial that was already used is not restarted. */
+    async start() {
+      if (trialState(trialRec).status !== 'unused') return trialState(trialRec);
+      trialRec = newTrial();
+      await store.setSetting('trial', trialRec);
+      if (!plan.isPaid) plan.set('pro', trialPayload(trialRec));
+      renderStatus();
+      countEvent('trial-started');
+      return trialState(trialRec);
+    },
+  },
+  /** Go to the checkout for a plan, counting the click first (a page leaving at once can drop the count request). */
+  checkout(which) {
+    const url = CHECKOUT_URLS[which];
+    if (!url) { location.assign('../pricing/'); return; }
+    countEvent('checkout-click/' + which);
+    setTimeout(() => location.assign(url), 150);
+  },
   templates: {
     list: async () => (await store.all('templates')).sort((a, b) => (b.updatedAt || '').localeCompare(a.updatedAt || '')),
     get: (id) => store.get('templates', id),
@@ -81,7 +111,7 @@ const ctx = {
     const previous = await store.getSetting('license', null);
     // a key bought online holds an activation slot: give it back (best effort) when it is removed or replaced
     const release = () => { if (isOnlineRecord(previous) && previous.key !== String(key || '').trim()) deactivateOnline(previous, LICENSE_SERVICE).catch(() => {}); };
-    if (!key) { await store.delete('settings', 'license'); plan.set('free'); renderStatus(); release(); return { ok: true }; }
+    if (!key) { await store.delete('settings', 'license'); fallBack(); renderStatus(); release(); return { ok: true }; }
     if (isOnlineKey(key)) {
       const res = await activateOnline(key, LICENSE_SERVICE);
       if (res.ok) { await store.setSetting('license', res.record); plan.set(res.plan, res.payload); renderStatus(); release(); }
@@ -98,12 +128,12 @@ const ctx = {
     const res = await validateOnline(rec, LICENSE_SERVICE);
     if (res.ok === null) return res;
     await store.setSetting('license', res.record);
-    const wasPaid = plan.isPaid;
+    const wasLicensed = plan.isPaid && !plan.isTrial;
     if (res.ok) plan.set(res.plan, res.payload);
-    else plan.set('free', null, res.error);
+    else fallBack(res.error);
     renderStatus();
-    if (!res.ok && wasPaid) toast(res.error + ' The workspace is back on the Free plan; everything you made is still here.', { type: 'warn', timeout: 10000 });
-    if (res.ok && !wasPaid) toast(`${plan.name} plan restored.`, { type: 'ok' });
+    if (!res.ok && wasLicensed) toast(res.error + (plan.isTrial ? ' Your free Pro trial is still running.' : ' The workspace is back on the Free plan; everything you made is still here.'), { type: 'warn', timeout: 10000 });
+    if (res.ok && !wasLicensed) toast(`${plan.name} plan restored.`, { type: 'ok' });
     return res;
   },
   requirePlan(feature, opts = {}) {
@@ -135,26 +165,58 @@ function applyTheme() {
 }
 
 function renderStatus() {
-  setChildren(statusEl, 
-    h('span.badge', { title: plan.payload ? 'Licensed' : 'Free plan' }, plan.isPaid ? icon('sparkle', 13) : null, plan.name),
+  const trial = plan.isTrial ? trialState(trialRec) : null;
+  setChildren(statusEl,
+    h('span.badge', { title: trial ? `Free Pro trial: ${trial.status === 'active' ? daysLeftText(trial.daysLeft) : 'ended'}` : plan.payload ? 'Licensed' : 'Free plan' }, plan.isPaid ? icon('sparkle', 13) : null, trial && trial.status === 'active' ? `Pro trial · ${daysLeftText(trial.daysLeft)}` : plan.name),
     store.vaultMeta ? h('button.btn.btn-ghost.btn-sm', { type: 'button', onclick: () => ctx.lock(), title: 'Lock the workspace now' }, icon('lock', 15), h('span.nav-label', 'Lock')) : null,
   );
 }
 
 function upgradeModal(feature) {
   const label = feature === 'templates' ? 'More than 3 of your own templates' : FEATURE_LABELS[feature] || feature;
+  const canTrial = !plan.isPaid && trialState(trialRec).status === 'unused';
+  countEvent('upgrade-shown/' + feature);
   modal({
     title: 'Available on Pro',
     body: h('div.stack',
-      h('p', h('strong', label), ' is part of Clausery Pro. Everything still runs in your browser; a license simply unlocks the feature.'),
+      h('p', h('strong', label), ' is part of Clausery Pro. Everything still runs in your browser; Pro simply unlocks the feature.'),
       feature === 'templates' ? h('p.small.muted', 'Templates from the free library never count towards the limit: open as many of them as you like.') : null,
       h('ul.feature-list', Object.values(FEATURE_LABELS).map((f) => h('li', icon('check', 16), f))),
+      canTrial ? h('p.small', h('strong', `Try every Pro feature free for ${TRIAL_DAYS} days.`), ' No card and no account. When the trial ends you are back on the Free plan with everything you made, and nothing renews.')
+        : h('p.small', priceLine()),
       h('p.small.muted', LICENSE_SERVICE.api ? 'Already paid? Open Clausery using the button in your receipt email. No key to copy.' : 'Already have an offline key? Enter it in Settings → Advanced activation.')),
     actions: [
       { label: 'Plan and billing', onClick: () => router.go('/settings') },
-      { label: CHECKOUT_URLS.pro ? 'Get Pro — $19/month' : 'See plans', primary: true, onClick: () => { location.assign(CHECKOUT_URLS.pro || '../pricing/'); return false; } },
+      canTrial
+        ? { label: `Start ${TRIAL_DAYS}-day free trial`, primary: true, onClick: async () => { await ctx.trial.start(); toast(`Your free Pro trial has started: ${daysLeftText(TRIAL_DAYS)}. Try that again; it is unlocked now.`, { type: 'ok', timeout: 9000 }); } }
+        : { label: buyLabel(), primary: true, onClick: () => { ctx.checkout('pro'); return false; } },
     ],
   });
+}
+
+/** Once, after the free trial runs out: say so plainly, keep everything, and offer Pro. */
+async function trialEnded() {
+  if (!trialRec || trialRec.endSeen || store.locked || trialState(trialRec).status !== 'ended') return;
+  trialRec = { ...trialRec, endSeen: true };
+  await store.setSetting('trial', trialRec).catch(() => {});
+  // bought a plan in the meantime: nothing to say now, and nothing about the trial if that plan ever lapses
+  if (plan.isPaid) return;
+  countEvent('trial-ended');
+  modal({
+    title: 'Your free Pro trial has ended',
+    body: h('div.stack',
+      h('p', 'Everything you made is still here and keeps working. This browser is back on the Free plan, so these Pro features are paused:'),
+      h('ul.feature-list', Object.values(FEATURE_LABELS).map((f) => h('li', icon('lock', 16), f))),
+      h('p.small', priceLine())),
+    actions: [{ label: 'Stay on Free' }, { label: buyLabel(), primary: true, onClick: () => { ctx.checkout('pro'); return false; } }],
+  });
+}
+
+/** A trial that runs out while the app is open ends at the next navigation. */
+function checkTrialEnd() {
+  if (!plan.isTrial || trialState(trialRec).status === 'active') return;
+  fallBack();
+  renderStatus();
 }
 
 function setNav(name) {
@@ -163,6 +225,7 @@ function setNav(name) {
 
 async function guarded(fn, params, navName, title) {
   ctx.lockHooks.clear();   // the previous view is unmounted now; the next one registers its own hooks
+  checkTrialEnd();
   if (store.locked) { setNav(null); setTitle('Locked'); await lockView.render(ctx, { onUnlocked: () => router.resolve() }); return; }
   setNav(navName); setTitle(title);
   setChildren(main, h('p.muted', 'Loading…'));
@@ -174,6 +237,7 @@ async function guarded(fn, params, navName, title) {
   }
   main.focus({ preventScroll: true });
   window.scrollTo(0, 0);
+  trialEnded();   // after the view, so the dialog keeps the focus; at most once, and never over the lock screen
 }
 
 router
@@ -183,6 +247,7 @@ router
   .add('/drafts', (p) => guarded(draftsView.render, p, 'drafts', 'Drafts'))
   .add('/drafts/:id', (p) => guarded(interviewView.render, p, 'drafts', 'Draft'))
   .add('/settings', (p) => guarded(settingsView.render, p, 'settings', 'Settings'))
+  .add('/trial', (p) => guarded(trialView.render, p, 'settings', 'Free Pro trial'))
   .add('/start/:slug', (p) => guarded(templatesView.startFromSample, p, 'drafts', 'New draft'))
   .add('/start/:slug/:preset', (p) => guarded(templatesView.startFromSample, p, 'drafts', 'New draft'));
 router.notFound = () => router.go('/templates', true);
@@ -215,16 +280,18 @@ async function boot() {
   applyTheme();
   store.vaultMeta = await store.getSetting('vault', null);
   if (!store.vaultMeta && await store.hasEncryptedRecords()) store.vaultMeta = { missing: true };
+  trialRec = await store.getSetting('trial', null);
+  fallBack();
   const licenseKey = await store.getSetting('license', null);
   if (isOnlineRecord(licenseKey)) {
     // decide from the stored record so the app opens instantly and offline; re-check in the background when due
     const ev = evaluateOnline(licenseKey, new Date(), LICENSE_SERVICE);
-    if (ev.ok) plan.set(ev.plan, ev.payload); else plan.set('free', null, ev.error);
+    if (ev.ok) plan.set(ev.plan, ev.payload); else fallBack(ev.error);
     if (ev.due && navigator.onLine !== false) ctx.recheckLicense().then((r) => { if (!ev.ok && r.ok !== true) toast(r.error || ev.error, { type: 'warn', timeout: 10000 }); }).catch(() => {});
     else if (!ev.ok) toast(ev.error, { type: 'warn', timeout: 10000 });
   } else if (licenseKey) {
     const res = await verifyKey(licenseKey, licensePublicKey());
-    if (res.ok) plan.set(res.plan, res.payload); else { plan.set('free', null, res.error); toast(res.expired ? 'Your license has expired. The workspace is back on the Free plan.' : 'The stored license key is not valid for this deployment.', { type: 'warn', timeout: 8000 }); }
+    if (res.ok) plan.set(res.plan, res.payload); else { fallBack(res.error); toast(res.expired ? `Your license has expired. ${plan.isTrial ? 'Your free Pro trial is still running.' : 'The workspace is back on the Free plan.'}` : 'The stored license key is not valid for this deployment.', { type: 'warn', timeout: 8000 }); }
   }
   renderStatus();
   if ('serviceWorker' in navigator && !isLocal) {

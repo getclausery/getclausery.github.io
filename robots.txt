@@ -4,5 +4,6 @@ Allow: /app/theme.js
 Allow: /app/manifest.webmanifest
 Disallow: /app/
 Disallow: /samples/
+Disallow: /marketing/
 Sitemap: https://getclausery.github.io/sitemap_index.xml
 Sitemap: https://getclausery.github.io/sitemap.xml

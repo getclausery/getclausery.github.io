@@ -4,6 +4,7 @@ import { writeFileSync, mkdirSync, readdirSync, readFileSync, existsSync } from 
 import { dirname } from 'node:path';
 import { createHash } from 'node:crypto';
 import { head, footer, embedPage, crumbsLd, SITE, LASTMOD, LASTMOD_LONG, longDate } from './partials.mjs';
+import { PRICES, TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 
 const pages = [];
 for (const f of readdirSync('site').filter((f) => f.endsWith('.mjs'))) {
@@ -22,7 +23,7 @@ const SEO_TITLES = {
   'guides/conditional-clauses-in-word.html': 'Conditional clauses in Word: include or remove paragraphs',
   'guides/confidentiality-checklist-document-software.html': 'Confidentiality checklist for choosing document software',
   'guides/how-to-write-a-freelance-contract.html': 'How to write a freelance contract: 10 key clauses',
-  'pricing/': 'Clausery pricing: free plan, Pro from $19 per user',
+  'pricing/': `Clausery pricing: Free plan, Pro $${PRICES.pro}/user with a free trial`,
   'guides/how-to-write-a-job-description.html': 'How to write a job description (with a free template)',
   'guides/how-to-write-an-invoice.html': 'How to write an invoice: what to include, how to number it',
   'guides/what-is-a-hold-harmless-agreement.html': 'What is a hold harmless agreement? Types and examples',
@@ -106,7 +107,7 @@ console.log(`wrote feed.xml (${feed.length} entries)`);
 const section = (prefix) => pages.filter((p) => p.path.startsWith(prefix) && !p.path.endsWith('/') && !p.noindex).map((p) => `- [${p.title}](${BASE}${p.path}): ${p.description}`).join('\n');
 writeFileSync('llms.txt', `# Clausery
 
-> Clausery helps small businesses and freelancers make invoices, quotes and receipts in editable Word (.docx) files with calculated totals. Document processing happens on the user's device. Its free business document kit contains six Word templates and instructions, with no email signup. It also turns ordinary Word templates with {tags} into guided questionnaires. Every library template can be downloaded or filled in free, with no account or document limit; up to three of the user's own templates are also free. Pro adds unlimited own templates, calculations in those templates, unlimited documents from a spreadsheet, an encrypted workspace and client intake forms.
+> Clausery helps small businesses and freelancers make invoices, quotes and receipts in editable Word (.docx) files with calculated totals. Document processing happens on the user's device. Its free business document kit contains six Word templates and instructions, with no email signup. It also turns ordinary Word templates with {tags} into guided questionnaires. Every library template can be downloaded or filled in free, with no account or document limit; up to three of the user's own templates are also free. Documents made from library templates on the Free plan end with a small "Made with Clausery" line. Pro ($${PRICES.pro} per user per month or $${PRICES.proYearly} per year) leaves that line out and adds unlimited own templates, calculations in those templates, unlimited documents from a spreadsheet, an encrypted workspace and client intake forms. Pro can be tried free for ${TRIAL_DAYS} days in the app with no card, and a first payment has a ${REFUND_DAYS}-day money-back guarantee.
 
 Key facts:
 - Documents are assembled in the browser; template files, answers and generated documents are never sent to a server.

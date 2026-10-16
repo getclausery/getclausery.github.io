@@ -5,6 +5,7 @@ import { COMPETITORS } from './compare.mjs';
 import { TOOLS } from './free-tools.mjs';
 import { PRESETS } from '../app/lib/presets.js';
 import { COUNTRIES } from './countries.mjs';
+import { PRICES, TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 
 // The home page is the most-crawled URL on the site, so it links straight to the pages people search for most. That puts
 // them one click from the home page instead of two, which is the strongest crawl-priority signal a new site can give.
@@ -31,7 +32,7 @@ export const pages = [{
   description: `Make invoices, quotes and receipts in Word with totals, tax and numbering done for you, plus ${LIB.length} free templates. No sign-up, and nothing is uploaded.`,
   extraHead: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebSite', name: 'Clausery', url: SITE })}</script>
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', name: 'Clausery', url: SITE, logo: `${SITE}assets/icon-512.png`, sameAs: ['https://github.com/getclausery/getclausery.github.io'] })}</script>
-<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'Clausery', applicationCategory: 'BusinessApplication', operatingSystem: 'Any (web browser)', description: 'Create invoices, quotes and receipts from free Word templates. Guided questions generate editable .docx files on your device.', url: SITE, offers: [{ '@type': 'Offer', price: '0', priceCurrency: 'USD', name: 'Free' }, { '@type': 'Offer', price: '19', priceCurrency: 'USD', name: 'Pro (per user, monthly)' }], featureList: ['Client-side .docx generation', 'Conditional clauses and repeating groups', 'Calculations', 'Encrypted local workspace', 'Offline client intake forms', 'No account required'] })}</script>`,
+<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'Clausery', applicationCategory: 'BusinessApplication', operatingSystem: 'Any (web browser)', description: 'Create invoices, quotes and receipts from free Word templates. Guided questions generate editable .docx files on your device.', url: SITE, offers: [{ '@type': 'Offer', price: '0', priceCurrency: 'USD', name: 'Free' }, { '@type': 'Offer', price: String(PRICES.pro), priceCurrency: 'USD', name: 'Pro (per user, monthly)' }], featureList: ['Client-side .docx generation', 'Conditional clauses and repeating groups', 'Calculations', 'Encrypted local workspace', 'Offline client intake forms', 'No account required'] })}</script>`,
   body: (rel) => `
 <section class="hero">
   <div class="wrap">
@@ -150,7 +151,7 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
         <tr><td>Conditional clauses, repeats, calculations</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="no">No</td></tr>
         <tr><td>Works offline</td><td class="yes">After required files are loaded</td><td>Check the product</td><td class="yes">Yes</td></tr>
         <tr><td>Ready-made business templates</td><td class="yes">Free library and six-template business kit</td><td>Check the product</td><td>You supply the document</td></tr>
-        <tr><td>Price</td><td class="yes">Free; Pro from $19 per user per month</td><td>Check current vendor pricing</td><td>Your existing Word software and time</td></tr>
+        <tr><td>Price</td><td class="yes">Free; Pro $${PRICES.pro} per user per month, with a ${TRIAL_DAYS}-day free trial</td><td>Check current vendor pricing</td><td>Your existing Word software and time</td></tr>
       </tbody>
     </table>
     </div>
@@ -159,7 +160,39 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
   </div>
 </section>
 
-<section class="section section-alt" id="trust">
+<section class="section section-alt" id="plans">
+  <div class="wrap" style="max-width:60rem">
+    <h2>Free for everyday documents. Pro when the paperwork is your business.</h2>
+    <p class="lead">Start free with no account. When you send documents every week, Pro takes the Clausery line off them and automates your own templates.</p>
+    <div class="grid grid-2">
+      <div class="plan">
+        <h3>Free</h3>
+        <p class="price">$0 <small>no time limit</small></p>
+        <ul>
+          <li>Every template in the free library, unlimited documents</li>
+          <li>Totals, tax and numbering done for you</li>
+          <li>Up to 3 of your own Word templates</li>
+          <li class="no">Remove the “Made with Clausery” line from library documents</li>
+        </ul>
+        <a class="btn" href="${rel}app/#/start/invoice">Make an invoice, free</a>
+      </div>
+      <div class="plan featured">
+        <h3>Pro</h3>
+        <p class="price">$${PRICES.pro} <small>/ user / month</small></p>
+        <ul>
+          <li>No “Made with Clausery” line on your documents</li>
+          <li>Unlimited own templates, with calculations</li>
+          <li>Unlimited documents from a spreadsheet</li>
+          <li>Encrypted workspace and client intake forms</li>
+        </ul>
+        <a class="btn btn-primary" href="${rel}app/#/trial">Try Pro free for ${TRIAL_DAYS} days</a>
+        <p class="small muted" style="margin:.6rem 0 0;text-align:center">No card, nothing renews. ${REFUND_DAYS}-day money-back guarantee when you buy. <a href="${rel}pricing/">All plans</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="trust">
   <div class="wrap">
     <div class="grid grid-2">
       <div>
@@ -172,10 +205,11 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
   </div>
 </section>
 
-<section class="section" id="faq">
+<section class="section section-alt" id="faq">
   <div class="wrap" style="max-width:48rem">
     <h2>Questions</h2>
     <div class="faq">
+      <details><summary>Is Clausery really free? What does Pro add?</summary><p>Yes. Every library template and up to three of your own are free, with unlimited documents and no time limit; documents made from library templates end with a small “Made with Clausery” line. Pro ($${PRICES.pro} a month) leaves that line out and adds unlimited templates of your own with calculations, unlimited documents from a spreadsheet, workspace encryption and client intake forms. <a href="${rel}app/#/trial">Try Pro free for ${TRIAL_DAYS} days</a>: no card, and it simply ends.</p></details>
       <details><summary>Are my document contents uploaded?</summary><p>No. Reading templates, evaluating document answers and assembling the .docx happen in your browser. Saved documents use its local database. ${USAGE_ON || ONLINE_KEYS ? `Separate from document processing, requests include ${[USAGE_ON && USAGE_REQUEST, ONLINE_KEYS && 'a license check with Lemon Squeezy if you activate a key bought online'].filter(Boolean).join(', and ')}. These do not carry document contents.` : 'The app requests its own files from the site that serves it.'}</p></details>
       <details><summary>Is my work saved if I close the tab or my laptop dies?</summary><p>Yes. Every answer is saved as you type to your browser's built-in database, so drafts survive a refresh, a restart or a flat battery, and stay in your Drafts list until you delete them. The first time you make a document, Clausery also asks the browser to protect that storage from automatic clean-up.</p></details>
       <details><summary>Do I have to type my business details on every invoice?</summary><p>No. Your next invoice, quote or receipt starts with your business details, bank details and usual tax rate from the last one you made, the next number in your sequence (INV-0042 becomes INV-0043) and today's date. Only the client and the items are new. It all comes from the drafts saved in your browser; nothing is stored anywhere else.</p></details>
@@ -194,7 +228,7 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
 <section class="cta">
   <div class="wrap">
     <h2>Make your next invoice in a couple of minutes.</h2>
-    <p class="lead" style="margin:0 auto">Every library template is free, plus three of your own. No account, no card, no trial clock.</p>
+    <p class="lead" style="margin:0 auto">Every library template is free, plus three of your own. No account and no card, and Pro is free to try for ${TRIAL_DAYS} days.</p>
     <div class="actions"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free</a><a class="btn btn-lg" href="${rel}pricing/">See plans</a></div>
     <p class="small muted" style="margin-top:1.5rem">See Clausery's <a href="https://fazier.com/launches/clausery" rel="noopener">Fazier launch</a>, or use the <a href="${rel}press/">press kit</a> to share a useful resource with your audience.</p>
     <p style="margin-top:.75rem"><a href="https://fazier.com/launches/clausery" title="Clausery on Fazier" rel="noopener"><img src="${rel}assets/badges/fazier.svg" width="182" height="43" alt="Featured on Fazier" loading="lazy"></a></p>

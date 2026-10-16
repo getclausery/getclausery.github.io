@@ -1,7 +1,7 @@
 /* Pricing page: point the plan buttons at the configured checkout links, or at a key request email when none is set. */
 import { CHECKOUT_URLS, keyRequestUrl } from '../app/config.js';
 
-const PLAN = { pro: 'Pro monthly', proYearly: 'Pro yearly', team: 'Team' };
+const PLAN = { pro: 'Pro monthly', proYearly: 'Pro yearly', team: 'Team', lifetime: 'Lifetime Pro' };
 for (const a of document.querySelectorAll('[data-checkout]')) {
   const url = CHECKOUT_URLS[a.dataset.checkout];
   const name = PLAN[a.dataset.checkout] || a.dataset.checkout;

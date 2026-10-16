@@ -1,23 +1,23 @@
 {
  "": {
-  "date": "2026-10-09",
-  "hash": "b264a44aefe158d6"
+  "date": "2026-10-15",
+  "hash": "5a31b919ae84ee5a"
  },
  "404.html": {
   "date": "2026-09-27",
   "hash": "f0df1fd9cdfa1f81"
  },
  "about/": {
-  "date": "2026-10-09",
-  "hash": "0f2c309276232091"
+  "date": "2026-10-15",
+  "hash": "6c572fc3a3e386ff"
  },
  "business-document-kit/": {
   "date": "2026-10-09",
   "hash": "b924156b20fcbae3"
  },
  "changelog.html": {
-  "date": "2026-10-09",
-  "hash": "e91ca21f59a4bb94"
+  "date": "2026-10-15",
+  "hash": "885d027b158dd231"
  },
  "clauses/": {
   "date": "2026-10-04",
@@ -124,52 +124,52 @@
   "hash": "3357ce264ec24545"
  },
  "compare/bonsai-alternative.html": {
-  "date": "2026-10-04",
-  "hash": "3d69aa841879a21b"
+  "date": "2026-10-15",
+  "hash": "bcb410392eae77ba"
  },
  "compare/clio-draft-alternative.html": {
-  "date": "2026-10-04",
-  "hash": "ba4ffceeab5af065"
+  "date": "2026-10-15",
+  "hash": "3cf4e8d858f2a0c4"
  },
  "compare/docassemble-alternative.html": {
-  "date": "2026-10-02",
-  "hash": "8799c40729b96913"
+  "date": "2026-10-15",
+  "hash": "1aa5069e0df5e92c"
  },
  "compare/dubsado-alternative.html": {
-  "date": "2026-10-04",
-  "hash": "cabccf79f39ae9f4"
+  "date": "2026-10-15",
+  "hash": "ef4b4eb48d8047f4"
  },
  "compare/eforms-alternative.html": {
-  "date": "2026-10-04",
-  "hash": "d6c0d5fe3ce19166"
+  "date": "2026-10-15",
+  "hash": "0cd1d9fac598e50e"
  },
  "compare/gavel-alternative.html": {
-  "date": "2026-10-04",
-  "hash": "3a580b7ae393b8ba"
+  "date": "2026-10-15",
+  "hash": "4f6432ae70056deb"
  },
  "compare/honeybook-alternative.html": {
-  "date": "2026-10-04",
-  "hash": "8d0e09d5ba7ab133"
+  "date": "2026-10-15",
+  "hash": "bd8a6e5791d53d40"
  },
  "compare/hotdocs-alternative.html": {
-  "date": "2026-10-04",
-  "hash": "9bd19b633a36ed07"
+  "date": "2026-10-15",
+  "hash": "fb2e3be6e0f2802e"
  },
  "compare/lawdepot-alternative.html": {
-  "date": "2026-10-04",
-  "hash": "a16aff4adbc34fbd"
+  "date": "2026-10-15",
+  "hash": "88ed1ada7771f53d"
  },
  "compare/pandadoc-alternative.html": {
-  "date": "2026-10-04",
-  "hash": "4ee6a5a0730e1144"
+  "date": "2026-10-15",
+  "hash": "4d089f38712f044a"
  },
  "compare/rocket-lawyer-alternative.html": {
-  "date": "2026-10-04",
-  "hash": "02cc5c19e543d33f"
+  "date": "2026-10-15",
+  "hash": "5c22ed7ed0fdd20c"
  },
  "contact/": {
-  "date": "2026-10-09",
-  "hash": "54abaa9702291069"
+  "date": "2026-10-15",
+  "hash": "cb35fd3675e1d465"
  },
  "docs/": {
   "date": "2026-10-07",
@@ -180,8 +180,8 @@
   "hash": "099ea0d02674697f"
  },
  "docs/faq.html": {
-  "date": "2026-10-09",
-  "hash": "73d79bbee78f052a"
+  "date": "2026-10-15",
+  "hash": "2ac412711de55d3a"
  },
  "docs/intake.html": {
   "date": "2026-10-01",
@@ -196,8 +196,8 @@
   "hash": "18766ecc31f6a751"
  },
  "docs/security.html": {
-  "date": "2026-10-09",
-  "hash": "783e00faec20b74f"
+  "date": "2026-10-15",
+  "hash": "57b1ada22806f35e"
  },
  "docs/self-hosting.html": {
   "date": "2026-10-04",
@@ -580,24 +580,28 @@
   "hash": "1686ec404a3090ac"
  },
  "legal/privacy.html": {
-  "date": "2026-10-09",
-  "hash": "80e2ec8e5e19783d"
+  "date": "2026-10-15",
+  "hash": "f7006f0b04cab600"
  },
  "legal/terms.html": {
-  "date": "2026-10-02",
-  "hash": "9cd16f972fa05d7d"
+  "date": "2026-10-15",
+  "hash": "75a63282d8fad32b"
+ },
+ "made-with/": {
+  "date": "2026-10-15",
+  "hash": "2a58b3b25b39b510"
  },
  "nda-templates/": {
   "date": "2026-10-04",
   "hash": "9d5442157d72f06e"
  },
  "press/": {
-  "date": "2026-10-08",
-  "hash": "4228c079f6f0e0ca"
+  "date": "2026-10-15",
+  "hash": "4f920152638a6972"
  },
  "pricing/": {
-  "date": "2026-10-09",
-  "hash": "6f9a907e4634db9d"
+  "date": "2026-10-15",
+  "hash": "76b30b3565ea89f5"
  },
  "templates/": {
   "date": "2026-10-08",

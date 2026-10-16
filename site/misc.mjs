@@ -1,4 +1,5 @@
 import { USAGE_ON } from '../tools/partials.mjs';
+import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 export const pages = [
   {
     path: '404.html', title: 'Page not found', description: 'The page you were looking for does not exist.',
@@ -8,6 +9,13 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.34.0 <span class="small muted">— 15 October 2026</span></h2>
+<ul>
+  <li>Try Pro free for ${TRIAL_DAYS} days with one click, from the upgrade dialog, Settings or the <a href="${rel}pricing/">pricing page</a>. No card, no account and no email: the trial runs in your browser and simply ends, and you keep everything you made.</li>
+  <li>Paid plans now have a ${REFUND_DAYS}-day money-back guarantee on the first payment. See the updated <a href="${rel}legal/terms.html">terms</a>.</li>
+  <li>On the Free plan, documents made from library templates end with a small “Made with Clausery” line. Pro, Team and the trial leave it out, and templates you upload yourself never get it.</li>
+  <li>Links inside a document preview open in a new tab, so a click never leaves the draft.</li>
+</ul>
 <h2>1.33.0 <span class="small muted">— 9 October 2026</span></h2>
 <ul><li>A free <a href="${rel}guides/invoice-email-template.html">invoice email generator and four message templates</a> for sending an invoice, reminding a client, following up on overdue payment and acknowledging money received. Details stay on your device; copy the message into your own email app.</li></ul>
 <h2>1.32.1 <span class="small muted">— 9 October 2026</span></h2>

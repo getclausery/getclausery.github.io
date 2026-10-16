@@ -6,7 +6,9 @@ import { encodeWorkspace, decodeBundle, downloadBlob, safeFilename } from '../..
 import { estimateUsage, requestPersistence } from '../../lib/store.js';
 import { normalizeTemplate, DATE_FORMATS } from '../../lib/schema.js';
 import { VERSIONS } from '../../lib/versions.js';
-import { USAGE_COUNTER } from '../../config.js';
+import { USAGE_COUNTER, TRIAL_DAYS } from '../../config.js';
+import { daysLeftText } from '../../lib/trial.js';
+import { priceLine, checkoutButtons } from '../offer.js';
 
 const CURRENCIES = ['USD', 'EUR', 'GBP', 'CAD', 'AUD', 'CHF', 'JPY', 'INR', 'SGD', 'NZD', 'ZAR', 'BRL', 'MXN', 'SEK', 'NOK', 'DKK'];
 
@@ -32,19 +34,29 @@ export async function render(ctx) {
   const online = ctx.plan.payload && ctx.plan.payload.source === 'online';
   const keyInput = h('textarea.textarea#license-key', { rows: 3, placeholder: 'Paste the license key from your receipt email', spellcheck: false, 'aria-label': 'License key' });
   const checkedOn = (iso) => { const d = new Date(iso); return Number.isFinite(d.getTime()) ? d.toLocaleDateString(s.locale || undefined, { day: 'numeric', month: 'long', year: 'numeric' }) : 'never'; };
-  const licenseStatus = () => ctx.plan.payload ? h('div.notice.notice-ok', icon('check'), h('div', h('strong', describeLicense(ctx.plan.payload)),
+  const trial = ctx.trial.state();
+  const licensed = !!ctx.plan.payload && !ctx.plan.isTrial;
+  const licenseStatus = () => ctx.plan.isTrial ? h('div.notice.notice-info', icon('sparkle'), h('div', h('strong', `Free Pro trial: ${daysLeftText(trial.daysLeft)}. `),
+      `Every Pro feature is unlocked in this browser until ${checkedOn(trial.endsAt)}. No card is on file, so nothing renews: afterwards this browser goes back to the Free plan with everything you made.`))
+    : licensed ? h('div.notice.notice-ok', icon('check'), h('div', h('strong', describeLicense(ctx.plan.payload)),
       h('div.small', online ? `Active in this browser. Last checked with our payment provider on ${checkedOn(ctx.plan.payload.checkedAt)}. To use another device, open the Open Clausery button in your receipt email there.` : 'Licensed to this browser profile. Keep your offline key for other devices.')))
-    : h('div.notice', icon('info'), h('div', h('strong', 'Free plan. '), ctx.plan.error ? h('span', ctx.plan.error, ' ') : 'Every library template plus up to 3 of your own, with unlimited drafts and documents. ', h('a', { href: '../pricing/', target: '_blank', rel: 'noopener' }, 'Compare plans')));
+    : h('div.notice', icon('info'), h('div', h('strong', 'Free plan. '), ctx.plan.error ? h('span', ctx.plan.error, ' ') : 'Every library template plus up to 3 of your own, with unlimited drafts and documents. Documents from library templates end with a small “Made with Clausery” line. ',
+      trial.status === 'ended' && trial.endsAt ? `Your free Pro trial ended on ${checkedOn(trial.endsAt)}. ` : '', h('a', { href: '../pricing/', target: '_blank', rel: 'noopener' }, 'Compare plans')));
+  const canTrial = !ctx.plan.isPaid && trial.status === 'unused';
+  const buy = checkoutButtons(ctx, { primary: canTrial ? null : 'pro' });
+  const offer = !licensed && (canTrial || buy.length) ? h('div.stack-sm', { style: { marginTop: '1rem' } },
+    h('div.row', canTrial ? h('button.btn.btn-primary', { type: 'button', onclick: async () => { await ctx.trial.start(); toast(`Your free Pro trial has started: ${daysLeftText(TRIAL_DAYS)}.`, { type: 'ok' }); ctx.router.resolve(); } }, icon('sparkle', 16), `Start ${TRIAL_DAYS}-day free trial`) : null, buy),
+    h('p.small.muted', canTrial ? `The trial needs no card and no account, and nothing renews when it ends. ${priceLine()}` : priceLine())) : null;
   const licenseBox = h('div', licenseStatus());
   const license = section('license', 'Plan and billing', svc.api ? 'Choose a plan, pay securely, then select Open Clausery to activate it automatically. No separate account or key to copy. Your documents stay on this device.' : 'Keys are verified offline with a signature. No account, no phone-home.',
     licenseBox,
-    !ctx.plan.isPaid && ctx.checkoutUrls?.pro ? h('div.row', { style: { marginTop: '1rem' } }, h('a.btn.btn-primary', { href: ctx.checkoutUrls.pro, rel: 'noopener' }, 'Get Pro — $19/month'), ctx.checkoutUrls.proYearly ? h('a.btn', { href: ctx.checkoutUrls.proYearly, rel: 'noopener' }, 'Pro yearly — $190/year') : null, ctx.checkoutUrls.team ? h('a.btn', { href: ctx.checkoutUrls.team, rel: 'noopener' }, 'Get Team — $49/month') : null) : null,
+    offer,
     h('ul.feature-list', { style: { margin: '1rem 0' } }, Object.entries(FEATURE_LABELS).map(([k, l]) => h('li', ctx.plan.can(k) ? icon('check', 16) : h('span', { style: { width: '16px', display: 'inline-block', color: 'var(--muted)' } }, '·'), l))),
     h('div.row', online ? h('button.btn', { type: 'button', onclick: async () => { const r = await ctx.recheckLicense(); if (r.ok === null) toast('Could not reach the payment service. Try again when you are online.', { type: 'warn' }); else if (r.ok) toast('Subscription checked: it is active.', { type: 'ok' }); ctx.router.resolve(); } }, 'Check subscription') : null,
       svc.portal ? h('a.btn.btn-ghost', { href: svc.portal, target: '_blank', rel: 'noopener' }, 'Manage subscription') : null),
     h('details', { id: 'manual-activation', open: !svc.api }, h('summary', 'Advanced activation'), h('p.small.muted', 'For an offline license or help from support. Normal online purchases activate from the Open Clausery button.'), h('div.stack-sm', row('License key', keyInput), h('div.row',
       h('button.btn.btn-primary', { type: 'button', onclick: async (e) => { const btn = e.currentTarget; const k = keyInput.value.trim(); if (!k) { toast('Paste a license key first.', { type: 'warn' }); keyInput.focus(); return; } btn.disabled = true; const res = await ctx.setLicense(k).finally(() => { btn.disabled = false; }); if (res.ok) { toast(`${ctx.plan.name} plan activated.`, { type: 'ok' }); keyInput.value = ''; ctx.router.resolve(); } else toast(res.error, { type: 'danger', timeout: 8000 }); } }, icon('key', 16), 'Activate'),
-      ctx.plan.payload ? h('button.btn.btn-ghost', { type: 'button', onclick: async () => { if (!await confirmDialog({ title: 'Remove from this browser?', message: 'This browser goes back to the Free plan and frees its activation. Your templates and drafts stay here. This does not cancel your subscription.', confirmLabel: 'Remove' })) return; await ctx.setLicense(''); toast('Paid plan removed from this browser.'); ctx.router.resolve(); } }, 'Remove from this browser') : null))));
+      licensed ? h('button.btn.btn-ghost', { type: 'button', onclick: async () => { if (!await confirmDialog({ title: 'Remove from this browser?', message: 'This browser goes back to the Free plan and frees its activation. Your templates and drafts stay here. This does not cancel your subscription.', confirmLabel: 'Remove' })) return; await ctx.setLicense(''); toast('Paid plan removed from this browser.'); ctx.router.resolve(); } }, 'Remove from this browser') : null))));
 
   // ---- security / vault
   const vaultOn = !!ctx.store.vaultMeta;

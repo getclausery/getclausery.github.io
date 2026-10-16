@@ -3,7 +3,7 @@
    background requests (a new release ships a new VERSION, which installs a fresh cache). Pages are network-first so a
    deploy is visible at once; offline, app routes fall back to the app shell and other pages to offline.html.
    VERSION and PRECACHE are written by tools/release.mjs; do not edit them by hand. */
-const VERSION = '1.33.0';
+const VERSION = '1.34.0';
 const CACHE = 'clausery-' + VERSION;
 const BASE = new URL('./', self.location).pathname;
 // PRECACHE:BEGIN
@@ -14,6 +14,7 @@ const PRECACHE = [
   'app/index.html',
   'app/lib/backup.js',
   'app/lib/bulk.js',
+  'app/lib/credit.js',
   'app/lib/expr.js',
   'app/lib/form.js',
   'app/lib/history.js',
@@ -29,6 +30,7 @@ const PRECACHE = [
   'app/lib/schema.js',
   'app/lib/setups.js',
   'app/lib/store.js',
+  'app/lib/trial.js',
   'app/lib/usage.js',
   'app/lib/vault.js',
   'app/lib/versions.js',
@@ -38,6 +40,7 @@ const PRECACHE = [
   'app/styles.css',
   'app/theme.js',
   'app/ui/dom.js',
+  'app/ui/offer.js',
   'app/ui/router.js',
   'app/ui/views/designer.js',
   'app/ui/views/drafts.js',
@@ -45,6 +48,7 @@ const PRECACHE = [
   'app/ui/views/lock.js',
   'app/ui/views/settings.js',
   'app/ui/views/templates.js',
+  'app/ui/views/trial.js',
   'assets/icon-192.png',
   'assets/icon.svg',
   'index.html',
@@ -140,7 +144,7 @@ const PRECACHE = [
   'site.js',
   'vendor/docs.js',
   'vendor/intake-runtime.js',
-  'vendor/purchase-runtime-1.33.0.js'
+  'vendor/purchase-runtime-1.34.0.js'
 ];
 // PRECACHE:END
 const PRECACHE_URLS = new Set(PRECACHE.map((p) => BASE + p));
