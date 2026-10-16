@@ -30,7 +30,7 @@ import { workflowLinks } from './invoice-workflows.mjs';
 export const pages = [{
   path: '', title: 'Clausery',
   description: `Make invoices, quotes and receipts in Word with totals, tax and numbering done for you, plus ${LIB.length} free templates. No sign-up, and nothing is uploaded.`,
-  extraHead: `<meta name="directree-verify" content="18cd9ea3fefedd43ee1d57c58248886c">
+  extraHead: `<meta name="directree-verify" content="directree-verify=18cd9ea3fefedd43ee1d57c58248886c">
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebSite', name: 'Clausery', url: SITE })}</script>
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', name: 'Clausery', url: SITE, logo: `${SITE}assets/icon-512.png`, sameAs: ['https://github.com/getclausery/getclausery.github.io'] })}</script>
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'Clausery', applicationCategory: 'BusinessApplication', operatingSystem: 'Any (web browser)', description: 'Create invoices, quotes and receipts from free Word templates. Guided questions generate editable .docx files on your device.', url: SITE, offers: [{ '@type': 'Offer', price: '0', priceCurrency: 'USD', name: 'Free' }, { '@type': 'Offer', price: String(PRICES.pro), priceCurrency: 'USD', name: 'Pro (per user, monthly)' }], featureList: ['Client-side .docx generation', 'Conditional clauses and repeating groups', 'Calculations', 'Encrypted local workspace', 'Offline client intake forms', 'No account required'] })}</script>`,
