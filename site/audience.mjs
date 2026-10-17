@@ -1707,8 +1707,7 @@ ${GUIDE_TOPICS.map(([t, slugs]) => `  <h2 id="${topicId(t)}" style="margin-top:2
 <ul class="sources">${g.sources.map(([label, url]) => `<li><a href="${esc(url)}" rel="noopener">${esc(label)}</a></li>`).join('')}</ul>` : ''}
 <!--nav-->${['how-to-write-an-invoice', 'what-to-do-when-a-client-wont-pay', 'what-bank-details-to-put-on-an-invoice'].includes(g.slug) ? `<p>Write the sending message or a polite follow-up with the <a href="${rel}guides/invoice-email-template.html">free invoice email generator and four email templates</a>.</p>` : ''}<h2>More on ${esc(lowerFirst(topic))}</h2>
 <ul>${slugs.filter((x) => x !== g.slug).map((x) => `<li><a href="${rel}guides/${x}.html">${esc(GUIDE_BY[x].title)}</a></li>`).join('')}</ul>
-<h2>All guides</h2>
-<div class="cat-lists">${GUIDE_TOPICS.filter(([t]) => t !== topic).map(([t, s]) => `<div><h3>${esc(t)}</h3><ul class="link-list">${s.map((x) => `<li><a href="${rel}guides/${x}.html">${esc(GUIDE_BY[x].title)}</a></li>`).join('')}</ul></div>`).join('')}</div><!--/nav--></div></section>`;
+<p><a href="${rel}guides/">Browse all guides by topic</a></p><!--/nav--></div></section>`;
     },
   })),
 ];
