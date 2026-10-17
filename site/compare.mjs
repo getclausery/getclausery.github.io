@@ -1,6 +1,6 @@
 // "Alternative to X" pages. They state plainly where the other product is the better choice: buyers comparing tools
 // trust a page that admits trade-offs, and every claim here must stay accurate.
-import { esc, faqLd, faqHtml } from '../tools/partials.mjs';
+import { esc, faqLd, faqHtml, collectionLd } from '../tools/partials.mjs';
 import { LIB } from './library.mjs';
 import { PRICES, TRIAL_DAYS } from '../app/config.js';
 
@@ -125,6 +125,7 @@ const moveSteps = (c, rel) => (c.group === 'forms' ? `  <h2 style="margin-top:2.
 export const pages = [
   { path: 'compare/', title: 'Compare document automation tools',
     description: 'How Clausery compares with LawDepot, Rocket Lawyer, eForms, Gavel, Clio Draft, HotDocs, HoneyBook, Bonsai, Dubsado and PandaDoc on privacy, features and price.',
+    extraHead: collectionLd({ path: 'compare/', name: 'Compare document automation tools', description: 'How Clausery compares with LawDepot, Rocket Lawyer, eForms, Gavel, Clio Draft, HotDocs, HoneyBook, Bonsai, Dubsado and PandaDoc on privacy, features and price.', items: COMPETITORS.map((c) => [c.title, `compare/${c.slug}.html`]) }),
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">
   <h1>How Clausery compares</h1>
   <p class="lead">Every tool on this list is good at something. The main difference with Clausery is architectural: your documents are built on your own computer, so there is no vendor that holds your clients' data.</p>

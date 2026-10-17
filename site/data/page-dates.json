@@ -1,11 +1,11 @@
 {
  "": {
-  "date": "2026-10-16",
-  "hash": "5c3bd285b1a4bc42"
+  "date": "2026-10-17",
+  "hash": "f03320df63782ada"
  },
  "404.html": {
-  "date": "2026-09-27",
-  "hash": "f0df1fd9cdfa1f81"
+  "date": "2026-10-17",
+  "hash": "4bdb412837ef366a"
  },
  "about/": {
   "date": "2026-10-15",
@@ -20,8 +20,8 @@
   "hash": "885d027b158dd231"
  },
  "clauses/": {
-  "date": "2026-10-04",
-  "hash": "9d6faf73e92880c4"
+  "date": "2026-10-17",
+  "hash": "76e9759f106932b7"
  },
  "clauses/amendment-clause.html": {
   "date": "2026-10-04",
@@ -120,8 +120,8 @@
   "hash": "4569c681a89e136c"
  },
  "compare/": {
-  "date": "2026-10-02",
-  "hash": "3357ce264ec24545"
+  "date": "2026-10-17",
+  "hash": "ef1822dec189a066"
  },
  "compare/bonsai-alternative.html": {
   "date": "2026-10-15",
@@ -232,8 +232,8 @@
   "hash": "3b04261325095098"
  },
  "free-tools/": {
-  "date": "2026-10-09",
-  "hash": "6822545fbf9a8713"
+  "date": "2026-10-17",
+  "hash": "ed1b3111aff7aefb"
  },
  "free-tools/amount-in-words.html": {
   "date": "2026-09-27",
@@ -272,8 +272,8 @@
   "hash": "0524916b3c455222"
  },
  "guides/": {
-  "date": "2026-10-08",
-  "hash": "dd1182b1102590e5"
+  "date": "2026-10-17",
+  "hash": "8e6e7d1da2589ed8"
  },
  "guides/are-liability-waivers-enforceable.html": {
   "date": "2026-09-28",
@@ -488,8 +488,8 @@
   "hash": "b55f73ff4431ac85"
  },
  "invoice-templates/": {
-  "date": "2026-10-08",
-  "hash": "593eed6393cbda69"
+  "date": "2026-10-17",
+  "hash": "a82d37473f3300ae"
  },
  "invoice-templates/australia-tax-invoice.html": {
   "date": "2026-10-08",
@@ -604,8 +604,8 @@
   "hash": "76b30b3565ea89f5"
  },
  "templates/": {
-  "date": "2026-10-08",
-  "hash": "cfe857a8dc46a3cf"
+  "date": "2026-10-17",
+  "hash": "583590b93b01563e"
  },
  "templates/bill-of-sale.html": {
   "date": "2026-10-17",

@@ -56,31 +56,48 @@ export function fitSnippet(text, { lead = '', tail = '', max = 158 } = {}) {
 }
 export const faqLd = (faq) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) })}</script>`;
 export const crumbsLd = (items) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map(([name, url], i) => ({ '@type': 'ListItem', position: i + 1, name, item: SITE + url })) })}</script>`;
+export const collectionLd = ({ path, name, description, items }) => `<script type="application/ld+json">${JSON.stringify({
+  '@context': 'https://schema.org', '@type': 'CollectionPage', '@id': `${SITE}${path}#webpage`, url: `${SITE}${path}`, name, description,
+  inLanguage: 'en-GB', isPartOf: { '@id': `${SITE}#website` },
+  mainEntity: { '@type': 'ItemList', numberOfItems: items.length, itemListElement: items.map(([itemName, itemPath], i) => ({ '@type': 'ListItem', position: i + 1, name: itemName, url: `${SITE}${itemPath}` })) },
+})}</script>`;
 export const faqHtml = (faq) => `<div class="faq">${faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>`;
-export function head({ title, description, path, extraHead = '', ogImage = 'assets/og.png', rel: relOverride }) {
+export function head({ title, description, path, extraHead = '', pageLd = '', ogImage = 'assets/og.png', ogType = 'website', published, modified, rel: relOverride }) {
   // Search results show about 60 characters of a title; drop the brand suffix rather than have the title cut off.
   // The home title leads with what the site is for (small businesses making invoices in Word) and what people search for.
   // A title that already names Clausery gets no suffix (no "About Clausery · Clausery").
   const full = title === 'Clausery' ? 'Clausery: free invoice maker and Word templates' : /\bClausery\b/.test(title) ? title : `${title} · Clausery`.length <= 60 ? `${title} · Clausery` : title;
   description = clipDescription(description);
   const url = `${SITE}${path}`;
+  const image = `${SITE}${ogImage}`;
+  const imageAlt = `${full} — Clausery`;
   const depth = path.split('/').filter(Boolean).length - (path.endsWith('/') || path === '' ? 0 : 1);
   const rel = relOverride || (depth > 0 ? '../'.repeat(depth) : './');
+  const robots = /<meta\s+[^>]*name=["']robots["']/i.test(extraHead) ? '' : '<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">\n';
+  const articleMeta = ogType === 'article' ? `${published ? `<meta property="article:published_time" content="${published}">\n` : ''}${modified ? `<meta property="article:modified_time" content="${modified}">\n` : ''}` : '';
   return `<!doctype html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="utf-8">
 <title>${esc(full)}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="${esc(description)}">
-<link rel="canonical" href="${url}">
-<meta property="og:type" content="website">
+${robots}<link rel="canonical" href="${url}">
+<meta property="og:type" content="${ogType}">
+<meta property="og:locale" content="en_GB">
 <meta property="og:site_name" content="Clausery">
 <meta property="og:title" content="${esc(full)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${url}">
-<meta property="og:image" content="${SITE}${ogImage}">
-<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="${image}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="${esc(imageAlt)}">
+${articleMeta}<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${esc(full)}">
+<meta name="twitter:description" content="${esc(description)}">
+<meta name="twitter:image" content="${image}">
+<meta name="twitter:image:alt" content="${esc(imageAlt)}">
 <meta name="theme-color" content="#1b2a41">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" href="${rel}assets/icon.svg" type="image/svg+xml">
@@ -90,7 +107,7 @@ export function head({ title, description, path, extraHead = '', ogImage = 'asse
 <link rel="stylesheet" href="${rel}site.css">
 <script src="${rel}app/theme.js"></script>
 <script src="${rel}site.js" defer></script>
-${extraHead}
+${extraHead}${pageLd}
 </head>
 <body>
 <a class="sr-only" href="#main">Skip to content</a>
@@ -101,7 +118,7 @@ ${header(rel, path)}
 // noindex so search engines credit the full tool page instead. Light by default (most host sites are), or ?theme=dark.
 export function embedPage({ title, description, extraHead = '', rel, body }) {
   return `<!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en-GB" data-theme="light">
 <head>
 <meta charset="utf-8">
 <title>${esc(title)}</title>

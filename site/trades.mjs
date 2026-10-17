@@ -2,7 +2,7 @@
 // it does something the generic invoice page does not: the app opens the invoice with that trade's usual lines already
 // in (#/start/invoice/<trade>), and the page explains what that trade in particular should put on an invoice, which
 // contract to sign before the work, and how that trade usually gets paid. Example prices are labelled as examples.
-import { esc, faqLd, LASTMOD, LASTMOD_LONG } from '../tools/partials.mjs';
+import { esc, faqLd, collectionLd, LASTMOD, LASTMOD_LONG } from '../tools/partials.mjs';
 import { PRESETS } from '../app/lib/presets.js';
 import { LIB } from './library.mjs';
 import { GUIDES } from './audience.mjs';
@@ -170,6 +170,7 @@ export const pages = [
   {
     path: 'invoice-templates/', title: 'Free Word invoice templates: task, trade and country',
     description: 'Free Word invoice templates for deposits, hourly work and final balances, plus trade and country starters. Totals calculated online; editable .docx download.',
+    extraHead: collectionLd({ path: 'invoice-templates/', name: 'Free Word invoice templates: task, trade and country', description: 'Free Word invoice templates for deposits, hourly work and final balances, plus trade and country starters. Totals calculated online; editable .docx download.', items: [...WORKFLOWS.map((w) => [w.name, `invoice-templates/${w.slug}.html`]), ...TRADES.map((t) => [t.title, `invoice-templates/${t.slug}.html`]), ...COUNTRIES.map((c) => [c.h1, `invoice-templates/${c.slug}.html`])] }),
     body: (rel) => `<section class="section"><div class="wrap">
   <h1>Free Word invoice templates by task, trade and country</h1>
   <p class="lead">Pick your trade and the invoice opens with the lines that trade usually bills, ready for your prices. Pick your country and it opens with the right tax, rate and tax number. Totals and tax are worked out for you, your next invoice remembers your details and number, and you download an editable Word file. Free, no sign-up, nothing uploaded.</p>

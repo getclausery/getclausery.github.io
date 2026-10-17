@@ -159,3 +159,31 @@ test('the press kit describes the live checkout', async () => {
   const press = html('press/index.html');
   assert.equal(/hosted checkout is not yet linked/.test(press), !ONLINE_KEYS);
 });
+
+test('every HTML page has exactly one robots directive, index iff it is in sitemap.xml', () => {
+  const indexed = new Set([...html('sitemap.xml').matchAll(/<loc>([^<]+)<\/loc>/g)].map(([, url]) => new URL(url).pathname));
+  const files = globSync('**/*.html', { exclude: (x) => /^(node_modules|test-results|playwright-report)/.test(x) });
+  for (const f of files) {
+    if (/^google[0-9a-f]+\.html$/.test(f)) continue; // Search Console's verification token is not a document page.
+    const page = html(f);
+    const robots = [...page.matchAll(/<meta\s+[^>]*name="robots"[^>]*content="([^"]+)"[^>]*>/gi)];
+    assert.equal(robots.length, 1, `${f}: expected exactly one robots tag`);
+    const path = '/' + f.replace(/index\.html$/, '');
+    assert.equal(!/\bnoindex\b/i.test(robots[0][1]), indexed.has(path), `${f}: robots and sitemap disagree`);
+  }
+});
+
+test('every Open Graph share image is a 1200 by 630 PNG', () => {
+  const images = new Set();
+  for (const f of globSync('**/*.html', { exclude: (x) => /^(node_modules|app|free-tools\/embed|test-results|playwright-report)/.test(x) })) {
+    const src = html(f).match(/<meta property="og:image" content="https:\/\/getclausery\.github\.io\/([^"]+)"/)?.[1];
+    if (src) images.add(src);
+  }
+  assert.ok(images.size > 1);
+  for (const image of images) {
+    const png = readFileSync(image);
+    assert.equal(png.subarray(1, 4).toString(), 'PNG', image);
+    assert.equal(png.readUInt32BE(16), 1200, `${image}: width`);
+    assert.equal(png.readUInt32BE(20), 630, `${image}: height`);
+  }
+});

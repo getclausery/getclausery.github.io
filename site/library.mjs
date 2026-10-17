@@ -7,7 +7,7 @@ import { applySetup, setupFor } from '../app/lib/setups.js';
 import { PRESETS } from '../app/lib/presets.js';
 import { invoiceWordHelp, workflowLinks } from './invoice-workflows.mjs';
 import { paymentReceiptHelp, receiptHelpHead } from './payment-receipt.mjs';
-import { esc, crumbsLd, lowerFirst, fitSnippet, SITE, LASTMOD, LASTMOD_LONG } from '../tools/partials.mjs';
+import { esc, crumbsLd, collectionLd, lowerFirst, fitSnippet, SITE, LASTMOD, LASTMOD_LONG } from '../tools/partials.mjs';
 import { CLAUSES } from './data/clauses.mjs';
 import { previewHtml, PREVIEW_CSS, PREVIEW_SIZE } from '../tools/preview.mjs';
 import { GUIDES } from './audience.mjs';
@@ -675,7 +675,7 @@ export const pages = [
   {
     path: 'templates/', title: 'Free Word templates: invoices, business and contracts',
     description: `${LIB.length} free Word templates: invoices, quotes, receipts, business contracts, HR letters and landlord forms. Fill them in online or download the .docx.`,
-    extraHead: crumbsLd([['Home', ''], ['Templates', 'templates/']]),
+    extraHead: crumbsLd([['Home', ''], ['Templates', 'templates/']]) + collectionLd({ path: 'templates/', name: 'Free Word templates: invoices, business and contracts', description: `${LIB.length} free Word templates: invoices, quotes, receipts, business contracts, HR letters and landlord forms. Fill them in online or download the .docx.`, items: LIB.map((t) => [t.name, `templates/${t.slug}.html`]) }),
     body: (rel) => `
 <section class="section"><div class="wrap">
   <p class="eyebrow">Free template library</p>

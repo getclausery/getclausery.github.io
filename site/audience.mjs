@@ -1,5 +1,5 @@
 // Pages for each buyer, and how-to guides that answer the searches those buyers make.
-import { esc, faqLd, faqHtml, crumbsLd, lowerFirst, SITE, LASTMOD, LASTMOD_LONG } from '../tools/partials.mjs';
+import { esc, faqLd, faqHtml, crumbsLd, collectionLd, lowerFirst, SITE, LASTMOD, LASTMOD_LONG } from '../tools/partials.mjs';
 
 const AUD = [
   { slug: 'law-firms', name: 'Law firms', title: 'Document automation for small law firms, without uploading client files',
@@ -1690,6 +1690,7 @@ export const pages = [
 </div></section>`,
   })),
   { path: 'guides/', title: 'Invoice, payment and business document guides', description: 'Practical guides to invoices, getting paid, contracts, HR letters and landlord forms. Worked explanations linked to free editable Word templates.',
+    extraHead: collectionLd({ path: 'guides/', name: 'Invoice, payment and business document guides', description: 'Practical guides to invoices, getting paid, contracts, HR letters and landlord forms. Worked explanations linked to free editable Word templates.', items: GUIDES.map((g) => [g.title, `guides/${g.slug}.html`]) }),
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem"><h1>Invoice, payment and business document guides</h1><p class="lead">Plain-English answers to the questions people ask before they use a template, each linked to a free Word template you can fill in online.</p>
   <!--nav--><p><strong>Start with billing:</strong> <a href="${rel}guides/how-to-write-an-invoice.html">how to write an invoice</a>, <a href="${rel}invoice-templates/deposit-invoice.html">request a deposit</a>, <a href="${rel}invoice-templates/hourly-invoice.html">bill hours</a>, or <a href="${rel}invoice-templates/final-invoice.html">show the final balance</a>. Write the message with the <a href="${rel}guides/invoice-email-template.html">free invoice email generator and four email templates</a>. Then <a href="${rel}guides/how-to-save-an-invoice-as-pdf.html">save an invoice as PDF from Word or the app</a>, and <a href="${rel}guides/how-to-write-a-payment-receipt.html">write a receipt when payment arrives</a>.</p><!--/nav-->
   <nav class="small" aria-label="Guide topics" style="margin-top:1.25rem">${GUIDE_TOPICS.map(([t]) => `<a href="#${topicId(t)}">${esc(t)}</a>`).join(' · ')}</nav>
