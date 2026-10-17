@@ -141,7 +141,7 @@ Key facts:
 
 ## Product
 - [Home](${BASE}): what Clausery does and who it is for
-- [Open the app](${BASE}app/): runs in the browser, no sign-up
+- [About Clausery](${BASE}about/): who maintains the software, its scope and limits
 - [Pricing](${BASE}pricing/): Free, Pro, Team and Enterprise plans
 - [Free business document kit](${BASE}business-document-kit/): six Word templates and instructions, no email signup
 - [Security](${BASE}docs/security.html): how data stays on the device

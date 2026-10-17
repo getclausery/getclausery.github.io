@@ -8,7 +8,7 @@ const dates = JSON.parse(readFileSync('site/data/page-dates.json', 'utf8'));
 const html = (f) => readFileSync(f, 'utf8');
 const ld = (page) => [...page.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(([, j]) => JSON.parse(j));
 
-test('every sitemap URL has a real last-modified date from page-dates.json, none in the future', () => {
+test('sitemap and syndication dates agree, and malformed feed entries or llms links are rejected', async () => {
   // A page dated in the author's time zone can be a day ahead of UTC, where CI runs.
   const today = new Date(Date.now() + 864e5).toISOString().slice(0, 10);
   for (const [path, { date, hash }] of Object.entries(dates)) {
@@ -19,6 +19,29 @@ test('every sitemap URL has a real last-modified date from page-dates.json, none
   const urls = [...html('sitemap.xml').matchAll(/<url><loc>([^<]+)<\/loc>(<lastmod>[^<]+<\/lastmod>)?/g)];
   assert.ok(urls.length > 150);
   for (const [, loc, lastmod] of urls) assert.ok(lastmod, `no lastmod for ${loc}`);
+
+  const { checkFeeds } = await import('../../tools/check-feeds.mjs');
+  const feedXml = html('feed.xml');
+  const llmsText = html('llms.txt');
+  const result = checkFeeds();
+  assert.deepEqual(result.failures, []);
+  assert.equal(result.entries, result.guides + result.clauses);
+  const first = feedXml.match(/<entry>[\s\S]*?<\/entry>/)[0];
+  const rejectedFeed = (entry) => checkFeeds({ feedXml: feedXml.replace(first, entry) }).failures.join('\n');
+  assert.match(rejectedFeed(''), /missing from feed/);
+  assert.match(rejectedFeed(first + first), /duplicate entry/);
+  assert.match(rejectedFeed(first.replace(/<title>[^<]*<\/title>/, '<title>Not the page title</title>')), /title must match/);
+  assert.match(rejectedFeed(first.replace(/<published>[^<]*<\/published>/, '<published>2000-01-01T00:00:00Z</published>')), /published must match/);
+  assert.match(rejectedFeed(first.replace(/<updated>[^<]*<\/updated>/, '<updated>2000-01-01T00:00:00Z</updated>')), /updated must match/);
+  assert.match(rejectedFeed(first.replaceAll(first.match(/<id>([^<]+)<\/id>/)[1], 'https://getclausery.github.io/templates/invoice.html')), /not a guide or clause page/);
+  assert.match(checkFeeds({ feedXml: feedXml.replace(/<updated>[^<]*<\/updated>/, '<updated>2000-01-01T00:00:00Z</updated>') }).failures.join('\n'), /feed updated must be the latest/);
+  for (const [url, problem] of [
+    ['https://getclausery.github.io/app/', /noindex page/],
+    ['https://getclausery.github.io/made-with/', /noindex page/],
+    ['https://getclausery.github.io/not-a-real-page.html', /no generated file/],
+    ['https://example.org/', /absolute same-site URL/],
+    ['https://getclausery.github.io/', /duplicate link/],
+  ]) assert.match(checkFeeds({ llmsText: llmsText + `\n- [Bad link](${url})\n` }).failures.join('\n'), problem, url);
 });
 
 test('no page is left with a date placeholder or a link to the unregistered clausery.app domain', () => {
@@ -188,11 +211,18 @@ test('every HTML page has exactly one robots directive, index iff it is in sitem
   }
 });
 
-test('every Open Graph share image is a 1200 by 630 PNG', () => {
+test('share cards are small 1200 by 630 PNGs, unique per template, and invalid headers are rejected', async () => {
+  const { socialCardProblems, SOCIAL_CARD_MAX_BYTES } = await import('../../tools/social-card.mjs');
   const images = new Set();
+  const templateImages = new Set();
   for (const f of globSync('**/*.html', { exclude: (x) => /^(node_modules|app|free-tools\/embed|test-results|playwright-report)/.test(x) })) {
     const src = html(f).match(/<meta property="og:image" content="https:\/\/getclausery\.github\.io\/([^"]+)"/)?.[1];
     if (src) images.add(src);
+    if (/^templates\/[^/]+\.html$/.test(f) && f !== 'templates/index.html') {
+      assert.ok(src && src !== 'assets/og.png', f);
+      assert.ok(!templateImages.has(src), `${f}: shared template card`);
+      templateImages.add(src);
+    }
   }
   assert.ok(images.size > 1);
   for (const image of images) {
@@ -200,5 +230,24 @@ test('every Open Graph share image is a 1200 by 630 PNG', () => {
     assert.equal(png.subarray(1, 4).toString(), 'PNG', image);
     assert.equal(png.readUInt32BE(16), 1200, `${image}: width`);
     assert.equal(png.readUInt32BE(20), 630, `${image}: height`);
+    assert.deepEqual(socialCardProblems(png), [], image);
   }
+  assert.equal(templateImages.size, LIB.length);
+  const valid = readFileSync('assets/og.png');
+  const badWidth = Buffer.from(valid);
+  badWidth.writeUInt32BE(1199, 16);
+  assert.match(socialCardProblems(badWidth).join(' '), /must be 1200x630/);
+  const badHeight = Buffer.from(valid);
+  badHeight.writeUInt32BE(631, 20);
+  assert.match(socialCardProblems(badHeight).join(' '), /must be 1200x630/);
+  const badSignature = Buffer.from(valid);
+  badSignature[0] = 0;
+  assert.match(socialCardProblems(badSignature).join(' '), /must be a PNG/);
+  const badChunk = Buffer.from(valid);
+  badChunk.write('JUNK', 12, 'ascii');
+  assert.match(socialCardProblems(badChunk).join(' '), /IHDR/);
+  assert.match(socialCardProblems(valid.subarray(0, 24)).join(' '), /complete IHDR/);
+  const oversized = Buffer.alloc(SOCIAL_CARD_MAX_BYTES);
+  valid.copy(oversized);
+  assert.match(socialCardProblems(oversized).join(' '), /must be under 300000/);
 });

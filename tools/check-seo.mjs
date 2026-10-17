@@ -1,6 +1,8 @@
 // Offline checks for the generated pages we ask search engines to index. Does not claim live Google index coverage.
 import { readFileSync, existsSync, globSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { SITE } from './partials.mjs';
+import { socialCardProblems } from './social-card.mjs';
 
 const failures = [];
 const fail = (file, message) => failures.push(`${file}: ${message}`);
@@ -12,6 +14,9 @@ const indexed = new Set(urls);
 const documents = new Map();
 const titles = new Map();
 const descriptions = new Map();
+const shareImages = new Map();
+const templateImages = new Map();
+const templateImageHashes = new Map();
 const entities = { amp: '&', quot: '"', apos: "'", lt: '<', gt: '>', nbsp: ' ', ndash: '–', mdash: '—', lsquo: '‘', rsquo: '’', ldquo: '“', rdquo: '”', hellip: '…' };
 const decode = (s) => String(s).replace(/&(#x[\da-f]+|#\d+|[a-z]+);/gi, (m, e) => e[0] === '#' ? String.fromCodePoint(e[1].toLowerCase() === 'x' ? Number.parseInt(e.slice(2), 16) : Number(e.slice(1))) : entities[e.toLowerCase()] ?? m);
 const fileFor = (url) => { const path = new URL(url).pathname.slice(1); return !path || path.endsWith('/') ? path + 'index.html' : path; };
@@ -21,6 +26,38 @@ const checkStructuredUrls = (value, file) => {
     if (!existsSync(target)) fail(file, `structured-data URL has no file: ${value}`);
   } else if (Array.isArray(value)) for (const item of value) checkStructuredUrls(item, file);
   else if (value && typeof value === 'object') for (const item of Object.values(value)) checkStructuredUrls(item, file);
+};
+// All indexed pages need a real, absolute same-site share card. Template cards must be distinct by URL and bytes,
+// so accidentally pointing several templates at the generic card (or copying it to new filenames) cannot pass.
+const checkShareImage = (file, html) => {
+  const images = [...html.matchAll(/<meta property="og:image" content="([^"]+)"/g)].map(([, u]) => decode(u));
+  if (images.length !== 1) { fail(file, 'expected exactly one og:image'); return; }
+  const image = images[0];
+  let url;
+  try { url = new URL(image); } catch { fail(file, 'og:image must be an absolute same-site URL'); return; }
+  if (!image.startsWith(SITE) || url.origin !== new URL(SITE).origin || url.username || url.password || url.search || url.hash) {
+    fail(file, 'og:image must be an absolute same-site URL without query or fragment');
+    return;
+  }
+  const target = fileFor(image);
+  if (!existsSync(target)) { fail(file, `og:image has no file: ${image}`); return; }
+  if (!shareImages.has(image)) {
+    const png = readFileSync(target);
+    shareImages.set(image, { problems: socialCardProblems(png), hash: createHash('sha256').update(png).digest('hex') });
+  }
+  const card = shareImages.get(image);
+  for (const problem of card.problems) fail(file, `${target}: ${problem}`);
+  if (!/<meta property="og:image:width" content="1200"/.test(html) || !/<meta property="og:image:height" content="630"/.test(html)) fail(file, 'og:image dimensions must declare 1200x630');
+  const twitterImage = html.match(/<meta name="twitter:image" content="([^"]+)"/)?.[1];
+  if (!twitterImage || decode(twitterImage) !== image) fail(file, 'twitter:image must match og:image');
+  if (!/<meta name="twitter:card" content="summary_large_image"/.test(html)) fail(file, 'twitter:card must be summary_large_image');
+  if (/^templates\/[^/]+\.html$/.test(file) && file !== 'templates/index.html') {
+    if (image === SITE + 'assets/og.png') fail(file, 'template needs its own share card, not the generic site image');
+    if (templateImages.has(image)) fail(file, `shares its og:image with ${templateImages.get(image)}`);
+    else templateImages.set(image, file);
+    if (templateImageHashes.has(card.hash)) fail(file, `share card has identical bytes to ${templateImageHashes.get(card.hash)}`);
+    else templateImageHashes.set(card.hash, file);
+  }
 };
 if (urls.length !== indexed.size) fail('sitemap.xml', 'duplicate URLs');
 
@@ -57,6 +94,7 @@ for (const loc of urls) {
   else if (descriptions.has(decodedDescription)) fail(file, `same description as ${descriptions.get(decodedDescription)}`);
   else descriptions.set(decodedDescription, file);
   if (!/<meta property="og:image:alt" content="[^"]+"/.test(html)) fail(file, 'missing og:image:alt');
+  checkShareImage(file, html);
   for (const [, json] of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
     try { checkStructuredUrls(JSON.parse(json), file); } catch { fail(file, 'invalid structured data'); }
   }
@@ -97,4 +135,4 @@ for (const file of globSync('**/*.html', { exclude: (p) => /^(node_modules|app|t
 if (failures.length) {
   console.error(failures.join('\n'));
   process.exitCode = 1;
-} else console.log(`SEO checks passed: ${urls.length} canonical pages, unique titles and descriptions, lastmod matches page-dates, robots and og:url consistent, all reachable from Home within ${deepest} clicks.`);
+} else console.log(`SEO checks passed: ${urls.length} canonical pages, unique titles and descriptions, lastmod matches page-dates, robots and og:url consistent, ${shareImages.size} valid 1200x630 PNG share cards under 300 KB (${templateImages.size} distinct template cards), all reachable from Home within ${deepest} clicks.`);
