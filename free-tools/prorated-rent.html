@@ -29,7 +29,7 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do you calculate prorated rent?","acceptedAnswer":{"@type":"Answer","text":"Divide the monthly rent by the number of days in that month to get a daily rate, then multiply it by the number of days the tenant lives there, counting the move-in day. For $1,500 rent and a move-in on September 20, that is $1,500 ÷ 30 × 11 days = $550."}},{"@type":"Question","name":"Which method should I use?","acceptedAnswer":{"@type":"Answer","text":"The one your lease names. If it does not say, the days-in-the-month method is the most common and the easiest to explain. A 365-day year gives the same daily rate in every month. A 30-day month is simple, but in a 31-day month it can come to more than a month's rent, so this calculator never charges more than the full rent."}},{"@type":"Question","name":"Does a landlord have to prorate rent?","acceptedAnswer":{"@type":"Answer","text":"It depends on the lease and on local law. Many landlords prorate the first month when a tenant moves in mid-month, or collect a full first month and prorate the second. Whatever you agree, write the amount and the method into the lease so there is no dispute later."}},{"@type":"Question","name":"Is anything I type sent anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. The calculation runs entirely in this page, so nothing you type leaves your computer."}}]}</script><style>
 .tool { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 1.5rem 0; }
@@ -54,7 +54,7 @@
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -126,6 +126,7 @@
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

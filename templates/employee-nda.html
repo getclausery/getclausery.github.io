@@ -29,7 +29,7 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"DigitalDocument","name":"Free employee NDA template (Word)","description":"A confidentiality agreement for employees: what counts as confidential, how long it lasts after they leave, returning company property, and the notices US law expects, with no non-compete.","url":"https://getclausery.github.io/templates/employee-nda.html","encodingFormat":"application/vnd.openxmlformats-officedocument.wordprocessingml.document","contentUrl":"https://getclausery.github.io/samples/employee-nda.docx","isAccessibleForFree":true,"inLanguage":"en","genre":"Legal","dateModified":"2026-10-17","image":["https://getclausery.github.io/assets/previews/employee-nda.jpg","https://getclausery.github.io/assets/og/employee-nda.png"],"thumbnailUrl":"https://getclausery.github.io/assets/previews/employee-nda.jpg","publisher":{"@type":"Organization","name":"Clausery","url":"https://getclausery.github.io/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why does it mention the Defend Trade Secrets Act?","acceptedAnswer":{"@type":"Answer","text":"US employers are expected to give employees and contractors notice of the whistleblower immunity in 18 U.S.C. § 1833(b) in any agreement about confidential information. Without it, an employer cannot recover exemplary damages or attorney fees under that Act from the employee. Tick the US employer box to include it."}},{"@type":"Question","name":"Can an NDA stop employees reporting harassment or discussing pay?","acceptedAnswer":{"@type":"Answer","text":"No. An agreement cannot stop people reporting possible violations of law to a government agency. In the US, the Speak Out Act makes non-disclosure clauses signed before a dispute unenforceable for sexual harassment and assault claims, and the National Labor Relations Act protects most employees who discuss pay and working conditions. This template says so plainly."}},{"@type":"Question","name":"Does this include a non-compete?","acceptedAnswer":{"@type":"Answer","text":"No. It only protects confidential information. Non-competes are banned or limited in several states and countries, so get local advice if you need one."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Templates","item":"https://getclausery.github.io/templates/"},{"@type":"ListItem","position":3,"name":"Employee NDA","item":"https://getclausery.github.io/templates/employee-nda.html"}]}</script><style>
 .tpl-doc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; max-height: 38rem; overflow: auto; font-family: Georgia, "Times New Roman", serif; line-height: 1.6; }
@@ -62,7 +62,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -94,7 +94,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <h2 style="margin-top:2.5rem">What is in the employee NDA</h2>
       <ul><li>Company, employee, job title and optional start date</li><li>Definition of confidential information, with optional specific examples and standard exclusions</li><li>Duties during and after employment</li><li>How many years confidentiality lasts after employment ends, with trade secrets protected for longer</li><li>Return of property and deletion from personal devices, with optional written confirmation</li><li>Protected disclosures to regulators, and for US employers the NLRA wording and the Defend Trade Secrets Act notice</li><li>No non-compete: the employee is free to work elsewhere after leaving</li><li>Remedies, severability, governing law and signatures</li></ul>
     </div>
-    <a class="tpl-thumb" href="#full-text"><img src="../assets/previews/employee-nda.jpg" width="680" height="880" loading="lazy" decoding="async" alt="First page of the free employee NDA template for Word"></a>
+    <a class="tpl-thumb" href="#full-text"><picture><source type="image/webp" srcset="../assets/previews/employee-nda.webp" sizes="100vw"><img src="../assets/previews/employee-nda.jpg" width="680" height="880" alt="First page of the free employee NDA template for Word" loading="eager" decoding="async" fetchpriority="high"></picture></a>
   </div>
 
   <h2 style="margin-top:2.5rem" id="full-text">Read the full template</h2>
@@ -114,7 +114,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
 
   <h2 style="margin-top:2.5rem">Clauses in this template, explained</h2>
   <ul><li><a href="../clauses/confidentiality-clause.html">Confidentiality clause</a></li><li><a href="../clauses/survival-clause.html">Survival clause</a></li><li><a href="../clauses/governing-law-clause.html">Governing law and jurisdiction clause</a></li><li><a href="../clauses/severability-clause.html">Severability clause</a></li></ul>
-  <p style="margin-top:2rem"><strong>Guide:</strong> <a href="../guides/how-long-should-an-nda-last.html">How long should an NDA last? Typical terms explained</a></p>
+  <p style="margin-top:2rem"><strong>Guide:</strong> <a href="../guides/what-to-include-in-an-nda.html">What to include in an NDA: a clause-by-clause checklist</a></p>
   <p><strong>All NDA templates:</strong> <a href="../nda-templates/">which NDA do you need?</a></p>
 <!--nav-->  <h2 style="margin-top:2.5rem">Related templates</h2>
   <div class="grid grid-3 related-cards"><a class="feature" href="../templates/contractor-nda.html"><h3>Contractor NDA</h3><p>A one-way confidentiality agreement for hiring a freelancer or contractor: who they can share…</p></a><a class="feature" href="../templates/mutual-nda.html"><h3>Mutual NDA</h3><p>A two-way non-disclosure agreement for when both sides will share confidential information…</p></a><a class="feature" href="../templates/business-sale-nda.html"><h3>NDA for selling a business</h3><p>A confidentiality agreement to sign before you show a potential buyer your numbers: it covers the…</p></a><a class="feature" href="../templates/non-solicitation-agreement.html"><h3>Non-solicitation agreement</h3><p>Stops a departing employee or contractor from poaching your customers or staff for a set number…</p></a><a class="feature" href="../templates/employment-agreement.html"><h3>Employment agreement</h3><p>A full employment contract for a new hire: role and duties, hours, salary and bonus, paid time…</p></a><a class="feature" href="../templates/one-way-nda.html"><h3>One-way NDA</h3><p>A unilateral non-disclosure agreement for when only one side shares confidential information…</p></a></div>
@@ -147,6 +147,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

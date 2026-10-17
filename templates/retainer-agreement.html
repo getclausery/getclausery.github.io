@@ -29,7 +29,7 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"DigitalDocument","name":"Free retainer agreement template for freelancers (Word)","description":"A monthly retainer agreement for freelancers, consultants and agencies: the services included, a monthly fee with optional included hours, rollover and extra-hours rate, response times, late payment terms, a minimum term and notice to end.","url":"https://getclausery.github.io/templates/retainer-agreement.html","encodingFormat":"application/vnd.openxmlformats-officedocument.wordprocessingml.document","contentUrl":"https://getclausery.github.io/samples/retainer-agreement.docx","isAccessibleForFree":true,"inLanguage":"en","genre":"Freelance","dateModified":"2026-10-17","image":["https://getclausery.github.io/assets/previews/retainer-agreement.jpg","https://getclausery.github.io/assets/og/retainer-agreement.png"],"thumbnailUrl":"https://getclausery.github.io/assets/previews/retainer-agreement.jpg","publisher":{"@type":"Organization","name":"Clausery","url":"https://getclausery.github.io/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a retainer agreement?","acceptedAnswer":{"@type":"Answer","text":"An agreement where a client pays a fixed fee each month to reserve your time or a set of services. You get predictable income, and the client gets priority access without a new quote for every small job."}},{"@type":"Question","name":"Should unused hours roll over?","acceptedAnswer":{"@type":"Answer","text":"It is your choice. Rolling hours over for one month only is a common middle ground: it feels fair to the client without letting a large backlog build up. Switch rollover on or off for each client."}},{"@type":"Question","name":"How is this different from a law firm retainer?","acceptedAnswer":{"@type":"Answer","text":"A lawyer's retainer usually means money paid in advance and held in a client trust account. This template is a monthly service retainer for freelancers and agencies. Law firms can use the free engagement letter template instead."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Templates","item":"https://getclausery.github.io/templates/"},{"@type":"ListItem","position":3,"name":"Retainer agreement","item":"https://getclausery.github.io/templates/retainer-agreement.html"}]}</script><style>
 .tpl-doc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; max-height: 38rem; overflow: auto; font-family: Georgia, "Times New Roman", serif; line-height: 1.6; }
@@ -62,7 +62,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -94,7 +94,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <h2 style="margin-top:2.5rem">What is in the retainer agreement</h2>
       <ul><li>Services included each month, as a list</li><li>Monthly fee, invoiced in advance</li><li>Optional included hours, rollover and an hourly rate for extra hours</li><li>Pausing work on overdue invoices, and optional interest</li><li>Optional yearly fee review with notice</li><li>Response and turnaround times, and an optional monthly report</li><li>Start date, optional minimum term and notice to end</li><li>The client owns paid work; you keep your own tools and methods</li><li>Confidentiality, independent contractor status and governing law</li></ul>
     </div>
-    <a class="tpl-thumb" href="#full-text"><img src="../assets/previews/retainer-agreement.jpg" width="680" height="880" loading="lazy" decoding="async" alt="First page of the free retainer agreement template for Word"></a>
+    <a class="tpl-thumb" href="#full-text"><picture><source type="image/webp" srcset="../assets/previews/retainer-agreement.webp" sizes="100vw"><img src="../assets/previews/retainer-agreement.jpg" width="680" height="880" alt="First page of the free retainer agreement template for Word" loading="eager" decoding="async" fetchpriority="high"></picture></a>
   </div>
 
   <h2 style="margin-top:2.5rem" id="full-text">Read the full template</h2>
@@ -147,6 +147,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

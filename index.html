@@ -29,10 +29,12 @@
 <link rel="manifest" href="./app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="./feed.xml">
 <link rel="stylesheet" href="./site.css">
-<script src="./app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="./site.js" defer></script>
 <meta name="directree-verify" content="18cd9ea3fefedd43ee1d57c58248886c">
+<link rel="preload" as="image" type="image/webp" href="./assets/screenshot-invoice.webp" imagesrcset="./assets/screenshot-invoice-800.webp 800w, ./assets/screenshot-invoice.webp 1200w" imagesizes="(max-width: 900px) calc(100vw - 2rem), 480px" fetchpriority="high">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://getclausery.github.io/#website","name":"Clausery","url":"https://getclausery.github.io/","inLanguage":"en-GB"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://getclausery.github.io/#webpage","url":"https://getclausery.github.io/","name":"Clausery","description":"Make invoices, quotes and receipts in Word, plus free templates for contracts, HR letters and landlord forms. Nothing is uploaded.","inLanguage":"en-GB","isPartOf":{"@id":"https://getclausery.github.io/#website"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://getclausery.github.io/#organization","name":"Clausery","url":"https://getclausery.github.io/","logo":"https://getclausery.github.io/assets/icon-512.png","sameAs":["https://github.com/getclausery/getclausery.github.io"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Clausery","applicationCategory":"BusinessApplication","operatingSystem":"Any (web browser)","description":"Create invoices, quotes and receipts from free Word templates. Guided questions generate editable .docx files on your device.","url":"https://getclausery.github.io/","offers":[{"@type":"Offer","price":"0","priceCurrency":"USD","name":"Free"},{"@type":"Offer","price":"19","priceCurrency":"USD","name":"Pro (per user, monthly)"}],"featureList":["Client-side .docx generation","Conditional clauses and repeating groups","Calculations","Encrypted local workspace","Offline client intake forms","No account required"]}</script>
 </head>
@@ -40,7 +42,7 @@
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="./"><img src="./assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="./"><img src="./assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="./invoice-templates/">Invoices</a>
@@ -73,7 +75,7 @@
       </div>
     </div>
     <figure class="shot" style="margin:0">
-      <img src="./assets/screenshot-invoice.png" width="1200" height="800" alt="Clausery making an invoice: the questions on the left, and on the right the invoice itself with its line items, HST and total worked out">
+      <picture><source type="image/webp" srcset="./assets/screenshot-invoice-800.webp 800w, ./assets/screenshot-invoice.webp 1200w" sizes="(max-width: 900px) calc(100vw - 2rem), 480px"><img src="./assets/screenshot-invoice.png" width="1200" height="800" alt="Clausery making an invoice: the questions on the left, and on the right the invoice itself with its line items, HST and total worked out" loading="eager" decoding="async" fetchpriority="high"></picture>
     </figure>
   </div>
 </section>
@@ -257,7 +259,7 @@
     <p class="lead" style="margin:0 auto">Every library template is free, plus three of your own. No account and no card, and Pro is free to try for 14 days.</p>
     <div class="actions"><a class="btn btn-primary btn-lg" href="./app/#/start/invoice">Make an invoice, free</a><a class="btn btn-lg" href="./pricing/">See plans</a></div>
     <p class="small muted" style="margin-top:1.5rem">See Clausery's <a href="https://fazier.com/launches/clausery" rel="noopener">Fazier launch</a>, or use the <a href="./press/">press kit</a> to share a useful resource with your audience.</p>
-    <p style="margin-top:.75rem"><a href="https://fazier.com/launches/clausery" title="Clausery on Fazier" rel="noopener"><img src="./assets/badges/fazier.svg" width="182" height="43" alt="Featured on Fazier" loading="lazy"></a></p>
+    <p style="margin-top:.75rem"><a href="https://fazier.com/launches/clausery" title="Clausery on Fazier" rel="noopener"><img src="./assets/badges/fazier.svg" width="182" height="43" alt="Featured on Fazier" loading="lazy" decoding="async"></a></p>
   </div>
 </section></main>
 <footer class="site-footer">
@@ -286,6 +288,7 @@
       <a href="./clauses/">Clause library</a>
       <a href="./free-tools/">Free tools</a>
       <a href="./compare/">Compare</a>
+      <a href="./for/">Who it's for</a>
       <a href="./for/law-firms.html">For law firms</a>
       <a href="./for/hr-teams.html">For HR teams</a>
       <a href="./for/consultants.html">For consultants</a>

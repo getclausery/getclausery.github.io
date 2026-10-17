@@ -29,7 +29,7 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"DigitalDocument","name":"Free late rent notice template (Word)","description":"A landlord's written reminder that rent is late: the rent and the date it was due, any partial payment, a late fee if the lease allows one, the total now due, a date to pay by and how, an optional offer to discuss a payment plan, and contact details.","url":"https://getclausery.github.io/templates/late-rent-notice.html","encodingFormat":"application/vnd.openxmlformats-officedocument.wordprocessingml.document","contentUrl":"https://getclausery.github.io/samples/late-rent-notice.docx","isAccessibleForFree":true,"inLanguage":"en","genre":"Real estate","dateModified":"2026-10-17","image":["https://getclausery.github.io/assets/previews/late-rent-notice.jpg","https://getclausery.github.io/assets/og/late-rent-notice.png"],"thumbnailUrl":"https://getclausery.github.io/assets/previews/late-rent-notice.jpg","publisher":{"@type":"Organization","name":"Clausery","url":"https://getclausery.github.io/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is a late rent notice the same as a pay or quit notice?","acceptedAnswer":{"@type":"Answer","text":"No. This is a reminder. A notice to pay rent or quit, the first formal step towards an eviction, has wording, timing and delivery rules set by state law, so use your state's official form or a lawyer for that."}},{"@type":"Question","name":"Can I charge a late fee?","acceptedAnswer":{"@type":"Answer","text":"Only if the lease allows it, and within any limit set by law. Many states require a grace period or cap late fees, for example at a percentage of the rent. Check the rules where the property is."}},{"@type":"Question","name":"When should I send it?","acceptedAnswer":{"@type":"Answer","text":"Soon after any grace period in the lease ends. A prompt, polite reminder resolves most late payments, and a written record helps if you need to take further steps."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Templates","item":"https://getclausery.github.io/templates/"},{"@type":"ListItem","position":3,"name":"Late rent notice","item":"https://getclausery.github.io/templates/late-rent-notice.html"}]}</script><style>
 .tpl-doc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; max-height: 38rem; overflow: auto; font-family: Georgia, "Times New Roman", serif; line-height: 1.6; }
@@ -62,7 +62,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -94,7 +94,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <h2 style="margin-top:2.5rem">What is in the late rent notice</h2>
       <ul><li>Date, tenant and property</li><li>Rent due and the date it was due</li><li>Optional partial payment received and the balance</li><li>Optional late fee under the lease</li><li>Total due, the date to pay by and how</li><li>Optional offer of a payment plan</li><li>Not a notice ending the tenancy</li><li>Contact details and signature</li></ul>
     </div>
-    <a class="tpl-thumb" href="#full-text"><img src="../assets/previews/late-rent-notice.jpg" width="680" height="880" loading="lazy" decoding="async" alt="First page of the free late rent notice template for Word"></a>
+    <a class="tpl-thumb" href="#full-text"><picture><source type="image/webp" srcset="../assets/previews/late-rent-notice.webp" sizes="100vw"><img src="../assets/previews/late-rent-notice.jpg" width="680" height="880" alt="First page of the free late rent notice template for Word" loading="eager" decoding="async" fetchpriority="high"></picture></a>
   </div>
 
   <h2 style="margin-top:2.5rem" id="full-text">Read the full template</h2>
@@ -112,6 +112,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
   <h2 style="margin-top:2.5rem">Questions</h2>
   <div class="faq"><details><summary>Is a late rent notice the same as a pay or quit notice?</summary><p>No. This is a reminder. A notice to pay rent or quit, the first formal step towards an eviction, has wording, timing and delivery rules set by state law, so use your state's official form or a lawyer for that.</p></details><details><summary>Can I charge a late fee?</summary><p>Only if the lease allows it, and within any limit set by law. Many states require a grace period or cap late fees, for example at a percentage of the rent. Check the rules where the property is.</p></details><details><summary>When should I send it?</summary><p>Soon after any grace period in the lease ends. A prompt, polite reminder resolves most late payments, and a written record helps if you need to take further steps.</p></details></div>
 
+  <p style="margin-top:2rem"><strong>Guide:</strong> <a href="../guides/how-to-write-a-notice-to-vacate.html">How to write a notice to vacate letter</a></p>
   <p><strong>Free tool:</strong> <a href="../free-tools/deadline-calculator.html">Deadline calculator: a pay-by date a set number of days away</a></p>
 <!--nav-->  <h2 style="margin-top:2.5rem">Related templates</h2>
   <div class="grid grid-3 related-cards"><a class="feature" href="../templates/rental-application.html"><h3>Rental application</h3><p>An application for a rental home: the property and rent, any application fee, the applicant's…</p></a><a class="feature" href="../templates/rent-receipt.html"><h3>Rent receipt</h3><p>A receipt for rent received: a receipt number and date, the tenant and property, the amount, the…</p></a><a class="feature" href="../templates/lease-renewal-letter.html"><h3>Lease renewal letter</h3><p>A landlord's offer to renew a lease: when the current lease ends, the length and dates of the new…</p></a><a class="feature" href="../templates/pet-addendum.html"><h3>Pet addendum</h3><p>An addendum that lets a tenant keep pets under an existing lease: each pet, an optional pet…</p></a><a class="feature" href="../templates/residential-lease-agreement.html"><h3>Residential lease agreement</h3><p>A lease for a house or apartment, for a fixed term or month to month: each tenant, rent and due…</p></a><a class="feature" href="../templates/sublease-agreement.html"><h3>Sublease agreement</h3><p>An agreement for a tenant to rent all or part of their home to a subtenant for a while, such as a…</p></a></div>
@@ -144,6 +145,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

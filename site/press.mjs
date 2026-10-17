@@ -38,7 +38,7 @@ export const pages = [{
 </ul>
 <h2>Images for resource lists and Pinterest</h2>
 <p>These original graphics may be reused when linking to the matching Clausery resource. Worked amounts are illustrative examples before tax. Each vertical image is 1000×1500 pixels.</p>
-<div class="grid grid-3">${MARKETING_ASSETS.map((a) => `<figure style="margin:0"><a href="${rel}assets/marketing/${a.slug}.png"><img src="${rel}assets/marketing/${a.slug}.png" width="1000" height="1500" alt="${a.alt}" loading="lazy" style="width:100%;height:auto;border-radius:12px"></a><figcaption><a href="${rel}${a.path}">${a.title}</a> · <a href="${rel}assets/marketing/${a.slug}.png" download>Download PNG</a></figcaption></figure>`).join('')}</div>
+<div class="grid grid-3">${MARKETING_ASSETS.map((a) => `<figure style="margin:0"><a href="${rel}assets/marketing/${a.slug}.png"><img src="${rel}assets/marketing/${a.slug}.png" width="1000" height="1500" alt="${a.alt}" loading="lazy" decoding="async" style="width:100%;height:auto;border-radius:12px"></a><figcaption><a href="${rel}${a.path}">${a.title}</a> · <a href="${rel}assets/marketing/${a.slug}.png" download>Download PNG</a></figcaption></figure>`).join('')}</div>
 <h2>Useful links to share</h2>
 <ul><li><a href="${rel}business-document-kit/">Six free business Word templates in one kit</a></li><li><a href="${rel}templates/invoice.html">Free Word invoice template</a></li><li><a href="${rel}invoice-templates/">Invoice templates by trade, country and billing task</a></li><li><a href="${rel}templates/quote.html">Price quote template</a></li><li><a href="${rel}templates/payment-receipt.html">Payment receipt template</a></li></ul>
 <h2>Contact</h2>

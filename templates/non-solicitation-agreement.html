@@ -29,7 +29,7 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"DigitalDocument","name":"Free non-solicitation agreement template (Word)","description":"Stops a departing employee or contractor from poaching your customers or staff for a set number of months, without stopping them working for anyone else. Customer and staff clauses can be switched on or off.","url":"https://getclausery.github.io/templates/non-solicitation-agreement.html","encodingFormat":"application/vnd.openxmlformats-officedocument.wordprocessingml.document","contentUrl":"https://getclausery.github.io/samples/non-solicitation-agreement.docx","isAccessibleForFree":true,"inLanguage":"en","genre":"Legal","dateModified":"2026-10-17","image":["https://getclausery.github.io/assets/previews/non-solicitation-agreement.jpg","https://getclausery.github.io/assets/og/non-solicitation-agreement.png"],"thumbnailUrl":"https://getclausery.github.io/assets/previews/non-solicitation-agreement.jpg","publisher":{"@type":"Organization","name":"Clausery","url":"https://getclausery.github.io/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are non-solicitation agreements enforceable?","acceptedAnswer":{"@type":"Answer","text":"In many places, yes, if they are limited to customers and staff the person actually dealt with and last a reasonable time, often 6 to 24 months. California treats most employee non-solicitation clauses as void, and other states set their own limits, so check local law before you use one with an employee."}},{"@type":"Question","name":"What is the difference between a non-solicitation agreement and a non-compete?","acceptedAnswer":{"@type":"Answer","text":"A non-compete stops someone working for a competitor at all. A non-solicitation agreement only stops them actively chasing your customers or staff. It is narrower, so courts and lawmakers treat it more kindly."}},{"@type":"Question","name":"Do I also need an NDA?","acceptedAnswer":{"@type":"Answer","text":"Often, yes. A non-solicitation agreement protects relationships; an NDA protects information such as customer lists and pricing. The employee NDA template covers the information side."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Templates","item":"https://getclausery.github.io/templates/"},{"@type":"ListItem","position":3,"name":"Non-solicitation agreement","item":"https://getclausery.github.io/templates/non-solicitation-agreement.html"}]}</script><style>
 .tpl-doc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; max-height: 38rem; overflow: auto; font-family: Georgia, "Times New Roman", serif; line-height: 1.6; }
@@ -62,7 +62,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -94,7 +94,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <h2 style="margin-top:2.5rem">What is in the non-solicitation agreement</h2>
       <ul><li>Company, restricted party, and whether they are an employee or a contractor</li><li>What the restricted party receives in return</li><li>How many months the restrictions last after the relationship ends</li><li>Optional customer non-solicitation, limited to customers they dealt with in a look-back period</li><li>Optional employee and contractor non-solicitation, with general job advertisements allowed</li><li>Not a non-compete; unsolicited customers and reports to regulators are allowed</li><li>Optional notice to a new employer, a reasonableness clause and remedies</li><li>Governing law, applying only as far as local law allows, and signatures</li></ul>
     </div>
-    <a class="tpl-thumb" href="#full-text"><img src="../assets/previews/non-solicitation-agreement.jpg" width="680" height="880" loading="lazy" decoding="async" alt="First page of the free non-solicitation agreement template for Word"></a>
+    <a class="tpl-thumb" href="#full-text"><picture><source type="image/webp" srcset="../assets/previews/non-solicitation-agreement.webp" sizes="100vw"><img src="../assets/previews/non-solicitation-agreement.jpg" width="680" height="880" alt="First page of the free non-solicitation agreement template for Word" loading="eager" decoding="async" fetchpriority="high"></picture></a>
   </div>
 
   <h2 style="margin-top:2.5rem" id="full-text">Read the full template</h2>
@@ -146,6 +146,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

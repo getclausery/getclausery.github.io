@@ -29,7 +29,7 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does the checker look for?","acceptedAnswer":{"@type":"Answer","text":"It reads your .docx with the same engine as the Clausery app, including headers and footers, and reports tag problems such as a section that is opened but never closed or a tag name Clausery cannot use. If the template is valid, it shows the questionnaire Clausery would build from it."}},{"@type":"Question","name":"Is my document uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. The file is read inside this page and never leaves your computer."}},{"@type":"Question","name":"What tag syntax does it expect?","acceptedAnswer":{"@type":"Answer","text":"Single curly braces: {client_name} for a value, {#has_retainer}…{/has_retainer} for optional text, {^has_retainer}…{/has_retainer} for the opposite, and {#items}…{/items} for repeating paragraphs or table rows."}}]}</script><style>
 .tool { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 1.5rem 0; }
@@ -54,7 +54,7 @@
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -107,6 +107,7 @@
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

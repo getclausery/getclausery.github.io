@@ -35,7 +35,7 @@ const SEO_TITLES = {
 for (const k of Object.keys(SEO_TITLES)) if (!pages.some((p) => p.path === k)) throw new Error('SEO_TITLES: no page ' + k);
 // Pages without their own breadcrumb data get one from their path (Home › section › page), so every indexable page has
 // structured data. Sections listed here have an index page; anything else links straight from Home.
-const SECTIONS = { docs: 'Docs', compare: 'Compare', 'free-tools': 'Free tools', guides: 'Guides', clauses: 'Clauses', templates: 'Templates', 'invoice-templates': 'Invoice templates' };
+const SECTIONS = { docs: 'Docs', compare: 'Compare', 'free-tools': 'Free tools', guides: 'Guides', clauses: 'Clauses', templates: 'Templates', 'invoice-templates': 'Invoice templates', for: "Who it's for" };
 for (const p of pages) {
   if (p.layout === 'embed' || p.path === '' || p.path === '404.html' || /BreadcrumbList/.test(p.extraHead || '')) continue;
   const section = p.path.includes('/') ? p.path.split('/')[0] : null;

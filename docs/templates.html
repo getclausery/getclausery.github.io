@@ -29,15 +29,15 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Docs","item":"https://getclausery.github.io/docs/"},{"@type":"ListItem","position":3,"name":"Template syntax","item":"https://getclausery.github.io/docs/templates.html"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://getclausery.github.io/docs/templates.html#webpage","url":"https://getclausery.github.io/docs/templates.html","name":"Template syntax","description":"Tags, conditional sections, repeating groups, table rows, line breaks and built-in values in Clausery Word templates.","inLanguage":"en-GB","isPartOf":{"@id":"https://getclausery.github.io/#website"},"dateModified":"2026-10-01"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Docs","item":"https://getclausery.github.io/docs/"},{"@type":"ListItem","position":3,"name":"Template syntax","item":"https://getclausery.github.io/docs/templates.html"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://getclausery.github.io/docs/templates.html#webpage","url":"https://getclausery.github.io/docs/templates.html","name":"Template syntax","description":"Tags, conditional sections, repeating groups, table rows, line breaks and built-in values in Clausery Word templates.","inLanguage":"en-GB","isPartOf":{"@id":"https://getclausery.github.io/#website"},"dateModified":"2026-10-17"}</script>
 </head>
 <body>
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -103,7 +103,7 @@ The Guarantor, {guarantor_name}, guarantees the obligations of the Tenant.
   <li>Nested repeating groups (a list inside a list). Nested conditions inside a group are fine.</li>
   <li>Images or raw XML inserted from answers.</li>
   <li>Legacy .doc files: save as .docx first.</li>
-</ul></article></div></main>
+</ul><p class="docs-cta" style="margin-top:2.5rem"><a class="btn btn-primary" href="../app/">Open Clausery</a> <a class="btn" href="../templates/">Browse free templates</a></p></article></div></main>
 <footer class="site-footer">
   <div class="wrap">
     <div>
@@ -130,6 +130,7 @@ The Guarantor, {guarantor_name}, guarantees the obligations of the Tenant.
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

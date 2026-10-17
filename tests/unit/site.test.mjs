@@ -112,7 +112,9 @@ test('every template page shows a first-page preview that is up to date with its
     assert.equal(hashes[t.slug], previewHash(t), `${t.slug}: preview is stale, run npm run previews`);
     assert.ok(readFileSync(`${PREVIEW_DIR}/${t.slug}.jpg`).length > 5000, t.slug);
     const page = html(`templates/${t.slug}.html`);
-    assert.match(page, new RegExp(`<img src="\\.\\./assets/previews/${t.slug}\\.jpg" width="\\d+" height="\\d+" loading="lazy"`), t.slug);
+    assert.ok(page.includes(`<source type="image/webp" srcset="../assets/previews/${t.slug}.webp"`), t.slug);
+    assert.ok(page.includes(`<img src="../assets/previews/${t.slug}.jpg" width="680" height="880"`), t.slug);
+    assert.match(page, /loading="(?:eager|lazy)" decoding="async"/, t.slug);
     const doc = ld(page).find((x) => x['@type'] === 'DigitalDocument');
     assert.equal(doc.thumbnailUrl, `https://getclausery.github.io/assets/previews/${t.slug}.jpg`, t.slug);
   }

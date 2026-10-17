@@ -29,7 +29,7 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do you count days for a contract deadline?","acceptedAnswer":{"@type":"Answer","text":"The usual convention, used by this calculator, is to exclude the start day and count from the next day, so 10 days from 1 March is 11 March. Some contracts and court rules also move a deadline that falls on a weekend or holiday to the next business day; check the wording that applies to you."}},{"@type":"Question","name":"What happens when adding months to the end of a month?","acceptedAnswer":{"@type":"Answer","text":"If the target month is shorter, the date moves to its last day, so one month after 31 January is 28 February (29 in a leap year)."}},{"@type":"Question","name":"What counts as a business day?","acceptedAnswer":{"@type":"Answer","text":"Monday to Friday, excluding any holidays you enter. Public holidays differ by country and state, so add the ones that apply to your contract."}}]}</script><style>
 .tool { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 1.5rem 0; }
@@ -54,7 +54,7 @@
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -125,6 +125,7 @@
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

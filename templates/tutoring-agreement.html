@@ -29,7 +29,7 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"DigitalDocument","name":"Free tutoring agreement template (Word)","description":"A tutoring agreement between a tutor and a parent covering subjects and goals, online or in-person sessions, hourly fees, cancellation, optional progress reports, safeguarding and academic honesty.","url":"https://getclausery.github.io/templates/tutoring-agreement.html","encodingFormat":"application/vnd.openxmlformats-officedocument.wordprocessingml.document","contentUrl":"https://getclausery.github.io/samples/tutoring-agreement.docx","isAccessibleForFree":true,"inLanguage":"en","genre":"Freelance","dateModified":"2026-10-17","image":["https://getclausery.github.io/assets/previews/tutoring-agreement.jpg","https://getclausery.github.io/assets/og/tutoring-agreement.png"],"thumbnailUrl":"https://getclausery.github.io/assets/previews/tutoring-agreement.jpg","publisher":{"@type":"Organization","name":"Clausery","url":"https://getclausery.github.io/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why is the agreement with the parent?","acceptedAnswer":{"@type":"Answer","text":"When the student is a child, the parent or guardian is the one agreeing to the service and paying for it. For adult learners, change \"Parent\" to the student's name in the Word file."}},{"@type":"Question","name":"Should I mention background checks?","acceptedAnswer":{"@type":"Answer","text":"Many parents ask. Switch on the clause if you hold a current check, such as a DBS certificate in the UK."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Templates","item":"https://getclausery.github.io/templates/"},{"@type":"ListItem","position":3,"name":"Tutoring agreement","item":"https://getclausery.github.io/templates/tutoring-agreement.html"}]}</script><style>
 .tpl-doc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; max-height: 38rem; overflow: auto; font-family: Georgia, "Times New Roman", serif; line-height: 1.6; }
@@ -62,7 +62,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -94,7 +94,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <h2 style="margin-top:2.5rem">What is in the tutoring agreement</h2>
       <ul><li>Subjects, level and learning goals</li><li>Sessions per week and session length</li><li>Online platform or in-person location</li><li>Hourly fee and invoicing</li><li>Cancellation notice</li><li>Optional progress updates</li><li>Safeguarding: recording consent or an adult present; optional background check</li><li>No completing graded work for the student</li></ul>
     </div>
-    <a class="tpl-thumb" href="#full-text"><img src="../assets/previews/tutoring-agreement.jpg" width="680" height="880" loading="lazy" decoding="async" alt="First page of the free tutoring agreement template for Word"></a>
+    <a class="tpl-thumb" href="#full-text"><picture><source type="image/webp" srcset="../assets/previews/tutoring-agreement.webp" sizes="100vw"><img src="../assets/previews/tutoring-agreement.jpg" width="680" height="880" alt="First page of the free tutoring agreement template for Word" loading="eager" decoding="async" fetchpriority="high"></picture></a>
   </div>
 
   <h2 style="margin-top:2.5rem" id="full-text">Read the full template</h2>
@@ -112,6 +112,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
   <h2 style="margin-top:2.5rem">Questions</h2>
   <div class="faq"><details><summary>Why is the agreement with the parent?</summary><p>When the student is a child, the parent or guardian is the one agreeing to the service and paying for it. For adult learners, change &quot;Parent&quot; to the student's name in the Word file.</p></details><details><summary>Should I mention background checks?</summary><p>Many parents ask. Switch on the clause if you hold a current check, such as a DBS certificate in the UK.</p></details></div>
 
+  <p style="margin-top:2rem"><strong>Guide:</strong> <a href="../guides/how-to-write-a-freelance-contract.html">How to write a freelance contract: 10 clauses that prevent disputes</a></p>
 <!--nav-->  <h2 style="margin-top:2.5rem">Related templates</h2>
   <div class="grid grid-3 related-cards"><a class="feature" href="../templates/personal-training-agreement.html"><h3>Personal training agreement</h3><p>A personal training agreement for session packages or pay-per-session, with a late cancellation…</p></a><a class="feature" href="../templates/pet-sitting-agreement.html"><h3>Pet sitting agreement</h3><p>A pet sitting agreement between an owner and a sitter: each pet with its care notes, the dates…</p></a><a class="feature" href="../templates/coaching-agreement.html"><h3>Coaching agreement</h3><p>A coaching agreement for business, career and life coaches: the program, number and length of…</p></a></div>
   <p><a href="../templates/">Browse all 87 free templates by category</a></p><!--/nav-->
@@ -143,6 +144,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

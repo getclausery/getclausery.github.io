@@ -1,4 +1,4 @@
-import { SITE, esc, ONLINE_KEYS, USAGE_ON, USAGE_REQUEST } from '../tools/partials.mjs';
+import { SITE, esc, picture, ONLINE_KEYS, USAGE_ON, USAGE_REQUEST } from '../tools/partials.mjs';
 import { PACK_FILE, LIB } from './library.mjs';
 import { GUIDES } from './audience.mjs';
 import { COMPETITORS } from './compare.mjs';
@@ -31,7 +31,9 @@ export const pages = [{
   path: '', title: 'Clausery',
   description: `Make invoices, quotes and receipts in Word with totals, tax and numbering done for you, plus ${LIB.length} free templates. No sign-up, and nothing is uploaded.`,
   extraHead: `<meta name="directree-verify" content="18cd9ea3fefedd43ee1d57c58248886c">
+<link rel="preload" as="image" type="image/webp" href="./assets/screenshot-invoice.webp" imagesrcset="./assets/screenshot-invoice-800.webp 800w, ./assets/screenshot-invoice.webp 1200w" imagesizes="(max-width: 900px) calc(100vw - 2rem), 480px" fetchpriority="high">
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE}#website`, name: 'Clausery', url: SITE, inLanguage: 'en-GB' })}</script>
+<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebPage', '@id': `${SITE}#webpage`, url: SITE, name: 'Clausery', description: 'Make invoices, quotes and receipts in Word, plus free templates for contracts, HR letters and landlord forms. Nothing is uploaded.', inLanguage: 'en-GB', isPartOf: { '@id': `${SITE}#website` } })}</script>
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', '@id': `${SITE}#organization`, name: 'Clausery', url: SITE, logo: `${SITE}assets/icon-512.png`, sameAs: ['https://github.com/getclausery/getclausery.github.io'] })}</script>
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'Clausery', applicationCategory: 'BusinessApplication', operatingSystem: 'Any (web browser)', description: 'Create invoices, quotes and receipts from free Word templates. Guided questions generate editable .docx files on your device.', url: SITE, offers: [{ '@type': 'Offer', price: '0', priceCurrency: 'USD', name: 'Free' }, { '@type': 'Offer', price: String(PRICES.pro), priceCurrency: 'USD', name: 'Pro (per user, monthly)' }], featureList: ['Client-side .docx generation', 'Conditional clauses and repeating groups', 'Calculations', 'Encrypted local workspace', 'Offline client intake forms', 'No account required'] })}</script>`,
   body: (rel) => `
@@ -53,7 +55,7 @@ export const pages = [{
       </div>
     </div>
     <figure class="shot" style="margin:0">
-      <img src="${rel}assets/screenshot-invoice.png" width="1200" height="800" alt="Clausery making an invoice: the questions on the left, and on the right the invoice itself with its line items, HST and total worked out">
+      ${picture({ src: `${rel}assets/screenshot-invoice.png`, webp: [[`${rel}assets/screenshot-invoice-800.webp`, 800], [`${rel}assets/screenshot-invoice.webp`, 1200]], sizes: '(max-width: 900px) calc(100vw - 2rem), 480px', width: 1200, height: 800, loading: 'eager', fetchpriority: 'high', alt: 'Clausery making an invoice: the questions on the left, and on the right the invoice itself with its line items, HST and total worked out' })}
     </figure>
   </div>
 </section>
@@ -232,7 +234,7 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
     <p class="lead" style="margin:0 auto">Every library template is free, plus three of your own. No account and no card, and Pro is free to try for ${TRIAL_DAYS} days.</p>
     <div class="actions"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free</a><a class="btn btn-lg" href="${rel}pricing/">See plans</a></div>
     <p class="small muted" style="margin-top:1.5rem">See Clausery's <a href="https://fazier.com/launches/clausery" rel="noopener">Fazier launch</a>, or use the <a href="${rel}press/">press kit</a> to share a useful resource with your audience.</p>
-    <p style="margin-top:.75rem"><a href="https://fazier.com/launches/clausery" title="Clausery on Fazier" rel="noopener"><img src="${rel}assets/badges/fazier.svg" width="182" height="43" alt="Featured on Fazier" loading="lazy"></a></p>
+    <p style="margin-top:.75rem"><a href="https://fazier.com/launches/clausery" title="Clausery on Fazier" rel="noopener"><img src="${rel}assets/badges/fazier.svg" width="182" height="43" alt="Featured on Fazier" loading="lazy" decoding="async"></a></p>
   </div>
 </section>`,
 }];

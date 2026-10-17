@@ -29,7 +29,7 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"DigitalDocument","name":"Free internship offer letter template (Word)","description":"An internship offer covering dates, paid or unpaid status, an optional stipend, weekly hours, remote or office location, supervisor, learning objectives and academic credit.","url":"https://getclausery.github.io/templates/internship-offer-letter.html","encodingFormat":"application/vnd.openxmlformats-officedocument.wordprocessingml.document","contentUrl":"https://getclausery.github.io/samples/internship-offer-letter.docx","isAccessibleForFree":true,"inLanguage":"en","genre":"HR","dateModified":"2026-10-17","image":["https://getclausery.github.io/assets/previews/internship-offer-letter.jpg","https://getclausery.github.io/assets/og/internship-offer-letter.png"],"thumbnailUrl":"https://getclausery.github.io/assets/previews/internship-offer-letter.jpg","publisher":{"@type":"Organization","name":"Clausery","url":"https://getclausery.github.io/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can internships be unpaid?","acceptedAnswer":{"@type":"Answer","text":"In many places unpaid internships are only lawful in narrow circumstances. Check your local rules before offering one."}},{"@type":"Question","name":"Does it support remote internships?","acceptedAnswer":{"@type":"Answer","text":"Yes. One question switches between remote and a named office."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Templates","item":"https://getclausery.github.io/templates/"},{"@type":"ListItem","position":3,"name":"Internship offer letter","item":"https://getclausery.github.io/templates/internship-offer-letter.html"}]}</script><style>
 .tpl-doc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; max-height: 38rem; overflow: auto; font-family: Georgia, "Times New Roman", serif; line-height: 1.6; }
@@ -62,7 +62,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -94,7 +94,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <h2 style="margin-top:2.5rem">What is in the internship offer letter</h2>
       <ul><li>Role, team and dates</li><li>Pay rate, or unpaid with optional stipend</li><li>Hours and location</li><li>Supervisor</li><li>Learning objectives</li><li>Optional academic credit</li><li>Response deadline</li></ul>
     </div>
-    <a class="tpl-thumb" href="#full-text"><img src="../assets/previews/internship-offer-letter.jpg" width="680" height="880" loading="lazy" decoding="async" alt="First page of the free internship offer letter template for Word"></a>
+    <a class="tpl-thumb" href="#full-text"><picture><source type="image/webp" srcset="../assets/previews/internship-offer-letter.webp" sizes="100vw"><img src="../assets/previews/internship-offer-letter.jpg" width="680" height="880" alt="First page of the free internship offer letter template for Word" loading="eager" decoding="async" fetchpriority="high"></picture></a>
   </div>
 
   <h2 style="margin-top:2.5rem" id="full-text">Read the full template</h2>
@@ -146,6 +146,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

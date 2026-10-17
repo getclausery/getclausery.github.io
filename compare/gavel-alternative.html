@@ -29,7 +29,7 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I use Clausery and Gavel together?","acceptedAnswer":{"@type":"Answer","text":"Yes. Many firms keep a platform like Gavel for the workflows it does best and use Clausery for documents whose details should not leave the office. Clausery needs no integration to run alongside it."}},{"@type":"Question","name":"How much does Clausery cost compared with Gavel?","acceptedAnswer":{"@type":"Answer","text":"Every Clausery library template is free, you can automate up to three of your own templates free with unlimited documents, and Pro is $19 per user per month, with a 14-day free trial that needs no card. The table above summarises Gavel's published pricing as of 2026; check the vendor for current prices."}},{"@type":"Question","name":"Does Clausery need IT to set up?","acceptedAnswer":{"@type":"Answer","text":"No. It runs in any modern browser with nothing to install, and firms that prefer can host the files on their own server."}},{"@type":"Question","name":"What happens to my templates if I stop using Clausery?","acceptedAnswer":{"@type":"Answer","text":"They are ordinary Word files with tags, and your data exports as plain JSON. Nothing is locked into Clausery."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Compare","item":"https://getclausery.github.io/compare/"},{"@type":"ListItem","position":3,"name":"Gavel alternative that keeps client data on your computer","item":"https://getclausery.github.io/compare/gavel-alternative.html"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://getclausery.github.io/compare/gavel-alternative.html#webpage","url":"https://getclausery.github.io/compare/gavel-alternative.html","name":"Gavel alternative that keeps client data on your computer","description":"Gavel alternative for law firms that cannot upload client data: Word templates become guided questionnaires in your browser. Free tier, honest trade-offs.","inLanguage":"en-GB","isPartOf":{"@id":"https://getclausery.github.io/#website"},"dateModified":"2026-10-15"}</script>
 </head>
@@ -37,7 +37,7 @@
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -104,6 +104,7 @@
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

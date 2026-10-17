@@ -21,7 +21,7 @@ const DOCS_FAQ = [
   ['What if Clausery disappears?', (rel) => `Your copy keeps working: it is cached in your browser and can be self-hosted from the repository. Your templates are your .docx files; your data exports are plain JSON.`],
   [ONLINE_KEYS ? 'How do I activate a paid plan?' : 'How do I get a license key?', (rel) => `See <a href="${rel}pricing/">Pricing</a>. ${ONLINE_KEYS ? 'Choose a plan and pay, then select Open Clausery after payment or in your receipt email. The plan activates automatically and opens the app. No separate account or key to copy. Use the receipt button on another device too, and keep that access link private.' : 'Keys are delivered by email and entered once per device.'}`],
 ];
-const page = (path, title, description, body, extraHead = '') => ({ path, title, description, extraHead, body: (rel) => `<div class="wrap docs">${docsNav(rel, path)}<article class="docs-body">${body(rel)}</article></div>` });
+const page = (path, title, description, body, extraHead = '') => ({ path, title, description, extraHead, body: (rel) => `<div class="wrap docs">${docsNav(rel, path)}<article class="docs-body">${body(rel)}<p class="docs-cta" style="margin-top:2.5rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Browse free templates</a></p></article></div>` });
 
 export const pages = [
 page('docs/', 'Getting started', 'Install nothing, sign up for nothing: tag a Word template, drop it into Clausery, answer the questions, download the document.', (rel) => `

@@ -19,11 +19,16 @@
     "marketing:assets": "node tools/make-marketing-assets.mjs",
     "previews": "node tools/make-previews.mjs",
     "license": "node tools/license.mjs",
-    "verify": "npm run lint && npm run check:html && npm run check:seo && npm test",
+    "verify": "npm run lint && npm run check:html && npm run check:seo && npm run check:intent && npm run check:schema && npm run check:sitemap && npm run check:cwv && npm run check:pages && npm test",
     "build:site": "node tools/build-site.mjs",
     "smoke": "node tools/smoke.mjs",
     "release": "node tools/release.mjs",
-    "indexnow": "node tools/indexnow.mjs"
+    "indexnow": "node tools/indexnow.mjs",
+    "check:intent": "node tools/check-intent.mjs",
+    "check:schema": "node tools/check-schema.mjs",
+    "check:sitemap": "node tools/check-sitemap.mjs",
+    "check:cwv": "node tools/check-cwv.mjs",
+    "check:pages": "node tools/check-pages.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",

@@ -29,7 +29,7 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"DigitalDocument","name":"Free landlord reference letter template (Word)","description":"A rental reference letter from a landlord to a prospective landlord, confirming the tenancy dates and rent, whether rent was paid on time, how the property was left and whether the deposit was returned in full, with optional comments.","url":"https://getclausery.github.io/templates/landlord-reference-letter.html","encodingFormat":"application/vnd.openxmlformats-officedocument.wordprocessingml.document","contentUrl":"https://getclausery.github.io/samples/landlord-reference-letter.docx","isAccessibleForFree":true,"inLanguage":"en","genre":"Real estate","dateModified":"2026-10-17","image":["https://getclausery.github.io/assets/previews/landlord-reference-letter.jpg","https://getclausery.github.io/assets/og/landlord-reference-letter.png"],"thumbnailUrl":"https://getclausery.github.io/assets/previews/landlord-reference-letter.jpg","publisher":{"@type":"Organization","name":"Clausery","url":"https://getclausery.github.io/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What should a landlord reference letter say?","acceptedAnswer":{"@type":"Answer","text":"The tenancy dates, the rent, whether it was paid on time, how the property was kept and left, and whether you would rent to the person again. Stick to facts you can stand behind."}},{"@type":"Question","name":"Do I have to give a tenant a reference?","acceptedAnswer":{"@type":"Answer","text":"Usually not, but if you do, it must be accurate. A short, factual letter is safer than a glowing one you cannot support."}},{"@type":"Question","name":"Can I mention problems in a reference?","acceptedAnswer":{"@type":"Answer","text":"You can state facts, such as late payments, without speculation. If you would rather not comment, confirm only the dates and rent."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Templates","item":"https://getclausery.github.io/templates/"},{"@type":"ListItem","position":3,"name":"Landlord reference letter","item":"https://getclausery.github.io/templates/landlord-reference-letter.html"}]}</script><style>
 .tpl-doc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; max-height: 38rem; overflow: auto; font-family: Georgia, "Times New Roman", serif; line-height: 1.6; }
@@ -62,7 +62,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -94,7 +94,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <h2 style="margin-top:2.5rem">What is in the landlord reference letter</h2>
       <ul><li>Recipient and tenant</li><li>Property, tenancy dates and rent, for current or former tenants</li><li>Payment history</li><li>Condition at move-out and deposit returned</li><li>Optional comments</li><li>Would rent again</li><li>Landlord contact details</li></ul>
     </div>
-    <a class="tpl-thumb" href="#full-text"><img src="../assets/previews/landlord-reference-letter.jpg" width="680" height="880" loading="lazy" decoding="async" alt="First page of the free landlord reference letter template for Word"></a>
+    <a class="tpl-thumb" href="#full-text"><picture><source type="image/webp" srcset="../assets/previews/landlord-reference-letter.webp" sizes="100vw"><img src="../assets/previews/landlord-reference-letter.jpg" width="680" height="880" alt="First page of the free landlord reference letter template for Word" loading="eager" decoding="async" fetchpriority="high"></picture></a>
   </div>
 
   <h2 style="margin-top:2.5rem" id="full-text">Read the full template</h2>
@@ -112,6 +112,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
   <h2 style="margin-top:2.5rem">Questions</h2>
   <div class="faq"><details><summary>What should a landlord reference letter say?</summary><p>The tenancy dates, the rent, whether it was paid on time, how the property was kept and left, and whether you would rent to the person again. Stick to facts you can stand behind.</p></details><details><summary>Do I have to give a tenant a reference?</summary><p>Usually not, but if you do, it must be accurate. A short, factual letter is safer than a glowing one you cannot support.</p></details><details><summary>Can I mention problems in a reference?</summary><p>You can state facts, such as late payments, without speculation. If you would rather not comment, confirm only the dates and rent.</p></details></div>
 
+  <p style="margin-top:2rem"><strong>Guide:</strong> <a href="../guides/how-to-write-a-reference-letter.html">How to write a reference letter (with examples)</a></p>
 <!--nav-->  <h2 style="margin-top:2.5rem">Related templates</h2>
   <div class="grid grid-3 related-cards"><a class="feature" href="../templates/rental-application.html"><h3>Rental application</h3><p>An application for a rental home: the property and rent, any application fee, the applicant's…</p></a><a class="feature" href="../templates/roommate-agreement.html"><h3>Roommate agreement</h3><p>An agreement between people who share a rented home: each roommate's share of the rent, who pays…</p></a><a class="feature" href="../templates/room-rental-agreement.html"><h3>Room rental agreement</h3><p>A room rental agreement for renting one room in a home: the room and shared areas, a fixed term…</p></a><a class="feature" href="../templates/rent-payment-plan-agreement.html"><h3>Rent payment plan agreement</h3><p>A rent payment plan agreement for a tenant who is behind: it confirms the amount owed, sets a…</p></a></div>
   <p><a href="../templates/">Browse all 87 free templates by category</a></p><!--/nav-->
@@ -143,6 +144,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

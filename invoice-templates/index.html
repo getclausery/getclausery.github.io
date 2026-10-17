@@ -29,7 +29,7 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","@id":"https://getclausery.github.io/invoice-templates/#webpage","url":"https://getclausery.github.io/invoice-templates/","name":"Free Word invoice templates: task, trade and country","description":"Free Word invoice templates for deposits, hourly work and final balances, plus trade and country starters. Totals calculated online; editable .docx download.","inLanguage":"en-GB","isPartOf":{"@id":"https://getclausery.github.io/#website"},"mainEntity":{"@type":"ItemList","numberOfItems":21,"itemListElement":[{"@type":"ListItem","position":1,"name":"Deposit invoice","url":"https://getclausery.github.io/invoice-templates/deposit-invoice.html"},{"@type":"ListItem","position":2,"name":"Hourly invoice","url":"https://getclausery.github.io/invoice-templates/hourly-invoice.html"},{"@type":"ListItem","position":3,"name":"Final invoice","url":"https://getclausery.github.io/invoice-templates/final-invoice.html"},{"@type":"ListItem","position":4,"name":"Contractor invoice template (free, Word)","url":"https://getclausery.github.io/invoice-templates/construction-contractor.html"},{"@type":"ListItem","position":5,"name":"Handyman invoice template (free, Word)","url":"https://getclausery.github.io/invoice-templates/handyman.html"},{"@type":"ListItem","position":6,"name":"Cleaning invoice template (free, Word)","url":"https://getclausery.github.io/invoice-templates/cleaning.html"},{"@type":"ListItem","position":7,"name":"Landscaping and lawn care invoice template (Word)","url":"https://getclausery.github.io/invoice-templates/landscaping.html"},{"@type":"ListItem","position":8,"name":"Photography invoice template (free, Word)","url":"https://getclausery.github.io/invoice-templates/photography.html"},{"@type":"ListItem","position":9,"name":"Video production invoice template (free, Word)","url":"https://getclausery.github.io/invoice-templates/videography.html"},{"@type":"ListItem","position":10,"name":"Graphic design invoice template (free, Word)","url":"https://getclausery.github.io/invoice-templates/graphic-design.html"},{"@type":"ListItem","position":11,"name":"Web design invoice template (free, Word)","url":"https://getclausery.github.io/invoice-templates/web-design.html"},{"@type":"ListItem","position":12,"name":"Consulting invoice template (free, Word)","url":"https://getclausery.github.io/invoice-templates/consulting.html"},{"@type":"ListItem","position":13,"name":"Freelance writing invoice template (free, Word)","url":"https://getclausery.github.io/invoice-templates/freelance-writing.html"},{"@type":"ListItem","position":14,"name":"Tutoring invoice template (free, Word)","url":"https://getclausery.github.io/invoice-templates/tutoring.html"},{"@type":"ListItem","position":15,"name":"Personal training invoice template (free, Word)","url":"https://getclausery.github.io/invoice-templates/personal-training.html"},{"@type":"ListItem","position":16,"name":"VAT invoice template (UK)","url":"https://getclausery.github.io/invoice-templates/uk-vat-invoice.html"},{"@type":"ListItem","position":17,"name":"VAT invoice template for Ireland","url":"https://getclausery.github.io/invoice-templates/ireland-vat-invoice.html"},{"@type":"ListItem","position":18,"name":"Tax invoice template for Australia","url":"https://getclausery.github.io/invoice-templates/australia-tax-invoice.html"},{"@type":"ListItem","position":19,"name":"GST invoice template for New Zealand","url":"https://getclausery.github.io/invoice-templates/new-zealand-gst-invoice.html"},{"@type":"ListItem","position":20,"name":"GST/HST invoice template for Canada","url":"https://getclausery.github.io/invoice-templates/canada-gst-hst-invoice.html"},{"@type":"ListItem","position":21,"name":"Tax invoice template for South Africa","url":"https://getclausery.github.io/invoice-templates/south-africa-tax-invoice.html"}]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Free Word invoice templates: task, trade and country","item":"https://getclausery.github.io/invoice-templates/"}]}</script>
 </head>
@@ -37,7 +37,7 @@
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/" aria-current="page">Invoices</a>
@@ -82,7 +82,7 @@
     <a class="feature" style="text-decoration:none;color:inherit" href="../invoice-templates/south-africa-tax-invoice.html"><h3>Tax invoice South Africa</h3><p>VAT at 15%, your VAT registration number, amounts in ZAR</p></a>
   </div>
   <h2 style="margin-top:2.5rem">Not listed?</h2>
-  <p>Start from the general <a href="../templates/invoice.html">invoice template</a> and add your own lines. For quotes before the work, use the <a href="../templates/quote.html">price quote template</a>; for payments received, the <a href="../templates/payment-receipt.html">payment receipt</a>.</p>
+  <p>Start from the general <a href="../templates/invoice.html">invoice template</a> and add your own lines. For quotes before the work, use the <a href="../templates/quote.html">price quote template</a>; for a supplier order, the <a href="../templates/purchase-order.html">purchase order</a>; for a refund or correction, the <a href="../templates/credit-note.html">credit note</a>; for payments received, the <a href="../templates/payment-receipt.html">payment receipt</a>; and for rent, the <a href="../templates/rent-receipt.html">rent receipt</a>.</p>
   <h2 style="margin-top:2.5rem">Tax and payment details</h2>
   <ul>
     <li><a href="../guides/what-to-include-on-a-vat-invoice.html">What a VAT invoice must include (UK): full and simplified invoices</a></li>
@@ -91,6 +91,7 @@
     <li><a href="../guides/what-bank-details-to-put-on-an-invoice.html">What bank details to put on an invoice, and how to stop invoice fraud</a></li>
     <li><a href="../guides/how-to-write-an-invoice.html">How to write an invoice: what to include and how to number it</a></li>
   </ul>
+  <!--nav--><div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem;margin-top:0">Start an invoice now</h2><p>The app opens the invoice with your details, the next number and today's date already filled in. Choose a starter here or open the general invoice and change the lines.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="../app/#/start/invoice">Open the invoice app</a> <a class="btn" href="../templates/invoice.html">See the invoice template</a></p></div><!--/nav-->
 </div></section></main>
 <footer class="site-footer">
   <div class="wrap">
@@ -118,6 +119,7 @@
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

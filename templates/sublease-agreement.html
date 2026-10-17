@@ -29,7 +29,7 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"DigitalDocument","name":"Free sublease agreement template (Word)","description":"An agreement for a tenant to rent all or part of their home to a subtenant for a while, such as a summer or a semester: the rooms, dates, rent paid to the tenant or the landlord, utilities, a deposit, following the master lease, and the landlord's consent.","url":"https://getclausery.github.io/templates/sublease-agreement.html","encodingFormat":"application/vnd.openxmlformats-officedocument.wordprocessingml.document","contentUrl":"https://getclausery.github.io/samples/sublease-agreement.docx","isAccessibleForFree":true,"inLanguage":"en","genre":"Real estate","dateModified":"2026-10-17","image":["https://getclausery.github.io/assets/previews/sublease-agreement.jpg","https://getclausery.github.io/assets/og/sublease-agreement.png"],"thumbnailUrl":"https://getclausery.github.io/assets/previews/sublease-agreement.jpg","publisher":{"@type":"Organization","name":"Clausery","url":"https://getclausery.github.io/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I need my landlord's permission to sublet?","acceptedAnswer":{"@type":"Answer","text":"Usually, yes. Most leases require the landlord's written consent, and subletting without it can be a breach of your lease. Some places limit when a landlord can refuse. If consent is needed, tick the option and the landlord signs the consent at the end."}},{"@type":"Question","name":"Who is responsible if the subtenant does not pay?","acceptedAnswer":{"@type":"Answer","text":"You are. A sublease does not release the original tenant from the lease, so you still owe the landlord the full rent and are responsible for damage. That is why the sublease has its own deposit and requires the subtenant to follow the master lease."}},{"@type":"Question","name":"Can a sublease run past the end of my lease?","acceptedAnswer":{"@type":"Answer","text":"No. A subtenant cannot have more rights than the tenant, so the sublease must end on or before the day the master lease ends."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Templates","item":"https://getclausery.github.io/templates/"},{"@type":"ListItem","position":3,"name":"Sublease agreement","item":"https://getclausery.github.io/templates/sublease-agreement.html"}]}</script><style>
 .tpl-doc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; max-height: 38rem; overflow: auto; font-family: Georgia, "Times New Roman", serif; line-height: 1.6; }
@@ -62,7 +62,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -94,7 +94,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <h2 style="margin-top:2.5rem">What is in the sublease agreement</h2>
       <ul><li>Tenant, subtenant, landlord and the master lease</li><li>Whole home, or the rooms sublet and shared areas</li><li>Optional furnishings</li><li>Start and end dates, within the master lease</li><li>Rent paid to the tenant or directly to the landlord</li><li>Optional late fee, and utilities</li><li>Security deposit and when it is returned</li><li>Following the master lease</li><li>Moving out</li><li>Landlord's consent, where the lease requires it</li></ul>
     </div>
-    <a class="tpl-thumb" href="#full-text"><img src="../assets/previews/sublease-agreement.jpg" width="680" height="880" loading="lazy" decoding="async" alt="First page of the free sublease agreement template for Word"></a>
+    <a class="tpl-thumb" href="#full-text"><picture><source type="image/webp" srcset="../assets/previews/sublease-agreement.webp" sizes="100vw"><img src="../assets/previews/sublease-agreement.jpg" width="680" height="880" alt="First page of the free sublease agreement template for Word" loading="eager" decoding="async" fetchpriority="high"></picture></a>
   </div>
 
   <h2 style="margin-top:2.5rem" id="full-text">Read the full template</h2>
@@ -145,6 +145,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

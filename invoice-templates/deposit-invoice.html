@@ -29,7 +29,7 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a deposit invoice?","acceptedAnswer":{"@type":"Answer","text":"An invoice requesting an agreed upfront part of a project price. It is different from a receipt, which confirms a payment that has already arrived."}},{"@type":"Question","name":"How do I invoice a 30% deposit?","acceptedAnswer":{"@type":"Answer","text":"Multiply the agreed project price by 0.30. For a $2,000 project, request $600 on the deposit invoice and keep a record of the $1,400 remaining before any further adjustments."}},{"@type":"Question","name":"Can I choose a different deposit percentage?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use the percentage you agreed with your client. The calculator accepts 0% to 100%; Clausery does not prescribe a deposit policy."}},{"@type":"Question","name":"Is a deposit invoice the same as a pro forma invoice?","acceptedAnswer":{"@type":"Answer","text":"No. This page creates an invoice requesting an agreed deposit. It does not create a pro forma document or determine its accounting or tax treatment."}},{"@type":"Question","name":"How do I deduct the deposit on the final invoice?","acceptedAnswer":{"@type":"Answer","text":"Open the final invoice starter, enter the full project price, and put the deposit actually received in Amount already paid. The app calculates the balance due."}}]}</script><style>
 .invoice-calculator { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:1.5rem; margin:1.5rem 0; }
@@ -42,7 +42,7 @@
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/" aria-current="page">Invoices</a>
@@ -110,6 +110,7 @@
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

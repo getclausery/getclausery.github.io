@@ -29,15 +29,15 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Docs","item":"https://getclausery.github.io/docs/"},{"@type":"ListItem","position":3,"name":"Self-hosting","item":"https://getclausery.github.io/docs/self-hosting.html"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://getclausery.github.io/docs/self-hosting.html#webpage","url":"https://getclausery.github.io/docs/self-hosting.html","name":"Self-hosting","description":"Run Clausery on your own domain or intranet: it is a folder of static files with no build step and no server component.","inLanguage":"en-GB","isPartOf":{"@id":"https://getclausery.github.io/#website"},"dateModified":"2026-10-04"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Docs","item":"https://getclausery.github.io/docs/"},{"@type":"ListItem","position":3,"name":"Self-hosting","item":"https://getclausery.github.io/docs/self-hosting.html"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://getclausery.github.io/docs/self-hosting.html#webpage","url":"https://getclausery.github.io/docs/self-hosting.html","name":"Self-hosting","description":"Run Clausery on your own domain or intranet: it is a folder of static files with no build step and no server component.","inLanguage":"en-GB","isPartOf":{"@id":"https://getclausery.github.io/#website"},"dateModified":"2026-10-17"}</script>
 </head>
 <body>
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -72,7 +72,7 @@ Cache-Control: no-cache   (for HTML; long max-age for vendor/ and assets/)</code
 <h2>Updating</h2>
 <p>Replace the folder with the new version. The service worker version changes with each release and users are prompted to reload. User data is in their browsers, not in the folder, so updates never touch it.</p>
 <h2>GitHub Pages</h2>
-<p>The public instance runs on GitHub Pages straight from the repository, with a CI workflow that lints, unit-tests and end-to-end tests every change. Forking the repository and enabling Pages gives you an identical setup in minutes.</p></article></div></main>
+<p>The public instance runs on GitHub Pages straight from the repository, with a CI workflow that lints, unit-tests and end-to-end tests every change. Forking the repository and enabling Pages gives you an identical setup in minutes.</p><p class="docs-cta" style="margin-top:2.5rem"><a class="btn btn-primary" href="../app/">Open Clausery</a> <a class="btn" href="../templates/">Browse free templates</a></p></article></div></main>
 <footer class="site-footer">
   <div class="wrap">
     <div>
@@ -99,6 +99,7 @@ Cache-Control: no-cache   (for HTML; long max-age for vendor/ and assets/)</code
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

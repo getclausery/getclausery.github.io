@@ -1,6 +1,16 @@
 import { readFileSync } from 'node:fs';
 // Shared HTML fragments for the static site pages (used by tools/build-site.mjs).
 export const YEAR = '2026';
+/* The theme script is 260 bytes and decides the colours before the first paint. Inlining it removes a
+   render-blocking request from every page (the file stays in app/ for the app itself and for cached copies). */
+const THEME_FILE = readFileSync(new URL('../app/theme.js', import.meta.url), 'utf8');
+export const THEME_INLINE = THEME_FILE.replace(/^\/\/[^\n]*\n/, '').replace(/\n?try /, 'try ').trim();
+/** A responsive picture: WebP sources with the original raster as the fallback. Dimensions are always set so the
+    browser reserves the box and the layout does not shift while the image loads. */
+export function picture({ src, webp, width, height, alt, sizes = '100vw', loading = 'lazy', fetchpriority, className = '' }) {
+  const srcset = Array.isArray(webp) ? webp.map(([url, w]) => `${url} ${w}w`).join(', ') : webp;
+  return `<picture>${srcset ? `<source type="image/webp" srcset="${srcset}" sizes="${sizes}">` : ''}<img src="${src}" width="${width}" height="${height}" alt="${esc(alt)}" loading="${loading}" decoding="async"${fetchpriority ? ` fetchpriority="${fetchpriority}"` : ''}${className ? ` class="${className}"` : ''}></picture>`;
+}
 // Contact and repository links come from the app's deployment config, so the site and the app never disagree.
 export { CONTACT_URL, KEY_REQUEST_URL, REPO_URL, CONTACT_EMAIL, mailto, keyRequestUrl } from '../app/config.js';
 // The site's public origin. Every absolute URL (canonical, Open Graph, JSON-LD, sitemap, feed) is built from it.
@@ -105,7 +115,7 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <link rel="manifest" href="${rel}app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="${rel}feed.xml">
 <link rel="stylesheet" href="${rel}site.css">
-<script src="${rel}app/theme.js"></script>
+<script>${THEME_INLINE}</script>
 <script src="${rel}site.js" defer></script>
 ${extraHead}${pageLd}
 </head>
@@ -143,7 +153,7 @@ export function header(rel, path) {
   const cur = (p) => (path.startsWith(p) && p !== '' ? ' aria-current="page"' : '');
   return `<header class="site-header">
   <div class="wrap">
-    <a class="brand" href="${rel}"><img src="${rel}assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="${rel}"><img src="${rel}assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="${rel}invoice-templates/"${cur('invoice-templates/')}>Invoices</a>
@@ -186,6 +196,7 @@ export function footer(rel) {
       <a href="${rel}clauses/">Clause library</a>
       <a href="${rel}free-tools/">Free tools</a>
       <a href="${rel}compare/">Compare</a>
+      <a href="${rel}for/">Who it's for</a>
       <a href="${rel}for/law-firms.html">For law firms</a>
       <a href="${rel}for/hr-teams.html">For HR teams</a>
       <a href="${rel}for/consultants.html">For consultants</a>

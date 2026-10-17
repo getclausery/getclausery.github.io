@@ -29,15 +29,15 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Docs","item":"https://getclausery.github.io/docs/"},{"@type":"ListItem","position":3,"name":"Teams & template packs","item":"https://getclausery.github.io/docs/teams.html"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://getclausery.github.io/docs/teams.html#webpage","url":"https://getclausery.github.io/docs/teams.html","name":"Teams & template packs","description":"Share approved templates across a firm with template packs, and manage licenses for a team.","inLanguage":"en-GB","isPartOf":{"@id":"https://getclausery.github.io/#website"},"dateModified":"2026-10-09"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Docs","item":"https://getclausery.github.io/docs/"},{"@type":"ListItem","position":3,"name":"Teams & template packs","item":"https://getclausery.github.io/docs/teams.html"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://getclausery.github.io/docs/teams.html#webpage","url":"https://getclausery.github.io/docs/teams.html","name":"Teams & template packs","description":"Share approved templates across a firm with template packs, and manage licenses for a team.","inLanguage":"en-GB","isPartOf":{"@id":"https://getclausery.github.io/#website"},"dateModified":"2026-10-17"}</script>
 </head>
 <body>
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -63,7 +63,7 @@
 <h2>Licensing a team</h2>
 <p>The online Team plan covers five named users. Share only the private Open Clausery access link from your receipt with those licensed users; each opens it to activate their browser automatically, with no key to copy. Up to fifteen browser profiles can be activated. Settings → Advanced activation → Remove from this browser frees an unused activation without cancelling the subscription. Additional named users are $9 each/month by request before buying. Teams that need no network can ask for an offline license.</p>
 <h2>Enterprise deployments</h2>
-<p>Firms that want the app on their own domain (for example <code>draft.yourfirm.com</code>) or intranet can self-host it: it is a folder of static files. See <a href="../docs/self-hosting.html">Self-hosting</a>.</p></article></div></main>
+<p>Firms that want the app on their own domain (for example <code>draft.yourfirm.com</code>) or intranet can self-host it: it is a folder of static files. See <a href="../docs/self-hosting.html">Self-hosting</a>.</p><p class="docs-cta" style="margin-top:2.5rem"><a class="btn btn-primary" href="../app/">Open Clausery</a> <a class="btn" href="../templates/">Browse free templates</a></p></article></div></main>
 <footer class="site-footer">
   <div class="wrap">
     <div>
@@ -90,6 +90,7 @@
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

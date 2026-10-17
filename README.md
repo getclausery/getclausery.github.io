@@ -68,14 +68,21 @@ cd clausery
 npm ci
 npm run build        # vendor bundle, samples, site pages, sitemap, release stamp
 npm run serve        # http://127.0.0.1:4173/
-npm run verify       # lint + HTML + SEO checks + unit tests
-npm run check:seo    # canonical/sitemap consistency, unique titles, structured data, crawlable page paths
+npm run verify       # lint, every static SEO check, and unit tests
+npm run check:seo    # canonical, robots, og:url, lastmod, unique titles, crawl depth
+npm run check:intent # search-intent coverage, unique queries, cluster hubs, next steps
+npm run check:schema # JSON-LD required fields, @ids, dates, breadcrumbs, visible FAQs
+npm run check:sitemap # section sitemaps partition sitemap.xml; image entries resolve
+npm run check:cwv    # render-blocking, image, LCP and asset-size budgets
+npm run check:pages  # programmatic landing-page structure, content and duplication gates
 npm run test:e2e     # Playwright (needs Chromium: npx playwright install chromium)
 npm run screenshots  # regenerate marketing images and icons
 npm run release      # after bumping "version" in package.json: stamps sw.js and app/config.js, regenerates the precache list
 ```
 
-Everything committed is what gets deployed: GitHub Pages serves the folder as-is. CI (`.github/workflows/clausery.yml`) lints, tests, checks HTML/links, verifies that generated files are up to date, and runs the end-to-end suite.
+Everything committed is what gets deployed: GitHub Pages serves the folder as-is. CI (`.github/workflows/ci.yml`) lints, tests, checks HTML/links, verifies that generated files are up to date, and runs the end-to-end suite.
+
+See `SEO-AUDIT.md` for the latest audit, the checks it added and what is deliberately left for later.
 
 ## Licensing keys
 
