@@ -3,6 +3,7 @@ import { readFileSync, existsSync, globSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { SITE } from './partials.mjs';
 import { socialCardProblems } from './social-card.mjs';
+import { editorialLinkGraph } from './editorial-links.mjs';
 
 const failures = [];
 const fail = (file, message) => failures.push(`${file}: ${message}`);
@@ -107,7 +108,7 @@ const queue = [SITE];
 let deepest = 0;
 while (queue.length) {
   const loc = queue.shift();
-  for (const [, href] of documents.get(loc).matchAll(/<a\b[^>]*\bhref="([^"]+)"/g)) {
+  for (const [, href] of (documents.get(loc) || '').matchAll(/<a\b[^>]*\bhref="([^"]+)"/g)) {
     let link;
     try { link = new URL(href.replace(/&amp;/g, '&'), loc); } catch { continue; }
     link.hash = ''; link.search = '';
@@ -123,6 +124,12 @@ for (const loc of indexed) {
 }
 if (deepest > 3) fail('site', `deepest page is ${deepest} clicks from Home`);
 
+// Global navigation makes pages reachable, but it is not a substitute for a useful link in another page's content.
+// Count distinct referring pages, not repeated anchors, and ignore self-links, breadcrumbs and automatic nav blocks.
+const editorial = editorialLinkGraph(documents);
+for (const loc of indexed) if (loc !== SITE && !editorial.incoming.get(loc)?.size) fail(fileFor(loc), 'no editorial inbound link (header, footer, nav and repeated related-page blocks do not count)');
+const editorialEdges = [...editorial.outgoing.values()].reduce((sum, targets) => sum + targets.size, 0);
+
 // Catch newly generated public pages left out of the sitemap. Noindex embeds and app/private files are excluded.
 for (const file of globSync('**/*.html', { exclude: (p) => /^(node_modules|app|test-results|playwright-report)\//.test(p) })) {
   if (file === '404.html' || file === 'offline.html' || /^google[0-9a-f]+\.html$/.test(file)) continue;
@@ -135,4 +142,4 @@ for (const file of globSync('**/*.html', { exclude: (p) => /^(node_modules|app|t
 if (failures.length) {
   console.error(failures.join('\n'));
   process.exitCode = 1;
-} else console.log(`SEO checks passed: ${urls.length} canonical pages, unique titles and descriptions, lastmod matches page-dates, robots and og:url consistent, ${shareImages.size} valid 1200x630 PNG share cards under 300 KB (${templateImages.size} distinct template cards), all reachable from Home within ${deepest} clicks.`);
+} else console.log(`SEO checks passed: ${urls.length} canonical pages, unique titles and descriptions, lastmod matches page-dates, robots and og:url consistent, ${shareImages.size} valid 1200x630 PNG share cards under 300 KB (${templateImages.size} distinct template cards), ${editorialEdges} editorial links with no content orphans, all reachable from Home within ${deepest} clicks.`);

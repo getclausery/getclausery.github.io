@@ -1,6 +1,8 @@
 # SEO audit and implementation notes
 
-Date: 2026-10-17. Scope: the generated static site (244 indexable pages) and the build/check pipeline that produces it.
+Date: 2026-10-17. Scope: the generated static site (248 indexable pages) and the build/check pipeline that produces it.
+This includes the follow-up to the audit delivered in merged PR #51: four more guides, syndication and social-card
+validation, and a contextual link graph. The build/check tools require Node 22+ for `fs.globSync`.
 This was an offline audit: no Search Console, CrUX or Lighthouse data was available in the build environment, so
 Core Web Vitals work is based on the HTML, CSS, JavaScript and image bytes that ship. Run PageSpeed Insights against
 the deployed site for field and lab confirmation.
@@ -34,7 +36,7 @@ The gaps were in the things that are easy to let drift:
 ### Search-intent mapping (`site/data/search-intent.mjs`, `tools/check-intent.mjs`)
 
 Every indexable page now has an entry: primary query, intent (`transactional`, `commercial`, `informational` or
-`navigational`) and topic cluster. There are 244 entries in 11 clusters. The checker enforces coverage in both
+`navigational`) and topic cluster. There are 248 entries in 11 clusters. The checker enforces coverage in both
 directions (no unmapped page, no stale entry), unique queries and token sets, known intents and clusters, and that
 each query appears in the page's title, H1 or description. It also checks the funnel: transactional and commercial
 pages must link to the app, pricing or a download in the main content; informational pages must offer a template,
@@ -53,6 +55,10 @@ the audience cluster.
 - Linked the new guides from the relevant audience pages and from the templates that use them.
 - Click depth from Home remains two, with no orphans; the checker now fails if any page needs more than three clicks
   or is unreachable.
+- A separate editorial graph excludes headers, footers, breadcrumbs, docs navigation, self-links and repeated
+  `<!--nav-->` related-page blocks. Every non-home indexable page needs an inbound link from another page’s content.
+  The 1,869 distinct source/target links have no content orphans; About is now linked from Home, and Teams & template
+  packs from Getting started, rather than relying only on repeated navigation.
 
 ### Structured data (`tools/check-schema.mjs`)
 
@@ -99,10 +105,32 @@ conditional clauses, repeating lists, confidentiality checklist, automating Word
 NDA vs confidentiality agreement, Australian tax invoices, kill fees and statements of work. Visible guide content
 now ranges from 443 to 2,101 words (median 721), up from a minimum of 191.
 
+Four further high-intent guides close the gaps for independent contractor agreements, promissory notes, sublease
+agreements and purchase orders. Each has 1,056–1,157 editorial words, sample wording, three visible FAQs with matching
+structured data, an explicit publication date and source links. They have unique search-intent entries, a place in
+the guide topics, contextual cross-links from existing guides and audience pages, and reciprocal `GUIDE_FOR` links
+from the corresponding templates. The guide collection now has 63 articles.
+
+### Syndication (`tools/check-feeds.mjs`)
+
+- `feed.xml` must contain exactly the 63 guide and 24 clause pages, once each, with no hub or unrelated page.
+- Entry IDs and links must agree with the canonical page. Titles must match its H1 or HTML title.
+- Published dates must match `Article.datePublished` (or the clause's `WebPage.datePublished`), and updated dates must
+  match `page-dates.json` and the guide's `Article.dateModified`. The feed-level update is the newest article date,
+  not the build timestamp.
+- All 221 `llms.txt` links must be unique, absolute same-site links to resolving, canonical, indexable pages. The
+  noindex app launch link was replaced with About; no exception is made for noindex pages.
+- `check:feeds` runs in `verify` and CI. Regression cases exercise missing, duplicate and unrelated entries, wrong
+  titles/dates, dead links, foreign origins and noindex targets without modifying the generated files.
+
 ### Canonical, indexability and sitemap (`tools/check-seo.mjs`, `tools/make-sitemap.mjs`, `tools/check-sitemap.mjs`)
 
 - `check-seo` now also verifies the robots meta allows indexing and following, `og:url` equals the canonical,
   `lastmod` equals the page date, paths are lowercase and unspaced, and every page is at most three clicks from Home.
+- Every indexed page must use an absolute same-site Open Graph image. Its PNG signature and IHDR are inspected for
+  real 1200×630 dimensions and a size below 300,000 bytes; HTML dimensions and the Twitter image must agree. The
+  87 template cards must be distinct by URL and content hash, not copies of the generic image. There are 89 valid
+  share cards in total. Invalid signatures, chunks, truncated headers, sizes and dimensions have regression coverage.
 - The sitemap gained `for/` and `company/` sections (10 section files plus the index) and image entries for all 87
   template previews, with title and caption, in `sitemaps/templates.xml` and the main `sitemap.xml`.
 - `check-sitemap` proves the index and section files partition the main sitemap exactly, with no URL lost or
@@ -123,11 +151,12 @@ All of the following pass in the working tree:
 
 ```
 npm run lint
-npm run check:html        # 257 HTML files, 0 problems
-npm run check:seo         # 244 canonical pages, depth 2, lastmod/robots/og:url consistent
-npm run check:intent      # 244 pages, 11 clusters, 244 unique queries, hubs link all members
-npm run check:schema      # 244 pages, 302 unique @ids, required properties, dates, breadcrumbs, visible FAQs
-npm run check:sitemap     # 244 URLs, 10 sections partition exactly, 87 image entries
+npm run check:html        # 261 HTML files, 0 problems
+npm run check:seo         # 248 canonical pages, depth 2, 89 share cards, 1,869 editorial links, no content orphans
+npm run check:feeds       # 87 Atom entries (63 guides + 24 clauses), 221 indexable llms.txt links
+npm run check:intent      # 248 pages, 11 clusters, 248 unique queries, hubs link all members
+npm run check:schema      # 248 pages, 310 unique @ids, required properties, dates, breadcrumbs, visible FAQs
+npm run check:sitemap     # 248 URLs, 10 sections partition exactly, 87 image entries
 npm run check:cwv         # max HTML 62,757 bytes, 1 stylesheet, no blocking scripts
 npm run check:pages       # 7 sets, min 382 words in guides, worst sibling similarity 49%
 npm test                  # 136/136

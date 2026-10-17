@@ -198,7 +198,7 @@ test('the press kit describes the live checkout', async () => {
   assert.equal(/hosted checkout is not yet linked/.test(press), !ONLINE_KEYS);
 });
 
-test('every HTML page has exactly one robots directive, index iff it is in sitemap.xml', () => {
+test('robots match the sitemap and editorial links cannot be replaced by sitewide navigation', async () => {
   const indexed = new Set([...html('sitemap.xml').matchAll(/<loc>([^<]+)<\/loc>/g)].map(([, url]) => new URL(url).pathname));
   const files = globSync('**/*.html', { exclude: (x) => /^(node_modules|test-results|playwright-report)/.test(x) });
   for (const f of files) {
@@ -209,6 +209,31 @@ test('every HTML page has exactly one robots directive, index iff it is in sitem
     const path = '/' + f.replace(/index\.html$/, '');
     assert.equal(!/\bnoindex\b/i.test(robots[0][1]), indexed.has(path), `${f}: robots and sitemap disagree`);
   }
+  const { editorialLinkGraph } = await import('../../tools/editorial-links.mjs');
+  const base = 'https://getclausery.github.io/';
+  const documents = new Map([...indexed].map((path) => [new URL(path, base).href, html(path === '/' || path.endsWith('/') ? path.slice(1) + 'index.html' : path.slice(1))]));
+  const graph = editorialLinkGraph(documents);
+  for (const [url, sources] of graph.incoming) if (url !== base) assert.ok(sources.size > 0, `${url}: editorial orphan`);
+  const home = 'https://example.test/';
+  const fixtures = new Map([
+    [home, `<header><a href="orphan.html">Header</a></header><main>
+      <nav><a href="orphan.html">Breadcrumb or docs nav</a></nav>
+      <!--nav--><p><a href="orphan.html">Automatic related list</a></p><!--/nav-->
+      <!-- <a href="orphan.html">Commented out</a> -->
+      <script>const example = '<a href="orphan.html">Not content</a>';</script>
+      <template><a href="orphan.html">Inert template</a></template>
+      <p><a href="one.html">Useful content link</a><a href="one.html#again">Same source</a></p>
+      <a href="#self">Self</a><a href="https://other.example/">External</a>
+    </main><footer><a href="orphan.html">Footer</a></footer>`],
+    [home + 'one.html', '<main><p><a href="two.html?view=full&amp;lang=en#section">Next page</a></p></main>'],
+    [home + 'two.html', "<main><a href='one.html'>Back</a></main>"],
+    [home + 'orphan.html', '<main><a href="#self">Not an inbound link</a></main>'],
+  ]);
+  const fixtureGraph = editorialLinkGraph(fixtures);
+  assert.deepEqual([...fixtureGraph.outgoing.get(home)], [home + 'one.html']);
+  assert.deepEqual([...fixtureGraph.incoming.get(home + 'one.html')], [home, home + 'two.html']);
+  assert.deepEqual([...fixtureGraph.incoming.get(home + 'two.html')], [home + 'one.html']);
+  assert.equal(fixtureGraph.incoming.get(home + 'orphan.html').size, 0);
 });
 
 test('share cards are small 1200 by 630 PNGs, unique per template, and invalid headers are rejected', async () => {

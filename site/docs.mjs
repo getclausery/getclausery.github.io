@@ -53,6 +53,7 @@ and {party_b_name} ("{party_b_short}").</code></pre>
   <li><a href="${rel}docs/questionnaire.html">Designing the questionnaire</a>: types, sections, conditions.</li>
   <li><a href="${rel}docs/logic.html">Logic &amp; calculations</a>: the expression language.</li>
   <li><a href="${rel}docs/intake.html">Client intake forms</a>: let clients answer offline.</li>
+  <li><a href="${rel}docs/teams.html">Teams &amp; template packs</a>: share an approved template library with colleagues.</li>
 </ul>`),
 
 page('docs/templates.html', 'Template syntax', 'Tags, conditional sections, repeating groups, table rows, line breaks and built-in values in Clausery Word templates.', (rel) => `
