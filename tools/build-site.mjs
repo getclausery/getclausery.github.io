@@ -26,6 +26,10 @@ const SEO_TITLES = {
   'pricing/': `Clausery pricing: Free plan, Pro $${PRICES.pro}/user with a free trial`,
   'guides/how-to-write-a-job-description.html': 'How to write a job description (with a free template)',
   'guides/how-to-write-an-invoice.html': 'How to write an invoice: what to include, how to number it',
+  'guides/gst-hst-invoice-requirements-canada.html': 'GST/HST invoice requirements in Canada: what to show',
+  'guides/tax-invoice-requirements-australia.html': 'Tax invoice requirements in Australia: the seven details',
+  'guides/what-bank-details-to-put-on-an-invoice.html': 'What bank details to put on an invoice (and stop fraud)',
+  'guides/what-to-include-on-a-vat-invoice.html': 'What a VAT invoice must include (UK): full and simplified',
   'guides/what-is-a-hold-harmless-agreement.html': 'What is a hold harmless agreement? Types and examples',
 };
 for (const k of Object.keys(SEO_TITLES)) if (!pages.some((p) => p.path === k)) throw new Error('SEO_TITLES: no page ' + k);
@@ -60,10 +64,19 @@ for (const p of pages) {
   // GitHub Pages serves 404.html for a miss at any depth, so its links must be root-relative, not relative to its file.
   const rel = p.path === '404.html' ? '/' : p.path.split('/').filter(Boolean).length - (p.path.endsWith('/') || p.path === '' ? 0 : 1) > 0 ? '../'.repeat(p.path.split('/').filter(Boolean).length - (p.path.endsWith('/') || p.path === '' ? 0 : 1)) : './';
   const out = p.path === '' ? 'index.html' : p.path.endsWith('/') ? p.path + 'index.html' : p.path;
-  const html = p.layout === 'embed' ? embedPage({ title: p.title, description: p.description, extraHead: p.extraHead, rel, body: p.body(rel) })
-    : (head({ title: SEO_TITLES[p.path] || p.title, description: p.description, path: p.path, extraHead: p.extraHead || '', ogImage: p.ogImage, rel }) + p.body(rel) + footer(rel)).replace(/<pre>/g, '<pre tabindex="0">');
   const modified = p.layout === 'embed' ? null : pageDate(p, rel);
   p.modified = modified;
+  // This page-level node is deliberately passed separately from extraHead: adding metadata must not make the content
+  // hash (and therefore page-dates.json) claim that the editorial content changed.
+  const hasCollection = /"@type":"CollectionPage"/.test(p.extraHead || '');
+  const skipPageLd = p.layout === 'embed' || p.noindex || p.path === '' || p.path === '404.html' || hasCollection;
+  const pageLd = skipPageLd ? '' : `<script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'WebPage', '@id': `${SITE}${p.path}#webpage`, url: `${SITE}${p.path}`,
+    name: SEO_TITLES[p.path] || p.title, description: p.description, inLanguage: 'en-GB', isPartOf: { '@id': `${SITE}#website` },
+    ...(p.published ? { datePublished: p.published } : {}), ...(modified ? { dateModified: modified } : {}),
+  })}</script>`;
+  const html = p.layout === 'embed' ? embedPage({ title: p.title, description: p.description, extraHead: p.extraHead, rel, body: p.body(rel) })
+    : (head({ title: SEO_TITLES[p.path] || p.title, description: p.description, path: p.path, extraHead: p.extraHead || '', pageLd, ogImage: p.ogImage, ogType: p.feed ? 'article' : 'website', published: p.published, modified, rel }) + p.body(rel) + footer(rel)).replace(/<pre>/g, '<pre tabindex="0">');
   mkdirSync(dirname(out), { recursive: true });
   let final = modified ? html.split(LASTMOD_LONG).join(longDate(modified)).split(LASTMOD).join(modified) : html;
   // "Updated …" only appears once a page has changed since it was published.

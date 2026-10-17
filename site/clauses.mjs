@@ -1,7 +1,7 @@
 // Clause library: one page per common contract clause (site/data/clauses.mjs) with a plain-English explanation,
 // copyable sample wording, what to check, and the same clause with Clausery tags. Pages link to the free templates
 // that use each clause, and template pages link back (site/library.mjs).
-import { esc, crumbsLd, fitSnippet } from '../tools/partials.mjs';
+import { esc, crumbsLd, collectionLd, fitSnippet } from '../tools/partials.mjs';
 import { CLAUSES, GROUPS } from './data/clauses.mjs';
 import { LIB } from './library.mjs';
 
@@ -37,7 +37,7 @@ export const pages = [
   {
     path: 'clauses/', title: 'Contract clause library: sample wording explained',
     description: `Free sample wording for ${CLAUSES.length} common contract clauses, explained in plain English: indemnity, limitation of liability, force majeure, non-compete and more.`,
-    extraHead: crumbsLd([['Home', ''], ['Clause library', 'clauses/']]),
+    extraHead: crumbsLd([['Home', ''], ['Clause library', 'clauses/']]) + collectionLd({ path: 'clauses/', name: 'Contract clause library: sample wording explained', description: `Free sample wording for ${CLAUSES.length} common contract clauses, explained in plain English: indemnity, limitation of liability, force majeure, non-compete and more.`, items: CLAUSES.map((c) => [c.name, `clauses/${c.slug}.html`]) }),
     body: (rel) => `
 <section class="section"><div class="wrap" style="max-width:60rem">
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › Clause library</nav>

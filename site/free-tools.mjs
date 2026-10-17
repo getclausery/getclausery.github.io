@@ -1,7 +1,7 @@
 // Free drafting tools: small utilities people search for (amount in words, deadline calculator, template checker).
 // Each runs entirely in the page from an external module (strict CSP friendly) and points to Clausery for the full job.
 // The calculators also have bare embed pages (free-tools/embed/) that other sites can put in an iframe, with a credit link.
-import { SITE, esc, faqLd, faqHtml, crumbsLd } from '../tools/partials.mjs';
+import { SITE, esc, faqLd, faqHtml, crumbsLd, collectionLd } from '../tools/partials.mjs';
 import { invoiceDue } from '../free-tools/invoice-due-date.js';
 import { formatDate } from '../app/lib/expr.js';
 const TOOL_CSS = `<style>
@@ -249,6 +249,7 @@ body.embed { background: transparent; }
 </style>`;
 export const pages = [
   { path: 'free-tools/', title: 'Free drafting tools', description: 'Free tools for drafting and invoicing: amount in words, deadlines, invoice due dates, late payment interest, loans, commission, prorated rent and more.',
+    extraHead: collectionLd({ path: 'free-tools/', name: 'Free drafting tools', description: 'Free tools for drafting and invoicing: amount in words, deadlines, invoice due dates, late payment interest, loans, commission, prorated rent and more.', items: TOOLS.map((t) => [t.name, `free-tools/${t.slug}.html`]) }),
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem"><h1>Free drafting tools</h1><p class="lead">Small tools for everyday drafting and invoicing. They run entirely in your browser; nothing you type is sent anywhere. The calculators can also be <a href="#embed">added to your own website</a> for free.</p>
 <div class="grid grid-3" style="margin-top:2rem">${TOOLS.map((t) => `<a class="feature" style="text-decoration:none;color:inherit" href="${rel}free-tools/${t.slug}.html"><h2 style="font-size:1.1rem">${t.name}</h2><p>${t.desc}</p></a>`).join('')}</div>
 <!--nav--><div class="feature" style="margin-top:1.5rem"><h2><a href="${rel}guides/invoice-email-template.html">Free invoice email generator</a></h2><p>Write the message to send with an invoice, a polite reminder, an overdue follow-up or a payment acknowledgement. Includes four examples to copy.</p></div><!--/nav-->

@@ -9,7 +9,17 @@ const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(([, u]) => u);
 const indexed = new Set(urls);
 const documents = new Map();
 const titles = new Map();
+const descriptions = new Map();
+const entities = { amp: '&', quot: '"', apos: "'", lt: '<', gt: '>', nbsp: ' ', ndash: '–', mdash: '—', lsquo: '‘', rsquo: '’', ldquo: '“', rdquo: '”', hellip: '…' };
+const decode = (s) => String(s).replace(/&(#x[\da-f]+|#\d+|[a-z]+);/gi, (m, e) => e[0] === '#' ? String.fromCodePoint(e[1].toLowerCase() === 'x' ? Number.parseInt(e.slice(2), 16) : Number(e.slice(1))) : entities[e.toLowerCase()] ?? m);
 const fileFor = (url) => { const path = new URL(url).pathname.slice(1); return !path || path.endsWith('/') ? path + 'index.html' : path; };
+const checkStructuredUrls = (value, file) => {
+  if (typeof value === 'string' && value.startsWith(SITE)) {
+    const target = fileFor(value);
+    if (!existsSync(target)) fail(file, `structured-data URL has no file: ${value}`);
+  } else if (Array.isArray(value)) for (const item of value) checkStructuredUrls(item, file);
+  else if (value && typeof value === 'object') for (const item of Object.values(value)) checkStructuredUrls(item, file);
+};
 if (urls.length !== indexed.size) fail('sitemap.xml', 'duplicate URLs');
 
 for (const loc of urls) {
@@ -23,12 +33,20 @@ for (const loc of urls) {
   if (/<meta[^>]+name="robots"[^>]+content="[^"]*noindex/.test(html)) fail(file, 'noindex page is included in sitemap');
   if ((html.match(/<h1\b/g) || []).length !== 1) fail(file, 'expected one main heading');
   const title = html.match(/<title>([^<]+)<\/title>/)?.[1];
+  const decodedTitle = title && decode(title);
   if (!title) fail(file, 'missing title');
-  else if (titles.has(title)) fail(file, `same title as ${titles.get(title)}`);
-  else titles.set(title, file);
-  if (!/<meta name="description" content="[^"]+"/.test(html)) fail(file, 'missing description');
+  else if (decodedTitle.length > 60) fail(file, `title is ${decodedTitle.length} characters (maximum 60)`);
+  else if (titles.has(decodedTitle)) fail(file, `same title as ${titles.get(decodedTitle)}`);
+  else titles.set(decodedTitle, file);
+  const description = html.match(/<meta name="description" content="([^"]+)"/)?.[1];
+  const decodedDescription = description && decode(description);
+  if (!description) fail(file, 'missing description');
+  else if (decodedDescription.length > 160) fail(file, `description is ${decodedDescription.length} characters (maximum 160)`);
+  else if (descriptions.has(decodedDescription)) fail(file, `same description as ${descriptions.get(decodedDescription)}`);
+  else descriptions.set(decodedDescription, file);
+  if (!/<meta property="og:image:alt" content="[^"]+"/.test(html)) fail(file, 'missing og:image:alt');
   for (const [, json] of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
-    try { JSON.parse(json); } catch { fail(file, 'invalid structured data'); }
+    try { checkStructuredUrls(JSON.parse(json), file); } catch { fail(file, 'invalid structured data'); }
   }
 }
 
