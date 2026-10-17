@@ -29,7 +29,7 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"DigitalDocument","name":"Free credit note template (Word)","description":"A credit note that reduces or cancels an invoice: the original invoice number and date, the reason, each credited item and amount, optional tax, the total credit, and whether it is refunded or applied to an outstanding or future invoice.","url":"https://getclausery.github.io/templates/credit-note.html","encodingFormat":"application/vnd.openxmlformats-officedocument.wordprocessingml.document","contentUrl":"https://getclausery.github.io/samples/credit-note.docx","isAccessibleForFree":true,"inLanguage":"en","genre":"Finance","dateModified":"2026-10-17","image":["https://getclausery.github.io/assets/previews/credit-note.jpg","https://getclausery.github.io/assets/og/credit-note.png"],"thumbnailUrl":"https://getclausery.github.io/assets/previews/credit-note.jpg","publisher":{"@type":"Organization","name":"Clausery","url":"https://getclausery.github.io/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a credit note?","acceptedAnswer":{"@type":"Answer","text":"A document that reduces the amount a customer owes on an invoice you have already issued, for example after a return, an overcharge or an agreed discount."}},{"@type":"Question","name":"Can I just edit the original invoice instead?","acceptedAnswer":{"@type":"Answer","text":"It is better not to. Issuing a credit note keeps your invoice numbers and records consistent, which accountants and tax authorities expect."}},{"@type":"Question","name":"Does a credit note need tax on it?","acceptedAnswer":{"@type":"Answer","text":"If the original invoice charged sales tax or VAT, the credit note should reverse the tax on the credited amount too."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Templates","item":"https://getclausery.github.io/templates/"},{"@type":"ListItem","position":3,"name":"Credit note","item":"https://getclausery.github.io/templates/credit-note.html"}]}</script><style>
 .tpl-doc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; max-height: 38rem; overflow: auto; font-family: Georgia, "Times New Roman", serif; line-height: 1.6; }
@@ -62,7 +62,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -96,7 +96,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <h2 style="margin-top:2.5rem">What is in the credit note</h2>
       <ul><li>Your business and a credit note number</li><li>The original invoice number and date</li><li>Customer details</li><li>Reason for the credit</li><li>Credited items with amounts</li><li>Subtotal, optional tax and total credit</li><li>Refund, or applied to another invoice</li><li>Optional notes and contact</li></ul>
     </div>
-    <a class="tpl-thumb" href="#full-text"><img src="../assets/previews/credit-note.jpg" width="680" height="880" loading="lazy" decoding="async" alt="First page of the free credit note template for Word"></a>
+    <a class="tpl-thumb" href="#full-text"><picture><source type="image/webp" srcset="../assets/previews/credit-note.webp" sizes="100vw"><img src="../assets/previews/credit-note.jpg" width="680" height="880" alt="First page of the free credit note template for Word" loading="eager" decoding="async" fetchpriority="high"></picture></a>
   </div>
 
   <h2 style="margin-top:2.5rem" id="full-text">Read the full template</h2>
@@ -147,6 +147,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

@@ -6,7 +6,7 @@ const AUD = [
     intro: 'Engagement letters, NDAs, demand letters, wills and leases: most firms draft the same documents every week from Word files that already exist. Clausery turns those files into questionnaires and assembles the finished document on the lawyer\'s own computer.',
     points: [['Confidentiality you can explain in one sentence', 'Client information is typed into the browser and the document is built there. It is never sent to Clausery or anyone else, so there is no vendor holding client data.'], ['Keep your precedents', 'Your Word templates keep their styles, numbering and letterhead. Add tags where details change; nothing is re-created in a new editor.'], ['Clients answer without a portal', 'Send a questionnaire as a single file. The client fills it in offline and returns an answers file you import into the draft.'], ['Encrypted on the device', 'Turn on a passphrase and everything stored in the browser is encrypted, with automatic locking when you step away.']],
     templates: ['engagement-letter', 'mutual-nda', 'one-way-nda', 'business-sale-nda', 'non-compete-agreement', 'severance-agreement', 'board-resolution', 'cease-and-desist-letter', 'letter-of-intent', 'memorandum-of-understanding', 'loan-agreement', 'promissory-note', 'bill-of-sale', 'partnership-agreement', 'general-release', 'payment-demand-letter', 'contract-termination-letter'],
-    related: [['compare/gavel-alternative.html', 'Clausery compared with Gavel'], ['compare/clio-draft-alternative.html', 'Clausery compared with Clio Draft'], ['compare/hotdocs-alternative.html', 'Clausery compared with HotDocs'], ['compare/docassemble-alternative.html', 'Clausery compared with docassemble'], ['guides/confidentiality-checklist-document-software.html', 'Confidentiality checklist for document software'], ['guides/client-intake-without-a-portal.html', 'Client intake without a portal'], ['clauses/', 'Contract clauses explained']],
+    related: [['compare/gavel-alternative.html', 'Clausery compared with Gavel'], ['compare/clio-draft-alternative.html', 'Clausery compared with Clio Draft'], ['compare/hotdocs-alternative.html', 'Clausery compared with HotDocs'], ['compare/docassemble-alternative.html', 'Clausery compared with docassemble'], ['guides/confidentiality-checklist-document-software.html', 'Confidentiality checklist for document software'], ['guides/how-to-write-a-cease-and-desist-letter.html', 'How to write a cease and desist letter'], ['guides/how-to-write-a-reference-letter.html', 'How to write a reference letter'], ['guides/client-intake-without-a-portal.html', 'Client intake without a portal'], ['clauses/', 'Contract clauses explained']],
     faq: [['Is Clausery suitable for confidential client matters?', 'Documents are assembled in the browser on the lawyer\'s own computer, and nothing you type or generate is sent to Clausery. On the Pro plan you can also encrypt everything stored in the browser with a passphrase. Check the set-up against your own IT policies and professional rules.'],
       ['Can we use our existing Word precedents?', 'Yes. Add {tags} where details change, wrap optional clauses in a section, and upload the file. Styles, numbering, headers and letterhead are kept exactly.'],
       ['How is it different from Gavel, Clio Draft or HotDocs?', 'Those products run on a vendor\'s servers or need installing, and offer more, such as hosted client portals and practice management integrations. Clausery does the core job, templates into questionnaires into finished documents, in the browser with no server involved. The comparison pages set out the trade-offs honestly.'],
@@ -15,7 +15,7 @@ const AUD = [
     intro: 'Offer letters, employment contracts, warning letters, promotions, pay rises, references and terminations: free HR letter templates for Word, with no sign-up. Managers answer a few questions, optional wording only appears when it applies, and employee details never leave your computer.',
     points: [['Free, with no account', 'Download any template as an ordinary Word file, or fill it in here and download the finished letter. There is nothing to sign up for and no trial that turns into a subscription.'], ['Approved wording, every time', 'HR owns the template; managers answer questions. Optional clauses such as equity, bonus, probation or a right of appeal only appear when they apply.'], ['Personal data stays on the device', 'Salary and personal details are never uploaded, which keeps your records of processing and vendor reviews simple.'], ['Share templates across the team', 'Export a template pack to your shared drive; colleagues import it and draft from the same approved version.']],
     templates: ['offer-letter', 'employment-agreement', 'employee-warning-letter', 'promotion-letter', 'salary-increase-letter', 'employment-termination-letter', 'employment-verification-letter', 'reference-letter', 'internship-offer-letter', 'job-description', 'severance-agreement', 'resignation-letter', 'two-weeks-notice-letter', 'employee-nda', 'non-solicitation-agreement', 'sales-commission-agreement', 'independent-contractor-agreement', 'performance-improvement-plan', 'remote-work-agreement', 'expense-reimbursement-form'],
-    related: [['guides/how-to-write-an-offer-letter.html', 'How to write a job offer letter'], ['guides/how-to-write-an-employee-warning-letter.html', 'How to write a warning letter to an employee'], ['guides/how-to-write-a-termination-letter.html', 'How to write a termination letter'], ['guides/non-compete-vs-non-solicitation.html', 'Non-compete vs non-solicitation agreement'], ['guides/nda-vs-confidentiality-agreement.html', 'NDA vs confidentiality agreement'], ['clauses/at-will-employment-clause.html', 'At-will employment clause'], ['clauses/non-compete-clause.html', 'Non-compete clause'], ['clauses/confidentiality-clause.html', 'Confidentiality clause'], ['free-tools/deadline-calculator.html', 'Deadline calculator: review dates and notice periods']],
+    related: [['guides/how-to-write-an-offer-letter.html', 'How to write a job offer letter'], ['guides/how-to-write-a-salary-increase-letter.html', 'How to write a salary increase letter'], ['guides/how-to-write-a-reference-letter.html', 'How to write a reference letter'], ['guides/how-to-write-an-employee-warning-letter.html', 'How to write a warning letter to an employee'], ['guides/how-to-write-a-termination-letter.html', 'How to write a termination letter'], ['guides/non-compete-vs-non-solicitation.html', 'Non-compete vs non-solicitation agreement'], ['guides/nda-vs-confidentiality-agreement.html', 'NDA vs confidentiality agreement'], ['clauses/at-will-employment-clause.html', 'At-will employment clause'], ['clauses/non-compete-clause.html', 'Non-compete clause'], ['clauses/confidentiality-clause.html', 'Confidentiality clause'], ['free-tools/deadline-calculator.html', 'Deadline calculator: review dates and notice periods']],
     faq: [['Are these HR templates free?', 'Yes. Every template can be downloaded as a Word file or filled in online at no cost and with no account. Library templates never count towards a limit, and the free plan also holds up to three of your own templates with unlimited letters; Pro adds unlimited templates and team features for $19 per user per month.'],
       ['Which letter do I need?', 'An offer letter to make the offer, then an employment agreement for the full terms. A salary increase letter for a pay rise, a promotion letter for a new title, a warning letter to put a problem in writing, and a termination letter if employment ends. Verification and reference letters confirm employment for others.'],
       ['Does employee data leave our computers?', 'No. Names, salaries and addresses are typed into the browser and the letter is generated there. Nothing is sent to Clausery or any other service.'],
@@ -24,7 +24,7 @@ const AUD = [
     intro: 'Statements of work, contractor agreements and client letters follow the same pattern every time. Clausery turns your Word versions into a two-minute questionnaire and keeps client details on your laptop.',
     points: [['Repeat deliverables and line items', 'List as many deliverables, milestones or fee lines as you need; the document repeats the paragraph or table row for each one.'], ['Totals calculated for you', 'Add computed fields such as a sum of line items, a date 30 days after signing, or an amount in words.'], ['Works on the road', 'Once loaded, Clausery works offline, including on a train or a client site without Wi-Fi.'], ['Your branding, untouched', 'Your template keeps its logo, fonts and layout.']],
     templates: ['consulting-agreement', 'statement-of-work', 'quote', 'service-agreement', 'retainer-agreement', 'subcontractor-agreement', 'independent-contractor-agreement', 'memorandum-of-understanding', 'invoice', 'purchase-order', 'meeting-minutes', 'payment-reminder-letter', 'payment-demand-letter', 'change-order-form', 'contract-termination-letter', 'credit-note'],
-    related: [['guides/what-to-include-in-a-statement-of-work.html', 'What to include in a statement of work'], ['guides/is-an-mou-legally-binding.html', 'Is an MOU legally binding?'], ['guides/how-to-write-a-payment-demand-letter.html', 'How to write a demand letter for unpaid invoices'], ['clauses/payment-terms-clause.html', 'Payment terms clause'], ['clauses/intellectual-property-clause.html', 'Intellectual property clause'], ['free-tools/deadline-calculator.html', 'Contract deadline calculator'], ['guides/what-to-do-when-a-client-wont-pay.html', 'What to do when a client won\'t pay'], ['compare/pandadoc-alternative.html', 'Clausery compared with PandaDoc']],
+    related: [['guides/what-to-include-in-a-statement-of-work.html', 'What to include in a statement of work'], ['guides/how-to-write-meeting-minutes.html', 'How to write meeting minutes'], ['guides/what-is-a-sales-commission-agreement.html', 'What is a sales commission agreement?'], ['guides/is-an-mou-legally-binding.html', 'Is an MOU legally binding?'], ['guides/how-to-write-a-payment-demand-letter.html', 'How to write a demand letter for unpaid invoices'], ['clauses/payment-terms-clause.html', 'Payment terms clause'], ['clauses/intellectual-property-clause.html', 'Intellectual property clause'], ['free-tools/deadline-calculator.html', 'Contract deadline calculator'], ['guides/what-to-do-when-a-client-wont-pay.html', 'What to do when a client won\'t pay'], ['compare/pandadoc-alternative.html', 'Clausery compared with PandaDoc']],
     faq: [['Can I add a table of deliverables or fees?', 'Yes. Put the repeat tags in a table row and the row repeats for each deliverable or line item, keeping your borders and shading.'],
       ['Can it calculate totals and dates?', 'Yes. The free invoice, quote and purchase order templates already add up line items and work out tax as you type. In your own templates, computed fields (Pro plan) can add up line items, work out a date 30 days after signing, or write an amount in words.'],
       ['Does it work without an internet connection?', 'Yes. Once the app has loaded, it works offline, so you can draft on a train or at a client site.'],
@@ -66,7 +66,29 @@ export const GUIDES = [
 <p>Open <a href="${rel}app/">Clausery</a> and drop the file on the Templates page. Every tag becomes a question. Rename questions, add help text and group them into sections in the designer, then click <em>New draft</em>.</p>
 <h2>6. Generate the document</h2>
 <p>Answer the questions and download the finished .docx, or print to PDF. Your formatting is kept exactly, and nothing was uploaded at any point.</p>
-<p>Want to see a finished example first? Open one of the <a href="${rel}templates/">free templates</a>, or read the full <a href="${rel}docs/templates.html">template syntax</a>.</p>` },
+<h2>Before you start: clean the document</h2>
+<ul>
+  <li><strong>Use real heading styles.</strong> Headings, lists and tables should use Word's built-in styles, not bold text and manual numbering. The questionnaire inherits that structure.</li>
+  <li><strong>Remove tracked changes and comments.</strong> They can leak into the template and confuse the tag scan.</li>
+  <li><strong>Keep text out of text boxes and shapes.</strong> Word stores that text separately, and tags inside it are easy to miss.</li>
+  <li><strong>Check the headers and footers.</strong> Tags work there too, which is useful for reference numbers and dates, but only if the header is not linked to a previous section you did not intend to change.</li>
+  <li><strong>Save a copy.</strong> Keep the original Word file as your master; upload a copy to Clausery.</li>
+</ul>
+<h2>Common tag mistakes</h2>
+<ul>
+  <li><strong>A space inside the braces.</strong> <code>{ client_name }</code> is not the same as <code>{client_name}</code>.</li>
+  <li><strong>Two names for one answer.</strong> <code>{client}</code> and <code>{client_name}</code> create two questions. Pick one name and use it everywhere.</li>
+  <li><strong>A closing tag that does not match.</strong> <code>{#has_retainer}</code> must close with <code>{/has_retainer}</code>, not <code>{/retainer}</code>.</li>
+  <li><strong>Typing over an existing tag.</strong> Word can split a tag across formatting runs. If a tag stops working, delete it and type it again in one go.</li>
+</ul>
+<h2>A before-and-after example</h2>
+<p>Before: "This Agreement is made on 14 March 2026 between Acme Ltd and J. Patel." After: "This Agreement is made on <code>{effective_date}</code> between <code>{client_name}</code> and <code>{firm_name}</code>." The sentence, styles and spacing stay the same; only the details that change become tags.</p>
+<h2>When not to automate</h2>
+<p>Do not automate a document you send once, or one whose wording changes every time. Automation pays back when the document is long, the wording is stable and the details change per client. Start with the document you send most often; it is usually the one with the clearest structure and the most mistakes when edited by hand.</p>
+<h2>How long it takes</h2>
+<p>Most templates take ten to twenty minutes for the first version: tag the changing details, add one or two conditional sections, upload and answer the questionnaire. The first draft of a complex contract can take an hour. After that, each document takes minutes and the wording stays consistent.</p>
+<p>Want to see a finished example first? Open one of the <a href="${rel}templates/">free templates</a>, or read the full <a href="${rel}docs/templates.html">template syntax</a>. If you get stuck on a conditional section, the <a href="${rel}guides/conditional-clauses-in-word.html">conditional clauses guide</a> has the patterns and the troubleshooting list.</p>`,
+    faq: [['Do I need to change the formatting of my Word document?', 'No. Clausery keeps the styles, numbering, headers and letterhead you already use, because it fills the original .docx rather than recreating the page. Use Word styles consistently so the questionnaire can group the sections sensibly.'], ['Can I automate a scanned PDF?', 'Not directly. A scan is an image with no text structure. Convert it to Word with OCR first, check the result against the original, then add tags to the Word file.'], ['What happens if I delete a question in the designer?', 'The tag stays in the template and the question is regenerated the next time the file is scanned, unless you remove the tag from the Word file. Edit the master document, then upload it again.']] },
   { slug: 'conditional-clauses-in-word', title: 'Conditional clauses in Word: include or remove paragraphs automatically',
     description: 'Make parts of a Word document appear only when they apply: yes/no sections, either/or wording, and clauses based on amounts or dates. Free examples.',
     body: (rel) => `
@@ -84,7 +106,28 @@ GUARANTEE
 <p>A section does not have to be a yes/no question. In the designer, change the section's question to <em>Computed</em> and give it a rule such as <code>salary &gt; 100000</code>, <code>fee_type == "flat"</code> or <code>years_between(start_date, today()) &gt;= 5</code>. The clause appears when the rule is true. See <a href="${rel}docs/logic.html">logic and calculations</a> for everything the rules can do.</p>
 <h2>Avoiding blank lines</h2>
 <p>Put the opening and closing tags each on their own line, as in the examples above. Clausery then removes those lines along with the section, so the document never has gaps where a clause used to be.</p>
-<p><a class="btn btn-primary" href="${rel}app/">Try it with your own document</a></p>` },
+<h2>Common patterns</h2>
+<ul>
+  <li><strong>Guarantor.</strong> A whole guarantee section that appears only when there is a guarantor, with the guarantor's details inside it.</li>
+  <li><strong>Probation.</strong> A probation paragraph and review date that disappear for senior hires who do not have one.</li>
+  <li><strong>Bonus or commission.</strong> An optional pay section that appears only when the answer is yes, with the rate and conditions inside.</li>
+  <li><strong>Jurisdiction-specific wording.</strong> England and Wales, Scotland or Northern Ireland clauses selected by a single choice.</li>
+  <li><strong>Optional services.</strong> Maintenance, training or support paragraphs that only belong in some quotes.</li>
+</ul>
+<p>Keep one question behind each section. If two independent conditions control the same paragraph, combine them into one computed section instead of nesting tags, so the logic stays readable.</p>
+<h2>Test every branch</h2>
+<p>Generate the document twice for each yes/no question: once with the section on and once with it off. Read the output around the join, not just the answer summary. Check that no stray blank line, duplicate heading or orphaned sub-clause remains, and that a section which is off does not leave its child questions in the questionnaire.</p>
+<h2>When a clause will not disappear</h2>
+<ul>
+  <li><strong>The closing tag has a different name.</strong> Section names are case-sensitive and must match exactly.</li>
+  <li><strong>The tags are in different paragraphs.</strong> Word can split a tag across runs. Retype the tag in one go, or copy it from the template instead of retyping.</li>
+  <li><strong>The section is inside a table cell.</strong> Put the opening tag at the start of the first cell and the closing tag at the end of the last cell of the same row.</li>
+  <li><strong>The answer is being read as text.</strong> A computed section needs a rule that returns true or false; check the rule in the designer.</li>
+</ul>
+<h2>Keep it maintainable</h2>
+<p>Name sections for the question, not the paragraph: <code>has_guarantor</code> is clearer than <code>section_4</code>. Add a short note in the template's help text for whoever edits it next. When a clause changes, update the template once and every future draft inherits the change.</p>
+<p><a class="btn btn-primary" href="${rel}app/">Try it with your own document</a></p>`,
+    faq: [['Can I use conditional clauses in a table row?', 'Yes, but the tags must be inside the same row: opening at the start of the first cell, closing at the end of the last. To repeat a row per item, use a list section rather than a yes/no section.'], ['What is the difference between a section and a computed section?', 'A section is controlled by a yes/no question the client answers. A computed section is controlled by a rule you write, such as an amount, a date or a choice, and the client does not see a separate yes/no question.'], ['Will the document leave a blank page when a section is removed?', 'Clausery removes the paragraphs inside the section, including the tag lines. If you see a gap, check that the opening and closing tags are each on their own line and are not inside a text box.']] },
   { slug: 'client-intake-without-a-portal', title: 'Client intake without a portal: collect answers by email, privately',
     description: 'Send clients a questionnaire they fill in offline and return as a file, then generate documents from their answers, with no client portal or upload.',
     body: (rel) => `
@@ -102,7 +145,30 @@ GUARANTEE
   <li>The form cannot send data anywhere; its security policy blocks all network access.</li>
   <li>Answers arrive as one tidy file instead of an email thread.</li>
 </ul>
-<p>Client intake forms are part of <a href="${rel}pricing/">Clausery Pro</a>. Read the <a href="${rel}docs/intake.html">intake documentation</a> for details.</p>` },
+<h2>What to ask</h2>
+<p>A good intake form collects only what the document actually needs. Start with the pieces every matter shares:</p>
+<ul>
+  <li><strong>Who the client is.</strong> Full legal name, trading name, address, registration or tax number, and the person who will sign.</li>
+  <li><strong>Who is on the other side.</strong> The other party's legal name and address, and whether they are an individual or a company.</li>
+  <li><strong>The matter.</strong> A plain description of what the client wants, the documents they already have, and any deadline.</li>
+  <li><strong>Money.</strong> Fees, budget, payment terms and who is paying.</li>
+  <li><strong>Conflicts and consent.</strong> Whether the client has worked with the other side, and any consent or disclosure your rules require.</li>
+</ul>
+<p>Leave out identity documents, bank passwords, medical records and anything else you do not need for the first draft. If you need an identity check, collect it through a separate process with its own retention rule.</p>
+<h2>Structure the form around the document</h2>
+<p>Group questions the way the document is structured: parties, term, scope, money, special terms. Use a section for each, with help text that explains why a question is asked. Make optional questions genuinely optional; a form that demands a value for every field produces invented answers.</p>
+<p>Conditional questions keep the form short. If the client is a company, ask for the company number and director; if they are an individual, skip those. Clausery's designer lets a question depend on an earlier answer, so the client never sees a field that does not apply.</p>
+<h2>Test the form before a client sees it</h2>
+<ol>
+  <li>Fill it in as a company, then as an individual, and check that the right questions appear.</li>
+  <li>Save partway through, close the file and reopen it, to confirm progress is kept.</li>
+  <li>Return the answers file to yourself and import it into a draft.</li>
+  <li>Generate the document and read the output, not just the answers.</li>
+</ol>
+<h2>When a portal is the better answer</h2>
+<p>An offline form is ideal for a one-off matter or a client who does not want another login. A portal earns its keep when several people collaborate on the same matter, when documents need to be reviewed and approved in one place, or when your regulator requires a particular audit trail. The point is to choose deliberately rather than defaulting to a portal because intake software exists.</p>
+<p>Client intake forms are part of <a href="${rel}pricing/">Clausery Pro</a>. Read the <a href="${rel}docs/intake.html">intake documentation</a> for details, or start from the <a href="${rel}guides/confidentiality-checklist-document-software.html">confidentiality checklist</a> before sending client information to any tool.</p>`,
+    faq: [['Is an emailed intake form secure?', 'It is as secure as the email account and device at each end. The form itself contains no client data until the client fills it in, blocks network access, and is returned as a file the firm imports. For highly sensitive matters, use encrypted email or your usual secure file transfer.'], ['Can clients fill in the form on a phone?', 'Yes. The form is a single HTML file that opens in a mobile browser and adjusts to the screen. Long forms are easier on a computer, so tell clients they can save progress and finish later.'], ['What happens to the answers after the document is generated?', 'They stay in the browser workspace until the draft is deleted, and can be exported as JSON. Nothing is uploaded to Clausery. Set a retention rule in your practice for the downloaded files as well.']] },
 
   { slug: 'mail-merge-vs-document-automation', title: 'Mail merge vs document automation: which one do you need?',
     description: 'Mail merge fills the same blanks from a spreadsheet; document automation also includes or removes clauses, repeats lists and calculates. How to tell which one your documents need.',
@@ -123,7 +189,8 @@ GUARANTEE
 <h2>A quick test</h2>
 <p>If every copy of your document has exactly the same paragraphs, use mail merge. If you ever delete, copy or rewrite paragraphs after merging, you need document automation.</p>
 <h2>Trying it on your own document</h2>
-<p>Clausery uses tags you type straight into Word, so your mail merge template is already most of the way there. Replace merge fields with tags like <code>{client_name}</code>, wrap optional paragraphs in <code>{#has_retainer}…{/has_retainer}</code>, and drop the file into <a href="${rel}app/">the app</a>. It is free for up to three of your own templates and nothing is uploaded. The <a href="${rel}guides/automate-word-templates.html">step-by-step guide</a> walks through it.</p>` },
+<p>Clausery uses tags you type straight into Word, so your mail merge template is already most of the way there. Replace merge fields with tags like <code>{client_name}</code>, wrap optional paragraphs in <code>{#has_retainer}…{/has_retainer}</code>, and drop the file into <a href="${rel}app/">the app</a>. It is free for up to three of your own templates and nothing is uploaded. The <a href="${rel}guides/automate-word-templates.html">step-by-step guide</a> walks through it.</p>`,
+    faq: [["Is mail merge the same as document automation?", "No. Mail merge fills the same blanks from a list. Document automation also includes or removes whole clauses, repeats paragraphs and table rows, calculates totals and dates, and asks questions with validation and help text. Many documents need only the first; contracts and letters with optional wording usually need the second."], ["Can mail merge handle optional paragraphs?", "Word can do it with IF fields and merge rules, but the field codes are hard to read, easy to break and do not work well for repeated table rows. Document automation is clearer when the document has more than one or two conditions."], ["Can I use my existing spreadsheet of clients?", "Yes, on the Pro plan you can fill a template from spreadsheet rows and generate one document per row. For a handful of documents, the questionnaire is usually faster than preparing a sheet."]] },
   { slug: 'repeating-lists-and-tables-in-word', title: 'Repeating lists and table rows in Word templates',
     description: 'How to make a Word template repeat a paragraph, bullet or table row for every party, attorney, deliverable or line item, with separators and numbering.',
     body: (rel) => `
@@ -145,7 +212,28 @@ GUARANTEE
 <p>Conditions work inside lists too: <code>{#attorneys}{name}{#is_partner}, Partner{/is_partner}{/attorneys}</code> asks a yes/no question for each attorney.</p>
 <h2>Totals</h2>
 <p>A computed field such as <code>sum(items.price)</code> adds up a column, and <code>count(items)</code> counts the rows. See <a href="${rel}docs/logic.html">logic and calculations</a>.</p>
-<p>The free <a href="${rel}templates/statement-of-work.html">statement of work</a> and <a href="${rel}templates/engagement-letter.html">engagement letter</a> templates both use repeating lists, if you want a working example.</p>` },
+<h2>Empty lists and separators</h2>
+<p>If a list has no items, the whole block, including its heading, disappears. That is usually what you want: no "Deliverables" heading followed by nothing. Test it by generating a document with zero items. For commas and "and", use the <code>{_last}</code> marker shown above; for semicolons in a legal list, put the separator inside the loop instead.</p>
+<h2>Numbering a repeated list</h2>
+<p>Use <code>{_index}</code> to print the item number, or let Word's own numbering continue. If you put the opening tag before a numbered paragraph and the closing tag after it, Word repeats the numbering for each item. Do not type the numbers yourself: they will be wrong as soon as an item is added.</p>
+<h2>A worked example: invoice lines</h2>
+<pre><code>{#items}
+{description} | {qty} | {price} | {amount}
+{/items}</code></pre>
+<p>In a table, the same tags go in the first and last cells of the row. The totals row stays outside the loop and uses a computed field such as <code>sum(items.amount)</code>. That way the table grows with the list while the total stays in one place.</p>
+<h2>Lists inside lists</h2>
+<p>A list item can contain its own optional details: <code>{#parties}{name}{#is_company}, company number {company_number}{/is_company}{/parties}</code>. Keep nesting shallow. If an item needs a list of its own, consider a separate section or a second template; deeply nested repeat blocks are hard for the person answering the questions to follow.</p>
+<h2>Common mistakes</h2>
+<ul>
+  <li><strong>Typing the tags as separate words.</strong> Copy them exactly, including the braces, or the template will treat them as text.</li>
+  <li><strong>Putting the closing tag outside the table row.</strong> Word will repeat the heading or the totals row instead of the data row.</li>
+  <li><strong>Using the same item name twice.</strong> Two lists called <code>items</code> in one template will share answers.</li>
+  <li><strong>Formatting the whole row by hand.</strong> Apply the style once to the template row; the repeat keeps it.</li>
+</ul>
+<h2>Test with one, two and none</h2>
+<p>Generate a document with a single item, then with several, then with none. Check the borders, the spacing and the closing punctuation. A list that looks right with three items can leave a dangling "and" with one.</p>
+<p>The free <a href="${rel}templates/statement-of-work.html">statement of work</a> and <a href="${rel}templates/engagement-letter.html">engagement letter</a> templates both use repeating lists, if you want a working example. The <a href="${rel}templates/meeting-minutes.html">meeting minutes template</a> repeats an action row the same way.</p>`,
+    faq: [['Can a repeating list contain a table?', 'A table row is the usual unit to repeat. Repeating a whole table inside a list is fragile in Word; instead, put the repeat tags in the first and last cell of the row you want to grow.'], ['How do I repeat a paragraph but not its heading?', 'Put the opening tag after the heading and the closing tag at the end of the paragraph. The heading stays once; the paragraph repeats for each item.'], ['What happens to questions inside a list?', 'Each item asks its own questions when the client adds it. Questions inside an optional block are only asked when that block applies to that item.']] },
   { slug: 'confidentiality-checklist-document-software', title: 'Choosing document software when client confidentiality matters: a checklist',
     description: 'A checklist of questions to ask before putting client or employee data into any document tool: where data goes, who can see it, sub-processors.',
     body: (rel) => `
@@ -175,8 +263,40 @@ GUARANTEE
   <li>Will your templates keep working if the vendor disappears?</li>
 </ul>
 <h2>How Clausery answers these</h2>
-<p>Clausery was designed so that most of these questions have a short answer: documents are built in your browser and stored on your device, so there is no vendor server holding client data, no sub-processor for your content and nothing to breach on our side. Your templates are ordinary Word files and your data exports are plain JSON. The details, including what the web host can see, are in the <a href="${rel}docs/security.html">security overview</a> and the <a href="${rel}legal/dpa.html">data processing statement</a>.</p>
-<p class="small muted">This checklist is general information, not legal advice. Your professional rules and data protection obligations depend on your jurisdiction.</p>` },
+<p>Clausery was designed so that most of these questions have a short answer: documents are built in your browser and stored on your device, so there is no vendor server holding client data, no sub-processor for your content and nothing to breach on our side. Your templates are ordinary Word files and your data exports are plain JSON. The details, including what the web host can see, are in the <a href="${rel}docs/security.html">security overview</a> and the <a href="${rel}legal/dpa.html">data processing statement</a>. You can try it with a <a href="${rel}templates/">free template</a> or <a href="${rel}app/">open the app</a>.</p>
+<h2>How to use the checklist</h2>
+<p>Ask every question of every tool that will touch client or employee information, including the one you already use. A vendor that cannot answer a question in writing is a risk, and "we take security seriously" is not an answer. Score each item as answered, partly answered or not answered, and keep the responses with your vendor review.</p>
+<h2>Questions people forget</h2>
+<ul>
+  <li><strong>Backups.</strong> Where are backups stored, how long are they kept and are they encrypted? A deletion request that leaves the data in a backup for a year is not a deletion.</li>
+  <li><strong>Support access.</strong> Can support staff read your documents? Under what approval, and is that access logged?</li>
+  <li><strong>Sub-processors.</strong> Which other companies process the data, where are they, and how will you be told about a new one?</li>
+  <li><strong>Breach notice.</strong> How quickly will the vendor tell you about an incident, and what will they tell you?</li>
+  <li><strong>Location and transfer.</strong> Which country stores the data, and what transfer mechanism applies if it leaves yours?</li>
+  <li><strong>Training and confidentiality.</strong> Are staff who can see client data bound by confidentiality and trained on it?</li>
+  <li><strong>Exit.</strong> Can you export every template and answer set in a usable format, and what happens to the data when the contract ends?</li>
+</ul>
+<h2>Questions to ask about the documents themselves</h2>
+<p>Security is not only where the data is stored. Ask whether the tool can generate a document without sending its contents to a server, whether previews and PDFs are produced locally, and whether the template file leaves the device when it is uploaded. A tool that encrypts data at rest in its own cloud still has the data; a tool that never receives it cannot lose it.</p>
+<h2>An email you can send</h2>
+<pre><code>Subject: Information security questions before we proceed
+
+Hello,
+
+We are reviewing [tool] for use on confidential client matters. Could you answer the following in writing?
+1. Where is document content stored and processed?
+2. Which sub-processors can access it, and in which countries?
+3. How long are deleted documents kept in backups?
+4. How quickly do you notify customers of a security incident?
+5. Can we export all templates and answers, and in what format?
+6. Do you have a current penetration test or ISO 27001 report you can share?
+
+Thank you,
+[Name]</code></pre>
+<h2>What good answers look like</h2>
+<p>Specific answers with dates and documents: a data processing agreement, a sub-processor list, a retention table, a breach notification clause with a number of hours, and a recent independent test. Vague assurances, missing sub-processor lists and a refusal to put commitments in the contract are all reasons to look elsewhere.</p>
+<p class="small muted">This checklist is general information, not legal advice. Your professional rules and data protection obligations depend on your jurisdiction.</p>`,
+    faq: [['Do we need a data processing agreement with every vendor?', 'If the vendor processes personal data on your behalf, data protection law usually requires a written contract covering instructions, confidentiality, sub-processors, security and breach notification. Check the local rules for your jurisdiction.'], ['Is a self-hosted tool automatically more private?', 'Not necessarily. Self-hosting moves the responsibility to you: patching, access control, backups and incident response become your job. It can be the right choice for a firm with the resources to run it, but it is a different risk, not the absence of risk.'], ['What should we do if a vendor cannot answer these questions?', 'Treat it as a finding, not a formality. Ask for the missing documents in writing and set a deadline. If the vendor still cannot explain where client data goes, do not put client data into the tool.']] },
   { slug: 'how-to-write-an-offer-letter', title: 'How to write a job offer letter (with a free template)',
     description: 'What to put in a job offer letter: role, start date, pay, bonus, equity, benefits, conditions and at-will wording, plus the mistakes that cause disputes later.',
     body: (rel) => `
@@ -253,7 +373,8 @@ GUARANTEE
 <h2>8. Change control</h2>
 <p>How changes are requested, priced and approved in writing. See the <a href="${rel}clauses/amendment-clause.html">amendment clause</a>.</p>
 <h2>Write SOWs in minutes</h2>
-<p>The free <a href="${rel}templates/statement-of-work.html">statement of work template</a> lists any number of deliverables with due dates, switches between fixed price and time and materials, and includes assumptions and acceptance. Answer the questions in Clausery and download a finished Word SOW. For the master terms, start with the <a href="${rel}templates/service-agreement.html">service agreement</a> or <a href="${rel}templates/consulting-agreement.html">consulting agreement</a>.</p>` },
+<p>The free <a href="${rel}templates/statement-of-work.html">statement of work template</a> lists any number of deliverables with due dates, switches between fixed price and time and materials, and includes assumptions and acceptance. Answer the questions in Clausery and download a finished Word SOW. For the master terms, start with the <a href="${rel}templates/service-agreement.html">service agreement</a> or <a href="${rel}templates/consulting-agreement.html">consulting agreement</a>.</p>`,
+    faq: [["Who writes the statement of work?", "Usually the supplier drafts it from the client brief, then both sides agree it before work starts. The client should check that the deliverables, assumptions and acceptance criteria match what was agreed commercially."], ["Is a statement of work a contract?", "It becomes one when both sides agree it and it sits under a master agreement or contains the essential terms. Many SOWs incorporate a service agreement by reference; if there is no master agreement, include payment, termination and liability terms in the SOW or a separate contract."], ["What happens when the scope changes?", "Use a written change request: what is changing, the effect on fee and timeline, and who approves it. A SOW with change control avoids the choice between doing unpaid work and damaging the relationship."]] },
   { slug: 'what-to-include-in-an-nda', title: 'What to include in an NDA: a clause-by-clause checklist',
     description: 'What an NDA should include: the definition of confidential information, exclusions, term, return of information and governing law, clause by clause.',
     body: (rel) => `
@@ -361,7 +482,8 @@ GUARANTEE
   <li><strong>Want to stop someone working for a competitor at all?</strong> A non-compete, but take advice first. California bans most of them, several other states limit them, and the US Federal Trade Commission's 2024 nationwide ban was set aside by a court and abandoned in 2025, so state law decides. See the <a href="${rel}clauses/non-compete-clause.html">non-compete clause</a> page for the basics.</li>
 </ul>
 <h2>What every version needs</h2>
-<p>Whatever it is called, a confidentiality agreement needs clear parties, a narrow purpose, a definition of confidential information with the usual exclusions, a sensible length and a return-or-delete clause. The full list is in <a href="${rel}guides/what-to-include-in-an-nda.html">what to include in an NDA</a>.</p>` },
+<p>Whatever it is called, a confidentiality agreement needs clear parties, a narrow purpose, a definition of confidential information with the usual exclusions, a sensible length and a return-or-delete clause. The full list is in <a href="${rel}guides/what-to-include-in-an-nda.html">what to include in an NDA</a>.</p>`,
+    faq: [["Is a confidentiality agreement the same as an NDA?", "In practice, yes. Both are contracts that protect confidential information. NDA is the common name in business and hiring; confidentiality agreement is often used for the same document in employment or supplier contracts. What matters is the wording, not the title."], ["Which one should I send first?", "If both sides will share information, use a mutual NDA. If only one side discloses, use a one-way NDA. An employee or contractor should sign the version that matches their role, plus any restrictive covenants your jurisdiction allows."], ["Can an NDA cover information shared before it is signed?", "Only if it says so. Add a clause that covers information exchanged in the discussions leading up to the agreement, or sign before the first detailed conversation. Without it, the earlier disclosure may not be protected."]] },
   { slug: 'how-to-write-an-employee-warning-letter', published: '2026-09-28', title: 'How to write a warning letter to an employee (free template)',
     description: 'What an employee warning letter should say, first vs final written warnings, how to deliver one fairly, and the mistakes that make a later dismissal harder.',
     body: (rel) => `
@@ -645,7 +767,8 @@ GUARANTEE
 <pre><code>If the Client cancels a piece after writing has started, the Client will pay {kill_fee_percent}% of its fee.</code></pre>
 <h2>Templates that include it</h2>
 <p>The free <a href="${rel}templates/graphic-design-contract.html">graphic design contract</a> and <a href="${rel}templates/freelance-writing-contract.html">freelance writing contract</a> include an optional kill fee you can switch on for each client.</p>
-<p class="small muted">General information, not legal advice.</p>` },
+<p class="small muted">General information, not legal advice.</p>`,
+    faq: [["Is a kill fee enforceable?", "A kill fee is generally enforceable if it is a genuine estimate of the loss caused by cancellation, agreed in advance and clearly worded. A charge that is far above the actual loss, or that punishes rather than compensates, may be challenged as a penalty, and consumer rules can limit charges to individuals."], ["How should I word a kill fee in my contract?", "State when it applies, how it is calculated and when it is payable. For example: a percentage of the fee if the client cancels after work starts, plus payment for work completed. Add whether the deposit is credited against it."], ["Should I charge a kill fee or a deposit?", "They do different jobs. A deposit secures the booking and is usually credited against the final invoice; a kill fee compensates you if the project is cancelled. Many freelancers use both, with a non-refundable deposit and a cancellation fee that depends on how close to delivery the client cancels."]] },
   { slug: 'what-to-do-when-a-client-wont-pay', title: 'What to do when a client won\'t pay: a step-by-step plan',
     description: 'A calm plan for an unpaid invoice: reminders, a final notice, late fees, a demand letter and small claims, with reminder emails you can copy.',
     body: (rel) => `
@@ -1614,7 +1737,8 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <p>GST is 10%. On a GST-exclusive price of $1,000, the GST is $100 and the total $1,100; on a GST-inclusive total, the GST is one eleventh of it.</p>
 <h2>Free template</h2>
 <p>The free <a href="${rel}templates/invoice.html">invoice template</a> can be titled "Tax invoice", show your ABN, the buyer's details and each item with its quantity and price, and works out the GST when you enter a rate of 10. Untick the tax option for GST-free work, or use it without the tax invoice title if you are not registered.</p>
-<p class="small muted">General information, not tax advice. Check the ATO's current guidance or a registered tax agent for your situation.</p>` },
+<p class="small muted">General information, not tax advice. Check the ATO's current guidance or a registered tax agent for your situation.</p>`,
+    faq: [["When must I issue a tax invoice in Australia?", "If you are registered for GST and the sale is taxable, you must provide a tax invoice within 28 days of the buyer asking for one. For sales under $1,000, the invoice can be a simplified tax invoice with fewer details."], ["What if my customer is not registered for GST?", "You still issue a tax invoice if you are registered and the supply is taxable. The customer cannot claim a GST credit unless they are registered, but your record-keeping and GST obligations do not change."], ["How long should I keep tax invoices?", "The ATO generally requires records to be kept for five years. Keep the invoice as issued, plus evidence of payment and any credit notes, in a form you can produce if asked."]] },
   { slug: 'what-bank-details-to-put-on-an-invoice', title: 'What bank details to put on an invoice, and how to stop invoice fraud', published: '2026-10-06',
     description: 'The bank details clients need to pay an invoice in the UK, US, Canada, Europe and Australia, plus how to protect them from fake change-of-bank-details emails.',
     sources: [['FBI Internet Crime Complaint Center: 2025 Internet Crime Report', 'https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf'], ['Take Five to Stop Fraud (UK Finance): Invoice and mandate fraud', 'https://www.takefive-stopfraud.org.uk/protect-your-business/invoice-and-mandate/']],
@@ -1646,16 +1770,289 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <h2>Free template</h2>
 <p>The free <a href="${rel}templates/invoice.html">invoice template</a> has a bank details box and adds the fraud warning line for you, with the invoice number as the reference. Print it to PDF from the app before you send it. If a payment is late, the <a href="${rel}templates/payment-reminder-letter.html">payment reminder letter</a> is the next step.</p>
 <p class="small muted">General information. Check with your bank for the exact details it needs for incoming payments.</p>` },
+
+  { slug: 'how-to-write-a-salary-increase-letter', title: 'How to write a salary increase letter', published: '2026-10-17',
+    description: 'What to put in a salary increase letter: the new salary, effective date, pay period and approvals, with sample wording and the mistakes that create disputes.',
+    body: (rel) => `
+<p class="lead">A salary increase letter confirms a decision that has already been made. It is not the place to negotiate. Done well, it tells the employee exactly what changes, from when, and what stays the same, so payroll and the employee's own records agree.</p>
+<h2>Settle the details before you write</h2>
+<ul>
+  <li><strong>The new salary and the old one.</strong> State both, so the increase is unambiguous and easy to check against payroll.</li>
+  <li><strong>The effective date.</strong> The first day the new rate applies, and whether any back pay covers an earlier period.</li>
+  <li><strong>The pay period.</strong> Annual salary paid monthly is not the same as an hourly rate, and a change to either may affect overtime or benefits.</li>
+  <li><strong>Who approved it.</strong> A named approver or a reference to the approval record is useful if payroll or an auditor asks later.</li>
+</ul>
+<h2>What to include</h2>
+<ol>
+  <li><strong>Employee details.</strong> Full name, job title and department, so the letter matches the personnel file.</li>
+  <li><strong>The change.</strong> Current salary, new salary, effective date and pay frequency. If the increase is a percentage, give the resulting amount as well.</li>
+  <li><strong>Why.</strong> One or two sentences: an annual review, a promotion, a market adjustment or a change in responsibilities. Keep it factual.</li>
+  <li><strong>What does not change.</strong> Benefits, bonus eligibility, notice periods and other contract terms stay as they are unless a separate letter says otherwise.</li>
+  <li><strong>Next steps.</strong> Who to contact with questions, and how the employee confirms receipt if your process asks for it.</li>
+</ol>
+<h2>Sample wording</h2>
+<pre><code>Dear [Employee name],
+
+I am writing to confirm that your salary will increase from [old salary] to [new salary] per year, effective [date]. Your salary will continue to be paid [monthly] in accordance with the usual payroll schedule.
+
+This increase reflects [the annual review / your promotion to [title] / a market adjustment]. Your other terms and conditions of employment, including [benefits and bonus eligibility], are unchanged.
+
+Please contact [name] in HR if you have any questions.
+
+Yours sincerely,
+[Name]
+[Title]</code></pre>
+<h2>Mistakes that cause problems later</h2>
+<ul>
+  <li><strong>Promising a future increase.</strong> "We will review again in six months" can be read as a commitment. Say "eligible for review" if that is what you mean.</li>
+  <li><strong>Vague amounts.</strong> "A 5% rise" without the new salary leaves room for a disagreement about the base. Give both figures.</li>
+  <li><strong>Changing other terms by implication.</strong> A new title or hours can change overtime, benefits or notice. If those change, issue a contract variation as well.</li>
+  <li><strong>Inconsistent treatment.</strong> Pay decisions should be explainable and documented. Keep the reasons and the approval with the letter.</li>
+</ul>
+<h2>Deliver it properly</h2>
+<p>Discuss the increase in person or on a call first, then send the letter the same day. Ask the employee to confirm receipt if your process requires it, and file the signed or acknowledged copy with the approval record. Payroll should receive the change before the effective date, not after the first pay run.</p>
+<p>The free <a href="${rel}templates/salary-increase-letter.html">salary increase letter template</a> asks for the old and new salary, the effective date and the reason, and produces a plain Word letter you can sign. For a change of role rather than pay, use the <a href="${rel}templates/promotion-letter.html">promotion letter</a>; for the contract terms that sit behind it, see the <a href="${rel}guides/how-to-write-an-offer-letter.html">offer letter guide</a>.</p>
+<p class="small muted">General information, not legal advice. Pay review, consultation and discrimination rules differ by country and state.</p>`,
+    faq: [['Does a salary increase letter need to be signed?', 'A signature is not usually what makes the change effective, but a signed or acknowledged copy is strong evidence that the employee was told the new terms. Many employers ask for acknowledgement and keep it with the approval record.'], ['Can an employer reduce a salary later?', 'In most places a reduction needs the employee\'s agreement or a contractual right, and may require consultation. A letter that says the salary is permanent can make a later reduction harder, so avoid promises you may need to revisit.'], ['Should the letter mention the reason for the increase?', 'A short factual reason helps payroll, auditors and the employee understand the decision. It should not contain subjective comments about performance that you would not put in a formal review.']] },
+  { slug: 'how-to-write-a-reference-letter', title: 'How to write a reference letter (with examples)', published: '2026-10-17',
+    description: 'How to write a reference letter for an employee, tenant or colleague: what to confirm, what to leave out, sample wording and the difference from verification.',
+    body: (rel) => `
+<p class="lead">A reference letter puts in writing what you already know about someone's work or tenancy. The best ones are specific, factual and short. They confirm the relationship, give one or two concrete examples, and say clearly whether you would work with the person again.</p>
+<h2>Reference or verification?</h2>
+<p>A <strong>reference</strong> is an opinion: how the person performed, how they worked with others, whether you would rehire them. A <strong>verification letter</strong> only confirms facts: job title, dates of employment and sometimes salary. Employers often ask for verification because it is quicker and avoids subjective judgments. Landlords ask for a reference or a verification of rent history. Decide which one has been requested before you write.</p>
+<h2>Before you write</h2>
+<ul>
+  <li><strong>Get consent.</strong> Ask the person what the letter is for and who will read it. Check whether they want salary included.</li>
+  <li><strong>Check your policy.</strong> Some employers only give dates and job titles. Follow the policy even if you would like to say more.</li>
+  <li><strong>Stick to facts you can support.</strong> A performance rating, a completed project, a date or a tenancy record is defensible. A guess about honesty is not.</li>
+  <li><strong>Keep it proportionate.</strong> One page is plenty. A long letter with no examples is less useful than a short one with two.</li>
+</ul>
+<h2>A structure that works</h2>
+<ol>
+  <li><strong>Who you are and how you know the person.</strong> Your role, the organisation, and the dates you worked together.</li>
+  <li><strong>What they did.</strong> The role or tenancy and one or two specific responsibilities or achievements.</li>
+  <li><strong>How they did it.</strong> Reliability, communication, quality of work, handling of a difficult project. Use an example rather than adjectives alone.</li>
+  <li><strong>Would you do it again?</strong> A clear closing sentence: "I would employ [name] again" or "I recommend them without reservation". If you cannot say that, say what you can support.</li>
+  <li><strong>Contact details.</strong> Offer to answer follow-up questions, with your role and a phone number or email.</li>
+</ol>
+<h2>Sample wording</h2>
+<pre><code>To whom it may concern,
+
+I am the [role] at [organisation] and I worked with [name] from [date] to [date], when they were [role].
+
+[Name] was responsible for [one or two specific responsibilities]. During [project or period], they [specific, verifiable achievement]. They were reliable with deadlines and communicated clearly with clients and colleagues.
+
+I would be happy to work with [name] again. Please contact me on [phone] or [email] if you would like more detail.
+
+Yours sincerely,
+[Name]
+[Title]</code></pre>
+<h2>What to leave out</h2>
+<ul>
+  <li><strong>Protected characteristics and health.</strong> Do not mention age, race, religion, disability, pregnancy or family plans, even positively.</li>
+  <li><strong>Unsupported opinions.</strong> "Always honest" is hard to defend; "handled cash reconciliations for two years without a discrepancy" is not.</li>
+  <li><strong>Confidential details.</strong> Do not disclose client names, disciplinary records or salary unless the person agreed and your policy allows it.</li>
+  <li><strong>Faint praise that hints at a problem.</strong> If you cannot give a positive reference, say only what you can verify and explain that to the person.</li>
+</ul>
+<h2>For landlords and tenants</h2>
+<p>A landlord reference should confirm the tenancy dates, rent amount, payment record and whether the property was left in good condition. It should not speculate about the next tenancy. A tenant asking a previous landlord for a reference can offer the dates and address so the landlord does not have to look them up.</p>
+<p>Use the free <a href="${rel}templates/reference-letter.html">reference letter template</a> for employment or character references, the <a href="${rel}templates/employment-verification-letter.html">employment verification letter</a> when only facts are needed, or the <a href="${rel}templates/landlord-reference-letter.html">landlord reference letter</a> for a tenancy. If the person is leaving a job, the <a href="${rel}guides/how-to-write-a-termination-letter.html">termination letter guide</a> covers the other side of the record.</p>
+<p class="small muted">General information, not legal advice. Reference practices and privacy rules differ by country.</p>`,
+    faq: [['Can an employer refuse to give a reference?', 'In many places an employer has no legal duty to provide one, although some sectors and contracts require it. Policies usually set out who may give a reference and what it may contain.'], ['Can I give a bad reference?', 'A reference must be accurate and not misleading. If you cannot say something positive, it is usually safer to confirm only dates and job title than to include criticism you cannot substantiate.'], ['Should a reference letter include salary?', 'Only if the person has agreed and your policy allows it. Verification letters for mortgages or visas sometimes need salary; otherwise dates and role are usually enough.']] },
+  { slug: 'how-to-write-a-cease-and-desist-letter', title: 'How to write a cease and desist letter', published: '2026-10-17',
+    description: 'When to send a cease and desist letter, what it must contain, sample wording, how to deliver it and what to do if the conduct continues.',
+    body: (rel) => `
+<p class="lead">A cease and desist letter is a formal request to stop doing something: using your trade mark, publishing a statement you say is false, harassing someone, or contacting a client who has moved to you. It creates a record and often ends the problem without a court case. It is not a court order, and it does not force anyone to do anything.</p>
+<h2>When a letter is the right step</h2>
+<ul>
+  <li><strong>Trade mark and copyright disputes.</strong> Someone is using a name, logo, photograph or text you own.</li>
+  <li><strong>Defamation.</strong> A statement about you or your business is false and causing harm.</li>
+  <li><strong>Harassment or unwanted contact.</strong> Messages continue after you have asked for them to stop.</li>
+  <li><strong>Breach of a restrictive covenant.</strong> A former employee or contractor is soliciting clients or using confidential information.</li>
+</ul>
+<p>Do not send one where the conduct is an emergency, such as ongoing abuse or a live security breach. Contact the police or a lawyer immediately. If a deadline is about to expire, a court application may be needed before a letter has time to work.</p>
+<h2>What the letter should contain</h2>
+<ol>
+  <li><strong>Your details and the recipient's.</strong> Full names, addresses and any reference to the relationship or contract between you.</li>
+  <li><strong>The facts.</strong> What happened, with dates, links, screenshots or contract clauses. Keep it factual and specific.</li>
+  <li><strong>Your rights.</strong> The trade mark, contract term, copyright or legal right you say is being infringed.</li>
+  <li><strong>The demand.</strong> Stop the conduct, remove the material, confirm in writing, return confidential information or pay a stated amount.</li>
+  <li><strong>A deadline.</strong> A clear date and time to respond, usually seven to fourteen days depending on urgency.</li>
+  <li><strong>What happens next.</strong> Say that you will consider further legal action, but do not threaten something you will not do.</li>
+  <li><strong>Delivery method.</strong> Send by email and by tracked post or courier, and keep proof of delivery.</li>
+</ol>
+<h2>Sample wording</h2>
+<pre><code>Dear [Name],
+
+We act for [company] in relation to [the matter]. Our client owns [the trade mark / copyright / contract rights] described below.
+
+On [date], you [describe the conduct] at [location or URL]. This [infringes our client's rights / breaches clause X of the agreement dated [date]].
+
+We require you to:
+1. stop [the conduct] immediately;
+2. remove [the material] from [location] by [date];
+3. confirm in writing by [date] that you have done so; and
+4. provide the names of any third parties to whom the material was sent.
+
+If we do not receive confirmation by [date], our client will consider further action without notice to you.
+
+Yours faithfully,
+[Name]</code></pre>
+<h2>Before you send</h2>
+<ul>
+  <li><strong>Check the facts.</strong> A letter that misstates what happened weakens your position and may itself be actionable.</li>
+  <li><strong>Match the demand to the harm.</strong> Asking for removal and a written confirmation is easier to comply with than an open-ended demand for money.</li>
+  <li><strong>Keep the tone neutral.</strong> Insults and threats of criminal prosecution are rarely useful and can complicate settlement.</li>
+  <li><strong>Consider a lawyer.</strong> Defamation, trade marks and restrictive covenants are technical. A short letter from a lawyer often carries more weight, but it is not required.</li>
+</ul>
+<h2>If they ignore it</h2>
+<p>Keep a copy of the letter, the delivery receipt and every response. Document continued conduct. A lawyer can advise on the next step: a further letter, a platform takedown notice, a settlement discussion or a court application. Do not publish the dispute while it is ongoing unless you have taken advice; it can affect both the case and your reputation.</p>
+<p>The free <a href="${rel}templates/cease-and-desist-letter.html">cease and desist letter template</a> sets out the parties, the conduct, the demand and a deadline in a plain Word letter. For an unpaid debt rather than ongoing conduct, use the <a href="${rel}templates/payment-demand-letter.html">payment demand letter</a> and the guide on <a href="${rel}guides/how-to-write-a-payment-demand-letter.html">demand letters for unpaid invoices</a>. If the dispute is about confidential information, the <a href="${rel}clauses/confidentiality-clause.html">confidentiality clause</a> explains the wording to rely on.</p>
+<p class="small muted">General information, not legal advice. Defamation, trade mark and harassment law differ by country and state; take advice before sending a letter about a serious dispute.</p>`,
+    faq: [['Is a cease and desist letter legally binding?', 'No. It is a formal request, not a court order. It becomes evidence that the recipient was told about the conduct and had a chance to stop, which can matter if the dispute goes further.'], ['How long should the recipient have to respond?', 'Seven to fourteen days is common for a letter about ongoing conduct. Urgent cases may need a shorter deadline, but a deadline that is impossible to meet can look unreasonable.'], ['What if the letter is ignored?', 'Document the continued conduct and take legal advice on the next step. Options include a further letter, a platform takedown notice, settlement discussions or a court application, depending on the harm and the urgency.']] },
+  { slug: 'how-to-write-meeting-minutes', title: 'How to write meeting minutes (with a template)', published: '2026-10-17',
+    description: 'What meeting minutes should record, the difference between minutes and notes, a simple structure, sample wording and what to leave out of the record.',
+    body: (rel) => `
+<p class="lead">Minutes are the official record of what a meeting decided, not a transcript of what everyone said. They protect the organisation when a decision is questioned later, and they tell people who missed the meeting what changed.</p>
+<h2>Minutes, notes or a recording?</h2>
+<p>Notes are for the person taking them. Minutes are the approved record, circulated to attendees and kept with the organisation's records. A recording can help you write minutes but is not a substitute: it is long, hard to search and may capture personal or confidential discussion that should not be retained.</p>
+<h2>Before the meeting</h2>
+<ul>
+  <li><strong>Get the agenda and the previous minutes.</strong> Number the agenda items so the minutes can follow the same structure.</li>
+  <li><strong>Confirm who is attending and who is absent.</strong> Note any apologies and whether the meeting is quorate under the organisation's rules.</li>
+  <li><strong>Note the time, place and chair.</strong> For a remote meeting, say which platform was used.</li>
+</ul>
+<h2>During the meeting</h2>
+<ul>
+  <li><strong>Record decisions, not the discussion.</strong> "The board approved the 2027 budget" is enough; you do not need every argument for and against.</li>
+  <li><strong>Capture actions with an owner and a date.</strong> "Sam to circulate the draft by 24 October" is useful; "discuss communications" is not.</li>
+  <li><strong>Note conflicts of interest.</strong> Who declared one and whether they took part in the decision.</li>
+  <li><strong>Mark confidential items.</strong> If an item is confidential, record that it was discussed and keep the detail in a separate restricted note.</li>
+</ul>
+<h2>A simple structure</h2>
+<ol>
+  <li><strong>Heading.</strong> Organisation, meeting name, date, time, place and chair.</li>
+  <li><strong>Present and absent.</strong> Names and roles, with apologies.</li>
+  <li><strong>Previous minutes.</strong> Confirmed as accurate, or amended and then confirmed.</li>
+  <li><strong>Agenda items.</strong> For each: a one-line summary, the decision, and any action with an owner and due date.</li>
+  <li><strong>Any other business.</strong> Brief notes and actions.</li>
+  <li><strong>Next meeting.</strong> Date, time and location if known.</li>
+  <li><strong>Approval.</strong> Who chaired and when the minutes were approved.</li>
+</ol>
+<h2>Sample wording</h2>
+<pre><code>Present: A. Patel (chair), J. Chen, M. Silva
+Apologies: R. Okafor
+
+3. Budget 2027
+The finance lead presented the draft budget. The board approved the budget with a 4% increase in the training line.
+
+Action: J. Chen to update the finance system by 31 October.
+Action: A. Patel to circulate the approved budget to department heads by 7 November.
+
+4. Any other business
+No other business was raised.
+
+Next meeting: 14 November 2026, 10:00, Meeting Room 2.</code></pre>
+<h2>What to leave out</h2>
+<ul>
+  <li><strong>Verbatim discussion.</strong> It makes minutes long, hard to approve and easy to misquote.</li>
+  <li><strong>Speculation and personal remarks.</strong> Record decisions and the reasons that were agreed, not who lost their temper.</li>
+  <li><strong>Confidential detail in a widely circulated document.</strong> Use a separate restricted record and say in the minutes that it exists.</li>
+</ul>
+<h2>After the meeting</h2>
+<p>Draft the minutes within a day or two, while the details are fresh. Circulate them to attendees, correct factual errors, then have them approved at the next meeting. Store the approved version with the agenda and any papers, and keep the retention period your organisation's policy requires. Actions should go into whatever task list the team actually uses, with the owner and due date copied across.</p>
+<p>The free <a href="${rel}templates/meeting-minutes.html">meeting minutes template</a> has sections for attendees, agenda items, decisions and actions, and repeats a row for each action item. For formal decisions that need a standalone record, use the <a href="${rel}templates/board-resolution.html">board resolution template</a>. If the meeting is about a project, the <a href="${rel}guides/what-to-include-in-a-statement-of-work.html">statement of work guide</a> explains the scope and acceptance terms that the minutes may refer to.</p>
+<p class="small muted">General information, not legal advice. Company law and governance rules may require particular minutes or approval procedures.</p>`,
+    faq: [['Do minutes need to be signed?', 'Many organisations have the chair sign the approved minutes, and some company rules require it. Check your constitution or governance policy; a signed copy is stronger evidence than an unsigned draft.'], ['Who should take the minutes?', 'Usually someone who is not chairing the meeting, so the chair can run the discussion. For boards, a company secretary or nominated minute-taker is common.'], ['Can minutes be changed after approval?', 'Correct factual errors promptly and record the correction. Do not rewrite history: if a decision changes later, record the new decision and the date it was made.']] },
+  { slug: 'what-is-a-sales-commission-agreement', title: 'What is a sales commission agreement?', published: '2026-10-17',
+    description: 'How a sales commission agreement works: rates and tiers, when commission is earned, payment timing, clawbacks, draws and what happens when someone leaves.',
+    body: (rel) => `
+<p class="lead">A sales commission agreement sets out how variable pay is earned. It is the document that answers the questions people argue about at the end of a quarter: which deals count, when the commission is paid, and what happens if the customer cancels.</p>
+<h2>What it should cover</h2>
+<ol>
+  <li><strong>The plan and the period.</strong> Which role, which products and which financial year or quarter the plan applies to.</li>
+  <li><strong>The commission base.</strong> Revenue, gross margin, cash collected or a quota. Say whether tax, refunds, discounts and shipping are included.</li>
+  <li><strong>Rates and tiers.</strong> A flat percentage, a tiered table, or a quota-attainment accelerator. Show a worked example so the maths is unambiguous.</li>
+  <li><strong>When commission is earned.</strong> On signature, on invoice, on payment or on delivery. This is the clause that causes most disputes.</li>
+  <li><strong>When it is paid.</strong> The payroll date after the period closes, and whether payment depends on the customer paying.</li>
+  <li><strong>Cancellations and clawbacks.</strong> If a customer cancels, defaults or receives a refund, is commission reversed? From which payment, and how long after?</li>
+  <li><strong>Draws and advances.</strong> A recoverable draw is a loan against future commission; a non-recoverable draw is a minimum. Say which one applies.</li>
+  <li><strong>Changes and termination.</strong> How the plan can be changed, what happens to commission in progress when employment ends, and whether the agreement survives.</li>
+</ol>
+<h2>A worked example</h2>
+<div class="table-wrap" tabindex="0"><table class="compare"><thead><tr><th scope="col">Quarter</th><th scope="col">Closed revenue</th><th scope="col">Rate</th><th scope="col">Commission</th></tr></thead><tbody>
+<tr><td>Q1</td><td>$80,000</td><td>5%</td><td>$4,000</td></tr>
+<tr><td>Q2</td><td>$120,000</td><td>7% above $100,000</td><td>$5,000 + $1,400 = $6,400</td></tr>
+<tr><td>Q3</td><td>$60,000</td><td>5%</td><td>$3,000</td></tr>
+</tbody></table></div>
+<p>The example should state whether the tier applies to all revenue once the threshold is crossed or only to the amount above it. Write the rule, not just the numbers.</p>
+<h2>Commission and the contract of employment</h2>
+<p>Commission is usually part of pay, not a gift. In many countries it must be included in holiday pay, notice pay and final pay calculations, and a change to the plan can be a contractual change that needs agreement. Treat the agreement as part of the employment contract, not a side note. For independent sales agents, say clearly that the relationship is one of contractor and client, and check whether local law gives the agent protection or a right to compensation on termination.</p>
+<h2>Mistakes to avoid</h2>
+<ul>
+  <li><strong>Changing the plan mid-quarter without agreement.</strong> It destroys trust and may be a breach of contract.</li>
+  <li><strong>Hiding the definition of a qualified deal.</strong> If a deal only counts when it meets criteria, publish the criteria.</li>
+  <li><strong>An unfunded accelerator.</strong> A rate that makes the plan unprofitable is worse than no plan.</li>
+  <li><strong>No record of calculations.</strong> Keep the statement for each period showing deals, base, rate and adjustments.</li>
+</ul>
+<h2>Put it in writing</h2>
+<p>The free <a href="${rel}templates/sales-commission-agreement.html">sales commission agreement template</a> covers the plan period, rates, payment timing, clawbacks and termination. Use the <a href="${rel}free-tools/sales-commission.html">sales commission calculator</a> to check a tiered plan before you offer it, and the <a href="${rel}guides/how-to-write-a-freelance-contract.html">freelance contract guide</a> if the salesperson is an independent contractor rather than an employee.</p>
+<p class="small muted">General information, not legal advice. Commission, holiday pay and termination rules differ by country and state.</p>`,
+    faq: [['Is a sales commission agreement legally binding?', 'It is usually binding as part of the employment or contractor relationship, provided the terms are clear and lawful. A plan that can be changed at will may still be enforceable, but changing it without agreement can breach the wider contract.'], ['When should commission be paid?', 'The agreement should say: on signature, invoice, payment or delivery, and on which payroll date. Many businesses pay after the customer pays, which reduces clawbacks but delays the salesperson\'s pay.'], ['What happens to commission when an employee leaves?', 'It depends on the agreement and local law. Some plans pay commission on deals closed before the last day; others require the employee to be employed on the payment date. The termination clause should say which.']] },
+  { slug: 'how-to-write-an-expense-reimbursement-form', title: 'How to write an expense reimbursement form', published: '2026-10-17',
+    description: 'What an expense reimbursement form needs: dates, categories, receipts, approvals and payment details, with a simple table and the policy points to settle first.',
+    body: (rel) => `
+<p class="lead">An expense reimbursement form is a small document that prevents two common problems: employees waiting weeks to be paid back, and finance teams unable to explain what was spent. Clear fields and a receipt rule solve most of it.</p>
+<h2>What the form should ask for</h2>
+<ol>
+  <li><strong>Who is claiming.</strong> Name, role, department and employee or contractor reference.</li>
+  <li><strong>What it was for.</strong> A short business purpose for each line, not just "travel".</li>
+  <li><strong>When.</strong> The date of the expense, and the period the claim covers.</li>
+  <li><strong>Category.</strong> Travel, accommodation, meals, mileage, supplies, client entertainment, training or other.</li>
+  <li><strong>Amount and currency.</strong> The amount paid, the currency, and the exchange rate if the card or bank converted it.</li>
+  <li><strong>Receipt.</strong> A receipt number or attachment reference for every line above the policy threshold.</li>
+  <li><strong>Approval.</strong> The manager or budget holder, the date approved, and any project or cost centre to charge.</li>
+  <li><strong>Payment.</strong> Bank details or payroll reference, and the date paid by finance.</li>
+</ol>
+<h2>A simple table</h2>
+<div class="table-wrap" tabindex="0"><table class="compare"><thead><tr><th scope="col">Date</th><th scope="col">Description</th><th scope="col">Category</th><th scope="col">Amount</th><th scope="col">Receipt</th></tr></thead><tbody>
+<tr><td>12 Oct</td><td>Train to client meeting, London</td><td>Travel</td><td>£84.50</td><td>R-1042</td></tr>
+<tr><td>12 Oct</td><td>Lunch with client, two people</td><td>Meals</td><td>£46.00</td><td>R-1043</td></tr>
+<tr><td>13 Oct</td><td>Mileage, 62 miles at 45p</td><td>Mileage</td><td>£27.90</td><td>Logbook</td></tr>
+</tbody></table></div>
+<h2>Policy points to settle before the form is used</h2>
+<ul>
+  <li><strong>Deadline.</strong> Claims within 30 or 60 days of the expense, with a rule for late claims.</li>
+  <li><strong>Receipt threshold.</strong> Receipts for everything above a small amount; a card statement alone is rarely enough.</li>
+  <li><strong>Approval limits.</strong> Who can approve what, and what happens if the approver is the claimant.</li>
+  <li><strong>Mileage rate.</strong> A fixed rate per mile or kilometre, and whether it covers fuel, insurance and wear.</li>
+  <li><strong>Per diem or actual cost.</strong> If you use a per diem, say which meals it covers and whether receipts are still needed.</li>
+  <li><strong>Non-reimbursable items.</strong> Alcohol, fines, personal upgrades, commuting and anything without a business purpose.</li>
+  <li><strong>Tax treatment.</strong> Some reimbursements are tax-free only if they follow the local rules and are supported by receipts. Keep the records.</li>
+</ul>
+<h2>Common mistakes</h2>
+<ul>
+  <li><strong>No business purpose.</strong> "Client meeting" is better than "lunch", and "lunch with Acme's procurement lead to discuss the renewal" is better still.</li>
+  <li><strong>Missing receipts.</strong> A form that accepts estimates invites disputes with finance and tax authorities.</li>
+  <li><strong>Mixing currencies without a rate.</strong> Record the rate and the source date.</li>
+  <li><strong>Paying before approval.</strong> It is much harder to recover an expense that should not have been reimbursed.</li>
+</ul>
+<h2>Keep the process simple</h2>
+<p>One form per claim, one line per expense, receipts attached in the same order, and a named approver. Finance should be able to check the arithmetic and the policy without asking the employee for missing information. If claims are frequent, a shared spreadsheet with the same columns is fine, as long as the approval and receipt trail is kept.</p>
+<p>The free <a href="${rel}templates/expense-reimbursement-form.html">expense reimbursement form template</a> has the table, approval and payment fields in a printable Word file. For money a business pays out and later rebills to a client, use the <a href="${rel}templates/invoice.html">invoice template</a>; for a payment the business receives, the <a href="${rel}guides/how-to-write-a-payment-receipt.html">payment receipt guide</a> explains the record to keep.</p>
+<p class="small muted">General information, not tax or legal advice. Reimbursement and tax rules differ by country.</p>`,
+    faq: [['Do employees need receipts for every expense?', 'Most policies require receipts above a small threshold, and tax authorities often do too. A card statement shows the amount but not what was bought, so it is usually not enough on its own.'], ['Is expense reimbursement taxable?', 'In many places a reimbursement of a genuine business expense, supported by receipts and paid under a written policy, is not taxable income. Flat allowances and per diems can be treated differently, so check the local rules.'], ['How long should an employer keep expense records?', 'Follow the tax and employment record retention period in your country, which is often six or seven years. Keep the form, receipts and approval together.']] },
+
 ];
 
 // Guides grouped by topic, for the guides index and the related-guides block at the foot of each guide.
 export const GUIDE_TOPICS = [
   ['Automating Word templates', ['automate-word-templates', 'conditional-clauses-in-word', 'repeating-lists-and-tables-in-word', 'mail-merge-vs-document-automation', 'client-intake-without-a-portal', 'confidentiality-checklist-document-software']],
   ['NDAs and restrictive covenants', ['what-to-include-in-an-nda', 'mutual-vs-one-way-nda', 'how-long-should-an-nda-last', 'nda-vs-confidentiality-agreement', 'non-compete-vs-non-solicitation', 'are-non-competes-enforceable']],
-  ['Hiring and HR letters', ['how-to-write-an-offer-letter', 'how-to-write-an-employee-warning-letter', 'how-to-write-a-termination-letter', 'how-to-write-a-two-weeks-notice-letter', 'how-to-write-a-job-description', 'what-to-include-in-a-severance-agreement', 'how-to-write-a-performance-improvement-plan', 'how-to-write-a-remote-work-agreement']],
+  ['Hiring and HR letters', ['how-to-write-an-offer-letter', 'how-to-write-an-employee-warning-letter', 'how-to-write-a-termination-letter', 'how-to-write-a-two-weeks-notice-letter', 'how-to-write-a-job-description', 'what-to-include-in-a-severance-agreement', 'how-to-write-a-performance-improvement-plan', 'how-to-write-a-remote-work-agreement', 'how-to-write-a-salary-increase-letter', 'how-to-write-a-reference-letter', 'how-to-write-an-expense-reimbursement-form']],
   ['Freelancing and getting paid', ['how-to-write-a-freelance-contract', 'what-to-include-in-a-statement-of-work', 'quote-vs-estimate-vs-invoice', 'how-to-write-an-invoice', 'what-is-a-kill-fee', 'what-to-do-when-a-client-wont-pay', 'how-to-write-a-payment-demand-letter', 'what-is-a-change-order', 'what-is-a-credit-note', 'what-to-include-on-a-vat-invoice', 'gst-hst-invoice-requirements-canada', 'tax-invoice-requirements-australia', 'what-bank-details-to-put-on-an-invoice']],
   ['Landlords and tenants', ['what-to-include-in-a-lease-agreement', 'what-to-include-in-a-roommate-agreement', 'how-to-write-a-rent-increase-letter', 'how-to-write-a-notice-to-vacate', 'how-to-return-a-security-deposit', 'what-to-include-in-a-room-rental-agreement', 'how-to-set-up-a-rent-payment-plan']],
-  ['Business deals, money and releases', ['is-an-mou-legally-binding', 'what-to-include-in-a-partnership-agreement', 'how-to-write-a-bill-of-sale', 'how-to-lend-money-to-family', 'how-to-write-a-gift-letter-for-a-mortgage', 'are-liability-waivers-enforceable', 'what-is-a-hold-harmless-agreement', 'do-i-need-a-model-release', 'how-to-terminate-a-contract', 'how-does-consignment-work']],
+  ['Business deals, money and releases', ['is-an-mou-legally-binding', 'what-to-include-in-a-partnership-agreement', 'how-to-write-a-bill-of-sale', 'how-to-lend-money-to-family', 'how-to-write-a-gift-letter-for-a-mortgage', 'are-liability-waivers-enforceable', 'what-is-a-hold-harmless-agreement', 'do-i-need-a-model-release', 'how-to-terminate-a-contract', 'how-does-consignment-work', 'what-is-a-sales-commission-agreement', 'how-to-write-a-cease-and-desist-letter', 'how-to-write-meeting-minutes']],
 ];
 {
   const listed = GUIDE_TOPICS.flatMap(([, slugs]) => slugs);
@@ -1669,10 +2066,34 @@ const topicId = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-
 const longDate = (d) => new Date(d + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 
 export const pages = [
+  { path: 'for/', title: 'Who Clausery is for: teams that draft the same documents', description: 'Which teams use Clausery for invoices, contracts and HR letters, what each gets from a guided questionnaire, and how to choose the right template.',
+    extraHead: collectionLd({ path: 'for/', name: 'Who Clausery is for', description: 'Which teams use Clausery for invoices, contracts and HR letters, what each gets from a guided questionnaire, and how to choose the right template.', items: AUD.map((a) => [a.name, `for/${a.slug}.html`]) }),
+    body: (rel) => `<section class="section"><div class="wrap" style="max-width:60rem">
+  <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › Who it's for</nav>
+  <h1 style="margin-top:1rem">Who Clausery is for</h1>
+  <p class="lead">Clausery suits anyone who sends the same kinds of documents again and again: invoices, contracts, HR letters and landlord forms. Each audience page shows the templates that team uses, the questions that change, and the guides that explain the wording.</p>
+  <div class="grid grid-2" style="margin-top:2rem">
+    ${AUD.map((a) => `<a class="feature" style="text-decoration:none;color:inherit" href="${rel}for/${a.slug}.html"><h2 style="font-size:1.2rem">${esc(a.name)}</h2><p>${esc(a.intro.split('. ').slice(0, 2).join('. '))}.</p><p class="small muted">${a.templates.length} templates · ${a.related.length} related guides</p></a>`).join('\n    ')}
+  </div>
+  <h2 style="margin-top:2.5rem">What every team gets</h2>
+  <ul>
+    <li><strong>The same approved wording.</strong> A template is set up once; everyone else answers plain-language questions and downloads the finished Word file.</li>
+    <li><strong>Nothing uploaded.</strong> Names, salaries, client details and the document itself stay in the browser, which keeps vendor reviews and records of processing simpler.</li>
+    <li><strong>Optional clauses that disappear when they do not apply.</strong> A bonus, probation period, guarantor or appeal right only appears when the answer calls for it.</li>
+    <li><strong>Editable output.</strong> The result is an ordinary .docx that keeps the template's styles, numbering and letterhead, so it can still be edited or printed to PDF.</li>
+    <li><strong>No per-document charge for library templates.</strong> Every template can be downloaded or filled in free, with no account and no document limit.</li>
+  </ul>
+  <h2 style="margin-top:2.5rem">Not sure which page fits?</h2>
+  <p>Start from the <a href="${rel}templates/">full template library</a> and use the search box, or browse <a href="${rel}invoice-templates/">invoice templates by trade and country</a>. Freelancers and small businesses often begin with an <a href="${rel}templates/invoice.html">invoice</a>, a <a href="${rel}templates/quote.html">quote</a> and a <a href="${rel}templates/payment-receipt.html">payment receipt</a>. Firms that draft contracts should look at the <a href="${rel}clauses/">clause library</a> and the <a href="${rel}compare/">honest comparisons</a>; teams that send HR letters can start with <a href="${rel}for/hr-teams.html">HR templates</a>.</p>
+  <p class="small muted">Clausery is software, not a law firm, and does not give legal advice. Templates are general samples; have them reviewed for the jurisdiction you work in.</p>
+  <!--nav--><p style="margin-top:2rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}pricing/">See pricing</a></p><!--/nav-->
+</div></section>`,
+  },
   ...AUD.map((a) => ({
     path: `for/${a.slug}.html`, title: a.title, description: a.description || a.intro.slice(0, 290), extraHead: faqLd(a.faq),
     body: (rel) => `<section class="hero"><div class="wrap" style="display:block;max-width:52rem">
-  <p class="eyebrow">For ${esc(lowerFirst(a.name))}</p>
+  <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}for/">Who it's for</a> › ${esc(a.name)}</nav>
+  <p class="eyebrow" style="margin-top:1rem">For ${esc(lowerFirst(a.name))}</p>
   <h1>${esc(a.title)}</h1>
   <p class="lead">${esc(a.intro)}</p>
   <div class="actions"><a class="btn btn-primary btn-lg" href="${rel}app/">Open Clausery, free</a><a class="btn btn-lg" href="${rel}templates/">Browse free templates</a></div>
@@ -1687,6 +2108,7 @@ export const pages = [
   ${faqHtml(a.faq)}
   <h2 style="margin-top:2.5rem">Further reading</h2>
   <ul>${a.related.map(([href, label]) => `<li><a href="${rel}${href}">${esc(label)}</a></li>`).join('')}</ul>
+  <p style="margin-top:2rem"><a href="${rel}for/">Compare all the teams Clausery is built for →</a></p>
 </div></section>`,
   })),
   { path: 'guides/', title: 'Invoice, payment and business document guides', description: 'Practical guides to invoices, getting paid, contracts, HR letters and landlord forms. Worked explanations linked to free editable Word templates.',
@@ -1699,14 +2121,14 @@ ${GUIDE_TOPICS.map(([t, slugs]) => `  <h2 id="${topicId(t)}" style="margin-top:2
 </div></section>` },
   ...GUIDES.map((g) => ({
     path: `guides/${g.slug}.html`, title: g.title, description: g.description, feed: true, published: published(g),
-    extraHead: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: g.title, description: g.description, datePublished: published(g), dateModified: LASTMOD, image: `${SITE}assets/og.png`, mainEntityOfPage: `${SITE}guides/${g.slug}.html`, ...(g.sources ? { citation: g.sources.map(([, u]) => u) } : {}), author: { '@type': 'Organization', name: 'Clausery', url: SITE }, publisher: { '@type': 'Organization', name: 'Clausery', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}assets/icon-512.png` } } })}</script>` + crumbsLd([['Home', ''], ['Guides', 'guides/'], [g.title, `guides/${g.slug}.html`]]),
+    extraHead: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', '@id': `${SITE}guides/${g.slug}.html#article`, isPartOf: { '@id': `${SITE}guides/${g.slug}.html#webpage` }, headline: g.title, description: g.description, datePublished: published(g), dateModified: LASTMOD, inLanguage: 'en-GB', image: `${SITE}assets/og.png`, mainEntityOfPage: `${SITE}guides/${g.slug}.html`, ...(g.sources ? { citation: g.sources.map(([, u]) => u) } : {}), author: { '@type': 'Organization', name: 'Clausery', url: SITE }, publisher: { '@type': 'Organization', name: 'Clausery', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}assets/icon-512.png`, width: 512, height: 512 } } })}</script>` + (g.faq ? faqLd(g.faq) : '') + crumbsLd([['Home', ''], ['Guides', 'guides/'], [g.title, `guides/${g.slug}.html`]]),
     body: (rel) => {
       const [topic, slugs] = topicOf(g.slug);
       return `<section class="section"><div class="wrap prose"><nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}guides/">Guides</a></nav><h1 style="margin-top:1rem">${esc(g.title)}</h1>
 <p class="small muted guide-meta">Published <time datetime="${published(g)}">${longDate(published(g))}</time><!--upd--> · Updated <time datetime="${LASTMOD}">${LASTMOD_LONG}</time><!--/upd--> · <a href="${rel}guides/#${topicId(topic)}">${esc(topic)}</a></p>${g.body(rel)}${g.sources ? `
 <h2>Sources</h2>
 <ul class="sources">${g.sources.map(([label, url]) => `<li><a href="${esc(url)}" rel="noopener">${esc(label)}</a></li>`).join('')}</ul>` : ''}
-<!--nav-->${['how-to-write-an-invoice', 'what-to-do-when-a-client-wont-pay', 'what-bank-details-to-put-on-an-invoice'].includes(g.slug) ? `<p>Write the sending message or a polite follow-up with the <a href="${rel}guides/invoice-email-template.html">free invoice email generator and four email templates</a>.</p>` : ''}<h2>More on ${esc(lowerFirst(topic))}</h2>
+${g.faq ? `<h2>Questions</h2>${faqHtml(g.faq)}` : ''}<!--nav-->${['how-to-write-an-invoice', 'what-to-do-when-a-client-wont-pay', 'what-bank-details-to-put-on-an-invoice'].includes(g.slug) ? `<p>Write the sending message or a polite follow-up with the <a href="${rel}guides/invoice-email-template.html">free invoice email generator and four email templates</a>.</p>` : ''}<h2>More on ${esc(lowerFirst(topic))}</h2>
 <ul>${slugs.filter((x) => x !== g.slug).map((x) => `<li><a href="${rel}guides/${x}.html">${esc(GUIDE_BY[x].title)}</a></li>`).join('')}</ul>
 <p><a href="${rel}guides/">Browse all guides by topic</a></p><!--/nav--></div></section>`;
     },

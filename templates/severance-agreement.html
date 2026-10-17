@@ -29,7 +29,7 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"DigitalDocument","name":"Free severance agreement and release template (Word)","description":"A severance agreement with a release of claims: the separation date, final pay owed either way, severance in a lump sum or instalments, optional paid health coverage, a release of claims with clear exceptions, protected rights, the review and revocation periods required for employees aged 40 and over, and optional non-disparagement and reference terms.","url":"https://getclausery.github.io/templates/severance-agreement.html","encodingFormat":"application/vnd.openxmlformats-officedocument.wordprocessingml.document","contentUrl":"https://getclausery.github.io/samples/severance-agreement.docx","isAccessibleForFree":true,"inLanguage":"en","genre":"HR","dateModified":"2026-10-17","image":["https://getclausery.github.io/assets/previews/severance-agreement.jpg","https://getclausery.github.io/assets/og/severance-agreement.png"],"thumbnailUrl":"https://getclausery.github.io/assets/previews/severance-agreement.jpg","publisher":{"@type":"Organization","name":"Clausery","url":"https://getclausery.github.io/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a severance agreement?","acceptedAnswer":{"@type":"Answer","text":"An agreement in which an employer pays something the employee is not otherwise owed, usually severance pay or benefits, and the employee in exchange gives up legal claims against the employer."}},{"@type":"Question","name":"What if the employee is 40 or older?","acceptedAnswer":{"@type":"Answer","text":"To release age discrimination claims under US federal law, the agreement must be written clearly, refer to the Age Discrimination in Employment Act, advise the employee in writing to see a lawyer, give at least 21 days to consider it (45 days in a group layoff, with extra information) and allow 7 days to revoke after signing."}},{"@type":"Question","name":"Can a severance agreement stop an employee contacting the EEOC?","acceptedAnswer":{"@type":"Answer","text":"No. An employee can still file a charge with the EEOC or another agency and take part in an investigation. A release can only waive their right to recover money for the released claims."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Templates","item":"https://getclausery.github.io/templates/"},{"@type":"ListItem","position":3,"name":"Severance agreement","item":"https://getclausery.github.io/templates/severance-agreement.html"}]}</script><style>
 .tpl-doc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; max-height: 38rem; overflow: auto; font-family: Georgia, "Times New Roman", serif; line-height: 1.6; }
@@ -62,7 +62,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -94,7 +94,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <h2 style="margin-top:2.5rem">What is in the severance agreement</h2>
       <ul><li>Separation date and final pay</li><li>Severance amount: lump sum or instalments</li><li>Optional paid health coverage</li><li>Release of claims and what is not released</li><li>Protected rights to contact government agencies</li><li>Advice to consult a lawyer</li><li>Time to consider, and 7 days to revoke for employees 40 and over</li><li>Return of property, optional non-disparagement and reference</li></ul>
     </div>
-    <a class="tpl-thumb" href="#full-text"><img src="../assets/previews/severance-agreement.jpg" width="680" height="880" loading="lazy" decoding="async" alt="First page of the free severance agreement template for Word"></a>
+    <a class="tpl-thumb" href="#full-text"><picture><source type="image/webp" srcset="../assets/previews/severance-agreement.webp" sizes="100vw"><img src="../assets/previews/severance-agreement.jpg" width="680" height="880" alt="First page of the free severance agreement template for Word" loading="eager" decoding="async" fetchpriority="high"></picture></a>
   </div>
 
   <h2 style="margin-top:2.5rem" id="full-text">Read the full template</h2>
@@ -147,6 +147,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

@@ -29,7 +29,7 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is a loan repayment calculated?","acceptedAnswer":{"@type":"Answer","text":"For a loan repaid in equal instalments, the payment is P × i ÷ (1 − (1 + i)^−n), where P is the amount borrowed, i is the interest rate for one payment period (the yearly rate divided by the number of payments a year) and n is the number of payments. Each payment covers that period's interest first, and the rest reduces the balance."}},{"@type":"Question","name":"What is an amortization schedule?","acceptedAnswer":{"@type":"Answer","text":"A table of every payment showing how much goes to interest, how much repays the loan, and the balance left afterwards. Early payments are mostly interest; later ones are mostly repayment."}},{"@type":"Question","name":"Why is the last payment slightly different?","acceptedAnswer":{"@type":"Answer","text":"Payments are rounded to the cent, so the final payment is adjusted by a few cents to clear the balance exactly."}},{"@type":"Question","name":"Does this match my bank's figures?","acceptedAnswer":{"@type":"Answer","text":"Usually to within a few cents or dollars. Some lenders charge interest daily, add fees, or round differently, so their figures can differ slightly."}}]}</script><style>
 .tool { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 1.5rem 0; }
@@ -54,7 +54,7 @@
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -127,6 +127,7 @@
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

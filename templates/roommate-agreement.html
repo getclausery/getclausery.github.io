@@ -29,7 +29,7 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"DigitalDocument","name":"Free roommate agreement template (Word)","description":"An agreement between people who share a rented home: each roommate's share of the rent, who pays the landlord, the deposit, utilities and other shared costs, quiet time, guests, cleaning, pets and smoking, notice before moving out, and house meetings.","url":"https://getclausery.github.io/templates/roommate-agreement.html","encodingFormat":"application/vnd.openxmlformats-officedocument.wordprocessingml.document","contentUrl":"https://getclausery.github.io/samples/roommate-agreement.docx","isAccessibleForFree":true,"inLanguage":"en","genre":"Real estate","dateModified":"2026-10-17","image":["https://getclausery.github.io/assets/previews/roommate-agreement.jpg","https://getclausery.github.io/assets/og/roommate-agreement.png"],"thumbnailUrl":"https://getclausery.github.io/assets/previews/roommate-agreement.jpg","publisher":{"@type":"Organization","name":"Clausery","url":"https://getclausery.github.io/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is a roommate agreement legally binding?","acceptedAnswer":{"@type":"Answer","text":"It can be, as an agreement between the roommates about things such as rent shares and bills. It does not change the lease with the landlord: if you are all on the lease, the landlord can usually still claim the full rent from any one of you."}},{"@type":"Question","name":"Do we need one if we are all on the lease?","acceptedAnswer":{"@type":"Answer","text":"It still helps. The lease covers your relationship with the landlord; a roommate agreement covers how you split rent, bills and chores, and what happens if one of you leaves early."}},{"@type":"Question","name":"What if a roommate wants to leave early?","acceptedAnswer":{"@type":"Answer","text":"The template sets a notice period and can require the roommate who leaves to keep paying their share until an approved replacement moves in. Check whether the landlord must approve a new tenant too."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Templates","item":"https://getclausery.github.io/templates/"},{"@type":"ListItem","position":3,"name":"Roommate agreement","item":"https://getclausery.github.io/templates/roommate-agreement.html"}]}</script><style>
 .tpl-doc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; max-height: 38rem; overflow: auto; font-family: Georgia, "Times New Roman", serif; line-height: 1.6; }
@@ -62,7 +62,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -94,7 +94,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <h2 style="margin-top:2.5rem">What is in the roommate agreement</h2>
       <ul><li>Roommates and each rent share</li><li>Total rent, paid through one roommate or directly to the landlord</li><li>Late fees caused by one roommate</li><li>Security deposit shares and damage</li><li>Utilities and shared costs, and who manages the bills</li><li>Quiet time and overnight guests</li><li>Cleaning of shared areas</li><li>Pets and smoking</li><li>Notice before moving out, with an optional replacement rule</li><li>Optional house meetings and signatures</li></ul>
     </div>
-    <a class="tpl-thumb" href="#full-text"><img src="../assets/previews/roommate-agreement.jpg" width="680" height="880" loading="lazy" decoding="async" alt="First page of the free roommate agreement template for Word"></a>
+    <a class="tpl-thumb" href="#full-text"><picture><source type="image/webp" srcset="../assets/previews/roommate-agreement.webp" sizes="100vw"><img src="../assets/previews/roommate-agreement.jpg" width="680" height="880" alt="First page of the free roommate agreement template for Word" loading="eager" decoding="async" fetchpriority="high"></picture></a>
   </div>
 
   <h2 style="margin-top:2.5rem" id="full-text">Read the full template</h2>
@@ -144,6 +144,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

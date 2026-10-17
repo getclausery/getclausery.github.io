@@ -186,7 +186,7 @@ export const pages = [
     ${COUNTRIES.map((c) => `<a class="feature" style="text-decoration:none;color:inherit" href="${rel}invoice-templates/${c.slug}.html"><h3>${esc(c.h1.replace(/ template( for)?/, ''))}</h3><p>${esc(c.preset.answers.tax_name)} at ${c.preset.answers.tax_rate}%, your ${esc(c.preset.answers.tax_registration_label)}, amounts in ${esc(c.preset.currency)}</p></a>`).join('\n    ')}
   </div>
   <h2 style="margin-top:2.5rem">Not listed?</h2>
-  <p>Start from the general <a href="${rel}templates/invoice.html">invoice template</a> and add your own lines. For quotes before the work, use the <a href="${rel}templates/quote.html">price quote template</a>; for payments received, the <a href="${rel}templates/payment-receipt.html">payment receipt</a>.</p>
+  <p>Start from the general <a href="${rel}templates/invoice.html">invoice template</a> and add your own lines. For quotes before the work, use the <a href="${rel}templates/quote.html">price quote template</a>; for a supplier order, the <a href="${rel}templates/purchase-order.html">purchase order</a>; for a refund or correction, the <a href="${rel}templates/credit-note.html">credit note</a>; for payments received, the <a href="${rel}templates/payment-receipt.html">payment receipt</a>; and for rent, the <a href="${rel}templates/rent-receipt.html">rent receipt</a>.</p>
   <h2 style="margin-top:2.5rem">Tax and payment details</h2>
   <ul>
     <li><a href="${rel}guides/what-to-include-on-a-vat-invoice.html">${esc(guideTitle('what-to-include-on-a-vat-invoice'))}</a></li>
@@ -195,6 +195,7 @@ export const pages = [
     <li><a href="${rel}guides/what-bank-details-to-put-on-an-invoice.html">${esc(guideTitle('what-bank-details-to-put-on-an-invoice'))}</a></li>
     <li><a href="${rel}guides/how-to-write-an-invoice.html">${esc(guideTitle('how-to-write-an-invoice'))}</a></li>
   </ul>
+  <!--nav--><div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem;margin-top:0">Start an invoice now</h2><p>The app opens the invoice with your details, the next number and today's date already filled in. Choose a starter here or open the general invoice and change the lines.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/#/start/invoice">Open the invoice app</a> <a class="btn" href="${rel}templates/invoice.html">See the invoice template</a></p></div><!--/nav-->
 </div></section>`,
   },
   ...TRADES.map((t) => ({

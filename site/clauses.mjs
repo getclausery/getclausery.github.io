@@ -52,6 +52,7 @@ export const pages = [
   <div class="table-wrap" tabindex="0"><table class="compare"><thead><tr><th scope="col">Document</th><th scope="col">Clauses to expect</th></tr></thead><tbody>
     ${BY_DOC.map(([doc, list]) => `<tr><th scope="row">${esc(doc)}</th><td>${list.map((s) => `<a href="${rel}clauses/${s}.html">${esc(short(BY_SLUG[s]))}</a>`).join(', ')}</td></tr>`).join('')}
   </tbody></table></div>
+  <!--nav--><div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem;margin-top:0">Put the clauses into a document</h2><p>Clausery turns your own Word template into a questionnaire and builds the finished contract in your browser. Every template in the library is free, and the <a href="${rel}templates/">free contract templates</a> already use many of these clauses.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free templates</a></p></div><!--/nav-->
   <p class="small muted" style="margin-top:2rem">This library is general information, not legal advice. Laws differ between countries and states; have wording reviewed for your situation before you rely on it.</p>
 </div></section>`,
   },

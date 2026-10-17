@@ -29,7 +29,7 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is a free NDA template legally binding?","acceptedAnswer":{"@type":"Answer","text":"An NDA is a contract, so it binds the people who sign it if it is clear, reasonable and supported by something of value, such as the other side sharing information or the start of a job. Where the wording came from does not matter; whether it fits your situation does. For a large deal or sensitive technology, have a lawyer review it."}},{"@type":"Question","name":"Does an NDA need to be notarized or witnessed?","acceptedAnswer":{"@type":"Answer","text":"Usually not. In most places an NDA is valid once both parties sign it, and electronic signatures are accepted in the US and many other countries."}},{"@type":"Question","name":"Should I use a mutual or a one-way NDA?","acceptedAnswer":{"@type":"Answer","text":"Use a one-way NDA when only one side shares confidential information, and a mutual NDA when both do. If you are unsure, a mutual NDA does no harm and is often quicker to agree."}},{"@type":"Question","name":"How long should an NDA last?","acceptedAnswer":{"@type":"Answer","text":"One to five years is common for ordinary business information, measured from signing or from the end of the project or job. Trade secrets are usually protected for as long as they stay secret."}},{"@type":"Question","name":"What happens if someone breaks an NDA?","acceptedAnswer":{"@type":"Answer","text":"You can sue for the loss it caused, and a court can order them to stop using or sharing the information. Loss from a leak is hard to prove, which is why most NDAs say an injunction may be needed."}},{"@type":"Question","name":"Can an NDA stop someone reporting wrongdoing?","acceptedAnswer":{"@type":"Answer","text":"No. An NDA cannot stop someone reporting a possible crime or violation to a government agency. In the US, clauses signed before a dispute cannot silence sexual harassment or assault claims, and most employees are free to discuss their pay. The employee and contractor templates say this plainly."}},{"@type":"Question","name":"Are these templates really free?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every NDA template downloads as a Word file with no account, trial or card. You can also fill one in online; your answers stay in your browser and are never uploaded."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Templates","item":"https://getclausery.github.io/templates/"},{"@type":"ListItem","position":3,"name":"NDA templates","item":"https://getclausery.github.io/nda-templates/"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://getclausery.github.io/nda-templates/#webpage","url":"https://getclausery.github.io/nda-templates/","name":"Free NDA templates (Word): mutual, one-way, employee","description":"Free NDA templates for Word: mutual, one-way, employee, contractor and business sale. Download or fill one in online, with no sign-up and nothing uploaded.","inLanguage":"en-GB","isPartOf":{"@id":"https://getclausery.github.io/#website"},"dateModified":"2026-10-04"}</script>
 </head>
@@ -37,7 +37,7 @@
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -126,6 +126,7 @@
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

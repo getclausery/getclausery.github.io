@@ -29,7 +29,7 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"DigitalDocument","name":"Free meeting minutes template (Word)","description":"Minutes for a board, committee, team or club meeting: the date, time and place, the chair and minute taker, who attended and who sent apologies, quorum, approval of the last minutes, a summary and decision for each agenda item, action items with owners and due dates, and the next meeting.","url":"https://getclausery.github.io/templates/meeting-minutes.html","encodingFormat":"application/vnd.openxmlformats-officedocument.wordprocessingml.document","contentUrl":"https://getclausery.github.io/samples/meeting-minutes.docx","isAccessibleForFree":true,"inLanguage":"en","genre":"Business","dateModified":"2026-10-17","image":["https://getclausery.github.io/assets/previews/meeting-minutes.jpg","https://getclausery.github.io/assets/og/meeting-minutes.png"],"thumbnailUrl":"https://getclausery.github.io/assets/previews/meeting-minutes.jpg","publisher":{"@type":"Organization","name":"Clausery","url":"https://getclausery.github.io/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What should meeting minutes include?","acceptedAnswer":{"@type":"Answer","text":"The date, time and place, who attended, each item discussed and what was decided, the actions agreed with who will do them and by when, and when the meeting ended. Minutes record decisions, not every word said."}},{"@type":"Question","name":"Are minutes legally required?","acceptedAnswer":{"@type":"Answer","text":"Often. Companies generally must keep minutes of board and shareholder meetings, and many nonprofits and clubs must keep them under their bylaws or constitution. Even where they are optional, they are the record of what was agreed."}},{"@type":"Question","name":"Who approves the minutes?","acceptedAnswer":{"@type":"Answer","text":"Usually the same group at its next meeting, which agrees them as a correct record; the chair then signs them. Corrections are made before they are approved."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Templates","item":"https://getclausery.github.io/templates/"},{"@type":"ListItem","position":3,"name":"Meeting minutes","item":"https://getclausery.github.io/templates/meeting-minutes.html"}]}</script><style>
 .tpl-doc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; max-height: 38rem; overflow: auto; font-family: Georgia, "Times New Roman", serif; line-height: 1.6; }
@@ -62,7 +62,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -94,7 +94,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <h2 style="margin-top:2.5rem">What is in the meeting minutes</h2>
       <ul><li>Organization, meeting title, date, time and place</li><li>Chair and minute taker</li><li>Attendees, with optional roles</li><li>Optional apologies and quorum</li><li>Optional approval of the previous minutes</li><li>Each agenda item: discussion and decision</li><li>Action items: task, owner and due date</li><li>Optional next meeting date, and the chair's signature</li></ul>
     </div>
-    <a class="tpl-thumb" href="#full-text"><img src="../assets/previews/meeting-minutes.jpg" width="680" height="880" loading="lazy" decoding="async" alt="First page of the free meeting minutes template for Word"></a>
+    <a class="tpl-thumb" href="#full-text"><picture><source type="image/webp" srcset="../assets/previews/meeting-minutes.webp" sizes="100vw"><img src="../assets/previews/meeting-minutes.jpg" width="680" height="880" alt="First page of the free meeting minutes template for Word" loading="eager" decoding="async" fetchpriority="high"></picture></a>
   </div>
 
   <h2 style="margin-top:2.5rem" id="full-text">Read the full template</h2>
@@ -112,6 +112,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
   <h2 style="margin-top:2.5rem">Questions</h2>
   <div class="faq"><details><summary>What should meeting minutes include?</summary><p>The date, time and place, who attended, each item discussed and what was decided, the actions agreed with who will do them and by when, and when the meeting ended. Minutes record decisions, not every word said.</p></details><details><summary>Are minutes legally required?</summary><p>Often. Companies generally must keep minutes of board and shareholder meetings, and many nonprofits and clubs must keep them under their bylaws or constitution. Even where they are optional, they are the record of what was agreed.</p></details><details><summary>Who approves the minutes?</summary><p>Usually the same group at its next meeting, which agrees them as a correct record; the chair then signs them. Corrections are made before they are approved.</p></details></div>
 
+  <p style="margin-top:2rem"><strong>Guide:</strong> <a href="../guides/how-to-write-meeting-minutes.html">How to write meeting minutes (with a template)</a></p>
 <!--nav-->  <h2 style="margin-top:2.5rem">Related templates</h2>
   <div class="grid grid-3 related-cards"><a class="feature" href="../templates/memorandum-of-understanding.html"><h3>Memorandum of understanding (MOU)</h3><p>A memorandum of understanding for two organisations working together: the purpose, what each side…</p></a><a class="feature" href="../templates/partnership-agreement.html"><h3>Partnership agreement</h3><p>A general partnership agreement for two or more partners: each partner's contribution and share…</p></a><a class="feature" href="../templates/board-resolution.html"><h3>Board resolution</h3><p>A board resolution for a corporation: resolutions adopted at a meeting or by unanimous written…</p></a></div>
   <p><a href="../templates/">Browse all 87 free templates by category</a></p><!--/nav-->
@@ -143,6 +144,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

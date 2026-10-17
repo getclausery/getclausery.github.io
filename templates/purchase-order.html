@@ -29,7 +29,7 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"DigitalDocument","name":"Free purchase order template (PO, Word)","description":"A purchase order to a supplier: the PO number and date, the vendor, where to deliver and by when, the items with quantities and prices, tax and shipping, payment terms, special instructions, and standard terms on confirmation, invoicing and rejected goods.","url":"https://getclausery.github.io/templates/purchase-order.html","encodingFormat":"application/vnd.openxmlformats-officedocument.wordprocessingml.document","contentUrl":"https://getclausery.github.io/samples/purchase-order.docx","isAccessibleForFree":true,"inLanguage":"en","genre":"Business","dateModified":"2026-10-17","image":["https://getclausery.github.io/assets/previews/purchase-order.jpg","https://getclausery.github.io/assets/og/purchase-order.png"],"thumbnailUrl":"https://getclausery.github.io/assets/previews/purchase-order.jpg","publisher":{"@type":"Organization","name":"Clausery","url":"https://getclausery.github.io/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is a purchase order a contract?","acceptedAnswer":{"@type":"Answer","text":"A purchase order is an offer to buy. It becomes a binding contract when the supplier accepts it, for example by confirming it in writing or by shipping the goods. If the supplier replies on its own terms instead, settle which terms apply before you go ahead."}},{"@type":"Question","name":"What is the difference between a purchase order and an invoice?","acceptedAnswer":{"@type":"Answer","text":"The buyer sends a purchase order before delivery, to order goods or services at agreed prices. The seller sends an invoice afterwards, to ask for payment, and quotes the PO number so the buyer can match the two."}},{"@type":"Question","name":"What is three-way matching?","acceptedAnswer":{"@type":"Answer","text":"Before paying, many accounts teams check that the purchase order, the delivery receipt and the supplier's invoice agree on items, quantities and prices. A PO number on every document makes the check quick."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Templates","item":"https://getclausery.github.io/templates/"},{"@type":"ListItem","position":3,"name":"Purchase order","item":"https://getclausery.github.io/templates/purchase-order.html"}]}</script><style>
 .tpl-doc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; max-height: 38rem; overflow: auto; font-family: Georgia, "Times New Roman", serif; line-height: 1.6; }
@@ -62,7 +62,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -96,7 +96,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <h2 style="margin-top:2.5rem">What is in the purchase order</h2>
       <ul><li>PO number and order date</li><li>Vendor details</li><li>Ship-to address, delivery date and shipping method</li><li>Items: quantity, unit price and line total</li><li>Tax, shipping and the order total</li><li>Payment terms</li><li>Optional special instructions</li><li>Confirmation, invoicing, inspection and substitution terms</li><li>Authorized signature</li></ul>
     </div>
-    <a class="tpl-thumb" href="#full-text"><img src="../assets/previews/purchase-order.jpg" width="680" height="880" loading="lazy" decoding="async" alt="First page of the free purchase order template for Word"></a>
+    <a class="tpl-thumb" href="#full-text"><picture><source type="image/webp" srcset="../assets/previews/purchase-order.webp" sizes="100vw"><img src="../assets/previews/purchase-order.jpg" width="680" height="880" alt="First page of the free purchase order template for Word" loading="eager" decoding="async" fetchpriority="high"></picture></a>
   </div>
 
   <h2 style="margin-top:2.5rem" id="full-text">Read the full template</h2>
@@ -149,6 +149,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

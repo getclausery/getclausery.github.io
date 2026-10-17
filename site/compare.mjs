@@ -137,6 +137,7 @@ ${GROUPS.map(([g, label]) => `  <h2 style="margin-top:2rem">${esc(label)}</h2>
     ${COMPETITORS.map((c) => `<tr><td><a href="${rel}compare/${c.slug}.html">${esc(c.name)}</a></td><td>${esc(c.bestFor)}</td><td>${esc(price(c))}</td></tr>`).join('')}
   </tbody></table></div>
   <p class="small muted">Published prices checked in September 2026, in US dollars. Vendors change prices and plans; check their pricing pages before you decide.</p>
+  <!--nav--><div class="feature" style="margin-top:2rem"><h2 style="font-size:1.15rem;margin-top:0">Try the difference for yourself</h2><p>Open Clausery with a free template, or bring one of your own Word documents. Nothing is uploaded, no account is needed, and the free plan has no document limit for library templates.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}pricing/">See pricing</a></p></div><!--/nav-->
 </div></section>` },
   ...COMPETITORS.map((c) => {
     const [rows, us] = c.group === 'freelance' ? [FREELANCE_ROWS, CLAUSERY_FREELANCE] : c.group === 'forms' ? [FORMS_ROWS, CLAUSERY_FORMS] : [ROWS, CLAUSERY];

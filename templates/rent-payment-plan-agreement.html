@@ -29,7 +29,7 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"DigitalDocument","name":"Free rent payment plan agreement template (Word)","description":"A rent payment plan agreement for a tenant who is behind: it confirms the amount owed, sets a schedule of instalments on top of the regular rent, can waive late fees if the plan is kept, and says what happens if a payment is missed.","url":"https://getclausery.github.io/templates/rent-payment-plan-agreement.html","encodingFormat":"application/vnd.openxmlformats-officedocument.wordprocessingml.document","contentUrl":"https://getclausery.github.io/samples/rent-payment-plan-agreement.docx","isAccessibleForFree":true,"inLanguage":"en","genre":"Real estate","dateModified":"2026-10-17","image":["https://getclausery.github.io/assets/previews/rent-payment-plan-agreement.jpg","https://getclausery.github.io/assets/og/rent-payment-plan-agreement.png"],"thumbnailUrl":"https://getclausery.github.io/assets/previews/rent-payment-plan-agreement.jpg","publisher":{"@type":"Organization","name":"Clausery","url":"https://getclausery.github.io/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What should a rent payment plan include?","acceptedAnswer":{"@type":"Answer","text":"The exact amount owed and up to what date, each instalment date and amount, that current rent must also be paid on time, what happens if a payment is missed, and that the lease otherwise stays the same."}},{"@type":"Question","name":"Does a payment plan stop an eviction?","acceptedAnswer":{"@type":"Answer","text":"It usually means the landlord agrees not to evict for the past-due amount while the tenant keeps to the plan. Local law and any rental assistance programme may add rules, so check them."}},{"@type":"Question","name":"How long should a rent payment plan last?","acceptedAnswer":{"@type":"Answer","text":"Long enough to be affordable on top of the regular rent, often 3 to 6 months. A plan the tenant cannot keep helps nobody."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Templates","item":"https://getclausery.github.io/templates/"},{"@type":"ListItem","position":3,"name":"Rent payment plan agreement","item":"https://getclausery.github.io/templates/rent-payment-plan-agreement.html"}]}</script><style>
 .tpl-doc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; max-height: 38rem; overflow: auto; font-family: Georgia, "Times New Roman", serif; line-height: 1.6; }
@@ -62,7 +62,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -94,7 +94,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <h2 style="margin-top:2.5rem">What is in the rent payment plan agreement</h2>
       <ul><li>The lease and the property</li><li>The past-due amount, with optional fees</li><li>Instalment schedule with dates and amounts</li><li>How payments are made and early payoff</li><li>Optional late-fee waiver if the plan is kept</li><li>Missed payments and grace period</li><li>No eviction for the past-due amount while the plan is kept</li><li>Lease otherwise unchanged</li></ul>
     </div>
-    <a class="tpl-thumb" href="#full-text"><img src="../assets/previews/rent-payment-plan-agreement.jpg" width="680" height="880" loading="lazy" decoding="async" alt="First page of the free rent payment plan agreement template for Word"></a>
+    <a class="tpl-thumb" href="#full-text"><picture><source type="image/webp" srcset="../assets/previews/rent-payment-plan-agreement.webp" sizes="100vw"><img src="../assets/previews/rent-payment-plan-agreement.jpg" width="680" height="880" alt="First page of the free rent payment plan agreement template for Word" loading="eager" decoding="async" fetchpriority="high"></picture></a>
   </div>
 
   <h2 style="margin-top:2.5rem" id="full-text">Read the full template</h2>
@@ -145,6 +145,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

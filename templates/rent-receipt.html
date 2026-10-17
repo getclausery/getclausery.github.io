@@ -29,7 +29,7 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"DigitalDocument","name":"Free rent receipt template (Word)","description":"A receipt for rent received: a receipt number and date, the tenant and property, the amount, the rental period it covers, any late fee or other charges, how it was paid, and the balance still due after a partial payment.","url":"https://getclausery.github.io/templates/rent-receipt.html","encodingFormat":"application/vnd.openxmlformats-officedocument.wordprocessingml.document","contentUrl":"https://getclausery.github.io/samples/rent-receipt.docx","isAccessibleForFree":true,"inLanguage":"en","genre":"Real estate","dateModified":"2026-10-17","image":["https://getclausery.github.io/assets/previews/rent-receipt.jpg","https://getclausery.github.io/assets/og/rent-receipt.png"],"thumbnailUrl":"https://getclausery.github.io/assets/previews/rent-receipt.jpg","publisher":{"@type":"Organization","name":"Clausery","url":"https://getclausery.github.io/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does a landlord have to give a rent receipt?","acceptedAnswer":{"@type":"Answer","text":"In some states, yes. New York, for example, requires a written receipt for rent paid in cash or any way other than a personal check, and in many places a tenant can ask for one. A receipt for every payment is good practice anyway."}},{"@type":"Question","name":"What should a rent receipt include?","acceptedAnswer":{"@type":"Answer","text":"The date, the amount, who paid, the property, the period the rent covers, how it was paid, who received it, and any balance still owed."}},{"@type":"Question","name":"Does accepting partial rent affect an eviction?","acceptedAnswer":{"@type":"Answer","text":"In some states, accepting partial rent can affect an eviction that has already started. The receipt records that the balance is still owed, but check the rules before accepting a partial payment during an eviction."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Templates","item":"https://getclausery.github.io/templates/"},{"@type":"ListItem","position":3,"name":"Rent receipt","item":"https://getclausery.github.io/templates/rent-receipt.html"}]}</script><style>
 .tpl-doc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; max-height: 38rem; overflow: auto; font-family: Georgia, "Times New Roman", serif; line-height: 1.6; }
@@ -62,7 +62,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -95,7 +95,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <h2 style="margin-top:2.5rem">What is in the rent receipt</h2>
       <ul><li>Receipt number and date</li><li>Tenant and property</li><li>Amount received, full or partial</li><li>Rental period covered</li><li>Optional late fee and other charges</li><li>How it was paid</li><li>Balance still due and its due date</li><li>Optional notes, manager and contact details</li></ul>
     </div>
-    <a class="tpl-thumb" href="#full-text"><img src="../assets/previews/rent-receipt.jpg" width="680" height="880" loading="lazy" decoding="async" alt="First page of the free rent receipt template for Word"></a>
+    <a class="tpl-thumb" href="#full-text"><picture><source type="image/webp" srcset="../assets/previews/rent-receipt.webp" sizes="100vw"><img src="../assets/previews/rent-receipt.jpg" width="680" height="880" alt="First page of the free rent receipt template for Word" loading="eager" decoding="async" fetchpriority="high"></picture></a>
   </div>
 
   <h2 style="margin-top:2.5rem" id="full-text">Read the full template</h2>
@@ -113,6 +113,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
   <h2 style="margin-top:2.5rem">Questions</h2>
   <div class="faq"><details><summary>Does a landlord have to give a rent receipt?</summary><p>In some states, yes. New York, for example, requires a written receipt for rent paid in cash or any way other than a personal check, and in many places a tenant can ask for one. A receipt for every payment is good practice anyway.</p></details><details><summary>What should a rent receipt include?</summary><p>The date, the amount, who paid, the property, the period the rent covers, how it was paid, who received it, and any balance still owed.</p></details><details><summary>Does accepting partial rent affect an eviction?</summary><p>In some states, accepting partial rent can affect an eviction that has already started. The receipt records that the balance is still owed, but check the rules before accepting a partial payment during an eviction.</p></details></div>
 
+  <p style="margin-top:2rem"><strong>Guide:</strong> <a href="../guides/how-to-write-an-invoice.html">How to write an invoice: what to include and how to number it</a></p>
   <p><strong>Free tool:</strong> <a href="../free-tools/amount-in-words.html">Amount in words converter: write the amount received in words</a></p>
 <!--nav-->  <h2 style="margin-top:2.5rem">Related templates</h2>
   <div class="grid grid-3 related-cards"><a class="feature" href="../templates/rental-application.html"><h3>Rental application</h3><p>An application for a rental home: the property and rent, any application fee, the applicant's…</p></a><a class="feature" href="../templates/lease-renewal-letter.html"><h3>Lease renewal letter</h3><p>A landlord's offer to renew a lease: when the current lease ends, the length and dates of the new…</p></a><a class="feature" href="../templates/pet-addendum.html"><h3>Pet addendum</h3><p>An addendum that lets a tenant keep pets under an existing lease: each pet, an optional pet…</p></a><a class="feature" href="../templates/residential-lease-agreement.html"><h3>Residential lease agreement</h3><p>A lease for a house or apartment, for a fixed term or month to month: each tenant, rent and due…</p></a><a class="feature" href="../templates/sublease-agreement.html"><h3>Sublease agreement</h3><p>An agreement for a tenant to rent all or part of their home to a subtenant for a while, such as a…</p></a><a class="feature" href="../templates/move-in-checklist.html"><h3>Move-in and move-out checklist</h3><p>A record of a rental's condition, room by room, at move-in and again at move-out, with smoke and…</p></a></div>
@@ -145,6 +146,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

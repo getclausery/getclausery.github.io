@@ -29,7 +29,7 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"DigitalDocument","name":"Free rent increase letter template (Word)","description":"A landlord's written notice of a rent increase: the current and new monthly rent, the date it starts, the notice given for a month-to-month tenancy or a lease that is ending, an optional reason, an optional renewal offer and a date to reply by.","url":"https://getclausery.github.io/templates/rent-increase-letter.html","encodingFormat":"application/vnd.openxmlformats-officedocument.wordprocessingml.document","contentUrl":"https://getclausery.github.io/samples/rent-increase-letter.docx","isAccessibleForFree":true,"inLanguage":"en","genre":"Real estate","dateModified":"2026-10-17","image":["https://getclausery.github.io/assets/previews/rent-increase-letter.jpg","https://getclausery.github.io/assets/og/rent-increase-letter.png"],"thumbnailUrl":"https://getclausery.github.io/assets/previews/rent-increase-letter.jpg","publisher":{"@type":"Organization","name":"Clausery","url":"https://getclausery.github.io/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much notice is needed for a rent increase?","acceptedAnswer":{"@type":"Answer","text":"It depends on where the property is and the type of tenancy. During a fixed-term lease the rent usually cannot rise until the lease ends, unless the lease allows it. For month-to-month tenancies many states require 30 days, and some require more for larger increases: in California, for example, an increase of more than 10% needs 90 days' notice."}},{"@type":"Question","name":"Are there limits on how much I can raise the rent?","acceptedAnswer":{"@type":"Answer","text":"In some places. Some cities have rent control or rent stabilization, and a few states, including California and Oregon, cap yearly increases for many rental homes. Check the rules for your property before you send the letter."}},{"@type":"Question","name":"Do I have to give a reason?","acceptedAnswer":{"@type":"Answer","text":"Usually not, but a short reason, such as higher property taxes or insurance, helps keep a good tenant. The reason paragraph is optional."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Templates","item":"https://getclausery.github.io/templates/"},{"@type":"ListItem","position":3,"name":"Rent increase letter","item":"https://getclausery.github.io/templates/rent-increase-letter.html"}]}</script><style>
 .tpl-doc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; max-height: 38rem; overflow: auto; font-family: Georgia, "Times New Roman", serif; line-height: 1.6; }
@@ -62,7 +62,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -94,7 +94,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <h2 style="margin-top:2.5rem">What is in the rent increase letter</h2>
       <ul><li>Date, tenant names and property address</li><li>Current rent, new rent and start date</li><li>Month-to-month notice, or the end of the lease term</li><li>Optional renewal offer on the same terms</li><li>Optional reason for the increase</li><li>Everything else stays the same</li><li>Optional date to reply by</li><li>Contact details and signature</li></ul>
     </div>
-    <a class="tpl-thumb" href="#full-text"><img src="../assets/previews/rent-increase-letter.jpg" width="680" height="880" loading="lazy" decoding="async" alt="First page of the free rent increase letter template for Word"></a>
+    <a class="tpl-thumb" href="#full-text"><picture><source type="image/webp" srcset="../assets/previews/rent-increase-letter.webp" sizes="100vw"><img src="../assets/previews/rent-increase-letter.jpg" width="680" height="880" alt="First page of the free rent increase letter template for Word" loading="eager" decoding="async" fetchpriority="high"></picture></a>
   </div>
 
   <h2 style="margin-top:2.5rem" id="full-text">Read the full template</h2>
@@ -145,6 +145,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

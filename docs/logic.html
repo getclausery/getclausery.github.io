@@ -29,15 +29,15 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Docs","item":"https://getclausery.github.io/docs/"},{"@type":"ListItem","position":3,"name":"Logic & calculations","item":"https://getclausery.github.io/docs/logic.html"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://getclausery.github.io/docs/logic.html#webpage","url":"https://getclausery.github.io/docs/logic.html","name":"Logic & calculations","description":"The Clausery expression language: operators, functions for text, numbers, money and dates, and how to use it in show-when rules and computed fields.","inLanguage":"en-GB","isPartOf":{"@id":"https://getclausery.github.io/#website"},"dateModified":"2026-10-01"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Docs","item":"https://getclausery.github.io/docs/"},{"@type":"ListItem","position":3,"name":"Logic & calculations","item":"https://getclausery.github.io/docs/logic.html"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://getclausery.github.io/docs/logic.html#webpage","url":"https://getclausery.github.io/docs/logic.html","name":"Logic & calculations","description":"The Clausery expression language: operators, functions for text, numbers, money and dates, and how to use it in show-when rules and computed fields.","inLanguage":"en-GB","isPartOf":{"@id":"https://getclausery.github.io/#website"},"dateModified":"2026-10-17"}</script>
 </head>
 <body>
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -95,7 +95,7 @@ parties_list       join(parties.name, ", ")</code></pre>
 <h2>Computed conditions</h2>
 <p>A section can be controlled by an expression instead of a checkbox. Select the yes/no question created for the section, change its type to <em>Computed</em>, and enter for example <code>salary &gt; 100000 and is_executive</code>. The section renders when the expression is true.</p>
 <h2>Errors</h2>
-<p>Mistyped expressions are flagged in the designer with the position of the problem. At interview time, an expression that cannot be evaluated shows an error under its field and renders blank; it never blocks generation.</p></article></div></main>
+<p>Mistyped expressions are flagged in the designer with the position of the problem. At interview time, an expression that cannot be evaluated shows an error under its field and renders blank; it never blocks generation.</p><p class="docs-cta" style="margin-top:2.5rem"><a class="btn btn-primary" href="../app/">Open Clausery</a> <a class="btn" href="../templates/">Browse free templates</a></p></article></div></main>
 <footer class="site-footer">
   <div class="wrap">
     <div>
@@ -122,6 +122,7 @@ parties_list       join(parties.name, ", ")</code></pre>
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

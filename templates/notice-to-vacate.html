@@ -29,7 +29,7 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"DigitalDocument","name":"Free 30-day notice to vacate letter template (Word)","description":"A tenant's written notice to the landlord that they are moving out: the move-out date, whether the lease is ending or how many days' notice is given, optional co-tenants, a request for a move-out inspection, returning keys, and where to send the security deposit.","url":"https://getclausery.github.io/templates/notice-to-vacate.html","encodingFormat":"application/vnd.openxmlformats-officedocument.wordprocessingml.document","contentUrl":"https://getclausery.github.io/samples/notice-to-vacate.docx","isAccessibleForFree":true,"inLanguage":"en","genre":"Real estate","dateModified":"2026-10-17","image":["https://getclausery.github.io/assets/previews/notice-to-vacate.jpg","https://getclausery.github.io/assets/og/notice-to-vacate.png"],"thumbnailUrl":"https://getclausery.github.io/assets/previews/notice-to-vacate.jpg","publisher":{"@type":"Organization","name":"Clausery","url":"https://getclausery.github.io/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much notice does a tenant have to give?","acceptedAnswer":{"@type":"Answer","text":"Whatever the lease says. For a month-to-month tenancy, many US states require at least 30 days or one full rental period, and some count the notice from the next rent due date. Check your lease and your state or city rules before you send it."}},{"@type":"Question","name":"How should I deliver the notice?","acceptedAnswer":{"@type":"Answer","text":"In the way the lease says notices must be given. If it does not say, hand it over or send it by a method with proof of delivery, such as certified mail, and keep a copy. Some leases also accept email."}},{"@type":"Question","name":"Is this the same as an eviction notice?","acceptedAnswer":{"@type":"Answer","text":"No. This letter is from a tenant who is choosing to leave. A landlord who wants to end a tenancy usually has to use a formal notice with wording and timing set by law, so do not use this letter for that."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Templates","item":"https://getclausery.github.io/templates/"},{"@type":"ListItem","position":3,"name":"Notice to vacate (tenant)","item":"https://getclausery.github.io/templates/notice-to-vacate.html"}]}</script><style>
 .tpl-doc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; max-height: 38rem; overflow: auto; font-family: Georgia, "Times New Roman", serif; line-height: 1.6; }
@@ -62,7 +62,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -94,7 +94,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <h2 style="margin-top:2.5rem">What is in the notice to vacate (tenant)</h2>
       <ul><li>Date, landlord and property address</li><li>Move-out date</li><li>End of lease, or the number of days' notice given</li><li>Optional co-tenants who sign too</li><li>Rent paid up to the move-out date</li><li>Optional request for a move-out inspection</li><li>Keys and other access devices returned</li><li>Security deposit amount and forwarding address</li><li>Contact details and signatures</li></ul>
     </div>
-    <a class="tpl-thumb" href="#full-text"><img src="../assets/previews/notice-to-vacate.jpg" width="680" height="880" loading="lazy" decoding="async" alt="First page of the free notice to vacate (tenant) template for Word"></a>
+    <a class="tpl-thumb" href="#full-text"><picture><source type="image/webp" srcset="../assets/previews/notice-to-vacate.webp" sizes="100vw"><img src="../assets/previews/notice-to-vacate.jpg" width="680" height="880" alt="First page of the free notice to vacate (tenant) template for Word" loading="eager" decoding="async" fetchpriority="high"></picture></a>
   </div>
 
   <h2 style="margin-top:2.5rem" id="full-text">Read the full template</h2>
@@ -145,6 +145,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

@@ -29,7 +29,7 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"DigitalDocument","name":"Free non-compete agreement template (Word)","description":"A non-compete agreement between an employer and an employee: the role, what the employee receives for agreeing, a restricted period, area and type of competing business, optional pay while the restriction lasts, notice to a new employer, and a clause that narrows the restriction wherever local law limits it.","url":"https://getclausery.github.io/templates/non-compete-agreement.html","encodingFormat":"application/vnd.openxmlformats-officedocument.wordprocessingml.document","contentUrl":"https://getclausery.github.io/samples/non-compete-agreement.docx","isAccessibleForFree":true,"inLanguage":"en","genre":"Legal","dateModified":"2026-10-17","image":["https://getclausery.github.io/assets/previews/non-compete-agreement.jpg","https://getclausery.github.io/assets/og/non-compete-agreement.png"],"thumbnailUrl":"https://getclausery.github.io/assets/previews/non-compete-agreement.jpg","publisher":{"@type":"Organization","name":"Clausery","url":"https://getclausery.github.io/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are non-compete agreements enforceable?","acceptedAnswer":{"@type":"Answer","text":"It depends on the state. California, Minnesota, North Dakota and Oklahoma ban most employee non-competes, and many other states limit them, for example by salary level. Where they are allowed, courts usually enforce only restrictions that protect a real business interest and are reasonable in time, area and scope."}},{"@type":"Question","name":"What happened to the FTC ban on non-competes?","acceptedAnswer":{"@type":"Answer","text":"The Federal Trade Commission adopted a rule banning most non-competes in 2024, but a federal court blocked it, and in September 2025 the FTC dropped its defence of the rule. State law still decides whether a non-compete can be enforced, and the FTC can still challenge particular agreements."}},{"@type":"Question","name":"Is a non-solicitation agreement a better choice?","acceptedAnswer":{"@type":"Answer","text":"Often. A non-solicitation agreement stops someone poaching your customers or staff without stopping them working in their field, so courts and state laws are usually more willing to enforce it. See the free non-solicitation agreement."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Templates","item":"https://getclausery.github.io/templates/"},{"@type":"ListItem","position":3,"name":"Non-compete agreement","item":"https://getclausery.github.io/templates/non-compete-agreement.html"}]}</script><style>
 .tpl-doc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; max-height: 38rem; overflow: auto; font-family: Georgia, "Times New Roman", serif; line-height: 1.6; }
@@ -62,7 +62,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -94,7 +94,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <h2 style="margin-top:2.5rem">What is in the non-compete agreement</h2>
       <ul><li>Parties, role and start date</li><li>Consideration: new hire, or a benefit for a current employee</li><li>Restricted period, geographic area and competing business</li><li>Exceptions for small investments and non-competing roles</li><li>Optional pay during the restriction</li><li>Optional notice to a new employer</li><li>Narrowing where local law limits non-competes</li><li>Remedies and governing law</li></ul>
     </div>
-    <a class="tpl-thumb" href="#full-text"><img src="../assets/previews/non-compete-agreement.jpg" width="680" height="880" loading="lazy" decoding="async" alt="First page of the free non-compete agreement template for Word"></a>
+    <a class="tpl-thumb" href="#full-text"><picture><source type="image/webp" srcset="../assets/previews/non-compete-agreement.webp" sizes="100vw"><img src="../assets/previews/non-compete-agreement.jpg" width="680" height="880" alt="First page of the free non-compete agreement template for Word" loading="eager" decoding="async" fetchpriority="high"></picture></a>
   </div>
 
   <h2 style="margin-top:2.5rem" id="full-text">Read the full template</h2>
@@ -146,6 +146,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

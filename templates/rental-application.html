@@ -29,7 +29,7 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"DigitalDocument","name":"Free rental application form template (Word)","description":"An application for a rental home: the property and rent, any application fee, the applicant's contact details, current and previous landlords, employer and income, other occupants, pets, vehicles, references, consent to screening and a fair housing statement.","url":"https://getclausery.github.io/templates/rental-application.html","encodingFormat":"application/vnd.openxmlformats-officedocument.wordprocessingml.document","contentUrl":"https://getclausery.github.io/samples/rental-application.docx","isAccessibleForFree":true,"inLanguage":"en","genre":"Real estate","dateModified":"2026-10-17","image":["https://getclausery.github.io/assets/previews/rental-application.jpg","https://getclausery.github.io/assets/og/rental-application.png"],"thumbnailUrl":"https://getclausery.github.io/assets/previews/rental-application.jpg","publisher":{"@type":"Organization","name":"Clausery","url":"https://getclausery.github.io/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What can I ask on a rental application?","acceptedAnswer":{"@type":"Answer","text":"Identity, rental history, income and references are standard. Do not ask about race, religion, national origin, sex, disability, familial status or any other protected characteristic. Some states and cities also limit questions about criminal records, eviction records or immigration status, so check the rules where the property is."}},{"@type":"Question","name":"Why is there no Social Security number field?","acceptedAnswer":{"@type":"Answer","text":"Screening companies usually collect it directly from the applicant when they run a credit check, so it does not need to sit in a document on your computer. If you do collect it, store it securely and delete it when you no longer need it."}},{"@type":"Question","name":"How much can I charge for an application fee?","acceptedAnswer":{"@type":"Answer","text":"It depends on the state. Some cap the fee or limit it to the actual cost of screening, and some require a refund of any part not used. The fee paragraph is optional, and you can switch it off."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Templates","item":"https://getclausery.github.io/templates/"},{"@type":"ListItem","position":3,"name":"Rental application","item":"https://getclausery.github.io/templates/rental-application.html"}]}</script><style>
 .tpl-doc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; max-height: 38rem; overflow: auto; font-family: Georgia, "Times New Roman", serif; line-height: 1.6; }
@@ -62,7 +62,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -94,7 +94,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <h2 style="margin-top:2.5rem">What is in the rental application</h2>
       <ul><li>Property, rent and move-in date</li><li>Optional application fee</li><li>Applicant and contact details</li><li>Current and optional previous address and landlord</li><li>Employer, position and monthly income, plus other income</li><li>Other occupants</li><li>Pets and vehicles, with a note on assistance animals</li><li>References</li><li>Consent to verify and screen</li><li>Fair housing statement and signature</li></ul>
     </div>
-    <a class="tpl-thumb" href="#full-text"><img src="../assets/previews/rental-application.jpg" width="680" height="880" loading="lazy" decoding="async" alt="First page of the free rental application template for Word"></a>
+    <a class="tpl-thumb" href="#full-text"><picture><source type="image/webp" srcset="../assets/previews/rental-application.webp" sizes="100vw"><img src="../assets/previews/rental-application.jpg" width="680" height="880" alt="First page of the free rental application template for Word" loading="eager" decoding="async" fetchpriority="high"></picture></a>
   </div>
 
   <h2 style="margin-top:2.5rem" id="full-text">Read the full template</h2>
@@ -144,6 +144,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>

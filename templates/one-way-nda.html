@@ -29,7 +29,7 @@
 <link rel="manifest" href="../app/manifest.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="stylesheet" href="../site.css">
-<script src="../app/theme.js"></script>
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"DigitalDocument","name":"Free one-way NDA template (unilateral NDA, Word)","description":"A unilateral non-disclosure agreement for when only one side shares confidential information: pitching an idea, hiring a contractor, showing a prototype or sharing financials with a potential buyer.","url":"https://getclausery.github.io/templates/one-way-nda.html","encodingFormat":"application/vnd.openxmlformats-officedocument.wordprocessingml.document","contentUrl":"https://getclausery.github.io/samples/one-way-nda.docx","isAccessibleForFree":true,"inLanguage":"en","genre":"Legal","dateModified":"2026-10-17","image":["https://getclausery.github.io/assets/previews/one-way-nda.jpg","https://getclausery.github.io/assets/og/one-way-nda.png"],"thumbnailUrl":"https://getclausery.github.io/assets/previews/one-way-nda.jpg","publisher":{"@type":"Organization","name":"Clausery","url":"https://getclausery.github.io/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When should I use a one-way NDA instead of a mutual one?","acceptedAnswer":{"@type":"Answer","text":"Use a one-way NDA when only you are sharing confidential information. If both sides will share, use the mutual NDA template."}},{"@type":"Question","name":"How long should confidentiality last?","acceptedAnswer":{"@type":"Answer","text":"Two to five years is common for business information; trade secrets are often protected for as long as they remain secret. You choose the number of years."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Templates","item":"https://getclausery.github.io/templates/"},{"@type":"ListItem","position":3,"name":"One-way NDA","item":"https://getclausery.github.io/templates/one-way-nda.html"}]}</script><style>
 .tpl-doc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; max-height: 38rem; overflow: auto; font-family: Georgia, "Times New Roman", serif; line-height: 1.6; }
@@ -62,7 +62,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30"> Clausery</a>
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Site">
       <a href="../invoice-templates/">Invoices</a>
@@ -94,7 +94,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <h2 style="margin-top:2.5rem">What is in the one-way NDA</h2>
       <ul><li>Disclosing and receiving party</li><li>Purpose of the disclosure</li><li>What counts as confidential, with standard exclusions</li><li>Use, disclosure and care obligations</li><li>Return or destruction, with optional written confirmation</li><li>Term, with trade secrets protected for as long as they stay secret</li><li>No licence</li><li>Governing law and signatures</li></ul>
     </div>
-    <a class="tpl-thumb" href="#full-text"><img src="../assets/previews/one-way-nda.jpg" width="680" height="880" loading="lazy" decoding="async" alt="First page of the free one-way NDA template for Word"></a>
+    <a class="tpl-thumb" href="#full-text"><picture><source type="image/webp" srcset="../assets/previews/one-way-nda.webp" sizes="100vw"><img src="../assets/previews/one-way-nda.jpg" width="680" height="880" alt="First page of the free one-way NDA template for Word" loading="eager" decoding="async" fetchpriority="high"></picture></a>
   </div>
 
   <h2 style="margin-top:2.5rem" id="full-text">Read the full template</h2>
@@ -147,6 +147,7 @@ tr.tpl-alt td { background: var(--warn-soft); }
       <a href="../clauses/">Clause library</a>
       <a href="../free-tools/">Free tools</a>
       <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
       <a href="../for/law-firms.html">For law firms</a>
       <a href="../for/hr-teams.html">For HR teams</a>
       <a href="../for/consultants.html">For consultants</a>
