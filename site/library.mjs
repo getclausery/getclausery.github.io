@@ -627,11 +627,6 @@ const THUMB_CSS = `<style>
 .tpl-thumb img { display: block; width: 100%; height: auto; }
 @media (max-width: 40rem) { .tpl-overview { grid-template-columns: 1fr; gap: 0; } .tpl-thumb { max-width: 15rem; margin-top: .5rem; } }
 </style>`;
-const COMMON_FAQ = [
-  ['Is it really free?', 'Yes. The download is free, and filling it in with the Clausery app is free too, with unlimited documents. Library templates never count towards a plan limit, and no account or card is needed.'],
-  ['Is my information uploaded anywhere?', 'No. Clausery runs entirely in your browser. Your answers and the finished document are created and stored on your own device.'],
-  ['Is this legal advice?', 'No. These are general samples. Laws differ between countries and states, so have the wording reviewed for your situation before you rely on it.'],
-];
 
 // The library index groups templates under these headings, in this order.
 // The download-all pack, built by tools/make-pack.mjs from LIB, grouped the same way as the index page.
@@ -707,7 +702,7 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-label
   },
   ...LIB.map((t) => {
     const qs = questionsFor(t.file);
-    const faq = [...t.faq, ...COMMON_FAQ];
+    const faq = t.faq;
     return {
       path: `templates/${t.slug}.html`, title: t.title, ogImage: `assets/og/${t.slug}.png`,
       description: t.description || fitSnippet(t.intro, { lead: `Free ${lowerFirst(t.name)} template for Word.`, tail: 'Fill it in online or download the .docx, free.' }),
@@ -723,7 +718,7 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-label
   </div>
   ${calculatedFor(t.slug).length ? `<p class="small"><strong>Does the maths for you:</strong> fill it in online and the ${esc(andList(calculatedFor(t.slug).map(lowerFirst)))} ${calculatedFor(t.slug).length > 1 ? 'are' : 'is'} calculated as you type.</p>
   ` : ''}${reuseFor(t.slug) ? `<p class="small"><strong>Remembers you:</strong> ${esc(reuseFor(t.slug))}</p>
-  ` : ''}<p class="small muted">No sign-up. Your answers stay in your browser. <strong>Who it is for:</strong> ${esc(t.who)}</p>
+  ` : ''}<p class="small muted">Free, with unlimited documents and no sign-up. Your answers stay in your browser. <strong>Who it is for:</strong> ${esc(t.who)}</p>
   <p class="small muted">Updated <time datetime="${LASTMOD}">${LASTMOD_LONG}</time> · Word (.docx) · Free to use and adapt</p>
   <!--nav--><p class="small muted">Need more than one? <a href="${rel}samples/${PACK_FILE}" download>Download all ${LIB.length} templates</a> as one .zip file.</p><!--/nav-->
 
@@ -745,12 +740,6 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-label
     ${qs.map((q) => `<tr><td>${esc(q.label)}${q.children.length ? `<div class="small muted">For each item: ${esc(q.children.join(', '))}</div>` : ''}</td><td>${esc(q.kind)}</td><td class="small">${q.whenText ? esc(q.whenText) : q.when ? `<code>${esc(q.when)}</code>` : 'Always'}</td></tr>`).join('')}
   </tbody></table></div>
 
-  <h2 style="margin-top:2.5rem">How to use it</h2>
-  <ol class="steps steps-compact">
-    <li><h3>Open it</h3><p>Click <em>Fill it in now</em>. The template opens in Clausery with its questionnaire ready.</p></li>
-    <li><h3>Answer the questions</h3><p>Work through the sections. Drafts save as you type, on your device.</p></li>
-    <li><h3>Download the document</h3><p>Get a finished Word file with your formatting intact, or print it to PDF.</p></li>
-  </ol>
   <p>Prefer to start from your own wording? Download the Word file, edit it, keep the <code>{tags}</code>, and upload it to Clausery. See the <a href="${rel}docs/templates.html">template syntax</a>.</p>
 
   <h2 style="margin-top:2.5rem">Questions</h2>
@@ -764,8 +753,7 @@ ${['quote', 'payment-receipt', 'credit-note'].includes(t.slug) ? `<!--nav--><p s
 ` : ''}${TOOL_FOR[t.slug] ? `  <p><strong>Free tool:</strong> <a href="${rel}free-tools/${TOOL_FOR[t.slug][0]}.html">${esc(TOOL_FOR[t.slug][1])}</a></p>
 ` : ''}<!--nav-->${['invoice', 'payment-reminder-letter', 'payment-receipt'].includes(t.slug) ? `<p>Ready to write the message? Use the <a href="${rel}guides/invoice-email-template.html">invoice email generator with sending, reminder and payment acknowledgement templates</a>.</p>` : ''}  <h2 style="margin-top:2.5rem">Related templates</h2>
   <div class="grid grid-3 related-cards">${related(t).map((x) => `<a class="feature" href="${rel}templates/${x.slug}.html"><h3>${esc(x.name)}</h3><p>${esc(cardLine(x))}</p></a>`).join('')}</div>
-  <h2 style="margin-top:2.5rem">All ${LIB.length} free templates</h2>
-  <div class="cat-lists tight">${CATEGORY_ORDER.map(([c, label]) => `<div><h3>${label}</h3><ul class="link-list">${LIB.filter((x) => x.category === c && x.slug !== t.slug).map((x) => `<li><a href="${rel}templates/${x.slug}.html">${esc(x.name)}</a></li>`).join('')}</ul></div>`).join('')}</div><!--/nav-->
+  <p><a href="${rel}templates/">Browse all ${LIB.length} free templates by category</a></p><!--/nav-->
   <p class="small muted" style="margin-top:2rem">This template is a general sample and not legal advice. Laws vary by jurisdiction; have it reviewed before use.</p>
 </div></section>`,
     };
