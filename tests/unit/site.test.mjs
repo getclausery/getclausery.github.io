@@ -41,12 +41,25 @@ test('template pages describe the template as a free Word document with a modifi
   }
 });
 
-test('guides are modified on or after they were published, and say "Updated" only when they changed', () => {
+test('guides have consistent dates and the four template-gap guides provide substantial, linked advice', async () => {
   for (const f of globSync('guides/*.html').filter((x) => !x.endsWith('index.html'))) {
     const page = html(f);
     const a = ld(page).find((x) => x['@type'] === 'Article');
     assert.ok(a.dateModified >= a.datePublished, f);
     assert.equal(/· Updated <time/.test(page), a.dateModified !== a.datePublished, f);
+  }
+  const { HIGH_INTENT_GUIDES } = await import('../../site/data/high-intent-guides.mjs');
+  const templates = ['independent-contractor-agreement', 'promissory-note', 'sublease-agreement', 'purchase-order'];
+  for (const [i, g] of HIGH_INTENT_GUIDES.entries()) {
+    const page = html(`guides/${g.slug}.html`);
+    const main = page.match(/<main[\s\S]*?<\/main>/)[0].replace(/<!--nav-->[\s\S]*?<!--\/nav-->/g, '').replace(/<nav[\s\S]*?<\/nav>/g, '');
+    const words = main.replace(/<[^>]+>/g, ' ').trim().split(/\s+/).length;
+    assert.ok(words >= 1000 && words <= 1250, `${g.slug}: ${words} editorial words`);
+    assert.ok(g.faq.length >= 3, g.slug);
+    assert.match(page, /<pre/, g.slug);
+    assert.equal(ld(page).find((x) => x['@type'] === 'Article').datePublished, g.published, g.slug);
+    assert.ok(page.includes(`../templates/${templates[i]}.html`), g.slug);
+    assert.ok(html(`templates/${templates[i]}.html`).includes(`../guides/${g.slug}.html`), g.slug);
   }
 });
 
