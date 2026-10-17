@@ -63,6 +63,8 @@ clausery/
 
 ## Development
 
+Use Node 22 or newer: the build and check tools use `fs.globSync`.
+
 ```bash
 cd clausery
 npm ci
