@@ -63,13 +63,16 @@ clausery/
 
 ## Development
 
+Use Node 22 or newer: the build and check tools use `fs.globSync`.
+
 ```bash
 cd clausery
 npm ci
 npm run build        # vendor bundle, samples, site pages, sitemap, release stamp
 npm run serve        # http://127.0.0.1:4173/
 npm run verify       # lint, every static SEO check, and unit tests
-npm run check:seo    # canonical, robots, og:url, lastmod, unique titles, crawl depth
+npm run check:seo    # canonical, robots, social-card bytes/dimensions, lastmod, unique titles, crawl depth, editorial orphans
+npm run check:feeds  # exact Atom coverage, titles/dates, indexable local llms.txt links
 npm run check:intent # search-intent coverage, unique queries, cluster hubs, next steps
 npm run check:schema # JSON-LD required fields, @ids, dates, breadcrumbs, visible FAQs
 npm run check:sitemap # section sitemaps partition sitemap.xml; image entries resolve

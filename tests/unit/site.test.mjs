@@ -8,7 +8,7 @@ const dates = JSON.parse(readFileSync('site/data/page-dates.json', 'utf8'));
 const html = (f) => readFileSync(f, 'utf8');
 const ld = (page) => [...page.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(([, j]) => JSON.parse(j));
 
-test('every sitemap URL has a real last-modified date from page-dates.json, none in the future', () => {
+test('sitemap and syndication dates agree, and malformed feed entries or llms links are rejected', async () => {
   // A page dated in the author's time zone can be a day ahead of UTC, where CI runs.
   const today = new Date(Date.now() + 864e5).toISOString().slice(0, 10);
   for (const [path, { date, hash }] of Object.entries(dates)) {
@@ -19,6 +19,29 @@ test('every sitemap URL has a real last-modified date from page-dates.json, none
   const urls = [...html('sitemap.xml').matchAll(/<url><loc>([^<]+)<\/loc>(<lastmod>[^<]+<\/lastmod>)?/g)];
   assert.ok(urls.length > 150);
   for (const [, loc, lastmod] of urls) assert.ok(lastmod, `no lastmod for ${loc}`);
+
+  const { checkFeeds } = await import('../../tools/check-feeds.mjs');
+  const feedXml = html('feed.xml');
+  const llmsText = html('llms.txt');
+  const result = checkFeeds();
+  assert.deepEqual(result.failures, []);
+  assert.equal(result.entries, result.guides + result.clauses);
+  const first = feedXml.match(/<entry>[\s\S]*?<\/entry>/)[0];
+  const rejectedFeed = (entry) => checkFeeds({ feedXml: feedXml.replace(first, entry) }).failures.join('\n');
+  assert.match(rejectedFeed(''), /missing from feed/);
+  assert.match(rejectedFeed(first + first), /duplicate entry/);
+  assert.match(rejectedFeed(first.replace(/<title>[^<]*<\/title>/, '<title>Not the page title</title>')), /title must match/);
+  assert.match(rejectedFeed(first.replace(/<published>[^<]*<\/published>/, '<published>2000-01-01T00:00:00Z</published>')), /published must match/);
+  assert.match(rejectedFeed(first.replace(/<updated>[^<]*<\/updated>/, '<updated>2000-01-01T00:00:00Z</updated>')), /updated must match/);
+  assert.match(rejectedFeed(first.replaceAll(first.match(/<id>([^<]+)<\/id>/)[1], 'https://getclausery.github.io/templates/invoice.html')), /not a guide or clause page/);
+  assert.match(checkFeeds({ feedXml: feedXml.replace(/<updated>[^<]*<\/updated>/, '<updated>2000-01-01T00:00:00Z</updated>') }).failures.join('\n'), /feed updated must be the latest/);
+  for (const [url, problem] of [
+    ['https://getclausery.github.io/app/', /noindex page/],
+    ['https://getclausery.github.io/made-with/', /noindex page/],
+    ['https://getclausery.github.io/not-a-real-page.html', /no generated file/],
+    ['https://example.org/', /absolute same-site URL/],
+    ['https://getclausery.github.io/', /duplicate link/],
+  ]) assert.match(checkFeeds({ llmsText: llmsText + `\n- [Bad link](${url})\n` }).failures.join('\n'), problem, url);
 });
 
 test('no page is left with a date placeholder or a link to the unregistered clausery.app domain', () => {
@@ -41,12 +64,25 @@ test('template pages describe the template as a free Word document with a modifi
   }
 });
 
-test('guides are modified on or after they were published, and say "Updated" only when they changed', () => {
+test('guides have consistent dates and the four template-gap guides provide substantial, linked advice', async () => {
   for (const f of globSync('guides/*.html').filter((x) => !x.endsWith('index.html'))) {
     const page = html(f);
     const a = ld(page).find((x) => x['@type'] === 'Article');
     assert.ok(a.dateModified >= a.datePublished, f);
     assert.equal(/· Updated <time/.test(page), a.dateModified !== a.datePublished, f);
+  }
+  const { HIGH_INTENT_GUIDES } = await import('../../site/data/high-intent-guides.mjs');
+  const templates = ['independent-contractor-agreement', 'promissory-note', 'sublease-agreement', 'purchase-order'];
+  for (const [i, g] of HIGH_INTENT_GUIDES.entries()) {
+    const page = html(`guides/${g.slug}.html`);
+    const main = page.match(/<main[\s\S]*?<\/main>/)[0].replace(/<!--nav-->[\s\S]*?<!--\/nav-->/g, '').replace(/<nav[\s\S]*?<\/nav>/g, '');
+    const words = main.replace(/<[^>]+>/g, ' ').trim().split(/\s+/).length;
+    assert.ok(words >= 1000 && words <= 1250, `${g.slug}: ${words} editorial words`);
+    assert.ok(g.faq.length >= 3, g.slug);
+    assert.match(page, /<pre/, g.slug);
+    assert.equal(ld(page).find((x) => x['@type'] === 'Article').datePublished, g.published, g.slug);
+    assert.ok(page.includes(`../templates/${templates[i]}.html`), g.slug);
+    assert.ok(html(`templates/${templates[i]}.html`).includes(`../guides/${g.slug}.html`), g.slug);
   }
 });
 
@@ -162,7 +198,7 @@ test('the press kit describes the live checkout', async () => {
   assert.equal(/hosted checkout is not yet linked/.test(press), !ONLINE_KEYS);
 });
 
-test('every HTML page has exactly one robots directive, index iff it is in sitemap.xml', () => {
+test('robots match the sitemap and editorial links cannot be replaced by sitewide navigation', async () => {
   const indexed = new Set([...html('sitemap.xml').matchAll(/<loc>([^<]+)<\/loc>/g)].map(([, url]) => new URL(url).pathname));
   const files = globSync('**/*.html', { exclude: (x) => /^(node_modules|test-results|playwright-report)/.test(x) });
   for (const f of files) {
@@ -173,13 +209,45 @@ test('every HTML page has exactly one robots directive, index iff it is in sitem
     const path = '/' + f.replace(/index\.html$/, '');
     assert.equal(!/\bnoindex\b/i.test(robots[0][1]), indexed.has(path), `${f}: robots and sitemap disagree`);
   }
+  const { editorialLinkGraph } = await import('../../tools/editorial-links.mjs');
+  const base = 'https://getclausery.github.io/';
+  const documents = new Map([...indexed].map((path) => [new URL(path, base).href, html(path === '/' || path.endsWith('/') ? path.slice(1) + 'index.html' : path.slice(1))]));
+  const graph = editorialLinkGraph(documents);
+  for (const [url, sources] of graph.incoming) if (url !== base) assert.ok(sources.size > 0, `${url}: editorial orphan`);
+  const home = 'https://example.test/';
+  const fixtures = new Map([
+    [home, `<header><a href="orphan.html">Header</a></header><main>
+      <nav><a href="orphan.html">Breadcrumb or docs nav</a></nav>
+      <!--nav--><p><a href="orphan.html">Automatic related list</a></p><!--/nav-->
+      <!-- <a href="orphan.html">Commented out</a> -->
+      <script>const example = '<a href="orphan.html">Not content</a>';</script>
+      <template><a href="orphan.html">Inert template</a></template>
+      <p><a href="one.html">Useful content link</a><a href="one.html#again">Same source</a></p>
+      <a href="#self">Self</a><a href="https://other.example/">External</a>
+    </main><footer><a href="orphan.html">Footer</a></footer>`],
+    [home + 'one.html', '<main><p><a href="two.html?view=full&amp;lang=en#section">Next page</a></p></main>'],
+    [home + 'two.html', "<main><a href='one.html'>Back</a></main>"],
+    [home + 'orphan.html', '<main><a href="#self">Not an inbound link</a></main>'],
+  ]);
+  const fixtureGraph = editorialLinkGraph(fixtures);
+  assert.deepEqual([...fixtureGraph.outgoing.get(home)], [home + 'one.html']);
+  assert.deepEqual([...fixtureGraph.incoming.get(home + 'one.html')], [home, home + 'two.html']);
+  assert.deepEqual([...fixtureGraph.incoming.get(home + 'two.html')], [home + 'one.html']);
+  assert.equal(fixtureGraph.incoming.get(home + 'orphan.html').size, 0);
 });
 
-test('every Open Graph share image is a 1200 by 630 PNG', () => {
+test('share cards are small 1200 by 630 PNGs, unique per template, and invalid headers are rejected', async () => {
+  const { socialCardProblems, SOCIAL_CARD_MAX_BYTES } = await import('../../tools/social-card.mjs');
   const images = new Set();
+  const templateImages = new Set();
   for (const f of globSync('**/*.html', { exclude: (x) => /^(node_modules|app|free-tools\/embed|test-results|playwright-report)/.test(x) })) {
     const src = html(f).match(/<meta property="og:image" content="https:\/\/getclausery\.github\.io\/([^"]+)"/)?.[1];
     if (src) images.add(src);
+    if (/^templates\/[^/]+\.html$/.test(f) && f !== 'templates/index.html') {
+      assert.ok(src && src !== 'assets/og.png', f);
+      assert.ok(!templateImages.has(src), `${f}: shared template card`);
+      templateImages.add(src);
+    }
   }
   assert.ok(images.size > 1);
   for (const image of images) {
@@ -187,5 +255,24 @@ test('every Open Graph share image is a 1200 by 630 PNG', () => {
     assert.equal(png.subarray(1, 4).toString(), 'PNG', image);
     assert.equal(png.readUInt32BE(16), 1200, `${image}: width`);
     assert.equal(png.readUInt32BE(20), 630, `${image}: height`);
+    assert.deepEqual(socialCardProblems(png), [], image);
   }
+  assert.equal(templateImages.size, LIB.length);
+  const valid = readFileSync('assets/og.png');
+  const badWidth = Buffer.from(valid);
+  badWidth.writeUInt32BE(1199, 16);
+  assert.match(socialCardProblems(badWidth).join(' '), /must be 1200x630/);
+  const badHeight = Buffer.from(valid);
+  badHeight.writeUInt32BE(631, 20);
+  assert.match(socialCardProblems(badHeight).join(' '), /must be 1200x630/);
+  const badSignature = Buffer.from(valid);
+  badSignature[0] = 0;
+  assert.match(socialCardProblems(badSignature).join(' '), /must be a PNG/);
+  const badChunk = Buffer.from(valid);
+  badChunk.write('JUNK', 12, 'ascii');
+  assert.match(socialCardProblems(badChunk).join(' '), /IHDR/);
+  assert.match(socialCardProblems(valid.subarray(0, 24)).join(' '), /complete IHDR/);
+  const oversized = Buffer.alloc(SOCIAL_CARD_MAX_BYTES);
+  valid.copy(oversized);
+  assert.match(socialCardProblems(oversized).join(' '), /must be under 300000/);
 });

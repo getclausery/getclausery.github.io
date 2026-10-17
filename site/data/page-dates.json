@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-10-17",
-  "hash": "d0449df24e3d643e"
+  "hash": "bd3409d2123aa6f0"
  },
  "404.html": {
   "date": "2026-10-17",
@@ -173,7 +173,7 @@
  },
  "docs/": {
   "date": "2026-10-17",
-  "hash": "a03027e6b39424d5"
+  "hash": "5397c879fe7126f1"
  },
  "docs/backups.html": {
   "date": "2026-10-17",
@@ -213,27 +213,27 @@
  },
  "for/": {
   "date": "2026-10-17",
-  "hash": "413aa215f10ee184"
+  "hash": "0777614199b2a445"
  },
  "for/consultants.html": {
   "date": "2026-10-17",
-  "hash": "3788b5716d1dbf64"
+  "hash": "e6e602ff67df3909"
  },
  "for/freelancers.html": {
   "date": "2026-10-17",
-  "hash": "783ed5432ca7ae71"
+  "hash": "279a8c89b1ce07c8"
  },
  "for/hr-teams.html": {
   "date": "2026-10-17",
-  "hash": "95c13df429bd5bd8"
+  "hash": "e496532c68917d44"
  },
  "for/landlords.html": {
   "date": "2026-10-17",
-  "hash": "f5617e7e8c004965"
+  "hash": "e9627d3bf0dd38ab"
  },
  "for/law-firms.html": {
   "date": "2026-10-17",
-  "hash": "3d50c6f7d5862e66"
+  "hash": "ec8b01f3d49ff128"
  },
  "free-tools/": {
   "date": "2026-10-17",
@@ -277,7 +277,7 @@
  },
  "guides/": {
   "date": "2026-10-17",
-  "hash": "339b6691b1d31dee"
+  "hash": "46b116de7e970eed"
  },
  "guides/are-liability-waivers-enforceable.html": {
   "date": "2026-10-17",
@@ -321,7 +321,7 @@
  },
  "guides/how-to-lend-money-to-family.html": {
   "date": "2026-10-17",
-  "hash": "3a566c9a42a34130"
+  "hash": "4331f75e6e55fa72"
  },
  "guides/how-to-return-a-security-deposit.html": {
   "date": "2026-10-17",
@@ -349,7 +349,7 @@
  },
  "guides/how-to-write-a-freelance-contract.html": {
   "date": "2026-10-17",
-  "hash": "5a40a8ae4aa5ea05"
+  "hash": "a4133e4a588c5d31"
  },
  "guides/how-to-write-a-gift-letter-for-a-mortgage.html": {
   "date": "2026-10-17",
@@ -375,6 +375,14 @@
   "date": "2026-10-17",
   "hash": "482716efcefee345"
  },
+ "guides/how-to-write-a-promissory-note.html": {
+  "date": "2026-10-17",
+  "hash": "586b543b4b911dd1"
+ },
+ "guides/how-to-write-a-purchase-order.html": {
+  "date": "2026-10-17",
+  "hash": "2a631857a7f0ac08"
+ },
  "guides/how-to-write-a-reference-letter.html": {
   "date": "2026-10-17",
   "hash": "9ed1d111abe6cbbb"
@@ -391,6 +399,10 @@
   "date": "2026-10-17",
   "hash": "1b9edbb90406847a"
  },
+ "guides/how-to-write-a-sublease-agreement.html": {
+  "date": "2026-10-17",
+  "hash": "c8a2d3b289297033"
+ },
  "guides/how-to-write-a-termination-letter.html": {
   "date": "2026-10-17",
   "hash": "e1e04d2a93637dda"
@@ -406,6 +418,10 @@
  "guides/how-to-write-an-expense-reimbursement-form.html": {
   "date": "2026-10-17",
   "hash": "e4c5f11ee094d4c4"
+ },
+ "guides/how-to-write-an-independent-contractor-agreement.html": {
+  "date": "2026-10-17",
+  "hash": "565403f143aa8ae1"
  },
  "guides/how-to-write-an-invoice.html": {
   "date": "2026-10-17",
@@ -445,7 +461,7 @@
  },
  "guides/quote-vs-estimate-vs-invoice.html": {
   "date": "2026-10-17",
-  "hash": "fc4afcc4bdbfd602"
+  "hash": "d44628c5a3dfac22"
  },
  "guides/repeating-lists-and-tables-in-word.html": {
   "date": "2026-10-17",
@@ -485,7 +501,7 @@
  },
  "guides/what-to-include-in-a-lease-agreement.html": {
   "date": "2026-10-17",
-  "hash": "72c688b6b3b86af8"
+  "hash": "aa8993dd0fb231d7"
  },
  "guides/what-to-include-in-a-partnership-agreement.html": {
   "date": "2026-10-17",
@@ -745,7 +761,7 @@
  },
  "templates/independent-contractor-agreement.html": {
   "date": "2026-10-17",
-  "hash": "bfbdb9d58a0f0037"
+  "hash": "da5214178c7673c0"
  },
  "templates/internship-offer-letter.html": {
   "date": "2026-10-17",
@@ -869,7 +885,7 @@
  },
  "templates/promissory-note.html": {
   "date": "2026-10-17",
-  "hash": "875c2b6cd03476ee"
+  "hash": "c1268b006b41c858"
  },
  "templates/promotion-letter.html": {
   "date": "2026-10-17",
@@ -877,7 +893,7 @@
  },
  "templates/purchase-order.html": {
   "date": "2026-10-17",
-  "hash": "0a33db98a8d303f0"
+  "hash": "30070efa84f68c92"
  },
  "templates/quote.html": {
   "date": "2026-10-17",
@@ -961,7 +977,7 @@
  },
  "templates/sublease-agreement.html": {
   "date": "2026-10-17",
-  "hash": "3d828d2f7c960855"
+  "hash": "9c67060aac7c73ee"
  },
  "templates/tutoring-agreement.html": {
   "date": "2026-10-17",
