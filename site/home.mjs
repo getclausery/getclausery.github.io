@@ -60,6 +60,22 @@ export const pages = [{
   </div>
 </section>
 
+<section class="section section-alt" id="proof">
+  <div class="wrap">
+    <h2>Proof, not adjectives</h2>
+    <p class="lead">Every claim on this site points at something you can open: the code, the release notes, the security write-up and the pricing configuration. Six checks, none of them a customer quote.</p>
+    <div class="grid grid-3" style="margin-top:2rem">
+      <div class="feature"><h3>The code is public</h3><p>The app, the document engine and this website are published on <a href="https://github.com/getclausery" rel="noopener">GitHub</a>, so you can read what actually runs when you press a button.</p></div>
+      <div class="feature"><h3>Every release is logged</h3><p>Each version is listed in the <a href="${rel}changelog.html">changelog</a> with what changed, including the ones that fixed something.</p></div>
+      <div class="feature"><h3>No account, no card</h3><p>All ${LIB.length} templates are free with no sign-up and no time limit. Pro is $${PRICES.pro} per user per month when you want more.</p></div>
+      <div class="feature"><h3>A guarantee, not a promise</h3><p>If it is not right for you, email and ask for a refund within ${REFUND_DAYS} days. No form, and no reason needed.</p></div>
+      <div class="feature"><h3>See what leaves your browser</h3><p>The <a href="${rel}docs/security.html">security overview</a> lists every request the app makes, and the <a href="${rel}legal/privacy.html">privacy policy</a> lists every data flow.</p></div>
+      <div class="feature"><h3>Run it yourself</h3><p>Follow the <a href="${rel}docs/self-hosting.html">self-hosting guide</a> to run a copy on your own domain or intranet, if your policies ask for that.</p></div>
+    </div>
+    <p style="margin-top:1.5rem"><a href="${rel}why-clausery/">Why Clausery: the differences, a decision guide and the proof in one page →</a></p>
+  </div>
+</section>
+
 <section class="section" id="small-business">
   <div class="wrap">
     <h2>Everything a small business sends, ready to fill in</h2>
@@ -160,6 +176,7 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
     </div>
     <p class="small muted" style="margin-top:.75rem">Product features vary. See <a href="${rel}pricing/">Clausery's current plans</a> and confirm the features you need before choosing a tool.</p>
     <p style="margin-top:1rem"><strong>Side-by-side comparisons:</strong> ${COMPETITORS.map((c) => `<a href="${rel}compare/${c.slug}.html">${esc(c.name)} alternative</a>`).join(' · ')} · <a href="${rel}compare/">all comparisons</a></p>
+    <p style="margin-top:.75rem">Not sure which kind of tool you need? <a href="${rel}why-clausery/">Why Clausery</a> starts from the job rather than the product: one table of differences, a decision guide that names the right alternative for each kind of work, and the proof you can check yourself.</p>
   </div>
 </section>
 

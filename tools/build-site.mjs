@@ -143,6 +143,7 @@ Key facts:
 - [Home](${BASE}): what Clausery does and who it is for
 - [About Clausery](${BASE}about/): who maintains the software, its scope and limits
 - [Pricing](${BASE}pricing/): Free, Pro, Team and Enterprise plans
+- [Why Clausery](${BASE}why-clausery/): the difference, a decision guide and links to every comparison
 - [Free business document kit](${BASE}business-document-kit/): six Word templates and instructions, no email signup
 - [Security](${BASE}docs/security.html): how data stays on the device
 - [Documentation](${BASE}docs/): getting started, template syntax, logic, client intake

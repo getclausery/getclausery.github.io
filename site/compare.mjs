@@ -174,6 +174,7 @@ export const pages = [
     <li><strong>A managed client process:</strong> hosted intake, reminders, scheduling, signing and payment collection need their own service.</li>
     <li><strong>Legal expertise or prescribed forms:</strong> a general template does not replace professional advice or required local wording.</li>
   </ul>
+  <p><strong>Not sure which category you need?</strong> <a href="${rel}why-clausery/">Why Clausery</a> starts from the job rather than the product: one table of differences, a decision guide that names the right alternative for each kind of work, and the proof you can check yourself, including the source code, the changelog and the security overview.</p>
 ${GROUPS.map(([g, label]) => `  <h2 style="margin-top:2rem">${esc(label)}</h2>
   <ul>${COMPETITORS.filter((c) => c.group === g).map((c) => `<li><a href="${rel}compare/${c.slug}.html">Clausery vs ${esc(c.name)}</a>: ${esc(c.bestFor)}</li>`).join('')}</ul>`).join('\n')}
   <h2 style="margin-top:2.5rem">Compare the scope and current plan terms</h2>

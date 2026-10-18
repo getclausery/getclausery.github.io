@@ -1,15 +1,15 @@
 {
  "": {
-  "date": "2026-10-17",
-  "hash": "bd3409d2123aa6f0"
+  "date": "2026-10-18",
+  "hash": "73beeee9604123cd"
  },
  "404.html": {
   "date": "2026-10-17",
   "hash": "4bdb412837ef366a"
  },
  "about/": {
-  "date": "2026-10-15",
-  "hash": "6c572fc3a3e386ff"
+  "date": "2026-10-18",
+  "hash": "3e2ea74373177cbc"
  },
  "business-document-kit/": {
   "date": "2026-10-09",
@@ -121,7 +121,7 @@
  },
  "compare/": {
   "date": "2026-10-18",
-  "hash": "7caaaebf85b21b11"
+  "hash": "2d51111544bdbf05"
  },
  "compare/bonsai-alternative.html": {
   "date": "2026-10-18",
@@ -660,8 +660,8 @@
   "hash": "0a557d637e9427ba"
  },
  "pricing/": {
-  "date": "2026-10-15",
-  "hash": "76b30b3565ea89f5"
+  "date": "2026-10-18",
+  "hash": "8f614398e7489305"
  },
  "templates/": {
   "date": "2026-10-17",
@@ -1014,5 +1014,9 @@
  "templates/web-design-contract.html": {
   "date": "2026-10-17",
   "hash": "fb2b763994930997"
+ },
+ "why-clausery/": {
+  "date": "2026-10-18",
+  "hash": "c2f8bfc6804ee695"
  }
 }

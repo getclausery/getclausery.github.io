@@ -180,6 +180,7 @@ export function footer(rel) {
       <h4>Product</h4>
       <a href="${rel}app/">Open the app</a>
       <a href="${rel}pricing/">Pricing</a>
+      <a href="${rel}why-clausery/">Why Clausery</a>
       <a href="${rel}changelog.html">Changelog</a>
       <a href="${rel}docs/self-hosting.html">Self-hosting</a>
       <a href="${rel}press/">Press kit</a>
