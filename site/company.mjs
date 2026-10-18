@@ -42,6 +42,19 @@ export const pages = [
   <li>The code is published on <a href="${REPO_URL}" rel="noopener">GitHub</a>, so anyone can check what it does, and every release is listed in the <a href="${rel}changelog.html">changelog</a>.</li>
   <li>Optional encryption of everything stored in the browser (AES-256-GCM)${ONLINE_KEYS ? ', and license checks that send only the key' : ', and license keys verified offline with a signature'}. See the <a href="${rel}docs/security.html">security overview</a>.</li>
 </ul>
+<h2>Who you are talking to</h2>
+<p>Clausery is an independent project. The site, the app and the document engine are published from one public repository, and every release is listed in the <a href="${rel}changelog.html">changelog</a>, so the history of the project is open rather than summarised for marketing. Support is one email address read by a person, and the <a href="${rel}contact/">contact page</a> says exactly what to put in it. There are no ads, no affiliate links and no tracking cookies.</p>
+<p>That shape is deliberate. A tool that asks you to hand over client files needs a commercial reason to keep them, and this one does not have one: the paid plans sell speed and features, never the contents of your documents. <a href="${rel}why-clausery/">Why Clausery</a> sets out the differences in one place, and each of them points at something you can open.</p>
+<h2>How to check any claim on this site</h2>
+<p>Most software pages ask you to believe them. These are the ways to check instead:</p>
+<ul>
+  <li><strong>Read the source.</strong> The repository holds the app, the document engine, the build that produces this site and the test suite that runs on every pull request. If a claim here is wrong, the code is where the contradiction shows up.</li>
+  <li><strong>Run the checks.</strong> <code>npm ci</code>, <code>npm run build</code> and <code>npm run verify</code> rebuild this site and check it, and the same commands run in CI on every change.</li>
+  <li><strong>Watch the network tab.</strong> Open the browser's developer tools, make a document, and look at what is requested. The <a href="${rel}docs/security.html">security overview</a> explains each request and what it carries.</li>
+  <li><strong>Read the data flows.</strong> The <a href="${rel}legal/privacy.html">privacy policy</a> lists what is sent, to whom and when, in the wording that is live now.</li>
+  <li><strong>Check the prices against the configuration.</strong> The figures on the <a href="${rel}pricing/">pricing page</a> and in the app come from a single configuration file, so a mismatch between the two would be a bug worth reporting.</li>
+  <li><strong>Ask.</strong> If something here is unclear, email. Questions and corrections are welcome, including from people who are not customers.</li>
+</ul>
 <h2>What Clausery is not</h2>
 <p>Clausery is software, not a law firm, and it does not give legal advice. The templates are general samples written in plain English; laws differ between countries and states, so have a document reviewed for your situation before you rely on it.</p>
 <h2>Get in touch</h2>

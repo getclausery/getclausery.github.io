@@ -18,7 +18,7 @@ const dates = existsSync('site/data/page-dates.json') ? JSON.parse(readFileSync(
 const lastmod = Object.fromEntries(Object.entries(dates).map(([path, { date }]) => [`${base}${path}`, date]));
 
 const SECTIONS = ['templates', 'invoice-templates', 'guides', 'clauses', 'free-tools', 'compare', 'docs', 'for', 'company'];   // everything else goes in "pages"
-const COMPANY = (p) => p.startsWith('about/') || p.startsWith('contact/') || p.startsWith('press/') || p.startsWith('legal/') || p === 'changelog.html';
+const COMPANY = (p) => p.startsWith('about/') || p.startsWith('contact/') || p.startsWith('press/') || p.startsWith('legal/') || p.startsWith('why-clausery/') || p === 'changelog.html';
 const sectionOf = (p) => COMPANY(p) ? 'company' : SECTIONS.find((s) => p.startsWith(s + '/')) || 'pages';
 // Template pages carry their preview image in an image sitemap entry: image search can then send people to the page
 // with the download, the questions and the full wording, not to a bare JPEG.

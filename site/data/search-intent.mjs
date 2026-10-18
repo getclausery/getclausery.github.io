@@ -64,6 +64,7 @@ export const SEARCH_INTENT = {
   "compare/lawdepot-alternative.html": ["lawdepot alternative", "commercial", "compare"],
   "compare/pandadoc-alternative.html": ["pandadoc alternative", "commercial", "compare"],
   "compare/rocket-lawyer-alternative.html": ["rocket lawyer alternative", "commercial", "compare"],
+  "why-clausery/": ["why clausery", "commercial", "compare"],
   "contact/": ["contact clausery", "navigational", "company"],
   "docs/": ["clausery getting started", "informational", "docs"],
   "docs/backups.html": ["backups and data", "informational", "docs"],

@@ -23,6 +23,7 @@ Key facts:
 - [Home](https://getclausery.github.io/): what Clausery does and who it is for
 - [About Clausery](https://getclausery.github.io/about/): who maintains the software, its scope and limits
 - [Pricing](https://getclausery.github.io/pricing/): Free, Pro, Team and Enterprise plans
+- [Why Clausery](https://getclausery.github.io/why-clausery/): the difference, a decision guide and links to every comparison
 - [Free business document kit](https://getclausery.github.io/business-document-kit/): six Word templates and instructions, no email signup
 - [Security](https://getclausery.github.io/docs/security.html): how data stays on the device
 - [Documentation](https://getclausery.github.io/docs/): getting started, template syntax, logic, client intake

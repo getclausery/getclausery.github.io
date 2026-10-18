@@ -1,5 +1,8 @@
 import { faqLd, SITE, ONLINE_KEYS } from '../tools/partials.mjs';
 import { CHECKOUT_URLS, KEY_REQUEST_URL, CONTACT_EMAIL, PRICES, YEARLY_MONTHS_FREE, TRIAL_DAYS, REFUND_DAYS, keyRequestUrl, mailto } from '../app/config.js';
+import { PLANS } from '../app/lib/license.js';
+import { FREE_BULK_ROWS } from '../app/lib/bulk.js';
+import { LIB } from './library.mjs';
 
 // The page is built for the checkout setup in app/config.js, so crawlers and visitors without scripts see the right
 // buttons; pricing/checkout.js applies the same config at runtime for deployments that edit it without rebuilding.
@@ -29,6 +32,24 @@ const offer = (name, price, unitText) => ({ '@type': 'Offer', name, price, price
 const plansLd = `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'Clausery', applicationCategory: 'BusinessApplication', operatingSystem: 'Any (web browser)', url: SITE,
   offers: [offer('Free', '0', 'every library template and up to 3 of your own'), offer('Pro, monthly', String(PRICES.pro), 'per user per month'), offer('Pro, yearly', String(PRICES.proYearly), 'per user per year'),
     ...(LIFETIME ? [offer('Pro, lifetime', String(PRICES.lifetime), 'one-time payment per user')] : []), offer('Team, 5 seats', String(PRICES.team), 'per month')] })}</script>`;
+
+// The plan matrix is derived from the same configuration the app uses (PLANS) and the same constants the plan cards
+// read, so a price, a template allowance or a feature flag cannot differ between the table, the cards and the app.
+const ownTemplates = (plan) => (plan.maxTemplates === Infinity ? 'Unlimited' : `Up to ${plan.maxTemplates}`);
+const flag = (on) => (on ? 'Yes' : '—');
+const MATRIX = [
+  ['Price', '$0, no time limit', `$${PRICES.pro} per user per month, or $${PRICES.proYearly} per year`, `$${PRICES.team} per month, 5 seats included`, 'Custom'],
+  [`All ${LIB.length} library templates`, 'Every one', 'Every one', 'Every one', 'Every one'],
+  ['Your own Word templates', ownTemplates(PLANS.free), ownTemplates(PLANS.pro), ownTemplates(PLANS.team), ownTemplates(PLANS.enterprise)],
+  ['Documents from a spreadsheet', `Up to ${FREE_BULK_ROWS}`, flag(PLANS.pro.bulk) === 'Yes' ? 'Unlimited' : '—', 'Unlimited', 'Unlimited'],
+  ['Calculations in your own templates', flag(PLANS.free.computed), flag(PLANS.pro.computed), flag(PLANS.team.computed), flag(PLANS.enterprise.computed)],
+  ['Remove the “Made with Clausery” line', flag(PLANS.free.unbranded), flag(PLANS.pro.unbranded), flag(PLANS.team.unbranded), flag(PLANS.enterprise.unbranded)],
+  ['Encrypted workspace (AES-256-GCM)', flag(PLANS.free.vault), flag(PLANS.pro.vault), flag(PLANS.team.vault), flag(PLANS.enterprise.vault)],
+  ['Client intake forms', flag(PLANS.free.intake), flag(PLANS.pro.intake), flag(PLANS.team.intake), flag(PLANS.enterprise.intake)],
+  ['Template packs', flag(PLANS.free.packs), flag(PLANS.pro.packs), flag(PLANS.team.packs), flag(PLANS.enterprise.packs)],
+  ['Support', 'Email', 'Priority', 'Priority, plus an onboarding call', 'Security documentation and a DPA'],
+  ['Self-hosted on your domain or intranet', '—', '—', '—', 'Yes'],
+];
 
 export const pages = [{
   path: 'pricing/', title: 'Pricing', extraHead: plansLd + faqLd(FAQ),
@@ -115,6 +136,14 @@ export const pages = [{
         <a class="btn" href="${rel}contact/">Talk to us</a>
       </div>
     </div>
+    <h2 style="margin-top:2.5rem">Compare the plans side by side</h2>
+    <p class="lead" style="margin-bottom:1.5rem">The table is generated from the same plan configuration the app uses, so it cannot drift from the plan cards above.</p>
+    <div class="table-wrap" tabindex="0"><table class="compare">
+    <thead><tr><th scope="col">&nbsp;</th><th scope="col">Free</th><th scope="col">Pro</th><th scope="col">Team</th><th scope="col">Enterprise</th></tr></thead>
+    <tbody>
+${MATRIX.map(([label, ...cells]) => `<tr><th scope="row">${label}</th>${cells.map((c) => `<td>${c}</td>`).join('')}</tr>`).join('\n')}
+    </tbody></table></div>
+    <p class="small muted" style="margin-top:.75rem">Licenses are per named user. Team covers five seats; extra seats are $${PRICES.teamSeat} per user per month by request. Prices are in USD, excluding VAT/sales tax where applicable.</p>
 ${LIFETIME ? `    <div class="feature lifetime" id="lifetime">
       <div><h3>Prefer to pay once? Lifetime Pro, $${PRICES.lifetime}</h3>
       <p>Every Pro feature for one named user, for as long as Clausery is offered, including updates. One payment and nothing to renew.</p></div>

@@ -31,7 +31,7 @@
 <link rel="stylesheet" href="../site.css">
 <script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","name":"About Clausery","url":"https://getclausery.github.io/about/","mainEntity":{"@type":"Organization","name":"Clausery","url":"https://getclausery.github.io/","logo":"https://getclausery.github.io/assets/icon-512.png","email":"getclausery@gmail.com","sameAs":["https://github.com/getclausery/getclausery.github.io"]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"About Clausery","item":"https://getclausery.github.io/about/"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://getclausery.github.io/about/#webpage","url":"https://getclausery.github.io/about/","name":"About Clausery","description":"Clausery helps small businesses make invoices, quotes and receipts in Word. Read how local document processing, the free library and paid plans work.","inLanguage":"en-GB","isPartOf":{"@id":"https://getclausery.github.io/#website"},"dateModified":"2026-10-15"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","name":"About Clausery","url":"https://getclausery.github.io/about/","mainEntity":{"@type":"Organization","name":"Clausery","url":"https://getclausery.github.io/","logo":"https://getclausery.github.io/assets/icon-512.png","email":"getclausery@gmail.com","sameAs":["https://github.com/getclausery/getclausery.github.io"]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"About Clausery","item":"https://getclausery.github.io/about/"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://getclausery.github.io/about/#webpage","url":"https://getclausery.github.io/about/","name":"About Clausery","description":"Clausery helps small businesses make invoices, quotes and receipts in Word. Read how local document processing, the free library and paid plans work.","inLanguage":"en-GB","isPartOf":{"@id":"https://getclausery.github.io/#website"},"dateModified":"2026-10-18"}</script>
 </head>
 <body>
 <a class="sr-only" href="#main">Skip to content</a>
@@ -72,6 +72,19 @@
   <li>The code is published on <a href="https://github.com/getclausery/getclausery.github.io" rel="noopener">GitHub</a>, so anyone can check what it does, and every release is listed in the <a href="../changelog.html">changelog</a>.</li>
   <li>Optional encryption of everything stored in the browser (AES-256-GCM), and license checks that send only the key. See the <a href="../docs/security.html">security overview</a>.</li>
 </ul>
+<h2>Who you are talking to</h2>
+<p>Clausery is an independent project. The site, the app and the document engine are published from one public repository, and every release is listed in the <a href="../changelog.html">changelog</a>, so the history of the project is open rather than summarised for marketing. Support is one email address read by a person, and the <a href="../contact/">contact page</a> says exactly what to put in it. There are no ads, no affiliate links and no tracking cookies.</p>
+<p>That shape is deliberate. A tool that asks you to hand over client files needs a commercial reason to keep them, and this one does not have one: the paid plans sell speed and features, never the contents of your documents. <a href="../why-clausery/">Why Clausery</a> sets out the differences in one place, and each of them points at something you can open.</p>
+<h2>How to check any claim on this site</h2>
+<p>Most software pages ask you to believe them. These are the ways to check instead:</p>
+<ul>
+  <li><strong>Read the source.</strong> The repository holds the app, the document engine, the build that produces this site and the test suite that runs on every pull request. If a claim here is wrong, the code is where the contradiction shows up.</li>
+  <li><strong>Run the checks.</strong> <code>npm ci</code>, <code>npm run build</code> and <code>npm run verify</code> rebuild this site and check it, and the same commands run in CI on every change.</li>
+  <li><strong>Watch the network tab.</strong> Open the browser's developer tools, make a document, and look at what is requested. The <a href="../docs/security.html">security overview</a> explains each request and what it carries.</li>
+  <li><strong>Read the data flows.</strong> The <a href="../legal/privacy.html">privacy policy</a> lists what is sent, to whom and when, in the wording that is live now.</li>
+  <li><strong>Check the prices against the configuration.</strong> The figures on the <a href="../pricing/">pricing page</a> and in the app come from a single configuration file, so a mismatch between the two would be a bug worth reporting.</li>
+  <li><strong>Ask.</strong> If something here is unclear, email. Questions and corrections are welcome, including from people who are not customers.</li>
+</ul>
 <h2>What Clausery is not</h2>
 <p>Clausery is software, not a law firm, and it does not give legal advice. The templates are general samples written in plain English; laws differ between countries and states, so have a document reviewed for your situation before you rely on it.</p>
 <h2>Get in touch</h2>
@@ -87,6 +100,7 @@
       <h4>Product</h4>
       <a href="../app/">Open the app</a>
       <a href="../pricing/">Pricing</a>
+      <a href="../why-clausery/">Why Clausery</a>
       <a href="../changelog.html">Changelog</a>
       <a href="../docs/self-hosting.html">Self-hosting</a>
       <a href="../press/">Press kit</a>

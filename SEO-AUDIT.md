@@ -183,10 +183,10 @@ npm test                  # 136/136
 
 ## First local follow-up — 18 October 2026
 
-**Status:** implemented and verified locally, not published. The previous coding session was closed when PR #52
-merged. A new coding session and CI run are required before these changes can be pushed or deployed. No remote
-GitHub operations, live vendor-price checks, local browser runs or traffic/ranking measurements were performed in
-this follow-up.
+**Status:** published in PR #53, merged on 2026-10-18. The previous coding session was closed when PR #52 merged,
+so this pass was applied from a new session, built and verified there, and published only after the CI verify and
+Chromium jobs passed on the published commit. No live vendor-price checks, local browser runs or traffic/ranking
+measurements were performed in this follow-up.
 
 ### Comparison accuracy and decision support
 
@@ -262,7 +262,8 @@ coverage was extended to all 11 comparison pages and the four expanded docs, plu
 
 ### Next priorities
 
-1. Publish from a new coding session and require its CI/Chromium checks before merging.
+1. **Done:** published from a new coding session in PR #53, after the CI verify and Chromium jobs passed on the
+   published commit.
 2. Use real Search Console query/page impressions, clicks and CTR to select the next content changes. This pass
    cannot infer ranking or conversion improvements from static checks.
 3. Verify vendor-specific commercial details on official sources before quoting them again; record a verification
@@ -273,9 +274,9 @@ coverage was extended to all 11 comparison pages and the four expanded docs, plu
 
 ## Additional local pass — 18 October 2026
 
-**Status:** saved locally for the user's publication workflow; not pushed or deployed. This pass builds on the
-143-test working tree above and preserves the prior comparison, docs and robots changes. Browser/E2E remains
-CI-only. No remote GitHub operation, Search Console query-volume analysis or live external-source review was done.
+**Status:** published in PR #53, merged on 2026-10-18, together with the pass above. This pass builds on the
+143-test working tree above and preserves the prior comparison, docs and robots changes. Browser/E2E remained
+CI-only. No Search Console query-volume analysis or live external-source review was done.
 
 ### Four trade-specific guides, not another set of generic alternatives
 
@@ -354,3 +355,77 @@ checks of each new guide's template link and FAQ disclosure. Those browser check
 syntax-checked, **not executed locally**. Before publication, require the existing CI verify and Chromium jobs to
 pass. After deployment, use real search/traffic and field-performance data to assess impact; these local checks do
 not demonstrate ranking gains.
+
+
+## Trust and positioning pass — 18 October 2026
+
+**Status:** implemented and verified locally. This pass responds to an external competitive scan of the published
+site, which scored trust signals and competitive readiness lowest. It adds evidence a reader can check rather than
+claims a reader must believe. Browser/E2E remains CI-only; no local browser run was performed.
+
+### What the scan got wrong, and what it did not
+
+The scan reported that the site has "no direct comparison pages or explicit addressing of objections against other
+invoicing software". That was incorrect: eleven comparison pages existed, and all eleven were already linked from
+the home page's "How it compares" section. The scan appears to have read a page without following the section, or a
+cached copy from before PR #53.
+
+The scan's finding on trust signals was accurate, and it is the one acted on here. The site had no testimonials, no
+customer logos, no case studies and no user counts, and the About page had no human element. Those gaps were closed
+with evidence that already exists and can be verified, not with new assertions.
+
+### What was deliberately not done
+
+No customer testimonial, review, rating, user count, customer logo or case study was invented. A third-party scan is
+not a source of customer opinion, and a fabricated quote is a liability rather than a trust signal. A regression test
+now fails the build if any page claims a testimonial, a "trusted by" line, a customer story, a team size or a user
+count that the site cannot show. When real, attributable quotes exist, they can be added and the guard lifted
+deliberately.
+
+The comparison pages were also left alone: adding new competitor pages for invoicing tools would have meant
+reproducing vendor pricing and plan terms that cannot be verified, which is exactly what PR #53 removed.
+
+### A page that answers "why"
+
+New `why-clausery/`, built from `site/why-clausery.mjs`, brings the positioning into one place:
+
+- one table of differences, with the honest "what a typical paid alternative does" column;
+- a decision guide that starts from the job rather than the product, and names the right alternative for each kind of
+  work, linking all eleven comparison pages;
+- the proof a reader can check: the public repository, the changelog, the security overview, the privacy policy, the
+  self-hosting guide, and the guarantee;
+- an explicit list of what Clausery does not do;
+- six questions, visible on the page and published as `FAQPage` data.
+
+The page carries a `commercial` search intent ("why clausery") in the comparison cluster, so the comparison index
+links it, and it links pricing and the app as its next step.
+
+### Proof in the places people look
+
+- **Home page.** A new "Proof, not adjectives" band sits between the hero and the template section: the code is
+  public, every release is logged, no account or card is needed, there is a money-back guarantee, the network and
+  data flows are documented, and a copy can be self-hosted. The comparison section now points at the new page.
+- **About page.** Two sections were added: "Who you are talking to" (an independent project, one public repository,
+  one email read by a person, no ads, affiliate links or tracking cookies) and "How to check any claim on this site"
+  (read the source, run the build, watch the network tab, read the data flows, check the prices against the
+  configuration, ask).
+- **Pricing page.** A plan matrix now sits below the plan cards, generated from `PLANS`, `PRICES` and
+  `FREE_BULK_ROWS`, so the table, the cards and the app cannot disagree. A test asserts the cells match the
+  configuration.
+
+### Verification
+
+`npm run build` and `npm run verify` pass. A second build is byte-identical.
+
+| Check | Result |
+| --- | --- |
+| HTML and navigation | 266 files, 0 problems; 15,335 same-site links; 708 static fragment links |
+| Canonical/indexable pages | 253, all reachable from Home within 2 clicks |
+| Editorial graph | no content orphans |
+| Syndication | 91 Atom entries; 226 unique indexable llms.txt links |
+| Schema / sitemaps | 253 pages; 10 section sitemaps partitioning exactly |
+| Unit and integration tests | **165/165 passed**, including 8 new regressions |
+
+The eight new tests in `tests/unit/trust-signals.test.mjs` cover the new page's structure, its comparison links and
+its visible FAQ, the home page's proof band, the About page's verification section, the pricing matrix against the
+plan configuration, and the site-wide ban on unverifiable social proof.
