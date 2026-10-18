@@ -120,52 +120,52 @@
   "hash": "4569c681a89e136c"
  },
  "compare/": {
-  "date": "2026-10-17",
-  "hash": "a481f44474f93e13"
+  "date": "2026-10-18",
+  "hash": "7caaaebf85b21b11"
  },
  "compare/bonsai-alternative.html": {
-  "date": "2026-10-15",
-  "hash": "bcb410392eae77ba"
+  "date": "2026-10-18",
+  "hash": "3c9634a48bf6be39"
  },
  "compare/clio-draft-alternative.html": {
-  "date": "2026-10-15",
-  "hash": "3cf4e8d858f2a0c4"
+  "date": "2026-10-18",
+  "hash": "238b0c71e73336e0"
  },
  "compare/docassemble-alternative.html": {
-  "date": "2026-10-15",
-  "hash": "1aa5069e0df5e92c"
+  "date": "2026-10-18",
+  "hash": "993dd9efde1ce59b"
  },
  "compare/dubsado-alternative.html": {
-  "date": "2026-10-15",
-  "hash": "ef4b4eb48d8047f4"
+  "date": "2026-10-18",
+  "hash": "3239a2f69911911c"
  },
  "compare/eforms-alternative.html": {
-  "date": "2026-10-15",
-  "hash": "0cd1d9fac598e50e"
+  "date": "2026-10-18",
+  "hash": "5965824c58c1482e"
  },
  "compare/gavel-alternative.html": {
-  "date": "2026-10-15",
-  "hash": "4f6432ae70056deb"
+  "date": "2026-10-18",
+  "hash": "9543ff31de82608e"
  },
  "compare/honeybook-alternative.html": {
-  "date": "2026-10-15",
-  "hash": "bd8a6e5791d53d40"
+  "date": "2026-10-18",
+  "hash": "a2735150329ec8be"
  },
  "compare/hotdocs-alternative.html": {
-  "date": "2026-10-15",
-  "hash": "fb2e3be6e0f2802e"
+  "date": "2026-10-18",
+  "hash": "3e2f4daa38854783"
  },
  "compare/lawdepot-alternative.html": {
-  "date": "2026-10-15",
-  "hash": "88ed1ada7771f53d"
+  "date": "2026-10-18",
+  "hash": "9d4743f408dcd5b7"
  },
  "compare/pandadoc-alternative.html": {
-  "date": "2026-10-15",
-  "hash": "4d089f38712f044a"
+  "date": "2026-10-18",
+  "hash": "1fcadccbb1f8b706"
  },
  "compare/rocket-lawyer-alternative.html": {
-  "date": "2026-10-15",
-  "hash": "5c22ed7ed0fdd20c"
+  "date": "2026-10-18",
+  "hash": "7efd3474b80c701b"
  },
  "contact/": {
   "date": "2026-10-15",
@@ -176,16 +176,16 @@
   "hash": "5397c879fe7126f1"
  },
  "docs/backups.html": {
-  "date": "2026-10-17",
-  "hash": "b91c7546e4ad47c5"
+  "date": "2026-10-18",
+  "hash": "e45cee426ed70ba2"
  },
  "docs/faq.html": {
   "date": "2026-10-17",
   "hash": "5e5c884a7e3ff008"
  },
  "docs/intake.html": {
-  "date": "2026-10-17",
-  "hash": "1d698340ec18af33"
+  "date": "2026-10-18",
+  "hash": "cd8f9693c1e0f392"
  },
  "docs/logic.html": {
   "date": "2026-10-17",
@@ -200,40 +200,40 @@
   "hash": "96f6d305d6d2c3f3"
  },
  "docs/self-hosting.html": {
-  "date": "2026-10-17",
-  "hash": "60952276304b76d1"
+  "date": "2026-10-18",
+  "hash": "e52051d7ce65934e"
  },
  "docs/teams.html": {
-  "date": "2026-10-17",
-  "hash": "60e5572fe96358c6"
+  "date": "2026-10-18",
+  "hash": "a854c9e5fe5b9e5b"
  },
  "docs/templates.html": {
   "date": "2026-10-17",
   "hash": "a0e49c657020aa38"
  },
  "for/": {
-  "date": "2026-10-17",
-  "hash": "0777614199b2a445"
+  "date": "2026-10-18",
+  "hash": "961d339c21a25789"
  },
  "for/consultants.html": {
-  "date": "2026-10-17",
-  "hash": "e6e602ff67df3909"
+  "date": "2026-10-18",
+  "hash": "20c0f0bcb9e85684"
  },
  "for/freelancers.html": {
-  "date": "2026-10-17",
-  "hash": "279a8c89b1ce07c8"
+  "date": "2026-10-18",
+  "hash": "dd4d53b34b7e294d"
  },
  "for/hr-teams.html": {
-  "date": "2026-10-17",
-  "hash": "e496532c68917d44"
+  "date": "2026-10-18",
+  "hash": "e4cf49d03d2063bf"
  },
  "for/landlords.html": {
-  "date": "2026-10-17",
-  "hash": "e9627d3bf0dd38ab"
+  "date": "2026-10-18",
+  "hash": "d942cb3a0d8b8bf8"
  },
  "for/law-firms.html": {
-  "date": "2026-10-17",
-  "hash": "ec8b01f3d49ff128"
+  "date": "2026-10-18",
+  "hash": "8be95bb6d9d14b64"
  },
  "free-tools/": {
   "date": "2026-10-17",
@@ -276,8 +276,8 @@
   "hash": "0524916b3c455222"
  },
  "guides/": {
-  "date": "2026-10-17",
-  "hash": "46b116de7e970eed"
+  "date": "2026-10-18",
+  "hash": "0d269bf58308d438"
  },
  "guides/are-liability-waivers-enforceable.html": {
   "date": "2026-10-17",
@@ -304,8 +304,8 @@
   "hash": "f93151828984a10d"
  },
  "guides/do-i-need-a-model-release.html": {
-  "date": "2026-10-17",
-  "hash": "f0b76dbd6e651ef0"
+  "date": "2026-10-18",
+  "hash": "cab82a5c9330616f"
  },
  "guides/gst-hst-invoice-requirements-canada.html": {
   "date": "2026-10-17",
@@ -347,9 +347,13 @@
   "date": "2026-10-17",
   "hash": "00678244842b0ea2"
  },
+ "guides/how-to-write-a-cleaning-services-contract.html": {
+  "date": "2026-10-18",
+  "hash": "069a30d0d6888222"
+ },
  "guides/how-to-write-a-freelance-contract.html": {
-  "date": "2026-10-17",
-  "hash": "a4133e4a588c5d31"
+  "date": "2026-10-18",
+  "hash": "96a953c4d98cf73a"
  },
  "guides/how-to-write-a-gift-letter-for-a-mortgage.html": {
   "date": "2026-10-17",
@@ -374,6 +378,10 @@
  "guides/how-to-write-a-performance-improvement-plan.html": {
   "date": "2026-10-17",
   "hash": "482716efcefee345"
+ },
+ "guides/how-to-write-a-photography-contract.html": {
+  "date": "2026-10-18",
+  "hash": "f1d1c42bdb84b2fe"
  },
  "guides/how-to-write-a-promissory-note.html": {
   "date": "2026-10-17",
@@ -484,8 +492,8 @@
   "hash": "c5dde48b43106df3"
  },
  "guides/what-is-a-hold-harmless-agreement.html": {
-  "date": "2026-10-17",
-  "hash": "d5b50680f20ce089"
+  "date": "2026-10-18",
+  "hash": "9bcc9dd2a30b40a6"
  },
  "guides/what-is-a-kill-fee.html": {
   "date": "2026-10-17",
@@ -522,6 +530,14 @@
  "guides/what-to-include-in-a-statement-of-work.html": {
   "date": "2026-10-17",
   "hash": "813b1f7c5cbc0d95"
+ },
+ "guides/what-to-include-in-a-tutoring-agreement.html": {
+  "date": "2026-10-18",
+  "hash": "92738eb3b94c7ead"
+ },
+ "guides/what-to-include-in-an-equipment-rental-agreement.html": {
+  "date": "2026-10-18",
+  "hash": "40ee710424cc4829"
  },
  "guides/what-to-include-in-an-nda.html": {
   "date": "2026-10-17",
@@ -676,8 +692,8 @@
   "hash": "32968030b55a99b2"
  },
  "templates/cleaning-services-contract.html": {
-  "date": "2026-10-17",
-  "hash": "21f950b76c46157a"
+  "date": "2026-10-18",
+  "hash": "91b48a4dbfb675ba"
  },
  "templates/coaching-agreement.html": {
   "date": "2026-10-17",
@@ -728,8 +744,8 @@
   "hash": "ab2401ea35f8576c"
  },
  "templates/equipment-rental-agreement.html": {
-  "date": "2026-10-17",
-  "hash": "7f2d05c46d6df197"
+  "date": "2026-10-18",
+  "hash": "234e6487ee2e372d"
  },
  "templates/event-planning-contract.html": {
   "date": "2026-10-17",
@@ -880,8 +896,8 @@
   "hash": "a520353e5b14f7df"
  },
  "templates/photography-contract.html": {
-  "date": "2026-10-17",
-  "hash": "3a0fb54f12db81a5"
+  "date": "2026-10-18",
+  "hash": "eebbdf802e5fc6aa"
  },
  "templates/promissory-note.html": {
   "date": "2026-10-17",
@@ -980,8 +996,8 @@
   "hash": "9c67060aac7c73ee"
  },
  "templates/tutoring-agreement.html": {
-  "date": "2026-10-17",
-  "hash": "01b300a9026afe13"
+  "date": "2026-10-18",
+  "hash": "60a4d376e664e3fe"
  },
  "templates/two-weeks-notice-letter.html": {
   "date": "2026-10-17",

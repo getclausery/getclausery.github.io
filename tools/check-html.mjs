@@ -1,16 +1,20 @@
 // Static checks for the deploy tree: every HTML page has lang, title, description and viewport; internal links
 // and asset references resolve to files; no external scripts or stylesheets (part of the no-third-party promise);
-// structured data parses, and every indexable page has some.
+// structured data parses, every indexable page has some, and navigation/section links have real targets.
 import { readFileSync, existsSync, statSync } from 'node:fs';
-import { join, dirname, resolve } from 'node:path';
+import { join, dirname, resolve, sep } from 'node:path';
 import { globSync } from 'node:fs';
+import { SITE } from './partials.mjs';
+import { checkHtmlNavigation } from './html-navigation.mjs';
 
 const root = process.cwd();
 const files = globSync('**/*.html', { cwd: root, exclude: (f) => /^google[0-9a-f]+\.html$/.test(f) || f.startsWith('node_modules') || f.startsWith('test-results') || f.startsWith('playwright-report') });
+const documents = new Map();
 let problems = 0;
 const fail = (f, msg) => { problems++; console.log(`${f}: ${msg}`); };
 for (const f of files) {
   const html = readFileSync(join(root, f), 'utf8');
+  documents.set(f, html);
   if (!/<html[^>]*\slang="/i.test(html)) fail(f, 'missing <html lang>');
   if (!/<title>[^<]+<\/title>/i.test(html)) fail(f, 'missing <title>');
   if (!/<meta name="description" content="[^"]+"/i.test(html)) fail(f, 'missing meta description');
@@ -29,5 +33,18 @@ for (const f of files) {
     if (!existsSync(target)) fail(f, 'broken link: ' + url);
   }
 }
+const fileCache = new Map();
+const navigation = checkHtmlNavigation({ documents, site: SITE, fileExists: (file) => {
+  if (fileCache.has(file)) return fileCache.get(file);
+  const target = resolve(root, file);
+  let found = false;
+  if (target.startsWith(root + sep)) {
+    try { found = existsSync(target) && statSync(target).isFile(); } catch { /* Not a usable local file. */ }
+  }
+  fileCache.set(file, found);
+  return found;
+} });
+for (const { file, message } of navigation.failures) fail(file, message);
+console.log(`${navigation.links} same-site navigation links and ${navigation.fragments} static fragment links checked (including absolute same-site URLs).`);
 console.log(`${files.length} HTML files checked, ${problems} problem${problems === 1 ? '' : 's'}`);
 process.exit(problems ? 1 : 0);

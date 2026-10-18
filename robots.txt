@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
+Allow: /app/$
+Allow: /app/?*
+Allow: /app/index.html$
+Allow: /app/index.html?*
 Allow: /app/theme.js
 Allow: /app/manifest.webmanifest
 Disallow: /app/
