@@ -4,10 +4,12 @@ import { createHash } from 'node:crypto';
 import { SITE } from './partials.mjs';
 import { socialCardProblems } from './social-card.mjs';
 import { editorialLinkGraph } from './editorial-links.mjs';
+import { createRobotsPolicy } from './robots.mjs';
 
 const failures = [];
 const fail = (file, message) => failures.push(`${file}: ${message}`);
 const xml = readFileSync('sitemap.xml', 'utf8');
+const crawlerMayFetch = createRobotsPolicy(readFileSync('robots.txt', 'utf8'));
 const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(([, u]) => u);
 const dates = JSON.parse(readFileSync('site/data/page-dates.json', 'utf8'));
 const lastmod = Object.fromEntries([...xml.matchAll(/<url><loc>([^<]+)<\/loc><lastmod>([^<]+)<\/lastmod>/g)].map(([, loc, date]) => [loc, date]));
@@ -65,6 +67,7 @@ if (urls.length !== indexed.size) fail('sitemap.xml', 'duplicate URLs');
 for (const loc of urls) {
   if (!loc.startsWith(SITE)) { fail('sitemap.xml', `unexpected origin: ${loc}`); continue; }
   const file = fileFor(loc);
+  if (!crawlerMayFetch(new URL(loc).pathname)) fail(file, 'indexable page is blocked by robots.txt');
   if (!existsSync(file)) { fail(file, 'sitemap URL has no generated file'); continue; }
   const html = readFileSync(file, 'utf8');
   documents.set(loc, html);
@@ -99,6 +102,19 @@ for (const loc of urls) {
   for (const [, json] of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
     try { checkStructuredUrls(JSON.parse(json), file); } catch { fail(file, 'invalid structured data'); }
   }
+}
+
+// Noindex works only if the crawler can fetch the document. Allow the public app entry (and query variants) while
+// preserving the exclusions for activation, implementation files and download directories.
+for (const path of ['/app/', '/app/?source=site', '/app/index.html', '/app/index.html?source=site']) {
+  if (!crawlerMayFetch(path)) fail('robots.txt', `must allow ${path} so its noindex directive can be read`);
+}
+if (!/<meta\s+name="robots"\s+content="[^"]*\bnoindex\b/.test(readFileSync('app/index.html', 'utf8'))) fail('app/index.html', 'public app entry must remain noindex');
+for (const path of ['/app/activate.html', '/app/main.js', '/samples/invoice.docx', '/marketing/README.md']) {
+  if (crawlerMayFetch(path)) fail('robots.txt', `must preserve the crawl exclusion for ${path}`);
+}
+for (const path of ['/site.css', '/site.js', '/app/theme.js', '/app/manifest.webmanifest']) {
+  if (!crawlerMayFetch(path)) fail('robots.txt', `blocks a public-site rendering resource: ${path}`);
 }
 
 // Crawl real HTML anchor links from Home. A sitemap entry alone is not a navigation path for people or crawlers.
@@ -142,4 +158,4 @@ for (const file of globSync('**/*.html', { exclude: (p) => /^(node_modules|app|t
 if (failures.length) {
   console.error(failures.join('\n'));
   process.exitCode = 1;
-} else console.log(`SEO checks passed: ${urls.length} canonical pages, unique titles and descriptions, lastmod matches page-dates, robots and og:url consistent, ${shareImages.size} valid 1200x630 PNG share cards under 300 KB (${templateImages.size} distinct template cards), ${editorialEdges} editorial links with no content orphans, all reachable from Home within ${deepest} clicks.`);
+} else console.log(`SEO checks passed: ${urls.length} canonical pages, unique titles and descriptions, lastmod matches page-dates, robots allow all indexed pages and the noindex app entry, og:url consistent, ${shareImages.size} valid 1200x630 PNG share cards under 300 KB (${templateImages.size} distinct template cards), ${editorialEdges} editorial links with no content orphans, all reachable from Home within ${deepest} clicks.`);

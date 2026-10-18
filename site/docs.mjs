@@ -185,7 +185,7 @@ parties_list       join(parties.name, ", ")</code></pre>
 <h2>Errors</h2>
 <p>Mistyped expressions are flagged in the designer with the position of the problem. At interview time, an expression that cannot be evaluated shows an error under its field and renders blank; it never blocks generation.</p>`),
 
-page('docs/intake.html', 'Client intake forms', 'Collect answers from clients without a portal: export a self-contained HTML questionnaire, receive an answers file, import it into a draft.', (rel) => `
+page('docs/intake.html', 'Clausery client intake forms: collect answers offline', 'Send an offline HTML questionnaire, resume saved answers and import the returned JSON into a draft. A worked client intake example with privacy checks.', (rel) => `
 <h1>Client intake forms</h1>
 <p class="lead">Clients answer the questionnaire on their own computer, offline, and send you a small answers file. No portal, no accounts, and their answers never touch a server.</p>
 <h2>How it works</h2>
@@ -203,10 +203,22 @@ page('docs/intake.html', 'Client intake forms', 'Collect answers from clients wi
   <li>The answers file is plain JSON. Treat it like any client document: if you would encrypt an email attachment, encrypt this one too.</li>
   <li>The form's Content Security Policy blocks all network access, even if it were opened from a web server.</li>
 </ul>
+<h2 id="intake-example">Worked example: collect a new client's engagement details</h2>
+<p>Start a fresh draft of the <a href="${rel}templates/engagement-letter.html">engagement letter template</a>, check its labels and help text, and export an intake form with a fictional client. The form contains the questionnaire, including any descriptions, defaults and options you configured; inspect those before sharing it. It does not contain the Word document or the current draft's answers.</p>
+<ol>
+  <li>Tell the recipient which file to open, what information to supply and how to return the completed answers securely.</li>
+  <li>Open the HTML file in a full browser rather than an email preview. Enter test details and choose <strong>Save progress</strong>.</li>
+  <li>Close the form, reopen the original HTML file and choose <strong>Load saved answers</strong> to select the in-progress JSON file. Progress is restored from that file, not from a server account.</li>
+  <li>Complete the required questions, choose <strong>Save answers</strong> and return the downloaded JSON, not a screenshot or the blank HTML form.</li>
+  <li>In the fresh draft, choose <strong>Import answers (.json)</strong>, inspect the imported values and generate a test Word document.</li>
+</ol>
+<h2 id="intake-review">Review the handoff, not just the import</h2>
+<p>Importing updates matching answers in the draft; it does not automatically clear every existing value. Use a new draft for a new client and inspect fields not supplied in the file. A different-template warning needs investigation, not automatic acceptance. Questions and field names must match the template you intend to use.</p>
+<p>The answers JSON and any saved-progress JSON are unencrypted. A passphrase on your own workspace does not protect a downloaded file in the client's Downloads folder. Agree the transfer channel, access and retention policy before asking for sensitive information. See <a href="${rel}docs/security.html">the security model</a> and <a href="${rel}docs/backups.html">the export and backup guidance</a>.</p>
 <h2>Hosting the form on your site</h2>
 <p>Because the form is a single static file, you can also put it on your website or client extranet. Clients still answer locally and send back the file; nothing is posted to the server hosting the page.</p>`),
 
-page('docs/teams.html', 'Teams & template packs', 'Share approved templates across a firm with template packs, and manage licenses for a team.', (rel) => `
+page('docs/teams.html', 'Clausery template packs: share approved Word templates', 'Export and import Clausery template packs, roll out a reviewed Word update and hand off answers safely. Packs are not shared drafts or workspace backups.', (rel) => `
 <h1>Teams &amp; template packs</h1>
 <p class="lead">Clausery has no central server, so sharing works the way your firm already shares files.</p>
 <h2>Template packs</h2>
@@ -215,20 +227,47 @@ page('docs/teams.html', 'Teams & template packs', 'Share approved templates acro
 <div class="note">Suggested practice: keep an "approved templates" folder with the current pack, and a changelog next to it. One person owns edits; everyone else imports.</div>
 <h2>Drafts stay personal</h2>
 <p>Drafts and their answers live in each person's browser. To hand a matter over, export the draft's answers (<em>Export answers</em> on the review step) and let the colleague import them into a draft of the same template.</p>
+<h2 id="pack-rollout">Worked rollout: update an approved service agreement</h2>
+<p>Suppose one owner maintains your service agreement and three colleagues draft from it. Review the wording change in Word, use <em>Replace document</em> on the existing template, check the questions and export a new pack. Keep a dated filename and a short change note in the approved folder; do not rely on an email subject as the version record.</p>
+<ol>
+  <li>Before importing, each colleague downloads a <a href="${rel}docs/backups.html">workspace backup</a> so their current state is recoverable.</li>
+  <li>They choose <strong>Import pack</strong> on Templates and select the approved JSON file. A pack with the same template ID updates that template; a newly created template with a different ID is a separate item, even if its name looks identical.</li>
+  <li>They generate a fictional example and inspect both the changed paragraph and the optional terms. Importing a file is not proof that the new wording is correct.</li>
+  <li>Keep existing signed output separately. Regenerating an old draft can use the updated template, so review the result rather than treating it as an untouched historical copy.</li>
+</ol>
+<h2 id="pack-privacy">What a pack does not share</h2>
+<p>A pack includes the selected templates and their Word files, questions and rules; it does not include drafts, their answers or a licence. Exporting a pack is a Pro feature. Imported templates count as your own templates, so a Free workspace's own-template limit still applies.</p>
+<p>For a single matter, hand off an <strong>Export answers (.json)</strong> file to a colleague using the intended template. Review it before generating. Use <a href="${rel}docs/intake.html">client intake forms</a> when a client needs the questionnaire, not a full pack. None of these files creates live co-editing or background synchronisation between browsers.</p>
 <h2>Licensing a team</h2>
 <p>${ONLINE_KEYS ? 'The online Team plan covers five named users. Share only the private Open Clausery access link from your receipt with those licensed users; each opens it to activate their browser automatically, with no key to copy. Up to fifteen browser profiles can be activated. Settings → Advanced activation → Remove from this browser frees an unused activation without cancelling the subscription. Additional named users are $9 each/month by request before buying. Teams that need no network can ask for an offline license.' : 'A Team license is one key with a seat count. Share it with the licensed users under Settings → Advanced activation. Keys are verified offline with a signature; the honour system applies to seat counts.'}</p>
 <h2>Enterprise deployments</h2>
 <p>Firms that want the app on their own domain (for example <code>draft.yourfirm.com</code>) or intranet can self-host it: it is a folder of static files. See <a href="${rel}docs/self-hosting.html">Self-hosting</a>.</p>`),
 
-page('docs/backups.html', 'Backups & data', 'Where Clausery stores data, how to back it up, restore it, move it between computers, and how the encrypted workspace works.', (rel) => `
+page('docs/backups.html', 'Clausery backups: export, restore and move your data', 'Back up Clausery data, choose Merge or Replace when restoring, move to a new browser and protect unencrypted JSON exports. Includes a recovery checklist.', (rel) => `
 <h1>Backups &amp; data</h1>
 <h2>Where data lives</h2>
 <p>Everything is in your browser's IndexedDB for this site: templates (with the .docx bytes), drafts and settings. Different browsers and profiles on the same computer have separate workspaces.</p>
 <h2>Backups</h2>
 <p>Settings → Your data → <strong>Download backup</strong> saves a single JSON file with all templates, documents, drafts and settings (except the license key and the encryption passphrase). Restore it with <strong>Restore backup</strong>, choosing <em>Merge</em> or <em>Replace everything</em>.</p>
-<p>Backups are not encrypted, even when the workspace is. Store them where you store client files.</p>
+<p><strong>Backups are not encrypted, even when the workspace is.</strong> Store them in an appropriately protected location with access limited to people who should see the client information. Do not put a real backup in a public repository or send one as an ordinary support attachment.</p>
+<p>A workspace backup carries templates, their source Word files, drafts and supported settings. Keep downloaded finished Word files, signed PDFs and signature evidence separately; the backup is not a copy of every file in your Downloads folder. For sharing only templates, use a <a href="${rel}docs/teams.html">template pack</a> instead.</p>
 <h2>Moving to a new computer</h2>
 <p>Download a backup and restore it on the new machine. ${ONLINE_KEYS ? 'Open the Open Clausery button in your receipt email there to activate your paid plan automatically.' : 'Enter your offline license under Settings → Advanced activation.'} If you use the encrypted workspace, turn it on again on the new machine with the passphrase of your choice.</p>
+<h2 id="restore-checklist">Worked recovery test before you clear a browser</h2>
+<p>Use fictional data to rehearse recovery before a browser replacement or computer move. Saving a file is only the first half of a backup process; test that the templates and answers can actually be restored.</p>
+<ol>
+  <li>On the source browser, open Settings → Your data, note the displayed template and draft counts, and choose <strong>Download backup</strong>. Keep the dated JSON file intact.</li>
+  <li>Open Clausery in a separate browser profile intended for the test. It has its own workspace; merely visiting the same website does not synchronise data.</li>
+  <li>Choose <strong>Restore backup</strong>, check the displayed counts and select the appropriate restore mode.</li>
+  <li>Open a known draft, check its answers and generate a sample .docx. Also check a custom template, not only a library starter.</li>
+  <li>Confirm the protected backup and any required finished documents are available before erasing or retiring the source browser.</li>
+</ol>
+<h2 id="restore-modes">Merge versus Replace everything</h2>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th scope="col">Mode</th><th scope="col">What happens</th><th scope="col">Before choosing it</th></tr></thead><tbody>
+<tr><th scope="row">Merge</th><td>Adds records and updates records with matching IDs; unrelated existing records remain.</td><td>Download a current backup first. Merge is not a conflict-resolution tool and can replace a matching record's older or newer contents.</td></tr>
+<tr><th scope="row">Replace everything</th><td>Clears current templates, source files and drafts before importing the backup records.</td><td>Use only when intentionally replacing this workspace, after preserving anything you need from it.</td></tr>
+</tbody></table></div>
+<p>Neither option transfers the encryption passphrase or a paid activation. Activate the new browser separately if needed and configure its workspace encryption again. If a JSON file is rejected, preserve the original and check that it is a workspace backup, not an answers file or template pack. Do not repair a real client backup by guessing at its structure.</p>
 <h2>Protected storage</h2>
 <p>Browsers may evict site data under storage pressure. Settings shows whether this site's storage is protected and lets you request it; installing the app (browser menu → Install) usually grants it permanently.</p>
 <h2>Encrypted workspace</h2>
@@ -277,7 +316,7 @@ page('docs/security.html', 'Security', 'How Clausery keeps client data on the de
 <h2>Reporting a vulnerability</h2>
 <p>Report it privately with GitHub's <a href="${REPO_URL}/security/advisories/new" rel="noopener">private vulnerability reporting</a>, not in a public issue. We aim to acknowledge within two business days. Please do not test against other people's deployments. The full policy is in <a href="${REPO_URL}/blob/main/SECURITY.md" rel="noopener">SECURITY.md</a>.</p>`),
 
-page('docs/self-hosting.html', 'Self-hosting', 'Run Clausery on your own domain or intranet: it is a folder of static files with no build step and no server component.', (rel) => `
+page('docs/self-hosting.html', 'Self-hosting Clausery: deployment and data migration', 'Deploy Clausery over HTTPS, test a private copy and move browser data with a backup. Configure app links separately from public SEO canonicals.', (rel) => `
 <h1>Self-hosting</h1>
 <p class="lead">Clausery is a folder of static files. Any web server, object-storage bucket or intranet file share that serves HTTPS can host it.</p>
 <h2>Deploy</h2>
@@ -287,7 +326,14 @@ page('docs/self-hosting.html', 'Self-hosting', 'Run Clausery on your own domain 
   <li>Serve over HTTPS. Service workers and WebCrypto require a secure context (localhost is also allowed).</li>
   <li>Set <code>SITE_URL</code> in <code>app/config.js</code> to your address (used in exported intake forms).</li>
 </ol>
+<h2 id="deployment-checklist">Test the deployed copy and its data boundary</h2>
+<p>For a test address such as <code>https://draft.example.org/</code>, load <code>app/</code> over HTTPS, import a fictional Word template and download a document. Then disconnect and confirm the loaded app still works. Do not test a deployment by double-clicking its HTML files: a <code>file:</code> URL is not the same environment as an HTTPS origin.</p>
+<p>The new origin starts with a different browser workspace. Serving the same app files does not copy client data from the public instance or a previous domain. Follow the <a href="${rel}docs/backups.html">backup and restore checklist</a> to transfer data deliberately, and reconfigure activation and encryption for the destination.</p>
+<h2 id="self-hosting-indexing">Keep private deployments out of search</h2>
+<p>Use host authentication or network access controls for an internal deployment; robots.txt is not access control. If you also publish a copy of the marketing pages, review its indexing policy and absolute URLs before making it public. <code>SITE_URL</code> changes app links in exported files, not the marketing canonicals, sitemap or feed base.</p>
+<p>A deliberate public rebrand needs the <code>SITE</code> value in <code>tools/partials.mjs</code> reviewed and the static pages rebuilt with Node 22+. A private app deployment usually does not need a second indexable marketing site. Keep the app's <code>noindex</code> metadata; do not remove it merely to make an intranet copy discoverable.</p>
 <h2>Recommended headers</h2>
+<p>This strict profile is intended for an offline-key deployment and does not permit requests to an online license service. If you deliberately enable online keys, review the required service origins and policy rather than expecting them to work under a same-origin-only <code>connect-src</code>.</p>
 <pre><code>Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'
 X-Content-Type-Options: nosniff
 Referrer-Policy: no-referrer
@@ -296,7 +342,7 @@ Cache-Control: no-cache   (for HTML; long max-age for vendor/ and assets/)</code
 <h2>Licensing your deployment</h2>
 <p>To issue your own license keys (Enterprise), generate a key pair with <code>npm run license -- keygen</code>, put the public key in <code>app/config.js</code> and keep the private key offline. Issue keys with <code>npm run license -- issue</code>. The app then accepts only keys signed by you. Set <code>LICENSE_SERVICE.api</code> to an empty string in the same file so the app never accepts or checks online keys; the headers above already leave the license service out of <code>connect-src</code>.</p>
 <h2>Updating</h2>
-<p>Replace the folder with the new version. The service worker version changes with each release and users are prompted to reload. User data is in their browsers, not in the folder, so updates never touch it.</p>
+<p>Replace the folder with a tested release. Its service worker version changes with each release and users are prompted to reload. User data is in their browsers, not in the static folder; preserve a workspace backup and test your own templates before rolling out an update. Moving files to a different origin does not move the old browser workspace.</p>
 <h2>GitHub Pages</h2>
 <p>The public instance runs on GitHub Pages straight from the repository, with a CI workflow that lints, unit-tests and end-to-end tests every change. Forking the repository and enabling Pages gives you an identical setup in minutes.</p>`),
 

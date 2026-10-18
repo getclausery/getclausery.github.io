@@ -45,7 +45,8 @@ for (const name of names) writeFileSync(`sitemaps/${name}.xml`, urlset(pages.fil
 // Each section sitemap's lastmod is its newest page, so crawlers can skip sections where nothing changed.
 const newest = (name) => pages.filter((f) => sectionOf(f.replace(/index\.html$/, '')) === name).map((f) => lastmod[`${base}${f.replace(/index\.html$/, '')}`]).filter(Boolean).sort().at(-1);
 writeFileSync('sitemap_index.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${names.map((n) => `  <sitemap><loc>${base}sitemaps/${n}.xml</loc>${newest(n) ? `<lastmod>${newest(n)}</lastmod>` : ''}</sitemap>`).join('\n')}\n</sitemapindex>\n`);
-// Every page loads app/theme.js and app/manifest.webmanifest, so those two stay crawlable for rendering. Sample .docx
-// files are kept out of results so searchers land on the template page (preview, guidance, fill-in-online) instead.
-writeFileSync('robots.txt', `User-agent: *\nAllow: /\nAllow: /app/theme.js\nAllow: /app/manifest.webmanifest\nDisallow: /app/\nDisallow: /samples/\nDisallow: /marketing/\nSitemap: ${base}sitemap_index.xml\nSitemap: ${base}sitemap.xml\n`);
+// Allow the public app entry URLs to be fetched so crawlers can read their noindex meta. This does not add them to
+// the sitemap. Keep activation, other app paths, samples and marketing excluded. The theme and manifest remain
+// crawlable for the public site. Robots directives are crawl hints, never access controls for confidential data.
+writeFileSync('robots.txt', `User-agent: *\nAllow: /\nAllow: /app/$\nAllow: /app/?*\nAllow: /app/index.html$\nAllow: /app/index.html?*\nAllow: /app/theme.js\nAllow: /app/manifest.webmanifest\nDisallow: /app/\nDisallow: /samples/\nDisallow: /marketing/\nSitemap: ${base}sitemap_index.xml\nSitemap: ${base}sitemap.xml\n`);
 console.log(`sitemap: ${pages.length} pages in sitemap.xml and ${names.length} section sitemaps (${pages.filter((f) => lastmod[`${base}${f.replace(/index\.html$/, '')}`]).length} with lastmod); robots.txt written`);

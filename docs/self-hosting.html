@@ -2,26 +2,26 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
-<title>Self-hosting · Clausery</title>
+<title>Self-hosting Clausery: deployment and data migration</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Run Clausery on your own domain or intranet: it is a folder of static files with no build step and no server component.">
+<meta name="description" content="Deploy Clausery over HTTPS, test a private copy and move browser data with a backup. Configure app links separately from public SEO canonicals.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="https://getclausery.github.io/docs/self-hosting.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_GB">
 <meta property="og:site_name" content="Clausery">
-<meta property="og:title" content="Self-hosting · Clausery">
-<meta property="og:description" content="Run Clausery on your own domain or intranet: it is a folder of static files with no build step and no server component.">
+<meta property="og:title" content="Self-hosting Clausery: deployment and data migration">
+<meta property="og:description" content="Deploy Clausery over HTTPS, test a private copy and move browser data with a backup. Configure app links separately from public SEO canonicals.">
 <meta property="og:url" content="https://getclausery.github.io/docs/self-hosting.html">
 <meta property="og:image" content="https://getclausery.github.io/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Self-hosting · Clausery — Clausery">
+<meta property="og:image:alt" content="Self-hosting Clausery: deployment and data migration — Clausery">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Self-hosting · Clausery">
-<meta name="twitter:description" content="Run Clausery on your own domain or intranet: it is a folder of static files with no build step and no server component.">
+<meta name="twitter:title" content="Self-hosting Clausery: deployment and data migration">
+<meta name="twitter:description" content="Deploy Clausery over HTTPS, test a private copy and move browser data with a backup. Configure app links separately from public SEO canonicals.">
 <meta name="twitter:image" content="https://getclausery.github.io/assets/og.png">
-<meta name="twitter:image:alt" content="Self-hosting · Clausery — Clausery">
+<meta name="twitter:image:alt" content="Self-hosting Clausery: deployment and data migration — Clausery">
 <meta name="theme-color" content="#1b2a41">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
@@ -31,7 +31,7 @@
 <link rel="stylesheet" href="../site.css">
 <script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Docs","item":"https://getclausery.github.io/docs/"},{"@type":"ListItem","position":3,"name":"Self-hosting","item":"https://getclausery.github.io/docs/self-hosting.html"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://getclausery.github.io/docs/self-hosting.html#webpage","url":"https://getclausery.github.io/docs/self-hosting.html","name":"Self-hosting","description":"Run Clausery on your own domain or intranet: it is a folder of static files with no build step and no server component.","inLanguage":"en-GB","isPartOf":{"@id":"https://getclausery.github.io/#website"},"dateModified":"2026-10-17"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Docs","item":"https://getclausery.github.io/docs/"},{"@type":"ListItem","position":3,"name":"Self-hosting Clausery: deployment and data migration","item":"https://getclausery.github.io/docs/self-hosting.html"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://getclausery.github.io/docs/self-hosting.html#webpage","url":"https://getclausery.github.io/docs/self-hosting.html","name":"Self-hosting Clausery: deployment and data migration","description":"Deploy Clausery over HTTPS, test a private copy and move browser data with a backup. Configure app links separately from public SEO canonicals.","inLanguage":"en-GB","isPartOf":{"@id":"https://getclausery.github.io/#website"},"dateModified":"2026-10-18"}</script>
 </head>
 <body>
 <a class="sr-only" href="#main">Skip to content</a>
@@ -61,7 +61,14 @@
   <li>Serve over HTTPS. Service workers and WebCrypto require a secure context (localhost is also allowed).</li>
   <li>Set <code>SITE_URL</code> in <code>app/config.js</code> to your address (used in exported intake forms).</li>
 </ol>
+<h2 id="deployment-checklist">Test the deployed copy and its data boundary</h2>
+<p>For a test address such as <code>https://draft.example.org/</code>, load <code>app/</code> over HTTPS, import a fictional Word template and download a document. Then disconnect and confirm the loaded app still works. Do not test a deployment by double-clicking its HTML files: a <code>file:</code> URL is not the same environment as an HTTPS origin.</p>
+<p>The new origin starts with a different browser workspace. Serving the same app files does not copy client data from the public instance or a previous domain. Follow the <a href="../docs/backups.html">backup and restore checklist</a> to transfer data deliberately, and reconfigure activation and encryption for the destination.</p>
+<h2 id="self-hosting-indexing">Keep private deployments out of search</h2>
+<p>Use host authentication or network access controls for an internal deployment; robots.txt is not access control. If you also publish a copy of the marketing pages, review its indexing policy and absolute URLs before making it public. <code>SITE_URL</code> changes app links in exported files, not the marketing canonicals, sitemap or feed base.</p>
+<p>A deliberate public rebrand needs the <code>SITE</code> value in <code>tools/partials.mjs</code> reviewed and the static pages rebuilt with Node 22+. A private app deployment usually does not need a second indexable marketing site. Keep the app's <code>noindex</code> metadata; do not remove it merely to make an intranet copy discoverable.</p>
 <h2>Recommended headers</h2>
+<p>This strict profile is intended for an offline-key deployment and does not permit requests to an online license service. If you deliberately enable online keys, review the required service origins and policy rather than expecting them to work under a same-origin-only <code>connect-src</code>.</p>
 <pre tabindex="0"><code>Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'
 X-Content-Type-Options: nosniff
 Referrer-Policy: no-referrer
@@ -70,7 +77,7 @@ Cache-Control: no-cache   (for HTML; long max-age for vendor/ and assets/)</code
 <h2>Licensing your deployment</h2>
 <p>To issue your own license keys (Enterprise), generate a key pair with <code>npm run license -- keygen</code>, put the public key in <code>app/config.js</code> and keep the private key offline. Issue keys with <code>npm run license -- issue</code>. The app then accepts only keys signed by you. Set <code>LICENSE_SERVICE.api</code> to an empty string in the same file so the app never accepts or checks online keys; the headers above already leave the license service out of <code>connect-src</code>.</p>
 <h2>Updating</h2>
-<p>Replace the folder with the new version. The service worker version changes with each release and users are prompted to reload. User data is in their browsers, not in the folder, so updates never touch it.</p>
+<p>Replace the folder with a tested release. Its service worker version changes with each release and users are prompted to reload. User data is in their browsers, not in the static folder; preserve a workspace backup and test your own templates before rolling out an update. Moving files to a different origin does not move the old browser workspace.</p>
 <h2>GitHub Pages</h2>
 <p>The public instance runs on GitHub Pages straight from the repository, with a CI workflow that lints, unit-tests and end-to-end tests every change. Forking the repository and enabling Pages gives you an identical setup in minutes.</p><p class="docs-cta" style="margin-top:2.5rem"><a class="btn btn-primary" href="../app/">Open Clausery</a> <a class="btn" href="../templates/">Browse free templates</a></p></article></div></main>
 <footer class="site-footer">

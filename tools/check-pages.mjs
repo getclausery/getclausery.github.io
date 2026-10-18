@@ -57,13 +57,15 @@ const sets = {
   },
   compare: {
     files: globSync('compare/*.html').filter((f) => f !== 'compare/index.html'),
-    minWords: 480, minH2: 4, minFaq: 3,
+    minWords: 480, minH2: 4, minFaq: 3, maxSimilarity: 0.35,
     schema: ['FAQPage', 'BreadcrumbList'],
     require: [
       ['comparison table', (h) => counts(h, /<tr>/g) >= 8],
       ['price', (h) => /\$|price|pricing/i.test(h)],
       ['app link', (h) => linksTo(h, 'app/')],
       ['honest choice sections', (h) => /When .* makes sense|choose them|choose Clausery|Where .* wins/i.test(h)],
+      ['product-specific evaluation', (h) => textOf(h.match(/<section class="comparison-workflow"[\s\S]*?<\/section>/)?.[0] || '').split(/\s+/).filter(Boolean).length >= 180],
+      ['official vendor link', (h) => /<a class="vendor-source" href="https:\/\//.test(h)],
     ],
   },
   for: {
@@ -85,6 +87,15 @@ const sets = {
       ['published date', (h) => /<time datetime="\d{4}-\d{2}-\d{2}">/.test(h)],
       ['template or tool', (h) => /href="[^"]*(?:templates|invoice-templates|free-tools)\//.test(h)],
       ['link back to the guide hub', (h) => /href="[^"]*guides\/"/.test(h)],
+    ],
+  },
+  docs: {
+    files: globSync('docs/*.html'),
+    minWords: 380, minH2: 2, minFaq: 0,
+    schema: ['WebPage', 'BreadcrumbList'],
+    require: [
+      ['instructions article', (h) => /<article class="docs-body">/.test(h)],
+      ['app next step', (h) => linksTo(h, 'app/')],
     ],
   },
   'free-tools': {
@@ -122,7 +133,8 @@ for (const [name, spec] of Object.entries(sets)) {
     for (let j = i + 1; j < pages.length; j++) {
       const score = jaccard(pages[i].shingles, pages[j].shingles);
       worst = Math.max(worst, score);
-      if (score > 0.55) fail(pages[j].file, `${(score * 100).toFixed(0)}% of its wording is shared with ${pages[i].file} (maximum 55%)`);
+      const limit = spec.maxSimilarity ?? 0.55;
+      if (score > limit) fail(pages[j].file, `${(score * 100).toFixed(0)}% of its wording is shared with ${pages[i].file} (maximum ${(limit * 100).toFixed(0)}%)`);
     }
   }
   console.log(`${name}: ${pages.length} pages, minimum ${Math.min(...pages.map((p) => p.text.split(/\s+/).filter(Boolean).length))} words, highest sibling similarity ${(worst * 100).toFixed(0)}%`);

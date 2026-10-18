@@ -2,26 +2,26 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
-<title>Client intake forms · Clausery</title>
+<title>Clausery client intake forms: collect answers offline</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Collect answers from clients without a portal: export a self-contained HTML questionnaire, receive an answers file, import it into a draft.">
+<meta name="description" content="Send an offline HTML questionnaire, resume saved answers and import the returned JSON into a draft. A worked client intake example with privacy checks.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="https://getclausery.github.io/docs/intake.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_GB">
 <meta property="og:site_name" content="Clausery">
-<meta property="og:title" content="Client intake forms · Clausery">
-<meta property="og:description" content="Collect answers from clients without a portal: export a self-contained HTML questionnaire, receive an answers file, import it into a draft.">
+<meta property="og:title" content="Clausery client intake forms: collect answers offline">
+<meta property="og:description" content="Send an offline HTML questionnaire, resume saved answers and import the returned JSON into a draft. A worked client intake example with privacy checks.">
 <meta property="og:url" content="https://getclausery.github.io/docs/intake.html">
 <meta property="og:image" content="https://getclausery.github.io/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Client intake forms · Clausery — Clausery">
+<meta property="og:image:alt" content="Clausery client intake forms: collect answers offline — Clausery">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Client intake forms · Clausery">
-<meta name="twitter:description" content="Collect answers from clients without a portal: export a self-contained HTML questionnaire, receive an answers file, import it into a draft.">
+<meta name="twitter:title" content="Clausery client intake forms: collect answers offline">
+<meta name="twitter:description" content="Send an offline HTML questionnaire, resume saved answers and import the returned JSON into a draft. A worked client intake example with privacy checks.">
 <meta name="twitter:image" content="https://getclausery.github.io/assets/og.png">
-<meta name="twitter:image:alt" content="Client intake forms · Clausery — Clausery">
+<meta name="twitter:image:alt" content="Clausery client intake forms: collect answers offline — Clausery">
 <meta name="theme-color" content="#1b2a41">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
@@ -31,7 +31,7 @@
 <link rel="stylesheet" href="../site.css">
 <script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Docs","item":"https://getclausery.github.io/docs/"},{"@type":"ListItem","position":3,"name":"Client intake forms","item":"https://getclausery.github.io/docs/intake.html"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://getclausery.github.io/docs/intake.html#webpage","url":"https://getclausery.github.io/docs/intake.html","name":"Client intake forms","description":"Collect answers from clients without a portal: export a self-contained HTML questionnaire, receive an answers file, import it into a draft.","inLanguage":"en-GB","isPartOf":{"@id":"https://getclausery.github.io/#website"},"dateModified":"2026-10-17"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Docs","item":"https://getclausery.github.io/docs/"},{"@type":"ListItem","position":3,"name":"Clausery client intake forms: collect answers offline","item":"https://getclausery.github.io/docs/intake.html"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://getclausery.github.io/docs/intake.html#webpage","url":"https://getclausery.github.io/docs/intake.html","name":"Clausery client intake forms: collect answers offline","description":"Send an offline HTML questionnaire, resume saved answers and import the returned JSON into a draft. A worked client intake example with privacy checks.","inLanguage":"en-GB","isPartOf":{"@id":"https://getclausery.github.io/#website"},"dateModified":"2026-10-18"}</script>
 </head>
 <body>
 <a class="sr-only" href="#main">Skip to content</a>
@@ -69,6 +69,18 @@
   <li>The answers file is plain JSON. Treat it like any client document: if you would encrypt an email attachment, encrypt this one too.</li>
   <li>The form's Content Security Policy blocks all network access, even if it were opened from a web server.</li>
 </ul>
+<h2 id="intake-example">Worked example: collect a new client's engagement details</h2>
+<p>Start a fresh draft of the <a href="../templates/engagement-letter.html">engagement letter template</a>, check its labels and help text, and export an intake form with a fictional client. The form contains the questionnaire, including any descriptions, defaults and options you configured; inspect those before sharing it. It does not contain the Word document or the current draft's answers.</p>
+<ol>
+  <li>Tell the recipient which file to open, what information to supply and how to return the completed answers securely.</li>
+  <li>Open the HTML file in a full browser rather than an email preview. Enter test details and choose <strong>Save progress</strong>.</li>
+  <li>Close the form, reopen the original HTML file and choose <strong>Load saved answers</strong> to select the in-progress JSON file. Progress is restored from that file, not from a server account.</li>
+  <li>Complete the required questions, choose <strong>Save answers</strong> and return the downloaded JSON, not a screenshot or the blank HTML form.</li>
+  <li>In the fresh draft, choose <strong>Import answers (.json)</strong>, inspect the imported values and generate a test Word document.</li>
+</ol>
+<h2 id="intake-review">Review the handoff, not just the import</h2>
+<p>Importing updates matching answers in the draft; it does not automatically clear every existing value. Use a new draft for a new client and inspect fields not supplied in the file. A different-template warning needs investigation, not automatic acceptance. Questions and field names must match the template you intend to use.</p>
+<p>The answers JSON and any saved-progress JSON are unencrypted. A passphrase on your own workspace does not protect a downloaded file in the client's Downloads folder. Agree the transfer channel, access and retention policy before asking for sensitive information. See <a href="../docs/security.html">the security model</a> and <a href="../docs/backups.html">the export and backup guidance</a>.</p>
 <h2>Hosting the form on your site</h2>
 <p>Because the form is a single static file, you can also put it on your website or client extranet. Clients still answer locally and send back the file; nothing is posted to the server hosting the page.</p><p class="docs-cta" style="margin-top:2.5rem"><a class="btn btn-primary" href="../app/">Open Clausery</a> <a class="btn" href="../templates/">Browse free templates</a></p></article></div></main>
 <footer class="site-footer">
