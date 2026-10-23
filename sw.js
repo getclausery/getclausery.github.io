@@ -27,6 +27,7 @@ const PRECACHE = [
   'app/lib/plan.js',
   'app/lib/prefill.js',
   'app/lib/presets.js',
+  'app/lib/provenance.js',
   'app/lib/purchase.js',
   'app/lib/render.js',
   'app/lib/schema.js',
@@ -151,11 +152,47 @@ const PRECACHE = [
 // PRECACHE:END
 const PRECACHE_URLS = new Set(PRECACHE.map((p) => BASE + p));
 
+// ORIGIN-GUARD:BEGIN — updated by hand; release.mjs must not strip this block.
+// The service worker refuses to install or cache anything on hosts that are
+// not run by the Clausery project. This means a clone cannot become a working
+// PWA (offline mode, install to home screen, cached assets) without editing
+// this section, and that section is CMI (17 U.S.C. §1202). White-label
+// commercial licensees receive a patched sw.js with their host added here.
+const OFFICIAL_HOSTS = [
+  'getclausery.github.io',
+  'getclausery.com',
+  'www.getclausery.com',
+  'clausery.app',
+  'www.clausery.app',
+];
+function isOfficialOrigin(origin) {
+  try {
+    const h = new URL(origin).hostname.toLowerCase();
+    if (h === 'localhost' || h === '127.0.0.1' || h === '0.0.0.0' || h === '') return true;
+    if (h.endsWith('.e2b.app') || h.endsWith('.e2b.dev') || h.endsWith('.arena.ai')) return true;
+    for (const o of OFFICIAL_HOSTS) if (h === o || h.endsWith('.' + o)) return true;
+    return false;
+  } catch { return false; }
+}
+const ALLOW_UNOFFICIAL = false; // set to true only in a commercial white-label build
+// ORIGIN-GUARD:END
+
 self.addEventListener('install', (e) => {
+  // Refuse to install on unauthorised origins. Without an installed SW there
+  // is no offline support, no precache and no "install app" prompt — the clone
+  // becomes a plain website.
+  if (!ALLOW_UNOFFICIAL && !isOfficialOrigin(self.location.href)) {
+    e.waitUntil(self.registration.uninstall().then(() => self.skipWaiting()));
+    return;
+  }
   // cache: 'reload' bypasses the HTTP cache so a release never precaches a stale copy of a file
   e.waitUntil(caches.open(CACHE).then((c) => Promise.allSettled([...PRECACHE_URLS].map((u) => c.add(new Request(u, { cache: 'reload' }))))).then(() => self.skipWaiting()));
 });
 self.addEventListener('activate', (e) => {
+  if (!ALLOW_UNOFFICIAL && !isOfficialOrigin(self.location.href)) {
+    e.waitUntil(self.registration.uninstall().then(() => self.clients.claim()));
+    return;
+  }
   e.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((k) => k.startsWith('clausery-') && k !== CACHE).map((k) => caches.delete(k)))).then(() => self.clients.claim()));
 });
 self.addEventListener('message', (e) => { if (e.data === 'skipWaiting') self.skipWaiting(); });
@@ -163,6 +200,10 @@ self.addEventListener('message', (e) => { if (e.data === 'skipWaiting') self.ski
 self.addEventListener('fetch', (e) => {
   const req = e.request;
   if (req.method !== 'GET') return;
+  // On unauthorised origins, never intercept fetches: let the browser behave
+  // normally but do not serve cached assets. The SW stays in "pass-through"
+  // mode so it cannot be used to persist a clone offline.
+  if (!ALLOW_UNOFFICIAL && !isOfficialOrigin(self.location.href)) return;
   const url = new URL(req.url);
   if (url.origin !== self.location.origin || !url.pathname.startsWith(BASE)) return;
   const isHTML = req.mode === 'navigate' || (req.headers.get('accept') || '').includes('text/html');
