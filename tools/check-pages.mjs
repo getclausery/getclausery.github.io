@@ -29,7 +29,7 @@ const sets = {
     require: [
       ['app link', (h) => linksTo(h, 'app/#/start/')],
       ['Word download', (h) => linksTo(h, 'samples/')],
-      ['preview picture', (h) => /<picture><source[^>]+type="image\/webp"/.test(h) && /class="tpl-thumb"/.test(h)],
+      ['preview picture', (h) => /<a[^>]+class="[^"]*tpl-thumb[^"]*"[^>]*>\s*<picture>\s*<source[^>]+type="image\/webp"/.test(h)],
       ['full template text', (h) => /class="tpl-doc"/.test(h)],
       ['question table', (h) => /The questions you answer/.test(h)],
       ['guide link', (h) => /<strong>Guide:<\/strong>/.test(h)],
