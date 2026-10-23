@@ -1,4 +1,4 @@
-import { REPO_URL, CONTACT_EMAIL, CONTACT_URL, ANALYTICS_ON, ANALYTICS_SINCE, ONLINE_KEYS, CHECKOUT_SINCE, USAGE_ON, USAGE_SINCE, longDate } from '../tools/partials.mjs';
+import { REPO_URL, CONTACT_EMAIL, CONTACT_URL, ANALYTICS_ON, ANALYTICS_SINCE, ONLINE_KEYS, CHECKOUT_SINCE, USAGE_ON, USAGE_SINCE, longDate, mailto } from '../tools/partials.mjs';
 import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // Later changes to what the policy describes: 2026-10-15 added the free trial, the Free plan's credit line and the
 // upgrade and trial counts.
@@ -70,4 +70,47 @@ page('legal/dpa.html', 'Data processing statement', 'For procurement and complia
 <p>None by the vendor.</p>
 <h2>Contact</h2>
 <p>See the <a href="${rel}contact/">contact page</a>. For a signed attestation, say so in a question and we will arrange a private channel.</p>`),
+
+page('legal/license.html', 'Open-source license (AGPLv3) and commercial licensing', 'Clausery is open source under the GNU AGPLv3, with commercial licenses available for white-label use.', (rel) => `
+<h1>Open source, not open season</h1>
+<p class="lead">Clausery is free software — free to use, read, modify and self-host — but the Clausery name and logos are trademarks, and anyone offering a modified version over a network has to publish their changes. Here is how that works.</p>
+
+<h2>Code license: GNU AGPLv3</h2>
+<p>Everything in this repository — the document engine, UI, templates and public site — is published under the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html" rel="noopener">GNU Affero General Public License, version 3</a>, or (at your option) any later version. That is the same license WordPress, Nextcloud, GitLab Community Edition, Mastodon and many other network software projects use. You can read the full legal text in <a href="${rel}LICENSE">LICENSE</a>.</p>
+<p>What that means in practice:</p>
+<ul>
+  <li><strong>Use it:</strong> run Clausery for yourself, your team or your company, for free.</li>
+  <li><strong>Study it:</strong> read every line of code, including the parts that assemble the .docx and the parts that verify license keys. There are no obfuscated binaries.</li>
+  <li><strong>Modify it:</strong> patch it, add templates, translate it, run it on your own domain for your team.</li>
+  <li><strong>Redistribute it:</strong> give copies to other people, publicly or commercially, AS LONG AS you keep the AGPLv3 license on the copy and publish the corresponding source code of your version.</li>
+  <li><strong>Run a modified version for others over a network?</strong> Section 13 of the AGPL requires you to offer your users the complete corresponding source code of your modified version at no charge, from the same service. That is the clause that stops a competitor taking the code, rebranding it and selling it as a closed SaaS without giving anything back.</li>
+</ul>
+
+<h2>Trademarks: what the AGPL does NOT cover</h2>
+<p>The AGPL covers code. It does not grant permission to use the <strong>Clausery</strong> word mark, the logo/app icon, marketing copy, screenshots, social accounts or domain. Those are reserved to the project. They are the part that tells users they are on the real tool, not a clone.</p>
+<p>The full policy is in <a href="https://github.com/getclausery/getclausery.github.io/blob/main/TRADEMARKS.md" rel="noopener">TRADEMARKS.md</a>. In short: name your fork something else, swap the logo for your own, and add a one-line credit ("Built on Clausery (AGPL-3.0) · view source") in your footer and in your app's sidebar. Nominative references ("our tool is built on Clausery", "forked from Clausery") are fine.</p>
+
+<h2>What the "Made with Clausery" line is for</h2>
+<p>Documents made from free library templates on the Free plan end with one small line, <em>"Made with Clausery · getclausery.github.io"</em>. That line is how people who receive a free invoice find the tool — the equivalent of a WordPress "Powered by" line — and it doubles as the attribution that lets the free tier exist. Pro, Team, Enterprise and commercial-license deployments remove it from documents.</p>
+
+<h2>Commercial licenses</h2>
+<p>We sell commercial licenses to teams who want to:</p>
+<ul>
+  <li>White-label Clausery inside a closed product or intranet without the AGPL source-offer obligation;</li>
+  <li>Embed the editor in a paid SaaS under their own brand;</li>
+  <li>Deploy a heavily-modified internal version without publishing their customisations;</li>
+  <li>Use the logo or product screenshots in marketing.</li>
+</ul>
+<p>Commercial licenses fund new templates, maintenance and the perpetual free public release of the core product. Email <a href="${mailto('Clausery commercial license')}">${CONTACT_EMAIL}</a> via the <a href="${rel}contact/">contact page</a> with how many users and what you are building — most small teams get a flat quote back quickly.</p>
+
+<h2>Contributing</h2>
+<p>Pull requests are welcome. See <a href="https://github.com/getclausery/getclausery.github.io/blob/main/CONTRIBUTING.md" rel="noopener">CONTRIBUTING.md</a> for how to set up. By opening a PR you agree your contribution is licensed under the same AGPL-3.0-or-later; no CLA required.</p>
+
+<h2>Security</h2>
+<p>Report security issues privately via GitHub's <a href="https://github.com/getclausery/getclausery.github.io/security/advisories/new" rel="noopener">private advisory reporting</a> or by email, as described in <a href="https://github.com/getclausery/getclausery.github.io/blob/main/SECURITY.md" rel="noopener">SECURITY.md</a> and <a href="${rel}.well-known/security.txt">security.txt</a>. Do not open a public issue for a security vulnerability.</p>
+
+<h2>Why AGPL instead of MIT or BSD?</h2>
+<p>Clausery is a client-side product that competes with paid SaaS tools. A permissive license (MIT, BSD, Apache) would allow competitors to take the code, rebrand it, close the improvements and sell it as their own — which has happened to many MIT-licensed developer tools. The AGPL keeps the code free and keeps improvements free while still allowing commercial use through a paid dual-license, which is the model used by other developer-focused open-source companies (Ghost, Grafana Labs' AGPL components, Element/Matrix, Plausible, Mastodon, GitLab CE). It is the OSI-approved license that matches how Clausery is actually used: over the network.</p>
+
+<p class="small muted" style="margin-top:2rem">The software is provided "as is" without warranty, as described in <a href="${rel}legal/terms.html">the terms of service</a>.</p>`),
 ];

@@ -278,3 +278,13 @@ details.section > .section-body { padding: 0 1rem 1rem; }
 ::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 10px; border: 2px solid transparent; background-clip: content-box; }
 ::-webkit-scrollbar-thumb:hover { background: var(--muted); background-clip: content-box; border: 2px solid transparent; }
 @media (prefers-reduced-motion: reduce) { .modal-overlay { animation: none; } }
+
+/* Open-source identity link in the sidebar footer. Always visible on public
+   deployments (Pro white-label licenses use a commercial build that hides it).
+   Required by the AGPL spirit so anyone using a forked deployment can trace it
+   back to the original project; modified copies should replace it with their
+   own name AND link to their corresponding source (AGPL s13). */
+.nav-foot { font-size: .72rem; line-height: 1.5; color: var(--muted); display: flex; flex-direction: column; gap: .15rem; }
+.nav-foot .nav-brand { color: var(--accent); text-decoration: none; font-weight: 600; font-size: .74rem; align-self: flex-start; }
+.nav-foot .nav-brand:hover { text-decoration: underline; }
+@media (max-width: 800px) { .nav-foot .nav-brand { display: none; } }

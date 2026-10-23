@@ -9,7 +9,7 @@
  },
  "about/": {
   "date": "2026-10-23",
-  "hash": "7de68e48706290c9"
+  "hash": "a93940e94c24d8ba"
  },
  "business-document-kit/": {
   "date": "2026-10-23",
@@ -639,6 +639,10 @@
   "date": "2026-10-09",
   "hash": "1686ec404a3090ac"
  },
+ "legal/license.html": {
+  "date": "2026-10-23",
+  "hash": "0bb39a332cfcecbf"
+ },
  "legal/privacy.html": {
   "date": "2026-10-15",
   "hash": "f7006f0b04cab600"
@@ -661,7 +665,7 @@
  },
  "pricing/": {
   "date": "2026-10-23",
-  "hash": "c58a78385563e05c"
+  "hash": "b3958eb6ceddc2dd"
  },
  "templates/": {
   "date": "2026-10-23",

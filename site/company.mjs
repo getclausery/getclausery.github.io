@@ -40,7 +40,7 @@ export const pages = [
 <ul>
   <li>Plain HTML, CSS and JavaScript modules, with document generation running locally in the browser.</li>
   <li>Served as static files by GitHub Pages, and installable as an offline app.</li>
-  <li>The code is published on <a href="${REPO_URL}" rel="noopener">GitHub</a>, so anyone can check what it does, and every release is listed in the <a href="${rel}changelog.html">changelog</a>.</li>
+  <li>The code is published on <a href="${REPO_URL}" rel="noopener">GitHub</a> under the <a href="${rel}legal/license.html">AGPL open-source license</a>, so anyone can check what it does, and every release is listed in the <a href="${rel}changelog.html">changelog</a>.</li>
   <li>Optional encryption of everything stored in the browser (AES-256-GCM)${ONLINE_KEYS ? ', and license checks that send only the key' : ', and license keys verified offline with a signature'}. See the <a href="${rel}docs/security.html">security overview</a>.</li>
 </ul>
 <h2>Who you are talking to</h2>
