@@ -1,4 +1,4 @@
-import { REPO_URL, CONTACT_EMAIL, CONTACT_URL, ANALYTICS_ON, ANALYTICS_SINCE, ONLINE_KEYS, CHECKOUT_SINCE, USAGE_ON, USAGE_SINCE, longDate } from '../tools/partials.mjs';
+import { REPO_URL, CONTACT_EMAIL, CONTACT_URL, ANALYTICS_ON, ANALYTICS_SINCE, ONLINE_KEYS, CHECKOUT_SINCE, USAGE_ON, USAGE_SINCE, longDate, mailto } from '../tools/partials.mjs';
 import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // Later changes to what the policy describes: 2026-10-15 added the free trial, the Free plan's credit line and the
 // upgrade and trial counts.
@@ -101,7 +101,7 @@ page('legal/license.html', 'Open-source license (AGPLv3) and commercial licensin
   <li>Deploy a heavily-modified internal version without publishing their customisations;</li>
   <li>Use the logo or product screenshots in marketing.</li>
 </ul>
-<p>Commercial licenses fund new templates, maintenance and the perpetual free public release of the core product. Email <a href="${rel}contact/">getclausery@gmail.com</a> with how many users and what you are building — most small teams get a flat quote back quickly.</p>
+<p>Commercial licenses fund new templates, maintenance and the perpetual free public release of the core product. Email <a href="${mailto('Clausery commercial license')}">${CONTACT_EMAIL}</a> via the <a href="${rel}contact/">contact page</a> with how many users and what you are building — most small teams get a flat quote back quickly.</p>
 
 <h2>Contributing</h2>
 <p>Pull requests are welcome. See <a href="https://github.com/getclausery/getclausery.github.io/blob/main/CONTRIBUTING.md" rel="noopener">CONTRIBUTING.md</a> for how to set up. By opening a PR you agree your contribution is licensed under the same AGPL-3.0-or-later; no CLA required.</p>
