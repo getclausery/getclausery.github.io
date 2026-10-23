@@ -77,7 +77,13 @@ for (const box of document.querySelectorAll('[data-filter-for]')) {
       h.endsWith('.local') || h === 'file') return;
   if (window.__CLAUSERY_WHITE_LABEL) return;
   for (const o of OFFICIAL) if (h === o || h.endsWith('.' + o)) return;
-  const brand = ((document.querySelector('.brand')?.textContent||'') + ' ' + document.title + ' ' + (document.querySelector('meta[property="og:site_name"]')?.getAttribute('content')||'')).toLowerCase();
+  const brand = ((document.querySelector('.brand')?.textContent||'') + ' ' + document.title + ' '
+    + (document.querySelector('meta[property="og:site_name"]')?.getAttribute('content')||'') + ' '
+    + (document.querySelector('meta[name="generator"]')?.getAttribute('content')||'') + ' '
+    + (document.querySelector('meta[name="original-source"]')?.getAttribute('content')||'') + ' '
+    + (document.querySelector('.legal')?.textContent||'') + ' '
+    + [...document.querySelectorAll('script[type="application/ld+json"]')].map(s => s.textContent).join(' ')
+  ).toLowerCase();
   if (!/clausery/.test(brand)) return;
   if (document.getElementById('clausery-copyguard')) return;
   const bar = document.createElement('div');

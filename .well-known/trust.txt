@@ -1,0 +1,9 @@
+Canonical-Origin: https://getclausery.github.io/
+Canonical-Origin: https://getclausery.com/
+Canonical-Origin: https://www.getclausery.com/
+Canonical-Origin: https://clausery.app/
+Canonical-Origin: https://www.clausery.app/
+Contact: mailto:getclausery@gmail.com?subject=Clausery%20trust%20report
+Policy: https://getclausery.github.io/legal/dmca.html
+Attestation: https://getclausery.github.io/.well-known/attestation.json
+Preferred-Languages: en

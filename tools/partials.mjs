@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 // Shared HTML fragments for the static site pages (used by tools/build-site.mjs).
-export const YEAR = '2026';
+// YEAR is taken from the build clock so the footer never needs a manual bump.
+export const YEAR = String(new Date().getUTCFullYear());
 /* The theme script is 260 bytes and decides the colours before the first paint. Inlining it removes a
    render-blocking request from every page (the file stays in app/ for the app itself and for cached copies). */
 const THEME_FILE = readFileSync(new URL('../app/theme.js', import.meta.url), 'utf8');

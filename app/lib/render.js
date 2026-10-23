@@ -6,6 +6,7 @@
    - describeTemplateError: turn docxtemplater's error objects into messages a template author can act on */
 import { PizZip, Docxtemplater, InspectModule, renderAsync } from '../../vendor/docs.js';
 import { addCredit } from './credit.js';
+import { stampProvenance } from './provenance.js';
 
 const OPTIONS = { paragraphLoop: true, linebreaks: true };
 
@@ -78,13 +79,17 @@ export function inspectDocx(bytes) {
   return { tags: im.getAllTags(), order, inverted: [...inverted], text: texts.join('\n\n') };
 }
 
-/** Fill the template and return its zip. `credit` adds the "Made with Clausery" line (Free plan, library templates). */
-function renderZip(bytes, data, { credit = false } = {}) {
+/** Fill the template and return its zip. `credit` adds the "Made with Clausery" line (Free plan, library templates).
+    Provenance metadata (docProps/core.xml, app.xml, custom ClauseryProvenance property) is stamped on every render,
+    Free or Pro, so generated .docx files always carry a non-visible CMI marker (17 U.S.C. §1202). */
+function renderZip(bytes, data, { credit = false, title, subject } = {}) {
   const zip = loadZip(bytes);
   const doc = new Docxtemplater(zip, { ...OPTIONS, nullGetter });
   doc.render(data);
-  const out = doc.getZip();
-  return credit ? addCredit(out) : out;
+  let out = doc.getZip();
+  stampProvenance(out, { title, subject });
+  if (credit) out = addCredit(out);
+  return out;
 }
 
 export function renderDocx(bytes, data, opts) {
