@@ -708,7 +708,7 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-label
     return {
       path: `templates/${t.slug}.html`, title: t.title, ogImage: `assets/og/${t.slug}.png`,
       description: t.description || fitSnippet(t.intro, { lead: `Free ${lowerFirst(t.name)} template for Word.`, tail: 'Fill it in online or download the .docx, free.' }),
-      extraHead: docLd(t) + faqLd(faq) + crumbsLd([['Home', ''], ['Templates', 'templates/'], [t.name, `templates/${t.slug}.html`]]) + PREVIEW_CSS + THUMB_CSS + (t.slug === 'payment-receipt' ? receiptHelpHead : ''),
+      extraHead: docLd(t) + faqLd(faq) + crumbsLd([['Home', ''], ['Templates', 'templates/'], [t.name, `templates/${t.slug}.html`]]) + PREVIEW_CSS + THUMB_CSS + (t.slug === 'payment-receipt' ? receiptHelpHead : '') + `<style>.tpl-cta-fixed{display:none}@media(max-width:760px){.tpl-cta-fixed{display:flex;position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:20;gap:.5rem}.tpl-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35)}}</style>`,
       body: (rel) => `
 <section class="section"><div class="wrap" style="max-width:52rem">
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}templates/">Templates</a> › ${esc(t.name)}</nav>
@@ -757,6 +757,7 @@ ${['quote', 'payment-receipt', 'credit-note'].includes(t.slug) ? `<!--nav--><p s
   <div class="grid grid-3 related-cards">${related(t).map((x) => `<a class="feature" href="${rel}templates/${x.slug}.html"><h3>${esc(x.name)}</h3><p>${esc(cardLine(x))}</p></a>`).join('')}</div>
   <p><a href="${rel}templates/">Browse all ${LIB.length} free templates by category</a></p><!--/nav-->
   <p class="small muted" style="margin-top:2rem">This template is a general sample and not legal advice. Laws vary by jurisdiction; have it reviewed before use.</p>
+  <div class="tpl-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/${t.slug}">Fill it in — free →</a></div>
 </div></section>`,
     };
   }),
