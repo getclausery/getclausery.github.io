@@ -1,15 +1,23 @@
 {
  "": {
   "date": "2026-10-23",
-  "hash": "3b825650abe60060"
+  "hash": "3e15e5c3e80eaff2"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
   "hash": "f9d2a380c887c921"
  },
+ ".well-known/privacy-policy": {
+  "date": "2026-10-23",
+  "hash": "9361b1f350d399d4"
+ },
  ".well-known/support": {
   "date": "2026-10-23",
   "hash": "b1ec7e81ddd8be91"
+ },
+ ".well-known/terms-of-service": {
+  "date": "2026-10-23",
+  "hash": "ca887ea6b860a634"
  },
  "404.html": {
   "date": "2026-10-17",
@@ -25,7 +33,7 @@
  },
  "changelog.html": {
   "date": "2026-10-23",
-  "hash": "238ffe45bf64746f"
+  "hash": "68ec841c20d346c7"
  },
  "clauses/": {
   "date": "2026-10-17",
@@ -669,7 +677,7 @@
  },
  "made-with/": {
   "date": "2026-10-23",
-  "hash": "0d21d018a54fb135"
+  "hash": "d0a054045fc46535"
  },
  "nda-templates/": {
   "date": "2026-10-04",
@@ -685,11 +693,11 @@
  },
  "roadmap/": {
   "date": "2026-10-23",
-  "hash": "c0cfdbb79ff12304"
+  "hash": "0682c3e33e50fdbf"
  },
  "status/": {
   "date": "2026-10-23",
-  "hash": "6064ed6b963ecd19"
+  "hash": "ff9c1ee09a983ca4"
  },
  "templates/": {
   "date": "2026-10-23",
