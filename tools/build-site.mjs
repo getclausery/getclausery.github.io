@@ -116,6 +116,45 @@ ${feed.map((p) => `  <entry>
 `);
 console.log(`wrote feed.xml (${feed.length} entries)`);
 
+// Atom feed of releases (one entry per version in the changelog). Entries come from RELEASES exported by
+// site/misc.mjs; we parse them once at build time so the page HTML and the feed stay in sync without
+// screen-scraping. Dates are parsed from "DD MMMM YYYY" release headings and emitted as ISO UTC.
+const months = { january:'01',february:'02',march:'03',april:'04',may:'05',june:'06',july:'07',august:'08',september:'09',october:'10',november:'11',december:'12' };
+const parseReleaseDate = (s) => {
+  const m = s.trim().match(/^(\d{1,2})\s+([a-z]+)\s+(\d{4})$/i);
+  if (!m) return null;
+  const mon = months[m[2].toLowerCase()];
+  if (!mon) return null;
+  return `${m[3]}-${mon}-${String(Number(m[1])).padStart(2,'0')}`;
+};
+let releases = [];
+try { ({ releases } = await import('../site/misc.mjs')); } catch { /* site may not export releases during tests */ }
+if (!Array.isArray(releases)) releases = [];
+if (releases.length) {
+  releases = releases.filter((r) => r.version && r.date).map((r) => ({ ...r, iso: parseReleaseDate(r.date) })).filter((r) => r.iso);
+  const relUpdated = releases.map((r) => r.iso).sort().at(-1);
+  writeFileSync('releases.xml', `<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Clausery releases</title>
+  <subtitle>Release notes for Clausery: new templates, app features, fixes and policy changes.</subtitle>
+  <link rel="self" href="${BASE}releases.xml"/>
+  <link rel="alternate" href="${BASE}changelog.html"/>
+  <id>${BASE}changelog.html</id>
+  <updated>${relUpdated}T00:00:00Z</updated>
+  <author><name>Clausery</name></author>
+${releases.map((r) => `  <entry>
+    <title>Clausery v${r.version} — ${r.summary || 'new release'}</title>
+    <link href="${BASE}changelog.html#v${r.version.replace(/\./g,'-')}"/>
+    <id>${BASE}changelog.html#v${r.version.replace(/\./g,'-')}</id>
+    <published>${r.iso}T00:00:00Z</published>
+    <updated>${r.iso}T00:00:00Z</updated>
+    <summary>${xmlEsc(r.summary || `Clausery v${r.version} release notes.`)}</summary>
+  </entry>`).join('\n')}
+</feed>
+`);
+  console.log(`wrote releases.xml (${releases.length} entries)`);
+}
+
 // llms.txt (llmstxt.org): a plain summary and link map for AI assistants and answer engines.
 const section = (prefix) => pages.filter((p) => p.path.startsWith(prefix) && !p.path.endsWith('/') && !p.noindex).map((p) => `- [${p.title}](${BASE}${p.path}): ${p.description}`).join('\n');
 writeFileSync('llms.txt', `# Clausery

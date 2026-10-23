@@ -68,6 +68,7 @@ export const SEARCH_INTENT = {
   "compare/rocket-lawyer-alternative.html": ["rocket lawyer alternative", "commercial", "compare"],
   "why-clausery/": ["why clausery", "commercial", "compare"],
   "contact/": ["contact clausery", "navigational", "company"],
+  "customers/": ["who uses clausery", "commercial", "company"],
   "docs/": ["clausery getting started", "informational", "docs"],
   "docs/backups.html": ["backups and data", "informational", "docs"],
   "docs/faq.html": ["clausery faq", "informational", "docs"],

@@ -142,6 +142,7 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <link rel="search" type="application/opensearchdescription+xml" title="Clausery templates" href="${rel}opensearch.xml">
 <link type="text/plain" rel="author" href="${rel}humans.txt">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="${rel}feed.xml">
+<link rel="alternate" type="application/atom+xml" title="Clausery releases" href="${rel}releases.xml">
 <link rel="alternate" hreflang="en-GB" href="${url}">
 <link rel="alternate" hreflang="en" href="${url}">
 <link rel="alternate" hreflang="x-default" href="${url}">
@@ -220,6 +221,7 @@ export function footer(rel) {
       <h4>Product</h4>
       <a href="${rel}app/">Open the app</a>
       <a href="${rel}pricing/">Pricing</a>
+      <a href="${rel}customers/">Customers</a>
       <a href="${rel}why-clausery/">Why Clausery</a>
       <a href="${rel}changelog.html">Changelog</a>
       <a href="${rel}status/">Status</a>

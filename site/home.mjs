@@ -191,6 +191,7 @@ export const pages = [{
       <div class="feature"><h3>Run it yourself</h3><p>Follow the <a href="${rel}docs/self-hosting.html">self-hosting guide</a> to run a copy on your own domain or intranet, if your policies ask for that.</p></div>
     </div>
     <p style="margin-top:1.5rem"><a href="${rel}why-clausery/">Why Clausery: the differences, a decision guide and the proof in one page →</a></p>
+    <p style="margin-top:.5rem"><strong>Who uses it:</strong> <a href="${rel}customers/">freelancers, consultants, landlords, HR teams, trades and small firms</a>.</p>
   </div>
 </section>
 
