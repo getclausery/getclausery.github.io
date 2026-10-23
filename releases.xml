@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Clausery releases</title>
+  <subtitle>Release notes for Clausery: new templates, app features, fixes and policy changes.</subtitle>
+  <link rel="self" href="https://getclausery.github.io/releases.xml"/>
+  <link rel="alternate" href="https://getclausery.github.io/changelog.html"/>
+  <id>https://getclausery.github.io/changelog.html</id>
+  <updated>2026-10-23T00:00:00Z</updated>
+  <author><name>Clausery</name></author>
+  <entry>
+    <title>Clausery v1.36.0 — Customers page and releases Atom feed</title>
+    <link href="https://getclausery.github.io/changelog.html#v1-36-0"/>
+    <id>https://getclausery.github.io/changelog.html#v1-36-0</id>
+    <published>2026-10-23T00:00:00Z</published>
+    <updated>2026-10-23T00:00:00Z</updated>
+    <summary>Customers page and releases Atom feed</summary>
+  </entry>
+  <entry>
+    <title>Clausery v1.35.0 — UI upgrade, pricing redesign, status and roadmap pages</title>
+    <link href="https://getclausery.github.io/changelog.html#v1-35-0"/>
+    <id>https://getclausery.github.io/changelog.html#v1-35-0</id>
+    <published>2026-10-23T00:00:00Z</published>
+    <updated>2026-10-23T00:00:00Z</updated>
+    <summary>UI upgrade, pricing redesign, status and roadmap pages</summary>
+  </entry>
+  <entry>
+    <title>Clausery v1.34.0 — 14-day no-card Pro trial and 30-day money-back guarantee</title>
+    <link href="https://getclausery.github.io/changelog.html#v1-34-0"/>
+    <id>https://getclausery.github.io/changelog.html#v1-34-0</id>
+    <published>2026-10-15T00:00:00Z</published>
+    <updated>2026-10-15T00:00:00Z</updated>
+    <summary>14-day no-card Pro trial and 30-day money-back guarantee</summary>
+  </entry>
+  <entry>
+    <title>Clausery v1.33.0 — Invoice email generator and four message templates</title>
+    <link href="https://getclausery.github.io/changelog.html#v1-33-0"/>
+    <id>https://getclausery.github.io/changelog.html#v1-33-0</id>
+    <published>2026-10-09T00:00:00Z</published>
+    <updated>2026-10-09T00:00:00Z</updated>
+    <summary>Invoice email generator and four message templates</summary>
+  </entry>
+  <entry>
+    <title>Clausery v1.32.1 — Lemon Squeezy return-link activation fix</title>
+    <link href="https://getclausery.github.io/changelog.html#v1-32-1"/>
+    <id>https://getclausery.github.io/changelog.html#v1-32-1</id>
+    <published>2026-10-09T00:00:00Z</published>
+    <updated>2026-10-09T00:00:00Z</updated>
+    <summary>Lemon Squeezy return-link activation fix</summary>
+  </entry>
+  <entry>
+    <title>Clausery v1.32.0 — One-click online checkout with automatic activation</title>
+    <link href="https://getclausery.github.io/changelog.html#v1-32-0"/>
+    <id>https://getclausery.github.io/changelog.html#v1-32-0</id>
+    <published>2026-10-09T00:00:00Z</published>
+    <updated>2026-10-09T00:00:00Z</updated>
+    <summary>One-click online checkout with automatic activation</summary>
+  </entry>
+  <entry>
+    <title>Clausery v1.31.0 — Online checkout via Lemon Squeezy</title>
+    <link href="https://getclausery.github.io/changelog.html#v1-31-0"/>
+    <id>https://getclausery.github.io/changelog.html#v1-31-0</id>
+    <published>2026-10-09T00:00:00Z</published>
+    <updated>2026-10-09T00:00:00Z</updated>
+    <summary>Online checkout via Lemon Squeezy</summary>
+  </entry>
+  <entry>
+    <title>Clausery v1.30.0 — Payment receipt guide and Word receipt page</title>
+    <link href="https://getclausery.github.io/changelog.html#v1-30-0"/>
+    <id>https://getclausery.github.io/changelog.html#v1-30-0</id>
+    <published>2026-10-09T00:00:00Z</published>
+    <updated>2026-10-09T00:00:00Z</updated>
+    <summary>Payment receipt guide and Word receipt page</summary>
+  </entry>
+  <entry>
+    <title>Clausery v1.29.0 — Save an invoice as PDF guide and improved print flow</title>
+    <link href="https://getclausery.github.io/changelog.html#v1-29-0"/>
+    <id>https://getclausery.github.io/changelog.html#v1-29-0</id>
+    <published>2026-10-09T00:00:00Z</published>
+    <updated>2026-10-09T00:00:00Z</updated>
+    <summary>Save an invoice as PDF guide and improved print flow</summary>
+  </entry>
+  <entry>
+    <title>Clausery v1.28.0 — Free small business document kit and press kit</title>
+    <link href="https://getclausery.github.io/changelog.html#v1-28-0"/>
+    <id>https://getclausery.github.io/changelog.html#v1-28-0</id>
+    <published>2026-10-08T00:00:00Z</published>
+    <updated>2026-10-08T00:00:00Z</updated>
+    <summary>Free small business document kit and press kit</summary>
+  </entry>
+</feed>

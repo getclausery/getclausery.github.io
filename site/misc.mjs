@@ -1,5 +1,22 @@
 import { USAGE_ON } from '../tools/partials.mjs';
 import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
+
+// Machine-readable release list, newest first, used to build releases.xml (Atom) and kept in sync
+// with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
+// description used as the Atom entry title and summary.
+export const releases = [
+  { version: '1.36.0', date: '23 October 2026', summary: 'Customers page and releases Atom feed' },
+  { version: '1.35.0', date: '23 October 2026', summary: 'UI upgrade, pricing redesign, status and roadmap pages' },
+  { version: '1.34.0', date: '15 October 2026', summary: `${TRIAL_DAYS}-day no-card Pro trial and ${REFUND_DAYS}-day money-back guarantee` },
+  { version: '1.33.0', date: '9 October 2026', summary: 'Invoice email generator and four message templates' },
+  { version: '1.32.1', date: '9 October 2026', summary: 'Lemon Squeezy return-link activation fix' },
+  { version: '1.32.0', date: '9 October 2026', summary: 'One-click online checkout with automatic activation' },
+  { version: '1.31.0', date: '9 October 2026', summary: 'Online checkout via Lemon Squeezy' },
+  { version: '1.30.0', date: '9 October 2026', summary: 'Payment receipt guide and Word receipt page' },
+  { version: '1.29.0', date: '9 October 2026', summary: 'Save an invoice as PDF guide and improved print flow' },
+  { version: '1.28.0', date: '8 October 2026', summary: 'Free small business document kit and press kit' },
+];
+
 export const pages = [
   {
     path: '404.html', title: 'Page not found', description: 'The page you were looking for does not exist.',
@@ -9,8 +26,15 @@ export const pages = [
   {
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
-<h1>Changelog</h1>
-<h2>1.35.0 <span class="small muted">— 23 October 2026</span></h2>
+<h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-36-0">1.36.0 <span class="small muted">— 23 October 2026</span></h2>
+<ul>
+  <li>Added a <a href="${rel}customers/">Customers page</a> describing who uses Clausery (freelancers, consultants, landlords, HR teams, trades, small firms) and what they use it for, with links into real template and audience pages.</li>
+  <li>Added <a href="${rel}releases.xml">releases.xml</a>, an Atom feed of every version, linked from every page's <code>&lt;head&gt;</code> and from the changelog heading. Subscribe in any feed reader to get release notes.</li>
+  <li>Footer now links Customers alongside Pricing and Why Clausery.</li>
+  <li>Added anchor IDs to recent changelog entries so feed entries deep-link to the right version.</li>
+</ul>
+<h2 id="v1-35-0">1.35.0 <span class="small muted">— 23 October 2026</span></h2>
 <ul>
   <li>Redesigned plan cards on the pricing page with stronger visual hierarchy for the featured Pro plan, a clearer “no-card free trial” ribbon, refund-note trust signal, larger primary CTA, and more direct benefit copy.</li>
   <li>Added a public <a href="${rel}status/">status page</a> listing every component (site, repository, document engine, checkout) and where to verify each one, plus a public <a href="${rel}roadmap/">roadmap</a> linked to changelog entries and open GitHub issues.</li>
@@ -18,42 +42,42 @@ export const pages = [
   <li>Primary buttons now use a gradient fill with inset highlight, stronger hover lift and glow, active-state reset, and an accessible focus-visible ring.</li>
   <li>Added Crawl-delay and Host directives to robots.txt and refined the robots policy.</li>
 </ul>
-<h2>1.34.0 <span class="small muted">— 15 October 2026</span></h2>
+<h2 id="v1-34-0">1.34.0 <span class="small muted">— 15 October 2026</span></h2>
 <ul>
   <li>Try Pro free for ${TRIAL_DAYS} days with one click, from the upgrade dialog, Settings or the <a href="${rel}pricing/">pricing page</a>. No card, no account and no email: the trial runs in your browser and simply ends, and you keep everything you made.</li>
   <li>Paid plans now have a ${REFUND_DAYS}-day money-back guarantee on the first payment. See the updated <a href="${rel}legal/terms.html">terms</a>.</li>
   <li>On the Free plan, documents made from library templates end with a small “Made with Clausery” line. Pro, Team and the trial leave it out, and templates you upload yourself never get it.</li>
   <li>Links inside a document preview open in a new tab, so a click never leaves the draft.</li>
 </ul>
-<h2>1.33.0 <span class="small muted">— 9 October 2026</span></h2>
+<h2 id="v1-33-0">1.33.0 <span class="small muted">— 9 October 2026</span></h2>
 <ul><li>A free <a href="${rel}guides/invoice-email-template.html">invoice email generator and four message templates</a> for sending an invoice, reminding a client, following up on overdue payment and acknowledging money received. Details stay on your device; copy the message into your own email app.</li></ul>
-<h2>1.32.1 <span class="small muted">— 9 October 2026</span></h2>
+<h2 id="v1-32-1">1.32.1 <span class="small muted">— 9 October 2026</span></h2>
 <ul>
   <li>The automatic activation page accepts the return-link format supported by Lemon Squeezy's confirmation and receipt buttons. Access links are cleared from the address before activation and are not sent as referrers.</li>
 </ul>
-<h2>1.32.0 <span class="small muted">— 9 October 2026</span></h2>
+<h2 id="v1-32-0">1.32.0 <span class="small muted">— 9 October 2026</span></h2>
 <ul>
   <li>Choose a plan, pay, then select Open Clausery after payment or in your receipt. Your plan activates automatically and opens the app, with no separate account or key to copy.</li>
   <li>Repeated receipt clicks reuse the existing browser activation. Purchase credentials are removed from the address before routing or usage counts; the payment provider still verifies the purchase.</li>
   <li>Settings now leads with Plan and billing and direct checkout buttons. Manual activation remains under Advanced activation for offline licenses and support.</li>
 </ul>
-<h2>1.31.0 <span class="small muted">— 9 October 2026</span></h2>
+<h2 id="v1-31-0">1.31.0 <span class="small muted">— 9 October 2026</span></h2>
 <ul>
   <li>Online checkout is open through Lemon Squeezy: <a href="${rel}pricing/">Pro monthly, Pro yearly and five-seat Team</a>, with license keys delivered after purchase.</li>
   <li>Paid licenses are matched to the published live products. Test-mode products cannot unlock a paid plan. Existing cached online keys without product information are checked again.</li>
   <li>Pricing, activation instructions and privacy disclosures now describe online billing, device activation limits and extra Team seats by request.</li>
 </ul>
-<h2>1.30.0 <span class="small muted">— 9 October 2026</span></h2>
+<h2 id="v1-30-0">1.30.0 <span class="small muted">— 9 October 2026</span></h2>
 <ul>
   <li>A <a href="${rel}guides/how-to-write-a-payment-receipt.html">payment receipt guide</a> with a Word example, partial-payment instructions and a sending checklist.</li>
   <li>The <a href="${rel}templates/payment-receipt.html">Word receipt page</a> explains how to record a payment and includes a local balance calculator. The calculator distinguishes earlier payments from the current payment and flags overpayments.</li>
 </ul>
-<h2>1.29.0 <span class="small muted">— 9 October 2026</span></h2>
+<h2 id="v1-29-0">1.29.0 <span class="small muted">— 9 October 2026</span></h2>
 <ul>
   <li>A <a href="${rel}guides/how-to-save-an-invoice-as-pdf.html">guide to saving an invoice as PDF</a> from Clausery or Word, with export instructions and a checklist for the finished file.</li>
   <li>Print / Save as PDF waits for the document preview, fonts and images to finish preparing. A failed preview no longer opens the print dialog or records a print action.</li>
 </ul>
-<h2>1.28.0 <span class="small muted">— 8 October 2026</span></h2>
+<h2 id="v1-28-0">1.28.0 <span class="small muted">— 8 October 2026</span></h2>
 <ul>
   <li>A <a href="${rel}business-document-kit/">free small business Word document kit</a>: quote, statement of work, invoice, receipt, purchase order and credit note in one download, with instructions for editing the templates or filling them in online.</li>
   <li>The <a href="${rel}press/">press kit</a> includes seven downloadable graphics for invoices, quotes, receipts and the business kit, with matching resource links.</li>
