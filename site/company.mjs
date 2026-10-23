@@ -89,7 +89,6 @@ ${CHANNELS.map(([h, p, href, cta]) => `  <div class="feature"><h2 style="font-si
     // noindex: it would only repeat the home page in search results.
     path: 'made-with/', title: 'Made with Clausery', noindex: true,
     description: 'You received a document made with Clausery: free invoices, quotes, receipts and Word templates for small businesses, filled in privately in the browser.',
-    extraHead: '<meta name="robots" content="noindex, follow">',
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:46rem;text-align:center">
 <div class="eyebrow">Made with Clausery</div>
 <h1>The document you received was made with Clausery</h1>

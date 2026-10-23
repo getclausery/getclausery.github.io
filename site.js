@@ -88,3 +88,28 @@ for (const box of document.querySelectorAll('[data-filter-for]')) {
   document.body.insertBefore(bar, document.body.firstChild);
   try { console.log('%cClausery', 'color:#fff;background:#0b5;padding:2px 6px;border-radius:3px', 'open source AGPLv3 — unlicensed copy detected. Source: https://github.com/getclausery/getclausery.github.io'); } catch(e){}
 })();
+
+/* Frame-busting: block the site from being embedded in a cross-origin iframe.
+   Same-origin embeds (preview tools, dev sandboxes) are left alone. This stops
+   a class of clone where someone scrapes the site and iframes it behind their
+   own paywall/lead-form. X-Frame-Options cannot be set from static Pages so
+   this is a JS-level enforcement; pair with the <meta http-equiv> fallback in
+   the generated <head>. */
+(function(){
+  try {
+    if (window.top === window.self) return;
+    // Cross-origin access to top.location throws, which is exactly what tells us
+    // we are in a foreign frame.
+    const allowed = ['getclausery.github.io','getclausery.com','www.getclausery.com','clausery.app','www.clausery.app'];
+    let ok = false;
+    try {
+      const host = window.top.location.hostname;
+      if (!host) ok = true;
+      else for (const a of allowed) if (host === a || host.endsWith('.' + a)) { ok = true; break; }
+    } catch (e) {
+      // Cross-origin = third-party frame = bust out.
+      ok = false;
+    }
+    if (!ok) window.top.location.replace(window.self.location.href);
+  } catch (e) { /* sandboxed without top access: cannot bust out, but banners still run */ }
+})();

@@ -88,7 +88,7 @@ export const collectionLd = ({ path, name, description, items }) => `<script typ
   mainEntity: { '@type': 'ItemList', numberOfItems: items.length, itemListElement: items.map(([itemName, itemPath], i) => ({ '@type': 'ListItem', position: i + 1, name: itemName, url: `${SITE}${itemPath}` })) },
 })}</script>`;
 export const faqHtml = (faq) => `<div class="faq">${faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>`;
-export function head({ title, description, path, extraHead = '', pageLd = '', ogImage = 'assets/og.png', ogType = 'website', published, modified, rel: relOverride }) {
+export function head({ title, description, path, extraHead = '', pageLd = '', ogImage = 'assets/og.png', ogType = 'website', published, modified, rel: relOverride, noindex = false }) {
   // Search results show about 60 characters of a title; drop the brand suffix rather than have the title cut off.
   // The home title leads with what the site is for (small businesses making invoices in Word) and what people search for.
   // A title that already names Clausery gets no suffix (no "About Clausery · Clausery").
@@ -99,7 +99,7 @@ export function head({ title, description, path, extraHead = '', pageLd = '', og
   const imageAlt = `${full} — Clausery`;
   const depth = path.split('/').filter(Boolean).length - (path.endsWith('/') || path === '' ? 0 : 1);
   const rel = relOverride || (depth > 0 ? '../'.repeat(depth) : './');
-  const robots = /<meta\s+[^>]*name=["']robots["']/i.test(extraHead) ? '' : '<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">\n';
+  const robots = /<meta\s+[^>]*name=["']robots["']/i.test(extraHead) ? '' : `<meta name="robots" content="${noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}">\n`;
   const articleMeta = ogType === 'article' ? `${published ? `<meta property="article:published_time" content="${published}">\n` : ''}${modified ? `<meta property="article:modified_time" content="${modified}">\n` : ''}` : '';
   return `${CMI_HTML}
 <!doctype html>
@@ -127,12 +127,17 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image:alt" content="${esc(imageAlt)}">
 <meta name="theme-color" content="#1b2a41">
 <meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="author" content="Clausery">
+<meta name="generator" content="Clausery ${SITE} — AGPL-3.0-or-later open source">
+<meta name="original-source" content="${url}">
 <link rel="icon" href="${rel}assets/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="${rel}assets/icon-192.png">
 <link rel="manifest" href="${rel}app/manifest.webmanifest">
 <link rel="search" type="application/opensearchdescription+xml" title="Clausery templates" href="${rel}opensearch.xml">
+<link type="text/plain" rel="author" href="${rel}humans.txt">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="${rel}feed.xml">
 <link rel="stylesheet" href="${rel}site.css">
+<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
 <script>${THEME_INLINE}</script>
 <script src="${rel}site.js" defer></script>
 ${extraHead}${pageLd}

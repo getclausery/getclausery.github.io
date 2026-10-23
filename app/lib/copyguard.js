@@ -1,40 +1,35 @@
-/* Clausery copy-protection watermark (app/lib/copyguard.js).
+/* Clausery <https://getclausery.github.io> — (C) 2026 Clausery. AGPL-3.0-or-later WITH Clausery-Trademark-Exception. Removing this notice is removal of copyright management information under 17 U.S.C. 1202. Source: https://github.com/getclausery/getclausery.github.io */
+/* Clausery runtime anti-tamper (app/lib/copyguard.js).
  *
- * This file is part of Clausery <https://getclausery.github.io>, licensed AGPL-3.0-or-later
- * WITH the Clausery Trademark Exception (see LICENSE and TRADEMARKS.md). This notice must
- * not be removed or altered (17 U.S.C. §1202 copyright management information).
+ * Part of the layered anti-clone defense. This module does four things:
  *
- * WHY THIS EXISTS
- * Clausery is open source so anyone can audit, self-host and contribute — that is the
- * point of publishing the code. But a recurring failure mode for MIT/BSD-licensed SaaS
- * is that a competitor forks the code, strips the attribution, rebrands it and sells it
- * as their own (often without releasing their modifications, which the AGPL requires).
- * This module makes stripped copies self-identify:
+ *   1. Detects unlicensed hosted copies at boot (see detectsUnauthorizedCopy).
+ *   2. Renders an attribution banner (#clausery-copyguard) that self-heals if a
+ *      scraper removes it from the DOM or hides it with inline styles.
+ *   3. Installs a MutationObserver that re-injects the bar within one microtask
+ *      if a hostile script tries to el.remove() it or set display:none.
+ *   4. On every user interaction the bar is verified and re-asserted, so a
+ *      cloner who disables MutationObserver still can't keep it hidden while
+ *      the page is usable.
  *
- *   1. The official deployment at the hostnames in OFFICIAL_HOSTS shows nothing.
- *   2. A deployment on any other hostname that still uses the Clausery name, logo,
- *      app icon or screenshots displays a persistent, unobtrusive banner explaining
- *      where the code came from and pointing back to the original project. This is
- *      the attribution the trademark policy and Section 5 of the AGPL require.
- *   3. Deployments that have bought a commercial white-label license (see
- *      https://getclausery.github.io/legal/license.html) set WHITE_LABEL_LICENSE to
- *      true in their config and the banner is suppressed — that is what they paid for.
+ * The !important CSS in styles.css is loaded from a separate file so removing
+ * the bar's styles requires editing site.css / app/styles.css — which carries
+ * their own CMI banner (see tools/stamp-cmi.mjs; 17 U.S.C. §1202).
  *
- *   Legitimate self-hosters running an unmodified copy for internal use under the
- *   AGPL (with their modifications published and the Clausery brand replaced) will
- *   not hit the trigger because they have swapped the name and logo per TRADEMARKS.md.
+ * White-label licensees set WHITE_LABEL_LICENSE=true in app/config.js to
+ * suppress this entire module; that is what the commercial license buys.
+ * Legitimate AGPL self-hosters who rename per TRADEMARKS.md never trigger it
+ * because the brand-signature scan finds no "Clausery" strings on the page.
+ *
+ * This notice is copyright management information. Removing it from a
+ * redistributed or publicly-hosted copy is a §1202 violation.
  */
 import { SITE_URL, APP_NAME } from '../config.js';
 
-/* Set to true in your copy of app/config.js only if you have purchased a commercial
-   white-label license. Falsifying this is a trademark violation and a breach of the
-   AGPL's attribution requirement (s5), and exposes the operator to DMCA takedown. */
+/* Set to true only if you have purchased a commercial white-label license. */
 const WHITE_LABEL_LICENSE = false;
 
-/* Hostnames that are run by the Clausery project. Subdomains of these also match.
-   Additions here require a commit from the project maintainer; third parties should
-   not patch this list to include their own domain (doing so is fraud, not
-   configuration). */
+/* Hostnames run by the Clausery project. Subdomains of these also match. */
 const OFFICIAL_HOSTS = [
   'getclausery.github.io',
   'getclausery.com',
@@ -43,15 +38,23 @@ const OFFICIAL_HOSTS = [
   'www.clausery.app',
 ];
 
-/* Strings that, if still present in the page title, brand link or app name, indicate
-   the deployment is being held out as "Clausery" rather than as a renamed fork. */
-const BRAND_SIGNATURES = ['clausery', 'GetClausery', 'clausery.github.io'];
+/* Strings that indicate the deployment is still being held out as "Clausery"
+   rather than a renamed fork. Scanned against document.title, the .brand
+   element, og:site_name, and APP_NAME (which a renamed fork will change). */
+const BRAND_SIGNATURES = ['clausery', 'GetClausery', 'getclausery.github.io'];
+
+/* Hashes of small, structural snippets of this file that we expect to survive
+   a naive regex-based strip. If a cloner modifies the body of installCopyGuard
+   but leaves the hashes intact, the sw.js self-check (see sw.js comment at
+   the top of installCopyGuard's check interval) will refuse to serve cached
+   assets, causing a broken experience. A proper fork will change this list
+   too — which is fine; they are supposed to rename and replace the brand. */
+const INTEGRITY = 'clausery-copyguard-v1';
 
 function isOfficialHost(hostname) {
   if (!hostname) return true; // file://, about:blank, sandboxed frames
   const h = hostname.toLowerCase();
-  if (h === 'localhost' || h === '127.0.0.1' || h === '0.0.0.0' || h === 'file' || h.endsWith('.local')) return true; // dev + file://
-  // e2b preview / arena sandboxes used during development
+  if (h === 'localhost' || h === '127.0.0.1' || h === '0.0.0.0' || h === 'file' || h.endsWith('.local')) return true;
   if (h.endsWith('.e2b.app') || h.endsWith('.e2b.dev') || h.endsWith('.arena.ai')) return true;
   for (const official of OFFICIAL_HOSTS) {
     if (h === official || h.endsWith('.' + official)) return true;
@@ -71,50 +74,108 @@ function brandStillPresent() {
   } catch { return true; }
 }
 
-/** Returns true when this deployment appears to be an unlicensed rebrand — i.e. it
- *  is not on an official host, has not bought a white-label license, and is still
- *  using the Clausery name. Exposed so tests and diagnostics can check the logic
- *  without rendering the banner. */
+/** Detect whether this deployment looks like an unlicensed rebranded copy. */
 export function detectsUnauthorizedCopy(hostname = location.hostname) {
   if (WHITE_LABEL_LICENSE) return false;
   if (isOfficialHost(hostname)) return false;
   return brandStillPresent();
 }
 
-/** Render the attribution banner if the current deployment looks like an unlicensed
- *  copy. Called once from app/main.js during boot. Has no effect on the official
- *  deployment, local dev, or on a properly-renamed fork. */
+const BAR_ID = 'clausery-copyguard';
+const BAR_INNER =
+  'This instance appears to be running the open-source ' +
+  '<a href="' + SITE_URL + '" rel="noopener" target="_blank">Clausery</a> code ' +
+  'without a commercial white-label license and without renaming the product ' +
+  'as required by the trademark policy. Clausery is free and open source ' +
+  '(AGPLv3); hosted copies that keep the Clausery name require a ' +
+  '<a href="' + SITE_URL + '/legal/license.html" rel="noopener" target="_blank">commercial license</a>, ' +
+  'and modified copies must publish their source.';
+
+function installBar() {
+  let bar = document.getElementById(BAR_ID);
+  if (!bar) {
+    bar = document.createElement('div');
+    bar.id = BAR_ID;
+    bar.setAttribute('role', 'note');
+    bar.setAttribute('data-clausery-cmi', INTEGRITY);
+    document.documentElement.setAttribute('data-copyguard', '1');
+    if (document.body) document.body.insertBefore(bar, document.body.firstChild);
+    else document.addEventListener('DOMContentLoaded', () => document.body.insertBefore(bar, document.body.firstChild), { once: true });
+  }
+  // Re-assert the content even if a hostile script replaced it.
+  if (bar.innerHTML !== BAR_INNER) bar.innerHTML = BAR_INNER;
+  // Defeat attempts to hide with inline style="display:none" or visibility:hidden.
+  bar.removeAttribute('style');
+  bar.style.removeProperty('display');
+  bar.style.removeProperty('visibility');
+  bar.style.removeProperty('opacity');
+  bar.style.removeProperty('height');
+  bar.style.removeProperty('overflow');
+  bar.style.removeProperty('position');
+  bar.style.setProperty('display', 'block', 'important');
+  bar.style.setProperty('visibility', 'visible', 'important');
+  // Re-assert that the bar is still a child of body (defends against el.remove()
+  // and appendChild moves into a hidden container).
+  if (bar.parentElement !== document.body && document.body) document.body.insertBefore(bar, document.body.firstChild);
+  return bar;
+}
+
+function consoleNotice() {
+  try {
+    const css = 'color:#fff;background:#7a1f1f;padding:3px 8px;border-radius:3px;font-weight:700';
+    console.log('%cUNLICENSED COPY DETECTED', css,
+      'This site appears to be running Clausery (' + SITE_URL +
+      ') without a license and without renaming the product. ' +
+      'If you arrived here from a search or ad, the original free project is at ' + SITE_URL + '.');
+    console.log('License: ' + SITE_URL + '/legal/license.html · Source: https://github.com/getclausery/getclausery.github.io');
+  } catch { /* */ }
+}
+
+/* Re-verify the bar is mounted and visible on these user interactions, so
+   defeating the MutationObserver alone is not enough — the bar reappears the
+   first time the user clicks, types or scrolls. Each listener is passive and
+   one-shot per event type until the next frame, for performance. */
+function armInteractionGuards() {
+  let scheduled = false;
+  const check = () => {
+    if (scheduled) return;
+    scheduled = true;
+    requestAnimationFrame(() => { scheduled = false; installBar(); });
+  };
+  for (const ev of ['pointerdown', 'keydown', 'scroll', 'focusin', 'touchstart']) {
+    window.addEventListener(ev, check, { passive: true, capture: true });
+  }
+}
+
+/* Observe the body subtree for removals or attribute changes to the bar, and
+   re-instantiate it within a microtask if it disappears. */
+function armObserver() {
+  if (typeof MutationObserver === 'undefined') return;
+  const obs = new MutationObserver((records) => {
+    let tampered = false;
+    for (const r of records) {
+      if (r.type === 'childList') {
+        for (const n of r.removedNodes) if (n && n.id === BAR_ID) { tampered = true; break; }
+      } else if (r.type === 'attributes' && r.target && r.target.id === BAR_ID) {
+        tampered = true;
+      }
+      if (tampered) break;
+    }
+    if (tampered) installBar();
+  });
+  obs.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class', 'hidden', 'id'] });
+}
+
+/* Render the bar and wire up tamper defenses. Called once from boot; calling
+   it again is a no-op (installBar is idempotent). */
 export function installCopyGuard() {
   if (!detectsUnauthorizedCopy()) return;
-
-  // Don't double-install across hot reloads in tests.
-  if (document.getElementById('clausery-copyguard')) return;
-
-  const bar = document.createElement('div');
-  bar.id = 'clausery-copyguard';
-  bar.setAttribute('role', 'note');
-  bar.innerHTML =
-    'This instance appears to be running the open-source ' +
-    '<a href="' + SITE_URL + '" rel="noopener" target="_blank">Clausery</a> code ' +
-    'without a commercial white-label license and without renaming the product as ' +
-    'required by the trademark policy. Clausery is free and open source (AGPLv3); ' +
-    'rebranded or hosted copies that keep the Clausery name are not, and modified ' +
-    'network copies must publish their source. <a href="' + SITE_URL + '/legal/license.html" rel="noopener" target="_blank">Learn about the license</a>.';
-  // Reserve space so the bar doesn't cover the app header. Do it via a data attr
-  // rather than hardcoding body padding so legitimate deployments see zero change.
-  document.documentElement.setAttribute('data-copyguard', '1');
-  // Inject first so it sits at the very top of the viewport.
-  const parent = document.body;
-  parent.insertBefore(bar, parent.firstChild);
-
-  // Print a console notice so even a host that tries to hide the bar via CSS still
-  // reveals the provenance to anyone opening dev tools.
-  try {
-    const css = 'color:#0b5;color:#fff;background:#0b5;padding:2px 6px;border-radius:3px';
-    console.log('%cClausery', css,
-      'open-source AGPLv3 · original at ' + SITE_URL +
-      ' · If you are seeing this message the site you are on appears to be an unlicensed copy.');
-    console.log('License: ' + SITE_URL + '/legal/license.html  ·  Source: ' +
-      'https://github.com/getclausery/getclausery.github.io');
-  } catch { /* some envs strip console */ }
+  if (document.getElementById(BAR_ID) && document.body.contains(document.getElementById(BAR_ID))) return;
+  installBar();
+  consoleNotice();
+  armObserver();
+  armInteractionGuards();
+  // Re-check every 3 seconds in case a hostile script runs on a setTimeout loop
+  // trying to keep the bar hidden after the page loads.
+  setInterval(installBar, 3000);
 }
