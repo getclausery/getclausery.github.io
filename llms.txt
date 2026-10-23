@@ -20,15 +20,20 @@ Key facts:
 - Clausery is software, not a law firm, and does not give legal advice.
 
 ## Product
-- [Home](https://getclausery.github.io/): what Clausery does and who it is for
-- [About Clausery](https://getclausery.github.io/about/): who maintains the software, its scope and limits
-- [Pricing](https://getclausery.github.io/pricing/): Free, Pro, Team and Enterprise plans
-- [Why Clausery](https://getclausery.github.io/why-clausery/): the difference, a decision guide and links to every comparison
-- [Free business document kit](https://getclausery.github.io/business-document-kit/): six Word templates and instructions, no email signup
-- [Security](https://getclausery.github.io/docs/security.html): how data stays on the device
-- [Documentation](https://getclausery.github.io/docs/): getting started, template syntax, logic, client intake
+- [Home](https://getclausery.github.io/): Free Word invoice maker: invoices, quotes, receipts, contracts and templates for small businesses and freelancers. Make an editable .docx in your browser — no account, no card, nothing uploaded. Not the compliance platform at clausery.ai.
+- [About Clausery](https://getclausery.github.io/about/): Clausery helps small businesses make invoices, quotes and receipts in Word. Read how local document processing, the free library and paid plans work.
+- [Pricing — free forever, or Pro $19/mo (no card trial)](https://getclausery.github.io/pricing/): Free forever: 87 Word templates, three of your own, unlimited documents. Pro is $19/user/month for unlimited templates, calculations, encryption and bulk-from-spreadsheet. 14-day free trial (no card), 30-day refund.
+- [Why Clausery — no signup, no card, real Word files](https://getclausery.github.io/why-clausery/): See why Clausery is different from invoice apps and cloud document tools: editable Word output, no uploads, no account to start, a free tier that never expires, public source code and a money-back guarantee.
+- [Free business document kit — 6 Word templates (no email)](https://getclausery.github.io/business-document-kit/): Download a free 6-template Word kit for small businesses: quote, scope of work, invoice, payment receipt, purchase order and credit note. No email signup, no account — one zip, editable .docx files.
+- [Self-host Clausery on your domain or intranet](https://getclausery.github.io/self-hosting/): Self-host or white-label Clausery: deploy the open-source document generator to your own domain or intranet, with optional commercial licensing for rebranding, firm-wide rollout and integration.
+- [Who uses Clausery](https://getclausery.github.io/customers/): Who uses Clausery: freelancers, consultants, small agencies, landlords, HR teams, service businesses and small law firms making Word invoices, contracts and letters without uploading anything.
+- [Press kit](https://getclausery.github.io/press/): Clausery press kit: free Word invoices, quotes and receipts for small businesses, with product facts, pricing, reusable images and contact details.
+- [Clausery roadmap](https://getclausery.github.io/roadmap/): What has shipped recently and what is being worked on next for Clausery, with links to the changelog and GitHub issues.
+- [Clausery status](https://getclausery.github.io/status/): Current status of Clausery: public site, GitHub source, latest release, and where to check if something appears to be down.
+- [Getting started](https://getclausery.github.io/docs/): Install nothing, sign up for nothing: tag a Word template, drop it into Clausery, answer the questions, download the document.
 
 ## Free Word templates
+- [Free Word templates — download in 60 seconds (no signup)](https://getclausery.github.io/templates/): 87 free Word templates you can fill in and download as editable .docx files in under a minute — invoices, quotes, receipts, NDAs, contracts, HR letters and landlord forms. No account, no card, nothing uploaded.
 - [Free mutual NDA template (Word)](https://getclausery.github.io/templates/mutual-nda.html): Free mutual NDA template for Word: both sides protected, standard exclusions, term and survival. Fill it in online or download it, no sign-up.
 - [Free non-solicitation agreement template (Word)](https://getclausery.github.io/templates/non-solicitation-agreement.html): Free non-solicitation agreement for Word: stops a departing employee or contractor poaching customers or staff, without a non-compete. No sign-up.
 - [Free liability waiver template (release of liability form)](https://getclausery.github.io/templates/liability-waiver.html): Free liability waiver template for Word: listed risks, assumption of risk, a negligence release, medical consent and a parent section for minors. No sign-up.
@@ -118,6 +123,7 @@ Key facts:
 - [Free credit note template (Word)](https://getclausery.github.io/templates/credit-note.html): Free credit note template for Word: original invoice, reason, credited items, optional tax, total credit, and refund or credit against another invoice.
 
 ## Invoice templates by trade and country
+- [Free invoice templates for Word (no signup)](https://getclausery.github.io/invoice-templates/): Free Word invoice templates for deposits, hourly work and final balances, plus trade and country starters. Totals calculated online; editable .docx download.
 - [VAT invoice template (UK): free, Word, VAT worked out](https://getclausery.github.io/invoice-templates/uk-vat-invoice.html): Free UK VAT invoice template for Word: your VAT number, 20% VAT worked out, the details HMRC asks for and a separate date of supply. Fill it in online, no sign-up.
 - [VAT invoice template for Ireland (free, Word)](https://getclausery.github.io/invoice-templates/ireland-vat-invoice.html): Free Irish VAT invoice template for Word: your VAT number, 23% VAT worked out, the date of supply and the details Revenue lists. Fill it in online, no sign-up, nothing uploaded.
 - [Tax invoice template Australia: free, Word, GST added](https://getclausery.github.io/invoice-templates/australia-tax-invoice.html): Free Australian tax invoice template for Word: the words "Tax invoice", your ABN, 10% GST worked out and the buyer's details for sales of $1,000 or more. Fill it in online, no sign-up.
@@ -140,7 +146,19 @@ Key facts:
 - [Tutoring invoice template (free, Word)](https://getclausery.github.io/invoice-templates/tutoring.html): Free tutoring invoice template for Word: sessions, exam prep packs and late cancellations, totals worked out. Fill it in online and download it, no sign-up.
 - [Personal training invoice template (free, Word)](https://getclausery.github.io/invoice-templates/personal-training.html): Free personal trainer invoice template for Word: sessions, training plans and missed sessions, totals calculated. Fill it in online, no sign-up.
 
+## NDA templates
+- [Free NDA templates (Word): mutual, one-way, employee](https://getclausery.github.io/nda-templates/): Free NDA templates for Word: mutual, one-way, employee, contractor and business sale. Download or fill one in online, with no sign-up and nothing uploaded.
+
+## Who Clausery is for
+- [Who Clausery is for: teams that draft the same documents](https://getclausery.github.io/for/): Which teams use Clausery for invoices, contracts and HR letters, what each gets from a guided questionnaire, and how to choose the right template.
+- [Document automation for small law firms, without uploading client files](https://getclausery.github.io/for/law-firms.html): Engagement letters, NDAs, demand letters, wills and leases: most firms draft the same documents every week from Word files that already exist. Clausery turns those files into questionnaires and assembles the finished document on the lawyer's own computer.
+- [Free HR letter templates you can fill in online](https://getclausery.github.io/for/hr-teams.html): Offer letters, employment contracts, warning letters, promotions, pay rises, references and terminations: free HR letter templates for Word, with no sign-up. Managers answer a few questions, optional wording only appears when it applies, and employee details never leave your computer.
+- [Proposals, SOWs and contractor agreements (Word)](https://getclausery.github.io/for/consultants.html): Statements of work, consulting and contractor agreements from your own Word templates, filled in a two-minute questionnaire. Free templates, nothing uploaded.
+- [Free freelance contract templates you can fill in online](https://getclausery.github.io/for/freelancers.html): Designers, photographers, videographers, virtual assistants, planners, trainers, tutors and writers all need a signed contract before work starts. Clausery turns a free Word contract into a two-minute questionnaire, so each client gets the right terms without you editing the document by ha
+- [Free landlord and tenant letters, filled in online](https://getclausery.github.io/for/landlords.html): Leases, move-in checklists, late rent notices, rent increases and deposit returns follow the same pattern every time, and most have a deadline. Clausery fills in a free Word template from your answers and keeps tenant details on your computer. Review dates, amounts and deductions against t
+
 ## Contract clause library
+- [Contract clause library: sample wording explained](https://getclausery.github.io/clauses/): Free sample wording for 24 common contract clauses, explained in plain English: indemnity, limitation of liability, force majeure, non-compete and more.
 - [Indemnification clause: meaning and sample wording](https://getclausery.github.io/clauses/indemnification-clause.html): What an indemnification clause does: who covers which losses and third-party claims, with free sample wording to copy and what to check before signing.
 - [Limitation of liability clause: meaning and sample wording](https://getclausery.github.io/clauses/limitation-of-liability-clause.html): What a limitation of liability clause does: caps on damages, excluded losses and carve-outs, with free sample wording and what to check before signing.
 - [Force majeure clause: meaning and sample wording](https://getclausery.github.io/clauses/force-majeure-clause.html): What a force majeure clause does: which events excuse performance, notice, suspension and termination, with free sample wording and what to check.
@@ -167,6 +185,7 @@ Key facts:
 - [At-will employment clause: meaning and sample wording](https://getclausery.github.io/clauses/at-will-employment-clause.html): What an at-will employment clause says: either side can end employment at any time, the exceptions, with free sample wording and what to check.
 
 ## Guides
+- [Invoice, payment and business document guides](https://getclausery.github.io/guides/): Practical guides to invoices, getting paid, contracts, HR letters and landlord forms. Worked explanations linked to free editable Word templates.
 - [How to write an independent contractor agreement](https://getclausery.github.io/guides/how-to-write-an-independent-contractor-agreement.html): What an independent contractor agreement should include: scope, fees, ownership, status and termination, with sample wording and a free Word template.
 - [How to write a promissory note](https://getclausery.github.io/guides/how-to-write-a-promissory-note.html): How to write a promissory note: borrower, lender, principal, interest, repayment dates and signatures, with an example and a free editable Word template.
 - [How to write a sublease agreement](https://getclausery.github.io/guides/how-to-write-a-sublease-agreement.html): Write a sublease agreement covering consent, the original lease, rent, deposit, shared space and move-out, with sample wording and a free Word template.
@@ -236,6 +255,7 @@ Key facts:
 - [How to write a payment receipt: example and Word template](https://getclausery.github.io/guides/how-to-write-a-payment-receipt.html): Write a receipt for money actually received. Follow a Word receipt example, calculate a partial-payment balance and check the details before sending.
 
 ## Free tools
+- [Free drafting tools](https://getclausery.github.io/free-tools/): Free tools for drafting and invoicing: amount in words, deadlines, invoice due dates, late payment interest, loans, commission, prorated rent and more.
 - [Amount in words converter for contracts and cheques](https://getclausery.github.io/free-tools/amount-in-words.html): Write any amount in words for contracts, cheques and promissory notes, such as "One Thousand Two Hundred and Fifty Dollars and 50/100".
 - [Contract deadline calculator (business days, months, years)](https://getclausery.github.io/free-tools/deadline-calculator.html): Add or subtract days, business days, weeks, months or years from a date, with month-end handling and your own holidays.
 - [Net 30 calculator: invoice due date for any payment terms](https://getclausery.github.io/free-tools/invoice-due-date.html): Find the due date for Net 30, Net 60, EOM, 15 MFI or 2/10 net 30 invoices, the days left to pay and what an early payment discount is worth.
@@ -247,6 +267,7 @@ Key facts:
 - [Word template tag checker](https://getclausery.github.io/free-tools/template-checker.html): Check a .docx template for broken {tags} and see the questionnaire it would produce. The file never leaves your computer.
 
 ## Comparisons
+- [Compare document automation tools](https://getclausery.github.io/compare/): Compare local Word drafting with legal form services, document automation and client platforms. Practical workflow tests, clear limits and official vendor links.
 - [Gavel alternative that keeps client data on your computer](https://getclausery.github.io/compare/gavel-alternative.html): Compare Gavel with local Word drafting: hosted intake versus file-based questionnaires, client-data handling, migration checks and a practical trial.
 - [Clio Draft alternative for firms that cannot upload client files](https://getclausery.github.io/compare/clio-draft-alternative.html): A Clio Draft alternative for independent Word drafting. Compare matter-data reuse, manual handoffs, court-form limits and local document assembly.
 - [HotDocs alternative: lightweight document automation in the browser](https://getclausery.github.io/compare/hotdocs-alternative.html): Evaluate a HotDocs alternative with a branch-testing checklist: component migration, repeating tables, calculations and local Word output.
@@ -258,3 +279,7 @@ Key facts:
 - [Bonsai alternative: free freelance contracts in Word](https://getclausery.github.io/compare/bonsai-alternative.html): Compare Bonsai with free Word contracts and invoices. Follow hours through approval and billing, and check what remains outside local drafting.
 - [Dubsado alternative: contracts without the setup](https://getclausery.github.io/compare/dubsado-alternative.html): Compare Dubsado with local Word contracts. Inventory workflow triggers, reminders and client handoffs before replacing an automated process.
 - [PandaDoc alternative for Word contract templates](https://getclausery.github.io/compare/pandadoc-alternative.html): Compare PandaDoc with local Word quotes and contracts: document formatting, approvals, signatures and CRM handoffs, with clear limits.
+
+## Company
+- [Contact Clausery](https://getclausery.github.io/contact/): Contact Clausery: ask a question, get billing help or a refund, suggest a template, report a problem, or report a security issue privately.
+- [Changelog](https://getclausery.github.io/changelog.html): Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.
