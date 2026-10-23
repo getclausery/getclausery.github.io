@@ -1,19 +1,19 @@
 {
  "": {
-  "date": "2026-10-18",
-  "hash": "73beeee9604123cd"
+  "date": "2026-10-23",
+  "hash": "fdaba70beb52933c"
  },
  "404.html": {
   "date": "2026-10-17",
   "hash": "4bdb412837ef366a"
  },
  "about/": {
-  "date": "2026-10-18",
-  "hash": "3e2ea74373177cbc"
+  "date": "2026-10-23",
+  "hash": "7de68e48706290c9"
  },
  "business-document-kit/": {
-  "date": "2026-10-09",
-  "hash": "b924156b20fcbae3"
+  "date": "2026-10-23",
+  "hash": "02e1373fbcaf6429"
  },
  "changelog.html": {
   "date": "2026-10-15",
@@ -548,8 +548,8 @@
   "hash": "d87bafa90b0920e5"
  },
  "invoice-templates/": {
-  "date": "2026-10-17",
-  "hash": "d641490a493aba0e"
+  "date": "2026-10-23",
+  "hash": "eafa1f8ff2d7dbe9"
  },
  "invoice-templates/australia-tax-invoice.html": {
   "date": "2026-10-08",
@@ -648,8 +648,8 @@
   "hash": "75a63282d8fad32b"
  },
  "made-with/": {
-  "date": "2026-10-15",
-  "hash": "2a58b3b25b39b510"
+  "date": "2026-10-23",
+  "hash": "a2b93fc9fa96b5df"
  },
  "nda-templates/": {
   "date": "2026-10-04",
@@ -660,12 +660,12 @@
   "hash": "0a557d637e9427ba"
  },
  "pricing/": {
-  "date": "2026-10-18",
-  "hash": "8f614398e7489305"
+  "date": "2026-10-23",
+  "hash": "c58a78385563e05c"
  },
  "templates/": {
-  "date": "2026-10-17",
-  "hash": "15bfbb4f5f4a264b"
+  "date": "2026-10-23",
+  "hash": "d759b91270388ac1"
  },
  "templates/bill-of-sale.html": {
   "date": "2026-10-17",
@@ -1016,7 +1016,7 @@
   "hash": "fb2b763994930997"
  },
  "why-clausery/": {
-  "date": "2026-10-18",
-  "hash": "c2f8bfc6804ee695"
+  "date": "2026-10-23",
+  "hash": "b42c51980a39e99f"
  }
 }

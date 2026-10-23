@@ -24,6 +24,7 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>About Clausery</h1>
 <p class="lead">Clausery makes the documents people draft every week faster to produce, without asking them to upload anything. Your templates, answers and finished documents stay on your own computer.</p>
+<p><strong>Note:</strong> There is another company also called Clausery at <a href="https://www.clausery.ai/" rel="noopener">clausery.ai</a> — an enterprise compliance-policy platform for regulated organisations (ISO 27001, DORA, GDPR, NIS2). Same name, different product, no affiliation. If you were looking for policy management and audit workflows, that site is the right place; this one is the free Word-templates and invoice tool for small businesses and freelancers.</p>
 <h2>Why it exists</h2>
 <p>Small businesses and freelancers repeatedly prepare quotes, invoices and receipts. Re-entering business details, checking totals and updating a Word document take attention away from the job itself. Clausery brings those steps together: answer the questions, check the amounts and download an editable document.</p>
 <p>The app reads a Word template and builds the finished .docx on your device. Your templates, answers and documents are not uploaded to a document-processing server. Start with the <a href="${rel}business-document-kit/">free business document kit</a> or choose a <a href="${rel}invoice-templates/">billing workflow</a> for the task at hand.</p>
@@ -103,6 +104,7 @@ ${CHANNELS.map(([h, p, href, cta]) => `  <div class="feature"><h2 style="font-si
   <div class="feature"><h2 style="font-size:1.15rem;margin-top:0">Private by design</h2><p>Everything runs in your browser. Your clients' details and your documents are never uploaded to a server.</p></div>
 </div>
 <p class="small muted" style="text-align:center;margin-top:1.5rem"><a href="${rel}">What Clausery does</a> · <a href="${rel}pricing/">Pricing</a> · <a href="${rel}about/">About</a></p>
+<p class="small muted" style="text-align:center;margin-top:.5rem">A separate company also uses the name Clausery for an <a href="https://www.clausery.ai/" rel="noopener">enterprise compliance-policy platform</a> (ISO 27001/DORA/GDPR). Same name, different product.</p>
 </div></section>`,
   },
 ];

@@ -12,8 +12,8 @@ const FAQ = [
   ['Where are my answers saved?', 'In the browser on your device. They are not synced to other devices. Download a backup from app Settings before clearing browser data or moving to another device.'],
 ];
 export const pages = [{
-  path: 'business-document-kit/', title: 'Free small business Word document kit: 6 templates',
-  description: 'Download six free Word templates for small businesses: quote, invoice, payment receipt, purchase order, credit note and statement of work. No email signup.',
+  path: 'business-document-kit/', title: 'Free business document kit — 6 Word templates (no email)',
+  description: 'Download a free 6-template Word kit for small businesses: quote, scope of work, invoice, payment receipt, purchase order and credit note. No email signup, no account — one zip, editable .docx files.',
   ogImage: 'assets/marketing/business-kit-social.png', extraHead: faqLd(FAQ),
   body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Six free Word templates for your next business job</h1>
