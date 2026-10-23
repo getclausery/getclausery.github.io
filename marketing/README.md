@@ -110,3 +110,4 @@ Three ratios tell you where the funnel leaks:
 - Say what Clausery is plainly, including what it doesn't do (no e-signatures, no live co-editing). The trade-offs are part of why people trust it.
 - Clausery's source is public on GitHub but the license is "all rights reserved", so call the code **public** or **readable**, never "open source".
 - Answer every comment, review and email within a day during a launch. Early on, being responsive is the best marketing you have.
+- [`build_linkedin_carousel.py`](build_linkedin_carousel.py): renders the 8-slide 1080×1080 LinkedIn carousel "7 things every freelancer invoice needs" into `../assets/marketing/linkedin-carousel-00.png` … `-07.png`; post as a document/PDF carousel linking to `/go/`.

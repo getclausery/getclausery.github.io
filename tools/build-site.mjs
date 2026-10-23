@@ -15,7 +15,7 @@ for (const f of readdirSync('site').filter((f) => f.endsWith('.mjs'))) {
 const SEO_TITLES = {
   'compare/clio-draft-alternative.html': 'Clio Draft alternative that never uploads client files',
   'compare/hotdocs-alternative.html': 'HotDocs alternative: document automation in the browser',
-  'for/consultants.html': 'Proposal, SOW and contractor agreement automation',
+  'for/consultants.html': 'Free proposals, SOWs and contracts (Word)',
   'for/hr-teams.html': 'Free HR letter templates: offer, warning, promotion (Word)',
   'for/law-firms.html': 'Document automation for small law firms, with no uploads',
   'guides/automate-word-templates.html': 'How to automate a Word template without uploading it',
