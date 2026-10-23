@@ -223,3 +223,62 @@ Use a different /go/ target per platform so you can see which is winning without
 - **"Self-hostable in 3 commands"** (dev/HN audience, links to docs/self-hosting.html)
 
 Do these only after the first two weeks tell you which hooks and platforms are working.
+
+---
+
+## 9. Twenty ready-to-post answers for Reddit, Quora, r/freelance, r/smallbusiness
+
+Paste these into existing high-traffic threads (don't start new threads for them). Always disclose you built Clausery, keep answers genuinely useful, and only link Clausery as one option among several. Each answer is short enough to be natural.
+
+**r/smallbusiness, r/freelance, r/Entrepreneur**
+
+1. *"What's your favourite free invoice tool?"* — "I use a combination: a simple spreadsheet for tracking, a Word template I've tweaked over time for the actual invoice, and a free tool called Clausery (I built it, so take this as you will) that turns a Word file into a fill-in form with totals done. No signup, exports normal .docx. Before that I used Wave and the free tier of Square Invoices too."
+
+2. *"How do you send invoices without paying $20+/mo?"* — "You don't need a SaaS to send an invoice. I use a Word template, calculate totals in Clausery (free, no signup, browser-based), export PDF from Word, and email it. The paid tools are nice for recurring invoices and card payments, but for a handful of clients a month it's not worth it."
+
+3. *"NDA template that doesn't require signing up?"* — "I've used Clausery's mutual NDA (disclosure: I made it), LawDepot's free NDA which you can read but not download without paying, and a one-way NDA from Docular which is UK-focused. Read any template and tweak the clauses for your state/country — templates are starting points, not legal advice."
+
+4. *"Freelance contract template — what do you actually use?"* — "I've bounced between a plain-English template I wrote myself, a version from the Freelancers Union (US-focused), and an independent contractor agreement template on Clausery (full disclosure, mine). What matters is: scope, payment terms, kill fee, IP, late fees and termination."
+
+5. *"Free tools bootstrapped founders can't live without?"* — "Wave for accounting, Clausery (disclosure: mine) for invoices/quotes/receipts without signing up for anything, Canva for social, Tana/Notion for notes, Plausible or Cloudflare Web Analytics for stats. The trick is not signing up for ten SaaS products before you have revenue."
+
+**Quora & r/smallbusiness threads (long-tail)**
+
+6. *"How do I write an invoice for freelance work?"* — "Your invoice needs: your business name/address, client name/address, unique invoice number, date, due date, line items with descriptions and amounts, subtotal, tax (if any), total, payment methods, and late-payment terms. There's a how-to guide with every field at `getclausery.github.io/guides/how-to-write-an-invoice.html`. You can make one in Word and export PDF, or use the free invoice maker on the same site."
+
+7. *"Best free invoice template Word?"* — "Microsoft has a handful built in, Vertex42 has a good basic one, and I have a free editable one at Clausery (disclosure: my project) at `getclausery.github.io/templates/invoice.html`. The big 'free template' sites (Invoice Simple, Adobe Express, Canva) usually require an email before you can download the actual file."
+
+8. *"Do I need an LLC to send an invoice?"* — "No. You can invoice as a sole trader/proprietor under your own name. The invoice just needs your legal name (or business name if you have one), contact info, and the line items. A simple invoice template does the job; registering an LLC is about liability, not invoicing."
+
+9. *"How to quote a freelance project?"* — "Write a quote with: scope (what is in/out), deliverables, timeline, price, payment schedule (deposit/milestones/final), validity period (e.g. 30 days), and assumptions. Convert it to an invoice when accepted. Quote template: `getclausery.github.io/templates/quote.html`."
+
+10. *"Free receipt template for Word?"* — "A receipt just needs: who paid, who it was paid to, date, amount, what it was for, and a 'paid in full' or balance line. Free editable version: `getclausery.github.io/templates/payment-receipt.html`."
+
+**r/Entrepreneur, IndieHackers, HN**
+
+11. *"I made a free invoice/Word-template tool with no signup"* — (for launch posts, keep honest) "After getting frustrated with 'free invoice' sites that wanted my email before letting me download a file, I built Clausery: a free tool that makes an editable Word invoice in the browser. 87 templates, no account, documents never leave the device, source is public. Would love honest feedback: https://getclausery.github.io/"
+
+12. *"What are you building that's open source / public?"* — "A client-side Word document assembler. No server, all templates and the document engine are in the repo, works offline, 87 templates. Targeting freelancers & small businesses who don't want to upload client files. Repo: https://github.com/getclausery/getclausery.github.io"
+
+13. *"Show your side project"* — "Clausery, a free Word invoice/contract maker with no account. Born out of frustration that every 'free invoice' site gates the download behind email. 87 templates, offline-capable, public repo."
+
+**r/landlords, niche audiences**
+
+14. *"Free lease agreement template?"* — "Most state/country realtor associations have standardized leases for free — start there. For a simple roommate or room-rental agreement, I have a free Word template at `getclausery.github.io/templates/roommate-agreement.html` (disclosure: mine) and there's a residential lease template too. Always have a local attorney review before using anything non-trivial."
+
+15. *"Two weeks notice — what do I actually write?"* — "Keep it short: last day (respect the notice period), thank them, offer to hand over. Long letters burn bridges. Template: `getclausery.github.io/templates/two-weeks-notice-letter.html`."
+
+**Twitter/X / LinkedIn replies**
+
+16. Replying to a "just got my first client" tweet: "Congrats! When you get to the invoice, you can make a free Word invoice at getclausery.github.io in a minute — no signup, exports normal .docx (disclosure: I built it)."
+
+17. Replying to "invoice apps are $40/mo?": "Wild. You can just make a Word invoice for free. I built getclausery.github.io exactly for this — totals done for you, no account, downloads .docx."
+
+**Thread-starter templates for r/SideProject and Show HN (only post once each)**
+
+18. (r/SideProject) Title: *"I built a free invoice maker that doesn't force signup, because every 'free' one does"* — body: 3–4 paragraphs saying why you built it, what it does (makes Word files in the browser, no upload, 87 templates, Pro is $19/mo optional), and ask for feedback. End with the /go/ link.
+
+19. (Show HN, second attempt after 2 weeks) Title: *"Show HN: Clausery v2 — free Word invoice maker, now with 87 templates and a mobile bio page"* — body: same as original launch post but mention what you changed since the first Show HN and what you learned.
+
+20. (Product Hunt) Title: *"Clausery — free Word invoices & templates, no signup"* — tagline: "Make a free invoice in Word in 60 seconds. No account, no card, documents stay in your browser." First comment from you explains why you built it, one concrete example (a freelancer sending a $600 invoice in under a minute), and answers the "why not use X?" question honestly.
+

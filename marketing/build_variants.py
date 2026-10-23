@@ -414,12 +414,95 @@ VARIANTS = {
             "click": "click", "nocheck": "nocheck",
         },
     },
+    "E": {
+        "file": "clausery-short-ad-vE.mp4",
+        "duration": 19.0,
+        "beats": [
+            (0.0,  3.5,  "0 signup.", "0 card. 60 seconds.", "hook_numbers"),
+            (3.5,  5.0,  "This makes", "your first invoice.", "reveal"),
+            (5.0,  8.5,  "Editable Word file", "right in your browser", "demo"),
+            (8.5,  12.0, "Fill it in\u2026", None,                      "demo"),
+            (12.0, 14.5, "Click Download Word.", None,                 "click"),
+            (14.5, 16.5, "NO signup.  NO card.", None,                 "nocheck"),
+            (16.5, 19.0, "Clausery", "LINK IN BIO",                    "cta"),
+        ],
+        "kind_for_caption": {
+            "hook_numbers": "hook", "reveal": "reveal", "demo": "demo1",
+            "click": "click", "nocheck": "nocheck",
+        },
+    },
+    "F": {
+        "file": "clausery-short-ad-vF.mp4",
+        "duration": 21.0,
+        "beats": [
+            (0.0,  3.0,  "Stop making", "invoices this way.",        "hook_mistake"),
+            (3.0,  4.8,  "Do this instead.", None,                    "reveal"),
+            (4.8,  8.5,  "A clean Word invoice", "in 60 seconds",     "demo"),
+            (8.5,  13.0, "Fill in the fields\u2026", None,              "demo"),
+            (13.0, 15.5, "Click Download Word.", None,                 "click"),
+            (15.5, 18.0, "NO signup.  NO card.", None,                 "nocheck"),
+            (18.0, 21.0, "Clausery", "LINK IN BIO",                    "cta"),
+        ],
+        "kind_for_caption": {
+            "hook_mistake": "hook", "reveal": "reveal", "demo": "demo1",
+            "click": "click", "nocheck": "nocheck",
+        },
+    },
 }
+
+def scene_hook_numbers(draw, t, beat):
+    """Variant E: three giant numbers pop in (0, 0, 60) — the no-risk value props."""
+    nums = [
+        ("0", "signup", GREEN),
+        ("0", "card needed", GREEN),
+        ("60s", "to a Word invoice", ACCENT),
+    ]
+    for i, (big, sub, col) in enumerate(nums):
+        appear = t - beat[0] - i * 0.55
+        if appear < 0:
+            continue
+        s = min(1.0, appear / 0.4)
+        fsize = int(220 * (0.5 + 0.5 * s))
+        cy = 450 + i * 340
+        f = fr(FONT_B, fsize)
+        txt = big
+        tw = draw.textlength(txt, font=f)
+        draw.text(((W - tw) // 2 + 3, cy - fsize // 2 + 3), txt, font=f, fill=(0, 0, 0, 180))
+        draw.text(((W - tw) // 2, cy - fsize // 2), txt, font=f, fill=col)
+        fs = fr(FONT_R, 46)
+        sw = draw.textlength(sub, font=fs)
+        draw.text(((W - sw) // 2, cy + fsize // 2 + 20), sub, font=fs, fill=GREY)
+
+def scene_hook_mistake(draw, t, beat):
+    """Variant F: messy handwritten-ish scribbles crossed out over a bad Canva/Word invoice."""
+    # Bad "invoice" canvas
+    cx, cy, cw, ch = 120, 380, W - 240, 820
+    rrect(draw, (cx - 8, cy - 8, cx + cw + 8, cy + ch + 8), 12, fill=(200, 200, 200))
+    rrect(draw, (cx, cy, cx + cw, cy + ch), 6, fill=WHITE)
+    # "INVOICE" big centered but messy Comic-sans-ish (just big sans)
+    draw.text((cx + 60, cy + 60), "INVOICE", font=fr(FONT_B, 64), fill=INK)
+    # messy lines of "text"
+    for i in range(9):
+        ly = cy + 200 + i * 55
+        w = [cw - 160, cw - 220, cw - 200, cw - 300, cw - 140, cw - 260, cw - 180, cw - 250, cw - 170][i]
+        draw.rectangle((cx + 60, ly, cx + 60 + w, ly + 8), fill=(210, 215, 222))
+    # Big red X over it
+    draw.line([(cx + 60, cy + 80), (cx + cw - 60, cy + ch - 60)], fill=RED, width=14)
+    draw.line([(cx + cw - 60, cy + 80), (cx + 60, cy + ch - 60)], fill=RED, width=14)
+    # Caption box at top
+    shake = int(6 * math.sin(t * 14)) if t < beat[1] - 0.3 else 0
+    rrect(draw, (160 + shake, 260, W - 160 + shake, 360), 16, fill=RED)
+    txt = "STOP"
+    f = fr(FONT_B, 58)
+    tw = draw.textlength(txt, font=f)
+    draw.text(((W - tw) // 2 + shake, 278), txt, font=f, fill=WHITE)
 
 SCENES = {
     "hook_wall": scene_hook_wall,
     "hook_list": scene_hook_list,
     "hook_blank": scene_hook_blank,
+    "hook_numbers": scene_hook_numbers,
+    "hook_mistake": scene_hook_mistake,
     "reveal": scene_reveal,
     "pain": scene_pain,
     "demo": scene_demo,

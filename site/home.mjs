@@ -1,4 +1,4 @@
-import { SITE, esc, picture, ONLINE_KEYS, USAGE_ON, USAGE_REQUEST } from '../tools/partials.mjs';
+import { SITE, esc, picture, ONLINE_KEYS, USAGE_ON, USAGE_REQUEST, faqLd } from '../tools/partials.mjs';
 import { PACK_FILE, LIB } from './library.mjs';
 import { GUIDES } from './audience.mjs';
 import { COMPETITORS } from './compare.mjs';
@@ -27,15 +27,22 @@ const I = { lock: 'M6 11h12v10H6zM9 11V7a3 3 0 016 0v4', file: 'M6 3h8l4 4v14H6z
 
 import { workflowLinks } from './invoice-workflows.mjs';
 
+const HOME_FAQ = [
+  ['Is Clausery really free? What does Pro add?', `Yes. Every library template and up to three of your own are free, with unlimited documents and no time limit; documents made from library templates end with a small "Made with Clausery" line. Pro ($${PRICES.pro} a month) leaves that line out and adds unlimited templates of your own with calculations, unlimited documents from a spreadsheet, workspace encryption and client intake forms. Try Pro free for ${TRIAL_DAYS} days: no card, and it simply ends.`],
+  ['Are my document contents uploaded?', `No. Reading templates, evaluating document answers and assembling the .docx happen in your browser. Saved documents use its local database. ${USAGE_ON || ONLINE_KEYS ? `Separate from document processing, requests include ${[USAGE_ON && 'an anonymous count when a document is made', ONLINE_KEYS && 'a license check with Lemon Squeezy if you activate a key bought online'].filter(Boolean).join(', and ')}. These do not carry document contents.` : 'The app requests its own files from the site that serves it.'}`],
+  ['Is the result a PDF I can\'t edit?', 'No. You get a normal Word file (.docx) with your own formatting, which you can edit in Word, Google Docs or LibreOffice; printing to PDF is optional. To change a document later, reopen its draft, change any answer and download it again. Each draft keeps a history of every document made from it, with a fingerprint of the exact answers and a one-click restore.'],
+  ['Do I have to type my business details on every invoice?', 'No. Your next invoice, quote or receipt starts with your business details, bank details and usual tax rate from the last one you made, the next number in your sequence (INV-0042 becomes INV-0043) and today\'s date. Only the client and the items are new. It all comes from the drafts saved in your browser; nothing is stored anywhere else.'],
+];
+
 export const pages = [{
   path: '', title: 'Free Word invoice maker — no signup, editable .docx',
   description: `Free Word invoice maker: invoices, quotes, receipts, contracts and templates for small businesses and freelancers. Make an editable .docx in your browser — no account, no card, nothing uploaded. Not the compliance platform at clausery.ai.`,
-  extraHead: `<meta name="directree-verify" content="18cd9ea3fefedd43ee1d57c58248886c">
-<link rel="preload" as="image" type="image/webp" href="./assets/screenshot-invoice.webp" imagesrcset="./assets/screenshot-invoice-800.webp 800w, ./assets/screenshot-invoice.webp 1200w" imagesizes="(max-width: 900px) calc(100vw - 2rem), 480px" fetchpriority="high">
+  extraHead: `<link rel="preload" as="image" type="image/webp" href="./assets/screenshot-invoice.webp" imagesrcset="./assets/screenshot-invoice-800.webp 800w, ./assets/screenshot-invoice.webp 1200w" imagesizes="1px" fetchpriority="high">
+<meta name="directree-verify" content="18cd9ea3fefedd43ee1d57c58248886c">
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE}#website`, name: 'Clausery', url: SITE, inLanguage: 'en-GB' })}</script>
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebPage', '@id': `${SITE}#webpage`, url: SITE, name: 'Clausery', description: 'Make invoices, quotes and receipts in Word, plus free templates for contracts, HR letters and landlord forms. Nothing is uploaded.', inLanguage: 'en-GB', isPartOf: { '@id': `${SITE}#website` } })}</script>
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', '@id': `${SITE}#organization`, name: 'Clausery', url: SITE, logo: `${SITE}assets/icon-512.png`, sameAs: ['https://github.com/getclausery/getclausery.github.io'] })}</script>
-<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'Clausery', applicationCategory: 'BusinessApplication', operatingSystem: 'Any (web browser)', description: 'Create invoices, quotes and receipts from free Word templates. Guided questions generate editable .docx files on your device.', url: SITE, offers: [{ '@type': 'Offer', price: '0', priceCurrency: 'USD', name: 'Free' }, { '@type': 'Offer', price: String(PRICES.pro), priceCurrency: 'USD', name: 'Pro (per user, monthly)' }], featureList: ['Client-side .docx generation', 'Conditional clauses and repeating groups', 'Calculations', 'Encrypted local workspace', 'Offline client intake forms', 'No account required'] })}</script>`,
+<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'Clausery', applicationCategory: 'BusinessApplication', operatingSystem: 'Any (web browser)', description: 'Create invoices, quotes and receipts from free Word templates. Guided questions generate editable .docx files on your device.', url: SITE, offers: [{ '@type': 'Offer', price: '0', priceCurrency: 'USD', name: 'Free' }, { '@type': 'Offer', price: String(PRICES.pro), priceCurrency: 'USD', name: 'Pro (per user, monthly)' }], featureList: ['Client-side .docx generation', 'Conditional clauses and repeating groups', 'Calculations', 'Encrypted local workspace', 'Offline client intake forms', 'No account required'] })}</script>${faqLd(HOME_FAQ)}`,
   body: (rel) => `
 <section class="hero">
   <div class="wrap">
@@ -55,12 +62,88 @@ export const pages = [{
         <span>${ico(I.check)} Works offline once loaded</span>
         <span>${ico(I.check)} ${LIB.length} templates, all free</span>
       </div>
+      <div class="as-seen" style="margin-top:1.25rem;display:flex;gap:.6rem 1rem;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#7a8ba3">
+        <span style="display:inline-flex;align-items:center;gap:.4rem"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0l2 5h5l-4 3 1.5 5L8 10l-4.5 3L5 8 1 5h5z" fill="#f59e0b"/></svg> Featured on <a href="https://fazier.com/launches/clausery" rel="noopener" style="color:#cfe0f3">Fazier</a></span>
+        <span>·</span>
+        <a href="https://github.com/getclausery" rel="noopener" style="color:#cfe0f3">Public source on GitHub</a>
+        <span>·</span>
+        <span>Updated ${new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}</span>
+        <span>·</span>
+        <span>No ads, no tracking cookies</span>
+      </div>
     </div>
     <figure class="shot" style="margin:0">
-      ${picture({ src: `${rel}assets/screenshot-invoice.png`, webp: [[`${rel}assets/screenshot-invoice-800.webp`, 800], [`${rel}assets/screenshot-invoice.webp`, 1200]], sizes: '(max-width: 900px) calc(100vw - 2rem), 480px', width: 1200, height: 800, loading: 'eager', fetchpriority: 'high', alt: 'Clausery making an invoice: the questions on the left, and on the right the invoice itself with its line items, HST and total worked out' })}
+      <div class="hero-demo" aria-label="Interactive preview — fill in three fields and watch the invoice total update live">
+        <picture aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">${picture({ src: `${rel}assets/screenshot-invoice.png`, webp: [[`${rel}assets/screenshot-invoice-800.webp`, 800], [`${rel}assets/screenshot-invoice.webp`, 1200]], sizes: '1px', width: 1200, height: 800, loading: 'eager', fetchpriority: 'high', alt: '' })}</picture>
+        <div class="demo-q">
+          <p class="demo-label">Try it live — nothing is sent anywhere.</p>
+          <label>
+            <span>Hourly rate ($)</span>
+            <input type="number" id="demo-rate" value="85" min="0" step="1" inputmode="decimal">
+          </label>
+          <label>
+            <span>Hours</span>
+            <input type="number" id="demo-hours" value="12" min="0" step="0.25" inputmode="decimal">
+          </label>
+          <label>
+            <span>Sales tax (%)</span>
+            <input type="number" id="demo-tax" value="0" min="0" step="0.1" inputmode="decimal">
+          </label>
+          <a class="demo-cta demo-cta-sm" href="${rel}app/#/start/invoice">${ico(I.bolt)} Make my real invoice →</a>
+        </div>
+        <div class="demo-inv" aria-hidden="true">
+          <div class="inv-head">
+            <strong>INVOICE</strong>
+            <span>#1042 · ${new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}</span>
+          </div>
+          <div class="inv-from">From <b>Your Name</b> · you@example.com</div>
+          <div class="inv-row inv-headrow"><span>Description</span><span>Qty</span><span>Rate</span><span>Amount</span></div>
+          <div class="inv-row"><span>Design work</span><span id="d-hours">12.00</span><span>$<span id="d-rate">85.00</span></span><span>$<span id="d-subtotal">1,020.00</span></span></div>
+          <div class="inv-totals">
+            <div><span>Subtotal</span><span>$<span id="d-sub2">1,020.00</span></span></div>
+            <div><span>Tax (<span id="d-taxpct">0</span>%)</span><span>$<span id="d-taxamt">0.00</span></span></div>
+            <div class="inv-total"><span>TOTAL DUE</span><span>$<span id="d-total">1,020.00</span></span></div>
+          </div>
+        </div>
+      </div>
     </figure>
   </div>
 </section>
+<style>
+.hero{position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(1000px 500px at 85% 0%,rgba(15,118,110,.10),transparent 60%),radial-gradient(700px 400px at 0% 100%,rgba(15,118,110,.07),transparent 60%);pointer-events:none}
+.hero .wrap{position:relative}
+.hero-demo{display:grid;grid-template-columns:220px 1fr;gap:0;background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:0;box-shadow:0 25px 60px -20px rgba(20,20,30,.25),0 2px 6px rgba(20,20,30,.06);overflow:hidden}
+.demo-q{padding:1.1rem 1.15rem 1rem;background:linear-gradient(180deg,var(--surface) 0%,var(--surface-2) 100%);border-right:1px solid var(--border)}
+.demo-label{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin:0 0 .7rem}
+.demo-q label{display:block;margin-bottom:.65rem}
+.demo-q label span{display:block;font-size:.75rem;color:var(--muted);margin-bottom:.25rem;font-weight:600}
+.demo-q input{width:100%;padding:.5rem .6rem;border:1.5px solid var(--border-strong);border-radius:8px;background:var(--surface);color:var(--text);font-size:.95rem;font-variant-numeric:tabular-nums;outline:none;transition:border-color .15s,box-shadow .15s;font-family:inherit}
+.demo-q input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.demo-cta-sm{display:inline-flex;align-items:center;gap:.4rem;width:100%;justify-content:center;margin-top:.25rem;padding:.55rem .75rem;border-radius:10px;font-weight:700;font-size:.88rem;text-decoration:none;background:var(--accent);color:var(--accent-text);border:0;transition:transform .12s,box-shadow .12s,background .12s}
+.demo-cta-sm:hover{background:var(--accent-hover);transform:translateY(-1px);box-shadow:0 6px 16px -4px rgba(15,118,110,.45)}
+.demo-inv{background:#fff;color:#111;padding:1.25rem 1.35rem 1.15rem;font-size:.78rem}
+.inv-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.3rem}
+.inv-head strong{font-size:1.3rem;letter-spacing:.06em;color:var(--ink)}
+.inv-head span{color:#888;font-size:.68rem}
+.inv-from{font-size:.68rem;color:#999;padding-bottom:.55rem;margin-bottom:.55rem;border-bottom:1px solid #eee}
+.inv-from b{color:#333;font-weight:600}
+.inv-row{display:grid;grid-template-columns:1fr 48px 64px 76px;gap:.35rem;padding:.32rem 0;font-variant-numeric:tabular-nums}
+.inv-row span:last-child,.inv-totals span:last-child{text-align:right}
+.inv-headrow{font-weight:700;font-size:.62rem;text-transform:uppercase;color:#888;border-bottom:1px solid #eee;padding-bottom:.35rem}
+.inv-totals{margin-top:.45rem;border-top:2px solid #111;padding-top:.45rem}
+.inv-totals > div{display:flex;justify-content:space-between;padding:.12rem 0;font-variant-numeric:tabular-nums;color:#444}
+.inv-total{font-weight:800;font-size:1rem;color:#111 !important;margin-top:.2rem}
+.inv-total span:last-child{color:var(--accent) !important}
+@media (max-width:900px){.hero-demo{grid-template-columns:1fr}.demo-q{order:2;border-right:0;border-top:1px solid var(--border)}.demo-inv{order:1;border-radius:18px 18px 0 0}.demo-cta-sm{margin-top:.5rem}}
+.hero .btn-primary{transition:transform .12s,box-shadow .12s,background .15s;box-shadow:0 4px 14px -4px rgba(15,118,110,.5)}
+.hero .btn-primary:hover{transform:translateY(-1px);box-shadow:0 8px 22px -4px rgba(15,118,110,.55)}
+.hero .actions .btn{transition:transform .12s,background .15s,border-color .15s}
+.hero .actions .btn:hover{transform:translateY(-1px)}
+.feature{transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
+.feature:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--accent)}
+</style>
+<script src="${rel}assets/hero-demo.js" defer></script>
 
 <section class="section section-alt" id="proof">
   <div class="wrap">
@@ -231,11 +314,7 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
   <div class="wrap" style="max-width:48rem">
     <h2>Questions</h2>
     <div class="faq">
-      <details><summary>Is Clausery really free? What does Pro add?</summary><p>Yes. Every library template and up to three of your own are free, with unlimited documents and no time limit; documents made from library templates end with a small “Made with Clausery” line. Pro ($${PRICES.pro} a month) leaves that line out and adds unlimited templates of your own with calculations, unlimited documents from a spreadsheet, workspace encryption and client intake forms. <a href="${rel}app/#/trial">Try Pro free for ${TRIAL_DAYS} days</a>: no card, and it simply ends.</p></details>
-      <details><summary>Are my document contents uploaded?</summary><p>No. Reading templates, evaluating document answers and assembling the .docx happen in your browser. Saved documents use its local database. ${USAGE_ON || ONLINE_KEYS ? `Separate from document processing, requests include ${[USAGE_ON && USAGE_REQUEST, ONLINE_KEYS && 'a license check with Lemon Squeezy if you activate a key bought online'].filter(Boolean).join(', and ')}. These do not carry document contents.` : 'The app requests its own files from the site that serves it.'}</p></details>
-      <details><summary>Is my work saved if I close the tab or my laptop dies?</summary><p>Yes. Every answer is saved as you type to your browser's built-in database, so drafts survive a refresh, a restart or a flat battery, and stay in your Drafts list until you delete them. The first time you make a document, Clausery also asks the browser to protect that storage from automatic clean-up.</p></details>
-      <details><summary>Do I have to type my business details on every invoice?</summary><p>No. Your next invoice, quote or receipt starts with your business details, bank details and usual tax rate from the last one you made, the next number in your sequence (INV-0042 becomes INV-0043) and today's date. Only the client and the items are new. It all comes from the drafts saved in your browser; nothing is stored anywhere else.</p></details>
-      <details><summary>Is the result a PDF I can't edit?</summary><p>No. You get a normal Word file (.docx) with your own formatting, which you can edit in Word, Google Docs or LibreOffice; printing to PDF is optional. To change a document later, reopen its draft, change any answer and download it again. Each draft keeps a history of every document made from it, with a fingerprint of the exact answers and a one-click restore.</p></details>
+      ${HOME_FAQ.map(([q,a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join('\n      ')}
       <details><summary>Can it add a clause only when it applies, or make many documents at once?</summary><p>Yes to both. A rule such as <code>contract_value &gt; 5000</code> can switch a clause on or off, and the money templates add up line items and tax for you (see <a href="${rel}docs/logic.html">logic and calculations</a>). <em>From a spreadsheet</em> makes one document per row of a CSV file, such as an invoice for each client.</p></details>
       <details><summary>What doesn't it do?</summary><p>It has no e-signatures, no live co-editing and no server integrations, because each of those needs a server holding your documents, which is what Clausery avoids. Download the Word file or a PDF and sign it with the e-signature service you already use; share templates with your team as a template pack; and send a finished document straight to Mail, Slack or Teams with the Share button where your device supports it.</p></details>
       <details><summary>What happens to my data if I clear my browser?</summary><p>It is deleted, like any local data. Download a backup from Settings to keep a copy, or to move your templates and drafts to another computer or phone: restore it there and carry on. Template packs and answers files move single templates and drafts.</p></details>
