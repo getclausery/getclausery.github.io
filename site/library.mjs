@@ -717,14 +717,25 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-label
       description: t.description || fitSnippet(t.intro, { lead: `Free ${lowerFirst(t.name)} template for Word.`, tail: 'Fill it in online or download the .docx, free.' }),
       extraHead: docLd(t) + faqLd(faq) + crumbsLd([['Home', ''], ['Templates', 'templates/'], [t.name, `templates/${t.slug}.html`]]) + PREVIEW_CSS + THUMB_CSS + (t.slug === 'payment-receipt' ? receiptHelpHead : '') + `<style>.tpl-cta-fixed{display:none}@media(max-width:760px){.tpl-cta-fixed{display:flex;position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:20;gap:.5rem}.tpl-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35)}}@media(min-width:761px){.tpl-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.tpl-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`,
       body: (rel) => `
-<section class="section"><div class="wrap" style="max-width:52rem">
+<section class="section tpl-hero"><div class="wrap">
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}templates/">Templates</a> › ${esc(t.name)}</nav>
-  <h1 style="margin-top:1rem">${esc(t.title)}</h1>
-  <p class="lead">${esc(t.intro)}</p>
-  <div class="actions" style="display:flex;gap:.75rem;flex-wrap:wrap;margin:1.5rem 0">
-    <a class="btn btn-primary btn-lg" href="${rel}app/#/start/${t.slug}">Fill it in now, free</a>
-    <a class="btn btn-lg" href="${rel}samples/${t.file}" download>Download the Word template</a>
+  <div class="tpl-hero-grid">
+    <div>
+      <span class="eyebrow" style="margin-top:.5rem">${esc(t.category)} template · Word</span>
+      <h1>${esc(t.name)} template <span class="tpl-h1-sub">— free, editable .docx</span></h1>
+      <p class="lead">${esc(t.intro)}</p>
+      <div class="actions" style="display:flex;gap:.75rem;flex-wrap:wrap;margin:1.1rem 0 .5rem">
+        <a class="btn btn-primary btn-lg" href="${rel}app/#/start/${t.slug}">Fill it in now, free <span class="arr">→</span></a>
+        <a class="btn btn-lg" href="${rel}samples/${t.file}" download>Download Word</a>
+      </div>
+      <div class="tpl-meta">
+        <span>No signup · no card</span><span>Editable .docx</span><span>Nothing uploaded</span>
+      </div>
+    </div>
+    <a class="tpl-thumb tpl-thumb-hero" href="#full-text">${picture({ src: `${rel}assets/previews/${t.slug}.jpg`, webp: `${rel}assets/previews/${t.slug}.webp`, width: PREVIEW_SIZE.width, height: PREVIEW_SIZE.height, loading: 'eager', fetchpriority: 'high', alt: `First page of the free ${lowerFirst(t.name)} template for Word` })}</a>
   </div>
+</div></section>
+<section class="section"><div class="wrap" style="max-width:52rem">
   ${calculatedFor(t.slug).length ? `<p class="small"><strong>Does the maths for you:</strong> fill it in online and the ${esc(andList(calculatedFor(t.slug).map(lowerFirst)))} ${calculatedFor(t.slug).length > 1 ? 'are' : 'is'} calculated as you type.</p>
   ` : ''}${reuseFor(t.slug) ? `<p class="small"><strong>Remembers you:</strong> ${esc(reuseFor(t.slug))}</p>
   ` : ''}<p class="small muted">Free, with unlimited documents and no sign-up. Your answers stay in your browser. <strong>Who it is for:</strong> ${esc(t.who)}</p>
@@ -733,10 +744,9 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-label
 
   <div class="tpl-overview">
     <div>
-      <h2 style="margin-top:2.5rem">What is in the ${esc(lowerFirst(t.name))}</h2>
+      <h2>What is in the ${esc(lowerFirst(t.name))}</h2>
       <ul>${t.clauses.map((c) => `<li>${esc(c)}</li>`).join('')}</ul>
     </div>
-    <a class="tpl-thumb" href="#full-text">${picture({ src: `${rel}assets/previews/${t.slug}.jpg`, webp: `${rel}assets/previews/${t.slug}.webp`, width: PREVIEW_SIZE.width, height: PREVIEW_SIZE.height, loading: 'eager', fetchpriority: 'high', alt: `First page of the free ${lowerFirst(t.name)} template for Word` })}</a>
   </div>${t.slug === 'invoice' ? '\n\n  ' + invoiceWordHelp(rel) : ''}${t.slug === 'payment-receipt' ? '\n\n  ' + paymentReceiptHelp(rel) : ''}
 
   <h2 style="margin-top:2.5rem" id="full-text">Read the full template</h2>
@@ -764,7 +774,7 @@ ${['quote', 'payment-receipt', 'credit-note'].includes(t.slug) ? `<!--nav--><p s
   <div class="grid grid-3 related-cards">${related(t).map((x) => `<a class="feature" href="${rel}templates/${x.slug}.html"><h3>${esc(x.name)}</h3><p>${esc(cardLine(x))}</p></a>`).join('')}</div>
   <p><a href="${rel}templates/">Browse all ${LIB.length} free templates by category</a></p><!--/nav-->
   <p class="small muted" style="margin-top:2rem">This template is a general sample and not legal advice. Laws vary by jurisdiction; have it reviewed before use.</p>
-  <div class="tpl-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/${t.slug}">Fill it in — free →</a></div>
+  <div class="tpl-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/${t.slug}">Fill it in — free <span class="arr">→</span></a></div>
 </div></section>`,
     };
   }),
