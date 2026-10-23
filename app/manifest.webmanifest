@@ -1,8 +1,9 @@
 {
+  "id": "/app/?utm_source=pwa",
   "name": "Clausery — free Word documents",
   "short_name": "Clausery",
   "description": "Document automation that never leaves your browser. Turn Word templates into guided questionnaires and generate finished documents offline.",
-  "start_url": "./index.html",
+  "start_url": "./index.html?utm_source=pwa",
   "scope": "../",
   "display": "standalone",
   "orientation": "portrait",

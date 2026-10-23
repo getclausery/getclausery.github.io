@@ -1,7 +1,11 @@
 {
  "": {
   "date": "2026-10-23",
-  "hash": "e4223f8e7007641a"
+  "hash": "bfe6cb021713d674"
+ },
+ ".well-known/change-password": {
+  "date": "2026-10-23",
+  "hash": "f9d2a380c887c921"
  },
  "404.html": {
   "date": "2026-10-17",
