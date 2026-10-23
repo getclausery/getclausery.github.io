@@ -1,8 +1,8 @@
 {
  "origin": "https://getclausery.github.io/",
  "version": "1.34.0",
- "commit": "1e5acac028abc24a7f3a255f8402638b0fc889d5",
- "generatedAt": "2026-10-23T15:03:22.289Z",
+ "commit": "6dcc0cbc88122a502eb553c7d9fdd89af37dada1",
+ "generatedAt": "2026-10-23T15:06:14.149Z",
  "license": "AGPL-3.0-or-later WITH Clausery-Trademark-Exception",
  "files": {
   "/index.html": "sha256-93kPcknxmBzxrGQ1rBh3q+eicB0FzR+Q2LQXIRymE6U=",
@@ -454,6 +454,6 @@
   "/go/index.html": "sha256-MnWf3rBkz1EVzoBjxflokPUR+GZneJCjc+2oNfTqCaE=",
   "/made-with/index.html": "sha256-T+e2qAJnmUdyim+RdIAL8BzLXOvJ3CIO6XMmOWAf9rs=",
   "/.well-known/security.txt": "sha256-cI4hSc4wvmFZl5JksICNGBXmNlHzSiElQFyeUhugtUA=",
-  "/.well-known/attestation.json": "sha256-BK4knWxnzMXWsvVG3AGq+GX1+EAj46g0Yhp7haisEYU="
+  "/.well-known/attestation.json": "sha256-AWAI9XvXxMGLNITGy2p2rBK8tne3HhgahCoNZcmKHlU="
  }
 }
