@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '1.45.0', date: '23 October 2026', summary: 'Made-with FAQPage schema matches visible questions exactly' },
   { version: '1.44.0', date: '23 October 2026', summary: 'AI crawler guidance + copyright well-known endpoint' },
   { version: '1.43.0', date: '23 October 2026', summary: 'Home-page "What\'s new" release pill linking to the changelog' },
   { version: '1.42.0', date: '23 October 2026', summary: 'Self-hosting / Enterprise marketing page' },
@@ -36,6 +37,11 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-45-0">1.45.0 <span class="small muted">— 23 October 2026</span></h2>
+<ul>
+  <li>FAQ schema sweep: the <a href="${rel}made-with/">"Made with Clausery"</a> page's FAQPage JSON-LD now matches the three visible <code>&lt;details&gt;</code> questions exactly ("Is this a scam? Is it safe to pay?", "Can I edit the document?", "Does this track me?"), including the previously-missing third question. All 14 pages with visible <code>.faq</code> blocks now have matching faqLd.</li>
+  <li>Confirmed the <a href="${rel}about/">About</a> page already emits <code>@type: AboutPage</code> JSON-LD.</li>
+</ul>
 <h2 id="v1-44-0">1.44.0 <span class="small muted">— 23 October 2026</span></h2>
 <ul>
   <li>Added <code>/.well-known/ai.txt</code>: plain-text guidance for AI crawlers, pointing at <a href="${rel}llms.txt">llms.txt</a> for the public page index and deferring to robots.txt for crawl policy.</li>
