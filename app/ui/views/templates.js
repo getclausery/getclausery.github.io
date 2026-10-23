@@ -219,11 +219,13 @@ export async function render(ctx) {
   setChildren(ctx.main, h('div.container',
     h('div.page-head', h('div', h('h1', 'Templates'), h('p.sub', 'Pick a document, answer a few questions and download a finished Word file.')),
       h('div.row', h('button.btn', { type: 'button', onclick: () => importPack(ctx) }, icon('download', 16), 'Import pack'), h('button.btn', { type: 'button', onclick: async () => { const f = await pickFile('.docx'); if (f) upload(f); } }, icon('upload', 16), 'Upload .docx'))),
+    h('section.first-run',
+      h('h2', templates.length ? 'Start a document' : 'Make your first document'),
+      h('p', templates.length ? 'Most people start with one of these — totals, tax and dates are worked out for you.' : 'Totals, tax and dates are worked out for you, and next time your own details and the next number are filled in. Nothing you type leaves this device.'),
+      h('div.cards.quickstart-strip', { style: { gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' } }, FEATURED.map((slug) => sampleCard(bySlug.get(slug), true)))),
     templates.length
-      ? [h('h2.sr-only', 'Your templates'), h('div.cards', templates.map(card))]
-      : h('section.first-run', h('h2', 'Make your first document'),
-        h('p', 'Totals, tax and dates are worked out for you, and next time your own details and the next number are filled in. Nothing you type leaves this device.'),
-        h('div.cards', FEATURED.map((slug) => sampleCard(bySlug.get(slug), true)))),
+      ? [h('h2', { style: { marginTop: '2rem' } }, 'Your templates'), h('div.cards', templates.map(card))]
+      : null,
     h('h2', { style: { marginTop: '2rem' } }, `All ${SAMPLES.length} templates`),
     filter, allGrid, noMatch,
     h('h2', { style: { marginTop: '2rem' } }, 'Use your own Word template'),

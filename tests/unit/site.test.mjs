@@ -164,8 +164,11 @@ test('pricing states the free trial, the guarantee and the Free plan credit line
   assert.match(pricing, new RegExp(`${TRIAL_DAYS}-day free Pro trial: no card, nothing renews`));
   assert.match(pricing, new RegExp(`${REFUND_DAYS}-day money-back guarantee`));
   assert.match(pricing, /<li class="no">Remove the “Made with Clausery” line from library documents<\/li>/);
-  assert.doesNotMatch(pricing, /Most popular/);
-  assert.match(pricing, new RegExp(`\\$${PRICES.pro} <small>/ user / month</small>`));
+  assert.doesNotMatch(pricing, /Most popular/i);
+  assert.match(pricing, new RegExp(`class="price-mo">\\$${PRICES.pro}<`));
+  // billing toggle is present
+  assert.match(pricing, /data-billing="monthly"/);
+  assert.match(pricing, /data-billing="yearly"/);
   // the one-time purchase appears only once its checkout link exists
   assert.equal(/data-checkout="lifetime"|Lifetime Pro/.test(pricing), Boolean(CHECKOUT_URLS.lifetime));
   const offers = ld(pricing).find((x) => x['@type'] === 'SoftwareApplication').offers.map((o) => o.price);

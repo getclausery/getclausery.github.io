@@ -1,0 +1,12 @@
+Contact: mailto:getclausery@gmail.com?subject=Security%20report
+Expires: 2027-12-31T23:00:00.000Z
+Preferred-Languages: en
+Canonical: https://getclausery.github.io/.well-known/security.txt
+Policy: https://getclausery.github.io/docs/security.html
+# Clausery is a static-site + client-side web app. We do not run a server that holds your data,
+# so most traditional server-side bug classes do not apply. We still welcome reports of:
+#   - XSS, CSRF or script-injection in the app or site
+#   - CSP, CORS or cookie mistakes
+#   - License-key verification weaknesses in app/lib/license.js
+#   - Build pipeline, dependency or supply-chain issues
+# Source: https://github.com/getclausery/getclausery.github.io (PRs welcome)

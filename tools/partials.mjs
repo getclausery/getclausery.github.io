@@ -113,6 +113,7 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="${rel}assets/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="${rel}assets/icon-192.png">
 <link rel="manifest" href="${rel}app/manifest.webmanifest">
+<link rel="search" type="application/opensearchdescription+xml" title="Clausery templates" href="${rel}opensearch.xml">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="${rel}feed.xml">
 <link rel="stylesheet" href="${rel}site.css">
 <script>${THEME_INLINE}</script>
