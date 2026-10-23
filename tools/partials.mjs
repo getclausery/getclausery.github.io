@@ -130,14 +130,29 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <meta name="author" content="Clausery">
 <meta name="generator" content="Clausery ${SITE} — AGPL-3.0-or-later open source">
 <meta name="original-source" content="${url}">
+<meta name="color-scheme" content="light dark">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), display-capture=()">
 <link rel="icon" href="${rel}assets/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="${rel}assets/icon-192.png">
 <link rel="manifest" href="${rel}app/manifest.webmanifest">
 <link rel="search" type="application/opensearchdescription+xml" title="Clausery templates" href="${rel}opensearch.xml">
 <link type="text/plain" rel="author" href="${rel}humans.txt">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="${rel}feed.xml">
+<link rel="alternate" hreflang="en-GB" href="${url}">
+<link rel="alternate" hreflang="en" href="${url}">
+<link rel="alternate" hreflang="x-default" href="${url}">
+<link rel="preconnect" href="https://api.lemonsqueezy.com" crossorigin>
+<link rel="dns-prefetch" href="https://api.lemonsqueezy.com">
+<link rel="preconnect" href="https://static.cloudflareinsights.com" crossorigin>
+<link rel="dns-prefetch" href="https://static.cloudflareinsights.com">
+<link rel="preconnect" href="https://getclausery.goatcounter.com" crossorigin>
+<link rel="dns-prefetch" href="https://getclausery.goatcounter.com">
 <link rel="stylesheet" href="${rel}site.css">
 <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://getclausery.goatcounter.com; font-src 'self' data:; connect-src 'self' https://api.lemonsqueezy.com https://getclausery.goatcounter.com; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'self'; upgrade-insecure-requests">
 <script>${THEME_INLINE}</script>
 <script src="${rel}site.js" defer></script>
 ${extraHead}${pageLd}

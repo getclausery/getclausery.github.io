@@ -125,11 +125,14 @@ test('the page counter lives in site.js, which the app and embedded calculators 
   }
 });
 
-test('license wording matches the checkout state, and the app CSP allows only the license service besides itself', async () => {
-  const { ONLINE_KEYS, CHECKOUT_SINCE } = await import('../../tools/partials.mjs');
-  const { LICENSE_SERVICE } = await import('../../app/config.js');
+test('license wording matches the checkout state, and the app CSP allows only the license service and analytics besides itself', async () => {
+  const { ONLINE_KEYS, CHECKOUT_SINCE, USAGE_ON } = await import('../../tools/partials.mjs');
+  const { LICENSE_SERVICE, USAGE_COUNTER } = await import('../../app/config.js');
   const csp = html('app/index.html').match(/connect-src ([^;]+);/)[1].trim().split(/\s+/);
-  assert.deepEqual(csp, LICENSE_SERVICE.api ? ["'self'", new URL(LICENSE_SERVICE.api).origin] : ["'self'"]);
+  const expected = ["'self'"];
+  if (LICENSE_SERVICE.api) expected.push(new URL(LICENSE_SERVICE.api).origin);
+  if (USAGE_ON && USAGE_COUNTER.endpoint) expected.push(new URL(USAGE_COUNTER.endpoint).origin);
+  assert.deepEqual(csp, expected);
   const privacy = html('legal/privacy.html'), pricing = html('pricing/index.html');
   if (ONLINE_KEYS) {
     assert.match(CHECKOUT_SINCE, /^\d{4}-\d{2}-\d{2}$/, 'set CHECKOUT_SINCE in app/config.js when checkout goes live');
