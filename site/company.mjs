@@ -32,6 +32,21 @@ export const pages = [
     extraHead: '<meta http-equiv="refresh" content="0;url=../contact/"><meta name="robots" content="noindex, follow"><link rel="help" href="../contact/"><script>location.replace("../contact/");</script>',
     body: (rel) => `<p>Redirecting to <a href="${rel}contact/">contact</a>. For questions, billing help, refunds, template requests, bug reports or security issues, email from the contact page.</p>` },
   {
+    // Well-known locations requested by privacy tooling, GDPR data-discovery crawlers, and recent platform
+    // conventions (Apple "Privacy nutrition labels" links, Google Ads "Advertiser privacy policy",
+    // Brave/Vivaldi privacy shortcuts, /.well-known/privacy-policy community spec). We do not have account
+    // data to serve there, so we point cleanly at the human-readable privacy policy. Noindex — these are
+    // redirects, not content pages.
+    path: '.well-known/privacy-policy', title: 'Privacy policy', noindex: true,
+    description: 'Clausery privacy policy — what is sent, to whom and when.',
+    extraHead: '<meta http-equiv="refresh" content="0;url=../legal/privacy.html"><meta name="robots" content="noindex, follow"><script>location.replace("../legal/privacy.html");</script>',
+    body: (rel) => `<p>Redirecting to the <a href="${rel}legal/privacy.html">privacy policy</a>.</p>` },
+  {
+    path: '.well-known/terms-of-service', title: 'Terms of service', noindex: true,
+    description: 'Clausery terms of service.',
+    extraHead: '<meta http-equiv="refresh" content="0;url=../legal/terms.html"><meta name="robots" content="noindex, follow"><script>location.replace("../legal/terms.html");</script>',
+    body: (rel) => `<p>Redirecting to the <a href="${rel}legal/terms.html">terms of service</a>.</p>` },
+  {
     path: 'about/', title: 'About Clausery',
     description: 'Clausery helps small businesses make invoices, quotes and receipts in Word. Read how local document processing, the free library and paid plans work.',
     extraHead: ld({ '@type': 'AboutPage', name: 'About Clausery', url: `${SITE}about/`, mainEntity: ORG }),
@@ -103,20 +118,38 @@ ${CHANNELS.map(([h, p, href, cta]) => `  <div class="feature"><h2 style="font-si
     // noindex: it would only repeat the home page in search results.
     path: 'made-with/', title: 'Made with Clausery', noindex: true,
     description: 'You received a document made with Clausery: free invoices, quotes, receipts and Word templates for small businesses, filled in privately in the browser.',
+    extraHead: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+      { '@type': 'Question', name: 'What is Clausery?', acceptedAnswer: { '@type': 'Answer', text: 'Clausery is free software that makes invoices, quotes, receipts and contracts as editable Word (.docx) files. Documents are assembled in the sender\'s own browser; nothing you see in the document was uploaded to Clausery.' } },
+      { '@type': 'Question', name: 'Is this a scam / is it safe to pay?', acceptedAnswer: { '@type': 'Answer', text: 'Clausery is document-generation software, not a payment service. The document was sent to you by the business named on it; amounts, due dates, bank details and payment terms are set by them. Verify the sender and pay using your usual channels.' } },
+      { '@type': 'Question', name: 'Can I edit the document?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — Clausery downloads normal .docx Word files which open in Word, Google Docs, LibreOffice or Pages. You can edit any part, save, or print to PDF.' } },
+    ] })}</script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:46rem;text-align:center">
 <div class="eyebrow">Made with Clausery</div>
 <h1>The document you received was made with Clausery</h1>
-<p class="lead">Clausery makes invoices, quotes, receipts and contracts in Word for small businesses and freelancers. Answer a few questions and download a finished document you can still edit, with the totals and tax worked out. It is free, with no sign-up.</p>
-<p style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free</a><a class="btn btn-lg" href="${rel}templates/">Browse ${LIB.length} free templates</a></p>
-<div class="feature" style="text-align:left;margin-top:2rem"><p style="margin:0;color:inherit"><strong>A question about the document itself?</strong> Amounts, due dates, payments and terms are set by the business that sent it, so please contact them. Clausery never sees the documents people make: each one is created in the sender's own browser and nothing is uploaded.</p></div>
+<p class="lead">Clausery is free software that makes invoices, quotes, receipts and contracts as editable Word files. Totals, tax and numbering are worked out automatically — and the sender's document contents never leave their browser.</p>
+<div class="proof" style="margin:1rem auto 1.5rem;justify-content:center">
+  <span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg> Private by design</span>
+  <span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg> Free, no signup</span>
+  <span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/></svg> Editable Word file</span>
+</div>
+<p style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:1rem"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make my own invoice — free</a><a class="btn btn-lg" href="${rel}templates/">Browse ${LIB.length} free templates</a></p>
+<div class="feature" style="text-align:left;margin-top:2rem;border-left:4px solid var(--accent)">
+  <p style="margin:0;color:inherit"><strong>A question about the document itself?</strong> Amounts, due dates, bank details, payments and terms are set by the business that sent it, so please contact them. Clausery never sees the documents people make: each one is created in the sender's own browser and nothing is uploaded.</p>
+</div>
 </div></section>
 <section class="section section-alt"><div class="wrap">
-<div class="grid grid-3">
-  <div class="feature"><h2 style="font-size:1.15rem;margin-top:0">Free, with no account</h2><p>Every one of the ${LIB.length} library templates can be downloaded or filled in at no cost, with unlimited documents.</p></div>
-  <div class="feature"><h2 style="font-size:1.15rem;margin-top:0">The maths done for you</h2><p>Line items, discounts, tax and balances are calculated, and your next invoice continues the numbering with your details already filled in.</p></div>
-  <div class="feature"><h2 style="font-size:1.15rem;margin-top:0">Private by design</h2><p>Everything runs in your browser. Your clients' details and your documents are never uploaded to a server.</p></div>
+<h2 style="text-align:center">Three things receivers often ask</h2>
+<div class="faq" style="max-width:46rem;margin:1.5rem auto 0">
+  <details open><summary>Is this a scam? Is it safe to pay?</summary><p>Clausery is document-generation software, not a payment service. The document was sent to you by the business named on it; amounts, due dates, bank details and payment terms are set by them. Verify the sender (reply to an email you already trust, or call the number on file) and pay using your usual channels. Clausery does not handle payments.</p></details>
+  <details><summary>Can I edit the document?</summary><p>Yes — the file is a normal .docx you can open in Word, Google Docs, LibreOffice or Pages, edit, save, or print to PDF. Nothing is locked.</p></details>
+  <details><summary>Does this track me?</summary><p>No. The document is just a Word file; there are no pixels, beacons or hidden trackers added by Clausery. The link to this page is a plain text hyperlink at the bottom of free-plan documents.</p></details>
 </div>
-<p class="small muted" style="text-align:center;margin-top:1.5rem"><a href="${rel}">What Clausery does</a> · <a href="${rel}pricing/">Pricing</a> · <a href="${rel}about/">About</a></p>
+<div class="grid grid-3" style="margin-top:2.5rem">
+  <div class="feature"><h2 style="font-size:1.15rem;margin-top:0">Free, with no account</h2><p>Every one of the ${LIB.length} library templates can be filled in at no cost, with unlimited documents and no sign-up.</p></div>
+  <div class="feature"><h2 style="font-size:1.15rem;margin-top:0">The maths done for you</h2><p>Line items, discounts, tax and balances are calculated automatically, and the next invoice continues the sender's numbering.</p></div>
+  <div class="feature"><h2 style="font-size:1.15rem;margin-top:0">Private by design</h2><p>Everything runs in the sender's browser. Client details and document contents are never uploaded to a server.</p></div>
+</div>
+<p class="small muted" style="text-align:center;margin-top:1.5rem"><a href="${rel}">Home</a> · <a href="${rel}pricing/">Pricing</a> · <a href="${rel}customers/">Who uses it</a> · <a href="${rel}about/">About</a> · <a href="${rel}docs/security.html">Security</a></p>
 <p class="small muted" style="text-align:center;margin-top:.5rem">A separate company also uses the name Clausery for an <a href="https://www.clausery.ai/" rel="noopener">enterprise compliance-policy platform</a> (ISO 27001/DORA/GDPR). Same name, different product.</p>
 </div></section>`,
   },
