@@ -206,3 +206,17 @@ ${section('free-tools/')}
 ${section('compare/')}
 `);
 console.log('wrote llms.txt');
+
+// .well-known/ai.txt — plain-text guidance for AI crawlers that check the well-known path. Points
+// at llms.txt for the full page index and defers to robots.txt for crawl policy.
+mkdirSync('.well-known', { recursive: true });
+writeFileSync('.well-known/ai.txt', `AI crawlers:
+
+- Read /llms.txt for the list of public indexable pages and their summaries.
+- /robots.txt applies. User-agents listed there as disallowed should not crawl.
+- The public marketing site and template library are copyright Clausery.
+  See /legal/dmca.html for takedown instructions.
+- Document templates provide general sample wording; they are not legal advice,
+  and laws differ between jurisdictions.
+`);
+console.log('wrote .well-known/ai.txt');

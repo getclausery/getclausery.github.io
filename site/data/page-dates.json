@@ -7,6 +7,10 @@
   "date": "2026-10-23",
   "hash": "f9d2a380c887c921"
  },
+ ".well-known/copyright": {
+  "date": "2026-10-23",
+  "hash": "243a55e238ed3b4d"
+ },
  ".well-known/privacy-policy": {
   "date": "2026-10-23",
   "hash": "9361b1f350d399d4"
@@ -33,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-23",
-  "hash": "bdb2dba36e7da4d3"
+  "hash": "924bdaadc0fd5c32"
  },
  "clauses/": {
   "date": "2026-10-17",
