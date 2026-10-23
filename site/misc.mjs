@@ -10,6 +10,14 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog</h1>
+<h2>1.35.0 <span class="small muted">— 23 October 2026</span></h2>
+<ul>
+  <li>Redesigned plan cards on the pricing page with stronger visual hierarchy for the featured Pro plan, a clearer “no-card free trial” ribbon, refund-note trust signal, larger primary CTA, and more direct benefit copy.</li>
+  <li>Added a public <a href="${rel}status/">status page</a> listing every component (site, repository, document engine, checkout) and where to verify each one, plus a public <a href="${rel}roadmap/">roadmap</a> linked to changelog entries and open GitHub issues.</li>
+  <li>Footer now links to Status and Roadmap alongside Changelog; About page links to both.</li>
+  <li>Primary buttons now use a gradient fill with inset highlight, stronger hover lift and glow, active-state reset, and an accessible focus-visible ring.</li>
+  <li>Added Crawl-delay and Host directives to robots.txt and refined the robots policy.</li>
+</ul>
 <h2>1.34.0 <span class="small muted">— 15 October 2026</span></h2>
 <ul>
   <li>Try Pro free for ${TRIAL_DAYS} days with one click, from the upgrade dialog, Settings or the <a href="${rel}pricing/">pricing page</a>. No card, no account and no email: the trial runs in your browser and simply ends, and you keep everything you made.</li>

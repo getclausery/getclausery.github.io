@@ -81,6 +81,7 @@ export const pages = [{
         <h3>Free</h3>
         <p class="muted">For everyday invoices, quotes and receipts.</p>
         <p class="price">$0</p>
+        <p class="small muted">Forever. No card, no email.</p>
         <ul>
           <li>Every template in the free library</li>
           <li>Up to 3 of your own templates</li>
@@ -96,10 +97,11 @@ export const pages = [{
           <li class="no">Client intake forms</li>
         </ul>
         <a class="btn" href="${rel}app/">Open the app</a>
+        <p class="small muted" style="text-align:center;margin:.6rem 0 0">No signup.</p>
       </div>
       <div class="plan featured">
-        <span class="plan-ribbon">FREE TRIAL</span>
-        <span class="badge" style="position:absolute;top:.7rem;right:1rem">Free for ${TRIAL_DAYS} days</span>
+        <span class="plan-ribbon">FREE TRIAL — NO CARD</span>
+        <span class="badge" style="position:absolute;top:.7rem;right:1rem">Pro</span>
         <h3>Pro</h3>
         <p class="muted">For freelancers and small businesses who send documents every week.</p>
         <p class="price"><span class="price-mo">$${PRICES.pro}</span><span class="price-yr">$${Math.round(PRICES.proYearly/12)}</span> <small><span class="price-mo">/ user / month</span><span class="price-yr">/ user / month, billed yearly</span></small></p>
@@ -107,7 +109,7 @@ export const pages = [{
         <p class="small muted price-yr">$${PRICES.proYearly} billed once a year — <button type="button" data-billing="monthly" style="background:none;border:0;padding:0;color:inherit;text-decoration:underline;cursor:pointer;font:inherit">switch to monthly</button></p>
         <ul>
           <li>Everything in Free</li>
-          <li>No “Made with Clausery” line on your documents</li>
+          <li><strong>No “Made with Clausery” line</strong> on your documents</li>
           <li>Unlimited templates of your own</li>
           <li>Calculations and computed fields in your own templates</li>
           <li>Unlimited documents from a spreadsheet</li>
@@ -116,9 +118,10 @@ export const pages = [{
           <li>Template packs</li>
           <li>Priority support</li>
         </ul>
-        ${buy('pro', 'Pro monthly', 'btn btn-primary')}
-        <div style="margin-top:.6rem">${buy('proYearly', 'Pro yearly', 'btn')}</div>
-        <a class="trial-link" href="${rel}app/#/trial">or try Pro free for ${TRIAL_DAYS} days, no card</a>
+        ${buy('pro', 'Start Pro monthly', 'btn btn-primary btn-lg')}
+        <div style="margin-top:.6rem">${buy('proYearly', 'Pro yearly — best value', 'btn')}</div>
+        <a class="trial-link" href="${rel}app/#/trial">or try Pro free for ${TRIAL_DAYS} days — no card, nothing renews</a>
+        <p class="small refund-note"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>${REFUND_DAYS}-day money-back guarantee, no forms.</p>
       </div>
       <div class="plan">
         <h3>Team</h3>
@@ -130,22 +133,24 @@ export const pages = [{
           <li>Seat-based team license</li>
           <li>Shared template packs and onboarding call</li>
           <li>Priority support</li>
+          <li>${TRIAL_DAYS}-day free trial for the team</li>
         </ul>
-        ${buy('team', 'Team', 'btn')}
+        ${buy('team', 'Start Team free trial', 'btn btn-primary')}
       </div>
-      <div class="plan">
+      <div class="plan plan-enterprise">
         <h3>Enterprise</h3>
-        <p class="muted">For organisations with deployment and support requirements.</p>
+        <p class="muted">For organisations with deployment, compliance or white-label requirements.</p>
         <p class="price">Custom</p>
         <ul>
           <li>Everything in Team</li>
           <li>Self-hosted on your domain or intranet</li>
-          <li>Custom branding of the app and intake forms</li>
+          <li><strong>Commercial license</strong> and custom branding</li>
           <li>Template authoring services</li>
-          <li>Security documentation and DPA</li>
-          <li>Invoicing and volume pricing</li>
+          <li>Security documentation, DPA, invoicing</li>
+          <li>Volume pricing and SSO (on request)</li>
         </ul>
-        <a class="btn" href="${rel}contact/">Talk to us</a>
+        <a class="btn btn-ink" href="${rel}contact/">Request a quote</a>
+        <p class="small muted" style="text-align:center;margin:.6rem 0 0">Reply within 1 business day.</p>
       </div>
     </div>
     <h2 style="margin-top:2.5rem">Compare the plans side by side</h2>
