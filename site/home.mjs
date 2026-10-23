@@ -37,8 +37,8 @@ const HOME_FAQ = [
 export const pages = [{
   path: '', title: 'Free Word invoice maker — no signup, editable .docx',
   description: `Free Word invoice maker: invoices, quotes, receipts, contracts and templates for small businesses and freelancers. Make an editable .docx in your browser — no account, no card, nothing uploaded. Not the compliance platform at clausery.ai.`,
-  extraHead: `<meta name="directree-verify" content="18cd9ea3fefedd43ee1d57c58248886c">
-<link rel="preload" as="image" type="image/webp" href="./assets/screenshot-invoice.webp" imagesrcset="./assets/screenshot-invoice-800.webp 800w, ./assets/screenshot-invoice.webp 1200w" imagesizes="(max-width: 900px) calc(100vw - 2rem), 480px" fetchpriority="high">
+  extraHead: `<link rel="preload" as="image" type="image/webp" href="./assets/screenshot-invoice.webp" imagesrcset="./assets/screenshot-invoice-800.webp 800w, ./assets/screenshot-invoice.webp 1200w" imagesizes="1px" fetchpriority="high">
+<meta name="directree-verify" content="18cd9ea3fefedd43ee1d57c58248886c">
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE}#website`, name: 'Clausery', url: SITE, inLanguage: 'en-GB' })}</script>
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebPage', '@id': `${SITE}#webpage`, url: SITE, name: 'Clausery', description: 'Make invoices, quotes and receipts in Word, plus free templates for contracts, HR letters and landlord forms. Nothing is uploaded.', inLanguage: 'en-GB', isPartOf: { '@id': `${SITE}#website` } })}</script>
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', '@id': `${SITE}#organization`, name: 'Clausery', url: SITE, logo: `${SITE}assets/icon-512.png`, sameAs: ['https://github.com/getclausery/getclausery.github.io'] })}</script>
@@ -73,10 +73,63 @@ export const pages = [{
       </div>
     </div>
     <figure class="shot" style="margin:0">
-      ${picture({ src: `${rel}assets/screenshot-invoice.png`, webp: [[`${rel}assets/screenshot-invoice-800.webp`, 800], [`${rel}assets/screenshot-invoice.webp`, 1200]], sizes: '(max-width: 900px) calc(100vw - 2rem), 480px', width: 1200, height: 800, loading: 'eager', fetchpriority: 'high', alt: 'Clausery making an invoice: the questions on the left, and on the right the invoice itself with its line items, HST and total worked out' })}
+      <div class="hero-demo" aria-label="Interactive preview — fill in three fields and watch the invoice total update live">
+        <picture aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">${picture({ src: `${rel}assets/screenshot-invoice.png`, webp: [[`${rel}assets/screenshot-invoice-800.webp`, 800], [`${rel}assets/screenshot-invoice.webp`, 1200]], sizes: '1px', width: 1200, height: 800, loading: 'eager', fetchpriority: 'high', alt: '' })}</picture>
+        <div class="demo-q">
+          <label>
+            <span>Hourly rate ($)</span>
+            <input type="number" id="demo-rate" value="85" min="0" step="1" inputmode="decimal">
+          </label>
+          <label>
+            <span>Hours</span>
+            <input type="number" id="demo-hours" value="12" min="0" step="0.25" inputmode="decimal">
+          </label>
+          <label>
+            <span>Sales tax (%)</span>
+            <input type="number" id="demo-tax" value="0" min="0" step="0.1" inputmode="decimal">
+          </label>
+          <p class="demo-hint">Try it — numbers update as you type. Nothing is sent anywhere.</p>
+        </div>
+        <div class="demo-inv" aria-hidden="true">
+          <div class="inv-head">
+            <strong>INVOICE</strong>
+            <span>#1042 · ${new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}</span>
+          </div>
+          <div class="inv-row inv-headrow"><span>Description</span><span>Qty</span><span>Rate</span><span>Amount</span></div>
+          <div class="inv-row"><span>Design work</span><span id="d-hours">12.00</span><span>$<span id="d-rate">85.00</span></span><span>$<span id="d-subtotal">1,020.00</span></span></div>
+          <div class="inv-totals">
+            <div><span>Subtotal</span><span>$<span id="d-sub2">1,020.00</span></span></div>
+            <div><span>Tax (<span id="d-taxpct">0</span>%)</span><span>$<span id="d-taxamt">0.00</span></span></div>
+            <div class="inv-total"><span>TOTAL DUE</span><span>$<span id="d-total">1,020.00</span></span></div>
+          </div>
+          <a class="demo-cta" href="${rel}app/#/start/invoice">Make a real invoice →</a>
+        </div>
+      </div>
     </figure>
   </div>
 </section>
+<style>
+.hero-demo{display:grid;grid-template-columns:240px 1fr;gap:1.25rem;background:#0d1b2e;border:1px solid #1f3454;border-radius:14px;padding:1.1rem;box-shadow:0 20px 50px rgba(4,10,20,.35);font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif}
+.demo-q label{display:block;margin-bottom:.7rem}
+.demo-q label span{display:block;font-size:.78rem;color:#8aa0bd;margin-bottom:.25rem;letter-spacing:.02em;text-transform:uppercase}
+.demo-q input{width:100%;padding:.5rem .65rem;border:1px solid #2a456b;background:#0a1626;color:#eaf1fb;border-radius:8px;font-size:1rem;font-variant-numeric:tabular-nums;outline:none;transition:border-color .15s,box-shadow .15s}
+.demo-q input:focus{border-color:#4f8cff;box-shadow:0 0 0 3px rgba(79,140,255,.25)}
+.demo-hint{font-size:.72rem;color:#6d83a1;margin:.4rem 0 0;line-height:1.3}
+.demo-inv{background:#fff;color:#111;border-radius:8px;padding:1rem 1.1rem;font-size:.78rem}
+.inv-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.85rem;padding-bottom:.6rem;border-bottom:2px solid #111}
+.inv-head strong{font-size:1.2rem;letter-spacing:.08em}
+.inv-head span{color:#555;font-size:.7rem}
+.inv-row{display:grid;grid-template-columns:1fr 54px 70px 80px;gap:.4rem;padding:.3rem 0;font-variant-numeric:tabular-nums}
+.inv-row span:last-child,.inv-totals span:last-child{text-align:right}
+.inv-headrow{font-weight:700;font-size:.66rem;text-transform:uppercase;color:#444;border-bottom:1px solid #ddd;padding-bottom:.4rem}
+.inv-totals{margin-top:.5rem;border-top:1px solid #ddd;padding-top:.4rem}
+.inv-totals > div{display:flex;justify-content:space-between;padding:.15rem 0;font-variant-numeric:tabular-nums}
+.inv-total{border-top:2px solid #111;margin-top:.25rem;padding-top:.4rem !important;font-weight:700;font-size:.92rem}
+.demo-cta{display:block;text-align:center;margin-top:.75rem;background:#2563eb;color:#fff !important;text-decoration:none;padding:.5rem;border-radius:6px;font-weight:600;font-size:.85rem}
+.demo-cta:hover{background:#1d4ed8}
+@media (max-width:900px){.hero-demo{grid-template-columns:1fr}.demo-q{order:2}.demo-inv{order:1}}
+</style>
+<script src="${rel}assets/hero-demo.js" defer></script>
 
 <section class="section section-alt" id="proof">
   <div class="wrap">
