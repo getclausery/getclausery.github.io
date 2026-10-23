@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '1.47.0', date: '23 October 2026', summary: 'Organization schema includes @id, contactPoint and is reused across About/Contact pages' },
   { version: '1.46.0', date: '23 October 2026', summary: 'llms.txt expanded to cover all indexable marketing sections' },
   { version: '1.45.0', date: '23 October 2026', summary: 'Made-with FAQPage schema matches visible questions exactly' },
   { version: '1.44.0', date: '23 October 2026', summary: 'AI crawler guidance + copyright well-known endpoint' },
@@ -38,6 +39,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-47-0">1.47.0 <span class="small muted">— 23 October 2026</span></h2>
+<ul>
+  <li>Organization schema now carries a stable <code>@id</code> (<code>#organization</code>), a <code>legalName</code>, and a <code>contactPoint</code> (customer support, en-GB). The same <code>ORG</code> object is reused on the About and Contact pages, so JSON-LD consumers see a single organisation node rather than three separate unnamed nodes.</li>
+</ul>
 <h2 id="v1-46-0">1.46.0 <span class="small muted">— 23 October 2026</span></h2>
 <ul>
   <li>Expanded <code>llms.txt</code> (the AI-assistant link map at <a href="${rel}llms.txt">llms.txt</a>) to cover every indexable marketing section. Previously it emitted Free Word templates, Invoice templates, Clause library, Guides, Free tools and Comparisons; now it also indexes Self-hosting / Enterprise, Customers, Who Clausery is for, NDA templates, Press, Roadmap, Status, Contact, the Docs landing page, the changelog and the GitHub repository. Section helpers include each section's hub index page as well as its child pages.</li>

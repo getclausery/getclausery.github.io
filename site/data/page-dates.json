@@ -29,7 +29,7 @@
  },
  "about/": {
   "date": "2026-10-23",
-  "hash": "3a6b1bbe7123aba6"
+  "hash": "5749cb060a1c335f"
  },
  "business-document-kit/": {
   "date": "2026-10-23",
@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-23",
-  "hash": "46b939e02f53c26d"
+  "hash": "8a57e394942ab690"
  },
  "clauses/": {
   "date": "2026-10-17",
@@ -188,8 +188,8 @@
   "hash": "7efd3474b80c701b"
  },
  "contact/": {
-  "date": "2026-10-15",
-  "hash": "cb35fd3675e1d465"
+  "date": "2026-10-23",
+  "hash": "bdae2db692baa71d"
  },
  "customers/": {
   "date": "2026-10-23",
