@@ -40,8 +40,8 @@ const FAQ = [
 
 export const pages = [
   {
-    path: 'why-clausery/', title: 'Why Clausery: Word invoices that stay on your device',
-    description: 'Why Clausery is different: editable Word output, no uploads, no account to start, a free tier that does not expire, and public source code you can read, check and self-host.',
+    path: 'why-clausery/', title: 'Why Clausery — no signup, no card, real Word files',
+    description: 'See why Clausery is different from invoice apps and cloud document tools: editable Word output, no uploads, no account to start, a free tier that never expires, public source code and a money-back guarantee.',
     extraHead: faqLd(FAQ),
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Why Clausery</h1>

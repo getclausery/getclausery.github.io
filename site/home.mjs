@@ -28,7 +28,7 @@ const I = { lock: 'M6 11h12v10H6zM9 11V7a3 3 0 016 0v4', file: 'M6 3h8l4 4v14H6z
 import { workflowLinks } from './invoice-workflows.mjs';
 
 export const pages = [{
-  path: '', title: 'Clausery — Free Word invoice maker & templates (no signup)',
+  path: '', title: 'Free Word invoice maker — no signup, editable .docx',
   description: `Free Word invoice maker: invoices, quotes, receipts, contracts and templates for small businesses and freelancers. Make an editable .docx in your browser — no account, no card, nothing uploaded. Not the compliance platform at clausery.ai.`,
   extraHead: `<meta name="directree-verify" content="18cd9ea3fefedd43ee1d57c58248886c">
 <link rel="preload" as="image" type="image/webp" href="./assets/screenshot-invoice.webp" imagesrcset="./assets/screenshot-invoice-800.webp 800w, ./assets/screenshot-invoice.webp 1200w" imagesizes="(max-width: 900px) calc(100vw - 2rem), 480px" fetchpriority="high">
@@ -40,19 +40,20 @@ export const pages = [{
 <section class="hero">
   <div class="wrap">
     <div>
-      <div class="eyebrow">${ico(I.calc)} For small businesses and freelancers</div>
-      <h1>Invoices, quotes and receipts in Word, with the maths done for you.</h1>
-      <p class="lead">Answer a few questions and download a finished Word file you can still edit. Totals, tax and discounts are calculated, and your next invoice starts with your details, the next number and today's date. No sign-up, and nothing you type leaves your browser.</p>
+      <div class="eyebrow">${ico(I.calc)} Free · No account · No card · Editable Word</div>
+      <h1>Make a free invoice in Word in 60 seconds — no signup.</h1>
+      <p class="lead">Answer a few questions and download a finished <strong>.docx</strong> you can still edit. Totals, tax, discounts and the next invoice number are done for you. Nothing you type is uploaded — it all runs in your browser.</p>
       <p class="small muted" style="margin-top:.25rem"><strong>Looking for the enterprise compliance platform at clausery.ai?</strong> Same name, different product — that one does policy management for regulated companies (ISO 27001, DORA, GDPR, NIS2). You're on the free Word-templates / invoice site for freelancers and small businesses. <a href="https://www.clausery.ai/" rel="noopener">clausery.ai →</a></p>
       <div class="actions">
-        <a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free</a>
-        <a class="btn btn-lg" href="${rel}app/#/start/quote">Make a quote</a>
+        <a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make my free invoice →</a>
+        <a class="btn btn-lg" href="${rel}templates/">Browse ${LIB.length} free templates</a>
       </div>
-      <p class="small" style="margin-top:.75rem"><a href="${rel}templates/">Or browse all ${LIB.length} free templates →</a></p>
+      <p class="small" style="margin-top:.75rem">Or start with a <a href="${rel}app/#/start/quote">quote</a> · <a href="${rel}app/#/start/receipt">receipt</a> · <a href="${rel}business-document-kit/">free 6-template business kit</a></p>
       <div class="proof">
-        <span>${ico(I.check)} No sign-up</span>
-        <span>${ico(I.check)} Totals, tax and numbering done for you</span>
-        <span>${ico(I.check)} An editable Word file, or print to PDF</span>
+        <span>${ico(I.check)} No email, no password</span>
+        <span>${ico(I.check)} Downloads as a normal Word file</span>
+        <span>${ico(I.check)} Works offline once loaded</span>
+        <span>${ico(I.check)} ${LIB.length} templates, all free</span>
       </div>
     </div>
     <figure class="shot" style="margin:0">
@@ -249,11 +250,10 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
 
 <section class="cta">
   <div class="wrap">
-    <h2>Make your next invoice in a couple of minutes.</h2>
-    <p class="lead" style="margin:0 auto">Every library template is free, plus three of your own. No account and no card, and Pro is free to try for ${TRIAL_DAYS} days.</p>
-    <div class="actions"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free</a><a class="btn btn-lg" href="${rel}pricing/">See plans</a></div>
-    <p class="small muted" style="margin-top:1.5rem">Read <a href="${rel}about/">about Clausery and its limits</a>, see its <a href="https://fazier.com/launches/clausery" rel="noopener">Fazier launch</a>, or use the <a href="${rel}press/">press kit</a> to share a useful resource with your audience.</p>
-    <p style="margin-top:.75rem"><a href="https://fazier.com/launches/clausery" title="Clausery on Fazier" rel="noopener"><img src="${rel}assets/badges/fazier.svg" width="182" height="43" alt="Featured on Fazier" loading="lazy" decoding="async"></a></p>
+    <h2>Your next invoice is one minute away.</h2>
+    <p class="lead" style="margin:0 auto">No signup, no card. Fill in the boxes, download a Word file, done. Pro is only for people who want to automate their own templates — and it's free to try for ${TRIAL_DAYS} days.</p>
+    <div class="actions"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make my free invoice →</a><a class="btn btn-lg" href="${rel}pricing/">See Pro ($${PRICES.pro}/mo)</a></div>
+    <p class="small muted" style="margin-top:1.5rem">Read <a href="${rel}about/">about Clausery</a>, see the <a href="${rel}why-clausery/">differences from other tools</a>, or browse <a href="${rel}templates/">all ${LIB.length} free templates</a>.</p>
   </div>
 </section>`,
 }];

@@ -674,8 +674,8 @@ for (const [t, [tool]] of Object.entries(TOOL_FOR)) if (!existsSync(`free-tools/
 
 export const pages = [
   {
-    path: 'templates/', title: 'Free Word templates: invoices, business and contracts',
-    description: `${LIB.length} free Word templates: invoices, quotes, receipts, business contracts, HR letters and landlord forms. Fill them in online or download the .docx.`,
+    path: 'templates/', title: 'Free Word templates — download in 60 seconds (no signup)',
+    description: `${LIB.length} free Word templates you can fill in and download as editable .docx files in under a minute — invoices, quotes, receipts, NDAs, contracts, HR letters and landlord forms. No account, no card, nothing uploaded.`,
     extraHead: crumbsLd([['Home', ''], ['Templates', 'templates/']]) + collectionLd({ path: 'templates/', name: 'Free Word templates: invoices, business and contracts', description: `${LIB.length} free Word templates: invoices, quotes, receipts, business contracts, HR letters and landlord forms. Fill them in online or download the .docx.`, items: LIB.map((t) => [t.name, `templates/${t.slug}.html`]) }),
     body: (rel) => `
 <section class="section"><div class="wrap">

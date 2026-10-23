@@ -52,8 +52,8 @@ const MATRIX = [
 ];
 
 export const pages = [{
-  path: 'pricing/', title: 'Pricing', extraHead: plansLd + faqLd(FAQ),
-  description: `Clausery pricing: every library template free, plus three of your own. Pro is $${PRICES.pro} per user per month, with a ${TRIAL_DAYS}-day free trial (no card) and a ${REFUND_DAYS}-day money-back guarantee.`,
+  path: 'pricing/', title: `Pricing — free forever, or Pro $${PRICES.pro}/mo (no card trial)`, extraHead: plansLd + faqLd(FAQ),
+  description: `Free forever: ${LIB.length} Word templates, three of your own, unlimited documents. Pro is $${PRICES.pro}/user/month for unlimited templates, calculations, encryption and bulk-from-spreadsheet. ${TRIAL_DAYS}-day free trial (no card), ${REFUND_DAYS}-day refund.`,
   body: (rel) => `
 <section class="section">
   <div class="wrap">

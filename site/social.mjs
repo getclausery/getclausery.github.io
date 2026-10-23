@@ -1,10 +1,12 @@
 // Social "link in bio" landing page. Designed for mobile, where every tap from TikTok/Reels/Shorts/LinkedIn/X lands.
 import { REPO_URL, mailto } from '../tools/partials.mjs';
 import { PRICES, TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
+import { LIB } from './library.mjs';
 
 const BIG_BUTTON = (href, label, sub, color = 'accent') =>
   `<a class="bio-link bio-link-${color}" href="${href}"><span class="bio-label">${label}</span>${sub ? `<span class="bio-sub">${sub}</span>` : ''}</a>`;
 
+const LIB_LENGTH = LIB.length;
 const proCta = `Pro — $${PRICES.pro}/mo`;
 const proSub = `${TRIAL_DAYS}-day free trial, ${REFUND_DAYS}-day refund`;
 
@@ -62,13 +64,13 @@ body.embed { padding: 0; }
     <li>Public source code</li>
   </ul>
   <div class="bio-links">
-    ${BIG_BUTTON(`${rel}app/`, 'Open the app →', 'Make a free invoice in your browser', 'ink')}
-    ${BIG_BUTTON(`${rel}why-clausery/`, 'See the proof', 'Why Clausery is different (one table, check yourself)', 'accent')}
-    ${BIG_BUTTON(`${rel}invoice-templates/`, 'Invoice templates', 'Deposit, hourly, final, by trade & country', 'ghost')}
-    ${BIG_BUTTON(`${rel}templates/`, 'All 87 Word templates', 'Invoices, NDAs, contracts, letters, forms', 'ghost')}
-    ${BIG_BUTTON(`${rel}business-document-kit/`, 'Free business kit', '6 Word templates, one download, no email', 'green')}
+    ${BIG_BUTTON(`${rel}app/#/start/invoice`, 'Make a free invoice →', 'Downloads as Word in 60 seconds · no signup', 'ink')}
+    ${BIG_BUTTON(`${rel}business-document-kit/`, 'Free 6-template business kit', 'One zip · quote, invoice, receipt, SOW + more', 'green')}
+    ${BIG_BUTTON(`${rel}templates/`, `All ${LIB_LENGTH} free Word templates`, 'Invoices, NDAs, contracts, letters, forms', 'accent')}
+    ${BIG_BUTTON(`${rel}invoice-templates/`, 'Invoice templates by trade/country', 'Freelance, construction, UK VAT, US sales tax…', 'ghost')}
+    ${BIG_BUTTON(`${rel}why-clausery/`, 'Why Clausery is different', 'The no-signup proof in one page', 'ghost')}
     ${BIG_BUTTON(`${rel}pricing/`, proCta, proSub, 'ghost')}
-    ${BIG_BUTTON(`${rel}compare/`, 'Compare vs other tools', '11 side-by-side pages (HoneyBook, LawDepot, …)', 'ghost')}
+    ${BIG_BUTTON(`${rel}compare/`, 'Compare vs HoneyBook, LawDepot…', '11 side-by-side pages', 'ghost')}
     ${BIG_BUTTON(mailto('Saw your short video'), 'Email the maker', 'Questions, template requests, anything', 'ghost')}
   </div>
   <div class="bio-socials">
