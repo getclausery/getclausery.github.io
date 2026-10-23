@@ -13,7 +13,7 @@ export function picture({ src, webp, width, height, alt, sizes = '100vw', loadin
   return `<picture>${srcset ? `<source type="image/webp" srcset="${srcset}" sizes="${sizes}">` : ''}<img src="${src}" width="${width}" height="${height}" alt="${esc(alt)}" loading="${loading}" decoding="async"${fetchpriority ? ` fetchpriority="${fetchpriority}"` : ''}${className ? ` class="${className}"` : ''}></picture>`;
 }
 // Contact and repository links come from the app's deployment config, so the site and the app never disagree.
-import { CONTACT_URL, KEY_REQUEST_URL, REPO_URL, CONTACT_EMAIL, mailto, keyRequestUrl } from '../app/config.js';
+import { CONTACT_URL, KEY_REQUEST_URL, REPO_URL, CONTACT_EMAIL, mailto, keyRequestUrl, APP_VERSION } from '../app/config.js';
 export { CONTACT_URL, KEY_REQUEST_URL, REPO_URL, CONTACT_EMAIL, mailto, keyRequestUrl };
 // The site's public origin. Every absolute URL (canonical, Open Graph, JSON-LD, sitemap, feed) is built from it.
 export const SITE = 'https://getclausery.github.io/';
@@ -266,7 +266,7 @@ export function footer(rel) {
       <a href="${rel}about/">About</a>
       <a href="${rel}contact/">Contact</a>
     </div>
-    <div class="legal">© ${YEAR} Clausery. Open source under <a href="${rel}legal/license.html" style="color:inherit">AGPLv3</a> · Clausery name and logo are <a href="${REPO_URL}/blob/main/TRADEMARKS.md" rel="noopener" style="color:inherit">trademarks</a>. Clausery is software, not legal advice; documents you generate are your responsibility. Not affiliated with Microsoft; Word is a trademark of Microsoft Corporation. <a href="${REPO_URL}" rel="noopener" style="color:inherit">Source on GitHub</a></div>
+    <div class="legal">© ${YEAR} Clausery · <a href="${rel}changelog.html#v${APP_VERSION.replace(/\./g,'-')}" style="color:inherit">v${APP_VERSION}</a> · Open source under <a href="${rel}legal/license.html" style="color:inherit">AGPLv3</a> · Clausery name and logo are <a href="${REPO_URL}/blob/main/TRADEMARKS.md" rel="noopener" style="color:inherit">trademarks</a>. Clausery is software, not legal advice; documents you generate are your responsibility. Not affiliated with Microsoft; Word is a trademark of Microsoft Corporation. <a href="${REPO_URL}" rel="noopener" style="color:inherit">Source on GitHub</a></div>
   </div>
 </footer>
 </body>
