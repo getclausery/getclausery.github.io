@@ -28,6 +28,7 @@ export const SEARCH_INTENT = {
   "business-document-kit/": ["free business document kit", "navigational", "company"],
   "changelog.html": ["clausery changelog", "navigational", "company"],
   "roadmap/": ["clausery roadmap", "navigational", "company"],
+  "self-hosting/": ["self host clausery", "commercial", "company"],
   "status/": ["clausery status", "navigational", "company"],
   "clauses/": ["contract clause library", "informational", "clauses"],
   "clauses/amendment-clause.html": ["amendment clause", "informational", "clauses"],
