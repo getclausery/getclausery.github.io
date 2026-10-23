@@ -1,0 +1,244 @@
+<!--
+  Clausery <https://getclausery.github.io/> — original open-source project.
+  (C) 2026 Clausery. License: AGPL-3.0-or-later WITH Clausery-Trademark-Exception.
+  Removing this notice or the visible attribution in the footer is a removal of
+  copyright management information under 17 U.S.C. §1202 and violates s5 of the AGPL.
+  Source: https://github.com/getclausery/getclausery.github.io  ·  License terms: https://getclausery.github.io/legal/license.html
+  Trademark policy: https://github.com/getclausery/getclausery.github.io/blob/main/TRADEMARKS.md
+-->
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Self-host Clausery on your domain or intranet</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Self-host or white-label Clausery: deploy the open-source document generator to your own domain or intranet, with optional commercial licensing for rebranding…">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://getclausery.github.io/self-hosting/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="Clausery">
+<meta property="og:title" content="Self-host Clausery on your domain or intranet">
+<meta property="og:description" content="Self-host or white-label Clausery: deploy the open-source document generator to your own domain or intranet, with optional commercial licensing for rebranding…">
+<meta property="og:url" content="https://getclausery.github.io/self-hosting/">
+<meta property="og:image" content="https://getclausery.github.io/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Self-host Clausery on your domain or intranet — Clausery">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Self-host Clausery on your domain or intranet">
+<meta name="twitter:description" content="Self-host or white-label Clausery: deploy the open-source document generator to your own domain or intranet, with optional commercial licensing for rebranding…">
+<meta name="twitter:image" content="https://getclausery.github.io/assets/og.png">
+<meta name="twitter:image:alt" content="Self-host Clausery on your domain or intranet — Clausery">
+<meta name="theme-color" content="#1b2a41">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="author" content="Clausery">
+<meta name="generator" content="Clausery https://getclausery.github.io/ — AGPL-3.0-or-later open source">
+<meta name="original-source" content="https://getclausery.github.io/self-hosting/">
+<meta name="color-scheme" content="light dark">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), display-capture=()">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/icon-192.png">
+<link rel="manifest" href="../app/manifest.webmanifest">
+<link rel="search" type="application/opensearchdescription+xml" title="Clausery templates" href="../opensearch.xml">
+<link type="text/plain" rel="author" href="../humans.txt">
+<link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
+<link rel="alternate" type="application/atom+xml" title="Clausery releases" href="../releases.xml">
+<link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/self-hosting/">
+<link rel="alternate" hreflang="en" href="https://getclausery.github.io/self-hosting/">
+<link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/self-hosting/">
+<link rel="preconnect" href="https://api.lemonsqueezy.com" crossorigin>
+<link rel="dns-prefetch" href="https://api.lemonsqueezy.com">
+<link rel="preconnect" href="https://static.cloudflareinsights.com" crossorigin>
+<link rel="dns-prefetch" href="https://static.cloudflareinsights.com">
+<link rel="preconnect" href="https://getclausery.goatcounter.com" crossorigin>
+<link rel="dns-prefetch" href="https://getclausery.goatcounter.com">
+<link rel="stylesheet" href="../site.css">
+<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://getclausery.goatcounter.com; font-src 'self' data:; connect-src 'self' https://api.lemonsqueezy.com https://getclausery.goatcounter.com; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'self'; upgrade-insecure-requests">
+<script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
+<script src="../site.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Clausery self-hosted / Enterprise","description":"Commercial self-hosted and white-label license for Clausery: editable Word document generation deployed on your own domain or intranet.","brand":{"@type":"Brand","name":"Clausery"},"url":"https://getclausery.github.io/self-hosting/","category":"Business Software","offers":{"@type":"Offer","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://getclausery.github.io/contact/","description":"Custom-quoted Enterprise licenses; AGPL self-hosting is free."}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does self-hosting involve?","acceptedAnswer":{"@type":"Answer","text":"The site is a static build: HTML, CSS, JavaScript, the app modules, fonts and images. Serve those files from any static web server (nginx, Apache, Caddy, S3/CloudFront, GitHub Pages, Netlify, IIS, an internal file server). Nothing needs to run server-side, and there is no database to set up."}},{"@type":"Question","name":"Do I need a commercial license to run Clausery internally for my own team?","acceptedAnswer":{"@type":"Answer","text":"No. The AGPL permits internal use within an organisation without source redistribution. You only need a commercial license if you want to (a) remove the visible branding and ship a rebranded version to clients, (b) integrate the editor into a closed-source product, or (c) modify the code and run the modified version as a service for third parties without releasing the modifications."}},{"@type":"Question","name":"Can Clausery run completely offline / air-gapped?","acceptedAnswer":{"@type":"Answer","text":"Yes. Once built and served, the app makes no document-processing requests; the only requests are for its own files. If you disable the optional analytics and online-key checks, there are zero third-party requests. Offline license keys are verified with a cryptographic signature on-device."}},{"@type":"Question","name":"How is data stored when self-hosted?","acceptedAnswer":{"@type":"Answer","text":"Exactly the same as on the public site: in the user's own browser (IndexedDB). The self-hosted server never receives document contents and has no document database. You can change the CSP and CORS to further restrict what browsers may load."}},{"@type":"Question","name":"Is there a free trial for self-hosted?","acceptedAnswer":{"@type":"Answer","text":"You do not need one to evaluate — clone the public repository and run it locally. Pro features require a license, but you can start the 14-day no-card trial in any running copy, including a local one."}},{"@type":"Question","name":"What does Enterprise / commercial licensing cost?","acceptedAnswer":{"@type":"Answer","text":"Enterprise pricing is by quote because deployments range from a single intranet instance to firm-wide rollouts with custom branding and template authoring. Email with your use case, number of users and whether you need branding removed."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Self-hosting","item":"https://getclausery.github.io/self-hosting/"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://getclausery.github.io/self-hosting/#webpage","url":"https://getclausery.github.io/self-hosting/","name":"Self-host Clausery on your domain or intranet","description":"Self-host or white-label Clausery: deploy the open-source document generator to your own domain or intranet, with optional commercial licensing for rebranding, firm-wide rollout and integration.","inLanguage":"en-GB","isPartOf":{"@id":"https://getclausery.github.io/#website"},"dateModified":"2026-10-23"}</script>
+</head>
+<body>
+<a class="sr-only" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../assets/icon.svg" alt="" width="30" height="30" decoding="async"> Clausery</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Site">
+      <a href="../invoice-templates/">Invoices</a>
+      <a href="../templates/">Templates</a>
+      <a href="../#features">Features</a>
+      <a href="../pricing/">Pricing</a>
+      <a href="../docs/">Docs</a>
+      <a href="../docs/security.html">Security</a>
+      <a class="btn btn-primary" href="../app/">Open the app</a>
+    </nav>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+<section class="section">
+  <div class="wrap">
+    <div style="text-align:center;max-width:48rem;margin:0 auto 2.5rem">
+      <div class="eyebrow">Self-hosting & white-label</div>
+      <h1>Run Clausery on your own domain or intranet</h1>
+      <p class="lead" style="margin:0 auto">Clausery is plain static files, so you can serve it from any web server behind your firewall. The AGPL covers internal use for free; an Enterprise license adds rebranding, firm-wide rollouts and a commercial agreement.</p>
+      <div class="actions" style="margin-top:1.5rem"><a class="btn btn-primary btn-lg" href="../contact/">Request a quote</a><a class="btn btn-lg" href="../docs/self-hosting.html">Technical self-hosting guide</a></div>
+      <p class="small muted" style="margin-top:.75rem">Or <a href="https://github.com/getclausery/getclausery.github.io" rel="noopener">clone the repository</a> and run it locally in under a minute.</p>
+    </div>
+
+    <div class="grid grid-3">
+      <div class="feature">
+        <div class="ico" style="color:var(--accent)"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v6H4zM4 14h16v6H4zM8 7h.01M8 17h.01"/></svg></div>
+        <h2 style="font-size:1.15rem;margin-top:.3rem">Run on your intranet</h2>
+        <p>Deploy to an internal web server or static host behind your VPN or SSO gateway. No document contents leave your network.</p>
+      </div>
+      <div class="feature">
+        <div class="ico" style="color:var(--accent)"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7h-7L9 3H4a2 2 0 00-2 2v14a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/></svg></div>
+        <h2 style="font-size:1.15rem;margin-top:.3rem">White-label and rebrand</h2>
+        <p>Replace the Clausery name, logo and brand colours with your firm's own wording under a commercial license. The AGPL requires that modified versions retain source access for their users; a commercial license removes that and lets you ship a branded version to clients.</p>
+      </div>
+      <div class="feature">
+        <div class="ico" style="color:var(--accent)"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8z"/></svg></div>
+        <h2 style="font-size:1.15rem;margin-top:.3rem">Deploy across teams</h2>
+        <p>Roll out to a whole firm or department with shared template packs, onboarding, and a named contact for support. Volume pricing for seats beyond Team.</p>
+      </div>
+      <div class="feature">
+        <div class="ico" style="color:var(--accent)"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 11h12v10H6zM9 11V7a3 3 0 016 0v4"/></svg></div>
+        <h2 style="font-size:1.15rem;margin-top:.3rem">Air-gapped use</h2>
+        <p>Once built, the site is static files that can be served from any HTTP server with no external requests — suitable for restricted networks.</p>
+      </div>
+      <div class="feature">
+        <div class="ico" style="color:var(--accent)"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6zM9 12l2 2 4-4"/></svg></div>
+        <h2 style="font-size:1.15rem;margin-top:.3rem">Compliance documentation</h2>
+        <p>On request we provide a DPA, security questionnaire responses and subprocessor list. See the public security overview and privacy policy first.</p>
+      </div>
+      <div class="feature">
+        <div class="ico" style="color:var(--accent)"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
+        <h2 style="font-size:1.15rem;margin-top:.3rem">Fork and extend</h2>
+        <p>The full source is public under AGPLv3. For features you want built upstream, open an issue or pull request.</p>
+      </div>
+    </div>
+
+    <div class="grid grid-2" style="margin-top:3rem">
+      <div class="feature">
+        <h2>What you get with a commercial license</h2>
+        <ul style="padding-left:1.2rem;margin:.5rem 0 0">
+          <li><strong>Permission to rebrand</strong> the app and client intake forms with your own name, logo and colours.</li>
+          <li><strong>Permission to ship to clients</strong> as part of a closed-source product or service.</li>
+          <li><strong>Onboarding call</strong> and template pack setup for your team.</li>
+          <li><strong>Security documentation</strong> (DPA, subprocessor list, questionnaire responses) on request.</li>
+          <li><strong>Volume pricing</strong> for larger teams; multi-year and SSO options on request.</li>
+          <li><strong>Invoice and purchase-order</strong> payment; reply within 1 business day.</li>
+        </ul>
+      </div>
+      <div class="feature">
+        <h2>What you do not need a license for</h2>
+        <ul style="padding-left:1.2rem;margin:.5rem 0 0">
+          <li><strong>Running Clausery internally</strong> for your own team on an intranet or internal domain. The AGPL allows that.</li>
+          <li><strong>Forking the repository</strong> for your own use, as long as modified versions served to third parties share their source.</li>
+          <li><strong>Personal, freelance or small-business use</strong> of the public site or your own hosted copy.</li>
+        </ul>
+        <p style="margin-top:1rem"><strong>Still not sure?</strong> <a href="../legal/license.html">Read the AGPL license</a> or <a href="mailto:getclausery@gmail.com?subject=Self-hosting%20question">email to ask</a> — we will tell you when you do and do not need a commercial license.</p>
+      </div>
+    </div>
+
+    <div class="feature" style="margin-top:2.5rem;padding:2rem;border-left:4px solid var(--accent)">
+      <h2>How to get started</h2>
+      <ol style="margin:.5rem 0 0;padding-left:1.2rem">
+        <li><strong>Try it first.</strong> <a href="../app/#/trial">Start the 14-day free Pro trial</a> in the public app, no card, to confirm the product fits your workflow.</li>
+        <li><strong>Clone and run locally.</strong> Follow the <a href="../docs/self-hosting.html">technical self-hosting guide</a> — a local instance takes under a minute with Node.</li>
+        <li><strong>Email us</strong> with the URL you plan to deploy to, how many users, and whether you need branding removed. We reply with pricing (or confirm that the AGPL covers your use case for free).</li>
+        <li><strong>Deploy</strong> to your host of choice behind whatever VPN or SSO your organisation uses.</li>
+      </ol>
+      <p style="margin-top:1rem"><a class="btn btn-primary" href="../contact/">Request a quote</a> <a class="btn" href="../docs/self-hosting.html">Technical guide</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap" style="max-width:48rem">
+    <h2 style="text-align:center">Self-hosting questions</h2>
+    <div class="faq">
+      <details><summary>What does self-hosting involve?</summary><p>The site is a static build: HTML, CSS, JavaScript, the app modules, fonts and images. Serve those files from any static web server (nginx, Apache, Caddy, S3/CloudFront, GitHub Pages, Netlify, IIS, an internal file server). Nothing needs to run server-side, and there is no database to set up.</p></details>
+      <details><summary>Do I need a commercial license to run Clausery internally for my own team?</summary><p>No. The AGPL permits internal use within an organisation without source redistribution. You only need a commercial license if you want to (a) remove the visible branding and ship a rebranded version to clients, (b) integrate the editor into a closed-source product, or (c) modify the code and run the modified version as a service for third parties without releasing the modifications.</p></details>
+      <details><summary>Can Clausery run completely offline / air-gapped?</summary><p>Yes. Once built and served, the app makes no document-processing requests; the only requests are for its own files. If you disable the optional analytics and online-key checks, there are zero third-party requests. Offline license keys are verified with a cryptographic signature on-device.</p></details>
+      <details><summary>How is data stored when self-hosted?</summary><p>Exactly the same as on the public site: in the user's own browser (IndexedDB). The self-hosted server never receives document contents and has no document database. You can change the CSP and CORS to further restrict what browsers may load.</p></details>
+      <details><summary>Is there a free trial for self-hosted?</summary><p>You do not need one to evaluate — clone the public repository and run it locally. Pro features require a license, but you can start the 14-day no-card trial in any running copy, including a local one.</p></details>
+      <details><summary>What does Enterprise / commercial licensing cost?</summary><p>Enterprise pricing is by quote because deployments range from a single intranet instance to firm-wide rollouts with custom branding and template authoring. Email with your use case, number of users and whether you need branding removed.</p></details>
+    </div>
+    <p class="small muted" style="text-align:center;margin-top:2rem">Clausery is software, not a law firm, and cannot advise on your legal situation. Have your counsel review the license terms for your specific deployment. See the <a href="../legal/license.html">AGPL license</a> and <a href="../legal/terms.html">terms</a>.</p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Ready to run Clausery on your own infrastructure?</h2>
+    <p class="lead" style="margin:0 auto">Clone the repository and try it locally in under a minute, or email to discuss a commercial license for rebranding or firm-wide rollout.</p>
+    <div class="actions"><a class="btn btn-primary btn-lg" href="../contact/">Request a quote</a><a class="btn btn-lg" href="https://github.com/getclausery/getclausery.github.io" rel="noopener">Source on GitHub</a></div>
+    <p class="small muted" style="margin-top:1rem">Public site · <a href="../pricing/">Pricing</a> · <a href="../customers/">Customers</a> · <a href="../docs/security.html">Security</a> · 30-day money-back guarantee on paid plans.</p>
+  </div>
+</section></main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <h4>Clausery</h4>
+      <p>Make invoices, quotes and receipts in Word with the maths done for you. Your documents stay in your browser; no account is needed.</p>
+    </div>
+    <div>
+      <h4>Product</h4>
+      <a href="../app/">Open the app</a>
+      <a href="../pricing/">Pricing</a>
+      <a href="../customers/">Customers</a>
+      <a href="../why-clausery/">Why Clausery</a>
+      <a href="../changelog.html">Changelog</a>
+      <a href="../status/">Status</a>
+      <a href="../self-hosting/">Self-host / Enterprise</a>
+      <a href="../roadmap/">Roadmap</a>
+      <a href="../press/">Press kit</a>    </div>
+    <div>
+      <h4>Resources</h4>
+      <a href="../invoice-templates/">Invoice templates</a>
+      <a href="../invoice-templates/deposit-invoice.html">Deposit invoice</a>
+      <a href="../invoice-templates/hourly-invoice.html">Hourly invoice</a>
+      <a href="../invoice-templates/final-invoice.html">Final invoice</a>
+      <a href="../templates/">Free templates</a>
+      <a href="../nda-templates/">NDA templates</a>
+      <a href="../guides/">Guides</a>
+      <a href="../clauses/">Clause library</a>
+      <a href="../free-tools/">Free tools</a>
+      <a href="../compare/">Compare</a>
+      <a href="../for/">Who it's for</a>
+      <a href="../for/law-firms.html">For law firms</a>
+      <a href="../for/hr-teams.html">For HR teams</a>
+      <a href="../for/consultants.html">For consultants</a>
+      <a href="../for/freelancers.html">For freelancers</a>
+      <a href="../for/landlords.html">For landlords</a>
+    </div>
+    <div>
+      <h4>Docs</h4>
+      <a href="../docs/">Getting started</a>
+      <a href="../docs/templates.html">Template syntax</a>
+      <a href="../docs/logic.html">Logic &amp; calculations</a>
+      <a href="../docs/intake.html">Client intake</a>
+      <a href="../docs/security.html">Security</a>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <a href="../legal/privacy.html">Privacy</a>
+      <a href="../legal/terms.html">Terms</a>
+      <a href="../legal/dpa.html">Data processing</a>
+      <a href="../legal/license.html">Open-source license</a>
+      <a href="../legal/dmca.html">Takedowns &amp; DMCA</a>
+      <a href="../about/">About</a>
+      <a href="../contact/">Contact</a>
+    </div>
+    <div class="legal">© 2026 Clausery · <a href="../changelog.html#v1-42-0" style="color:inherit">v1.42.0</a> · Open source under <a href="../legal/license.html" style="color:inherit">AGPLv3</a> · Clausery name and logo are <a href="https://github.com/getclausery/getclausery.github.io/blob/main/TRADEMARKS.md" rel="noopener" style="color:inherit">trademarks</a>. Clausery is software, not legal advice; documents you generate are your responsibility. Not affiliated with Microsoft; Word is a trademark of Microsoft Corporation. <a href="https://github.com/getclausery/getclausery.github.io" rel="noopener" style="color:inherit">Source on GitHub</a></div>
+  </div>
+</footer>
+</body>
+</html>

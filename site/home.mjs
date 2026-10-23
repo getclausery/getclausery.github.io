@@ -189,7 +189,7 @@ export const pages = [{
       <div class="feature"><h3>No account, no card</h3><p>All ${LIB.length} templates are free with no sign-up and no time limit. Pro is $${PRICES.pro} per user per month when you want more.</p></div>
       <div class="feature"><h3>A guarantee, not a promise</h3><p>If it is not right for you, email and ask for a refund within ${REFUND_DAYS} days. No form, and no reason needed.</p></div>
       <div class="feature"><h3>See what leaves your browser</h3><p>The <a href="${rel}docs/security.html">security overview</a> lists every request the app makes, and the <a href="${rel}legal/privacy.html">privacy policy</a> lists every data flow.</p></div>
-      <div class="feature"><h3>Run it yourself</h3><p>Follow the <a href="${rel}docs/self-hosting.html">self-hosting guide</a> to run a copy on your own domain or intranet, if your policies ask for that.</p></div>
+      <div class="feature"><h3>Run it yourself</h3><p><a href="${rel}self-hosting/">Self-host or white-label</a> Clausery on your own domain or intranet. The <a href="${rel}docs/self-hosting.html">technical guide</a> gets a local copy running in under a minute; commercial licenses cover rebranding and firm-wide rollout.</p></div>
     </div>
     <p style="margin-top:1.5rem"><a href="${rel}why-clausery/">Why Clausery: the differences, a decision guide and the proof in one page →</a></p>
     <p style="margin-top:.5rem"><strong>Who uses it:</strong> <a href="${rel}customers/">freelancers, consultants, landlords, HR teams, trades and small firms</a>.</p>

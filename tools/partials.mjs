@@ -225,10 +225,9 @@ export function footer(rel) {
       <a href="${rel}why-clausery/">Why Clausery</a>
       <a href="${rel}changelog.html">Changelog</a>
       <a href="${rel}status/">Status</a>
-      <a href="${rel}docs/self-hosting.html">Self-hosting</a>
+      <a href="${rel}self-hosting/">Self-host / Enterprise</a>
       <a href="${rel}roadmap/">Roadmap</a>
-      <a href="${rel}press/">Press kit</a>
-    </div>
+      <a href="${rel}press/">Press kit</a>    </div>
     <div>
       <h4>Resources</h4>
       <a href="${rel}invoice-templates/">Invoice templates</a>

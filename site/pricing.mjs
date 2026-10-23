@@ -149,8 +149,8 @@ export const pages = [{
           <li>Security documentation, DPA, invoicing</li>
           <li>Volume pricing and SSO (on request)</li>
         </ul>
-        <a class="btn btn-ink" href="${rel}contact/">Request a quote</a>
-        <p class="small muted" style="text-align:center;margin:.6rem 0 0">Reply within 1 business day.</p>
+        <a class="btn btn-ink" href="${rel}self-hosting/">Self-hosting &amp; Enterprise</a>
+        <p class="small muted" style="text-align:center;margin:.6rem 0 0"><a href="${rel}contact/">Request a quote</a> · reply within 1 business day.</p>
       </div>
     </div>
     <h2 style="margin-top:2.5rem">Compare the plans side by side</h2>
