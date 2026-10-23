@@ -57,6 +57,9 @@ for (const url of urls) {
     const attrs = tag.match(/<script\b([^>]*)>/)?.[1] || '';
     const body = tag.match(/<script\b[^>]*>([\s\S]*?)<\/script>/)?.[1] || '';
     if (/type="application\/ld\+json"/.test(attrs)) continue;
+    // Speculation rules (prerender/prefetch hints) are processed by the browser off
+    // the main thread; they don't parse as JS and don't block rendering.
+    if (/type="speculationrules"/.test(attrs)) continue;
     const src = attrs.match(/src="([^"]+)"/)?.[1];
     if (src) {
       if (!/\b(defer|async)\b/.test(attrs) && !/type="module"/.test(attrs)) fail(file, `synchronous script blocks rendering: ${src}`);

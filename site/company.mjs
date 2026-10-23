@@ -18,6 +18,13 @@ const CHANNELS = [
 
 export const pages = [
   {
+    // Where password managers send "change password" from the browser UI (/.well-known/change-password).
+    // Clausery has no accounts — vault passphrase changes live in Settings → Encryption.
+    path: '.well-known/change-password', title: 'Change your passphrase', noindex: true,
+    description: 'Clausery has no server-side password; to change the vault passphrase that protects your workspace, open Settings → Encryption in the app.',
+    extraHead: '<meta http-equiv="refresh" content="0;url=../app/#/settings"><meta name="robots" content="noindex, follow"><script>location.replace("../app/#/settings");</script>',
+    body: (rel) => `<p>Redirecting to <a href="${rel}app/#/settings">Settings</a>. Clausery stores your data only in this browser and has no account password to change on a server. If you use an optional vault passphrase, you can change it from Settings → Encryption.</p>` },
+  {
     path: 'about/', title: 'About Clausery',
     description: 'Clausery helps small businesses make invoices, quotes and receipts in Word. Read how local document processing, the free library and paid plans work.',
     extraHead: ld({ '@type': 'AboutPage', name: 'About Clausery', url: `${SITE}about/`, mainEntity: ORG }),

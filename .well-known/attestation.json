@@ -1,11 +1,11 @@
 {
  "origin": "https://getclausery.github.io/",
  "version": "1.34.0",
- "commit": "4e4a08e03bff84fcaf930bad69531bc0afd2548f",
- "generatedAt": "2026-10-23T14:57:44.409Z",
+ "commit": "1e5acac028abc24a7f3a255f8402638b0fc889d5",
+ "generatedAt": "2026-10-23T15:03:22.289Z",
  "license": "AGPL-3.0-or-later WITH Clausery-Trademark-Exception",
  "files": {
-  "/index.html": "sha256-GBaM2+w/ZUlaTCNUwc3eOiLQ+RlHslXg7zH3mE+FeuE=",
+  "/index.html": "sha256-93kPcknxmBzxrGQ1rBh3q+eicB0FzR+Q2LQXIRymE6U=",
   "/offline.html": "sha256-y6BEIpHn1XgWkW7TlAurOxWUlIPwHp5RNeMlznCP0wI=",
   "/404.html": "sha256-8nQzysrgwZS0zM+RUUmZGYuQ4NU5zjMXNuZqgSsadtU=",
   "/humans.txt": "sha256-WJVjUBNv1oK1/PxPjjkA+qpbCqV7ZdMKs39bn4MC/BI=",
@@ -57,7 +57,7 @@
   "/app/lib/vault.js": "sha256-86LYrGo9ialPngk5Ur5ejn7s3Zemgsz5TsxzZVQpL9M=",
   "/app/lib/versions.js": "sha256-d5FPBrfuDFxcljDk7k7zIzxVAuBSG3albNouU4QHu2Y=",
   "/app/styles.css": "sha256-CovaEZY0SIyU1bP12BMtTWLmiJi4hn4t7JiyPoJY7rs=",
-  "/app/manifest.webmanifest": "sha256-yfA2PUyaIbVDTqUIpTZQbdjtrrSPp34PQn8Sn3mRLPc=",
+  "/app/manifest.webmanifest": "sha256-NrGUekXzptymIggnO7G42iVIIW7UAQVJLomu0/NFbuo=",
   "/vendor/docs.js": "sha256-zc1Q8rTWAXN4Yt1FRV6fBW1CLHK37bUJH/R2lbhL6m8=",
   "/vendor/intake-runtime.js": "sha256-gx0XIM5VNaQWBvem/3cWLzSGRmBPeAVzUkwJn6DWAnQ=",
   "/vendor/purchase-runtime-1.34.0.js": "sha256-ZwU2z/j9XIbzD99THdO7S5RdB8mAhE+V6KPhJl1dnB8=",
@@ -454,6 +454,6 @@
   "/go/index.html": "sha256-MnWf3rBkz1EVzoBjxflokPUR+GZneJCjc+2oNfTqCaE=",
   "/made-with/index.html": "sha256-T+e2qAJnmUdyim+RdIAL8BzLXOvJ3CIO6XMmOWAf9rs=",
   "/.well-known/security.txt": "sha256-cI4hSc4wvmFZl5JksICNGBXmNlHzSiElQFyeUhugtUA=",
-  "/.well-known/attestation.json": "sha256-mnEMYwtUZLh69FMigKnQdA+ku5HOwtYdfKg/G/YTY58="
+  "/.well-known/attestation.json": "sha256-BK4knWxnzMXWsvVG3AGq+GX1+EAj46g0Yhp7haisEYU="
  }
 }
