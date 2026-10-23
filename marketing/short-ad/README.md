@@ -99,3 +99,20 @@ marketing/short-ad/
 ├── package/ffmpeg            # static ffmpeg binary used to encode (not for commit)
 └── frames/                   # 765 PNG frames (not for commit)
 ```
+
+---
+
+## Variant ads (A/B test hooks)
+
+Three additional variants were produced in the same UGC screen-record style. All share the same demo and payoff sequences — only the hook differs. See `../../MARKETING-ORGANIC.md` for the rotation schedule.
+
+| Variant | File | Length | Hook concept | Cover |
+|---|---|---|---|---|
+| **A (original)** | `clausery-short-ad.mp4` | 25.5s | "Stop scrolling if you send invoices" — direct callout pain wall | `cover.jpg` |
+| **B** | `clausery-short-ad-vB.mp4` | 23.5s | "I tested 7 free invoice tools — six forced signup, one didn't" — list hook with crossed-out competitors and green winner | `cover-vB.jpg` |
+| **C** | `clausery-short-ad-vC.mp4` | 22.0s | "Why does every invoice app force you to sign up?" — rhetorical question on a shaking "Create account to download" wall | `cover-vC.jpg` |
+| **D** | `clausery-short-ad-vD.mp4` | 20.0s | "The invoice hack that saves 10 min/client" — blank Word doc + lightning-bolt "INVOICE HACK" pill + 60-second stopwatch | `cover-vD.jpg` |
+
+All four are 1080×1920 9:16, 30fps, H.264 High + AAC stereo, faststart MP4 with burned-in captions (silent-friendly — replace AAC track with your own recorded voiceover for best performance). Build source: `build_frames.py` (variant A) and `../build_variants.py` (variants B/C/D).
+
+**Rotation tip (from `MARKETING-ORGANIC.md`):** post variant A on TikTok/Reels day 1, then B/C/D one per day across the other platforms. After 7 days, sort by 3-second retention and watch-through rate and re-shoot the winner with your real workflow.

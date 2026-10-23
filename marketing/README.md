@@ -5,6 +5,9 @@ How to get Clausery more visitors, more users and more paying customers. This fo
 - [`launch-posts.md`](launch-posts.md): ready-to-post copy for Hacker News, Product Hunt, Reddit, Indie Hackers, LinkedIn, X, Pinterest and YouTube
 - [`directories.md`](directories.md): where to list Clausery, in order, with the copy to paste
 - [`outreach.md`](outreach.md): emails for resource pages, template roundups, embeds and partners
+- [`../MARKETING-ORGANIC.md`](../MARKETING-ORGANIC.md): organic short-form launch playbook — 30-day plan, 4 short ad variants, 5 Pinterest pins, bio copy, rotation schedule, UTM conventions
+- [`short-ad/`](short-ad/): 4 vertical short ads (A/B/C/D hooks), covers, build scripts — for TikTok/Reels/Shorts/LinkedIn/X, all link to `/go/`
+- [`build_variants.py`](build_variants.py): re-renders the B/C/D short ads; `build_pins.py` renders the 5 Pinterest graphics into `../assets/marketing/pin-*.png`
 
 ## The diagnosis (October 2026)
 
