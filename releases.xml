@@ -8,6 +8,14 @@
   <updated>2026-10-23T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v1.48.0 — SoftwareApplication Offer schema includes direct checkout URLs</title>
+    <link href="https://getclausery.github.io/changelog.html#v1-48-0"/>
+    <id>https://getclausery.github.io/changelog.html#v1-48-0</id>
+    <published>2026-10-23T00:00:00Z</published>
+    <updated>2026-10-23T00:00:00Z</updated>
+    <summary>SoftwareApplication Offer schema includes direct checkout URLs</summary>
+  </entry>
+  <entry>
     <title>Clausery v1.47.0 — Organization schema includes @id, contactPoint and is reused across About/Contact pages</title>
     <link href="https://getclausery.github.io/changelog.html#v1-47-0"/>
     <id>https://getclausery.github.io/changelog.html#v1-47-0</id>
