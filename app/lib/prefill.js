@@ -1,3 +1,4 @@
+/* Clausery <https://getclausery.github.io> — (C) 2026 Clausery. AGPL-3.0-or-later WITH Clausery-Trademark-Exception. Removing this notice is removal of copyright management information under 17 U.S.C. 1202. Source: https://github.com/getclausery/getclausery.github.io */
 /* A new draft of a library template starts from what the person typed last time, so a small business does not retype
    its own details on every invoice. Three things are filled in, all decided by the template's setup (setups.js `reuse`):
    - remember: your own details (name, address, tax number, bank details, usual tax rate), copied from your most recent

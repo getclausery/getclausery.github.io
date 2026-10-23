@@ -9,5 +9,14 @@ Allow: /app/manifest.webmanifest
 Disallow: /app/
 Disallow: /samples/
 Disallow: /marketing/
+# Known offline site-mirror tools (HTTrack, SiteSucker, WebCopier etc.) — these
+# do not obey robots.txt in practice so this is a hint, not enforcement. The
+# actual anti-clone protections are in the running page (app/lib/copyguard.js,
+# site.js frame-bust, CMI banners) and legal (legal/dmca.html).
+User-agent: HTTrack
+User-agent: SiteSucker
+User-agent: WebCopier
+User-agent: Offline Explorer
+Disallow: /
 Sitemap: https://getclausery.github.io/sitemap_index.xml
 Sitemap: https://getclausery.github.io/sitemap.xml

@@ -1,3 +1,4 @@
+/* Clausery <https://getclausery.github.io> — (C) 2026 Clausery. AGPL-3.0-or-later WITH Clausery-Trademark-Exception. Removing this notice is removal of copyright management information under 17 U.S.C. 1202. Source: https://github.com/getclausery/getclausery.github.io */
 /* Starting points for library templates by trade: the lines a business in that trade usually bills, so a first invoice
    starts with the right shape instead of a blank row. Only descriptions and quantities: prices are the business's own
    and are never guessed. Opened with #/start/<template>/<preset>; the public site has a page for each (site/trades.mjs). */

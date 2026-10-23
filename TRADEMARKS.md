@@ -99,3 +99,46 @@ If you see a copy, clone or SaaS offering that uses the Clausery name
 or logo without permission, email getclausery@gmail.com with the URL
 and a screenshot. We will send a friendly reminder first; most cases
 are accidental forks that just need a rename.
+
+## Enforcement
+
+Where a friendly reminder does not resolve the issue, we enforce these
+rights through the cheapest effective channel for the host:
+
+- **Code hosts (GitHub, GitLab, Bitbucket):** DMCA takedown under
+  17 U.S.C. §512 for copies that remove the CMI (copyright management
+  information) banners, or that republish the code under a different
+  license. We always offer 14 days to restore notices or rename before
+  filing, except for outright malware redistributions.
+- **Domains:** UDRP complaint against confusingly-similar domain names
+  registered in bad faith (e.g. "clausery-app.com" offering the same
+  product, or typosquatters).
+- **App stores (Chrome Web Store, Apple App Store, Google Play,
+  Microsoft Edge Add-ons):** trademark/impersonation report through the
+  store's standard brand-owner channel.
+- **Search engines (Google, Bing):** spam / scraped-content report and
+  DMCA search-result removal for sites that republish our marketing
+  pages verbatim to capture brand search traffic.
+- **Ad platforms (Google Ads, Bing Ads, Meta, LinkedIn, X,
+  Pinterest):** trademark-infringement report against ads bidding on
+  the "Clausery" keyword to redirect to a competing product.
+- **Social platforms:** impersonation report against accounts
+  presenting themselves as the official Clausery project or support.
+- **Hosting/CDN providers (Cloudflare, Vercel, Netlify, Cloudflare
+  Pages, AWS CloudFront):** DMCA §512 takedown for hosted clones that
+  keep the brand and strip attribution.
+
+The CMI banners stamped into every JS, CSS and SVG file at build time
+(see `tools/stamp-cmi.mjs`) are copyright management information under
+17 U.S.C. §1202. Removing them in a copy that you redistribute or host
+publicly is itself a civil violation, separate from any trademark or
+AGPL claim, and carries statutory damages under the CASE Act. That is
+deliberate: a competitor who tries to "scrape the site" and re-host it
+has to remove several layers of attribution, each of which is a
+separate cause of action.
+
+If you receive a takedown notice you believe was sent in error, reply
+to the sending address. Legitimate AGPL-compliant forks that have
+renamed the product, published their source and are not holding
+themselves out as "Clausery" will never be targeted; those are the
+open-source uses the license is designed to encourage.

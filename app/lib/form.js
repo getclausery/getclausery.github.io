@@ -1,3 +1,4 @@
+/* Clausery <https://getclausery.github.io> — (C) 2026 Clausery. AGPL-3.0-or-later WITH Clausery-Trademark-Exception. Removing this notice is removal of copyright management information under 17 U.S.C. 1202. Source: https://github.com/getclausery/getclausery.github.io */
 /* Clausery form renderer: turns a template's fields into accessible HTML inputs and keeps them in sync with the
    questionnaire engine. Shared by the app's interview view and by exported client intake forms. No framework. */
 import { h, icon, setChildren } from '../ui/dom.js';

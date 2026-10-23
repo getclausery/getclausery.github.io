@@ -1,3 +1,4 @@
+/* Clausery <https://getclausery.github.io> — (C) 2026 Clausery. AGPL-3.0-or-later WITH Clausery-Trademark-Exception. Removing this notice is removal of copyright management information under 17 U.S.C. 1202. Source: https://github.com/getclausery/getclausery.github.io */
 /* Clausery vault: optional encryption at rest for the workspace (IndexedDB) using WebCrypto only.
    Passphrase → PBKDF2-SHA256 (600k iterations) → AES-256-GCM key. Nothing is ever sent anywhere; losing
    the passphrase loses the data, which is the point. The same code runs in Node for tests. */

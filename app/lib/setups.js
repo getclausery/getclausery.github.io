@@ -1,3 +1,4 @@
+/* Clausery <https://getclausery.github.io> — (C) 2026 Clausery. AGPL-3.0-or-later WITH Clausery-Trademark-Exception. Removing this notice is removal of copyright management information under 17 U.S.C. 1202. Source: https://github.com/getclausery/getclausery.github.io */
 /* Ready-made questionnaire setups for library templates. The questionnaire inferred from a template's tags is the base;
    a setup only improves it: plain-English questions, sections in the order people think about the document, and
    calculations (line amounts, subtotal, tax, totals, amounts in words), so nobody does arithmetic by hand. A tag the

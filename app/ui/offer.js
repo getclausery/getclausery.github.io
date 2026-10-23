@@ -1,3 +1,4 @@
+/* Clausery <https://getclausery.github.io> — (C) 2026 Clausery. AGPL-3.0-or-later WITH Clausery-Trademark-Exception. Removing this notice is removal of copyright management information under 17 U.S.C. 1202. Source: https://github.com/getclausery/getclausery.github.io */
 /* What Pro costs and how to get it, wherever the app offers an upgrade (the upgrade dialog, Settings, the trial screen),
    so every place shows the same prices as the pricing page. Prices and checkout links come from config.js. */
 import { h } from './dom.js';

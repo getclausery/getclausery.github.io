@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-10-23",
-  "hash": "48a273dd1f1f005a"
+  "hash": "e4223f8e7007641a"
  },
  "404.html": {
   "date": "2026-10-17",
@@ -635,6 +635,10 @@
   "date": "2026-10-07",
   "hash": "3b5d1cccfc54bff4"
  },
+ "legal/dmca.html": {
+  "date": "2026-10-23",
+  "hash": "b25d8e0d7e5e3fcc"
+ },
  "legal/dpa.html": {
   "date": "2026-10-09",
   "hash": "1686ec404a3090ac"
@@ -648,12 +652,12 @@
   "hash": "f7006f0b04cab600"
  },
  "legal/terms.html": {
-  "date": "2026-10-15",
-  "hash": "75a63282d8fad32b"
+  "date": "2026-10-23",
+  "hash": "c7f1f37018bbf811"
  },
  "made-with/": {
   "date": "2026-10-23",
-  "hash": "a2b93fc9fa96b5df"
+  "hash": "0d21d018a54fb135"
  },
  "nda-templates/": {
   "date": "2026-10-04",

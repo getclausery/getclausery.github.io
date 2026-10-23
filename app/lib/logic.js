@@ -1,3 +1,4 @@
+/* Clausery <https://getclausery.github.io> — (C) 2026 Clausery. AGPL-3.0-or-later WITH Clausery-Trademark-Exception. Removing this notice is removal of copyright management information under 17 U.S.C. 1202. Source: https://github.com/getclausery/getclausery.github.io */
 /* Clausery questionnaire engine: which fields are visible, which answers are valid, what computed fields
    evaluate to, and the final data object handed to the document renderer. Pure functions, no DOM. */
 import { compile, referenceDetails, truthy, formatDate, parseDate, validate as validateExpr, makeScope } from './expr.js';

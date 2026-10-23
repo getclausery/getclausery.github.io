@@ -176,6 +176,7 @@ export const SEARCH_INTENT = {
   "legal/privacy.html": ["privacy policy", "navigational", "legal"],
   "legal/terms.html": ["terms of service", "navigational", "legal"],
   "legal/license.html": ["clausery open source license", "navigational", "legal"],
+  "legal/dmca.html": ["clausery dmca takedown", "navigational", "legal"],
   "nda-templates/": ["nda templates", "navigational", "nda"],
   "press/": ["clausery press kit", "navigational", "company"],
   "pricing/": ["clausery pricing", "commercial", "company"],

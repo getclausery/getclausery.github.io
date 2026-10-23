@@ -1,3 +1,4 @@
+/* Clausery <https://getclausery.github.io> — (C) 2026 Clausery. AGPL-3.0-or-later WITH Clausery-Trademark-Exception. Removing this notice is removal of copyright management information under 17 U.S.C. 1202. Source: https://github.com/getclausery/getclausery.github.io */
 /* Clausery service worker: makes the app work offline. Same-origin only; never touches other origins.
    Strategy: the app files listed in PRECACHE are fetched once at install and then served from the cache with no
    background requests (a new release ships a new VERSION, which installs a fresh cache). Pages are network-first so a
@@ -14,6 +15,7 @@ const PRECACHE = [
   'app/index.html',
   'app/lib/backup.js',
   'app/lib/bulk.js',
+  'app/lib/copyguard.js',
   'app/lib/credit.js',
   'app/lib/expr.js',
   'app/lib/form.js',

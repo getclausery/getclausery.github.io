@@ -1,3 +1,4 @@
+/* Clausery <https://getclausery.github.io> — (C) 2026 Clausery. AGPL-3.0-or-later WITH Clausery-Trademark-Exception. Removing this notice is removal of copyright management information under 17 U.S.C. 1202. Source: https://github.com/getclausery/getclausery.github.io */
 /* Lemon Squeezy's button validator requires its documented query-string format. Also accept fragment
    links. Clear both before routing or activation; the License API still verifies the purchase. */
 import { isOnlineKey, isOnlineRecord, activateOnline, validateOnline, deactivateOnline } from './onlinelicense.js';

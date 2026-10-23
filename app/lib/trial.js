@@ -1,3 +1,4 @@
+/* Clausery <https://getclausery.github.io> — (C) 2026 Clausery. AGPL-3.0-or-later WITH Clausery-Trademark-Exception. Removing this notice is removal of copyright management information under 17 U.S.C. 1202. Source: https://github.com/getclausery/getclausery.github.io */
 /* The free Pro trial: one per browser, TRIAL_DAYS long, with no card, no account and no email. It is a record in this
    browser's settings and nothing is sent anywhere. When it ends the workspace is simply back on the Free plan with
    everything kept: there is nothing to cancel and nothing renews. A purchased license always takes precedence. */

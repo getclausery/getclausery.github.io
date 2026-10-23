@@ -1,3 +1,4 @@
+/* Clausery <https://getclausery.github.io> — (C) 2026 Clausery. AGPL-3.0-or-later WITH Clausery-Trademark-Exception. Removing this notice is removal of CMI under 17 U.S.C. 1202. */
 /* Clausery app styles. System fonts only: the app makes no third-party requests. */
 /* The hidden attribute always wins: component rules below set display, which would otherwise show hidden fields. */
 [hidden] { display: none !important; }
@@ -288,3 +289,29 @@ details.section > .section-body { padding: 0 1rem 1rem; }
 .nav-foot .nav-brand { color: var(--accent); text-decoration: none; font-weight: 600; font-size: .74rem; align-self: flex-start; }
 .nav-foot .nav-brand:hover { text-decoration: underline; }
 @media (max-width: 800px) { .nav-foot .nav-brand { display: none; } }
+
+/* Copy-protection attribution banner (app/lib/copyguard.js). Shown only on
+   deployments that appear to be unlicensed rebranded copies: not on the official
+   host, not localhost, not a properly-renamed fork, and the WHITE_LABEL_LICENSE
+   flag in config is false. Uses !important and a high z-index so a would-be
+   cloner's attempt to `display:none` it requires editing this block, which is
+   itself CMI under 17 U.S.C. §1202. */
+#clausery-copyguard {
+  position: fixed !important;
+  top: 0 !important; left: 0 !important; right: 0 !important;
+  z-index: 2147483647 !important;
+  padding: 10px 16px !important;
+  background: #7a1f1f !important;
+  color: #fff !important;
+  font: 13px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif !important;
+  text-align: center !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,.35) !important;
+  letter-spacing: normal !important;
+}
+#clausery-copyguard a {
+  color: #ffd7b3 !important;
+  text-decoration: underline !important;
+}
+#clausery-copyguard a:hover { color: #fff !important; }
+body { padding-top: 0; }
+html[data-copyguard] body { padding-top: 52px; }

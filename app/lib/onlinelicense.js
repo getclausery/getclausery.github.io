@@ -1,3 +1,4 @@
+/* Clausery <https://getclausery.github.io> — (C) 2026 Clausery. AGPL-3.0-or-later WITH Clausery-Trademark-Exception. Removing this notice is removal of copyright management information under 17 U.S.C. 1202. Source: https://github.com/getclausery/getclausery.github.io */
 /* Clausery licensing, part two: keys sold through the Lemon Squeezy checkout.
    Lemon Squeezy emails the buyer a key (a UUID) and shows it on the receipt. The app activates it once with Lemon
    Squeezy's public License API and re-checks it about once a week, so renewals, cancellations and refunds apply on

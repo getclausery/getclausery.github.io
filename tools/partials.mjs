@@ -4,7 +4,7 @@ export const YEAR = '2026';
 /* The theme script is 260 bytes and decides the colours before the first paint. Inlining it removes a
    render-blocking request from every page (the file stays in app/ for the app itself and for cached copies). */
 const THEME_FILE = readFileSync(new URL('../app/theme.js', import.meta.url), 'utf8');
-export const THEME_INLINE = THEME_FILE.replace(/^\/\/[^\n]*\n/, '').replace(/\n?try /, 'try ').trim();
+export const THEME_INLINE = THEME_FILE.replace(/^\/\*[\s\S]*?\*\/\s*/, '').replace(/^\/\/[^\n]*\n/, '').replace(/\n?try /, 'try ').trim();
 /** A responsive picture: WebP sources with the original raster as the fallback. Dimensions are always set so the
     browser reserves the box and the layout does not shift while the image loads. */
 export function picture({ src, webp, width, height, alt, sizes = '100vw', loading = 'lazy', fetchpriority, className = '' }) {
@@ -16,6 +16,21 @@ import { CONTACT_URL, KEY_REQUEST_URL, REPO_URL, CONTACT_EMAIL, mailto, keyReque
 export { CONTACT_URL, KEY_REQUEST_URL, REPO_URL, CONTACT_EMAIL, mailto, keyRequestUrl };
 // The site's public origin. Every absolute URL (canonical, Open Graph, JSON-LD, sitemap, feed) is built from it.
 export const SITE = 'https://getclausery.github.io/';
+
+/* Copyright management information (17 U.S.C. §1202). This HTML comment is
+   injected at the top of every generated page and into bundled JS. Removing or
+   altering it to conceal the origin of a copy is itself a copyright violation
+   separate from any AGPL or trademark breach, and is the statutory hook for a
+   DMCA takedown against sites that strip the visible footer. */
+export const CMI_HTML = `<!--
+  Clausery <${SITE}> — original open-source project.
+  (C) ${YEAR} Clausery. License: AGPL-3.0-or-later WITH Clausery-Trademark-Exception.
+  Removing this notice or the visible attribution in the footer is a removal of
+  copyright management information under 17 U.S.C. §1202 and violates s5 of the AGPL.
+  Source: ${REPO_URL}  ·  License terms: ${SITE}legal/license.html
+  Trademark policy: ${REPO_URL}/blob/main/TRADEMARKS.md
+-->`;
+export const CMI_JS = `/* Clausery <${SITE}> (C) ${YEAR} Clausery. AGPL-3.0-or-later WITH Clausery-Trademark-Exception. Removing this notice is removal of CMI under 17 U.S.C. 1202. Source: ${REPO_URL} */`;
 /* Cookieless page-view counts: site.js loads Cloudflare Web Analytics on website pages when its token is set.
    The token and the date it went live live in site.js only; the build reads them here to keep the privacy wording accurate. */
 const SITE_ANALYTICS = readFileSync(new URL('../site.js', import.meta.url), 'utf8').match(/const CLAUSERY_ANALYTICS = \{ token: '([^']*)', since: '([^']*)', host: '[^']*' \};/);
@@ -73,7 +88,7 @@ export const collectionLd = ({ path, name, description, items }) => `<script typ
   mainEntity: { '@type': 'ItemList', numberOfItems: items.length, itemListElement: items.map(([itemName, itemPath], i) => ({ '@type': 'ListItem', position: i + 1, name: itemName, url: `${SITE}${itemPath}` })) },
 })}</script>`;
 export const faqHtml = (faq) => `<div class="faq">${faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>`;
-export function head({ title, description, path, extraHead = '', pageLd = '', ogImage = 'assets/og.png', ogType = 'website', published, modified, rel: relOverride }) {
+export function head({ title, description, path, extraHead = '', pageLd = '', ogImage = 'assets/og.png', ogType = 'website', published, modified, rel: relOverride, noindex = false }) {
   // Search results show about 60 characters of a title; drop the brand suffix rather than have the title cut off.
   // The home title leads with what the site is for (small businesses making invoices in Word) and what people search for.
   // A title that already names Clausery gets no suffix (no "About Clausery · Clausery").
@@ -84,9 +99,10 @@ export function head({ title, description, path, extraHead = '', pageLd = '', og
   const imageAlt = `${full} — Clausery`;
   const depth = path.split('/').filter(Boolean).length - (path.endsWith('/') || path === '' ? 0 : 1);
   const rel = relOverride || (depth > 0 ? '../'.repeat(depth) : './');
-  const robots = /<meta\s+[^>]*name=["']robots["']/i.test(extraHead) ? '' : '<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">\n';
+  const robots = /<meta\s+[^>]*name=["']robots["']/i.test(extraHead) ? '' : `<meta name="robots" content="${noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}">\n`;
   const articleMeta = ogType === 'article' ? `${published ? `<meta property="article:published_time" content="${published}">\n` : ''}${modified ? `<meta property="article:modified_time" content="${modified}">\n` : ''}` : '';
-  return `<!doctype html>
+  return `${CMI_HTML}
+<!doctype html>
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
@@ -111,12 +127,17 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image:alt" content="${esc(imageAlt)}">
 <meta name="theme-color" content="#1b2a41">
 <meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="author" content="Clausery">
+<meta name="generator" content="Clausery ${SITE} — AGPL-3.0-or-later open source">
+<meta name="original-source" content="${url}">
 <link rel="icon" href="${rel}assets/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="${rel}assets/icon-192.png">
 <link rel="manifest" href="${rel}app/manifest.webmanifest">
 <link rel="search" type="application/opensearchdescription+xml" title="Clausery templates" href="${rel}opensearch.xml">
+<link type="text/plain" rel="author" href="${rel}humans.txt">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="${rel}feed.xml">
 <link rel="stylesheet" href="${rel}site.css">
+<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
 <script>${THEME_INLINE}</script>
 <script src="${rel}site.js" defer></script>
 ${extraHead}${pageLd}
@@ -129,7 +150,8 @@ ${header(rel, path)}
 // Bare page for a calculator shown in an iframe on another site: no header, footer, canonical or share tags, and
 // noindex so search engines credit the full tool page instead. Light by default (most host sites are), or ?theme=dark.
 export function embedPage({ title, description, extraHead = '', rel, body }) {
-  return `<!doctype html>
+  return `${CMI_HTML}
+<!doctype html>
 <html lang="en-GB" data-theme="light">
 <head>
 <meta charset="utf-8">
@@ -220,6 +242,7 @@ export function footer(rel) {
       <a href="${rel}legal/terms.html">Terms</a>
       <a href="${rel}legal/dpa.html">Data processing</a>
       <a href="${rel}legal/license.html">Open-source license</a>
+      <a href="${rel}legal/dmca.html">Takedowns &amp; DMCA</a>
       <a href="${rel}about/">About</a>
       <a href="${rel}contact/">Contact</a>
     </div>

@@ -1,3 +1,4 @@
+/* Clausery <https://getclausery.github.io> — (C) 2026 Clausery. AGPL-3.0-or-later WITH Clausery-Trademark-Exception. Removing this notice is removal of copyright management information under 17 U.S.C. 1202. Source: https://github.com/getclausery/getclausery.github.io */
 /* Documents from a spreadsheet: one CSV row per document. A row fills in or replaces the answers of the current draft
    (empty cells keep the draft's answer), so a template's line items, terms and wording are set once and each row only
    carries what changes: the client, the amount, the date. Everything runs in the browser, like the rest of Clausery. */

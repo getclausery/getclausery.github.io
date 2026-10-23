@@ -1,3 +1,4 @@
+/* Clausery <https://getclausery.github.io> — (C) 2026 Clausery. AGPL-3.0-or-later WITH Clausery-Trademark-Exception. Removing this notice is removal of copyright management information under 17 U.S.C. 1202. Source: https://github.com/getclausery/getclausery.github.io */
 /* Clausery app bootstrap: opens the local store, checks the license, handles the vault lock, wires routes. */
 import { APP_VERSION, DEFAULT_SETTINGS, licensePublicKey, CHECKOUT_URLS, CONTACT_URL, KEY_REQUEST_URL, SITE_URL, LICENSE_SERVICE, TRIAL_DAYS } from './config.js';
 import { Store, LockedError } from './lib/store.js';
@@ -12,6 +13,7 @@ import { applyPreset, presetNote } from './lib/presets.js';
 import { countEvent } from './lib/usage.js';
 import { newTrial, trialState, trialPayload, daysLeftText } from './lib/trial.js';
 import { priceLine, buyLabel } from './ui/offer.js';
+import { installCopyGuard } from './lib/copyguard.js';
 import * as templatesView from './ui/views/templates.js';
 import * as designerView from './ui/views/designer.js';
 import * as draftsView from './ui/views/drafts.js';
@@ -272,6 +274,11 @@ async function onRemoteVault() {
 }
 
 async function boot() {
+  // Watermark: unlicensed rebranded copies that still carry the Clausery name get
+  // an attribution banner. Runs before anything else renders so the bar can't be
+  // suppressed by later DOM work. Official hosts, renamed forks, white-label
+  // licensees and local dev see nothing (see app/lib/copyguard.js).
+  installCopyGuard();
   document.getElementById('nav-version').textContent = 'v' + APP_VERSION;
   const navIcons = { templates: 'file', drafts: 'edit', settings: 'settings', docs: 'info' };
   for (const a of document.querySelectorAll('#nav a[data-nav]')) a.querySelector('.nav-icon').replaceWith(icon(navIcons[a.dataset.nav] || 'info'));
