@@ -1,3 +1,4 @@
+/* Clausery <https://getclausery.github.io> — (C) 2026 Clausery. AGPL-3.0-or-later WITH Clausery-Trademark-Exception. Removing this notice is removal of copyright management information under 17 U.S.C. 1202. Source: https://github.com/getclausery/getclausery.github.io */
 /* Generation history: every time a draft becomes a document (downloaded, printed, shared or made from a spreadsheet),
    the draft keeps a record of when, how, under which file name, and a SHA-256 fingerprint of the exact answers used,
    with a copy of those answers so any earlier version can be restored. It lives in the draft, in this browser, and

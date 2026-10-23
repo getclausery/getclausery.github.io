@@ -1,3 +1,4 @@
+/* Clausery <https://getclausery.github.io> — (C) 2026 Clausery. AGPL-3.0-or-later WITH Clausery-Trademark-Exception. Removing this notice is removal of copyright management information under 17 U.S.C. 1202. Source: https://github.com/getclausery/getclausery.github.io */
 /* Anonymous usage counts (see USAGE_COUNTER in config.js). One request per event to GoatCounter's /count endpoint, made
    as an image request with no referrer: the event name says what happened and, for a library template, which one by its
    public slug. Nothing typed into Clausery is ever part of it. Off unless an endpoint is configured, and only on the

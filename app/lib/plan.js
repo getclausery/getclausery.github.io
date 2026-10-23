@@ -1,3 +1,4 @@
+/* Clausery <https://getclausery.github.io> — (C) 2026 Clausery. AGPL-3.0-or-later WITH Clausery-Trademark-Exception. Removing this notice is removal of copyright management information under 17 U.S.C. 1202. Source: https://github.com/getclausery/getclausery.github.io */
 /* Plan gating: what the current license (or free Pro trial) allows. */
 import { PLANS, planFeatures } from './license.js';
 

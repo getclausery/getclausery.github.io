@@ -53,7 +53,17 @@ page('legal/terms.html', 'Terms of service', `Terms under which Clausery is prov
 <h2>9. Governing law</h2>
 <p>These terms are governed by the laws of the jurisdiction in which Clausery is established, and disputes are subject to the courts of that jurisdiction, without prejudice to mandatory consumer protection where it applies.</p>
 <h2>10. Contact</h2>
-<p>See the <a href="${rel}contact/">contact page</a>.</p>`),
+<p>See the <a href="${rel}contact/">contact page</a>.</p>
+<h2>11. License to the code; trademark; anti-impersonation</h2>
+<p>The source code for Clausery is published under the GNU AGPL-3.0-or-later with a trademark exception (see <a href="${rel}legal/license.html">the open-source license page</a> and <a href="${REPO_URL}/blob/main/TRADEMARKS.md" rel="noopener">TRADEMARKS.md</a>). That license lets you run, modify and redistribute the code under its conditions, including publishing source for modified network copies. It does <strong>not</strong> authorise you to:</p>
+<ul>
+  <li>Use the "Clausery" name, logo, domain, app icon, product screenshots, marketing copy or other brand assets to present any other service, fork or copy as Clausery, as affiliated with Clausery, or as endorsed by Clausery, except under a written commercial license.</li>
+  <li>Remove, obscure or alter the copyright notices, license banners, source-on-GitHub links or attribution watermarks from the HTML, JavaScript, CSS or SVG files we distribute. Doing so is removal of copyright management information under 17 U.S.C. §1202 and a breach of AGPL s5.</li>
+  <li>Register "Clausery" or a confusingly similar word mark, domain name, social-media handle, browser-extension ID, app-store listing or search ad keyword in any jurisdiction for a document, invoice or template product.</li>
+  <li>Purchase search ads against the "Clausery" brand term to redirect users to a competing document product.</li>
+  <li>Offer a publicly-hosted modified copy of Clausery under the Clausery name without a commercial license and without publishing your modifications as required by AGPL s13.</li>
+</ul>
+<p>We enforce these terms through the DMCA, the UDRP for domains, the hosting provider's trademark and abuse process, and where applicable the Google/GitHub/Cloudflare pages for impersonation. Report impersonation or copy-fraud via the <a href="${rel}legal/dmca.html">DMCA / takedown page</a>.</p>`),
 
 page('legal/dpa.html', 'Data processing statement', 'For procurement and compliance teams: why Clausery involves no processing of personal data by the vendor, and what to record.', (rel) => `
 <h1>Data processing statement</h1>
@@ -113,4 +123,33 @@ page('legal/license.html', 'Open-source license (AGPLv3) and commercial licensin
 <p>Clausery is a client-side product that competes with paid SaaS tools. A permissive license (MIT, BSD, Apache) would allow competitors to take the code, rebrand it, close the improvements and sell it as their own — which has happened to many MIT-licensed developer tools. The AGPL keeps the code free and keeps improvements free while still allowing commercial use through a paid dual-license, which is the model used by other developer-focused open-source companies (Ghost, Grafana Labs' AGPL components, Element/Matrix, Plausible, Mastodon, GitLab CE). It is the OSI-approved license that matches how Clausery is actually used: over the network.</p>
 
 <p class="small muted" style="margin-top:2rem">The software is provided "as is" without warranty, as described in <a href="${rel}legal/terms.html">the terms of service</a>.</p>`),
+
+page('legal/dmca.html', 'DMCA, trademark and impersonation takedown', 'How to report copyright infringement, trademark infringement, impersonation or unlicensed Clausery copies, and what information to send.', (rel) => `
+<h1>DMCA, trademark and impersonation takedown</h1>
+<p class="muted">How to report infringing copies; how we respond; how to submit a legitimate takedown notice.</p>
+<h2>What we take down</h2>
+<p>Clausery is open source under the AGPLv3. People who follow the license are welcome — that is the point of publishing the code. We file takedown notices (DMCA on US hosts, UDRP on domains, trademark/abuse reports elsewhere) when a copy falls into one of these categories:</p>
+<ul>
+  <li><strong>Unlicensed rebrands.</strong> A hosted copy that still uses the Clausery name, logo, app icon, screenshots or marketing copy without a commercial white-label license (see <a href="${rel}legal/license.html">open-source license</a> and <a href="${REPO_URL}/blob/main/TRADEMARKS.md" rel="noopener">TRADEMARKS.md</a>).</li>
+  <li><strong>Closed SaaS clones.</strong> A publicly-accessible modified Clausery instance — including re-uploads wrapped in someone else's wrapper — that does not publish corresponding source as required by AGPL s13.</li>
+  <li><strong>Stripped attribution.</strong> A copy from which the copyright/AGPL banners, license HTML comments, visible footer or source-on-GitHub link have been removed (removal of CMI under 17 U.S.C. §1202).</li>
+  <li><strong>Impersonation.</strong> Social-media accounts, app-store listings, browser extensions, domains or search ads that present themselves as Clausery, as an "official" download, or as affiliated with the project, when they are not.</li>
+  <li><strong>Scraped SEO spam.</strong> Sites that republish Clausery page content verbatim to capture search traffic meant for this site.</li>
+</ul>
+<h2>How to report</h2>
+<p>Send a notice to <a href="${mailto('Clausery takedown / DMCA')}">${CONTACT_EMAIL}</a> (subject: "Clausery takedown / DMCA") with:</p>
+<ol>
+  <li>The URL(s) of the infringing material, and which hosting provider, app store or domain registrar they are on if you can tell.</li>
+  <li>Which of the categories above applies — copyright (which AGPL section), trademark, CMI removal, impersonation, or scraped content.</li>
+  <li>A screenshot or excerpt of the infringing material.</li>
+  <li>Your name, email and, if you are reporting on behalf of a rights-holder, a statement that you are authorised to act.</li>
+  <li>The statement required by 17 U.S.C. §512(c)(3): "I have a good-faith belief that the use is not authorised by the copyright owner, its agent, or the law"; "I swear, under penalty of perjury, that the information in this notification is accurate and that I am authorised to act on behalf of the owner of an exclusive right that is allegedly infringed"; and a physical or electronic signature.</li>
+</ol>
+<p>We respond to complete notices within 14 days. Notices that target legitimate AGPL-compliant forks (renamed, with source published, without the Clausery brand) will be declined — those are allowed by the license and are not infringements.</p>
+<h2>What we do on receipt</h2>
+<p>We verify the claim against the code history and the license terms. For confirmed infringements we send a properly-targeted notice: DMCA to US-based hosts and GitHub, a UDRP complaint to the registrar for confusingly-similar domains, trademark/impersonation reports to app stores and social platforms, and a scraped-content notice to search engines via their standard spam-report flows. Where the host responds with a counter-notice, we follow 17 U.S.C. §512(g) and, if the material stays up, file in an appropriate court within 14 days.</p>
+<h2>Changelogs and proof of ownership</h2>
+<p>The canonical source of truth for Clausery is <a href="${REPO_URL}" rel="noopener">the public GitHub repository</a>, where every change is timestamped in git. The <a href="${rel}changelog.html">changelog</a> lists releases with dates back to the first public version, which is earlier than any clone's "about" page will be able to honestly claim.</p>
+<h2>False reports</h2>
+<p>Takedown notices that misrepresent a legitimate AGPL fork as infringing are themselves a problem: they damage the open-source ecosystem we rely on. If you have received a notice you believe was sent in error, reply to the sending address and we will review and, if we got it wrong, retract.</p>`),
 ];

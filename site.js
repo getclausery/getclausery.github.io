@@ -1,3 +1,4 @@
+/* Clausery <https://getclausery.github.io> — (C) 2026 Clausery. AGPL-3.0-or-later WITH Clausery-Trademark-Exception. Removing this notice is removal of copyright management information under 17 U.S.C. 1202. Source: https://github.com/getclausery/getclausery.github.io */
 /* Clausery site script: the mobile menu, the copy buttons and the template finder. External so the pages work under a strict script-src 'self' policy. */
 // Cookieless page-view counts (Cloudflare Web Analytics) on the website pages that load this script; never the app or embedded calculators.
 // Empty token = off. The build reads these two values to switch the privacy, about and security wording, so change them only here.
@@ -62,3 +63,28 @@ for (const box of document.querySelectorAll('[data-filter-for]')) {
   const q = new URL(location.href).searchParams.get('q');
   if (q) { input.value = q; run(); }
 }
+
+/* Copy-protection watermark for site pages (parallel to app/lib/copyguard.js).
+   Official deployments and local dev see nothing; unlicensed rebranded copies
+   that still carry the Clausery brand get a top banner pointing back to the
+   source. White-label licensees set a window.__CLAUSERY_WHITE_LABEL flag on a
+   preceding inline script to suppress this. */
+(function(){
+  const OFFICIAL = ['getclausery.github.io','getclausery.com','www.getclausery.com','clausery.app','www.clausery.app'];
+  const h = location.hostname.toLowerCase();
+  if (h === 'localhost' || h === '127.0.0.1' || h === '0.0.0.0' || h === '' ||
+      h.endsWith('.e2b.app') || h.endsWith('.e2b.dev') || h.endsWith('.arena.ai') ||
+      h.endsWith('.local') || h === 'file') return;
+  if (window.__CLAUSERY_WHITE_LABEL) return;
+  for (const o of OFFICIAL) if (h === o || h.endsWith('.' + o)) return;
+  const brand = ((document.querySelector('.brand')?.textContent||'') + ' ' + document.title + ' ' + (document.querySelector('meta[property="og:site_name"]')?.getAttribute('content')||'')).toLowerCase();
+  if (!/clausery/.test(brand)) return;
+  if (document.getElementById('clausery-copyguard')) return;
+  const bar = document.createElement('div');
+  bar.id = 'clausery-copyguard';
+  bar.setAttribute('role','note');
+  bar.innerHTML = 'This appears to be an unlicensed copy of <a href="https://getclausery.github.io/" rel="noopener" target="_blank">Clausery</a>. Clausery is free and open source (AGPLv3); hosted copies that keep the Clausery name require a <a href="https://getclausery.github.io/legal/license.html" rel="noopener" target="_blank">commercial license</a>, and modified copies must publish their source.';
+  document.documentElement.setAttribute('data-copyguard','1');
+  document.body.insertBefore(bar, document.body.firstChild);
+  try { console.log('%cClausery', 'color:#fff;background:#0b5;padding:2px 6px;border-radius:3px', 'open source AGPLv3 — unlicensed copy detected. Source: https://github.com/getclausery/getclausery.github.io'); } catch(e){}
+})();

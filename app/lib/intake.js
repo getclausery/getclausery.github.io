@@ -1,3 +1,4 @@
+/* Clausery <https://getclausery.github.io> — (C) 2026 Clausery. AGPL-3.0-or-later WITH Clausery-Trademark-Exception. Removing this notice is removal of copyright management information under 17 U.S.C. 1202. Source: https://github.com/getclausery/getclausery.github.io */
 /* Client intake forms: a self-contained HTML file with the questionnaire only. The client fills it in offline
    and saves an answers .json that the firm imports into a draft. Built from vendor/intake-runtime.js. */
 import { coerce } from './logic.js';
