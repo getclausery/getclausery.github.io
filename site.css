@@ -110,6 +110,9 @@ a.sr-only:focus-visible { position: fixed !important; top: .5rem; left: .5rem; w
 .cta .actions { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; margin-top: 1.75rem; position: relative; }
 .badge { display: inline-block; padding: .18rem .65rem; border-radius: 999px; font-size: .74rem; font-weight: 700; letter-spacing: .02em; background: var(--accent-soft); color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent); }
 .badge-warn { background: var(--warn-soft); color: var(--warn); }
+.release-pill { display: inline-flex; align-items: center; flex-wrap: wrap; gap: .3rem; margin: .5rem 0 0; padding: .35rem .75rem; border-radius: 999px; background: color-mix(in srgb, var(--accent) 10%, var(--surface)); border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent); font-size: .82rem; color: var(--muted); }
+.release-pill a { color: var(--accent); font-weight: 600; text-decoration: none; }
+.release-pill a:hover { text-decoration: underline; }
 
 /* pricing */
 .plans { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; align-items: stretch; }

@@ -52,6 +52,7 @@ export const pages = [{
   <div class="wrap">
     <div>
       <div class="eyebrow">${ico(I.calc)} Free · No account · No card · Editable Word</div>
+      <div class="release-pill"><a href="${rel}changelog.html#v${APP_VERSION.replace(/\./g,'-')}"><strong>New:</strong> v${APP_VERSION}</a> — <a href="${rel}self-hosting/">self-host / white-label Enterprise</a>, <a href="${rel}made-with/">clearer recipient answers</a>, and a <a href="${rel}releases.xml">release feed</a>.</div>
       <h1>Make a free invoice in Word in 60 seconds — no signup.</h1>
       <p class="lead">Answer a few questions and download a finished <strong>.docx</strong> you can still edit. Totals, tax, discounts and the next invoice number are done for you. Nothing you type is uploaded — it all runs in your browser.</p>
       <p class="small muted" style="margin-top:.25rem"><strong>Looking for the enterprise compliance platform at clausery.ai?</strong> Same name, different product — that one does policy management for regulated companies (ISO 27001, DORA, GDPR, NIS2). You're on the free Word-templates / invoice site for freelancers and small businesses. <a href="https://www.clausery.ai/" rel="noopener">clausery.ai →</a></p>
