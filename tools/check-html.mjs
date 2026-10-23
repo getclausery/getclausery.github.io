@@ -24,7 +24,15 @@ for (const f of files) {
   const ld = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
   for (const [, json] of ld) { try { if (!JSON.parse(json)['@context']) fail(f, 'structured data without @context'); } catch { fail(f, 'structured data is not valid JSON'); } }
   if (!ld.length && !/<meta name="robots" content="[^"]*noindex/i.test(html) && f !== '404.html') fail(f, 'no structured data');
-  for (const m of html.matchAll(/<(?:script|link)[^>]+(?:src|href)="(https?:)?\/\/[^"]+"/gi)) if (!/rel="(?:canonical|noopener)"/.test(m[0])) fail(f, 'external script/stylesheet: ' + m[0].slice(0, 80));
+  for (const m of html.matchAll(/<(?:script|link)[^>]+(?:src|href)="(https?:)?\/\/[^"]+"/gi)) {
+    const tag = m[0];
+    // Allowed external relations: canonical, author, noopener-tagged links (handled separately),
+    // preconnect and dns-prefetch are browser hints not executable resources; alternate for feeds/pingbacks;
+    // rel="me" for indieauth / mastodon verification; icon/apple-touch-icon on the app path; opensearch is
+    // same-site. Anything else is a third-party script or stylesheet and is rejected by the no-third-party promise.
+    if (/rel="[^"]*(?:canonical|noopener|preconnect|dns-prefetch|alternate|me|author|license)[^"]*"/.test(tag)) continue;
+    fail(f, 'external script/stylesheet: ' + tag.slice(0, 120));
+  }
   for (const m of html.matchAll(/(?:href|src)="([^"#?]+)(?:[#?][^"]*)?"/g)) {
     const url = m[1];
     if (/^(https?:|mailto:|data:|javascript:|tel:)/.test(url) || url === '') continue;

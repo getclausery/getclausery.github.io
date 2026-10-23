@@ -1,0 +1,6 @@
+# Clausery ads.txt — Authorized Digital Sellers
+# Clausery does not currently run programmatic advertising on getclausery.github.io.
+# This file is present to prevent spoofed ad inventory being sold against this domain
+# by domain-scraping ad networks (a common SEO/brand-pollution vector).
+# If we add advertising in the future the authorized sellers will be listed here.
+# See https://iabtechlab.com/standards/ads-txt/
