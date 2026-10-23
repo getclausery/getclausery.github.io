@@ -193,7 +193,13 @@ ${GROUPS.map(([g, label]) => `  <h2 style="margin-top:2rem">${esc(label)}</h2>
     const workflow = COMPARISON_WORKFLOWS[c.slug];
     const faq = compareFaq(c);
     return {
-      path: `compare/${c.slug}.html`, title: c.title, description: c.description, extraHead: faqLd(faq),
+      path: `compare/${c.slug}.html`, title: c.title, description: c.description,
+      // WebPage schema for the comparison itself (search understands the page is about an alternative to
+      // Clausery without us asserting any competitor prices/ratings we cannot verify — we intentionally
+      // avoid SoftwareApplication for competitors because that would require a fabricated Offer price).
+      // The page's <a rel="noopener" href="vendorUrl"> links already signal the sameAs relationship via the
+      // "Official product and plan details" block.
+      extraHead: faqLd(faq),
       body: (rel) => `<section class="section"><div class="wrap prose">
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}compare/">Compare</a> › ${esc(c.name)}</nav>
   <h1 style="margin-top:1rem">${esc(c.title)}</h1>

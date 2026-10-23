@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-10-23",
-  "hash": "3e15e5c3e80eaff2"
+  "hash": "4eb0916425e638a2"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -33,7 +33,7 @@
  },
  "changelog.html": {
   "date": "2026-10-23",
-  "hash": "68ec841c20d346c7"
+  "hash": "f95e8cdefe8df493"
  },
  "clauses/": {
   "date": "2026-10-17",
@@ -140,47 +140,47 @@
   "hash": "2d51111544bdbf05"
  },
  "compare/bonsai-alternative.html": {
-  "date": "2026-10-18",
+  "date": "2026-10-23",
   "hash": "3c9634a48bf6be39"
  },
  "compare/clio-draft-alternative.html": {
-  "date": "2026-10-18",
+  "date": "2026-10-23",
   "hash": "238b0c71e73336e0"
  },
  "compare/docassemble-alternative.html": {
-  "date": "2026-10-18",
+  "date": "2026-10-23",
   "hash": "993dd9efde1ce59b"
  },
  "compare/dubsado-alternative.html": {
-  "date": "2026-10-18",
+  "date": "2026-10-23",
   "hash": "3239a2f69911911c"
  },
  "compare/eforms-alternative.html": {
-  "date": "2026-10-18",
+  "date": "2026-10-23",
   "hash": "5965824c58c1482e"
  },
  "compare/gavel-alternative.html": {
-  "date": "2026-10-18",
+  "date": "2026-10-23",
   "hash": "9543ff31de82608e"
  },
  "compare/honeybook-alternative.html": {
-  "date": "2026-10-18",
+  "date": "2026-10-23",
   "hash": "a2735150329ec8be"
  },
  "compare/hotdocs-alternative.html": {
-  "date": "2026-10-18",
+  "date": "2026-10-23",
   "hash": "3e2f4daa38854783"
  },
  "compare/lawdepot-alternative.html": {
-  "date": "2026-10-18",
+  "date": "2026-10-23",
   "hash": "9d4743f408dcd5b7"
  },
  "compare/pandadoc-alternative.html": {
-  "date": "2026-10-18",
+  "date": "2026-10-23",
   "hash": "1fcadccbb1f8b706"
  },
  "compare/rocket-lawyer-alternative.html": {
-  "date": "2026-10-18",
+  "date": "2026-10-23",
   "hash": "7efd3474b80c701b"
  },
  "contact/": {
@@ -693,11 +693,11 @@
  },
  "roadmap/": {
   "date": "2026-10-23",
-  "hash": "0682c3e33e50fdbf"
+  "hash": "1fc3c0f3874064cc"
  },
  "status/": {
   "date": "2026-10-23",
-  "hash": "ff9c1ee09a983ca4"
+  "hash": "bf43c4dab3df4235"
  },
  "templates/": {
   "date": "2026-10-23",
