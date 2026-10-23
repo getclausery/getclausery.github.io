@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '1.37.0', date: '23 October 2026', summary: '/.well-known/support redirect (RFC 9405)' },
   { version: '1.36.1', date: '23 October 2026', summary: 'Richer SoftwareApplication schema (all paid offers)' },
   { version: '1.36.0', date: '23 October 2026', summary: 'Customers page and releases Atom feed' },
   { version: '1.35.0', date: '23 October 2026', summary: 'UI upgrade, pricing redesign, status and roadmap pages' },
@@ -28,6 +29,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-37-0">1.37.0 <span class="small muted">— 23 October 2026</span></h2>
+<ul>
+  <li>Added <code>/.well-known/support</code> (RFC 9405), redirecting to the contact page. Browsers and OSes that show a “Get support” entry for installed PWAs now resolve it somewhere useful instead of 404.</li>
+</ul>
 <h2 id="v1-36-1">1.36.1 <span class="small muted">— 23 October 2026</span></h2>
 <ul>
   <li>Home-page SoftwareApplication schema now lists every paid offer (Pro monthly, Pro yearly, Team) with availability, so product rich results include the full price ladder.</li>

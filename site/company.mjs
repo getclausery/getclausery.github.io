@@ -25,6 +25,13 @@ export const pages = [
     extraHead: '<meta http-equiv="refresh" content="0;url=../app/#/settings"><meta name="robots" content="noindex, follow"><script>location.replace("../app/#/settings");</script>',
     body: (rel) => `<p>Redirecting to <a href="${rel}app/#/settings">Settings</a>. Clausery stores your data only in this browser and has no account password to change on a server. If you use an optional vault passphrase, you can change it from Settings → Encryption.</p>` },
   {
+    // /.well-known/support (RFC 9405) — points users at the public contact page so "Get support" links in
+    // browsers and OSes resolve somewhere useful instead of 404.
+    path: '.well-known/support', title: 'Support', noindex: true,
+    description: 'Clausery support: contact a person by email for questions, billing, templates or bug reports.',
+    extraHead: '<meta http-equiv="refresh" content="0;url=../contact/"><meta name="robots" content="noindex, follow"><link rel="help" href="../contact/"><script>location.replace("../contact/");</script>',
+    body: (rel) => `<p>Redirecting to <a href="${rel}contact/">contact</a>. For questions, billing help, refunds, template requests, bug reports or security issues, email from the contact page.</p>` },
+  {
     path: 'about/', title: 'About Clausery',
     description: 'Clausery helps small businesses make invoices, quotes and receipts in Word. Read how local document processing, the free library and paid plans work.',
     extraHead: ld({ '@type': 'AboutPage', name: 'About Clausery', url: `${SITE}about/`, mainEntity: ORG }),
