@@ -11,7 +11,7 @@ const proSub = `${TRIAL_DAYS}-day free trial, ${REFUND_DAYS}-day refund`;
 export const pages = [{
   path: 'go/',
   title: 'Clausery — make an invoice, no signup',
-  description: 'Free Word invoices, quotes and receipts — no account, no card, editable .docx that stays on your device. Open the app, read the proof, or browse templates.',
+  description: 'Free Word invoices, quotes and receipts — no account, no card, editable .docx that stays on your device. Open the app, read the proof, or browse templates. (Not the compliance platform at clausery.ai.)',
   noindex: true,
   layout: 'embed',
   extraHead: `<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
@@ -52,6 +52,7 @@ body.embed { padding: 0; }
   <a class="bio-logo" href="${rel}" aria-label="Clausery home">C</a>
   <h1>Clausery</h1>
   <p class="lead">Free Word invoices, quotes and receipts. No account, no card — documents are made on your device, not uploaded.</p>
+  <p class="foot-note" style="font-size:.78rem;color:#7a8ba3;margin:-.75rem 0 1.3rem;line-height:1.4">Free Word templates for small business &amp; freelancers. Not the enterprise compliance platform at <a href="https://www.clausery.ai/" rel="noopener" style="color:#9fb0c6">clausery.ai</a> — same name, different company.</p>
   <ul class="bio-checks">
     <li>No signup</li>
     <li>No card to start</li>
