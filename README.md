@@ -23,6 +23,26 @@ Every template in the library can be downloaded as a normal Word file or filled 
 
 See [all templates](https://getclausery.github.io/templates/), the [clause library](https://getclausery.github.io/clauses/), [guides](https://getclausery.github.io/guides/) and [free calculators](https://getclausery.github.io/free-tools/).
 
+## License and open-source commitment
+
+Clausery is **open source under the GNU AGPLv3** — the OSI-approved license
+built for network software. That means:
+
+- You can read, fork, modify and self-host the code forever, for free.
+- If you run a **modified version** as a hosted/SaaS service for other
+  people, the AGPL's section 13 requires you to publish your modified
+  source code to your users under the same license. A competitor cannot
+  take the code, rebrand it, and sell it as a closed SaaS without
+  contributing their changes back.
+- The **Clausery name and logos are trademarks** (see [TRADEMARKS.md](TRADEMARKS.md))
+  and are not included in the code license. Forks must use their own name
+  and logo. White-label or embedded commercial licenses are available —
+  email getclausery@gmail.com.
+- Free-plan documents carry a small "Made with Clausery" credit line.
+  Paid Pro/Team plans and self-hosted commercial licenses remove it.
+- See [LICENSE](LICENSE) for the full terms and [SECURITY.md](SECURITY.md)
+  for how to report vulnerabilities.
+
 ## Why
 
 Small businesses and freelancers repeatedly prepare quotes, invoices and receipts. Clausery keeps document contents on the device, calculates the totals from the values supplied and produces ordinary Word output. The [free business document kit](https://getclausery.github.io/business-document-kit/) brings six common templates together, with online questionnaires and setup instructions.

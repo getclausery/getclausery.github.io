@@ -9,7 +9,7 @@
  },
  "about/": {
   "date": "2026-10-23",
-  "hash": "7de68e48706290c9"
+  "hash": "a93940e94c24d8ba"
  },
  "business-document-kit/": {
   "date": "2026-10-23",
@@ -638,6 +638,10 @@
  "legal/dpa.html": {
   "date": "2026-10-09",
   "hash": "1686ec404a3090ac"
+ },
+ "legal/license.html": {
+  "date": "2026-10-23",
+  "hash": "ef7c056e97ed972b"
  },
  "legal/privacy.html": {
   "date": "2026-10-15",

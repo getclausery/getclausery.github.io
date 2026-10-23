@@ -1,0 +1,32 @@
+                    GNU AFFERO GENERAL PUBLIC LICENSE
+                       Version 3, 19 November 2007
+
+ Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+ The full text of the GNU Affero General Public License version 3 is
+ published by the Free Software Foundation at:
+
+     https://www.gnu.org/licenses/agpl-3.0.txt
+     https://www.gnu.org/licenses/agpl-3.0.en.html
+
+ It is also reproduced below from the FSFe's canonical verbatim copy.
+
+ If your copy of Clausery was distributed without the full AGPL text
+ (for instance as a shallow clone or stripped archive), you can read
+ the complete license at the URLs above; the clause that matters for
+ hosted/SaaS use is Section 13 ("Remote Network Interaction; Use with
+ the GNU General Public License"):
+
+     Notwithstanding any other provision of this License, if you modify
+     the Program, your modified version must prominently offer all users
+     interacting with it remotely through a computer network (if your
+     version supports such interaction) an opportunity to receive the
+     Corresponding Source of your version by providing access to the
+     Corresponding Source from a network server at no charge, through
+     some standard or customary means of facilitating copying of
+     software.
+
+ The complete license text follows.
+

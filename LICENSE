@@ -1,0 +1,67 @@
+                    GNU AFFERO GENERAL PUBLIC LICENSE
+                       Version 3, 19 November 2007
+
+ Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+The full text of version 3 of the GNU Affero General Public License is
+available from the Free Software Foundation at:
+
+    https://www.gnu.org/licenses/agpl-3.0.txt
+    https://www.gnu.org/licenses/agpl-3.0.en.html
+
+A copy of the AGPL-3.0 text is included in this repository as LICENSE-AGPL.txt
+and is also available in the source tree.
+
+----------------------------------------------------------------------------
+
+Clausery — invoices, quotes and Word documents, in the browser.
+Copyright (C) 2025–2026  the Clausery authors (see git history and AUTHORS)
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+----------------------------------------------------------------------------
+
+What the AGPL-3.0 means for Clausery, in plain English:
+
+  1. You MAY use, copy, modify and redistribute the code, for free or
+     commercially, AS LONG AS you keep this license and copyright in place
+     and distribute your modified source under AGPL-3.0 too.
+
+  2. The "network" clause (section 13): if you run a MODIFIED version of
+     Clausery and let other people interact with it over a network (for
+     example as a SaaS, an intranet tool, or a hosted service), you MUST
+     make your complete corresponding source code available to those users,
+     under AGPL-3.0, at no charge, from the same service. That means a
+     competitor cannot simply fork Clausery, rebrand it and sell it as a
+     hosted service without releasing their improvements back to the
+     community.
+
+  3. This license covers the CODE (templates, engine, UI, build scripts
+     and documentation). It does NOT grant any right to use the Clausery
+     trade name, logos, app icons, marketing copy, Product Hunt launch
+     materials, Pinterest pins, short ads, or other brand assets — those
+     are reserved and licensed separately. See TRADEMARKS.md.
+
+  4. If you want to use Clausery in a way that is NOT compatible with
+     AGPL-3.0 — for example white-labeling it inside a closed product,
+     embedding it in proprietary software, or removing the visible
+     attribution lines on hosted deployments — contact
+     getclausery@gmail.com to arrange a commercial license.
+
+The word templates shipped in samples/ are public-domain-style reference
+documents written for this project; they are covered by the same
+AGPL-3.0 but individual clauses are factual language and not
+copyrightable as original expression.
