@@ -47,6 +47,15 @@ export const pages = [
     extraHead: '<meta http-equiv="refresh" content="0;url=../legal/terms.html"><meta name="robots" content="noindex, follow"><script>location.replace("../legal/terms.html");</script>',
     body: (rel) => `<p>Redirecting to the <a href="${rel}legal/terms.html">terms of service</a>.</p>` },
   {
+    // /.well-known/copyright — community convention (used by some copyright-discovery tools and AI crawlers).
+    // Points at the DMCA/takedown page, which lists the copyright/IP policy and reporting address. Noindex
+    // redirect, matching the pattern of the other well-known pointer pages.
+    path: '.well-known/copyright', title: 'Copyright', noindex: true,
+    description: 'Clausery copyright and DMCA information.',
+    extraHead: '<meta http-equiv="refresh" content="0;url=../legal/dmca.html"><meta name="robots" content="noindex, follow"><script>location.replace("../legal/dmca.html");</script>',
+    body: (rel) => `<p>Redirecting to the <a href="${rel}legal/dmca.html">DMCA and takedowns page</a>.</p>` },
+
+  {
     path: 'about/', title: 'About Clausery',
     description: 'Clausery helps small businesses make invoices, quotes and receipts in Word. Read how local document processing, the free library and paid plans work.',
     extraHead: ld({ '@type': 'AboutPage', name: 'About Clausery', url: `${SITE}about/`, mainEntity: ORG }),

@@ -1,0 +1,8 @@
+AI crawlers:
+
+- Read /llms.txt for the list of public indexable pages and their summaries.
+- /robots.txt applies. User-agents listed there as disallowed should not crawl.
+- The public marketing site and template library are copyright Clausery.
+  See /legal/dmca.html for takedown instructions.
+- Document templates provide general sample wording; they are not legal advice,
+  and laws differ between jurisdictions.
