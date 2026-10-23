@@ -156,7 +156,27 @@ ${releases.map((r) => `  <entry>
 }
 
 // llms.txt (llmstxt.org): a plain summary and link map for AI assistants and answer engines.
-const section = (prefix) => pages.filter((p) => p.path.startsWith(prefix) && !p.path.endsWith('/') && !p.noindex).map((p) => `- [${p.title}](${BASE}${p.path}): ${p.description}`).join('\n');
+// section(prefix) includes the section index (e.g. 'templates/') plus every non-noindex child page under that prefix.
+const pageEntry = (p, displayTitle) => `- [${displayTitle || p.title}](${BASE}${p.path}): ${p.description}`;
+const findPage = (path) => pages.find((p) => p.path === path);
+const section = (prefix, opts = {}) => {
+  const out = [];
+  const idx = findPage(prefix);
+  if (idx && !idx.noindex) out.push(pageEntry(idx));
+  const kids = pages.filter((p) => p.path.startsWith(prefix) && p.path !== prefix && p.path.endsWith('.html') && !p.noindex);
+  for (const p of kids) out.push(pageEntry(p));
+  return out.join('\n');
+};
+// Product section: curated root-level marketing pages (explicit list so ordering is stable and editorial).
+// Hubs that have their own dedicated section below (templates/, invoice-templates/, nda-templates/, for/,
+// clauses/, guides/, free-tools/, compare/) are listed under those sections instead, to avoid duplicate links.
+const productLinks = ['', 'about/', 'pricing/', 'why-clausery/', 'business-document-kit/', 'self-hosting/', 'customers/', 'press/', 'roadmap/', 'status/', 'docs/']
+  .map((p) => {
+    const page = findPage(p);
+    if (!page || page.noindex) return null;
+    return pageEntry(page, p === '' ? 'Home' : undefined);
+  })
+  .filter(Boolean).join('\n');
 writeFileSync('llms.txt', `# Clausery
 
 > Clausery helps small businesses and freelancers make invoices, quotes and receipts in editable Word (.docx) files with calculated totals. Document processing happens on the user's device. Its free business document kit contains six Word templates and instructions, with no email signup. It also turns ordinary Word templates with {tags} into guided questionnaires. Every library template can be downloaded or filled in free, with no account or document limit; up to three of the user's own templates are also free. Documents made from library templates on the Free plan end with a small "Made with Clausery" line. Pro ($${PRICES.pro} per user per month or $${PRICES.proYearly} per year) leaves that line out and adds unlimited own templates, calculations in those templates, unlimited documents from a spreadsheet, an encrypted workspace and client intake forms. Pro can be tried free for ${TRIAL_DAYS} days in the app with no card, and a first payment has a ${REFUND_DAYS}-day money-back guarantee.
@@ -179,19 +199,19 @@ Key facts:
 - Clausery is software, not a law firm, and does not give legal advice.
 
 ## Product
-- [Home](${BASE}): what Clausery does and who it is for
-- [About Clausery](${BASE}about/): who maintains the software, its scope and limits
-- [Pricing](${BASE}pricing/): Free, Pro, Team and Enterprise plans
-- [Why Clausery](${BASE}why-clausery/): the difference, a decision guide and links to every comparison
-- [Free business document kit](${BASE}business-document-kit/): six Word templates and instructions, no email signup
-- [Security](${BASE}docs/security.html): how data stays on the device
-- [Documentation](${BASE}docs/): getting started, template syntax, logic, client intake
+${productLinks}
 
 ## Free Word templates
 ${section('templates/')}
 
 ## Invoice templates by trade and country
 ${section('invoice-templates/')}
+
+## NDA templates
+${section('nda-templates/')}
+
+## Who Clausery is for
+${section('for/')}
 
 ## Contract clause library
 ${section('clauses/')}
@@ -204,6 +224,12 @@ ${section('free-tools/')}
 
 ## Comparisons
 ${section('compare/')}
+
+## Company
+${['contact/', 'changelog.html'].map((p) => {
+  const page = findPage(p);
+  return page && !page.noindex ? pageEntry(page) : null;
+}).filter(Boolean).join('\n')}
 `);
 console.log('wrote llms.txt');
 
