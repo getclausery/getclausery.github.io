@@ -156,7 +156,7 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <link rel="dns-prefetch" href="https://static.cloudflareinsights.com">
 <link rel="stylesheet" href="${rel}site.css">
 <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'self'; upgrade-insecure-requests">
 <script>${THEME_INLINE}</script>
 <script src="${rel}site.js" defer></script>
 ${extraHead}${pageLd}
@@ -179,7 +179,13 @@ export function embedPage({ title, description, extraHead = '', rel, body }) {
 <meta name="description" content="${esc(clipDescription(description))}">
 <meta name="robots" content="noindex, follow">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<link rel="icon" href="${rel}assets/icon.svg" type="image/svg+xml">
+<meta name="color-scheme" content="light dark">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), display-capture=()">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<link rel="icon" sizes="any" href="${rel}assets/icon.svg" type="image/svg+xml">
+<link rel="icon" sizes="16x16 32x32 48x48" href="${rel}favicon.ico" type="image/x-icon">
+<link rel="mask-icon" href="${rel}assets/icon.svg" color="#2dd4bf">
 <link rel="stylesheet" href="${rel}site.css">
 <script src="${rel}free-tools/embed/embed.js"></script>
 ${extraHead}

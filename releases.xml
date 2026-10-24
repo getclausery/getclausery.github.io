@@ -8,12 +8,20 @@
   <updated>2026-10-24T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
-    <title>Clausery v1.65.0 — Removed unused GoatCounter preconnect/img-src from marketing pages and 404 (only app hits it)</title>
+    <title>Clausery v1.66.0 — CSP blob: removed from marketing img-src; X-Content-Type-Options + Referrer-Policy on /go/, activate, offline</title>
+    <link href="https://getclausery.github.io/changelog.html#v1-66-0"/>
+    <id>https://getclausery.github.io/changelog.html#v1-66-0</id>
+    <published>2026-10-24T00:00:00Z</published>
+    <updated>2026-10-24T00:00:00Z</updated>
+    <summary>CSP blob: removed from marketing img-src; X-Content-Type-Options + Referrer-Policy on /go/, activate, offline</summary>
+  </entry>
+  <entry>
+    <title>Clausery v1.65.0 — Tightened marketing CSP + preconnects to the origins marketing pages actually load</title>
     <link href="https://getclausery.github.io/changelog.html#v1-65-0"/>
     <id>https://getclausery.github.io/changelog.html#v1-65-0</id>
     <published>2026-10-24T00:00:00Z</published>
     <updated>2026-10-24T00:00:00Z</updated>
-    <summary>Removed unused GoatCounter preconnect/img-src from marketing pages and 404 (only app hits it)</summary>
+    <summary>Tightened marketing CSP + preconnects to the origins marketing pages actually load</summary>
   </entry>
   <entry>
     <title>Clausery v1.64.0 — <link rel="security"> autodiscovery for .well-known/security.txt on every page</title>

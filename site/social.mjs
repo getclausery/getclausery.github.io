@@ -24,6 +24,7 @@ export const pages = [{
 <link rel="manifest" href="../app/manifest.webmanifest">
 <meta name="theme-color" content="#0f1d2e">
 <meta name="color-scheme" content="dark">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), display-capture=()">
