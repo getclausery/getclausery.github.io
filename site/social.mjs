@@ -20,6 +20,7 @@ export const pages = [{
 <link rel="icon" sizes="16x16 32x32 48x48" href="../favicon.ico" type="image/x-icon">
 <link rel="apple-touch-icon" href="../assets/icon-192.png">
 <link rel="mask-icon" href="../assets/icon.svg" color="#2dd4bf">
+<link rel="security" href="../.well-known/security.txt">
 <link rel="manifest" href="../app/manifest.webmanifest">
 <meta name="theme-color" content="#0f1d2e">
 <meta name="color-scheme" content="dark">
