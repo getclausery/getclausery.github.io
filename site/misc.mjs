@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '1.65.0', date: '24 October 2026', summary: 'Removed unused GoatCounter preconnect/img-src from marketing pages and 404 (only app hits it)' },
   { version: '1.64.0', date: '24 October 2026', summary: '<link rel="security"> autodiscovery for .well-known/security.txt on every page' },
   { version: '1.63.0', date: '24 October 2026', summary: 'Open Graph article:author and article:publisher on guides and clauses' },
   { version: '1.62.0', date: '24 October 2026', summary: '/go/ social page CSP; activate.html security/theme/icon parity' },
@@ -55,6 +56,16 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-65-0">1.65.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li>Tightened the marketing-site and 404 CSP + preconnect lists down to only what those pages actually load:
+    <ul>
+      <li>Removed <code>getclausery.goatcounter.com</code> from <code>img-src</code>/<code>connect-src</code> and its <code>preconnect</code>/<code>dns-prefetch</code>. The anonymous GoatCounter event pixel only fires inside the app (document made, draft started, plan chosen); marketing pages run Cloudflare Web Analytics only and never hit GoatCounter.</li>
+      <li>Removed <code>api.lemonsqueezy.com</code> from marketing <code>connect-src</code> and its <code>preconnect</code>/<code>dns-prefetch</code>. Marketing pages only link to the hosted checkout with ordinary <code>&lt;a href&gt;</code> (top-level navigation, not a fetch or XHR), so they never make a same-tab request to the LemonSqueezy API; the app shell, activate page and purchase runtime still preconnect and allow-list it, since those pages call the license-key endpoint directly.</li>
+    </ul>
+    App-shell CSP/preconnects are unchanged; that is where the license-key check and anonymous event count actually fire.
+  </li>
+</ul>
 <h2 id="v1-64-0">1.64.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li>Added <code>&lt;link rel="security" href="${rel}.well-known/security.txt"&gt;</code> autodiscovery on every marketing page, the 404 page, the app shell, the activate page and the <a href="${rel}go/">/go/</a> social landing, so security-researcher tooling, automated scanners and link extractors can find the security contact without guessing the standard path. Joins the existing <code>rel="author"</code> (humans.txt), <code>rel="license"</code> and <code>rel="sitemap"</code> autodiscovery links.</li>
