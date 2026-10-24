@@ -7,7 +7,7 @@ import { applySetup, setupFor } from '../app/lib/setups.js';
 import { PRESETS } from '../app/lib/presets.js';
 import { invoiceWordHelp, workflowLinks } from './invoice-workflows.mjs';
 import { paymentReceiptHelp, receiptHelpHead } from './payment-receipt.mjs';
-import { esc, crumbsLd, collectionLd, faqLd, faqHtml, lowerFirst, fitSnippet, picture, SITE, LASTMOD, LASTMOD_LONG } from '../tools/partials.mjs';
+import { esc, crumbsLd, collectionLd, faqLd, faqHtml, lowerFirst, fitSnippet, picture, helpfulWidget, SITE, LASTMOD, LASTMOD_LONG } from '../tools/partials.mjs';
 import { CLAUSES } from './data/clauses.mjs';
 import { previewHtml, PREVIEW_CSS, PREVIEW_SIZE } from '../tools/preview.mjs';
 import { GUIDES } from './audience.mjs';
@@ -773,6 +773,7 @@ ${['quote', 'payment-receipt', 'credit-note'].includes(t.slug) ? `<!--nav--><p s
   <div class="grid grid-3 related-cards">${related(t).map((x) => `<a class="feature" href="${rel}templates/${x.slug}.html"><h3>${esc(x.name)}</h3><p>${esc(cardLine(x))}</p></a>`).join('')}</div>
   <p><a href="${rel}templates/">Browse all ${LIB.length} free templates by category</a></p><!--/nav-->
   <p class="small muted" style="margin-top:2rem">This template is a general sample and not legal advice. Laws vary by jurisdiction; have it reviewed before use.</p>
+  ${helpfulWidget(`templates/${t.slug}.html`)}
   <div class="tpl-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/${t.slug}">Fill it in — free <span class="arr">→</span></a></div>
 </div></section>`,
     };

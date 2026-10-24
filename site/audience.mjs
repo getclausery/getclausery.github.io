@@ -1,5 +1,5 @@
 // Pages for each buyer, and how-to guides that answer the searches those buyers make.
-import { esc, faqLd, faqHtml, crumbsLd, collectionLd, lowerFirst, LASTMOD, LASTMOD_LONG } from '../tools/partials.mjs';
+import { esc, faqLd, faqHtml, crumbsLd, collectionLd, helpfulWidget, lowerFirst, LASTMOD, LASTMOD_LONG } from '../tools/partials.mjs';
 import { HIGH_INTENT_GUIDES } from './data/high-intent-guides.mjs';
 import { SERVICE_GUIDES } from './data/service-guides.mjs';
 import { PRICES } from '../app/config.js';
@@ -2141,7 +2141,8 @@ ${GUIDE_TOPICS.map(([t, slugs]) => `  <h2 id="${topicId(t)}" style="margin-top:2
 <ul class="sources">${g.sources.map(([label, url]) => `<li><a href="${esc(url)}" rel="noopener">${esc(label)}</a></li>`).join('')}</ul>` : ''}
 ${g.faq ? `<h2>Questions</h2>${faqHtml(g.faq)}` : ''}<!--nav-->${['how-to-write-an-invoice', 'what-to-do-when-a-client-wont-pay', 'what-bank-details-to-put-on-an-invoice'].includes(g.slug) ? `<p>Write the sending message or a polite follow-up with the <a href="${rel}guides/invoice-email-template.html">free invoice email generator and four email templates</a>.</p>` : ''}<h2>More on ${esc(lowerFirst(topic))}</h2>
 <ul>${slugs.filter((x) => x !== g.slug).map((x) => `<li><a href="${rel}guides/${x}.html">${esc(GUIDE_BY[x].title)}</a></li>`).join('')}</ul>
-<p><a href="${rel}guides/">Browse all guides by topic</a></p><!--/nav--></div></section>`;
+<p><a href="${rel}guides/">Browse all guides by topic</a></p><!--/nav-->
+${helpfulWidget(`guides/${g.slug}.html`)}</div></section>`;
     },
   })),
 ];
