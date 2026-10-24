@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '1.70.0', date: '24 October 2026', summary: 'offline.html icon/manifest/license/security/search autodiscovery parity' },
   { version: '1.69.0', date: '24 October 2026', summary: 'PWA shortcut icons; generic-form-factor screenshot in manifest' },
   { version: '1.68.0', date: '24 October 2026', summary: 'PWA manifest display_override/lang/dir; OpenSearch autodiscovery on app, activate, /go/' },
   { version: '1.67.0', date: '24 October 2026', summary: 'offline.html CSP and Permissions-Policy; every served HTML page now carries a CSP' },
@@ -60,6 +61,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-70-0">1.70.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li>The <code>offline.html</code> service-worker fallback now carries the same icon, manifest and autodiscovery links as every other page on the site: vector favicon with <code>sizes="any"</code>, legacy ICO favicon, Apple touch icon, Safari mask-icon, PWA manifest, <code>rel="license"</code>, <code>rel="security"</code> and the OpenSearch description. v1.61 and v1.66–v1.67 already added light/dark <code>theme-color</code>, <code>color-scheme</code>, <code>X-Content-Type-Options</code>, <code>Referrer-Policy</code>, <code>X-Frame-Options</code>, <code>Permissions-Policy</code> and a strict CSP to this page; with this change the offline fallback is visually and metadata-parity with the rest of the site when it appears.</li>
+</ul>
 <h2 id="v1-69-0">1.69.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li>PWA manifest polish: each shortcut (New invoice, New quote, New receipt, Drafts, Templates) now carries a 192px icon so shortcut menus on Android, Windows and ChromeOS show the brand badge next to each action rather than a blank glyph. Added a second (form-factor-less) screenshot entry so mobile install prompts show the same hero screenshot (the first entry was marked <code>form_factor: "wide"</code> and thus only eligible for desktop install dialogs).</li>
