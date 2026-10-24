@@ -84,6 +84,29 @@ for (const p of pages) {
   writeFileSync(out, final);
   console.log('wrote', out);
 }
+// Build a compact search index for the in-page command palette, grouped by section.
+const prettyTitle = (t) => String(t).replace(/\s*[·\-–—]\s*Clausery.*$/,'').replace(/\s*\(.*?\)\s*$/,'').trim() || t;
+const named=(list)=>list.map(p=>({t:prettyTitle(p.title),p:p.path}));
+const indexable=pages.filter(p=>p.layout!=='embed'&&!p.noindex&&!p.path.startsWith('.well-known')&&!['404.html','go/','made-with/'].some(x=>p.path===x||p.path.startsWith(x)));
+const searchIndex={
+  templates:named(indexable.filter(p=>/^templates\/[^/]+\.html$/.test(p.path))),
+  invoices:named(indexable.filter(p=>p.path.startsWith('invoice-templates/')&&p.path.endsWith('.html'))),
+  guides:named(indexable.filter(p=>p.path.startsWith('guides/')&&p.path.endsWith('.html'))),
+  clauses:named(indexable.filter(p=>p.path.startsWith('clauses/')&&p.path.endsWith('.html'))),
+  tools:named(indexable.filter(p=>p.path.startsWith('free-tools/')&&p.path.endsWith('.html'))),
+  pages:named(indexable.filter(p=>{
+    if(/^templates\/[^/]+\.html$/.test(p.path))return false;
+    if(p.path.startsWith('invoice-templates/')&&p.path.endsWith('.html'))return false;
+    if(p.path.startsWith('guides/')&&p.path.endsWith('.html'))return false;
+    if(p.path.startsWith('clauses/')&&p.path.endsWith('.html'))return false;
+    if(p.path.startsWith('free-tools/')&&p.path.endsWith('.html'))return false;
+    return true;
+  })),
+};
+const searchJson=JSON.stringify(searchIndex);
+writeFileSync('search-index.json',searchJson);
+console.log(`wrote search-index.json (${Buffer.byteLength(searchJson)} bytes, ${searchIndex.templates.length+searchIndex.invoices.length+searchIndex.guides.length+searchIndex.clauses.length+searchIndex.tools.length+searchIndex.pages.length} entries)`);
+
 // Keep only pages that still exist, in a stable order, so the file diffs cleanly.
 const live = new Set(pages.filter((p) => p.layout !== 'embed').map((p) => p.path));
 writeFileSync(DATES_FILE, JSON.stringify(Object.fromEntries(Object.keys(dates).filter((k) => live.has(k)).sort().map((k) => [k, dates[k]])), null, 1) + '\n');

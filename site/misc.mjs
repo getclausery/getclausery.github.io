@@ -61,6 +61,17 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-72-0">1.72.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li><strong>Command palette (⌘K / Ctrl+K / /):</strong> a universal fast launcher on every page — fuzzy-search every template, invoice template, guide, clause, free tool and page, plus quick actions (New invoice / New quote / New receipt / Drafts / Pricing / Docs). Keyboard-navigable (↑↓ to browse, Enter to open, Esc to dismiss) with a search button in the header so it's discoverable on mobile too.</li>
+  <li><strong>Returning-visitor welcome bar:</strong> if you have saved drafts locally, a dismissible sticky bar under the header greets you back, names the last document you were working on, and drops you into your drafts in one click. Remembered across sessions; snoozed for 7 days once dismissed.</li>
+  <li><strong>Redesigned navigation:</strong> shorter 58px glass header with pill-shaped links, brand-tint active state, keyboard affordance and a unified search entry. The mobile nav is now a proper slide-in drawer with a backdrop instead of a crude dropdown; the primary CTA is "Make an invoice" instead of the generic "Open the app".</li>
+  <li><strong>Scroll-to-top button</strong> (plus the existing "Continue drafting" floating CTA) grouped in a floating action stack; CTA label now names your actual draft when one exists.</li>
+  <li><strong>Visual refresh v2:</strong> unified design tokens (OKLch-style accents, new radius 18px, layered shadows, ambient gradient wash on the page background, grainless light), refined typography scale with tighter headings, border-gradient primary button, animated 2px read-progress bar with glow, card spotlight on hover, feature-card arrow affordance, and quieter FAQ / table / quote treatments.</li>
+  <li><strong>Footer restructure</strong> into Brand / Product / Learn / Company / Legal columns with social icons; legal line adds the clausery.ai disambiguation.</li>
+  <li><strong>Breadcrumbs</strong> and <strong>scroll-reveal</strong> for feature/plan/step cards (respects prefers-reduced-motion).</li>
+  <li>0 new third parties; CSP unchanged; AGPL / CMI / trademarks preserved.</li>
+</ul>
 <h2 id="v1-71-0">1.71.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li>Marketing UI refresh: softer surfaces, gentler borders and shadows, shorter glassier header, pill-shaped buttons and rounded 16px corners throughout. Cards, plans, steps and docs-cards now use subtler elevations and hover lifts so the page feels cleaner and less cluttered.</li>
