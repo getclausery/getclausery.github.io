@@ -101,7 +101,7 @@ export function head({ title, description, path, extraHead = '', pageLd = '', og
   const depth = path.split('/').filter(Boolean).length - (path.endsWith('/') || path === '' ? 0 : 1);
   const rel = relOverride || (depth > 0 ? '../'.repeat(depth) : './');
   const robots = /<meta\s+[^>]*name=["']robots["']/i.test(extraHead) ? '' : `<meta name="robots" content="${noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}">\n`;
-  const articleMeta = ogType === 'article' ? `${published ? `<meta property="article:published_time" content="${published}">\n` : ''}${modified ? `<meta property="article:modified_time" content="${modified}">\n` : ''}` : '';
+  const articleMeta = ogType === 'article' ? `${published ? `<meta property="article:published_time" content="${published}">\n` : ''}${modified ? `<meta property="article:modified_time" content="${modified}">\n` : ''}<meta property="article:author" content="Clausery"><meta property="article:publisher" content="Clausery">` : '';
   return `${CMI_HTML}
 <!doctype html>
 <html lang="en-GB">
