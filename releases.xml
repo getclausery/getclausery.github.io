@@ -8,6 +8,14 @@
   <updated>2026-10-24T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v1.59.0 — Dedicated maskable PWA icons; legacy favicon.ico fallback</title>
+    <link href="https://getclausery.github.io/changelog.html#v1-59-0"/>
+    <id>https://getclausery.github.io/changelog.html#v1-59-0</id>
+    <published>2026-10-24T00:00:00Z</published>
+    <updated>2026-10-24T00:00:00Z</updated>
+    <summary>Dedicated maskable PWA icons; legacy favicon.ico fallback</summary>
+  </entry>
+  <entry>
     <title>Clausery v1.58.0 — LemonSqueezy preconnect now only emitted on the Pricing page (the only marketing page that loads checkout)</title>
     <link href="https://getclausery.github.io/changelog.html#v1-58-0"/>
     <id>https://getclausery.github.io/changelog.html#v1-58-0</id>

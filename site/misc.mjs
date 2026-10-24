@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '1.59.0', date: '24 October 2026', summary: 'Dedicated maskable PWA icons; legacy favicon.ico fallback' },
   { version: '1.58.0', date: '24 October 2026', summary: 'LemonSqueezy preconnect now only emitted on the Pricing page (the only marketing page that loads checkout)' },
   { version: '1.57.0', date: '24 October 2026', summary: 'Social /go/ page security header parity (X-Frame-Options, Referrer-Policy, Permissions-Policy)' },
   { version: '1.56.0', date: '24 October 2026', summary: 'Social link-in-bio page: mask-icon, sizes=any favicon, dark theme-color' },
@@ -49,6 +50,12 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-59-0">1.59.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li>Added dedicated maskable PWA icons at 192px and 512px (<code>assets/icon-maskable-192.png</code>, <code>assets/icon-maskable-512.png</code>). These have a full-bleed dark gradient background and the document+check glyph centered in the 80% safe zone, so Android adaptive-icon masks (circles, squircles, rounded squares) never clip the logo when Clausery is installed to the home screen. The existing icon-192/icon-512 PNGs remain as <code>purpose: any</code>; the maskable PNGs are declared separately with <code>purpose: maskable</code> so Chrome/WebView never have to guess where to crop.</li>
+  <li>Added a legacy <code>favicon.ico</code> (16/32/48 multi-size) at the site root and linked it from the marketing head, 404 page, app shell, activate page and <code>/go/</code> social landing. The SVG favicon is still the primary (vector) pick for modern browsers, but the ICO fallback covers older Safari, IE-mode Edge, corporate kiosks and bookmark bars that still request <code>/favicon.ico</code> regardless of <code>&lt;link rel="icon"&gt;</code>.</li>
+  <li>Updated the service-worker precache list to include icon-512 (previously omitted), both new maskable PNGs and <code>favicon.ico</code> so offline installs have all the icon assets they need.</li>
+</ul>
 <h2 id="v1-58-0">1.58.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li>The <code>preconnect</code>/<code>dns-prefetch</code> hints for the LemonSqueezy payments origin (<code>api.lemonsqueezy.com</code>) now only get emitted on the <a href="${rel}pricing/">Pricing</a> page, which is the only marketing page that actually loads the checkout script. Previously they were injected into every marketing page and the 404, opening two unused TLS handshakes per page view. Cloudflare Insights and GoatCounter preconnects remain page-wide because those scripts fire on every marketing page visit.</li>

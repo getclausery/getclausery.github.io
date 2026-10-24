@@ -42,6 +42,7 @@
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), display-capture=()">
 <link rel="icon" sizes="any" href="./assets/icon.svg" type="image/svg+xml">
+<link rel="icon" sizes="16x16 32x32 48x48" href="./favicon.ico" type="image/x-icon">
 <link rel="apple-touch-icon" href="./assets/icon-192.png">
 <link rel="mask-icon" href="./assets/icon.svg" color="#2dd4bf">
 <link rel="manifest" href="./app/manifest.webmanifest">
@@ -85,6 +86,12 @@
 <main id="main" tabindex="-1">
 <section class="section"><div class="wrap prose">
 <h1>Changelog <a href="./releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-59-0">1.59.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li>Added dedicated maskable PWA icons at 192px and 512px (<code>assets/icon-maskable-192.png</code>, <code>assets/icon-maskable-512.png</code>). These have a full-bleed dark gradient background and the document+check glyph centered in the 80% safe zone, so Android adaptive-icon masks (circles, squircles, rounded squares) never clip the logo when Clausery is installed to the home screen. The existing icon-192/icon-512 PNGs remain as <code>purpose: any</code>; the maskable PNGs are declared separately with <code>purpose: maskable</code> so Chrome/WebView never have to guess where to crop.</li>
+  <li>Added a legacy <code>favicon.ico</code> (16/32/48 multi-size) at the site root and linked it from the marketing head, 404 page, app shell, activate page and <code>/go/</code> social landing. The SVG favicon is still the primary (vector) pick for modern browsers, but the ICO fallback covers older Safari, IE-mode Edge, corporate kiosks and bookmark bars that still request <code>/favicon.ico</code> regardless of <code>&lt;link rel="icon"&gt;</code>.</li>
+  <li>Updated the service-worker precache list to include icon-512 (previously omitted), both new maskable PNGs and <code>favicon.ico</code> so offline installs have all the icon assets they need.</li>
+</ul>
 <h2 id="v1-58-0">1.58.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li>The <code>preconnect</code>/<code>dns-prefetch</code> hints for the LemonSqueezy payments origin (<code>api.lemonsqueezy.com</code>) now only get emitted on the <a href="./pricing/">Pricing</a> page, which is the only marketing page that actually loads the checkout script. Previously they were injected into every marketing page and the 404, opening two unused TLS handshakes per page view. Cloudflare Insights and GoatCounter preconnects remain page-wide because those scripts fire on every marketing page visit.</li>
@@ -538,7 +545,7 @@
       <a href="./about/">About</a>
       <a href="./contact/">Contact</a>
     </div>
-    <div class="legal">© 2026 Clausery · <a href="./changelog.html#v1-57-0" style="color:inherit">v1.57.0</a> · Open source under <a href="./legal/license.html" style="color:inherit">AGPLv3</a> · Clausery name and logo are <a href="https://github.com/getclausery/getclausery.github.io/blob/main/TRADEMARKS.md" rel="noopener" style="color:inherit">trademarks</a>. Clausery is software, not legal advice; documents you generate are your responsibility. Not affiliated with Microsoft; Word is a trademark of Microsoft Corporation. <a href="https://github.com/getclausery/getclausery.github.io" rel="noopener" style="color:inherit">Source on GitHub</a></div>
+    <div class="legal">© 2026 Clausery · <a href="./changelog.html#v1-58-0" style="color:inherit">v1.58.0</a> · Open source under <a href="./legal/license.html" style="color:inherit">AGPLv3</a> · Clausery name and logo are <a href="https://github.com/getclausery/getclausery.github.io/blob/main/TRADEMARKS.md" rel="noopener" style="color:inherit">trademarks</a>. Clausery is software, not legal advice; documents you generate are your responsibility. Not affiliated with Microsoft; Word is a trademark of Microsoft Corporation. <a href="https://github.com/getclausery/getclausery.github.io" rel="noopener" style="color:inherit">Source on GitHub</a></div>
   </div>
 </footer>
 </body>

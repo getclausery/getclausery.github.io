@@ -1,0 +1,26 @@
+<!-- Clausery (C) 2026 Clausery. AGPL-3.0-or-later WITH Trademark Exception. Source: https://github.com/getclausery/getclausery.github.io -->
+<!-- Maskable PWA icon: full-bleed dark gradient background; document+check glyph centered within the adaptive-icon safe zone (40% radius, i.e. ~66% of edge) so Android circular/squircle masks never clip it. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1b2a41"/>
+      <stop offset="1" stop-color="#0f1419"/>
+    </linearGradient>
+  </defs>
+  <!-- Full-bleed background. Transparent edges are not allowed on maskable icons. -->
+  <rect width="512" height="512" fill="url(#g)"/>
+  <!-- Document glyph group. Drawn at 64 units in the source icon; scaled to 320px (62.5% of 512, fits the 80% maskable safe zone) and centered at (96,96).
+       The source glyph's <rect width="64" height="64" rx="14" fill="#1b2a41"/> is the outer rounded tile which we replace with the gradient above. -->
+  <g transform="translate(96,96) scale(5)">
+    <!-- White document page (replacing the original dark tile) -->
+    <rect x="0" y="0" width="64" height="64" rx="14" fill="#f6f4ef"/>
+    <!-- Folded corner -->
+    <path d="M38 0v8h8" fill="#c9d3e0"/>
+    <!-- Body lines -->
+    <path d="M20 16h18l8 8v24a2 2 0 0 1-2 2H20a2 2 0 0 1-2-2V18a2 2 0 0 1 2-2z" fill="#f6f4ef"/>
+    <path d="M24 32h16M24 38h16M24 44h10" stroke="#1b2a41" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Green check badge -->
+    <circle cx="46" cy="46" r="9" fill="#0f766e"/>
+    <path d="M42 46l3 3 5-6" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

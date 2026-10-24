@@ -138,6 +138,7 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), display-capture=()">
 <link rel="icon" sizes="any" href="${rel}assets/icon.svg" type="image/svg+xml">
+<link rel="icon" sizes="16x16 32x32 48x48" href="${rel}favicon.ico" type="image/x-icon">
 <link rel="apple-touch-icon" href="${rel}assets/icon-192.png">
 <link rel="mask-icon" href="${rel}assets/icon.svg" color="#2dd4bf">
 <link rel="manifest" href="${rel}app/manifest.webmanifest">

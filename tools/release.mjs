@@ -5,7 +5,7 @@ import { readFileSync, writeFileSync, globSync } from 'node:fs';
 
 const version = JSON.parse(readFileSync('package.json', 'utf8')).version;
 export function precacheList() {
-  const patterns = ['app/index.html', 'app/*.css', 'app/*.webmanifest', 'app/**/*.js', 'vendor/*.js', 'samples/*.docx', 'assets/icon.svg', 'assets/icon-192.png', 'site.css', 'site.js', 'offline.html', 'index.html'];
+  const patterns = ['app/index.html', 'app/*.css', 'app/*.webmanifest', 'app/**/*.js', 'vendor/*.js', 'samples/*.docx', 'assets/icon.svg', 'assets/icon-192.png', 'assets/icon-512.png', 'assets/icon-maskable-192.png', 'assets/icon-maskable-512.png', 'favicon.ico', 'site.css', 'site.js', 'offline.html', 'index.html'];
   const files = new Set();
   for (const p of patterns) for (const f of globSync(p)) files.add(f.split('\\').join('/'));
   return ['', 'app/', ...[...files].sort()];
