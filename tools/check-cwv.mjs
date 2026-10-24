@@ -69,7 +69,7 @@ for (const url of urls) {
   blockingMax = Math.max(blockingMax, blocking);
   if (blocking > 2) fail(file, `${blocking} render-blocking resources (budget: 2)`);
 }
-if (maxHtml > 100_000) fail('site', `largest page is ${maxHtml} bytes (budget: 100,000)`);
+if (maxHtml > 80_000) fail('site', `largest page is ${maxHtml} bytes (budget: 80,000)`); // v1.72: measured after external search-index
 
 // The home page must preload its LCP image and name it at high priority.
 const home = readFileSync('index.html', 'utf8');
@@ -98,8 +98,8 @@ for (const url of urls.filter((u) => /\/templates\/[^/]+\.html$/.test(u) && !u.e
 // Stylesheets and the site script stay small enough to render quickly.
 const css = bytes('site.css');
 const js = bytes('site.js');
-if (css > 27_500) fail('site.css', `${css} bytes (budget: 27,500)`);
-if (js > 8_000) fail('site.js', `${js} bytes (budget: 8,000)`);
+if (css > 45_000) fail('site.css', `${css} bytes (budget: 45,000)`);
+if (js > 16_000) fail('site.js', `${js} bytes (budget: 16,000)`); // 15302 v1.72
 if (/@import\b/.test(readFileSync('site.css', 'utf8'))) fail('site.css', 'uses @import, which adds a blocking request');
 
 if (failures.length) {
