@@ -52,7 +52,7 @@ const MATRIX = [
 ];
 
 export const pages = [{
-  path: 'pricing/', title: `Pricing — free forever, or Pro $${PRICES.pro}/mo (no card trial)`, checkout: true, extraHead: plansLd + faqLd(FAQ) + crumbsLd([['Home', ''], ['Pricing', 'pricing/']]),
+  path: 'pricing/', title: `Pricing — free forever, or Pro $${PRICES.pro}/mo (no card trial)`, extraHead: plansLd + faqLd(FAQ) + crumbsLd([['Home', ''], ['Pricing', 'pricing/']]),
   description: `Free forever: ${LIB.length} Word templates, three of your own, unlimited documents. Pro is $${PRICES.pro}/user/month for unlimited templates, calculations, encryption and bulk-from-spreadsheet. ${TRIAL_DAYS}-day free trial (no card), ${REFUND_DAYS}-day refund.`,
   body: (rel) => `
 <section class="section">
