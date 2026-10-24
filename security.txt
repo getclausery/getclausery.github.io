@@ -3,6 +3,7 @@ Expires: 2027-12-31T23:00:00.000Z
 Preferred-Languages: en
 Canonical: https://getclausery.github.io/.well-known/security.txt
 Policy: https://getclausery.github.io/docs/security.html
+Hiring: https://getclausery.github.io/pricing/
 # Canonical location is /.well-known/security.txt — this file exists at the root
 # for scanners that only look there. Per RFC 9116 §3, the canonical path remains
 # the well-known location.

@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '1.51.0', date: '24 October 2026', summary: 'Small polish pass: manifest disambiguation, PWA shortcuts, 404 search, security.txt source, en-GB app lang' },
   { version: '1.50.0', date: '24 October 2026', summary: 'Stronger disambiguation from clausery.ai across every AI-visible surface' },
   { version: '1.49.0', date: '23 October 2026', summary: 'Local invoice tracker: mark invoices sent/paid, overdue badges, reminder email' },
   { version: '1.48.0', date: '23 October 2026', summary: 'SoftwareApplication Offer schema includes direct checkout URLs' },
@@ -41,6 +42,14 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-51-0">1.51.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li>PWA manifest <code>name</code>/<code>description</code> now carries the same clausery.ai disambiguation as the rest of the site, so installed PWAs and app-store crawlers don't merge the identity. Added a "New receipt" PWA shortcut and an "Outstanding invoices" shortcut (deep link to the tracker).</li>
+  <li>OpenSearch description updated with disambiguation and a <code>Tags</code> element.</li>
+  <li>App shell (<code>app/index.html</code>) now uses <code>lang="en-GB"</code> instead of bare <code>en</code>, matching the marketing pages.</li>
+  <li>404 page: added an on-page template search form (GET /templates/?q=), popular shortcuts (Home / App / Templates / Invoices / Pricing), and the clausery.ai disambiguation line for visitors who land there via a stale link. CSP <code>form-action</code> relaxed from <code>'none'</code> to <code>'self'</code> to allow the search form.</li>
+  <li><code>.well-known/security.txt</code> now lists a <code>Source:</code> field pointing at the GitHub repository (RFC 9116); root <code>security.txt</code> adds a matching hiring pointer.</li>
+</ul>
 <h2 id="v1-50-0">1.50.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li><strong>Name disambiguation sweep</strong> to stop AI overviews from merging this project with clausery.ai. AI summarizers were occasionally describing this site as "the free version of Clausery.ai" or as a compliance-management product — an understandable mistake given the shared name, but wrong.</li>

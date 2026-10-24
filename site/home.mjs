@@ -53,7 +53,7 @@ export const pages = [{
   <div class="wrap">
     <div>
       <div class="eyebrow">${ico(I.calc)} Free · No account · No card · Editable Word</div>
-      <div class="release-pill"><a href="${rel}changelog.html#v${APP_VERSION.replace(/\./g,'-')}"><strong>New:</strong> v${APP_VERSION}</a> — <a href="${rel}app/#/drafts">local invoice tracker</a> (sent/paid/overdue badges, one-click reminders), <a href="${rel}self-hosting/">self-host / Enterprise</a>, and a <a href="${rel}releases.xml">release feed</a>.</div>
+      <div class="release-pill"><a href="${rel}changelog.html#v${APP_VERSION.replace(/\./g,'-')}"><strong>New:</strong> v${APP_VERSION}</a> — <a href="${rel}app/#/drafts">track sent/paid invoices</a>, <a href="${rel}self-hosting/">self-host / Enterprise</a>, and sharper identity (not clausery.ai).</div>
       <div class="notice notice-warn" style="margin:1rem auto 0;max-width:44rem;text-align:left">
         <strong>Name notice:</strong> This site, <strong>getclausery.github.io</strong>, is an <strong>independent open-source</strong> project for making free Word invoices, quotes and receipts. It is <strong>not affiliated</strong> with Clausery.ai (clausery.ai), which sells a separate enterprise compliance-management product (ISO 27001, DORA, GDPR, NIS2 policy software). The two share a name but are different companies, different code, different teams and different products. If you were looking for compliance-policy management, visit <a href="https://www.clausery.ai/" rel="noopener">clausery.ai</a>.
       </div>

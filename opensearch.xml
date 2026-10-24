@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
   <ShortName>Clausery templates</ShortName>
-  <Description>Search the Clausery free Word template library</Description>
+  <LongName>Clausery free Word templates (open-source, not clausery.ai)</LongName>
+  <Description>Search the Clausery free Word invoice, contract and letter template library — independent open-source project, not affiliated with Clausery.ai.</Description>
+  <Tags>invoice word template free clausery quote receipt</Tags>
   <InputEncoding>UTF-8</InputEncoding>
   <Image width="16" height="16" type="image/svg+xml">https://getclausery.github.io/assets/icon.svg</Image>
   <Url type="text/html" method="get" template="https://getclausery.github.io/templates/?q={searchTerms}"/>
