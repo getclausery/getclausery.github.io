@@ -141,6 +141,7 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <link rel="manifest" href="${rel}app/manifest.webmanifest">
 <link rel="search" type="application/opensearchdescription+xml" title="Clausery templates" href="${rel}opensearch.xml">
 <link type="text/plain" rel="author" href="${rel}humans.txt">
+<link rel="license" href="${rel}legal/license.html" title="AGPL-3.0-or-later WITH Clausery-Trademark-Exception">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="${rel}feed.xml">
 <link rel="alternate" type="application/atom+xml" title="Clausery releases" href="${rel}releases.xml">
 <link rel="alternate" hreflang="en-GB" href="${url}">

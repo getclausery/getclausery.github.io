@@ -5,7 +5,8 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
-  { version: '1.51.0', date: '24 October 2026', summary: 'Small polish pass: manifest disambiguation, PWA shortcuts, 404 search, security.txt source, en-GB app lang' },
+  { version: '1.52.0', date: '24 October 2026', summary: 'HTML rel=license link on every page' },
+  { version: '1.51.0', date: '24 October 2026', summary: 'PWA/metadata polish: manifest disambiguation, shortcuts, 404 search, security.txt source' },
   { version: '1.50.0', date: '24 October 2026', summary: 'Stronger disambiguation from clausery.ai across every AI-visible surface' },
   { version: '1.49.0', date: '23 October 2026', summary: 'Local invoice tracker: mark invoices sent/paid, overdue badges, reminder email' },
   { version: '1.48.0', date: '23 October 2026', summary: 'SoftwareApplication Offer schema includes direct checkout URLs' },
@@ -42,6 +43,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-52-0">1.52.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li>Every page now includes an HTML <code>&lt;link rel="license"&gt;</code> pointing at <code>/legal/license.html</code>, per the HTML5 autodiscovery convention. This gives crawlers, readers and AI extractors an explicit license link without them having to guess from footer text.</li>
+</ul>
 <h2 id="v1-51-0">1.51.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li>PWA manifest <code>name</code>/<code>description</code> now carries the same clausery.ai disambiguation as the rest of the site, so installed PWAs and app-store crawlers don't merge the identity. Added a "New receipt" PWA shortcut and an "Outstanding invoices" shortcut (deep link to the tracker).</li>
