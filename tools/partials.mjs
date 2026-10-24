@@ -83,12 +83,13 @@ export function fitSnippet(text, { lead = '', tail = '', max = 158 } = {}) {
 }
 export const faqLd = (faq) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) })}</script>`;
 export const crumbsLd = (items) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map(([name, url], i) => ({ '@type': 'ListItem', position: i + 1, name, item: SITE + url })) })}</script>`;
+export const crumbsHtml = (items, rel) => items.length > 1 ? `<nav aria-label="Breadcrumb" class="breadcrumb"><ol>${items.map(([name, url], i) => `<li>${i > 0 ? '<span aria-hidden="true">/</span>' : ''}${i === items.length - 1 ? `<span aria-current="page">${esc(name)}</span>` : `<a href="${rel}${url}">${esc(name)}</a>`}</li>`).join('')}</ol></nav>` : '';
 export const collectionLd = ({ path, name, description, items }) => `<script type="application/ld+json">${JSON.stringify({
   '@context': 'https://schema.org', '@type': 'CollectionPage', '@id': `${SITE}${path}#webpage`, url: `${SITE}${path}`, name, description,
   inLanguage: 'en-GB', isPartOf: { '@id': `${SITE}#website` },
   mainEntity: { '@type': 'ItemList', numberOfItems: items.length, itemListElement: items.map(([itemName, itemPath], i) => ({ '@type': 'ListItem', position: i + 1, name: itemName, url: `${SITE}${itemPath}` })) },
 })}</script>`;
-export const faqHtml = (faq) => `<div class="faq">${faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>`;
+export const faqHtml = (faq) => `<div class="faq" itemscope itemtype="https://schema.org/FAQPage">${faq.map(([q, a], i) => `<details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" id="faq-${i}"><summary itemprop="name" aria-controls="faq-${i}-a" id="faq-${i}-q">${esc(q)}</summary><div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" id="faq-${i}-a" role="region" aria-labelledby="faq-${i}-q"><p itemprop="text">${esc(a)}</p></div></details>`).join('')}</div>`;
 export function head({ title, description, path, extraHead = '', pageLd = '', ogImage = 'assets/og.png', ogType = 'website', published, modified, rel: relOverride, noindex = false }) {
   // Search results show about 60 characters of a title; drop the brand suffix rather than have the title cut off.
   // The home title leads with what the site is for (small businesses making invoices in Word) and what people search for.
@@ -103,7 +104,7 @@ export function head({ title, description, path, extraHead = '', pageLd = '', og
   const robots = /<meta\s+[^>]*name=["']robots["']/i.test(extraHead) ? '' : `<meta name="robots" content="${noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}">\n`;
   const articleMeta = ogType === 'article' ? `${published ? `<meta property="article:published_time" content="${published}">\n` : ''}${modified ? `<meta property="article:modified_time" content="${modified}">\n` : ''}<meta property="article:author" content="Clausery"><meta property="article:publisher" content="Clausery">` : '';
   const SECTION_NAMES = { 'invoice-templates':'Invoice templates', templates:'Templates', guides:'Guides', clauses:'Clause library', 'free-tools':'Free tools', compare:'Compare', for:"Who it's for", pricing:'Pricing', docs:'Docs', about:'About', contact:'Contact', customers:'Customers', 'why-clausery':'Why Clausery', legal:'Legal', 'business-document-kit':'Business document kit', 'nda-templates':'NDA templates', press:'Press', roadmap:'Roadmap', status:'Status', 'self-hosting':'Self-host' };
-  let autoCrumb = '';
+  let crumbItems = [];
   if (!noindex && path !== '' && path !== '404.html' && !/BreadcrumbList/.test(extraHead || '')) {
     const parts = path.split('/').filter(Boolean);
     const last = parts[parts.length - 1];
@@ -118,8 +119,9 @@ export function head({ title, description, path, extraHead = '', pageLd = '', og
     }
     const lastLabel = lastIsFile ? full.replace(/\s*·\s*Clausery\s*$/, '').replace(/\s*\(not clausery\.ai\)\s*/i, '') : (SECTION_NAMES[parts[parts.length-1]] || parts[parts.length-1]);
     items.push([lastLabel, path]);
-    autoCrumb = crumbsLd(items);
+    crumbItems = items;
   }
+  const autoCrumb = crumbItems.length ? crumbsLd(crumbItems) : '';
   return `${CMI_HTML}
 <!doctype html>
 <html lang="en-GB">
@@ -184,7 +186,11 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://static.cloudflareinsights.com" crossorigin>
 <link rel="dns-prefetch" href="https://static.cloudflareinsights.com">
 ${path === '' ? `<link rel="preconnect" href="${rel}app/" crossorigin>` : ''}
+<link rel="preload" href="${rel}assets/icon.svg" as="image" type="image/svg+xml">
+<link rel="preload" href="${rel}site.css" as="style">
+<link rel="preload" href="${rel}site.js" as="script" fetchpriority="low">
 <link rel="stylesheet" href="${rel}site.css">
+<meta property="og:logo" content="${SITE}assets/icon-512.png">
 <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'self'; upgrade-insecure-requests">
 <script>${THEME_INLINE}</script>
@@ -193,7 +199,7 @@ ${extraHead}${autoCrumb}${pageLd}
 </head>
 <body>
 <a class="sr-only" href="#main">Skip to content</a>
-${header(rel, path)}
+${header(rel, path, crumbItems)}
 `;
 }
 // Bare page for a calculator shown in an iframe on another site: no header, footer, canonical or share tags, and
@@ -228,7 +234,7 @@ ${body}
 </html>
 `;
 }
-export function header(rel, path) {
+export function header(rel, path, crumbItems = []) {
   const cur = (p) => (path.startsWith(p) && p !== '' ? ' aria-current="page"' : '');
   const I = { menu:'M4 6h16M4 12h16M4 18h16', search:'M11 4a7 7 0 100 14 7 7 0 000-14zm10 16l-4-4' };
   const ico = (d,s=18)=>`<svg viewBox="0 0 24 24" width="${s}" height="${s}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;

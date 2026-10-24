@@ -61,6 +61,13 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-75-0">1.75.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li><strong>Critical-asset preload hints.</strong> Added <code>&lt;link rel="preload"&gt;</code> for the Clausery mark (icon.svg), site.css and site.js so the header brand and first paint land sooner on slow connections; added <code>fetchpriority="low"</code> on the non-critical JS preload to avoid competing with render-blocking CSS.</li>
+  <li><strong>Richer share metadata.</strong> Added <code>og:logo</code> pointing at the 512×512 brand mark so platforms that support a publisher logo (Slack, LinkedIn, Pinterest) pick up the Clausery mark alongside the share image.</li>
+  <li><strong>FAQ accessibility + schema tightening.</strong> Every FAQ accordion (<code>&lt;details&gt;/&lt;summary&gt;</code>) now carries proper <code>aria-controls</code>, <code>aria-labelledby</code> and <code>role="region"</code> on the answer panel, and is wrapped in microdata (<code>FAQPage</code> → <code>Question</code> → <code>acceptedAnswer/Answer</code>) for richer rich-result parsing alongside the existing FAQPage JSON-LD.</li>
+  <li><strong>Performance:</strong> home page keeps its app-origin preconnect; overall JS remains 15.5 KB and CSS 41.4 KB — zero new third parties.</li>
+</ul>
 <h2 id="v1-74-0">1.74.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li><strong>Deeper SEO / metadata pass.</strong>

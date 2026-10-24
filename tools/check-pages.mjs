@@ -120,7 +120,8 @@ for (const [name, spec] of Object.entries(sets)) {
     if (words < spec.minWords) fail(file, `${words} words of unique content (the ${name} set needs ${spec.minWords})`);
     if (counts(html, /<h1\b/g) !== 1) fail(file, 'needs exactly one H1');
     if (counts(main, /<h2\b/g) < spec.minH2) fail(file, `has ${counts(main, /<h2\b/g)} H2 sections (needs ${spec.minH2})`);
-    if (counts(main, /<details>/g) < spec.minFaq) fail(file, `has ${counts(main, /<details>/g)} FAQ answers (needs ${spec.minFaq})`);
+    const faqCount = counts(main, /<details\b/g);
+    if (faqCount < spec.minFaq) fail(file, `has ${faqCount} FAQ answers (needs ${spec.minFaq})`);
     const found = types(html);
     for (const type of spec.schema) if (!found.includes(type)) fail(file, `is missing ${type} structured data`);
     for (const [label, test] of spec.require) if (!test(html)) fail(file, `is missing its ${label}`);
