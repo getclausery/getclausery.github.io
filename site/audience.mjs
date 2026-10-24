@@ -1,5 +1,5 @@
 // Pages for each buyer, and how-to guides that answer the searches those buyers make.
-import { esc, faqLd, faqHtml, crumbsLd, collectionLd, lowerFirst, SITE, LASTMOD, LASTMOD_LONG } from '../tools/partials.mjs';
+import { esc, faqLd, faqHtml, crumbsLd, collectionLd, lowerFirst, LASTMOD, LASTMOD_LONG } from '../tools/partials.mjs';
 import { HIGH_INTENT_GUIDES } from './data/high-intent-guides.mjs';
 import { SERVICE_GUIDES } from './data/service-guides.mjs';
 import { PRICES } from '../app/config.js';
@@ -2132,7 +2132,7 @@ ${GUIDE_TOPICS.map(([t, slugs]) => `  <h2 id="${topicId(t)}" style="margin-top:2
 </div></section>` },
   ...GUIDES.map((g) => ({
     path: `guides/${g.slug}.html`, title: g.title, description: g.description, feed: true, published: published(g),
-    extraHead: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', '@id': `${SITE}guides/${g.slug}.html#article`, isPartOf: { '@id': `${SITE}guides/${g.slug}.html#webpage` }, headline: g.title, description: g.description, datePublished: published(g), dateModified: LASTMOD, inLanguage: 'en-GB', image: `${SITE}assets/og.png`, mainEntityOfPage: `${SITE}guides/${g.slug}.html`, ...(g.sources ? { citation: g.sources.map(([, u]) => u) } : {}), author: { '@type': 'Organization', name: 'Clausery', url: SITE }, publisher: { '@type': 'Organization', name: 'Clausery', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}assets/icon-512.png`, width: 512, height: 512 } } })}</script>` + (g.faq ? faqLd(g.faq) : '') + crumbsLd([['Home', ''], ['Guides', 'guides/'], [g.title, `guides/${g.slug}.html`]]),
+    extraHead: (g.faq ? faqLd(g.faq) : '') + crumbsLd([['Home', ''], ['Guides', 'guides/'], [g.title, `guides/${g.slug}.html`]]), _howTo: true, _sources: g.sources,
     body: (rel) => {
       const [topic, slugs] = topicOf(g.slug);
       return `<section class="section"><div class="wrap prose"><nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}guides/">Guides</a></nav><h1 style="margin-top:1rem">${esc(g.title)}</h1>
