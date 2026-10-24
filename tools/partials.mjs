@@ -115,8 +115,7 @@ export function head({ title, description, path, extraHead = '', pageLd = '', og
   const image = `${SITE}${ogImage}`;
   const imageAlt = `${full} — Clausery`;
   const depth = path.split('/').filter(Boolean).length - (path.endsWith('/') || path === '' ? 0 : 1);
-  const rel = relOverride || (depth > 0 ? '../'.repeat(depth) : './');
-  const robots = /<meta\s+[^>]*name=["']robots["']/i.test(extraHead) ? '' : `<meta name="robots" content="${noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}">\n`;
+  const rel = relOverride || (depth > 0 ? '../'.repeat(depth) : './');  const robots = /<meta\s+[^>]*name=["']robots["']/i.test(extraHead) ? '' : `<meta name="robots" content="${noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}">\n`;
   const articleMeta = ogType === 'article' ? `${published ? `<meta property="article:published_time" content="${published}">\n` : ''}${modified ? `<meta property="article:modified_time" content="${modified}">\n` : ''}<meta property="article:author" content="Clausery"><meta property="article:publisher" content="Clausery">` : '';
   const SECTION_NAMES = { 'invoice-templates':'Invoice templates', templates:'Templates', guides:'Guides', clauses:'Clause library', 'free-tools':'Free tools', compare:'Compare', for:"Who it's for", pricing:'Pricing', docs:'Docs', about:'About', contact:'Contact', customers:'Customers', 'why-clausery':'Why Clausery', legal:'Legal', 'business-document-kit':'Business document kit', 'nda-templates':'NDA templates', press:'Press', roadmap:'Roadmap', status:'Status', 'self-hosting':'Self-host' };
   let crumbItems = [];
