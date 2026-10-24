@@ -1,4 +1,4 @@
-import { SITE, esc, picture, ONLINE_KEYS, USAGE_ON, USAGE_REQUEST, faqLd } from '../tools/partials.mjs';
+import { SITE, esc, picture, ONLINE_KEYS, USAGE_ON, USAGE_REQUEST, faqLd, faqHtml } from '../tools/partials.mjs';
 import { PACK_FILE, LIB } from './library.mjs';
 import { GUIDES } from './audience.mjs';
 import { COMPETITORS } from './compare.mjs';
@@ -352,7 +352,7 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
   <div class="wrap" style="max-width:48rem">
     <h2>Questions</h2>
     <div class="faq">
-      ${HOME_FAQ.map(([q,a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join('\n      ')}
+      ${faqHtml(HOME_FAQ).replace(/^<div class="faq"[^>]*>/, '<div class="faq">')}
       <details><summary>Can it add a clause only when it applies, or make many documents at once?</summary><p>Yes to both. A rule such as <code>contract_value &gt; 5000</code> can switch a clause on or off, and the money templates add up line items and tax for you (see <a href="${rel}docs/logic.html">logic and calculations</a>). <em>From a spreadsheet</em> makes one document per row of a CSV file, such as an invoice for each client.</p></details>
       <details><summary>What doesn't it do?</summary><p>It has no e-signatures, no live co-editing and no server integrations, because each of those needs a server holding your documents, which is what Clausery avoids. Download the Word file or a PDF and sign it with the e-signature service you already use; share templates with your team as a template pack; and send a finished document straight to Mail, Slack or Teams with the Share button where your device supports it.</p></details>
       <details><summary>What happens to my data if I clear my browser?</summary><p>It is deleted, like any local data. Download a backup from Settings to keep a copy, or to move your templates and drafts to another computer or phone: restore it there and carry on. Template packs and answers files move single templates and drafts.</p></details>

@@ -164,10 +164,13 @@ a.sr-only:focus-visible{position:fixed!important;top:.5rem;left:.5rem;width:auto
 @media(max-width:600px){.welcome-bar .wrap{flex-wrap:wrap;font-size:.86rem;gap:.5rem}.welcome-bar .wb-meta{width:100%}}
 
 /* === breadcrumb polish === */
-nav[aria-label="Breadcrumb"]{display:inline-flex;align-items:center;gap:.4rem;font-size:.85rem;color:var(--muted);margin-bottom:1rem;padding:.35rem 0;letter-spacing:-.005em}
-nav[aria-label="Breadcrumb"] a{color:var(--muted);text-decoration:none;padding:.2rem .35rem;border-radius:6px}
-nav[aria-label="Breadcrumb"] a:hover{color:var(--accent);background:var(--accent-soft)}
-nav[aria-label="Breadcrumb"] span[aria-hidden="true"]{opacity:.5}
+nav.breadcrumb{display:block;font-size:.85rem;color:var(--muted);margin-bottom:.25rem;padding:0;letter-spacing:-.005em}
+nav.breadcrumb ol{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:.1rem}
+nav.breadcrumb li{display:inline-flex;align-items:center}
+nav.breadcrumb a{color:var(--muted);text-decoration:none;padding:.3rem .4rem;border-radius:6px}
+nav.breadcrumb a:hover{color:var(--accent);background:var(--accent-soft)}
+nav.breadcrumb [aria-current="page"]{color:var(--text);padding:.3rem .4rem;font-weight:500}
+nav.breadcrumb span[aria-hidden="true"]{opacity:.45;padding:0 .05rem;user-select:none}
 
 /* === hero === */
 .hero{padding:4rem 0 3rem;position:relative}

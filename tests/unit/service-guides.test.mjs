@@ -36,7 +36,7 @@ test('trade-specific guides have worked examples, honest scope, three FAQs and a
     assert.ok(schema.dateModified >= schema.datePublished, g.slug);
     assert.deepEqual(schema.citation, g.sources.map(([, url]) => url), g.slug);
     assert.equal(nodes.find((node) => node['@type'] === 'FAQPage').mainEntity.length, 3, g.slug);
-    assert.equal([...article.matchAll(/<details>/g)].length, 3, g.slug);
+    assert.equal([...article.matchAll(/<details\b/g)].length, 3, g.slug);
     for (const [, url] of g.sources) assert.ok(article.includes(url), g.slug);
   }
 });
