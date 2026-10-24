@@ -17,6 +17,7 @@ export const pages = [{
   noindex: true,
   layout: 'embed',
   extraHead: `<link rel="icon" sizes="any" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="icon" sizes="16x16 32x32 48x48" href="../favicon.ico" type="image/x-icon">
 <link rel="apple-touch-icon" href="../assets/icon-192.png">
 <link rel="mask-icon" href="../assets/icon.svg" color="#2dd4bf">
 <link rel="manifest" href="../app/manifest.webmanifest">
