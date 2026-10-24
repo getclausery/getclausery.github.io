@@ -90,6 +90,21 @@ export const collectionLd = ({ path, name, description, items }) => `<script typ
   mainEntity: { '@type': 'ItemList', numberOfItems: items.length, itemListElement: items.map(([itemName, itemPath], i) => ({ '@type': 'ListItem', position: i + 1, name: itemName, url: `${SITE}${itemPath}` })) },
 })}</script>`;
 export const faqHtml = (faq) => `<div class="faq" itemscope itemtype="https://schema.org/FAQPage">${faq.map(([q, a], i) => `<details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" id="faq-${i}"><summary itemprop="name" aria-controls="faq-${i}-a" id="faq-${i}-q">${esc(q)}</summary><div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" id="faq-${i}-a" role="region" aria-labelledby="faq-${i}-q"><p itemprop="text">${esc(a)}</p></div></details>`).join('')}</div>`;
+// HowTo JSON-LD helper. Pass the page title, description, totalTime (ISO 8601 duration e.g. 'PT10M') and an
+// array of {text, image?, name?} steps; if a raw body HTML string is passed as `steps`, we pull the first <ol><li>
+// block we find as the step list — this matches the structure used across the how-to guides.
+export const howToLd = ({ name, description, steps, totalTime = 'PT15M', image = `${SITE}assets/og.png` }) => {
+  let stepItems = steps;
+  if (typeof steps === 'string') {
+    const m = steps.match(/<ol>\s*([\s\S]*?)<\/ol>/i);
+    stepItems = m ? [...m[1].matchAll(/<li>([\s\S]*?)<\/li>/gi)].map(([, li]) => {
+      const clean = li.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+      return { text: clean };
+    }) : [];
+  }
+  if (!stepItems || !stepItems.length) return '';
+  return `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'HowTo', name, description, totalTime, estimatedCost: { '@type': 'MonetaryAmount', currency: 'USD', value: '0' }, image, inLanguage: 'en-GB', isAccessibleForFree: true, step: stepItems.map((s, i) => ({ '@type': 'HowToStep', position: i + 1, name: s.name || `Step ${i + 1}`, text: s.text, ...(s.image ? { image: s.image } : {}) })) })}</script>`;
+};
 export function head({ title, description, path, extraHead = '', pageLd = '', ogImage = 'assets/og.png', ogType = 'website', published, modified, rel: relOverride, noindex = false }) {
   // Search results show about 60 characters of a title; drop the brand suffix rather than have the title cut off.
   // The home title leads with what the site is for (small businesses making invoices in Word) and what people search for.

@@ -96,6 +96,12 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-78-0">1.78.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li><strong>HowTo schema on step-by-step guides.</strong> Guides that walk through a numbered list of steps (e.g. <em>How to write an invoice</em>, <em>What to include on a VAT invoice</em>, <em>GST/HST requirements in Canada</em>, and other how-to pages with <code>&lt;ol&gt;</code> steps) now emit <code>HowTo</code> JSON-LD with <code>HowToStep</code> items pulled automatically from the numbered list. This unlocks the HowTo rich-result carousel in Google, which shows a step thumbnail strip in mobile results.</li>
+  <li>Step auto-extraction works across all guides with a <code>&lt;h2&gt;</code> headed how-to section followed by an ordered list of bolded steps, so new how-to guides inherit rich results automatically.</li>
+  <li>0 new third parties; CWV/CSP/AGPL/CMI/trademarks preserved.</li>
+</ul>
 <h2 id="v1-77-0">1.77.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li><strong>CTR-optimised hub-page titles.</strong> Top section hubs (Invoice templates, Pricing, Guides, NDA templates, Free tools) rewritten to lead with the keyword and a 2026 year marker so Google bolds the year in results and the snippet reads as fresh.</li>

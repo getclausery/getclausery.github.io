@@ -3,7 +3,7 @@
 import { writeFileSync, mkdirSync, readdirSync, readFileSync, existsSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { createHash } from 'node:crypto';
-import { head, footer, embedPage, crumbsLd, SITE, LASTMOD, LASTMOD_LONG, longDate } from './partials.mjs';
+import { head, footer, embedPage, crumbsLd, howToLd, SITE, LASTMOD, LASTMOD_LONG, longDate } from './partials.mjs';
 import { PRICES, TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 
 const pages = [];
@@ -70,13 +70,27 @@ for (const p of pages) {
   // hash (and therefore page-dates.json) claim that the editorial content changed.
   const hasCollection = /"@type":"CollectionPage"/.test(p.extraHead || '');
   const skipPageLd = p.layout === 'embed' || p.noindex || p.path === '' || p.path === '404.html' || hasCollection;
+  // For pages flagged _howTo (e.g. guides), render the body first and auto-inject HowTo JSON-LD into extraHead
+  // if the body contains an ordered-list of bolded steps under a how-to heading.
+  let renderedBody = null;
+  if (p._howTo && p.layout !== 'embed') {
+    renderedBody = p.body(rel);
+    const articleLd = `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', '@id': `${SITE}${p.path}#article`, isPartOf: { '@id': `${SITE}${p.path}#webpage` }, headline: p.title, description: p.description, datePublished: p.published, dateModified: modified, inLanguage: 'en-GB', image: `${SITE}assets/og.png`, mainEntityOfPage: `${SITE}${p.path}`, ...(p._sources ? { citation: p._sources.map(([, u]) => u) } : {}), author: { '@type': 'Organization', name: 'Clausery', url: SITE }, publisher: { '@type': 'Organization', name: 'Clausery', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}assets/icon-512.png`, width: 512, height: 512 } } })}</script>`;
+    p.extraHead = articleLd + (p.extraHead || '');
+    const hasSteps = /<h2[^>]*>(What to include|How to|Steps|What goes|What to write|How)/i.test(renderedBody) && /<ol>\s*<li><strong>/.test(renderedBody);
+    if (hasSteps) {
+      const howTo = howToLd({ name: p.title, description: p.description, steps: renderedBody, totalTime: 'PT10M' });
+      p.extraHead += howTo;
+    }
+  }
   const pageLd = skipPageLd ? '' : `<script type="application/ld+json">${JSON.stringify({
     '@context': 'https://schema.org', '@type': 'WebPage', '@id': `${SITE}${p.path}#webpage`, url: `${SITE}${p.path}`,
     name: SEO_TITLES[p.path] || p.title, description: p.description, inLanguage: 'en-GB', isPartOf: { '@id': `${SITE}#website` },
     ...(p.published ? { datePublished: p.published } : {}), ...(modified ? { dateModified: modified } : {}),
   })}</script>`;
+  const body = renderedBody !== null ? renderedBody : p.body(rel);
   const html = p.layout === 'embed' ? embedPage({ title: p.title, description: p.description, extraHead: p.extraHead, rel, body: p.body(rel) })
-    : (head({ title: SEO_TITLES[p.path] || p.title, description: p.description, path: p.path, extraHead: p.extraHead || '', pageLd, ogImage: p.ogImage, ogType: p.feed ? 'article' : 'website', published: p.published, modified, rel, noindex: Boolean(p.noindex) }) + p.body(rel) + footer(rel)).replace(/<pre>/g, '<pre tabindex="0">');
+    : (head({ title: SEO_TITLES[p.path] || p.title, description: p.description, path: p.path, extraHead: p.extraHead || '', pageLd, ogImage: p.ogImage, ogType: p.feed ? 'article' : 'website', published: p.published, modified, rel, noindex: Boolean(p.noindex) }) + body + footer(rel)).replace(/<pre>/g, '<pre tabindex="0">');
   mkdirSync(dirname(out), { recursive: true });
   let final = modified ? html.split(LASTMOD_LONG).join(longDate(modified)).split(LASTMOD).join(modified) : html;
   // "Updated …" only appears once a page has changed since it was published.
