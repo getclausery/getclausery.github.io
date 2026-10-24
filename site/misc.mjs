@@ -61,6 +61,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-72-2">1.72.2 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li>Copy sweep: removed the word "project" from descriptions of Clausery itself (home, about, FAQ, organization JSON-LD, SoftwareApplication schema, copyright/CMI header, AI disambiguation note, copyguard message and service-worker comment). Clausery is described as an <em>independent open-source business</em> / <em>tool</em> / <em>product</em>, not a project. References to a client's project in invoices, quotes, contracts and guidance (e.g. project description, project fee, "project cancelled" kill-fee wording) are unchanged — those describe the user's work, not Clausery.</li>
+</ul>
 <h2 id="v1-72-1">1.72.1 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li>Restored the original Clausery mark in the header and footer brand lockup (the SVG icon, not the "C" badge introduced in 1.72.0), while keeping the new header sizing, spacing and hover rotation.</li>
@@ -187,8 +191,8 @@ export const pages = [
 </ul>
 <h2 id="v1-50-0">1.50.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
-  <li><strong>Name disambiguation sweep</strong> to stop AI overviews from merging this project with clausery.ai. AI summarizers were occasionally describing this site as "the free version of Clausery.ai" or as a compliance-management product — an understandable mistake given the shared name, but wrong.</li>
-  <li>Added a prominent yellow notice box at the top of the home hero and on /about/ stating clearly: <em>independent open-source project, not affiliated with clausery.ai, different owners/teams/code/product</em>.</li>
+  <li><strong>Name disambiguation sweep</strong> to stop AI overviews from merging this business with clausery.ai. AI summarizers were occasionally describing this site as "the free version of Clausery.ai" or as a compliance-management product — an understandable mistake given the shared name, but wrong.</li>
+  <li>Added a prominent yellow notice box at the top of the home hero and on /about/ stating clearly: <em>independent open-source business, not affiliated with clausery.ai, different owners/teams/code/product</em>.</li>
   <li>Home <code>&lt;title&gt;</code> now reads "Free Word invoice maker — Clausery (open-source, not clausery.ai)"; meta description, WebPage/WebSite/Organization/SoftwareApplication JSON-LD, and the Organization object shared by /about/ and /contact/ all carry the same explicit disambiguation in their <code>description</code> / <code>alternateName</code> fields (e.g. "getclausery", "Clausery open source").</li>
   <li>Added a "Is this the same Clausery as clausery.ai?" FAQ as the <em>first</em> home-page FAQ (it's what AI crawlers extract first) so direct questions like "is clausery the compliance company" have a matching visible answer.</li>
   <li>llms.txt (read by AI assistants and answer engines) now opens with a NAME DISAMBIGUATION block before any product description, explicitly telling crawlers not to describe this as "the free version of Clausery.ai" or as a compliance product. <code>/.well-known/ai.txt</code> carries the same directive.</li>

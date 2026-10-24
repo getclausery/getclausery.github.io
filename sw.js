@@ -4,7 +4,7 @@
    background requests (a new release ships a new VERSION, which installs a fresh cache). Pages are network-first so a
    deploy is visible at once; offline, app routes fall back to the app shell and other pages to offline.html.
    VERSION and PRECACHE are written by tools/release.mjs; do not edit them by hand. */
-const VERSION = '1.72.1';
+const VERSION = '1.72.2';
 const CACHE = 'clausery-' + VERSION;
 const BASE = new URL('./', self.location).pathname;
 // PRECACHE:BEGIN
@@ -152,14 +152,14 @@ const PRECACHE = [
   'site.js',
   'vendor/docs.js',
   'vendor/intake-runtime.js',
-  'vendor/purchase-runtime-1.72.1.js'
+  'vendor/purchase-runtime-1.72.2.js'
 ];
 // PRECACHE:END
 const PRECACHE_URLS = new Set(PRECACHE.map((p) => BASE + p));
 
 // ORIGIN-GUARD:BEGIN — updated by hand; release.mjs must not strip this block.
 // The service worker refuses to install or cache anything on hosts that are
-// not run by the Clausery project. This means a clone cannot become a working
+// not run by Clausery. This means a clone cannot become a working
 // PWA (offline mode, install to home screen, cached assets) without editing
 // this section, and that section is CMI (17 U.S.C. §1202). White-label
 // commercial licensees receive a patched sw.js with their host added here.

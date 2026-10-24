@@ -24,7 +24,7 @@ export const SITE = 'https://getclausery.github.io/';
    separate from any AGPL or trademark breach, and is the statutory hook for a
    DMCA takedown against sites that strip the visible footer. */
 export const CMI_HTML = `<!--
-  Clausery <${SITE}> — original open-source project.
+  Clausery <${SITE}> — open-source business software.
   (C) ${YEAR} Clausery. License: AGPL-3.0-or-later WITH Clausery-Trademark-Exception.
   Removing this notice or the visible attribution in the footer is a removal of
   copyright management information under 17 U.S.C. §1202 and violates s5 of the AGPL.
