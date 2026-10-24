@@ -101,7 +101,7 @@ test('guides that cite sources list them on the page and in the Article data', a
   assert.ok(cited.length >= 4);
   for (const g of cited) {
     const page = html(`guides/${g.slug}.html`);
-    assert.match(page, /<h2>Sources<\/h2>/, g.slug);
+    assert.match(page, /<h2[^>]*>Sources<\/h2>/, g.slug);
     const a = ld(page).find((x) => x['@type'] === 'Article');
     assert.deepEqual(a.citation, g.sources.map(([, u]) => u), g.slug);
     for (const [, u] of g.sources) assert.match(u, /^https:\/\//, g.slug);

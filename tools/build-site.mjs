@@ -75,7 +75,28 @@ for (const p of pages) {
   let renderedBody = null;
   if (p._howTo && p.layout !== 'embed') {
     renderedBody = p.body(rel);
-    const articleLd = `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', '@id': `${SITE}${p.path}#article`, isPartOf: { '@id': `${SITE}${p.path}#webpage` }, headline: p.title, description: p.description, datePublished: p.published, dateModified: modified, ...(modified ? { lastReviewed: modified } : {}), inLanguage: 'en-GB', image: `${SITE}assets/og.png`, mainEntityOfPage: `${SITE}${p.path}`, ...(p._sources ? { citation: p._sources.map(([, u]) => u) } : {}), author: { '@type': 'Organization', name: 'Clausery', url: SITE }, publisher: { '@type': 'Organization', name: 'Clausery', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}assets/icon-512.png`, width: 512, height: 512 } } })}</script>`;
+    // Assign stable slug ids to every <h2>, collect sections for a server-rendered TOC (crawlable,
+    // no JS needed, works with in-page anchor links shared on social).
+    const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    const seen = new Set();
+    const tocSkip = /^(sources|questions|more on |free templates|related|ready to)/i;
+    const headings = [];
+    let hIdx = 0;
+    renderedBody = renderedBody.replace(/<h2>([\s\S]*?)<\/h2>/g, (m, inner) => {
+      const text = inner.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+      const id = slug(text) || `section-${hIdx++}`;
+      const unique = seen.has(id) ? `${id}-${++hIdx}` : id;
+      seen.add(unique);
+      if (!tocSkip.test(text)) headings.push({ id: unique, text });
+      return `<h2 id="${unique}">${inner}</h2>`;
+    });
+    if (headings.length >= 3) {
+      const tocHtml = `<nav class="guide-toc" aria-label="On this page"><h4>On this page</h4><ol>${headings.map((h) => `<li><a href="#${h.id}">${h.text}</a></li>`).join('')}</ol></nav>`;
+      // Insert TOC immediately before the first h2 with an id (after the lead paragraph and any notice boxes).
+      const firstH2 = renderedBody.match(/<h2 id="[^"]+">/);
+      if (firstH2) renderedBody = renderedBody.slice(0, firstH2.index) + tocHtml + renderedBody.slice(firstH2.index);
+    }
+    const articleLd = `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', '@id': `${SITE}${p.path}#article`, isPartOf: { '@id': `${SITE}${p.path}#webpage` }, headline: p.title, description: p.description, datePublished: p.published, dateModified: modified, ...(modified ? { lastReviewed: modified } : {}), inLanguage: 'en-GB', image: `${SITE}assets/og.png`, mainEntityOfPage: `${SITE}${p.path}`, ...(p._sources ? { citation: p._sources.map(([, u]) => u) } : {}), ...(headings.length >= 3 ? { articleSection: headings.map((h) => h.text) } : {}), author: { '@type': 'Organization', name: 'Clausery', url: SITE }, publisher: { '@type': 'Organization', name: 'Clausery', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}assets/icon-512.png`, width: 512, height: 512 } } })}</script>`;
     p.extraHead = articleLd + (p.extraHead || '');
     const hasSteps = /<h2[^>]*>(What to include|How to|Steps|What goes|What to write|How)/i.test(renderedBody) && /<ol>\s*<li><strong>/.test(renderedBody);
     if (hasSteps) {
