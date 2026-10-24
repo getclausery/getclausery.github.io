@@ -26,6 +26,7 @@ export const pages = [{
 <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), display-capture=()">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'self'; upgrade-insecure-requests">
 <link rel="stylesheet" href="../site.css">
 <style>
 .bio { background: linear-gradient(180deg, #0f1d2e 0%, #0b1522 100%); min-height: 100vh; color: #e6edf5; padding: 3.25rem 1.25rem 4rem; }
