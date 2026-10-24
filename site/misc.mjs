@@ -96,6 +96,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-80-0">1.80.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li><strong>(2026) year-marker titles on all 87 templates.</strong> Every template title leads with the keyword, includes the (2026) year marker Google bolds, and ends with a concrete verb (Download, Print, Sign, Edit).</li>
+</ul>
 <h2 id="v1-79-0">1.79.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li><strong>FAQ rich results on every template page.</strong> All 87 templates now use the accessible <code>faqHtml</code> helper (aria-controls/labelledby, role=region, FAQ microdata) so the visible DOM matches FAQPage JSON-LD exactly, satisfying Google's rich-result content guideline.</li>
@@ -297,8 +301,7 @@ export const pages = [
 </ul>
 <h2 id="v1-49-0">1.49.0 <span class="small muted">— 23 October 2026</span></h2>
 <ul>
-  <li><strong>Local invoice tracker.</strong> After download/print, invoices get a status card: <em>Ready to send → Sent → Paid</em>, with "Mark as sent", "Mark paid" and a pre-filled <code>mailto:</code> reminder. Overdue invoices show a red badge and float to the top of <a href="${rel}app/#/drafts">Drafts</a>.</li>
-  <li>Editing/restoring/importing answers, or duplicating a draft, clears the sent/paid marker so status never sticks on a reworked invoice. Stored locally only — no server, no sync, no new permissions.</li>
+  <li><strong>Local invoice tracker.</strong> After download/print, invoices get a status card: <em>Ready → Sent → Paid</em> with "Mark sent", "Mark paid" and a <code>mailto:</code> reminder. Overdue invoices show red and float to the top of <a href="${rel}app/#/drafts">Drafts</a>. Editing/restoring/duplicating resets state. Local-only.</li>
 </ul>
 <h2 id="v1-48-0">1.48.0 <span class="small muted">— 23 October 2026</span></h2>
 <ul>
