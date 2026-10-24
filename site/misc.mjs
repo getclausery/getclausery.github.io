@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '1.57.0', date: '24 October 2026', summary: 'Social /go/ page security header parity (X-Frame-Options, Referrer-Policy, Permissions-Policy)' },
   { version: '1.56.0', date: '24 October 2026', summary: 'Social link-in-bio page: mask-icon, sizes=any favicon, dark theme-color' },
   { version: '1.55.0', date: '24 October 2026', summary: 'BreadcrumbList JSON-LD on Pricing, Why Clausery and Business Kit pages' },
   { version: '1.54.0', date: '24 October 2026', summary: 'Safari mask-icon link; favicon sizes=any everywhere; dark theme-color correction' },
@@ -47,6 +48,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-57-0">1.57.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li>Social <a href="${rel}go/">/go/</a> link-in-bio page now carries the same <code>X-Frame-Options: SAMEORIGIN</code>, <code>Referrer-Policy: strict-origin-when-cross-origin</code>, and <code>Permissions-Policy</code> security metas (camera, microphone, geolocation, payment, display-capture all disabled) that the marketing pages and 404 already ship. The app shell keeps <code>Referrer-Policy: no-referrer</code> because it renders user documents.</li>
+</ul>
 <h2 id="v1-56-0">1.56.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li>Social link-in-bio landing page (<a href="${rel}go/">/go/</a>) now carries <code>sizes="any"</code> on the SVG favicon, a Safari <code>mask-icon</code> link, an explicit dark <code>theme-color</code> <code>#0f1d2e</code>, and a <code>color-scheme: dark</code> hint so the in-app browser chrome on TikTok/Reels/Shorts/LinkedIn/X matches the page gradient instead of flashing the light document background.</li>
