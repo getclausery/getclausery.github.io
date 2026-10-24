@@ -8,6 +8,14 @@
   <updated>2026-10-24T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v1.61.0 — offline.html and app/activate.html lang attribute set to en-GB (consistency)</title>
+    <link href="https://getclausery.github.io/changelog.html#v1-61-0"/>
+    <id>https://getclausery.github.io/changelog.html#v1-61-0</id>
+    <published>2026-10-24T00:00:00Z</published>
+    <updated>2026-10-24T00:00:00Z</updated>
+    <summary>offline.html and app/activate.html lang attribute set to en-GB (consistency)</summary>
+  </entry>
+  <entry>
     <title>Clausery v1.60.0 — App shell + activate page preconnect to the live origins they hit on load</title>
     <link href="https://getclausery.github.io/changelog.html#v1-60-0"/>
     <id>https://getclausery.github.io/changelog.html#v1-60-0</id>

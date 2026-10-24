@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '1.61.0', date: '24 October 2026', summary: 'offline.html and app/activate.html lang attribute set to en-GB (consistency)' },
   { version: '1.60.0', date: '24 October 2026', summary: 'App shell + activate page preconnect to the live origins they hit on load' },
   { version: '1.59.0', date: '24 October 2026', summary: 'Dedicated maskable PWA icons; legacy favicon.ico fallback' },
   { version: '1.58.0', date: '24 October 2026', summary: 'LemonSqueezy preconnect now only emitted on the Pricing page (the only marketing page that loads checkout)' },
@@ -51,6 +52,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-61-0">1.61.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li>Corrected the <code>&lt;html&gt;</code> lang attribute on <code>offline.html</code> (service-worker fallback page) and <code>app/activate.html</code> (post-checkout license activation) from <code>en</code> to <code>en-GB</code>, matching every other page on the site; also added dual light/dark <code>theme-color</code> metas and a <code>color-scheme</code> meta to the offline page so the browser chrome matches when the service worker falls back to it in either mode. A consistent <code>lang</code> helps screen readers, spellcheck and language-specific search signals.</li>
+</ul>
 <h2 id="v1-60-0">1.60.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li>Added <code>preconnect</code>/<code>dns-prefetch</code> for the live origins the app shell hits on load: <code>api.lemonsqueezy.com</code> (license-key validation on Pro installs) and <code>getclausery.goatcounter.com</code> (anonymous usage count). Previously the marketing pages already preconnected these origins when they needed them, but the app shell itself — the place where those connections actually fire for every session — didn't. A matching <code>preconnect</code> for <code>api.lemonsqueezy.com</code> is now on <code>app/activate.html</code> (the post-checkout license-activation page, which always makes a key check).</li>
