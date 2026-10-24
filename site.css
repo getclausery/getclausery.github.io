@@ -437,3 +437,4 @@ html[data-copyguard] body{padding-top:52px}
 @media print{.site-header,.site-footer,.cta,.float-actions,.welcome-bar,.read-progress,.cmdk-backdrop{display:none!important}}
 
 /* === app shell marketing consistency (used on activate/purchase iframes not) === */
+.sitemap-list{columns:2 18rem;column-gap:2rem;list-style:none;padding:0;margin:.5rem 0 1.5rem}.sitemap-list li{break-inside:avoid;margin:.15rem 0;padding:.15rem 0}.sitemap-list a{font-weight:600}

@@ -24,7 +24,7 @@ const FAQ = [
 ];
 
 export const pages = [{
-  path: 'nda-templates/', title: 'Free NDA templates (Word): mutual, one-way, employee',
+  path: 'nda-templates/', title: 'Free NDA Templates for Word (2026) — 5 ready-to-sign NDAs',
   description: 'Free NDA templates for Word: mutual, one-way, employee, contractor and business sale. Download or fill one in online, with no sign-up and nothing uploaded.',
   extraHead: faqLd(FAQ) + crumbsLd([['Home', ''], ['Templates', 'templates/'], ['NDA templates', 'nda-templates/']]),
   body: (rel) => `

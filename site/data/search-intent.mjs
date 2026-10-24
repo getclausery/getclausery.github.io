@@ -283,4 +283,5 @@ export const SEARCH_INTENT = {
   "templates/virtual-assistant-agreement.html": ["virtual assistant agreement template", "transactional", "templates"],
   "templates/web-design-contract.html": ["web design contract template", "transactional", "templates"],
   "search/": ["search free word templates", "navigational", "company"],
+  "sitemap/": ["site map of free templates", "navigational", "company"],
 };

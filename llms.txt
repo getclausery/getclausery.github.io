@@ -24,7 +24,7 @@ Key facts:
 ## Product
 - [Home](https://getclausery.github.io/): Free invoice maker for Word in 2026. Make a professional invoice, quote or receipt in your browser in 60 seconds — editable .docx, no account, no card, nothing uploaded. Not affiliated with Clausery.ai.
 - [About Clausery (open-source invoice tool — not clausery.ai)](https://getclausery.github.io/about/): About Clausery, the independent open-source business making free Word invoices, quote and receipt generator for freelancers and small businesses. Not affiliated with Clausery.ai.
-- [Pricing — free forever, or Pro $19/mo (no card trial)](https://getclausery.github.io/pricing/): Free forever: 87 Word templates, three of your own, unlimited documents. Pro is $19/user/month for unlimited templates, calculations, encryption and bulk-from-spreadsheet. 14-day free trial (no card), 30-day refund.
+- [Clausery pricing (2026): Free forever, Pro $19/mo — no card](https://getclausery.github.io/pricing/): Free forever: 87 Word templates, three of your own, unlimited documents. Pro is $19/user/month for unlimited templates, calculations, encryption and bulk-from-spreadsheet. 14-day free trial (no card), 30-day refund.
 - [Why Clausery — no signup, no card, real Word files](https://getclausery.github.io/why-clausery/): See why Clausery is different from invoice apps and cloud document tools: editable Word output, no uploads, no account to start, a free tier that never expires, public source code and a money-back guarantee.
 - [Free business document kit — 6 Word templates (no email)](https://getclausery.github.io/business-document-kit/): Download a free 6-template Word kit for small businesses: quote, scope of work, invoice, payment receipt, purchase order and credit note. No email signup, no account — one zip, editable .docx files.
 - [Self-host Clausery on your domain or intranet](https://getclausery.github.io/self-hosting/): Self-host or white-label Clausery: deploy the open-source document generator to your own domain or intranet, with optional commercial licensing for rebranding, firm-wide rollout and integration.
@@ -125,7 +125,7 @@ Key facts:
 - [Free credit note template (Word)](https://getclausery.github.io/templates/credit-note.html): Free credit note template for Word: original invoice, reason, credited items, optional tax, total credit, and refund or credit against another invoice.
 
 ## Invoice templates by trade and country
-- [Free invoice templates for Word (no signup)](https://getclausery.github.io/invoice-templates/): Free Word invoice templates for deposits, hourly work and final balances, plus trade and country starters. Totals calculated online; editable .docx download.
+- [Free Invoice Templates for Word (2026) — Download & Edit](https://getclausery.github.io/invoice-templates/): Free Word invoice templates for deposits, hourly work and final balances, plus trade and country starters. Totals calculated online; editable .docx download.
 - [VAT invoice template (UK): free, Word, VAT worked out](https://getclausery.github.io/invoice-templates/uk-vat-invoice.html): Free UK VAT invoice template for Word: your VAT number, 20% VAT worked out, the details HMRC asks for and a separate date of supply. Fill it in online, no sign-up.
 - [VAT invoice template for Ireland (free, Word)](https://getclausery.github.io/invoice-templates/ireland-vat-invoice.html): Free Irish VAT invoice template for Word: your VAT number, 23% VAT worked out, the date of supply and the details Revenue lists. Fill it in online, no sign-up, nothing uploaded.
 - [Tax invoice template Australia: free, Word, GST added](https://getclausery.github.io/invoice-templates/australia-tax-invoice.html): Free Australian tax invoice template for Word: the words "Tax invoice", your ABN, 10% GST worked out and the buyer's details for sales of $1,000 or more. Fill it in online, no sign-up.
@@ -149,7 +149,7 @@ Key facts:
 - [Personal training invoice template (free, Word)](https://getclausery.github.io/invoice-templates/personal-training.html): Free personal trainer invoice template for Word: sessions, training plans and missed sessions, totals calculated. Fill it in online, no sign-up.
 
 ## NDA templates
-- [Free NDA templates (Word): mutual, one-way, employee](https://getclausery.github.io/nda-templates/): Free NDA templates for Word: mutual, one-way, employee, contractor and business sale. Download or fill one in online, with no sign-up and nothing uploaded.
+- [Free NDA Templates for Word (2026) — 5 ready-to-sign NDAs](https://getclausery.github.io/nda-templates/): Free NDA templates for Word: mutual, one-way, employee, contractor and business sale. Download or fill one in online, with no sign-up and nothing uploaded.
 
 ## Who Clausery is for
 - [Who Clausery is for: teams that draft the same documents](https://getclausery.github.io/for/): Which teams use Clausery for invoices, contracts and HR letters, what each gets from a guided questionnaire, and how to choose the right template.
@@ -187,7 +187,7 @@ Key facts:
 - [At-will employment clause: meaning and sample wording](https://getclausery.github.io/clauses/at-will-employment-clause.html): What an at-will employment clause says: either side can end employment at any time, the exceptions, with free sample wording and what to check.
 
 ## Guides
-- [Invoice, payment and business document guides](https://getclausery.github.io/guides/): Practical guides to invoices, getting paid, contracts, HR letters and landlord forms. Worked explanations linked to free editable Word templates.
+- [Small-business invoice & contract guides (2026)](https://getclausery.github.io/guides/): Practical guides to invoices, getting paid, contracts, HR letters and landlord forms. Worked explanations linked to free editable Word templates.
 - [How to write an independent contractor agreement](https://getclausery.github.io/guides/how-to-write-an-independent-contractor-agreement.html): What an independent contractor agreement should include: scope, fees, ownership, status and termination, with sample wording and a free Word template.
 - [How to write a promissory note](https://getclausery.github.io/guides/how-to-write-a-promissory-note.html): How to write a promissory note: borrower, lender, principal, interest, repayment dates and signatures, with an example and a free editable Word template.
 - [How to write a sublease agreement](https://getclausery.github.io/guides/how-to-write-a-sublease-agreement.html): Write a sublease agreement covering consent, the original lease, rent, deposit, shared space and move-out, with sample wording and a free Word template.
@@ -257,7 +257,7 @@ Key facts:
 - [How to write a payment receipt: example and Word template](https://getclausery.github.io/guides/how-to-write-a-payment-receipt.html): Write a receipt for money actually received. Follow a Word receipt example, calculate a partial-payment balance and check the details before sending.
 
 ## Free tools
-- [Free drafting tools](https://getclausery.github.io/free-tools/): Free tools for drafting and invoicing: amount in words, deadlines, invoice due dates, late payment interest, loans, commission, prorated rent and more.
+- [Free small-business calculators (Word, 2026)](https://getclausery.github.io/free-tools/): Free tools for drafting and invoicing: amount in words, deadlines, invoice due dates, late payment interest, loans, commission, prorated rent and more.
 - [Amount in words converter for contracts and cheques](https://getclausery.github.io/free-tools/amount-in-words.html): Write any amount in words for contracts, cheques and promissory notes, such as "One Thousand Two Hundred and Fifty Dollars and 50/100".
 - [Contract deadline calculator (business days, months, years)](https://getclausery.github.io/free-tools/deadline-calculator.html): Add or subtract days, business days, weeks, months or years from a date, with month-end handling and your own holidays.
 - [Net 30 calculator: invoice due date for any payment terms](https://getclausery.github.io/free-tools/invoice-due-date.html): Find the due date for Net 30, Net 60, EOM, 15 MFI or 2/10 net 30 invoices, the days left to pay and what an early payment discount is worth.
