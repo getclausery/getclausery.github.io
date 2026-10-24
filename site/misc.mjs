@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '1.60.0', date: '24 October 2026', summary: 'App shell + activate page preconnect to the live origins they hit on load' },
   { version: '1.59.0', date: '24 October 2026', summary: 'Dedicated maskable PWA icons; legacy favicon.ico fallback' },
   { version: '1.58.0', date: '24 October 2026', summary: 'LemonSqueezy preconnect now only emitted on the Pricing page (the only marketing page that loads checkout)' },
   { version: '1.57.0', date: '24 October 2026', summary: 'Social /go/ page security header parity (X-Frame-Options, Referrer-Policy, Permissions-Policy)' },
@@ -50,6 +51,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-60-0">1.60.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li>Added <code>preconnect</code>/<code>dns-prefetch</code> for the live origins the app shell hits on load: <code>api.lemonsqueezy.com</code> (license-key validation on Pro installs) and <code>getclausery.goatcounter.com</code> (anonymous usage count). Previously the marketing pages already preconnected these origins when they needed them, but the app shell itself — the place where those connections actually fire for every session — didn't. A matching <code>preconnect</code> for <code>api.lemonsqueezy.com</code> is now on <code>app/activate.html</code> (the post-checkout license-activation page, which always makes a key check).</li>
+</ul>
 <h2 id="v1-59-0">1.59.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li>Added dedicated maskable PWA icons at 192px and 512px (<code>assets/icon-maskable-192.png</code>, <code>assets/icon-maskable-512.png</code>). These have a full-bleed dark gradient background and the document+check glyph centered in the 80% safe zone, so Android adaptive-icon masks (circles, squircles, rounded squares) never clip the logo when Clausery is installed to the home screen. The existing icon-192/icon-512 PNGs remain as <code>purpose: any</code>; the maskable PNGs are declared separately with <code>purpose: maskable</code> so Chrome/WebView never have to guess where to crop.</li>
