@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '1.55.0', date: '24 October 2026', summary: 'BreadcrumbList JSON-LD on Pricing, Why Clausery and Business Kit pages' },
   { version: '1.54.0', date: '24 October 2026', summary: 'Safari mask-icon link; favicon sizes=any everywhere; dark theme-color correction' },
   { version: '1.53.0', date: '24 October 2026', summary: 'Light/dark theme-color, PWA app-capable meta, sitemap autodiscovery link' },
   { version: '1.52.0', date: '24 October 2026', summary: 'HTML rel=license link on every page' },
@@ -45,6 +46,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-55-0">1.55.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li>Added BreadcrumbList JSON-LD to three high-intent marketing pages that were missing it: <a href="${rel}pricing/">Pricing</a>, <a href="${rel}why-clausery/">Why Clausery</a>, and the <a href="${rel}business-document-kit/">Free business document kit</a>. Templates, invoice-templates, clauses, guides, comparisons, customers, NDA templates, free tools, self-hosting and status pages already carried breadcrumb schema.</li>
+</ul>
 <h2 id="v1-54-0">1.54.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li>Added <code>&lt;link rel="mask-icon" color="#2dd4bf"&gt;</code> on marketing pages, the 404 page and the app shell for Safari pinned-tab icons.</li>

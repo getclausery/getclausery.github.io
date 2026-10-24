@@ -2,7 +2,7 @@
 // not a new marketing claim: every statement here is either a fact about how the app works, a link to a document
 // that shows it, or a link to a comparison page. It deliberately avoids customer quotes, user counts and vendor
 // claims, because none of those can be verified from this repository.
-import { esc, faqLd, faqHtml, REPO_URL } from '../tools/partials.mjs';
+import { esc, faqLd, faqHtml, crumbsLd, REPO_URL } from '../tools/partials.mjs';
 import { LIB } from './library.mjs';
 import { CLAUSES } from './data/clauses.mjs';
 import { TOOLS } from './free-tools.mjs';
@@ -42,7 +42,7 @@ export const pages = [
   {
     path: 'why-clausery/', title: 'Why Clausery — no signup, no card, real Word files',
     description: 'See why Clausery is different from invoice apps and cloud document tools: editable Word output, no uploads, no account to start, a free tier that never expires, public source code and a money-back guarantee.',
-    extraHead: faqLd(FAQ),
+    extraHead: faqLd(FAQ) + crumbsLd([['Home', ''], ['Why Clausery', 'why-clausery/']]),
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Why Clausery</h1>
 <p class="lead">Most tools that make invoices, quotes and contracts want your documents, or your time, or both. Clausery does neither: it makes a Word file on your own computer, gives the whole library away for free, and publishes the code so you can check it.</p>

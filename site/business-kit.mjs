@@ -1,5 +1,5 @@
 import { LIB } from './library.mjs';
-import { faqLd, esc } from '../tools/partials.mjs';
+import { faqLd, crumbsLd, esc } from '../tools/partials.mjs';
 
 const SLUGS = ['quote', 'statement-of-work', 'invoice', 'payment-receipt', 'purchase-order', 'credit-note'];
 const PURPOSES = ['Agree the prices, tax settings and quote validity.', 'Set out the deliverables, scope, milestones and responsibilities.', 'Request payment with line items, totals and a due date.', 'Confirm a payment actually received and record its reference.', 'Tell a supplier what you are ordering and where it should go.', 'Record a credit or correction against an earlier invoice.'];
@@ -14,7 +14,7 @@ const FAQ = [
 export const pages = [{
   path: 'business-document-kit/', title: 'Free business document kit — 6 Word templates (no email)',
   description: 'Download a free 6-template Word kit for small businesses: quote, scope of work, invoice, payment receipt, purchase order and credit note. No email signup, no account — one zip, editable .docx files.',
-  ogImage: 'assets/marketing/business-kit-social.png', extraHead: faqLd(FAQ),
+  ogImage: 'assets/marketing/business-kit-social.png', extraHead: faqLd(FAQ) + crumbsLd([['Home', ''], ['Free business document kit', 'business-document-kit/']]),
   body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Six free Word templates for your next business job</h1>
 <p class="lead">Keep the quote, scope and payment paperwork together. Download six editable Word templates in one kit, or fill in each one online and get a completed .docx. No account and no email signup.</p>
