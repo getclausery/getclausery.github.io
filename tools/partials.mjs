@@ -126,7 +126,8 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:description" content="${esc(description)}">
 <meta name="twitter:image" content="${image}">
 <meta name="twitter:image:alt" content="${esc(imageAlt)}">
-<meta name="theme-color" content="#1b2a41">
+<meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1419" media="(prefers-color-scheme: dark)">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="author" content="Clausery">
 <meta name="generator" content="Clausery ${SITE} — AGPL-3.0-or-later open source">
@@ -142,6 +143,7 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <link rel="search" type="application/opensearchdescription+xml" title="Clausery templates" href="${rel}opensearch.xml">
 <link type="text/plain" rel="author" href="${rel}humans.txt">
 <link rel="license" href="${rel}legal/license.html" title="AGPL-3.0-or-later WITH Clausery-Trademark-Exception">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="${rel}sitemap_index.xml">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="${rel}feed.xml">
 <link rel="alternate" type="application/atom+xml" title="Clausery releases" href="${rel}releases.xml">
 <link rel="alternate" hreflang="en-GB" href="${url}">

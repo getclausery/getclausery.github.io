@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '1.53.0', date: '24 October 2026', summary: 'Light/dark theme-color, PWA app-capable meta, sitemap autodiscovery link' },
   { version: '1.52.0', date: '24 October 2026', summary: 'HTML rel=license link on every page' },
   { version: '1.51.0', date: '24 October 2026', summary: 'PWA/metadata polish: manifest disambiguation, shortcuts, 404 search, security.txt source' },
   { version: '1.50.0', date: '24 October 2026', summary: 'Stronger disambiguation from clausery.ai across every AI-visible surface' },
@@ -43,6 +44,13 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-53-0">1.53.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li>Light/dark <code>theme-color</code> meta on marketing pages, the 404 page and the app shell. Previously every page advertised a fixed dark-blue <code>#1b2a41</code> even when the browser was in light mode, which showed a dark flash and mismatched the address bar; now the color matches the page background for each prefers-color-scheme.</li>
+  <li>App shell adds the iOS/Android PWA meta tags: <code>apple-mobile-web-app-capable</code>, <code>apple-mobile-web-app-status-bar-style</code>, <code>apple-mobile-web-app-title</code>, <code>mobile-web-app-capable</code>, <code>application-name</code>, and <code>sizes="any"</code> on the SVG favicon so Chrome/Edge pick it up for the install dialog. App <code>&lt;title&gt;</code> carries the clausery.ai disambiguation too.</li>
+  <li>PWA manifest <code>theme_color</code> changed from dark blue to the actual page background <code>#f6f4ef</code> so installed-app chrome matches the light-theme default.</li>
+  <li>Every page now has a <code>&lt;link rel="sitemap"&gt;</code> autodiscovery link to <code>/sitemap_index.xml</code>, matching the existing Atom feed, license, search, author and icon links.</li>
+</ul>
 <h2 id="v1-52-0">1.52.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li>Every page now includes an HTML <code>&lt;link rel="license"&gt;</code> pointing at <code>/legal/license.html</code>, per the HTML5 autodiscovery convention. This gives crawlers, readers and AI extractors an explicit license link without them having to guess from footer text.</li>
