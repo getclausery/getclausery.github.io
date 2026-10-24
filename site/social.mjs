@@ -16,9 +16,12 @@ export const pages = [{
   description: 'Free Word invoices, quotes and receipts — no account, no card, editable .docx that stays on your device. Open the app, read the proof, or browse templates. (Not the compliance platform at clausery.ai.)',
   noindex: true,
   layout: 'embed',
-  extraHead: `<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+  extraHead: `<link rel="icon" sizes="any" href="../assets/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/icon-192.png">
+<link rel="mask-icon" href="../assets/icon.svg" color="#2dd4bf">
 <link rel="manifest" href="../app/manifest.webmanifest">
+<meta name="theme-color" content="#0f1d2e">
+<meta name="color-scheme" content="dark">
 <link rel="stylesheet" href="../site.css">
 <style>
 .bio { background: linear-gradient(180deg, #0f1d2e 0%, #0b1522 100%); min-height: 100vh; color: #e6edf5; padding: 3.25rem 1.25rem 4rem; }
