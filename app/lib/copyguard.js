@@ -29,7 +29,7 @@ import { SITE_URL, APP_NAME } from '../config.js';
 /* Set to true only if you have purchased a commercial white-label license. */
 const WHITE_LABEL_LICENSE = false;
 
-/* Hostnames run by the Clausery project. Subdomains of these also match. */
+/* Hostnames run by Clausery. Subdomains of these also match. */
 const OFFICIAL_HOSTS = [
   'getclausery.github.io',
   'getclausery.com',
@@ -138,7 +138,7 @@ function consoleNotice() {
     console.log('%cUNLICENSED COPY DETECTED', css,
       'This site appears to be running Clausery (' + SITE_URL +
       ') without a license and without renaming the product. ' +
-      'If you arrived here from a search or ad, the original free project is at ' + SITE_URL + '.');
+      'If you arrived here from a search or ad, the original free tool is at ' + SITE_URL + '.');
     console.log('License: ' + SITE_URL + '/legal/license.html · Source: https://github.com/getclausery/getclausery.github.io');
   } catch { /* */ }
 }
