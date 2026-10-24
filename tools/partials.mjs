@@ -89,7 +89,7 @@ export const collectionLd = ({ path, name, description, items }) => `<script typ
   mainEntity: { '@type': 'ItemList', numberOfItems: items.length, itemListElement: items.map(([itemName, itemPath], i) => ({ '@type': 'ListItem', position: i + 1, name: itemName, url: `${SITE}${itemPath}` })) },
 })}</script>`;
 export const faqHtml = (faq) => `<div class="faq">${faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>`;
-export function head({ title, description, path, extraHead = '', pageLd = '', ogImage = 'assets/og.png', ogType = 'website', published, modified, rel: relOverride, noindex = false }) {
+export function head({ title, description, path, extraHead = '', pageLd = '', ogImage = 'assets/og.png', ogType = 'website', published, modified, rel: relOverride, noindex = false, checkout = false }) {
   // Search results show about 60 characters of a title; drop the brand suffix rather than have the title cut off.
   // The home title leads with what the site is for (small businesses making invoices in Word) and what people search for.
   // A title that already names Clausery gets no suffix (no "About Clausery · Clausery").
@@ -150,9 +150,7 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" hreflang="en-GB" href="${url}">
 <link rel="alternate" hreflang="en" href="${url}">
 <link rel="alternate" hreflang="x-default" href="${url}">
-<link rel="preconnect" href="https://api.lemonsqueezy.com" crossorigin>
-<link rel="dns-prefetch" href="https://api.lemonsqueezy.com">
-<link rel="preconnect" href="https://static.cloudflareinsights.com" crossorigin>
+${checkout ? '<link rel="preconnect" href="https://api.lemonsqueezy.com" crossorigin>\n<link rel="dns-prefetch" href="https://api.lemonsqueezy.com">\n' : ''}<link rel="preconnect" href="https://static.cloudflareinsights.com" crossorigin>
 <link rel="dns-prefetch" href="https://static.cloudflareinsights.com">
 <link rel="preconnect" href="https://getclausery.goatcounter.com" crossorigin>
 <link rel="dns-prefetch" href="https://getclausery.goatcounter.com">
