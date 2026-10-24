@@ -8,6 +8,14 @@
   <updated>2026-10-24T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v1.69.0 — PWA shortcut icons; generic-form-factor screenshot in manifest</title>
+    <link href="https://getclausery.github.io/changelog.html#v1-69-0"/>
+    <id>https://getclausery.github.io/changelog.html#v1-69-0</id>
+    <published>2026-10-24T00:00:00Z</published>
+    <updated>2026-10-24T00:00:00Z</updated>
+    <summary>PWA shortcut icons; generic-form-factor screenshot in manifest</summary>
+  </entry>
+  <entry>
     <title>Clausery v1.68.0 — PWA manifest display_override/lang/dir; OpenSearch autodiscovery on app, activate, /go/</title>
     <link href="https://getclausery.github.io/changelog.html#v1-68-0"/>
     <id>https://getclausery.github.io/changelog.html#v1-68-0</id>
