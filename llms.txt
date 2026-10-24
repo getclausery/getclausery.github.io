@@ -22,7 +22,7 @@ Key facts:
 - Clausery is software, not a law firm, and does not give legal advice.
 
 ## Product
-- [Home](https://getclausery.github.io/): Free invoice maker for Word: invoices, quotes and receipts (independent open source). Editable .docx in your browser, no account, no card, nothing uploaded. Not affiliated with Clausery.ai (separate compliance software).
+- [Home](https://getclausery.github.io/): Free invoice maker for Word in 2026. Make a professional invoice, quote or receipt in your browser in 60 seconds — editable .docx, no account, no card, nothing uploaded. Not affiliated with Clausery.ai.
 - [About Clausery (open-source invoice tool — not clausery.ai)](https://getclausery.github.io/about/): About Clausery, the independent open-source business making free Word invoices, quote and receipt generator for freelancers and small businesses. Not affiliated with Clausery.ai.
 - [Pricing — free forever, or Pro $19/mo (no card trial)](https://getclausery.github.io/pricing/): Free forever: 87 Word templates, three of your own, unlimited documents. Pro is $19/user/month for unlimited templates, calculations, encryption and bulk-from-spreadsheet. 14-day free trial (no card), 30-day refund.
 - [Why Clausery — no signup, no card, real Word files](https://getclausery.github.io/why-clausery/): See why Clausery is different from invoice apps and cloud document tools: editable Word output, no uploads, no account to start, a free tier that never expires, public source code and a money-back guarantee.

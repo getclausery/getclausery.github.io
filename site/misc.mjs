@@ -58,9 +58,52 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:44rem"><p class="eyebrow">404 — page not found</p><h1>That page is not here.</h1><p class="lead">The address may be wrong or the page moved. Nothing you type in Clausery is stored on a server, so there is nothing to recover from a broken link — but what you were looking for is probably one click away.</p><div class="grid grid-2" style="margin-top:1.5rem"><a class="feature" href="${rel}app/#/start/invoice"><div class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></div><h3>Make a free invoice →</h3><p>60-second start; editable Word file; totals, tax and numbering done for you.</p></a><a class="feature" href="${rel}templates/"><div class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div><h3>Browse ${87}+ free templates</h3><p>Invoices, contracts, NDAs, letters, forms and more — all editable Word.</p></a></div><h2 style="margin-top:2rem;font-size:1.1rem">Popular starting points</h2><ul class="link-list" style="columns:2 12rem;column-gap:2rem;margin-top:.5rem"><li><a href="${rel}invoice-templates/">Invoice templates</a></li><li><a href="${rel}invoice-templates/deposit-invoice.html">Deposit invoice</a></li><li><a href="${rel}invoice-templates/final-invoice.html">Final invoice</a></li><li><a href="${rel}templates/quote.html">Price quote</a></li><li><a href="${rel}templates/payment-receipt.html">Payment receipt</a></li><li><a href="${rel}templates/mutual-nda.html">Mutual NDA</a></li><li><a href="${rel}templates/independent-contractor-agreement.html">Independent contractor agreement</a></li><li><a href="${rel}guides/">All guides</a></li><li><a href="${rel}pricing/">Pricing</a></li><li><a href="${rel}docs/security.html">Security & privacy</a></li></ul><div class="actions" style="display:flex;gap:.75rem;margin-top:1.75rem;flex-wrap:wrap"><button class="btn btn-primary" type="button" onclick="(document.getElementById('nav-search')||{}).click?.()">Search the site <span class="arr">→</span></button><a class="btn" href="${rel}">Home page</a><a class="btn btn-ghost" href="${rel}app/">Open the app</a></div></div></section>`,
   },
   {
+    path: 'search/', title: 'Search free Word templates and guides',
+    description: 'Search 87+ free Word templates, invoices, NDAs, contracts, letters and plain-English guides. Every result is a real page you can read or download — no account required.',
+    extraHead: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'SearchResultsPage', '@id': '${SITE}search/#webpage', url: '${SITE}search/', name: 'Search free Word templates and guides', description: 'Search 87+ free Word templates, invoices, NDAs, contracts, letters and plain-English guides. Every result is a real page you can read or download — no account required.', inLanguage: 'en-GB', isPartOf: { '@id': '${SITE}#website' } })}</script>`,
+    body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">
+<p class="eyebrow">Search</p>
+<h1>Search free templates, invoices and guides</h1>
+<p class="lead">Type what you are looking for — for example <a href="${rel}search/?q=invoice"><em>invoice</em></a>, <a href="${rel}search/?q=nda"><em>NDA</em></a>, <a href="${rel}search/?q=late+payment"><em>late payment</em></a>, <a href="${rel}search/?q=lease"><em>lease</em></a>, <a href="${rel}search/?q=independent+contractor"><em>independent contractor</em></a> — and the matching template, calculator or guide appears below.</p>
+<form class="find-form" action="${rel}search/" method="get" role="search" aria-label="Search the site" style="margin:1.5rem 0 1rem">
+  <label for="site-q" class="sr-only">Search</label>
+  <input id="site-q" type="search" name="q" placeholder="invoice, NDA, lease, late payment…" autocomplete="off" spellcheck="false" autofocus>
+  <button class="btn btn-primary" type="submit">Search <span class="arr">→</span></button>
+</form>
+<p class="small muted" role="status" aria-live="polite" id="site-q-status">Start typing to filter results, or press Enter to load the full page.</p>
+<div id="site-q-results" aria-live="polite">
+  <h2 style="margin-top:2rem;font-size:1.1rem">Popular searches</h2>
+  <ul class="link-list" style="columns:2 14rem;column-gap:2rem;margin-top:.5rem">
+    <li><a href="${rel}invoice-templates/">Invoice templates</a></li>
+    <li><a href="${rel}templates/quote.html">Quote template</a></li>
+    <li><a href="${rel}templates/payment-receipt.html">Payment receipt</a></li>
+    <li><a href="${rel}templates/mutual-nda.html">Mutual NDA</a></li>
+    <li><a href="${rel}templates/independent-contractor-agreement.html">Independent contractor agreement</a></li>
+    <li><a href="${rel}templates/employment-agreement.html">Employment agreement</a></li>
+    <li><a href="${rel}nda-templates/">All NDA templates</a></li>
+    <li><a href="${rel}templates/liability-waiver.html">Liability waiver</a></li>
+    <li><a href="${rel}templates/residential-lease-agreement.html">Residential lease</a></li>
+    <li><a href="${rel}templates/non-solicitation-agreement.html">Non-solicitation</a></li>
+    <li><a href="${rel}guides/how-to-write-an-invoice.html">How to write an invoice</a></li>
+    <li><a href="${rel}free-tools/invoice-due-date.html">Invoice due date calculator</a></li>
+  </ul>
+</div>
+<p style="margin-top:2rem">Prefer to browse? <a href="${rel}templates/">All templates by category</a> · <a href="${rel}invoice-templates/">Invoices by trade / country</a> · <a href="${rel}guides/">All guides</a> · <a href="${rel}free-tools/">Free calculators</a>.</p>
+<noscript><p class="small muted">Search needs JavaScript in your browser, but every page is linked from <a href="${rel}">Home</a>, <a href="${rel}templates/">Templates</a> or <a href="${rel}guides/">Guides</a>.</p></noscript>
+</div></section>`,
+  },
+  {
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-76-0">1.76.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li><strong>Crawlable <code>/search/</code> page for Google Sitelinks Searchbox.</strong> Google only activates the Sitelinks Searchbox rich result if the target URL is crawlable, returns real results for <code>?q=</code>, and works without JavaScript. The new <a href="${rel}search/">/search/</a> page server-renders popular searches as real links (so a crawler sees actual results), runs a live client-side search against <code>search-index.json</code> when you type or land with <code>?q=</code>, and carries <code>SearchResultsPage</code> JSON-LD. The WebSite schema's <code>SearchAction</code> now points at this dedicated endpoint (previously <code>/templates/?q=</code>, which did not meet Google's functional-search requirement).</li>
+  <li><strong>Home-page title/description rewritten for higher CTR.</strong> New title: <em>"Free Invoice Template for Word (2026) — Make &amp; Download in 60s"</em>; new meta description leads with year + time-to-result and moves the "(not clausery.ai)" disambiguation into the second sentence. This matches the high-intent "free invoice template for word" query head-on and puts the numbers Google bolds (2026, 60s) up front.</li>
+  <li><strong>Accessibility polish.</strong> Header marked <code>role="banner"</code>, footer <code>role="contentinfo"</code>; the ⌘K command palette gains <code>aria-controls</code>, <code>aria-labelledby</code> pointing at a screen-reader title, an <code>aria-live</code> hint region and a descriptive <code>aria-label</code> on the results listbox.</li>
+  <li><strong>Speculation-rules prefetch.</strong> Added a conservative <code>eagerness: "moderate"</code> prefetch rule on every page that excludes /app/ (which has its own prerender), downloads, external targets and non-HTML URLs, so likely next clicks are already cached on Chromium browsers without extra data cost.</li>
+  <li>0 new third parties; CWV/CSP/AGPL/CMI/trademarks preserved.</li>
+</ul>
 <h2 id="v1-75-0">1.75.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li><strong>Critical-asset preload hints.</strong> Added <code>&lt;link rel="preload"&gt;</code> for the Clausery mark (icon.svg), site.css and site.js so the header brand and first paint land sooner on slow connections; added <code>fetchpriority="low"</code> on the non-critical JS preload to avoid competing with render-blocking CSS.</li>

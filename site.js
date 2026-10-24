@@ -198,3 +198,17 @@ document.addEventListener('pointermove',e=>{
     try{const host=window.top.location.hostname;if(!host)ok=true;else for(const a of allowed)if(host===a||host.endsWith('.'+a)){ok=true;break}}catch{ok=false}
     if(!ok)window.top.location.replace(window.self.location.href)}catch{}
 })();
+
+/*/search live*/(()=>{const q=$('#site-q'),r=$('#site-q-results'),s=$('#site-q-status');if(!q||!r)return;
+const E=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const R=a=>{if(!a.length){r.innerHTML='<p class="lead">No match. Try a broader word or <a href="templates/">browse templates</a>.</p>';return}
+r.innerHTML='<h2 style="margin-top:2rem;font-size:1.1rem">'+a.length+' result'+(a.length-1?'s':'')+'</h2><ul class="link-list" style="margin-top:.5rem">'+a.map(x=>'<li><a href="'+E(x[1])+'"><strong>'+E(x[0])+'</strong></a><div class="small muted">'+E(x[2])+'</div></li>').join('')+'</ul>'};
+let I=null;const L=(($('link[rel=canonical]')?.content)||'./').replace(/search\/?$/,'');
+const f=()=>{const w=q.value.trim().toLowerCase();if(!w)return;
+(async()=>{try{if(!I)I=window.__SEARCH_INDEX||await(await fetch(L+'search-index.json')).json();window.__SEARCH_INDEX=I;
+const T=w.split(/[^a-z0-9]+/).filter(Boolean),sc=t=>{const a=(t||'').toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);let v=0;for(const t of T){let b=0;for(const x of a){if(x===t){b=8;break}if(x.startsWith(t))b=Math.max(b,3);else if(x.includes(t))b=Math.max(b,1)}v+=b}return v};
+const A=[];for(const k of'templates,invoices,guides,clauses,tools,pages'.split(','))for(const x of(I[k]||[]))A.push([x.t,L+x.p,x.d||'']);
+const h=A.map(x=>[x[0],x[1],x[2],sc(x[0]+' '+x[2])]).filter(x=>x[3]>0).sort((a,b)=>b[3]-a[3]).slice(0,20);
+R(h);s&&(s.textContent=h.length+' result'+(h.length-1?'s':'')+' for "'+w+'"')}catch(_){s&&(s.textContent='Offline.')}})()};
+q.addEventListener('input',()=>{clearTimeout(q._t);q._t=setTimeout(f,150)});
+const p=new URL(location.href).searchParams.get('q');if(p){q.value=p;f()}})();
