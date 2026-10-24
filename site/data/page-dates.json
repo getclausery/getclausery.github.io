@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-10-24",
-  "hash": "50eba85f8ddb7109"
+  "hash": "6d8428717a134d3c"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -28,8 +28,8 @@
   "hash": "4bdb412837ef366a"
  },
  "about/": {
-  "date": "2026-10-23",
-  "hash": "5749cb060a1c335f"
+  "date": "2026-10-24",
+  "hash": "04d1473c78a38a4c"
  },
  "business-document-kit/": {
   "date": "2026-10-23",
@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-24",
-  "hash": "48fdf1f1f571097c"
+  "hash": "b1b6da01b0ceb12c"
  },
  "clauses/": {
   "date": "2026-10-17",
@@ -188,8 +188,8 @@
   "hash": "7efd3474b80c701b"
  },
  "contact/": {
-  "date": "2026-10-23",
-  "hash": "bdae2db692baa71d"
+  "date": "2026-10-24",
+  "hash": "e326380e1ac21a4c"
  },
  "customers/": {
   "date": "2026-10-23",
@@ -680,8 +680,8 @@
   "hash": "c7f1f37018bbf811"
  },
  "made-with/": {
-  "date": "2026-10-23",
-  "hash": "2ee253a94fbe9e92"
+  "date": "2026-10-24",
+  "hash": "43ed34bf980cd9e5"
  },
  "nda-templates/": {
   "date": "2026-10-04",
@@ -697,7 +697,7 @@
  },
  "roadmap/": {
   "date": "2026-10-24",
-  "hash": "e4c037588c5cc4c1"
+  "hash": "445a47dc982cadce"
  },
  "self-hosting/": {
   "date": "2026-10-23",
@@ -705,7 +705,7 @@
  },
  "status/": {
   "date": "2026-10-24",
-  "hash": "61bea4de9d87d04d"
+  "hash": "58cbc8167a67259f"
  },
  "templates/": {
   "date": "2026-10-23",

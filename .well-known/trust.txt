@@ -7,3 +7,5 @@ Contact: mailto:getclausery@gmail.com?subject=Clausery%20trust%20report
 Policy: https://getclausery.github.io/legal/dmca.html
 Attestation: https://getclausery.github.io/.well-known/attestation.json
 Preferred-Languages: en
+Entity: Independent open-source project for free Word invoices, quotes and receipts (getclausery.github.io).
+Not-Affiliated-With: https://www.clausery.ai/ — separate company selling enterprise compliance-management software (ISO 27001, DORA, GDPR, NIS2); shares the word "Clausery" but different owners, code, team and product.
