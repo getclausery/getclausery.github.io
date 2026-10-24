@@ -61,6 +61,14 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-71-0">1.71.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li>Marketing UI refresh: softer surfaces, gentler borders and shadows, shorter glassier header, pill-shaped buttons and rounded 16px corners throughout. Cards, plans, steps and docs-cards now use subtler elevations and hover lifts so the page feels cleaner and less cluttered.</li>
+  <li>Navigation polish: current-page link is now highlighted in brand tint on a soft pill, hover states are quieter, and the mobile menu button uses a matching surface.</li>
+  <li>Hero tightened: the name disambiguation notice is now a compact inline pill rather than a warning box, the primary CTA uses a flat brand colour instead of a heavy gradient, and secondary entry points ("quote / receipt / kit") stay reachable without competing with the main action.</li>
+  <li>Retention hook: a thin top read-progress bar tracks how far you've scrolled, and once you've scrolled past the hero (or if you have saved drafts from a previous visit), a floating "Pick up where you left off" pill returns you straight to your drafts — one click to get back to work.</li>
+  <li>Footer and section dividers softened to match the new surface palette; mobile spacing tightened across hero, sections, plans and feature grids.</li>
+</ul>
 <h2 id="v1-70-0">1.70.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li>The <code>offline.html</code> service-worker fallback now carries the same icon, manifest and autodiscovery links as every other page on the site: vector favicon with <code>sizes="any"</code>, legacy ICO favicon, Apple touch icon, Safari mask-icon, PWA manifest, <code>rel="license"</code>, <code>rel="security"</code> and the OpenSearch description. v1.61 and v1.66–v1.67 already added light/dark <code>theme-color</code>, <code>color-scheme</code>, <code>X-Content-Type-Options</code>, <code>Referrer-Policy</code>, <code>X-Frame-Options</code>, <code>Permissions-Policy</code> and a strict CSP to this page; with this change the offline fallback is visually and metadata-parity with the rest of the site when it appears.</li>

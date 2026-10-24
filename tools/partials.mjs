@@ -219,6 +219,11 @@ export function header(rel, path) {
 }
 export function footer(rel) {
   return `</main>
+<div class="read-progress" id="read-progress" aria-hidden="true"></div>
+<a class="scroll-cta" id="scroll-cta" href="${rel}app/#/drafts" aria-label="Pick up where you left off — open your saved drafts">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+  Pick up where you left off
+</a>
 <footer class="site-footer">
   <div class="wrap">
     <div>

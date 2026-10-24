@@ -1,8 +1,6 @@
 /* Clausery <https://getclausery.github.io> — (C) 2026 Clausery. AGPL-3.0-or-later WITH Clausery-Trademark-Exception. Removing this notice is removal of copyright management information under 17 U.S.C. 1202. Source: https://github.com/getclausery/getclausery.github.io */
 /* Clausery site script: the mobile menu, the copy buttons and the template finder. External so the pages work under a strict script-src 'self' policy. */
-// Cookieless page-view counts (Cloudflare Web Analytics) on the website pages that load this script; never the app or embedded calculators.
-// Empty token = off. The build reads these two values to switch the privacy, about and security wording, so change them only here.
-// Only the public site counts, so tests, previews and self-hosted copies never send page views.
+// Cloudflare Web Analytics (public site only; no cookies; empty token = off).
 const CLAUSERY_ANALYTICS = { token: '20524027c20141ab8306d586c8518877', since: '2026-10-03', host: 'getclausery.github.io' };
 if (CLAUSERY_ANALYTICS.token && location.hostname === CLAUSERY_ANALYTICS.host) {
   const s = document.createElement('script');
@@ -18,7 +16,7 @@ document.addEventListener('click', (e) => {
   if (!nav) return;
   btn.setAttribute('aria-expanded', String(nav.classList.toggle('open')));
 });
-// Copy buttons: the clause library's sample wording as plain text, one paragraph per line, or a code box (textarea) as is.
+// Copy buttons: clause-library sample text or code boxes.
 document.addEventListener('click', async (e) => {
   const btn = e.target.closest && e.target.closest('.copy-btn');
   if (!btn) return;
@@ -39,8 +37,7 @@ document.addEventListener('click', async (e) => {
     if (status) status.textContent = 'Press Ctrl+C (or Cmd+C) to copy the selected text.';
   }
 });
-// Template finder on list pages: filters the cards as you type. The box is hidden in the HTML and only shown here, so
-// readers without JavaScript never see a control that does nothing. ?q= pre-fills it (the home page search form uses it).
+// Template finder: live filter cards as you type; ?q= pre-fills.
 for (const box of document.querySelectorAll('[data-filter-for]')) {
   const root = document.getElementById(box.dataset.filterFor);
   const input = box.querySelector('input');
@@ -63,6 +60,13 @@ for (const box of document.querySelectorAll('[data-filter-for]')) {
   const q = new URL(location.href).searchParams.get('q');
   if (q) { input.value = q; run(); }
 }
+// v1.71 read progress + returning-visitor CTA.
+(function(){
+  const b=document.getElementById('read-progress'),c=document.getElementById('scroll-cta');
+  let t=false,d=false;try{d=!!localStorage.getItem('clausery:drafts-index')||!!localStorage.getItem('clausery:last-doc')}catch{}
+  const u=()=>{const h=document.documentElement,s=h.scrollTop||document.body.scrollTop,m=Math.max(1,h.scrollHeight-h.clientHeight),p=Math.min(100,Math.max(0,(s/m)*100));if(b)b.style.width=p.toFixed(1)+'%';if(c)c.classList.toggle('show',d?s>300:s>900&&p>25);t=false};
+  if(b||c){u();window.addEventListener('scroll',()=>{if(!t){requestAnimationFrame(u);t=true}},{passive:true})}
+})();
 
 /* Copy-protection watermark for site pages (parallel to app/lib/copyguard.js).
    Official deployments and local dev see nothing; unlicensed rebranded copies
