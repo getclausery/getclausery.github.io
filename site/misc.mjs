@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '1.54.0', date: '24 October 2026', summary: 'Safari mask-icon link; favicon sizes=any everywhere; dark theme-color correction' },
   { version: '1.53.0', date: '24 October 2026', summary: 'Light/dark theme-color, PWA app-capable meta, sitemap autodiscovery link' },
   { version: '1.52.0', date: '24 October 2026', summary: 'HTML rel=license link on every page' },
   { version: '1.51.0', date: '24 October 2026', summary: 'PWA/metadata polish: manifest disambiguation, shortcuts, 404 search, security.txt source' },
@@ -44,6 +45,12 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-54-0">1.54.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li>Added <code>&lt;link rel="mask-icon" color="#2dd4bf"&gt;</code> on marketing pages, the 404 page and the app shell for Safari pinned-tab icons.</li>
+  <li>SVG favicon links now carry <code>sizes="any"</code> everywhere (marketing, 404, app) so Chrome and Edge pick the SVG for the install dialog and address bar.</li>
+  <li>App dark theme-color corrected to the actual dark background <code>#0f1419</code> (was off by one shade <code>#0b1522</code>, which is the ink-surface, not the page background).</li>
+</ul>
 <h2 id="v1-53-0">1.53.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li>Light/dark <code>theme-color</code> meta on marketing pages, the 404 page and the app shell. Previously every page advertised a fixed dark-blue <code>#1b2a41</code> even when the browser was in light mode, which showed a dark flash and mismatched the address bar; now the color matches the page background for each prefers-color-scheme.</li>

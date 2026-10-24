@@ -137,8 +137,9 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), display-capture=()">
-<link rel="icon" href="${rel}assets/icon.svg" type="image/svg+xml">
+<link rel="icon" sizes="any" href="${rel}assets/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="${rel}assets/icon-192.png">
+<link rel="mask-icon" href="${rel}assets/icon.svg" color="#2dd4bf">
 <link rel="manifest" href="${rel}app/manifest.webmanifest">
 <link rel="search" type="application/opensearchdescription+xml" title="Clausery templates" href="${rel}opensearch.xml">
 <link type="text/plain" rel="author" href="${rel}humans.txt">
