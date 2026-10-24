@@ -212,3 +212,6 @@ const h=A.map(x=>[x[0],x[1],x[2],sc(x[0]+' '+x[2])]).filter(x=>x[3]>0).sort((a,b
 R(h);s&&(s.textContent=h.length+' result'+(h.length-1?'s':'')+' for "'+w+'"')}catch(_){s&&(s.textContent='Offline.')}})()};
 q.addEventListener('input',()=>{clearTimeout(q._t);q._t=setTimeout(f,150)});
 const p=new URL(location.href).searchParams.get('q');if(p){q.value=p;f()}})();
+
+/* ---------- Was this helpful? widget (local-only) ---------- */
+!function(){const K='clausery.h',S=(()=>{try{return JSON.parse(localStorage.getItem(K)||'{}')}catch(_){return{}}})();document.querySelectorAll('.helpful[data-helpful]').forEach(w=>{const i=w.dataset.helpful,r=S[i]||{yes:0,no:0,v:null},bs=w.querySelectorAll('.helpful-btn'),c=w.querySelector('.helpful-count'),f=()=>{bs.forEach(b=>b.setAttribute('aria-pressed',b.dataset.vote===r.v));c.textContent=r.yes+r.no?`${r.yes}/${r.no}`:''};bs.forEach(b=>b.addEventListener('click',()=>{const v=b.dataset.vote;r.v===v?r[v]--:(r.v&&r[r.v]--,r[v]++,r.v=v);try{localStorage.setItem(K,JSON.stringify(S))}catch(_){}f()}));f()})}();

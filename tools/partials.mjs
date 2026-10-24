@@ -90,6 +90,10 @@ export const collectionLd = ({ path, name, description, items }) => `<script typ
   mainEntity: { '@type': 'ItemList', numberOfItems: items.length, itemListElement: items.map(([itemName, itemPath], i) => ({ '@type': 'ListItem', position: i + 1, name: itemName, url: `${SITE}${itemPath}` })) },
 })}</script>`;
 export const faqHtml = (faq) => `<div class="faq" itemscope itemtype="https://schema.org/FAQPage">${faq.map(([q, a], i) => `<details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" id="faq-${i}"><summary itemprop="name" aria-controls="faq-${i}-a" id="faq-${i}-q">${esc(q)}</summary><div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" id="faq-${i}-a" role="region" aria-labelledby="faq-${i}-q"><p itemprop="text">${esc(a)}</p></div></details>`).join('')}</div>`;
+// "Was this helpful?" feedback widget. LocalStorage-only (no data leaves the device unless/until
+// there is an opted-in analytics endpoint) so it is safe to render on every long-form page.
+// Counts are shown as "Yes x / No y" after voting. v is the page's stable id (path).
+export const helpfulWidget = (v) => `<p class="helpful" data-helpful="${esc(v)}" role="group" aria-label="Was this helpful?"><span class="helpful-q">Helpful?</span><button type="button" class="helpful-btn" data-vote="yes" aria-pressed="false">👍</button><button type="button" class="helpful-btn" data-vote="no" aria-pressed="false">👎</button><span class="helpful-count" aria-live="polite"></span></p>`;
 // HowTo JSON-LD helper. Pass the page title, description, totalTime (ISO 8601 duration e.g. 'PT10M') and an
 // array of {text, image?, name?} steps; if a raw body HTML string is passed as `steps`, we pull the first <ol><li>
 // block we find as the step list — this matches the structure used across the how-to guides.
