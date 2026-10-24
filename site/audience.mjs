@@ -2136,7 +2136,7 @@ ${GUIDE_TOPICS.map(([t, slugs]) => `  <h2 id="${topicId(t)}" style="margin-top:2
     body: (rel) => {
       const [topic, slugs] = topicOf(g.slug);
       return `<section class="section"><div class="wrap prose"><nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}guides/">Guides</a></nav><h1 style="margin-top:1rem">${esc(g.title)}</h1>
-<p class="small muted guide-meta">Published <time datetime="${published(g)}">${longDate(published(g))}</time><!--upd--> · Updated <time datetime="${LASTMOD}">${LASTMOD_LONG}</time><!--/upd--> · <a href="${rel}guides/#${topicId(topic)}">${esc(topic)}</a></p>${g.body(rel)}${g.sources ? `
+<p class="small muted guide-meta">Published <time datetime="${published(g)}">${longDate(published(g))}</time><!--upd--> · Updated <time datetime="${LASTMOD}">${LASTMOD_LONG}</time><!--/upd--> · Reviewed by <a href="${rel}about/">Clausery editors</a> · <a href="${rel}guides/#${topicId(topic)}">${esc(topic)}</a></p>${g.body(rel)}${g.sources ? `
 <h2>Sources</h2>
 <ul class="sources">${g.sources.map(([label, url]) => `<li><a href="${esc(url)}" rel="noopener">${esc(label)}</a></li>`).join('')}</ul>` : ''}
 ${g.faq ? `<h2>Questions</h2>${faqHtml(g.faq)}` : ''}<!--nav-->${['how-to-write-an-invoice', 'what-to-do-when-a-client-wont-pay', 'what-bank-details-to-put-on-an-invoice'].includes(g.slug) ? `<p>Write the sending message or a polite follow-up with the <a href="${rel}guides/invoice-email-template.html">free invoice email generator and four email templates</a>.</p>` : ''}<h2>More on ${esc(lowerFirst(topic))}</h2>

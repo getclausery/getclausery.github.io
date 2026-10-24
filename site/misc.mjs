@@ -96,6 +96,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-82-0">1.82.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li><strong>E-E-A-T byline on every guide.</strong> Guide pages now show a "Reviewed by Clausery editors" link to the About page alongside the published/updated dates, signalling editorial review to readers and quality-rater signals.</li>
+</ul>
 <h2 id="v1-81-0">1.81.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li><strong>Richer DigitalDocument schema.</strong> All 87 template pages now carry a stable <code>#doc</code> <code>@id</code>, <code>mainEntityOfPage</code>, <code>educationalLevel</code>/<code>learningResourceType</code>, a zero-price <code>Offer</code>, an <code>isRelatedTo</code> link to their matching how-to guide, and named publisher/creator consistent with the shared <code>#organization</code> node.</li>
@@ -314,11 +318,11 @@ export const pages = [
 </ul>
 <h2 id="v1-47-0">1.47.0 <span class="small muted">— 23 October 2026</span></h2>
 <ul>
-  <li>Organization schema now carries a stable <code>@id</code> (<code>#organization</code>), a <code>legalName</code>, and a <code>contactPoint</code> (customer support, en-GB). The same <code>ORG</code> object is reused on the About and Contact pages, so JSON-LD consumers see a single organisation node rather than three separate unnamed nodes.</li>
+  <li>Stable <code>#organization</code> @id, <code>legalName</code> and en-GB <code>contactPoint</code> on Organization schema, reused across About and Contact.</li>
 </ul>
 <h2 id="v1-46-0">1.46.0 <span class="small muted">— 23 October 2026</span></h2>
 <ul>
-  <li>Expanded <a href="${rel}llms.txt">llms.txt</a> to cover every marketing section (templates, clauses, guides, tools, comparisons, self-hosting, customers, press, roadmap, status, contact, docs, changelog, GitHub). Section helpers now include each hub and its child pages.</li>
+  <li>Expanded <a href="${rel}llms.txt">llms.txt</a> to cover every public section; hub helpers now list their child pages for AI crawlers.</li>
 </ul>
 <h2 id="v1-45-0">1.45.0 <span class="small muted">— 23 October 2026</span></h2>
 <ul>
