@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '1.63.0', date: '24 October 2026', summary: 'Open Graph article:author and article:publisher on guides and clauses' },
   { version: '1.62.0', date: '24 October 2026', summary: '/go/ social page CSP; activate.html security/theme/icon parity' },
   { version: '1.61.0', date: '24 October 2026', summary: 'offline.html and app/activate.html lang attribute set to en-GB (consistency)' },
   { version: '1.60.0', date: '24 October 2026', summary: 'App shell + activate page preconnect to the live origins they hit on load' },
@@ -53,6 +54,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-63-0">1.63.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li>All guide and clause pages (which declare <code>og:type=article</code>) now carry <code>article:author</code> and <code>article:publisher</code> Open Graph metas set to "Clausery", alongside the existing <code>article:published_time</code>/<code>article:modified_time</code>. Facebook/LinkedIn/Pinterest and other Open Graph consumers use these to attribute shared article cards; they were missing because the pages have no named individual author.</li>
+</ul>
 <h2 id="v1-62-0">1.62.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li>The <a href="${rel}go/">/go/</a> social link-in-bio page now carries a full Content-Security-Policy (locked down to <code>'self'</code> — this page loads no scripts, analytics, checkouts or remote fonts). v1.57 added X-Frame-Options / Referrer-Policy / Permissions-Policy here; this adds the missing CSP header so the page is fully consistent with the rest of the site's security posture.</li>
