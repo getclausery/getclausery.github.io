@@ -1,8 +1,8 @@
 {
   "id": "/app/?utm_source=pwa",
-  "name": "Clausery — free Word documents",
+  "name": "Clausery — free Word invoices (open-source)",
   "short_name": "Clausery",
-  "description": "Document automation that never leaves your browser. Turn Word templates into guided questionnaires and generate finished documents offline.",
+  "description": "Independent open-source tool for free Word invoices, quotes and receipts. Document automation that never leaves your browser. Not affiliated with Clausery.ai.",
   "start_url": "./index.html?utm_source=pwa",
   "scope": "../",
   "display": "standalone",
@@ -18,8 +18,9 @@
   "shortcuts": [
     { "name": "New invoice", "short_name": "Invoice", "url": "./#/start/invoice", "description": "Start a new invoice from the free template" },
     { "name": "New quote", "short_name": "Quote", "url": "./#/start/quote" },
-    { "name": "Templates", "short_name": "Templates", "url": "./#/templates", "description": "Open your template library" },
-    { "name": "Drafts", "short_name": "Drafts", "url": "./#/drafts" }
+    { "name": "New receipt", "short_name": "Receipt", "url": "./#/start/receipt" },
+    { "name": "Outstanding invoices", "short_name": "Drafts", "url": "./#/drafts", "description": "See drafts sorted by overdue/sent/ready" },
+    { "name": "Templates", "short_name": "Templates", "url": "./#/templates", "description": "Open your template library" }
   ],
   "screenshots": [
     { "src": "../assets/screenshot-invoice.png", "sizes": "1200x800", "type": "image/png", "form_factor": "wide", "label": "An invoice being filled in" }

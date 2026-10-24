@@ -8,6 +8,14 @@
   <updated>2026-10-24T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v1.51.0 — Small polish pass: manifest disambiguation, PWA shortcuts, 404 search, security.txt source, en-GB app lang</title>
+    <link href="https://getclausery.github.io/changelog.html#v1-51-0"/>
+    <id>https://getclausery.github.io/changelog.html#v1-51-0</id>
+    <published>2026-10-24T00:00:00Z</published>
+    <updated>2026-10-24T00:00:00Z</updated>
+    <summary>Small polish pass: manifest disambiguation, PWA shortcuts, 404 search, security.txt source, en-GB app lang</summary>
+  </entry>
+  <entry>
     <title>Clausery v1.50.0 — Stronger disambiguation from clausery.ai across every AI-visible surface</title>
     <link href="https://getclausery.github.io/changelog.html#v1-50-0"/>
     <id>https://getclausery.github.io/changelog.html#v1-50-0</id>
