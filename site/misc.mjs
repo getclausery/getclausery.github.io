@@ -61,6 +61,21 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-73-0">1.73.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li><strong>Copy: Clausery is a business.</strong> Remaining "projects" wording that referred to Clausery itself, competitor features or open-source network tools replaced with "business", "tool", "product", "job" or "engagement" (Bonsai compare page, legal/license page). References to a client's project in invoices, quotes, contracts, change orders and guidance (e.g. "project fee", "if the client cancels the project") are left alone — that's the user's client work.</li>
+  <li><strong>SEO / metadata sweep:</strong>
+    <ul>
+      <li>Organization and SoftwareApplication JSON-LD now use a proper <code>ImageObject</code> logo (512×512) instead of a bare URL, which helps Google Knowledge Panel and rich results.</li>
+      <li>Added <code>browserconfig.xml</code> (Windows 10/11 tile icon + tile color), <code>msapplication-TileColor</code>, <code>msapplication-config</code>, <code>application-name</code>, <code>apple-mobile-web-app-title</code>, <code>apple-mobile-web-app-capable</code>, <code>apple-mobile-web-app-status-bar-style</code> and a generic <code>theme-color</code> fallback.</li>
+      <li>Safari mask-icon color updated to match the new teal brand (<code>#0d9488</code>); <code>apple-touch-icon</code> gains an explicit <code>sizes="192x192"</code>.</li>
+      <li>OpenSearch description updated: added a 192px PNG image, a self-describing URL, more tags and removed the "open-source project" wording.</li>
+      <li>Reused one <code>color-scheme</code> meta instead of emitting it twice; meta tag order tightened so crawlers hit canonical, robots, OG, Twitter, theme-color in the optimal sequence.</li>
+    </ul>
+  </li>
+  <li>Changelog and marketing copy aligned to "independent open-source business" language throughout.</li>
+  <li>0 new third parties; CWV/CSP/AGPL/CMI/trademarks preserved.</li>
+</ul>
 <h2 id="v1-72-2">1.72.2 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li>Copy sweep: removed the word "project" from descriptions of Clausery itself (home, about, FAQ, organization JSON-LD, SoftwareApplication schema, copyright/CMI header, AI disambiguation note, copyguard message and service-worker comment). Clausery is described as an <em>independent open-source business</em> / <em>tool</em> / <em>product</em>, not a project. References to a client's project in invoices, quotes, contracts and guidance (e.g. project description, project fee, "project cancelled" kill-fee wording) are unchanged — those describe the user's work, not Clausery.</li>

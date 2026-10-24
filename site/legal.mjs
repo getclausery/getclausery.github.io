@@ -86,7 +86,7 @@ page('legal/license.html', 'Open-source license (AGPLv3) and commercial licensin
 <p class="lead">Clausery is free software — free to use, read, modify and self-host — but the Clausery name and logos are trademarks, and anyone offering a modified version over a network has to publish their changes. Here is how that works.</p>
 
 <h2>Code license: GNU AGPLv3</h2>
-<p>Everything in this repository — the document engine, UI, templates and public site — is published under the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html" rel="noopener">GNU Affero General Public License, version 3</a>, or (at your option) any later version. That is the same license WordPress, Nextcloud, GitLab Community Edition, Mastodon and many other network software projects use. You can read the full legal text in <a href="${rel}LICENSE">LICENSE</a>.</p>
+<p>Everything in this repository — the document engine, UI, templates and public site — is published under the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html" rel="noopener">GNU Affero General Public License, version 3</a>, or (at your option) any later version. That is the same license WordPress, Nextcloud, GitLab Community Edition, Mastodon and many other network software products use. You can read the full legal text in <a href="${rel}LICENSE">LICENSE</a>.</p>
 <p>What that means in practice:</p>
 <ul>
   <li><strong>Use it:</strong> run Clausery for yourself, your team or your company, for free.</li>

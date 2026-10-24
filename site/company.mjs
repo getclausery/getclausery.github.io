@@ -4,7 +4,7 @@ import { LIB } from './library.mjs';
 import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 
 const ld = (o) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', ...o })}</script>`;
-const ORG = { '@type': 'Organization', '@id': `${SITE}#organization`, name: 'Clausery (free Word templates)', alternateName: ['getclausery', 'Clausery open source'], legalName: 'Clausery', url: SITE, logo: `${SITE}assets/icon-512.png`, email: CONTACT_EMAIL, description: 'Independent open-source business making free Word invoices, quotes and receipts. Not affiliated with Clausery.ai (separate enterprise compliance software).', contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', email: CONTACT_EMAIL, availableLanguage: ['en-GB'] }, sameAs: [REPO_URL] };
+const ORG = { '@type': 'Organization', '@id': `${SITE}#organization`, name: 'Clausery (free Word templates)', alternateName: ['getclausery', 'Clausery open source'], legalName: 'Clausery', url: SITE, logo: { '@type': 'ImageObject', '@id': `${SITE}#logo`, url: `${SITE}assets/icon-512.png`, contentUrl: `${SITE}assets/icon-512.png`, width: 512, height: 512, caption: 'Clausery' }, email: CONTACT_EMAIL, description: 'Independent open-source business making free Word invoices, quotes and receipts. Not affiliated with Clausery.ai (separate enterprise compliance software).', contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', email: CONTACT_EMAIL, availableLanguage: ['en-GB'] }, sameAs: [REPO_URL] };
 const issue = (form) => `${REPO_URL}/issues/new?template=${form}`;
 
 // The ways to get in touch, in the order people most often need them. All of them start an email; bug reports can also

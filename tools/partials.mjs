@@ -139,8 +139,16 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), display-capture=()">
 <link rel="icon" sizes="any" href="${rel}assets/icon.svg" type="image/svg+xml">
 <link rel="icon" sizes="16x16 32x32 48x48" href="${rel}favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="192x192" href="${rel}assets/icon-192.png">
 <link rel="apple-touch-icon" href="${rel}assets/icon-192.png">
-<link rel="mask-icon" href="${rel}assets/icon.svg" color="#2dd4bf">
+<link rel="mask-icon" href="${rel}assets/icon.svg" color="#0d9488">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Clausery">
+<meta name="application-name" content="Clausery">
+<meta name="msapplication-TileColor" content="#0d9488">
+<meta name="msapplication-config" content="${rel}browserconfig.xml">
+<meta name="theme-color" content="#f6f4ef">
 <link rel="manifest" href="${rel}app/manifest.webmanifest">
 <link rel="search" type="application/opensearchdescription+xml" title="Clausery templates" href="${rel}opensearch.xml">
 <link type="text/plain" rel="author" href="${rel}humans.txt">

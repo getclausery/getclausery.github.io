@@ -60,7 +60,11 @@ for (const url of urls) {
     }
     if (type === 'Organization') {
       if (!node.name || node.url !== SITE) fail(file, 'Organization needs name and site url');
-      if (!exists(node.logo)) fail(file, 'Organization logo does not resolve to a file');
+      const logoUrl = typeof node.logo === 'string' ? node.logo : node.logo?.url || node.logo?.contentUrl;
+      if (!exists(logoUrl)) fail(file, 'Organization logo does not resolve to a file');
+      if (node.logo && typeof node.logo === 'object' && node.logo['@type'] === 'ImageObject') {
+        if (!node.logo.width || !node.logo.height) fail(file, 'Organization logo ImageObject must include width and height');
+      }
       if (!String(node['@id'] || '').endsWith('#organization')) fail(file, 'Organization @id should end with #organization');
     }
     if (type === 'SoftwareApplication' || type === 'WebApplication') {
