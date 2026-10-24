@@ -204,7 +204,7 @@ export function header(rel, path) {
   const ico = (d,s=18)=>`<svg viewBox="0 0 24 24" width="${s}" height="${s}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;
   return `<header class="site-header">
   <div class="wrap">
-    <a class="brand" href="${rel}"><span class="brand-mark" aria-hidden="true">C</span> Clausery</a>
+    <a class="brand" href="${rel}"><img src="${rel}assets/icon.svg" alt="" width="28" height="28" decoding="async"> Clausery</a>
     <button class="nav-search" id="nav-search" type="button" aria-label="Search or jump to… (⌘K)">
       ${ico(I.search,16)}<span>Search or jump to…</span><kbd>⌘K</kbd>
     </button>
@@ -258,7 +258,7 @@ export function footer(rel) {
 <footer class="site-footer">
   <div class="wrap">
     <div class="brand-col">
-      <a class="brand" href="${rel}"><span class="brand-mark" aria-hidden="true">C</span> Clausery</a>
+      <a class="brand" href="${rel}"><img src="${rel}assets/icon.svg" alt="" width="28" height="28" decoding="async"> Clausery</a>
       <p style="margin-top:.75rem">Make invoices, quotes and receipts in Word with the maths done for you. Your documents stay in your browser — no account required.</p>
       <div class="footer-social">
         <a href="${REPO_URL}" rel="noopener" aria-label="Source on GitHub">${ico(I.github)}</a>

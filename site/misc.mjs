@@ -61,6 +61,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-72-1">1.72.1 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li>Restored the original Clausery mark in the header and footer brand lockup (the SVG icon, not the "C" badge introduced in 1.72.0), while keeping the new header sizing, spacing and hover rotation.</li>
+</ul>
 <h2 id="v1-72-0">1.72.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li><strong>Command palette (⌘K / Ctrl+K / /):</strong> a universal fast launcher on every page — fuzzy-search every template, invoice template, guide, clause, free tool and page, plus quick actions (New invoice / New quote / New receipt / Drafts / Pricing / Docs). Keyboard-navigable (↑↓ to browse, Enter to open, Esc to dismiss) with a search button in the header so it's discoverable on mobile too.</li>
