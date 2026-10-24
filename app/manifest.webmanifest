@@ -6,7 +6,10 @@
   "start_url": "./index.html?utm_source=pwa",
   "scope": "../",
   "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
   "orientation": "portrait",
+  "lang": "en-GB",
+  "dir": "ltr",
   "background_color": "#f6f4ef",
   "theme_color": "#f6f4ef",
   "icons": [

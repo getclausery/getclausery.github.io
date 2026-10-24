@@ -5,7 +5,8 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
-  { version: '1.67.0', date: '24 October 2026', summary: 'offline.html CSP + Permissions-Policy; every served HTML page now carries a CSP' },
+  { version: '1.68.0', date: '24 October 2026', summary: 'PWA manifest display_override/lang/dir; OpenSearch autodiscovery on app, activate, /go/' },
+  { version: '1.67.0', date: '24 October 2026', summary: 'offline.html CSP and Permissions-Policy; every served HTML page now carries a CSP' },
   { version: '1.66.0', date: '24 October 2026', summary: 'CSP blob: removed from marketing img-src; X-Content-Type-Options on embed/go/activate/offline' },
   { version: '1.65.0', date: '24 October 2026', summary: 'Tightened marketing CSP + preconnects to the origins marketing pages actually load' },
   { version: '1.64.0', date: '24 October 2026', summary: '<link rel="security"> autodiscovery for .well-known/security.txt on every page' },
@@ -58,6 +59,11 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-68-0">1.68.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li>PWA manifest polish: added <code>display_override</code> (<code>window-controls-overlay</code>, <code>standalone</code>, <code>minimal-ui</code>) so desktop installs on Chrome/Edge can use the window-controls-overlay custom title bar if the app opts in later; declared <code>lang: "en-GB"</code> and <code>dir: "ltr"</code> explicitly so installed-app metadata carries correct locale/direction.</li>
+  <li>Added the OpenSearch description link to the app shell, the activate page and the <code>/go/</code> social landing. Marketing pages and the 404 already offered <code>&lt;link rel="search"&gt;</code>; now every page on the site advertises the template search plugin so browsers that discover OpenSearch from any entry point can add it.</li>
+</ul>
 <h2 id="v1-67-0">1.67.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li>Added a strict <code>Content-Security-Policy</code> and <code>Permissions-Policy</code> to the <code>offline.html</code> service-worker fallback page, matching the hardening of the rest of the site. v1.66 brought <code>X-Content-Type-Options</code>, <code>Referrer-Policy</code> and <code>X-Frame-Options</code> here; this adds the CSP (same-origin-only style/image/font/connect/worker, no scripts, no objects, no forms, no framing) and locks down camera/microphone/geolocation/payment/display-capture so that even the offline-failure page served from the SW cache has the same CSP profile as the rest of the app. With this, every HTML page the build emits now carries both a CSP and <code>X-Content-Type-Options: nosniff</code>, except the Google Search Console verification file.</li>
