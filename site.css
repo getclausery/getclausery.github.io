@@ -295,6 +295,7 @@ nav.breadcrumb span[aria-hidden="true"]{opacity:.45;padding:0 .05rem;user-select
 .docs-body .note{background:var(--accent-soft);border-left:4px solid var(--accent);padding:.85rem 1.1rem;border-radius:0 var(--radius-sm) var(--radius-sm) 0;margin:1.2rem 0}
 .docs-body .warn{background:var(--warn-soft);border-left:4px solid var(--warn);padding:.85rem 1.1rem;border-radius:0 var(--radius-sm) var(--radius-sm) 0;margin:1.2rem 0}
 .prose{max-width:46rem}.prose h2{margin-top:2.2rem}
+.guide-toc{background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius);padding:.85rem 1.1rem;margin:1.25rem 0 1.75rem;font-size:.9rem}.guide-toc h4{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 .5rem;font-weight:700}.guide-toc ol{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:.2rem}.guide-toc a{color:var(--text);text-decoration:none}.guide-toc a:hover{color:var(--accent);text-decoration:underline}@media(min-width:900px){.guide-toc{float:right;width:15rem;margin:.2rem 0 1rem 1.5rem}}
 @media(max-width:800px){.docs{grid-template-columns:1fr;gap:1.5rem}.docs-nav{position:static;display:flex;flex-wrap:wrap;gap:.3rem;max-height:none;overflow:visible;padding-right:0}.docs-nav h4{width:100%;margin:.6rem 0 .2rem}}
 
 /* === auto table of contents (in-page) === */

@@ -96,6 +96,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-83-0">1.83.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li><strong>Server-rendered "On this page" TOC on every guide.</strong> All 67 guides now have stable H2 anchor ids (no client randomness), a visible TOC nav before the first section, and <code>articleSection</code> in Article JSON-LD — unlocking jump-to-section links in SERPs and sharable anchor URLs.</li>
+</ul>
 <h2 id="v1-82-0">1.82.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li><strong>E-E-A-T byline on every guide.</strong> Guide pages now show a "Reviewed by Clausery editors" link to the About page alongside the published/updated dates, signalling editorial review to readers and quality-rater signals.</li>
@@ -326,8 +330,7 @@ export const pages = [
 </ul>
 <h2 id="v1-45-0">1.45.0 <span class="small muted">— 23 October 2026</span></h2>
 <ul>
-  <li>FAQ schema sweep: the <a href="${rel}made-with/">"Made with Clausery"</a> page's FAQPage JSON-LD now matches the three visible <code>&lt;details&gt;</code> questions exactly ("Is this a scam? Is it safe to pay?", "Can I edit the document?", "Does this track me?"), including the previously-missing third question. All 14 pages with visible <code>.faq</code> blocks now have matching faqLd.</li>
-  <li>Confirmed the <a href="${rel}about/">About</a> page already emits <code>@type: AboutPage</code> JSON-LD.</li>
+  <li>FAQ schema sweep: the <a href="${rel}made-with/">Made with</a> page FAQPage JSON-LD now matches all three visible <code>&lt;details&gt;</code> questions; all 14 pages with visible <code>.faq</code> blocks now carry matching faqLd.</li>
 </ul>
 <h2 id="v1-44-0">1.44.0 <span class="small muted">— 23 October 2026</span></h2>
 <ul>
@@ -346,7 +349,7 @@ export const pages = [
 </ul>
 <h2 id="v1-41-0">1.41.0 <span class="small muted">— 23 October 2026</span></h2>
 <ul>
-  <li>Added a <code>SiteNavigationElement</code> JSON-LD block to the home page describing the primary navigation (Invoices, Templates, Pricing, Docs, Security, Customers, Open the app) so search engines and accessibility tooling understand the site structure from the entry page.</li>
+  <li>Homepage <code>SiteNavigationElement</code> JSON-LD lists the primary navigation for crawlers and accessibility tooling.</li>
 </ul>
 <h2 id="v1-40-0">1.40.0 <span class="small muted">— 23 October 2026</span></h2>
 <ul>
