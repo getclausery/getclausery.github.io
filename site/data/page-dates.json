@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-10-24",
-  "hash": "d7457cfebb63ac89"
+  "hash": "cb89c272e562391c"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -32,12 +32,12 @@
   "hash": "04d1473c78a38a4c"
  },
  "business-document-kit/": {
-  "date": "2026-10-23",
-  "hash": "02e1373fbcaf6429"
+  "date": "2026-10-24",
+  "hash": "56818b36a4909efa"
  },
  "changelog.html": {
   "date": "2026-10-24",
-  "hash": "8bcb5217fa2cf085"
+  "hash": "a551d0b17c56aa05"
  },
  "clauses/": {
   "date": "2026-10-17",
@@ -692,12 +692,12 @@
   "hash": "0a557d637e9427ba"
  },
  "pricing/": {
-  "date": "2026-10-23",
-  "hash": "8f235573d8331dee"
+  "date": "2026-10-24",
+  "hash": "3c04b38b15e30b0a"
  },
  "roadmap/": {
   "date": "2026-10-24",
-  "hash": "df73978c507898d2"
+  "hash": "964da7c4989247f8"
  },
  "self-hosting/": {
   "date": "2026-10-23",
@@ -705,7 +705,7 @@
  },
  "status/": {
   "date": "2026-10-24",
-  "hash": "fb05499d2dce4682"
+  "hash": "0fcf63d092b9553c"
  },
  "templates/": {
   "date": "2026-10-23",
@@ -1060,7 +1060,7 @@
   "hash": "4db4f3627d126af6"
  },
  "why-clausery/": {
-  "date": "2026-10-23",
-  "hash": "b42c51980a39e99f"
+  "date": "2026-10-24",
+  "hash": "2bf76fadcbae150c"
  }
 }

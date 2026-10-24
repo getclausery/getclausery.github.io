@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url><loc>https://getclausery.github.io/about/</loc><lastmod>2026-10-24</lastmod><priority>0.5</priority></url>
-  <url><loc>https://getclausery.github.io/business-document-kit/</loc><lastmod>2026-10-23</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/business-document-kit/</loc><lastmod>2026-10-24</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/changelog.html</loc><lastmod>2026-10-24</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/clauses/amendment-clause.html</loc><lastmod>2026-10-04</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/clauses/assignment-clause.html</loc><lastmod>2026-10-04</lastmod><priority>0.8</priority></url>
@@ -166,7 +166,7 @@
   <url><loc>https://getclausery.github.io/legal/terms.html</loc><lastmod>2026-10-23</lastmod><priority>0.5</priority></url>
   <url><loc>https://getclausery.github.io/nda-templates/</loc><lastmod>2026-10-04</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/press/</loc><lastmod>2026-10-17</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/pricing/</loc><lastmod>2026-10-23</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/pricing/</loc><lastmod>2026-10-24</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/roadmap/</loc><lastmod>2026-10-24</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/self-hosting/</loc><lastmod>2026-10-23</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/status/</loc><lastmod>2026-10-24</lastmod><priority>0.8</priority></url>
@@ -258,5 +258,5 @@
   <url><loc>https://getclausery.github.io/templates/video-production-contract.html</loc><lastmod>2026-10-23</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/previews/video-production-contract.webp</image:loc><image:title>Video production contract template for Word</image:title><image:caption>Free video production contract for Word: videos and formats, shoot and delivery dates, edit rounds, deposit, ownership of footage, cancellation.</image:caption></image:image></url>
   <url><loc>https://getclausery.github.io/templates/virtual-assistant-agreement.html</loc><lastmod>2026-10-23</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/previews/virtual-assistant-agreement.webp</image:loc><image:title>Virtual assistant agreement template for Word</image:title><image:caption>Free virtual assistant agreement for Word: task list, monthly hours or hourly rate, availability, secure handling of logins, notice to end.</image:caption></image:image></url>
   <url><loc>https://getclausery.github.io/templates/web-design-contract.html</loc><lastmod>2026-10-23</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/previews/web-design-contract.webp</image:loc><image:title>Web design contract template for Word</image:title><image:caption>Free web design contract for Word: page list, launch and content dates, revision rounds, deposit, optional maintenance, site ownership.</image:caption></image:image></url>
-  <url><loc>https://getclausery.github.io/why-clausery/</loc><lastmod>2026-10-23</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/why-clausery/</loc><lastmod>2026-10-24</lastmod><priority>0.8</priority></url>
 </urlset>
