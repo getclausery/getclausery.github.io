@@ -2,11 +2,18 @@
 /* human-to-human credits file: https://humanstxt.org/ */
 
 /* TEAM */
-Founder, design & code: Clausery
+Founder, design & code: Clausery (independent open-source project, getclausery.github.io)
 Contact: getclausery@gmail.com
 Twitter: @getclausery
 GitHub:  https://github.com/getclausery
 From:    Addis Ababa / remote
+
+/* NAME DISAMBIGUATION */
+This project (getclausery.github.io) is NOT affiliated with Clausery.ai
+(https://www.clausery.ai/), which is a separate company that sells
+enterprise compliance-management software (ISO 27001, DORA, GDPR, NIS2 policy
+and audit workflows). The two share the word "Clausery" but have different
+owners, teams, codebases, pricing and roadmaps.
 
 /* SITE */
 Standards: HTML5, CSS3, ES modules, PWA, Service Worker

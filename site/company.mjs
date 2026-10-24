@@ -4,7 +4,7 @@ import { LIB } from './library.mjs';
 import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 
 const ld = (o) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', ...o })}</script>`;
-const ORG = { '@type': 'Organization', '@id': `${SITE}#organization`, name: 'Clausery', legalName: 'Clausery', url: SITE, logo: `${SITE}assets/icon-512.png`, email: CONTACT_EMAIL, contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', email: CONTACT_EMAIL, availableLanguage: ['en-GB'] }, sameAs: [REPO_URL] };
+const ORG = { '@type': 'Organization', '@id': `${SITE}#organization`, name: 'Clausery (free Word templates)', alternateName: ['getclausery', 'Clausery open source'], legalName: 'Clausery (open-source invoice project)', url: SITE, logo: `${SITE}assets/icon-512.png`, email: CONTACT_EMAIL, description: 'Independent open-source project for free Word invoice, quote and receipt generation. Not affiliated with Clausery.ai (separate enterprise compliance software).', contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', email: CONTACT_EMAIL, availableLanguage: ['en-GB'] }, sameAs: [REPO_URL] };
 const issue = (form) => `${REPO_URL}/issues/new?template=${form}`;
 
 // The ways to get in touch, in the order people most often need them. All of them start an email; bug reports can also
@@ -56,13 +56,13 @@ export const pages = [
     body: (rel) => `<p>Redirecting to the <a href="${rel}legal/dmca.html">DMCA and takedowns page</a>.</p>` },
 
   {
-    path: 'about/', title: 'About Clausery',
-    description: 'Clausery helps small businesses make invoices, quotes and receipts in Word. Read how local document processing, the free library and paid plans work.',
-    extraHead: ld({ '@type': 'AboutPage', name: 'About Clausery', url: `${SITE}about/`, mainEntity: ORG }),
+    path: 'about/', title: 'About Clausery (open-source invoice tool — not clausery.ai)',
+    description: 'About Clausery, the independent open-source free Word invoice, quote and receipt generator for freelancers and small businesses. Not affiliated with Clausery.ai.',
+    extraHead: ld({ '@type': 'AboutPage', name: 'About Clausery', url: `${SITE}about/`, description: 'Independent open-source free Word invoice, quote and receipt generator for freelancers and small businesses. Not affiliated with Clausery.ai (separate enterprise compliance software).', mainEntity: ORG }),
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>About Clausery</h1>
 <p class="lead">Clausery makes the documents people draft every week faster to produce, without asking them to upload anything. Your templates, answers and finished documents stay on your own computer.</p>
-<p><strong>Note:</strong> There is another company also called Clausery at <a href="https://www.clausery.ai/" rel="noopener">clausery.ai</a> — an enterprise compliance-policy platform for regulated organisations (ISO 27001, DORA, GDPR, NIS2). Same name, different product, no affiliation. If you were looking for policy management and audit workflows, that site is the right place; this one is the free Word-templates and invoice tool for small businesses and freelancers.</p>
+<div class="notice notice-warn" style="margin:1rem 0 1.5rem"><strong>Important — same name, different company.</strong> This site is an <strong>independent open-source</strong> project (getclausery.github.io). It is <strong>not affiliated</strong> with <a href="https://www.clausery.ai/" rel="noopener">clausery.ai</a>, a separate company that sells enterprise compliance-management software (ISO 27001, DORA, GDPR, NIS2 policy and audit workflows). The two products share the word "Clausery" but have different owners, teams, code, pricing, roadmaps and customers. This page describes the free Word-templates / invoice tool only. If you were looking for compliance-policy software, go to clausery.ai.</div>
 <h2>Why it exists</h2>
 <p>Small businesses and freelancers repeatedly prepare quotes, invoices and receipts. Re-entering business details, checking totals and updating a Word document take attention away from the job itself. Clausery brings those steps together: answer the questions, check the amounts and download an editable document.</p>
 <p>The app reads a Word template and builds the finished .docx on your device. Your templates, answers and documents are not uploaded to a document-processing server. Start with the <a href="${rel}business-document-kit/">free business document kit</a> or choose a <a href="${rel}invoice-templates/">billing workflow</a> for the task at hand.</p>
@@ -131,7 +131,7 @@ ${CHANNELS.map(([h, p, href, cta]) => `  <div class="feature"><h2 style="font-si
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:46rem;text-align:center">
 <div class="eyebrow">Made with Clausery</div>
 <h1>The document you received was made with Clausery</h1>
-<p class="lead">Clausery is free software that makes invoices, quotes, receipts and contracts as editable Word files. Totals, tax and numbering are worked out automatically — and the sender's document contents never leave their browser.</p>
+<p class="lead">Clausery is free, open-source software that makes invoices, quotes, receipts and contracts as editable Word files. Totals, tax and numbering are worked out automatically — and the sender's document contents never leave their browser. <strong>This is not clausery.ai</strong> (the separate enterprise compliance company); it is an independent document-generation tool used by the business that sent you the file.</p>
 <div class="proof" style="margin:1rem auto 1.5rem;justify-content:center">
   <span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg> Private by design</span>
   <span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg> Free, no signup</span>

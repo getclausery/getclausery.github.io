@@ -5,9 +5,9 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '1.50.0', date: '24 October 2026', summary: 'Stronger disambiguation from clausery.ai across every AI-visible surface' },
   { version: '1.49.0', date: '23 October 2026', summary: 'Local invoice tracker: mark invoices sent/paid, overdue badges, reminder email' },
   { version: '1.48.0', date: '23 October 2026', summary: 'SoftwareApplication Offer schema includes direct checkout URLs' },
-  { version: '1.47.0', date: '23 October 2026', summary: 'Organization schema includes @id, contactPoint and is reused across About/Contact pages' },
   { version: '1.46.0', date: '23 October 2026', summary: 'llms.txt expanded to cover all indexable marketing sections' },
   { version: '1.45.0', date: '23 October 2026', summary: 'Made-with FAQPage schema matches visible questions exactly' },
   { version: '1.44.0', date: '23 October 2026', summary: 'AI crawler guidance + copyright well-known endpoint' },
@@ -41,6 +41,16 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-50-0">1.50.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li><strong>Name disambiguation sweep</strong> to stop AI overviews from merging this project with clausery.ai. AI summarizers were occasionally describing this site as "the free version of Clausery.ai" or as a compliance-management product — an understandable mistake given the shared name, but wrong.</li>
+  <li>Added a prominent yellow notice box at the top of the home hero and on /about/ stating clearly: <em>independent open-source project, not affiliated with clausery.ai, different owners/teams/code/product</em>.</li>
+  <li>Home <code>&lt;title&gt;</code> now reads "Free Word invoice maker — Clausery (open-source, not clausery.ai)"; meta description, WebPage/WebSite/Organization/SoftwareApplication JSON-LD, and the Organization object shared by /about/ and /contact/ all carry the same explicit disambiguation in their <code>description</code> / <code>alternateName</code> fields (e.g. "getclausery", "Clausery open source").</li>
+  <li>Added a "Is this the same Clausery as clausery.ai?" FAQ as the <em>first</em> home-page FAQ (it's what AI crawlers extract first) so direct questions like "is clausery the compliance company" have a matching visible answer.</li>
+  <li>llms.txt (read by AI assistants and answer engines) now opens with a NAME DISAMBIGUATION block before any product description, explicitly telling crawlers not to describe this as "the free version of Clausery.ai" or as a compliance product. <code>/.well-known/ai.txt</code> carries the same directive.</li>
+  <li>humans.txt and <code>/.well-known/trust.txt</code> both carry a <code>Not-Affiliated-With</code> entry.</li>
+  <li>The /made-with/ receiver page clarifies the independence note so clients who open a free-plan document aren't sent chasing a compliance site.</li>
+</ul>
 <h2 id="v1-49-0">1.49.0 <span class="small muted">— 23 October 2026</span></h2>
 <ul>
   <li><strong>Local invoice tracker.</strong> After you download or print an invoice, the review step now shows a status card: <em>Ready to send → Sent → Paid</em>. Tap "Mark as sent" once you email it; "Mark paid" when money arrives; "Send reminder" opens a pre-filled <code>mailto:</code> with the invoice summary and a friendly nudge. Overdue invoices (past their due date) show a red badge.</li>
