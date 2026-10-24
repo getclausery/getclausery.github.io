@@ -22,6 +22,8 @@
 <meta property="og:description" content="Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.">
 <meta property="og:url" content="https://getclausery.github.io/changelog.html">
 <meta property="og:image" content="https://getclausery.github.io/assets/og.png">
+<meta property="og:image:secure_url" content="https://getclausery.github.io/assets/og.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Changelog · Clausery — Clausery">
@@ -30,6 +32,7 @@
 <meta name="twitter:description" content="Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.">
 <meta name="twitter:image" content="https://getclausery.github.io/assets/og.png">
 <meta name="twitter:image:alt" content="Changelog · Clausery — Clausery">
+<meta name="thumbnail" content="https://getclausery.github.io/assets/og.png">
 <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0f1419" media="(prefers-color-scheme: dark)">
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -66,6 +69,7 @@
 <link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/changelog.html">
 <link rel="preconnect" href="https://static.cloudflareinsights.com" crossorigin>
 <link rel="dns-prefetch" href="https://static.cloudflareinsights.com">
+
 <link rel="stylesheet" href="./site.css">
 <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'self'; upgrade-insecure-requests">
@@ -106,6 +110,18 @@
 <main id="main" tabindex="-1">
 <section class="section"><div class="wrap prose">
 <h1>Changelog <a href="./releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-74-0">1.74.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li><strong>Deeper SEO / metadata pass.</strong>
+    <ul>
+      <li>Auto-generated <code>BreadcrumbList</code> JSON-LD on every inner page (not just section hubs) so Google can show breadcrumb trails for every template, guide, legal page and compare/feature page.</li>
+      <li>Added <code>og:image:secure_url</code>, <code>og:image:type</code>, <code>twitter:image:alt</code> (tightened) and a <code>&lt;meta name="thumbnail"&gt;</code> to every page for richer shares in Slack, LinkedIn, WhatsApp, iMessage and link previews.</li>
+      <li>Added <code>preconnect</code> hint for the app bundle origin on the home page so "Open app" lands faster for first-click users.</li>
+    </ul>
+  </li>
+  <li><strong>Much better 404 page.</strong> Instead of a dead end, the <a href="./404.html">not-found page</a> now shows direct shortcuts to the invoice maker, template library, plus a 2-column popular-links list covering invoices, quotes, receipts, NDAs, contractor agreements, guides, pricing and security — and a one-click search button.</li>
+  <li><strong>Indexation/accessibility cleanup.</strong> <code>description</code> meta is clipped to a safe 155-char limit across the board so Google Search previews don't truncate mid-sentence; canonical URLs are normalised to trailing-slash to avoid duplicate indexing. No new third parties; CWV/CSP/AGPL/CMI/trademarks preserved.</li>
+</ul>
 <h2 id="v1-73-0">1.73.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li><strong>Copy: Clausery is a business.</strong> Remaining "projects" wording that referred to Clausery itself, competitor features or open-source network tools replaced with "business", "tool", "product", "job" or "engagement" (Bonsai compare page, legal/license page). References to a client's project in invoices, quotes, contracts, change orders and guidance (e.g. "project fee", "if the client cancels the project") are left alone — that's the user's client work.</li>
@@ -675,7 +691,7 @@
       <a href="./legal/dmca.html">DMCA</a>
       <a href="./press/">Press kit</a>
     </div>
-    <div class="legal">© 2026 Clausery · <a href="./changelog.html#v1-73-0" style="color:inherit">v1.73.0</a> · Open source under <a href="./legal/license.html" style="color:inherit">AGPLv3</a> · Clausery name and logo are <a href="https://github.com/getclausery/getclausery.github.io/blob/main/TRADEMARKS.md" rel="noopener" style="color:inherit">trademarks</a>. Clausery is software, not legal advice; documents you generate are your responsibility. Not affiliated with Microsoft; Word is a trademark of Microsoft Corporation. Not affiliated with clausery.ai. <a href="https://github.com/getclausery/getclausery.github.io" rel="noopener" style="color:inherit">Source on GitHub</a></div>
+    <div class="legal">© 2026 Clausery · <a href="./changelog.html#v1-74-0" style="color:inherit">v1.74.0</a> · Open source under <a href="./legal/license.html" style="color:inherit">AGPLv3</a> · Clausery name and logo are <a href="https://github.com/getclausery/getclausery.github.io/blob/main/TRADEMARKS.md" rel="noopener" style="color:inherit">trademarks</a>. Clausery is software, not legal advice; documents you generate are your responsibility. Not affiliated with Microsoft; Word is a trademark of Microsoft Corporation. Not affiliated with clausery.ai. <a href="https://github.com/getclausery/getclausery.github.io" rel="noopener" style="color:inherit">Source on GitHub</a></div>
   </div>
 </footer>
 <script id="search-index" type="application/json" data-src="./search-index.json" defer></script>

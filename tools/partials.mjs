@@ -102,6 +102,24 @@ export function head({ title, description, path, extraHead = '', pageLd = '', og
   const rel = relOverride || (depth > 0 ? '../'.repeat(depth) : './');
   const robots = /<meta\s+[^>]*name=["']robots["']/i.test(extraHead) ? '' : `<meta name="robots" content="${noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}">\n`;
   const articleMeta = ogType === 'article' ? `${published ? `<meta property="article:published_time" content="${published}">\n` : ''}${modified ? `<meta property="article:modified_time" content="${modified}">\n` : ''}<meta property="article:author" content="Clausery"><meta property="article:publisher" content="Clausery">` : '';
+  const SECTION_NAMES = { 'invoice-templates':'Invoice templates', templates:'Templates', guides:'Guides', clauses:'Clause library', 'free-tools':'Free tools', compare:'Compare', for:"Who it's for", pricing:'Pricing', docs:'Docs', about:'About', contact:'Contact', customers:'Customers', 'why-clausery':'Why Clausery', legal:'Legal', 'business-document-kit':'Business document kit', 'nda-templates':'NDA templates', press:'Press', roadmap:'Roadmap', status:'Status', 'self-hosting':'Self-host' };
+  let autoCrumb = '';
+  if (!noindex && path !== '' && path !== '404.html' && !/BreadcrumbList/.test(extraHead || '')) {
+    const parts = path.split('/').filter(Boolean);
+    const last = parts[parts.length - 1];
+    const lastIsFile = last && last.endsWith('.html');
+    const items = [['Home', '']];
+    let built = '';
+    const limit = parts.length - (lastIsFile ? 1 : 0);
+    for (let i = 0; i < limit; i++) {
+      built += parts[i] + '/';
+      const label = SECTION_NAMES[parts[i]] || parts[i].replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+      items.push([label, built]);
+    }
+    const lastLabel = lastIsFile ? full.replace(/\s*·\s*Clausery\s*$/, '').replace(/\s*\(not clausery\.ai\)\s*/i, '') : (SECTION_NAMES[parts[parts.length-1]] || parts[parts.length-1]);
+    items.push([lastLabel, path]);
+    autoCrumb = crumbsLd(items);
+  }
   return `${CMI_HTML}
 <!doctype html>
 <html lang="en-GB">
@@ -118,6 +136,8 @@ ${robots}<link rel="canonical" href="${url}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${url}">
 <meta property="og:image" content="${image}">
+<meta property="og:image:secure_url" content="${image}">
+<meta property="og:image:type" content="image/${ogImage.endsWith('.png') ? 'png' : 'jpeg'}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="${esc(imageAlt)}">
@@ -126,6 +146,7 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:description" content="${esc(description)}">
 <meta name="twitter:image" content="${image}">
 <meta name="twitter:image:alt" content="${esc(imageAlt)}">
+<meta name="thumbnail" content="${image}">
 <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0f1419" media="(prefers-color-scheme: dark)">
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -162,12 +183,13 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" hreflang="x-default" href="${url}">
 <link rel="preconnect" href="https://static.cloudflareinsights.com" crossorigin>
 <link rel="dns-prefetch" href="https://static.cloudflareinsights.com">
+${path === '' ? `<link rel="preconnect" href="${rel}app/" crossorigin>` : ''}
 <link rel="stylesheet" href="${rel}site.css">
 <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'self'; upgrade-insecure-requests">
 <script>${THEME_INLINE}</script>
 <script src="${rel}site.js" defer></script>
-${extraHead}${pageLd}
+${extraHead}${autoCrumb}${pageLd}
 </head>
 <body>
 <a class="sr-only" href="#main">Skip to content</a>
