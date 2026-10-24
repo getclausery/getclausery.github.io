@@ -23,7 +23,7 @@ const SMALL_BUSINESS = [
 const pick = (list, slugs, what) => slugs.map((s) => list.find((x) => x.slug === s) || (() => { throw new Error(`home: no ${what} ${s}`); })());
 const linkList = (items) => `<ul class="link-cols">${items.map(([href, label]) => `<li><a href="${href}">${esc(label)}</a></li>`).join('')}</ul>`;
 const ico = (d) => `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;
-const I = { lock: 'M6 11h12v10H6zM9 11V7a3 3 0 016 0v4', file: 'M6 3h8l4 4v14H6zM14 3v4h4', bolt: 'M13 2L4 14h7l-1 8 9-12h-7z', users: 'M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM22 21v-2a4 4 0 00-3-3.9M16 3.1a4 4 0 010 7.8', wifi: 'M5 12.5a11 11 0 0114 0M8.5 16a6 6 0 017 0M12 20h.01M2 9a15 15 0 0120 0', calc: 'M4 3h16v18H4zM8 7h8M8 12h2M12 12h2M16 12h0M8 16h2M12 16h2M16 16h0', check: 'M5 12l5 5L20 7', shield: 'M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z' };
+const I = { lock: 'M6 11h12v10H6zM9 11V7a3 3 0 016 0v4', file: 'M6 3h8l4 4v14H6zM14 3v4h4', bolt: 'M13 2L4 14h7l-1 8 9-12h-7z', users: 'M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM22 21v-2a4 4 0 00-3-3.9M16 3.1a4 4 0 010 7.8', wifi: 'M5 12.5a11 11 0 0114 0M8.5 16a6 6 0 017 0M12 20h.01M2 9a15 15 0 0120 0', calc: 'M4 3h16v18H4zM8 7h8M8 12h2M12 12h2M16 12h0M8 16h2M12 16h2M16 16h0', check: 'M5 12l5 5L20 7', clock: 'M12 22a10 10 0 100-20 10 10 0 000 20zM12 7v5l3 3', shield: 'M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z' };
 
 import { workflowLinks } from './invoice-workflows.mjs';
 
@@ -52,7 +52,7 @@ export const pages = [{
   <div class="wrap">
     <div>
       <div class="eyebrow">${ico(I.calc)} Free · No account · No card · Editable Word</div>
-      <div class="release-pill"><a href="${rel}changelog.html#v${APP_VERSION.replace(/\./g,'-')}"><strong>New:</strong> v${APP_VERSION}</a> — <a href="${rel}self-hosting/">self-host / white-label Enterprise</a>, <a href="${rel}made-with/">clearer recipient answers</a>, and a <a href="${rel}releases.xml">release feed</a>.</div>
+      <div class="release-pill"><a href="${rel}changelog.html#v${APP_VERSION.replace(/\./g,'-')}"><strong>New:</strong> v${APP_VERSION}</a> — <a href="${rel}app/#/drafts">local invoice tracker</a> (sent/paid/overdue badges, one-click reminders), <a href="${rel}self-hosting/">self-host / Enterprise</a>, and a <a href="${rel}releases.xml">release feed</a>.</div>
       <h1>Make a free invoice in Word in 60 seconds — no signup.</h1>
       <p class="lead">Answer a few questions and download a finished <strong>.docx</strong> you can still edit. Totals, tax, discounts and the next invoice number are done for you. Nothing you type is uploaded — it all runs in your browser.</p>
       <p class="small muted" style="margin-top:.25rem"><strong>Looking for the enterprise compliance platform at clausery.ai?</strong> Same name, different product — that one does policy management for regulated companies (ISO 27001, DORA, GDPR, NIS2). You're on the free Word-templates / invoice site for freelancers and small businesses. <a href="https://www.clausery.ai/" rel="noopener">clausery.ai →</a></p>
@@ -211,6 +211,7 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
     <div class="grid grid-3" style="margin-top:2rem">
       <div class="feature"><div class="ico">${ico(I.calc)}</div><h3>Adds itself up</h3><p>Line amounts, discount, VAT, GST or sales tax, total and balance due update as you type. No formula to break.</p></div>
       <div class="feature"><div class="ico">${ico(I.check)}</div><h3>Remembers your details</h3><p>Your next invoice starts with your business details, bank details, tax rate and the next number filled in. Only the client and the items are new.</p></div>
+      <div class="feature"><div class="ico">${ico(I.clock)}</div><h3>Tracks who has paid</h3><p>Mark invoices sent or paid straight from the draft; overdue ones float to the top of your Drafts list with a red badge and a one-click reminder email. Everything stays on your device.</p></div>
       <div class="feature"><div class="ico">${ico(I.users)}</div><h3>Many at once</h3><p>Monthly invoices for twenty clients? Fill in one row per client in a spreadsheet and get all twenty Word files in one go with Pro, or five at a time free.</p></div>
     </div>
   </div>

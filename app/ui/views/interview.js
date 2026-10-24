@@ -17,6 +17,30 @@ import { TRIAL_DAYS } from '../../config.js';
 const SAVE_DELAY = 400;
 const DOCX_MIME = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
 let askedPersist = false;
+
+// Draft payment status used by the local invoice tracker. status values:
+//   'draft'     — answers still being edited (existing value)
+//   'generated' — document has been downloaded/printed/shared (existing value; now labelled "Ready")
+//   'sent'      — sender has marked the document as sent to the client
+//   'paid'      — sender has marked the invoice as paid
+// sentAt / paidAt are ISO timestamps set on transition. Editing answers or restoring resets to 'draft';
+// generating a new document resets to 'generated' to avoid showing stale sent/paid markers.
+const PAYMENT_STATUSES = { draft: 'Draft', generated: 'Ready to send', sent: 'Sent', paid: 'Paid' };
+function paymentBadge(status) {
+  let cls = '';
+  if (status === 'paid') cls = 'badge-ok';
+  else if (status === 'sent') cls = 'badge-warn';
+  return h('span.badge', { class: cls, title: 'Invoice payment status (local to this device)' }, PAYMENT_STATUSES[status] || 'Draft');
+}
+function isInvoiceLike(template) {
+  const name = (template.name || '').toLowerCase();
+  return /invoice|bill|receipt|deposit|final inv|hourly inv/i.test(name) || template.kind === 'invoice';
+}
+function daysBetween(iso1, iso2) {
+  if (!iso1 || !iso2) return null;
+  return Math.floor((new Date(iso2) - new Date(iso1)) / 86400000);
+}
+
 /** The first time someone makes a document, ask the browser to protect this site's storage from automatic clean-up
     (Chrome and Edge grant it silently for sites people use; Firefox may ask). Drafts already survive reloads and restarts. */
 function keepStorage() { if (askedPersist) return; askedPersist = true; requestPersistence().catch(() => {}); }
@@ -59,7 +83,7 @@ export async function render(ctx, { id }) {
     catch (e) { pendingSave = true; console.error(e); toast('The draft could not be saved: ' + (e.message || e), { type: 'danger', timeout: 6000 }); }
   }
   function persist() { if (stopped) return; pendingSave = true; clearTimeout(saveTimer); saveTimer = setTimeout(flush, SAVE_DELAY); }
-  const onChange = (answers, path, ev) => { evaluation = ev; draft.status = 'draft'; renderStepper(); persist(); schedulePreview(); };
+  const onChange = (answers, path, ev) => { evaluation = ev; draft.status = 'draft'; draft.sentAt = null; draft.paidAt = null; renderStepper(); persist(); schedulePreview(); };
 
   const heading = h('h1.sr-only', draft.title || template.name);
   const titleInput = h('input.input', { value: draft.title || '', placeholder: 'Draft name (optional)', 'aria-label': 'Draft name', oninput: (e) => { draft.title = e.target.value; setTitle(draft.title || template.name); heading.textContent = draft.title || template.name; persist(); } });
@@ -236,6 +260,7 @@ export async function render(ctx, { id }) {
           h('button.btn', { type: 'button', onclick: openBulk }, icon('table', 16), 'From a spreadsheet')),
         creditNote,
         h('p.small.muted', { style: { marginTop: '1rem', marginBottom: 0 } }, 'The Word file is assembled in your browser from the template and these answers. Nothing is uploaded. This draft stays saved here, so you can change any answer and download it again later.')),
+      paymentControls(),
       h('div.card',
         h('h3', 'Answers'),
         h('dl.kv', template.fields.filter((f) => ev.visible[f.key] !== false).flatMap((f) => { const v = data[f.key]; const shown = f.type === 'repeat' ? (v.length ? v.map((r) => (f.children || []).filter((c) => c.type !== 'checkbox').map((c) => r[c.key]).filter(Boolean).join(', ')).join('; ') : '—') : typeof v === 'boolean' ? (v ? 'Yes' : 'No') : (v === '' ? '—' : String(v)); return [h('dt', f.label), h('dd', { style: { color: shown === '—' ? 'var(--muted)' : '' } }, shown)]; })),
@@ -254,8 +279,14 @@ export async function render(ctx, { id }) {
   function docxName() { return safeFilename((draft.title || summarize(template, draft.answers, 1) || template.name) + ' - ' + template.name, 'docx'); }
   async function recordMade(kind, extra = {}) {
     await recordHistory(draft, { kind, template: template.name, app: ctx.version, ...extra });
-    if (kind !== 'restore') { draft.status = 'generated'; draft.generatedAt = nowISO(); countEvent('document-' + kind, template); }
-    pendingSave = true; await flush(); refreshHistory(); renderStepper();
+    if (kind !== 'restore') {
+      draft.status = 'generated'; draft.generatedAt = nowISO();
+      // A new document regenerated from a previous version clears a stale sent/paid marker so we
+      // never show a "Paid" badge on a freshly-edited invoice that was never sent again.
+      draft.sentAt = null; draft.paidAt = null;
+      countEvent('document-' + kind, template);
+    }
+    pendingSave = true; await flush(); refreshHistory(); renderReview(); renderStepper();
   }
   function refreshHistory() {
     const list = Array.isArray(draft.history) ? draft.history : [];
@@ -272,9 +303,64 @@ export async function render(ctx, { id }) {
   async function restore(e) {
     if (!await confirmDialog({ title: 'Restore these answers?', message: `The answers used on ${new Date(e.at).toLocaleString()} replace the current ones. The current answers are kept in the history first.`, confirmLabel: 'Restore' })) return;
     await recordHistory(draft, { kind: 'restore', template: template.name, app: ctx.version });
-    draft.answers = structuredClone(e.answers); draft.status = 'draft';
+    draft.answers = structuredClone(e.answers);
+    draft.status = 'draft'; draft.sentAt = null; draft.paidAt = null;
     pendingSave = true; await flush(); evaluation = evaluateForm(template, draft.answers, ctx.settings);
     toast('Answers restored.', { type: 'ok' }); renderStepper(); renderStep();
+  }
+
+  // ---------------------------------------------------------------- invoice payment status controls
+  function invoiceSummary() {
+    const inv = (draft.answers.invoice_number ? '#' + draft.answers.invoice_number + ' ' : '') + (draft.title || summarize(template, draft.answers, 1) || template.name);
+    const client = draft.answers.client_name ? ' to ' + draft.answers.client_name : '';
+    return `Invoice ${inv.trim()}${client}`.trim();
+  }
+  function markSent() {
+    draft.status = 'sent'; draft.sentAt = nowISO(); draft.paidAt = null;
+    pendingSave = true; flush(); renderReview();
+    toast('Marked as sent. Open your email client and attach the file.', { type: 'ok', timeout: 5000 });
+  }
+  function markPaid() {
+    draft.status = 'paid'; draft.paidAt = nowISO(); if (!draft.sentAt) draft.sentAt = draft.paidAt;
+    pendingSave = true; flush(); renderReview();
+    toast('Marked as paid.', { type: 'ok' });
+  }
+  function resetStatus() {
+    draft.status = draft.generatedAt ? 'generated' : 'draft'; draft.sentAt = null; draft.paidAt = null;
+    pendingSave = true; flush(); renderReview();
+  }
+  function openReminderEmail() {
+    const subj = encodeURIComponent(invoiceSummary());
+    const body = encodeURIComponent(`Hi${draft.answers.client_name ? ' ' + draft.answers.client_name : ''},\n\nJust a friendly reminder that ${invoiceSummary()} is due${draft.answers.due_date ? ' on ' + draft.answers.due_date : ''}. I've attached the invoice.\n\nThanks!\n`);
+    location.href = `mailto:?subject=${subj}&body=${body}`;
+  }
+  function paymentControls() {
+    if (!isInvoiceLike(template) || template.kind === 'receipt') return null;
+    const due = draft.answers.due_date ? new Date(draft.answers.due_date + 'T00:00:00') : null;
+    const overdueDays = (draft.status === 'sent' && due && !draft.paidAt) ? daysBetween(due.toISOString(), new Date().toISOString()) : null;
+    const overdue = overdueDays !== null && overdueDays > 0;
+    const sentDays = draft.sentAt ? daysBetween(draft.sentAt, new Date().toISOString()) : null;
+    const controls = h('div.row', { style: { gap: '.5rem', flexWrap: 'wrap', alignItems: 'center' } }, paymentBadge(draft.status));
+    if (draft.status === 'generated') {
+      controls.append(h('button.btn.btn-sm', { type: 'button', onclick: markSent }, icon('send', 14), 'Mark as sent'));
+    } else if (draft.status === 'sent') {
+      controls.append(
+        h('button.btn.btn-sm.btn-primary', { type: 'button', onclick: markPaid }, icon('check', 14), 'Mark paid'),
+        h('button.btn.btn-sm', { type: 'button', onclick: openReminderEmail }, icon('mail', 14), 'Send reminder'),
+      );
+      if (overdue) controls.append(h('span.badge.badge-danger', `${overdueDays} day${overdueDays === 1 ? '' : 's'} overdue`));
+      else if (due && overdueDays !== null) controls.append(h('span.small.muted', `due ${due.toLocaleDateString()}${sentDays ? ' · sent ' + sentDays + 'd ago' : ''}`));
+    } else if (draft.status === 'paid') {
+      controls.append(h('span.small.muted', `paid ${draft.paidAt ? new Date(draft.paidAt).toLocaleDateString() : ''}`));
+    }
+    if (draft.status === 'sent' || draft.status === 'paid') {
+      controls.append(h('button.btn.btn-sm.btn-ghost', { type: 'button', onclick: resetStatus, title: 'Clear sent/paid marker' }, icon('x', 14)));
+    }
+    return h('div.card', { style: { marginTop: '1rem' } },
+      h('div.row', { style: { alignItems: 'center', justifyContent: 'space-between', gap: '.75rem', flexWrap: 'wrap' } },
+        h('div', h('h3', { style: { margin: 0 } }, 'Invoice status'),
+          h('p.small.muted', { style: { margin: 0 } }, 'Track whether this invoice has been sent or paid. Everything stays on this device — nothing is synced to a server.')),
+        controls));
   }
 
   // ---------------------------------------------------------------- many documents from a spreadsheet
@@ -337,7 +423,7 @@ export async function render(ctx, { id }) {
       if (templateName && templateName !== template.name && !await confirmDialog({ title: 'Different template', message: `These answers were collected for "${templateName}". Import them into this ${template.name} draft anyway?`, confirmLabel: 'Import' })) return;
       const { answers: clean, count: n } = sanitizeAnswers(template, answers);
       Object.assign(draft.answers, clean);
-      draft.status = 'draft'; pendingSave = true; await flush(); evaluation = evaluateForm(template, draft.answers, ctx.settings);
+      draft.status = 'draft'; draft.sentAt = null; draft.paidAt = null; pendingSave = true; await flush(); evaluation = evaluateForm(template, draft.answers, ctx.settings);
       toast(`${n} answer${n === 1 ? '' : 's'} imported.`, { type: 'ok' }); renderStep();
     } catch (e) { toast(e.message, { type: 'danger', timeout: 7000 }); }
   }

@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '1.49.0', date: '23 October 2026', summary: 'Local invoice tracker: mark invoices sent/paid, overdue badges, reminder email' },
   { version: '1.48.0', date: '23 October 2026', summary: 'SoftwareApplication Offer schema includes direct checkout URLs' },
   { version: '1.47.0', date: '23 October 2026', summary: 'Organization schema includes @id, contactPoint and is reused across About/Contact pages' },
   { version: '1.46.0', date: '23 October 2026', summary: 'llms.txt expanded to cover all indexable marketing sections' },
@@ -40,6 +41,13 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-49-0">1.49.0 <span class="small muted">— 23 October 2026</span></h2>
+<ul>
+  <li><strong>Local invoice tracker.</strong> After you download or print an invoice, the review step now shows a status card: <em>Ready to send → Sent → Paid</em>. Tap "Mark as sent" once you email it; "Mark paid" when money arrives; "Send reminder" opens a pre-filled <code>mailto:</code> with the invoice summary and a friendly nudge. Overdue invoices (past their due date) show a red badge.</li>
+  <li>The <a href="${rel}app/#/drafts">Drafts list</a> sorts overdue invoices to the top and shows the same status badge (Ready / Sent / Overdue / Paid) plus days-since-sent and the due date under each invoice draft. The list counts how many invoices are overdue right now.</li>
+  <li>Editing answers, restoring an older version or importing answers clears the sent/paid marker so you never see a "Paid" badge on a reworked invoice that was never re-sent. Duplicating a draft also clears status.</li>
+  <li>Everything is stored locally on your device (as with drafts and answers) — nothing is sent to a server, there is no sync, and no new permissions are required. The controls only appear for invoice/billing templates, not quotes, NDAs or letters.</li>
+</ul>
 <h2 id="v1-48-0">1.48.0 <span class="small muted">— 23 October 2026</span></h2>
 <ul>
   <li>Home-page SoftwareApplication Offer entries now carry a <code>url</code>: Free points at the pricing page; Pro monthly, Pro yearly and Team point at their existing checkout URLs. This lets search engines and product-graph consumers surface a direct purchase path.</li>
