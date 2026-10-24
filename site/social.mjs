@@ -22,6 +22,9 @@ export const pages = [{
 <link rel="manifest" href="../app/manifest.webmanifest">
 <meta name="theme-color" content="#0f1d2e">
 <meta name="color-scheme" content="dark">
+<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), display-capture=()">
 <link rel="stylesheet" href="../site.css">
 <style>
 .bio { background: linear-gradient(180deg, #0f1d2e 0%, #0b1522 100%); min-height: 100vh; color: #e6edf5; padding: 3.25rem 1.25rem 4rem; }
