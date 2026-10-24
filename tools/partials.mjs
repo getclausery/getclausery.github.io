@@ -343,7 +343,7 @@ export function footer(rel) {
       <a href="${rel}legal/dmca.html">DMCA</a>
       <a href="${rel}press/">Press kit</a>
     </div>
-    <div class="legal">© ${YEAR} Clausery · <a href="${rel}changelog.html#v${APP_VERSION.replace(/\./g,'-')}" style="color:inherit">v${APP_VERSION}</a> · Open source under <a href="${rel}legal/license.html" style="color:inherit">AGPLv3</a> · Clausery name and logo are <a href="${REPO_URL}/blob/main/TRADEMARKS.md" rel="noopener" style="color:inherit">trademarks</a>. Clausery is software, not legal advice; documents you generate are your responsibility. Not affiliated with Microsoft; Word is a trademark of Microsoft Corporation. Not affiliated with clausery.ai. <a href="${REPO_URL}" rel="noopener" style="color:inherit">Source on GitHub</a></div>
+    <div class="legal">© ${YEAR} Clausery · <a href="${rel}changelog.html#v${APP_VERSION.replace(/\./g,'-')}" style="color:inherit">v${APP_VERSION}</a> · <a href="${rel}sitemap/" style="color:inherit">Sitemap</a> · Open source under <a href="${rel}legal/license.html" style="color:inherit">AGPLv3</a> · Clausery name and logo are <a href="${REPO_URL}/blob/main/TRADEMARKS.md" rel="noopener" style="color:inherit">trademarks</a>. Clausery is software, not legal advice; documents you generate are your responsibility. Not affiliated with Microsoft; Word is a trademark of Microsoft Corporation. Not affiliated with clausery.ai. <a href="${REPO_URL}" rel="noopener" style="color:inherit">Source on GitHub</a></div>
   </div>
 </footer>
 <script id="search-index" type="application/json" data-src="${rel}search-index.json" defer></script>

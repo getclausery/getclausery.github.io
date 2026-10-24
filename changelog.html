@@ -115,6 +115,13 @@
 <main id="main" tabindex="-1">
 <section class="section"><div class="wrap prose">
 <h1>Changelog <a href="./releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-77-0">1.77.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li><strong>CTR-optimised hub-page titles.</strong> Top section hubs (Invoice templates, Pricing, Guides, NDA templates, Free tools) rewritten to lead with the keyword and a 2026 year marker so Google bolds the year in results and the snippet reads as fresh.</li>
+  <li><strong>HTML sitemap at <a href="./sitemap/">/sitemap/</a>.</strong> A single crawlable page that links every public page grouped by section, with a <code>CollectionPage</code> + <code>SiteNavigationElement</code> JSON-LD block and counts per group. Linked from the footer alongside the version/changelog/license links so crawlers have a second, shallow path from any page to every other page (internal-link depth for deep pages drops from 3 clicks to 2).</li>
+  <li><strong>Footer navigation tightened.</strong> Sitemap link added to the legal strip.</li>
+  <li>0 new third parties; budgets: HTML ~79 KB, CSS 41.7 KB, JS 17.3 KB.</li>
+</ul>
 <h2 id="v1-76-0">1.76.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li><strong>Crawlable <code>/search/</code> page for Google Sitelinks Searchbox.</strong> Google only activates the Sitelinks Searchbox rich result if the target URL is crawlable, returns real results for <code>?q=</code>, and works without JavaScript. The new <a href="./search/">/search/</a> page server-renders popular searches as real links (so a crawler sees actual results), runs a live client-side search against <code>search-index.json</code> when you type or land with <code>?q=</code>, and carries <code>SearchResultsPage</code> JSON-LD. The WebSite schema's <code>SearchAction</code> now points at this dedicated endpoint (previously <code>/templates/?q=</code>, which did not meet Google's functional-search requirement).</li>
@@ -713,7 +720,7 @@
       <a href="./legal/dmca.html">DMCA</a>
       <a href="./press/">Press kit</a>
     </div>
-    <div class="legal">© 2026 Clausery · <a href="./changelog.html#v1-76-0" style="color:inherit">v1.76.0</a> · Open source under <a href="./legal/license.html" style="color:inherit">AGPLv3</a> · Clausery name and logo are <a href="https://github.com/getclausery/getclausery.github.io/blob/main/TRADEMARKS.md" rel="noopener" style="color:inherit">trademarks</a>. Clausery is software, not legal advice; documents you generate are your responsibility. Not affiliated with Microsoft; Word is a trademark of Microsoft Corporation. Not affiliated with clausery.ai. <a href="https://github.com/getclausery/getclausery.github.io" rel="noopener" style="color:inherit">Source on GitHub</a></div>
+    <div class="legal">© 2026 Clausery · <a href="./changelog.html#v1-77-0" style="color:inherit">v1.77.0</a> · <a href="./sitemap/" style="color:inherit">Sitemap</a> · Open source under <a href="./legal/license.html" style="color:inherit">AGPLv3</a> · Clausery name and logo are <a href="https://github.com/getclausery/getclausery.github.io/blob/main/TRADEMARKS.md" rel="noopener" style="color:inherit">trademarks</a>. Clausery is software, not legal advice; documents you generate are your responsibility. Not affiliated with Microsoft; Word is a trademark of Microsoft Corporation. Not affiliated with clausery.ai. <a href="https://github.com/getclausery/getclausery.github.io" rel="noopener" style="color:inherit">Source on GitHub</a></div>
   </div>
 </footer>
 <script id="search-index" type="application/json" data-src="./search-index.json" defer></script>

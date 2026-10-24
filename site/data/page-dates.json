@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-10-24",
-  "hash": "1cb9f8ea73a175cb"
+  "hash": "481fd29e8a1de262"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-24",
-  "hash": "e7b8de27cb600c68"
+  "hash": "a3bde0cbc082a247"
  },
  "clauses/": {
   "date": "2026-10-17",
@@ -260,8 +260,8 @@
   "hash": "705666cc3abd8be3"
  },
  "free-tools/": {
-  "date": "2026-10-17",
-  "hash": "5d784bcfc8fe8fa9"
+  "date": "2026-10-24",
+  "hash": "35f114c0d544bf75"
  },
  "free-tools/amount-in-words.html": {
   "date": "2026-10-24",
@@ -300,8 +300,8 @@
   "hash": "fdf1b64a94b4b29d"
  },
  "guides/": {
-  "date": "2026-10-18",
-  "hash": "0d269bf58308d438"
+  "date": "2026-10-24",
+  "hash": "f9cc1bb6bdc6488d"
  },
  "guides/are-liability-waivers-enforceable.html": {
   "date": "2026-10-17",
@@ -572,8 +572,8 @@
   "hash": "d87bafa90b0920e5"
  },
  "invoice-templates/": {
-  "date": "2026-10-23",
-  "hash": "eafa1f8ff2d7dbe9"
+  "date": "2026-10-24",
+  "hash": "bcd8d3147efc2a7a"
  },
  "invoice-templates/australia-tax-invoice.html": {
   "date": "2026-10-08",
@@ -685,7 +685,7 @@
  },
  "nda-templates/": {
   "date": "2026-10-24",
-  "hash": "c85d332541e1379a"
+  "hash": "4cc8c72abdb4c2d1"
  },
  "press/": {
   "date": "2026-10-17",
@@ -693,11 +693,11 @@
  },
  "pricing/": {
   "date": "2026-10-24",
-  "hash": "3c04b38b15e30b0a"
+  "hash": "18de45039750e0c5"
  },
  "roadmap/": {
   "date": "2026-10-24",
-  "hash": "56aa572bcb66f5c5"
+  "hash": "782f3099ac32e11f"
  },
  "search/": {
   "date": "2026-10-24",
@@ -707,9 +707,13 @@
   "date": "2026-10-23",
   "hash": "3c327f06a7a0bb3c"
  },
+ "sitemap/": {
+  "date": "2026-10-24",
+  "hash": "0000000000000001"
+ },
  "status/": {
   "date": "2026-10-24",
-  "hash": "3de2a72ddc3303db"
+  "hash": "42dd0c485398dee0"
  },
  "templates/": {
   "date": "2026-10-23",

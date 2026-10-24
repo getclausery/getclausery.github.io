@@ -248,7 +248,7 @@ body.embed { background: transparent; }
 .embed-credit { font-size: .82rem; margin: .5rem 0 0; }
 </style>`;
 export const pages = [
-  { path: 'free-tools/', title: 'Free drafting tools', description: 'Free tools for drafting and invoicing: amount in words, deadlines, invoice due dates, late payment interest, loans, commission, prorated rent and more.',
+  { path: 'free-tools/', title: 'Free small-business calculators (Word, 2026)', description: 'Free tools for drafting and invoicing: amount in words, deadlines, invoice due dates, late payment interest, loans, commission, prorated rent and more.',
     extraHead: collectionLd({ path: 'free-tools/', name: 'Free drafting tools', description: 'Free tools for drafting and invoicing: amount in words, deadlines, invoice due dates, late payment interest, loans, commission, prorated rent and more.', items: TOOLS.map((t) => [t.name, `free-tools/${t.slug}.html`]) }),
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem"><h1>Free drafting tools</h1><p class="lead">Small tools for everyday drafting and invoicing. They run entirely in your browser; nothing you type is sent anywhere. The calculators can also be <a href="#embed">added to your own website</a> for free.</p>
 <div class="grid grid-3" style="margin-top:2rem">${TOOLS.map((t) => `<a class="feature" style="text-decoration:none;color:inherit" href="${rel}free-tools/${t.slug}.html"><h2 style="font-size:1.1rem">${t.name}</h2><p>${t.desc}</p></a>`).join('')}</div>

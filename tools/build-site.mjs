@@ -107,8 +107,46 @@ const searchJson=JSON.stringify(searchIndex);
 writeFileSync('search-index.json',searchJson);
 console.log(`wrote search-index.json (${Buffer.byteLength(searchJson)} bytes, ${searchIndex.templates.length+searchIndex.invoices.length+searchIndex.guides.length+searchIndex.clauses.length+searchIndex.tools.length+searchIndex.pages.length} entries)`);
 
+// HTML sitemap: every indexable page grouped by section, with a CollectionPage + SiteNavigationElement hint.
+{
+  const GROUPS = [
+    ['Start here', p => ['', 'templates/', 'invoice-templates/', 'pricing/', 'search/', 'changelog.html'].includes(p.path) && !p.noindex],
+    ['Invoice templates', p => /^invoice-templates\//.test(p.path)],
+    ['All Word templates', p => /^templates\//.test(p.path) || /^nda-templates\//.test(p.path) || /^business-document-kit\//.test(p.path)],
+    ['Free calculators', p => /^free-tools\//.test(p.path)],
+    ['Guides', p => /^guides\//.test(p.path)],
+    ['Clause library', p => /^clauses\//.test(p.path)],
+    ['Who it is for', p => /^for\//.test(p.path)],
+    ['Compare', p => /^compare\//.test(p.path)],
+    ['Docs, company & legal', p => /^(docs|about|contact|customers|why-clausery|self-hosting|roadmap|status|press|legal)/.test(p.path)],
+  ];
+  const escHtml = s => String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const rel = '../';
+  const linkHtml = p => {
+    const t = SEO_TITLES[p.path] || p.title;
+    const d = (p.description || '');
+    return `<li><a href="${rel}${p.path.replace(/\/index\.html$/,'/')}">${escHtml(t)}</a>${d ? ` <span class="small muted">— ${escHtml(d.slice(0,110))}${d.length>110?'…':''}</span>` : ''}</li>`;
+  };
+  const groupHtml = GROUPS.map(([label, pred]) => {
+    const list = indexable.filter(pred).sort((a,b)=>(b.path===''?-1:0)||a.path.localeCompare(b.path));
+    if(!list.length) return '';
+    const id = label.toLowerCase().replace(/[^a-z]+/g,'-');
+    return `<h2 id="${id}">${escHtml(label)} <span class="small muted">(${list.length})</span></h2><ul class="sitemap-list">${list.map(linkHtml).join('')}</ul>`;
+  }).join('');
+  const total = indexable.length;
+  const body = `<section class="section"><div class="wrap prose" style="max-width:56rem"><nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › Sitemap</nav><h1 style="margin-top:1rem">Sitemap (site map)</h1><p class="lead">A site map of every public page on Clausery — for people who prefer to browse and for crawlers. ${total} pages, all free, all in your browser.</p><p><strong>Quick links:</strong> ${GROUPS.map(([l])=>`<a href="#${l.toLowerCase().replace(/[^a-z]+/g,'-')}">${escHtml(l)}</a>`).join(' · ')}</p>${groupHtml}<p style="margin-top:2rem" class="small muted">There is also an <a href="${rel}sitemap_index.xml">XML sitemap</a> for crawlers, and an <a href="${rel}llms.txt">llms.txt</a> index for AI crawlers.</p></div></section>`;
+  const listItems = indexable.map((p,i)=>({'@type':'ListItem',position:i+1,name:SEO_TITLES[p.path]||p.title,url:`${SITE}${p.path.replace(/\/index\.html$/,'/')}`}));
+  const extraHead = `<script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'CollectionPage','@id':`${SITE}sitemap/#webpage`,url:`${SITE}sitemap/`,name:'Sitemap — every page on Clausery',description:`${total} public pages on Clausery: invoices, templates, guides, calculators and docs, all free Word files you can edit in the browser.`,inLanguage:'en-GB',isPartOf:{'@id':`${SITE}#website`},mainEntity:{'@type':'ItemList',numberOfItems:listItems.length,itemListElement:listItems}})}</script>`;
+  mkdirSync('sitemap',{recursive:true});
+  const sh = head({title:'Sitemap (site map) — every page on Clausery', description:`Site map of every public page on Clausery: ${total} free Word invoices, templates, contracts, NDAs, guides, calculators and docs, all in one list.`,path:'sitemap/',extraHead,rel})+body+footer(rel);
+  writeFileSync('sitemap/index.html',sh.replace(/<pre>/g,'<pre tabindex="0">'));
+  console.log('wrote sitemap/index.html');
+}
+
 // Keep only pages that still exist, in a stable order, so the file diffs cleanly.
 const live = new Set(pages.filter((p) => p.layout !== 'embed').map((p) => p.path));
+live.add('sitemap/');
+if (!dates['sitemap/']) dates['sitemap/'] = { date: today, hash: '0000000000000001' };
 writeFileSync(DATES_FILE, JSON.stringify(Object.fromEntries(Object.keys(dates).filter((k) => live.has(k)).sort().map((k) => [k, dates[k]])), null, 1) + '\n');
 console.log(`wrote ${DATES_FILE}`);
 
