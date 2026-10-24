@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-10-24",
-  "hash": "4431c88da4a2c6a6"
+  "hash": "814e7fcd02ab7b6b"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -29,7 +29,7 @@
  },
  "about/": {
   "date": "2026-10-24",
-  "hash": "7e954a7d9dc2e3e5"
+  "hash": "b7656c8502f2ae3f"
  },
  "business-document-kit/": {
   "date": "2026-10-24",
@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-24",
-  "hash": "4fd4f916be90aa23"
+  "hash": "77eacc3efe85b048"
  },
  "clauses/": {
   "date": "2026-10-17",
@@ -140,12 +140,12 @@
   "hash": "4569c681a89e136c"
  },
  "compare/": {
-  "date": "2026-10-18",
-  "hash": "2d51111544bdbf05"
+  "date": "2026-10-24",
+  "hash": "9d54df510023f427"
  },
  "compare/bonsai-alternative.html": {
-  "date": "2026-10-23",
-  "hash": "3c9634a48bf6be39"
+  "date": "2026-10-24",
+  "hash": "d4565ca4b3c7c517"
  },
  "compare/clio-draft-alternative.html": {
   "date": "2026-10-23",
@@ -189,7 +189,7 @@
  },
  "contact/": {
   "date": "2026-10-24",
-  "hash": "4935e4015ae9f872"
+  "hash": "d6bec12835cc38cf"
  },
  "customers/": {
   "date": "2026-10-23",
@@ -668,8 +668,8 @@
   "hash": "1686ec404a3090ac"
  },
  "legal/license.html": {
-  "date": "2026-10-23",
-  "hash": "0bb39a332cfcecbf"
+  "date": "2026-10-24",
+  "hash": "41a35f732a36a3d7"
  },
  "legal/privacy.html": {
   "date": "2026-10-15",
@@ -697,7 +697,7 @@
  },
  "roadmap/": {
   "date": "2026-10-24",
-  "hash": "35c10e27c1ebb0b1"
+  "hash": "45091ae8c01282bb"
  },
  "self-hosting/": {
   "date": "2026-10-23",
@@ -705,7 +705,7 @@
  },
  "status/": {
   "date": "2026-10-24",
-  "hash": "d717eb1a2748611f"
+  "hash": "2e1d9e36de18563a"
  },
  "templates/": {
   "date": "2026-10-23",
