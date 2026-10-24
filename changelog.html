@@ -30,7 +30,8 @@
 <meta name="twitter:description" content="Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.">
 <meta name="twitter:image" content="https://getclausery.github.io/assets/og.png">
 <meta name="twitter:image:alt" content="Changelog · Clausery — Clausery">
-<meta name="theme-color" content="#1b2a41">
+<meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1419" media="(prefers-color-scheme: dark)">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="author" content="Clausery">
 <meta name="generator" content="Clausery https://getclausery.github.io/ — AGPL-3.0-or-later open source">
@@ -46,6 +47,7 @@
 <link rel="search" type="application/opensearchdescription+xml" title="Clausery templates" href="./opensearch.xml">
 <link type="text/plain" rel="author" href="./humans.txt">
 <link rel="license" href="./legal/license.html" title="AGPL-3.0-or-later WITH Clausery-Trademark-Exception">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="./sitemap_index.xml">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="./feed.xml">
 <link rel="alternate" type="application/atom+xml" title="Clausery releases" href="./releases.xml">
 <link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/changelog.html">
@@ -84,6 +86,13 @@
 <main id="main" tabindex="-1">
 <section class="section"><div class="wrap prose">
 <h1>Changelog <a href="./releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-53-0">1.53.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li>Light/dark <code>theme-color</code> meta on marketing pages, the 404 page and the app shell. Previously every page advertised a fixed dark-blue <code>#1b2a41</code> even when the browser was in light mode, which showed a dark flash and mismatched the address bar; now the color matches the page background for each prefers-color-scheme.</li>
+  <li>App shell adds the iOS/Android PWA meta tags: <code>apple-mobile-web-app-capable</code>, <code>apple-mobile-web-app-status-bar-style</code>, <code>apple-mobile-web-app-title</code>, <code>mobile-web-app-capable</code>, <code>application-name</code>, and <code>sizes="any"</code> on the SVG favicon so Chrome/Edge pick it up for the install dialog. App <code>&lt;title&gt;</code> carries the clausery.ai disambiguation too.</li>
+  <li>PWA manifest <code>theme_color</code> changed from dark blue to the actual page background <code>#f6f4ef</code> so installed-app chrome matches the light-theme default.</li>
+  <li>Every page now has a <code>&lt;link rel="sitemap"&gt;</code> autodiscovery link to <code>/sitemap_index.xml</code>, matching the existing Atom feed, license, search, author and icon links.</li>
+</ul>
 <h2 id="v1-52-0">1.52.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li>Every page now includes an HTML <code>&lt;link rel="license"&gt;</code> pointing at <code>/legal/license.html</code>, per the HTML5 autodiscovery convention. This gives crawlers, readers and AI extractors an explicit license link without them having to guess from footer text.</li>
