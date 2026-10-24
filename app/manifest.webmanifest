@@ -21,13 +21,14 @@
   ],
   "categories": ["business", "productivity"],
   "shortcuts": [
-    { "name": "New invoice", "short_name": "Invoice", "url": "./#/start/invoice", "description": "Start a new invoice from the free template" },
-    { "name": "New quote", "short_name": "Quote", "url": "./#/start/quote" },
-    { "name": "New receipt", "short_name": "Receipt", "url": "./#/start/receipt" },
-    { "name": "Outstanding invoices", "short_name": "Drafts", "url": "./#/drafts", "description": "See drafts sorted by overdue/sent/ready" },
-    { "name": "Templates", "short_name": "Templates", "url": "./#/templates", "description": "Open your template library" }
+    { "name": "New invoice", "short_name": "Invoice", "url": "./#/start/invoice", "description": "Start a new invoice from the free template", "icons": [{ "src": "../assets/icon-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "New quote", "short_name": "Quote", "url": "./#/start/quote", "icons": [{ "src": "../assets/icon-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "New receipt", "short_name": "Receipt", "url": "./#/start/receipt", "icons": [{ "src": "../assets/icon-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "Outstanding invoices", "short_name": "Drafts", "url": "./#/drafts", "description": "See drafts sorted by overdue/sent/ready", "icons": [{ "src": "../assets/icon-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "Templates", "short_name": "Templates", "url": "./#/templates", "description": "Open your template library", "icons": [{ "src": "../assets/icon-192.png", "sizes": "192x192", "type": "image/png" }] }
   ],
   "screenshots": [
-    { "src": "../assets/screenshot-invoice.png", "sizes": "1200x800", "type": "image/png", "form_factor": "wide", "label": "An invoice being filled in" }
+    { "src": "../assets/screenshot-invoice.png", "sizes": "1200x800", "type": "image/png", "form_factor": "wide", "label": "An invoice being filled in" },
+    { "src": "../assets/screenshot-invoice.png", "sizes": "1200x800", "type": "image/png", "label": "An invoice being filled in" }
   ]
 }
