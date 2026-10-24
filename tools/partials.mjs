@@ -195,6 +195,7 @@ ${path === '' ? `<link rel="preconnect" href="${rel}app/" crossorigin>` : ''}
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'self'; upgrade-insecure-requests">
 <script>${THEME_INLINE}</script>
 <script src="${rel}site.js" defer></script>
+<script type="speculationrules">{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"\\?|#|/app/"}},{"not":{"selector_matches":"[download],[target=_blank],[rel~=nofollow],[href$=.xml],[href$=.txt],[href$=.json],[href$=.webmanifest]"}}]},"eagerness":"moderate"}]}</script>
 ${extraHead}${autoCrumb}${pageLd}
 </head>
 <body>
@@ -238,7 +239,7 @@ export function header(rel, path, crumbItems = []) {
   const cur = (p) => (path.startsWith(p) && p !== '' ? ' aria-current="page"' : '');
   const I = { menu:'M4 6h16M4 12h16M4 18h16', search:'M11 4a7 7 0 100 14 7 7 0 000-14zm10 16l-4-4' };
   const ico = (d,s=18)=>`<svg viewBox="0 0 24 24" width="${s}" height="${s}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;
-  return `<header class="site-header">
+  return `<header class="site-header" role="banner">
   <div class="wrap">
     <a class="brand" href="${rel}"><img src="${rel}assets/icon.svg" alt="" width="28" height="28" decoding="async"> Clausery</a>
     <button class="nav-search" id="nav-search" type="button" aria-label="Search or jump to… (⌘K)">
@@ -280,18 +281,20 @@ export function footer(rel) {
   </a>
   <button class="to-top" id="to-top" type="button" aria-label="Back to top">${ico(I.arrowUp,15)} Top</button>
 </div>
-<div class="cmdk-backdrop" id="cmdk" role="dialog" aria-modal="true" aria-label="Search and jump to" hidden>
-  <div class="cmdk" role="combobox" aria-expanded="true" aria-haspopup="listbox" aria-owns="cmdk-list">
+<div class="cmdk-backdrop" id="cmdk" role="dialog" aria-modal="true" aria-label="Search and jump to" aria-labelledby="cmdk-title" hidden>
+  <div class="cmdk" role="combobox" aria-expanded="true" aria-haspopup="listbox" aria-owns="cmdk-list" aria-controls="cmdk-list">
     <div class="cmdk-bar">
+      <span id="cmdk-title" class="sr-only">Search and jump to a page, template, guide or action</span>
       ${ico('M11 4a7 7 0 100 14 7 7 0 000-14zm10 16l-4-4',20)}
-      <input id="cmdk-input" type="text" placeholder="Search templates, guides, pages, actions…" autocomplete="off" autocapitalize="off" spellcheck="false" aria-controls="cmdk-list" aria-label="Search">
+      <input id="cmdk-input" type="text" placeholder="Search templates, guides, pages, actions…" autocomplete="off" autocapitalize="off" spellcheck="false" aria-controls="cmdk-list" aria-label="Search" aria-describedby="cmdk-hint">
       <kbd>Esc</kbd>
     </div>
-    <div class="cmdk-body" id="cmdk-list" role="listbox"></div>
+    <div class="cmdk-body" id="cmdk-list" role="listbox" aria-label="Search results"></div>
+    <p class="sr-only" id="cmdk-hint" aria-live="polite"></p>
     <div class="cmdk-footer"><span><kbd>↑</kbd> <kbd>↓</kbd> navigate</span><span><kbd>↵</kbd> open</span><span><kbd>⌘K</kbd> close</span></div>
   </div>
 </div>
-<footer class="site-footer">
+<footer class="site-footer" role="contentinfo">
   <div class="wrap">
     <div class="brand-col">
       <a class="brand" href="${rel}"><img src="${rel}assets/icon.svg" alt="" width="28" height="28" decoding="async"> Clausery</a>

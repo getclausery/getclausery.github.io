@@ -99,7 +99,7 @@ for (const url of urls.filter((u) => /\/templates\/[^/]+\.html$/.test(u) && !u.e
 const css = bytes('site.css');
 const js = bytes('site.js');
 if (css > 45_000) fail('site.css', `${css} bytes (budget: 45,000)`);
-if (js > 16_000) fail('site.js', `${js} bytes (budget: 16,000)`); // 15302 v1.72
+if (js > 18_000) fail('site.js', `${js} bytes (budget: 18,000)`); // 15302 v1.72; 17301 v1.76 adds /search/ live filter
 if (/@import\b/.test(readFileSync('site.css', 'utf8'))) fail('site.css', 'uses @import, which adds a blocking request');
 
 if (failures.length) {

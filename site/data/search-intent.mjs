@@ -282,4 +282,5 @@ export const SEARCH_INTENT = {
   "templates/video-production-contract.html": ["video production contract template", "transactional", "templates"],
   "templates/virtual-assistant-agreement.html": ["virtual assistant agreement template", "transactional", "templates"],
   "templates/web-design-contract.html": ["web design contract template", "transactional", "templates"],
+  "search/": ["search free word templates", "navigational", "company"],
 };
