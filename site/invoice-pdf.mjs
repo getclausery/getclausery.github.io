@@ -18,7 +18,7 @@ const FAQ = [
 
 export const pages = [{
   path: PATH, title: TITLE, description: DESCRIPTION, feed: true, published: '2026-10-09',
-  extraHead: faqLd(FAQ) + `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: TITLE, description: DESCRIPTION, datePublished: '2026-10-09', dateModified: LASTMOD, image: `${SITE}assets/og.png`, mainEntityOfPage: `${SITE}${PATH}`, citation: SOURCES.map(([, url]) => url), author: { '@type': 'Organization', name: 'Clausery', url: SITE }, publisher: { '@type': 'Organization', name: 'Clausery', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}assets/icon-512.png` } } })}</script>`,
+  extraHead: faqLd(FAQ) + `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: TITLE, description: DESCRIPTION, datePublished: '2026-10-09', dateModified: LASTMOD, lastReviewed: LASTMOD, image: `${SITE}assets/og.png`, mainEntityOfPage: `${SITE}${PATH}`, citation: SOURCES.map(([, url]) => url), author: { '@type': 'Organization', name: 'Clausery', url: SITE }, publisher: { '@type': 'Organization', name: 'Clausery', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}assets/icon-512.png`, width: 512, height: 512 } } })}</script>`,
   body: (rel) => `<section class="section"><div class="wrap prose">
 <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}guides/">Guides</a></nav>
 <h1>${TITLE}</h1>

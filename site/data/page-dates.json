@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-10-24",
-  "hash": "227134a0b0953779"
+  "hash": "ef0f51954a9ca180"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-24",
-  "hash": "cdb6ad370970a5cb"
+  "hash": "495c3881f5f88255"
  },
  "clauses/": {
   "date": "2026-10-17",
@@ -352,8 +352,8 @@
   "hash": "d3f181026729730a"
  },
  "guides/how-to-save-an-invoice-as-pdf.html": {
-  "date": "2026-10-09",
-  "hash": "a7e12c752ac14f0e"
+  "date": "2026-10-24",
+  "hash": "a73de7c53ee473af"
  },
  "guides/how-to-set-up-a-rent-payment-plan.html": {
   "date": "2026-10-24",
@@ -396,8 +396,8 @@
   "hash": "c1081690349328a4"
  },
  "guides/how-to-write-a-payment-receipt.html": {
-  "date": "2026-10-09",
-  "hash": "cdae8e32d2934c65"
+  "date": "2026-10-24",
+  "hash": "001bc463f2d9d93f"
  },
  "guides/how-to-write-a-performance-improvement-plan.html": {
   "date": "2026-10-24",
@@ -468,8 +468,8 @@
   "hash": "5c179d71b43a5fab"
  },
  "guides/invoice-email-template.html": {
-  "date": "2026-10-09",
-  "hash": "91e41396a27fc7ad"
+  "date": "2026-10-24",
+  "hash": "1bfcd4fec81ac33f"
  },
  "guides/is-an-mou-legally-binding.html": {
   "date": "2026-10-24",
@@ -697,7 +697,7 @@
  },
  "roadmap/": {
   "date": "2026-10-24",
-  "hash": "a95aa8f6ea110fba"
+  "hash": "4d7888b3bf0160f4"
  },
  "search/": {
   "date": "2026-10-24",
@@ -713,7 +713,7 @@
  },
  "status/": {
   "date": "2026-10-24",
-  "hash": "ae8c8694d1efc4e6"
+  "hash": "02a90e2d406f956a"
  },
  "templates/": {
   "date": "2026-10-24",

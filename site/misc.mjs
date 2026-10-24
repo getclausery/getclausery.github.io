@@ -96,6 +96,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-84-0">1.84.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li><strong>Article freshness parity.</strong> Invoice-email, invoice-PDF and payment-receipt guides now carry <code>lastReviewed</code> and a 512×512 publisher logo ImageObject — every non-template Article now satisfies Google's full rich-result property set.</li>
+</ul>
 <h2 id="v1-83-0">1.83.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li><strong>Server-rendered "On this page" TOC on every guide.</strong> All 67 guides now have stable H2 anchor ids (no client randomness), a visible TOC nav before the first section, and <code>articleSection</code> in Article JSON-LD — unlocking jump-to-section links in SERPs and sharable anchor URLs.</li>
@@ -334,8 +338,7 @@ export const pages = [
 </ul>
 <h2 id="v1-44-0">1.44.0 <span class="small muted">— 23 October 2026</span></h2>
 <ul>
-  <li>Added <code>/.well-known/ai.txt</code>: plain-text guidance for AI crawlers, pointing at <a href="${rel}llms.txt">llms.txt</a> for the public page index and deferring to robots.txt for crawl policy.</li>
-  <li>Added <code>/.well-known/copyright</code> meta-refresh redirect pointing to the existing <a href="${rel}legal/dmca.html">DMCA and takedowns page</a>, matching the pattern used for privacy-policy, support and change-password.</li>
+  <li>Added <code>/.well-known/ai.txt</code> (plain-text guidance for AI crawlers pointing at llms.txt) and <code>/.well-known/copyright</code> redirecting to the DMCA page.</li>
 </ul>
 <h2 id="v1-43-0">1.43.0 <span class="small muted">— 23 October 2026</span></h2>
 <ul>
@@ -353,7 +356,7 @@ export const pages = [
 </ul>
 <h2 id="v1-40-0">1.40.0 <span class="small muted">— 23 October 2026</span></h2>
 <ul>
-  <li>Footer now shows the running version (e.g. <code>v1.40.0</code>) as a link straight to the matching changelog anchor, so it is one click to see what changed between versions.</li>
+  <li>Footer version badge links to the matching changelog anchor.</li>
 </ul>
 <h2 id="v1-39-0">1.39.0 <span class="small muted">— 23 October 2026</span></h2>
 <ul>
