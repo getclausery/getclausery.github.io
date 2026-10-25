@@ -137,7 +137,7 @@ for (const url of urls) {
         if (!exists(item.url)) fail(file, `CollectionPage item does not resolve: ${item.url}`);
       });
     }
-    if (['WebPage', 'AboutPage', 'ContactPage'].includes(type)) {
+    if (['WebPage', 'AboutPage', 'ContactPage', 'ItemPage', 'SearchResultsPage'].includes(type)) {
       if (node.url !== canonical) fail(file, `${type} url must be its canonical URL`);
       if (!node.name) fail(file, `${type} has no name`);
       if (type === 'WebPage' && !node.description) fail(file, 'WebPage has no description');
@@ -152,9 +152,9 @@ for (const url of urls) {
     };
     walk(node);
   }
-  const pageTypes = ['WebPage', 'Article', 'CollectionPage', 'AboutPage', 'ContactPage', 'WebSite'];
+  const pageTypes = ['WebPage', 'Article', 'CollectionPage', 'AboutPage', 'ContactPage', 'ItemPage', 'SearchResultsPage', 'WebSite'];
   if (![...localTypes].some((t) => pageTypes.includes(t))) fail(file, 'page has no WebPage-level structured data');
-  if (localTypes.has('FAQPage') && !localTypes.has('WebPage') && !localTypes.has('Article') && !localTypes.has('CollectionPage')) fail(file, 'FAQPage page has no page-level node');
+  if (localTypes.has('FAQPage') && ![...localTypes].some((t) => ['WebPage', 'Article', 'CollectionPage', 'AboutPage', 'ContactPage', 'ItemPage', 'SearchResultsPage'].includes(t))) fail(file, 'FAQPage page has no page-level node');
 }
 
 for (const [id, where] of referencedIds) if (!ids.has(id)) fail(where.split(' ')[0], `structured data references an @id that no page defines: ${id}`);

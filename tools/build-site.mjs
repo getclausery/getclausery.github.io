@@ -68,8 +68,8 @@ for (const p of pages) {
   p.modified = modified;
   // This page-level node is deliberately passed separately from extraHead: adding metadata must not make the content
   // hash (and therefore page-dates.json) claim that the editorial content changed.
-  const hasCollection = /"@type":"CollectionPage"/.test(p.extraHead || '');
-  const skipPageLd = p.layout === 'embed' || p.noindex || p.path === '' || p.path === '404.html' || hasCollection;
+  const hasPageNode = /"@type":"(CollectionPage|SearchResultsPage|AboutPage|ContactPage|WebSite)"/.test(p.extraHead || '');
+  const skipPageLd = p.layout === 'embed' || p.noindex || p.path === '' || p.path === '404.html' || hasPageNode;
   // For pages flagged _howTo (e.g. guides), render the body first and auto-inject HowTo JSON-LD into extraHead
   // if the body contains an ordered-list of bolded steps under a how-to heading.
   let renderedBody = null;
@@ -105,9 +105,10 @@ for (const p of pages) {
     }
   }
   const pageLd = skipPageLd ? '' : `<script type="application/ld+json">${JSON.stringify({
-    '@context': 'https://schema.org', '@type': 'WebPage', '@id': `${SITE}${p.path}#webpage`, url: `${SITE}${p.path}`,
+    '@context': 'https://schema.org', '@type': /^templates\/[^/]+\.html$/.test(p.path) ? 'ItemPage' : 'WebPage', '@id': `${SITE}${p.path}#webpage`, url: `${SITE}${p.path}`,
     name: SEO_TITLES[p.path] || p.title, description: p.description, inLanguage: 'en-GB', isPartOf: { '@id': `${SITE}#website` },
     ...(p.published ? { datePublished: p.published } : {}), ...(modified ? { dateModified: modified } : {}),
+    ...(/^templates\/[^/]+\.html$/.test(p.path) && p.ogImage ? { primaryImageOfPage: { '@type': 'ImageObject', url: `${SITE}${p.ogImage}`, width: 1200, height: 630 } } : {}),
   })}</script>`;
   const body = renderedBody !== null ? renderedBody : p.body(rel);
   const html = p.layout === 'embed' ? embedPage({ title: p.title, description: p.description, extraHead: p.extraHead, rel, body: p.body(rel) })
