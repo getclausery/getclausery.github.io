@@ -237,6 +237,14 @@ for (const p of pages) {
     const js = `(function(){var D=${JSON.stringify(suggestions)};function toks(s){return(s||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim().split(/\\s+/).filter(Boolean)}var path=decodeURIComponent(location.pathname||'');var q=(location.hash||'').replace(/^#/,'').replace(/^\\//,'');var hay=path+'/'+q;var ht=toks(hay);if(!ht.length)return;var scored=[];for(var i=0;i<D.length;i++){var it=D[i];var slug=it.p.toLowerCase().replace(/\\.html$/,'').replace(/\\/$/,'');var st=toks(it.t+' '+slug.replace(/\\//g,' '));var sc=0;for(var j=0;j<ht.length;j++){var w=ht[j];if(!w)continue;for(var k=0;k<st.length;k++){var sw=st[k];if(sw===w)sc+=3;else if(sw.indexOf(w)===0&&w.length>=3)sc+=2;else if(sw.indexOf(w)>-1)sc+=1}if(slug.split('/').some(function(s){return s===w}))sc+=3;if(slug.indexOf(w)>-1&&w.length>=3)sc+=1}if(sc>2)scored.push({s:sc,it:it})}scored.sort(function(a,b){return b.s-a.s});var top=scored.slice(0,6);if(!top.length)return;var box=document.getElementById('suggested');var list=document.getElementById('suggested-list');if(!box||!list)return;for(var m=0;m<top.length;m++){var li=document.createElement('li');var a=document.createElement('a');a.href=top[m].it.p;a.textContent=top[m].it.t;li.appendChild(a);list.appendChild(li)}box.hidden=false})();`;
     final = final.replace('</body>', `<script>${js}</script></body>`);
   }
+  // Wrap changelog release dates in <time datetime="YYYY-MM-DD"> so they are machine-readable (E-E-A-T freshness signals).
+  if (p.path === 'changelog.html') {
+    const months = { january:'01', february:'02', march:'03', april:'04', may:'05', june:'06', july:'07', august:'08', september:'09', october:'10', november:'11', december:'12' };
+    final = final.replace(/<span class="small muted">— (\d{1,2}) (January|February|March|April|May|June|July|August|September|October|November|December) (\d{4})<\/span>/g, (_m, d, m, y) => {
+      const iso = `${y}-${months[m.toLowerCase()]}-${String(d).padStart(2, '0')}`;
+      return `<span class="small muted">— <time datetime="${iso}">${d} ${m} ${y}</time></span>`;
+    });
+  }
   writeFileSync(out, final);
   console.log('wrote', out);
 }
