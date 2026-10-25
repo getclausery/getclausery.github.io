@@ -96,6 +96,8 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-0-4">2.0.4 <span class="small muted">— 25 October 2026</span></h2>
+<ul><li>Visible &lt;time datetime&gt; stamps on every changelog release heading. The 71 dated entries on this page now carry machine-readable ISO <code>YYYY-MM-DD</code> dates in the DOM, matching the visible byline on guides, clauses, templates and hub pages, so crawlers and readers see the same freshness signal everywhere.</li></ul>
 <h2 id="v2-0-3">2.0.3 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>E-E-A-T entity linking.</strong> Article schema now carries an <code>about</code> array of Topic entities derived from the page's visible h2 sections, a fully-specified <code>image</code> ImageObject (with width, height and <code>caption</code> matching the page title on pages that have a dedicated share card), <code>thumbnailUrl</code>, <code>mainEntityOfPage</code> as a WebPage reference, and <code>reviewedBy</code> on every long-form page. Every FAQPage block now gets a stable <code>@id</code> linked to its page's WebPage via <code>isPartOf</code>/<code>mainEntityOfPage</code>, so generic FAQ questions across pages are not merged into a single entity.</li></ul>
 <h2 id="v2-0-2">2.0.2 <span class="small muted">— 25 October 2026</span></h2>
@@ -416,10 +418,7 @@ export const pages = [
   <li>The <a href="${rel}templates/payment-receipt.html">Word receipt page</a> explains how to record a payment and includes a local balance calculator. The calculator distinguishes earlier payments from the current payment and flags overpayments.</li>
 </ul>
 <h2 id="v1-29-0">1.29.0 <span class="small muted">— 9 October 2026</span></h2>
-<ul>
-  <li>A <a href="${rel}guides/how-to-save-an-invoice-as-pdf.html">guide to saving an invoice as PDF</a> from Clausery or Word, with export instructions and a checklist for the finished file.</li>
-  <li>Print / Save as PDF waits for the document preview, fonts and images to finish preparing. A failed preview no longer opens the print dialog or records a print action.</li>
-</ul>
+<ul><li><a href="${rel}guides/how-to-save-an-invoice-as-pdf.html">Save an invoice as PDF</a> guide; Print/Save-as-PDF waits for preview/fonts/images and a failed preview no longer opens the print dialog.</li></ul>
 <h2 id="v1-28-0">1.28.0 <span class="small muted">— 8 October 2026</span></h2>
 <ul><li><a href="${rel}business-document-kit/">Free small-business document kit</a> (quote, SOW, invoice, receipt, PO, credit note in one download) and <a href="${rel}press/">press kit</a> with seven graphics; home/pricing/about copy reframed around small-business document workflows.</li></ul>
 <h2>1.27.0 <span class="small muted">— 8 October 2026</span></h2>
@@ -431,12 +430,7 @@ export const pages = [
 <h2>1.24.1 <span class="small muted">— 7 October 2026</span></h2>
 <ul><li>Anonymous, cookieless GoatCounter usage counts (opens, drafts, documents, template) — no typed content, file names or IPs stored; privacy policy updated.</li></ul>
 <h2>1.24.0 <span class="small muted">— 7 October 2026</span></h2>
-<ul>
-  <li>Your next invoice fills itself in: a new invoice, quote, receipt, purchase order or credit note starts with your own details, bank details and usual tax rate from the last one you made, the next number in your sequence and today's date. A due date keeps the same number of days after the invoice date as last time. The client, the items and the amounts are never copied.</li>
-  <li>A clearer first visit: the app opens on the documents small businesses make most, each one click from a draft, with a search across all the templates. "Fill it in" starts a draft; "Customise" opens a library template's questions for editing.</li>
-  <li>The home page now leads with invoices, quotes and receipts.</li>
-  <li>Groundwork for anonymous usage counts (which templates are used, never what is typed), switched on in 1.24.1.</li>
-</ul>
+<ul><li>Auto-fill new invoices/quotes/receipts/POs/credit notes from your last one (own/bank/tax details, next number, today, same due-date window; client/items/amounts never copied), a clearer app start with template search, homepage reframed around invoices/quotes/receipts, and groundwork for anonymous usage counts (enabled in 1.24.1).</li></ul>
 <h2>1.23.0 <span class="small muted">— 7 October 2026</span></h2>
 <ul><li>CSV/spreadsheet mail merge (one document per row, zipped; free 5/batch, Pro unlimited) runs locally; per-draft history with SHA-256 fingerprints, system share-sheet integration, storage-persistence prompt, and clearer home/FAQ answers.</li></ul>
 <h2>1.22.0 <span class="small muted">— 6 October 2026</span></h2>
@@ -460,130 +454,47 @@ export const pages = [
 <h2>1.16.0 <span class="small muted">— 2 October 2026</span></h2>
 <ul><li>Live template search on the templates page with a home search form, related-template suggestions at the foot of each template page, human-readable "Asked when" wording in the questions table, topic-grouped guides index with publish dates, and capitalisation fixes (mutual NDA, MOU, For HR teams).</li></ul>
 <h2>1.15.1 <span class="small muted">— 1 October 2026</span></h2>
-<ul>
-  <li>The home page leads with the free template library: the most-used templates, guides and calculators are one click from the home page, and every comparison and audience page is linked from it.</li>
-  <li>Search descriptions keep their second sentence instead of stopping at a short first one, so results say what each page offers.</li>
-  <li>Section sitemaps (templates, guides, clauses, tools, comparisons, docs) under a sitemap index, with dates on guide and clause pages.</li>
-</ul>
+<ul><li>Home page reworked to lead with the template library (most-used templates, guides, calculators one click away), two-sentence search snippets, section sitemaps under a sitemap index with dates on guides/clauses.</li></ul>
 <h2>1.15.0 <span class="small muted">— 1 October 2026</span></h2>
-<ul>
-  <li>Five new guides: how to write a termination letter, how to return a security deposit, how to write a rent increase letter, what to include in a roommate agreement, and the difference between a non-compete and a non-solicitation agreement.</li>
-  <li>Structured data on every indexable page, including the FAQ, the pricing plans and breadcrumbs for the docs, legal and index pages.</li>
-  <li>The guides page has a clearer title and introduction.</li>
-  <li>The embed code for the contract deadline calculator is taller, so the weekend note is no longer cut off on sites that remove the resize script.</li>
-</ul>
+<ul><li>Five new guides (termination letter, security deposit return, rent increase letter, roommate agreement, non-compete vs non-solicitation), structured data on every indexable page (FAQ, pricing, breadcrumbs), clearer guides index title, taller deadline-calculator embed.</li></ul>
 <h2>1.14.0 <span class="small muted">— 28 September 2026</span></h2>
-<ul>
-  <li>Four new templates: an employment agreement with at-will or notice terms, an employee warning letter for first or final written warnings, a promotion letter, and a liability waiver with a parent section for minors.</li>
-  <li>Guides to writing a warning letter to an employee, and to when liability waivers hold up.</li>
-  <li>The HR page now lists every HR letter template in one place.</li>
-</ul>
+<ul><li>Four new templates (employment agreement, employee warning letter, promotion letter, liability waiver with minor-parent section), two new guides (employee warning letters, when liability waivers hold up), consolidated HR letter listing on the HR page.</li></ul>
 <h2>1.13.0 <span class="small muted">— 27 September 2026</span></h2>
-<ul>
-  <li>Every template page now shows the template's full wording, with the parts you fill in and the optional parts marked, so you can read it before you download it.</li>
-  <li>A non-solicitation agreement template, which protects customer and staff relationships without a non-compete.</li>
-  <li>A guide to the difference between an NDA and a confidentiality agreement, and how both differ from non-solicitation and non-compete agreements.</li>
-</ul>
+<ul><li>Full template wording shown on every template page (fill-in and optional parts marked), non-solicitation agreement template, and a guide explaining NDA vs confidentiality vs non-solicitation vs non-compete.</li></ul>
 <h2>1.12.0 <span class="small muted">— 27 September 2026</span></h2>
-<ul>
-  <li>Three more NDA templates: an employee NDA with the Defend Trade Secrets Act notice and protected-disclosure wording, a contractor NDA for freelancers with portfolio rights, and an NDA for selling a business.</li>
-  <li>A new page that compares all five NDA templates and helps you pick one.</li>
-  <li>Guides to choosing a mutual or one-way NDA, and to how long an NDA should last.</li>
-  <li>The mutual and one-way NDAs now keep trade secrets protected for as long as they stay secret.</li>
-</ul>
+<ul><li>Three more NDA templates (employee NDA with DTSA notice, contractor NDA with portfolio rights, business-sale NDA), an NDA comparison page, mutual/one-way NDA and NDA-length guides, and trade-secret protection lasting as long as the information stays secret.</li></ul>
 <h2>1.11.0 <span class="small muted">— 27 September 2026</span></h2>
-<ul>
-  <li>Four more landlord and tenant templates: a rent receipt that handles partial payments, a rental application with a fair housing statement, a lease renewal letter and a pet addendum.</li>
-  <li>Guides and free tool pages now carry breadcrumb data for search engines.</li>
-</ul>
+<ul><li>Four more landlord/tenant templates (partial-payment rent receipt, rental application with fair-housing statement, lease renewal letter, pet addendum); breadcrumb structured data on guide and free-tool pages.</li></ul>
 <h2>1.10.0 <span class="small muted">— 26 September 2026</span></h2>
-<ul>
-  <li>Four more landlord and tenant templates: a residential lease agreement, a sublease agreement, a move-in and move-out inspection checklist, and a late rent notice.</li>
-  <li>A free prorated rent calculator for move-in and move-out, which can also be embedded on other websites.</li>
-  <li>A guide to what to include in a residential lease agreement.</li>
-  <li>Each free tool page now links to the other tools.</li>
+<ul><li>Four more landlord/tenant templates (residential lease, sublease, move-in/out checklist, late-rent notice), embeddable prorated rent calculator, guide to what to include in a residential lease, and cross-linking between free tools.</li>
 </ul>
 <h2>1.9.0 <span class="small muted">— 26 September 2026</span></h2>
-<ul>
-  <li>Four landlord and tenant templates: a tenant's notice to vacate, a rent increase letter, a security deposit return letter with itemized deductions, and a roommate agreement.</li>
-  <li>A new page for landlords and tenants, and a guide to writing a notice to vacate.</li>
-  <li>The .zip download on the templates page now holds all 42 templates, with a new folder for landlords and tenants.</li>
-</ul>
+<ul><li>Four landlord/tenant templates (notice to vacate, rent increase letter, itemised security-deposit return, roommate agreement), a landlords-and-tenants hub with notice-to-vacate guide, and a "download all" .zip covering 42 templates in a landlord/tenant folder.</li></ul>
 <h2>1.8.1 <span class="small muted">— 26 September 2026</span></h2>
-<ul>
-  <li>Download all 38 templates at once as a .zip file, in a folder per category, from the templates page.</li>
-  <li>Three new guides: how to write a bill of sale, how to lend money to family or friends, and when you need a model release.</li>
-</ul>
+<ul><li>"Download all templates" .zip (38 templates, folder per category); three new guides (bill of sale, lending money to family, when you need a model release).</li></ul>
 <h2>1.8.0 <span class="small muted">— 26 September 2026</span></h2>
-<ul>
-  <li>Four more templates: a partnership agreement, a sales commission agreement, a photo and model release, and a general release of claims.</li>
-  <li>A free sales commission calculator for flat or tiered rates and draws, which can also be embedded on other websites.</li>
-  <li>A guide to what to include in a partnership agreement.</li>
-</ul>
+<ul><li>Four new templates (partnership agreement, sales commission agreement, photo/model release, general release), embeddable sales-commission calculator, and partnership-agreement guide.</li></ul>
 <h2>1.7.1 <span class="small muted">— 26 September 2026</span></h2>
-<ul>
-  <li>The template library is grouped by category: business agreements, freelance contracts, loans and getting paid, NDAs and letters, and HR letters.</li>
-  <li>Comparison pages for LawDepot, Rocket Lawyer and eForms, with prices and free-trial terms.</li>
-</ul>
+<ul><li>Template library grouped by category; comparison pages for LawDepot, Rocket Lawyer and eForms with prices and free-trial terms.</li></ul>
 <h2>1.7.0 <span class="small muted">— 26 September 2026</span></h2>
-<ul>
-  <li>Four more templates: a memorandum of understanding (MOU), a letter of intent to buy a business, a bill of sale with optional vehicle details, and a loan agreement.</li>
-  <li>A free loan repayment calculator with a full repayment schedule, which can also be embedded on other websites.</li>
-  <li>A guide to whether an MOU is legally binding, and how it differs from a letter of intent and a contract.</li>
-</ul>
+<ul><li>Four new templates (MOU, letter of intent, bill of sale with vehicle details, loan agreement), embeddable loan-repayment calculator with schedule, and MOU vs letter-of-intent vs contract guide.</li></ul>
 <h2>1.6.0 <span class="small muted">— 26 September 2026</span></h2>
-<ul>
-  <li>A free invoice due date calculator for net 30, net 60, end-of-month, 15 MFI and early payment discount terms such as 2/10 net 30.</li>
-  <li>The calculators can now be added to any website with a line of embed code. They run in the visitor's browser with no cookies or tracking.</li>
-</ul>
+<ul><li>Free invoice-due-date calculator covering net 30 / net 60 / EOM / 15 MFI / 2/10 net 30; all free calculators now embeddable on any site with a single line of code (cookieless, client-side, no tracking).</li></ul>
 <h2>1.5.0 <span class="small muted">— 26 September 2026</span></h2>
-<ul>
-  <li>Three more templates: a payment reminder letter (friendly reminder or final notice), a subcontractor agreement and a monthly retainer agreement.</li>
-  <li>A step-by-step guide to what to do when a client won't pay, with reminder emails you can copy.</li>
-  <li>Comparison pages for HoneyBook, Bonsai, Dubsado and PandaDoc, for freelancers who only need contracts.</li>
-</ul>
+<ul><li>Three new templates (payment reminder letter, subcontractor agreement, monthly retainer), client-won't-pay guide with copyable reminder emails, and comparison pages for HoneyBook, Bonsai, Dubsado and PandaDoc.</li></ul>
 <h2>1.4.0 <span class="small muted">— 26 September 2026</span></h2>
-<ul>
-  <li>Five more contract templates: video production, virtual assistant, event planning, personal training and tutoring.</li>
-  <li>Two free calculators: late payment interest (including UK statutory interest) and freelance hourly and day rates.</li>
-  <li>Guides to writing a freelance contract and setting a kill fee.</li>
-</ul>
+<ul><li>Five new templates (video production, VA, event planning, personal training, tutoring), two free calculators (late-payment interest with UK statutory rate, freelance hourly/day rate), and freelance-contract and kill-fee guides.</li></ul>
 <h2>1.3.0 <span class="small muted">— 26 September 2026</span></h2>
-<ul>
-  <li>Five freelance contract templates: web design, graphic design, photography, social media management and freelance writing.</li>
-  <li>A page for freelancers, and clearer page titles and descriptions in search results.</li>
-</ul>
+<ul><li>Five freelance-contract templates (web design, graphic design, photography, social media, writing), a freelancers hub, and sharper page titles/descriptions in search results.</li></ul>
 <h2>1.2.1 <span class="small muted">— 26 September 2026</span></h2>
-<ul>
-  <li>Clausery has its own address: <a href="https://getclausery.github.io/">getclausery.github.io</a>. Links to the old address redirect here.</li>
-</ul>
+<ul><li>Site moved to <a href="https://getclausery.github.io/">getclausery.github.io</a>; old links redirect.</li></ul>
 <h2>1.2.0 <span class="small muted">— 26 September 2026</span></h2>
-<ul>
-  <li>Contract clause library: plain-English explanations and copyable sample wording for 24 common clauses, each with the matching Clausery tags.</li>
-  <li>New guides on offer letters, payment demand letters, statements of work and NDAs.</li>
-  <li>Template pages link to explanations of the clauses they contain.</li>
-  <li>Atom feed for guides and clauses, and an llms.txt summary for AI assistants.</li>
-</ul>
+<ul><li>Contract clause library (24 plain-English clauses with copyable sample wording and matching tags), new guides on offer letters, demand letters, SOWs and NDAs, clauses-linked-from-templates, Atom feed for guides/clauses, and llms.txt for AI crawlers.</li></ul>
 <h2>1.1.0 <span class="small muted">— 26 September 2026</span></h2>
-<ul>
-  <li>Free template library of 17 Word templates: NDAs (mutual and one-way), engagement letter, consulting, service and independent contractor agreements, statement of work, offer, internship, salary increase, verification, reference, termination and resignation letters, payment demand, cease and desist, and a promissory note.</li>
-  <li>One-click start: template pages open the questionnaire directly in the app.</li>
-  <li>A tag used in several optional parts of a document is now asked whenever any of those parts applies.</li>
-  <li>Better question types for instructions, assumptions, interest rates and last working days, and fewer optional sections mistaken for lists.</li>
-</ul>
+<ul><li>Launch library of 17 Word templates (NDAs, engagement letter, consulting/service/contractor/SOW/offer/internship/salary-increase/verification/reference/termination/resignation/demand/cease-and-desist/promissory note), one-click app start from template pages, shared-optional-question deduplication, and improved question types for instructions, assumptions, interest rates and notice dates.</li></ul>
 <h2>1.0.0 <span class="small muted">— 24 September 2026</span></h2>
 <p>First public release.</p>
-<ul>
-  <li>Word (.docx) templates with tags, conditional and inverted sections, repeating groups in paragraphs, bullets and table rows.</li>
-  <li>Automatic questionnaire from a template's tags: field types inferred from names, sections from shared prefixes, conditions applied to nested tags.</li>
-  <li>Template designer: labels, help text, types, options, formats, required flags, show-when conditions, calculations, sections.</li>
-  <li>Interview with section stepper, autosave, validation, review, on-screen preview, .docx download and print to PDF.</li>
-  <li>Expression language for conditions and computed fields, with date, money and text functions.</li>
-  <li>Local workspace in the browser database, backups, answer files, template packs.</li>
-  <li>Optional encryption at rest (AES-256-GCM, PBKDF2) with auto-lock.</li>
-  <li>Offline client intake forms as single HTML files.</li>
-  <li>Offline-capable installable app (service worker), strict Content Security Policy, ${USAGE_ON ? 'no third-party requests other than anonymous usage counts' : 'no third-party requests'}.</li>
-  <li>Offline license keys (Ed25519 signatures) with Free, Pro, Team and Enterprise plans.</li>
+<ul><li>Tagged Word templates (conditional/inverted sections, repeating groups in paragraphs/bullets/tables), inferred questionnaire with field types and conditions, template designer (labels, help text, options, calculations), interview with stepper/autosave/validation/preview/download/print, expression language with date/money/text functions, in-browser workspace with backups/answer files/packs, optional AES-256-GCM encryption at rest with auto-lock, offline intake forms, installable PWA with strict CSP${USAGE_ON ? ' (anonymous usage counts only)' : ''}, and Ed25519 offline license keys (Free/Pro/Team/Enterprise).</li></ul>
 </ul>
 </div></section>`,
   },
