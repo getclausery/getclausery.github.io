@@ -81,7 +81,10 @@ export function fitSnippet(text, { lead = '', tail = '', max = 158 } = {}) {
   if (out === lead && !lead) return clipDescription(join(text, tail), max);
   return join(out, tail).length <= max ? join(out, tail) : out;
 }
-export const faqLd = (faq) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) })}</script>`;
+export const faqLd = (faq, pageUrl) => {
+  const id = pageUrl ? { '@id': `${SITE}${pageUrl}#faqpage`, url: `${SITE}${pageUrl}`, isPartOf: { '@id': `${SITE}${pageUrl}#webpage` }, mainEntityOfPage: { '@id': `${SITE}${pageUrl}#webpage` } } : {};
+  return `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', ...id, mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, ...(pageUrl ? { inLanguage: 'en-GB' } : {}), acceptedAnswer: { '@type': 'Answer', text: a, ...(pageUrl ? { inLanguage: 'en-GB' } : {}) } })) })}</script>`;
+};
 export const crumbsLd = (items) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map(([name, url], i) => ({ '@type': 'ListItem', position: i + 1, name, item: SITE + url })) })}</script>`;
 export const crumbsHtml = (items, rel) => items.length > 1 ? `<nav aria-label="Breadcrumb" class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><ol>${items.map(([name, url], i) => `<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">${i > 0 ? '<span aria-hidden="true">/</span>' : ''}${i === items.length - 1 ? `<span itemprop="name" aria-current="page">${esc(name)}</span><meta itemprop="position" content="${i + 1}">` : `<a itemprop="item" href="${rel}${url}"><span itemprop="name">${esc(name)}</span></a><meta itemprop="position" content="${i + 1}">`}</li>`).join('')}</ol></nav>` : '';
 export const collectionLd = ({ path, name, description, items }) => `<script type="application/ld+json">${JSON.stringify({

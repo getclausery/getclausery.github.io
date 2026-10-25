@@ -84,8 +84,12 @@ for (const url of urls) {
       else if (node.datePublished > node.dateModified) fail(file, 'Article datePublished is after dateModified');
       if (isDate(node.dateModified) && node.dateModified > today) fail(file, 'Article dateModified is in the future');
       if (modified && node.dateModified !== modified) fail(file, `Article dateModified ${node.dateModified} does not match page-dates ${modified}`);
-      if (node.mainEntityOfPage !== canonical) fail(file, 'Article mainEntityOfPage must be its canonical URL');
-      if (!local(node.image)) fail(file, 'Article image must be an absolute URL on this site');
+      const meop = typeof node.mainEntityOfPage === 'string' ? node.mainEntityOfPage : node.mainEntityOfPage?.['@id'] || node.mainEntityOfPage?.url;
+      if (meop !== canonical) fail(file, `Article mainEntityOfPage must be its canonical URL (got ${JSON.stringify(node.mainEntityOfPage)?.slice(0,100)})`);
+      const imgOk = Array.isArray(node.image)
+        ? node.image.every((i) => local(typeof i === 'string' ? i : i?.url))
+        : local(typeof node.image === 'string' ? node.image : node.image?.url);
+      if (!imgOk) fail(file, 'Article image must be an absolute URL on this site (or ImageObject/array)');
       if (!node.author?.name || !node.publisher?.name) fail(file, 'Article needs named author and publisher');
       if (node.publisher?.logo && !local(node.publisher.logo.url)) fail(file, 'Article publisher logo must be on this site');
     }
