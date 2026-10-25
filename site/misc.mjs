@@ -96,6 +96,8 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-97-0">1.97.0 <span class="small muted">— 25 October 2026</span></h2>
+<ul><li><strong>lastReviewed + reviewedBy on every WebPage/ItemPage.</strong> Every non-Article page now carries <code>lastReviewed</code> and <code>reviewedBy</code> (Organization: Clausery) schema matching the Article schema already emitted on guides, completing freshness/E-E-A-T signals across hub, comparison, tool and template pages.</li></ul>
 <h2 id="v1-96-0">1.96.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>primaryImageOfPage on every page with a custom share card.</strong> Pages with a dedicated 1200×630 OG image (all 87 templates + country invoice pages) now emit <code>primaryImageOfPage</code> ImageObject on their WebPage/ItemPage schema, up from templates-only. That completes image-signal parity for all high-intent landing pages.</li></ul>
 <h2 id="v1-95-0">1.95.0 <span class="small muted">— 25 October 2026</span></h2>
@@ -424,13 +426,7 @@ export const pages = [
   <li>Groundwork for anonymous usage counts (which templates are used, never what is typed), switched on in 1.24.1.</li>
 </ul>
 <h2>1.23.0 <span class="small muted">— 7 October 2026</span></h2>
-<ul>
-  <li>From a spreadsheet: make one document per row of a CSV file, such as an invoice for each client, downloaded together as a .zip. Each row fills in the draft's answers and empty cells keep them. The Free plan makes up to 5 per spreadsheet; Pro has no limit. The spreadsheet never leaves your browser.</li>
-  <li>History: every draft records each document made from it (downloaded, printed, shared or from a spreadsheet) with the time, the file name and a SHA-256 fingerprint of the exact answers, and can restore any earlier answers.</li>
-  <li>Share: send a finished document straight to Mail, Slack, Teams or Drive, where your device supports the share sheet.</li>
-  <li>The first time you make a document, Clausery asks the browser to protect its storage from automatic clean-up.</li>
-  <li>Clearer answers on the home page and in the FAQ about saving, editing documents later, rules and calculations, e-signatures, working with others and local law.</li>
-</ul>
+<ul><li>CSV/spreadsheet mail merge (one document per row, zipped; free 5/batch, Pro unlimited) runs locally; per-draft history with SHA-256 fingerprints, system share-sheet integration, storage-persistence prompt, and clearer home/FAQ answers.</li></ul>
 <h2>1.22.0 <span class="small muted">— 6 October 2026</span></h2>
 <ul>
   <li>Invoice: name your tax number (VAT number, GST/HST number, ABN), add a separate date of supply for UK VAT, and title it "Tax invoice" for Australian GST.</li>

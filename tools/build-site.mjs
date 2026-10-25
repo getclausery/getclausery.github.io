@@ -133,7 +133,7 @@ for (const p of pages) {
   const pageLd = skipPageLd ? '' : `<script type="application/ld+json">${JSON.stringify({
     '@context': 'https://schema.org', '@type': /^templates\/[^/]+\.html$/.test(p.path) ? 'ItemPage' : 'WebPage', '@id': `${SITE}${p.path}#webpage`, url: `${SITE}${p.path}`,
     name: SEO_TITLES[p.path] || p.title, description: p.description, inLanguage: 'en-GB', isPartOf: { '@id': `${SITE}#website` }, publisher: { '@id': `${SITE}#organization` },
-    ...(p.published ? { datePublished: p.published } : {}), ...(modified ? { dateModified: modified } : {}),
+    ...(p.published ? { datePublished: p.published } : {}), ...(modified ? { dateModified: modified, lastReviewed: modified, reviewedBy: { '@type': 'Organization', name: 'Clausery', url: SITE } } : {}),
     ...(p.ogImage && p.ogImage !== 'assets/og.png' ? { primaryImageOfPage: { '@type': 'ImageObject', url: `${SITE}${p.ogImage}`, width: 1200, height: 630 } } : {}),
   })}</script><script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE}#website`, url: SITE, name: 'Clausery', inLanguage: 'en-GB', publisher: { '@id': `${SITE}#organization` } })}</script><script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', '@id': `${SITE}#organization`, name: 'Clausery', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}assets/icon-512.png`, width: 512, height: 512 } })}</script>`;
   const body = renderedBody !== null ? renderedBody : p.body(rel);
