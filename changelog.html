@@ -117,6 +117,8 @@
 <main id="main" tabindex="-1">
 <section class="section"><div class="wrap prose">
 <h1>Changelog <a href="./releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-0-3">2.0.3 <span class="small muted">— 25 October 2026</span></h2>
+<ul><li><strong>E-E-A-T entity linking.</strong> Article schema now carries an <code>about</code> array of Topic entities derived from the page's visible h2 sections, a fully-specified <code>image</code> ImageObject (with width, height and <code>caption</code> matching the page title on pages that have a dedicated share card), <code>thumbnailUrl</code>, <code>mainEntityOfPage</code> as a WebPage reference, and <code>reviewedBy</code> on every long-form page. Every FAQPage block now gets a stable <code>@id</code> linked to its page's WebPage via <code>isPartOf</code>/<code>mainEntityOfPage</code>, so generic FAQ questions across pages are not merged into a single entity.</li></ul>
 <h2 id="v2-0-2">2.0.2 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li>Smart 404 suggestions: the not-found page now tokenises the missing URL (and any <code>#fragment</code>), scores every indexable page on word overlap, slug prefix and substring matches, and surfaces up to six "Were you looking for…?" links before the action buttons. Stale bookmarks, truncated links and renamed pages recover in one click instead of forcing a site search.</li></ul>
 <h2 id="v2-0-1">2.0.1 <span class="small muted">— 25 October 2026</span></h2>
@@ -477,13 +479,7 @@
 <h2>1.17.0 <span class="small muted">— 2 October 2026</span></h2>
 <ul><li>Nine launch templates (invoice, quote, PO, receipt, meeting minutes, two weeks notice, hold harmless, equipment rental, cleaning services contract), four launch guides, library templates unmetered on Free, about/contact pages, key-request flow ahead of online checkout, and per-page last-modified dates shown on pages and used in sitemaps/feed/structured data.</li></ul>
 <h2>1.16.0 <span class="small muted">— 2 October 2026</span></h2>
-<ul>
-  <li>Find a template: a search box on the templates page filters all the templates as you type, and the home page has a search form that opens it.</li>
-  <li>Template pages end with related templates picked for the document you are reading, then every template grouped by category, instead of one long list.</li>
-  <li>The questions table on each template page says when a question is asked in words ("If “Has jurisdiction” is yes") instead of showing tag names.</li>
-  <li>Guides are grouped by topic, show the date they were published, and end with the other guides on the same topic.</li>
-  <li>Fixed names written in lower case mid-sentence: "mutual NDA", "MOU" and "For HR teams" keep their capitals.</li>
-</ul>
+<ul><li>Live template search on the templates page with a home search form, related-template suggestions at the foot of each template page, human-readable "Asked when" wording in the questions table, topic-grouped guides index with publish dates, and capitalisation fixes (mutual NDA, MOU, For HR teams).</li></ul>
 <h2>1.15.1 <span class="small muted">— 1 October 2026</span></h2>
 <ul>
   <li>The home page leads with the free template library: the most-used templates, guides and calculators are one click from the home page, and every comparison and audience page is linked from it.</li>
@@ -681,7 +677,7 @@
       <a href="./legal/dmca.html">DMCA</a>
       <a href="./press/">Press kit</a>
     </div>
-    <div class="legal">© 2026 Clausery · <a href="./changelog.html#v2-0-2" style="color:inherit">v2.0.2</a> · <a href="./sitemap/" style="color:inherit">Sitemap</a> · Open source under <a href="./legal/license.html" style="color:inherit">AGPLv3</a> · Clausery name and logo are <a href="https://github.com/getclausery/getclausery.github.io/blob/main/TRADEMARKS.md" rel="noopener" style="color:inherit">trademarks</a>. Clausery is software, not legal advice; documents you generate are your responsibility. Not affiliated with Microsoft; Word is a trademark of Microsoft Corporation. Not affiliated with clausery.ai. <a href="https://github.com/getclausery/getclausery.github.io" rel="noopener" style="color:inherit">Source on GitHub</a></div>
+    <div class="legal">© 2026 Clausery · <a href="./changelog.html#v2-0-3" style="color:inherit">v2.0.3</a> · <a href="./sitemap/" style="color:inherit">Sitemap</a> · Open source under <a href="./legal/license.html" style="color:inherit">AGPLv3</a> · Clausery name and logo are <a href="https://github.com/getclausery/getclausery.github.io/blob/main/TRADEMARKS.md" rel="noopener" style="color:inherit">trademarks</a>. Clausery is software, not legal advice; documents you generate are your responsibility. Not affiliated with Microsoft; Word is a trademark of Microsoft Corporation. Not affiliated with clausery.ai. <a href="https://github.com/getclausery/getclausery.github.io" rel="noopener" style="color:inherit">Source on GitHub</a></div>
   </div>
 </footer>
 <script id="search-index" type="application/json" data-src="./search-index.json" defer></script>

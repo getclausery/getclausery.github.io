@@ -110,7 +110,15 @@ for (const p of pages) {
     }
     // Article schema on any long-form page with a published date (guides, clauses, templates and the deep-dive hubs).
     if (p.published) {
-    const articleLd = `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', '@id': `${SITE}${p.path}#article`, isPartOf: { '@id': `${SITE}${p.path}#webpage` }, headline: p.title, description: p.description, datePublished: p.published, dateModified: modified, ...(modified ? { lastReviewed: modified } : {}), inLanguage: 'en-GB', image: p.ogImage ? `${SITE}${p.ogImage}` : `${SITE}assets/og.png`, mainEntityOfPage: `${SITE}${p.path}`, ...(p._sources ? { citation: p._sources.map(([, u]) => u) } : {}), ...(headings.length >= 3 ? { articleSection: headings.map((h) => h.text) } : {}), author: { '@type': 'Organization', name: 'Clausery', url: SITE }, publisher: { '@type': 'Organization', name: 'Clausery', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}assets/icon-512.png`, width: 512, height: 512 } } })}</script>`;
+    // Derive about/mentions topics from h2 headings (visible DOM sections → schema.org Thing entities),
+    // so search engines can connect the article to topical entities without us hard-coding a taxonomy.
+    const stripTags = (s) => String(s).replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+    const topicTerm = (name) => ({ '@type': 'Thing', name: stripTags(name).slice(0, 80) });
+    const topics = headings.filter((h) => h.text.length < 70 && !/common questions|questions$/i.test(h.text)).slice(0, 6).map((h) => topicTerm(h.text));
+    const articleImage = p.ogImage
+      ? { '@type': 'ImageObject', url: `${SITE}${p.ogImage}`, width: 1200, height: 630, ...(p.ogImage !== 'assets/og.png' ? { caption: stripTags(p.title) } : {}) }
+      : { '@type': 'ImageObject', url: `${SITE}assets/og.png`, width: 1200, height: 630 };
+    const articleLd = `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', '@id': `${SITE}${p.path}#article`, isPartOf: { '@id': `${SITE}${p.path}#webpage` }, headline: p.title, description: p.description, datePublished: p.published, dateModified: modified, ...(modified ? { lastReviewed: modified, reviewedBy: { '@type': 'Organization', name: 'Clausery', url: SITE } } : {}), inLanguage: 'en-GB', image: [articleImage], mainEntityOfPage: `${SITE}${p.path}`, ...(p.ogImage && p.ogImage !== 'assets/og.png' ? { thumbnailUrl: `${SITE}${p.ogImage}` } : {}), ...(p._sources ? { citation: p._sources.map(([, u]) => u) } : {}), ...(topics.length ? { about: topics } : {}), ...(headings.length >= 3 ? { articleSection: headings.map((h) => h.text) } : {}), author: { '@type': 'Organization', name: 'Clausery', url: SITE }, publisher: { '@type': 'Organization', name: 'Clausery', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}assets/icon-512.png`, width: 512, height: 512 } } })}</script>`;
     p.extraHead = articleLd + (p.extraHead || '');
     if (p._howTo) {
     const hasSteps = /<h2[^>]*>(What to include|How to|Steps to|Steps|What goes|What to write|How you can|How)/i.test(renderedBody) && /<ol>\s*<li><strong>/.test(renderedBody);
@@ -136,6 +144,25 @@ for (const p of pages) {
     }
     } // close _howTo-only FAQ/HowTo block
     } // close p.published Article block
+  }
+  // Disambiguate any FAQPage JSON-LD on this page by giving it a stable @id and linking it to the page's WebPage node,
+  // so generic FAQ questions across multiple pages are not merged into a single entity by schema consumers.
+  if (p.extraHead && !p.noindex && p.layout !== 'embed' && p.path !== '404.html') {
+    const pageId = `${SITE}${p.path}#webpage`;
+    const faqId = `${SITE}${p.path}#faqpage`;
+    p.extraHead = p.extraHead.replace(/<script type="application\/ld\+json">(\{[^<]*?"@type":"FAQPage"[^<]*?\})<\/script>/g, (_m, json) => {
+      try {
+        const obj = JSON.parse(json);
+        if (!obj['@id']) {
+          obj['@id'] = faqId;
+          obj.url = `${SITE}${p.path}`;
+          obj.isPartOf = { '@id': pageId };
+          obj.mainEntityOfPage = { '@id': pageId };
+          obj.inLanguage = 'en-GB';
+        }
+        return `<script type="application/ld+json">${JSON.stringify(obj)}</script>`;
+      } catch { return _m; }
+    });
   }
   const pageLd = skipPageLd ? '' : `<script type="application/ld+json">${JSON.stringify({
     '@context': 'https://schema.org', '@type': /^templates\/[^/]+\.html$/.test(p.path) ? 'ItemPage' : 'WebPage', '@id': `${SITE}${p.path}#webpage`, url: `${SITE}${p.path}`,
