@@ -34,6 +34,8 @@ const COPY_CSS = `<style>
 .clause-box { position: relative; background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: var(--radius-sm); padding: 1.25rem 1.25rem .5rem; margin: 1rem 0; font-family: Georgia, "Times New Roman", serif; }
 .clause-box p { margin: 0 0 1rem; }
 .clause-tools { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; }
+.clause-print{position:absolute;top:.6rem;right:.6rem;padding:.3rem .7rem;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--muted);font-size:.78rem;cursor:pointer;font-family:inherit;line-height:1.3;transition:all .15s}
+.clause-print:hover{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
 .check-list { list-style: none; padding: 0; } .check-list li { border-bottom: 1px solid var(--border); padding: .9rem 0; } .check-list strong { display: block; margin-bottom: .25rem; }
 </style>`;
 
@@ -80,7 +82,7 @@ export const pages = [
   <p>${esc(c.when)}</p>
 
   <h2>Sample ${esc(c.name.toLowerCase())}</h2>
-  <div class="clause-box" id="clause-text">${paras(c.sample)}</div>
+  <div class="clause-box" id="clause-text">${paras(c.sample)}<button type="button" class="clause-print" onclick="window.print()" aria-label="Print this clause" title="Print or save as PDF">Print / PDF</button></div>
   <div class="clause-tools"><button class="btn copy-btn" type="button" data-copy="clause-text">Copy the clause</button><span class="small muted copy-status" role="status"></span></div>
 
   <h2>What to check</h2>
