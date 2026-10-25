@@ -117,6 +117,8 @@
 <main id="main" tabindex="-1">
 <section class="section"><div class="wrap prose">
 <h1>Changelog <a href="./releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-2-0">2.2.0 <span class="small muted">— <time datetime="2026-10-25">25 October 2026</time></span></h2>
+<ul><li><strong>Sibling prev/next chains for every long-form page.</strong> The crawl-chain <code>&lt;link rel="prev/next"&gt;</code> that previously only linked guides now covers all long-form sections — templates, clauses, guides, free tools, comparisons, audience, invoice and NDA pages — in source order. Each page ends with a visible Previous/Next block above the footer so readers can move through a section without returning to its hub.</li></ul>
 <h2 id="v2-1-0">2.1.0 <span class="small muted">— <time datetime="2026-10-25">25 October 2026</time></span></h2>
 <ul><li><strong>Related reading clusters</strong> on every long-form page. A server-rendered block at the foot of each page mixes matching pages from other sections (guides, templates, clauses, free tools, comparisons) scored on shared keywords — guides surface templates/clauses, templates surface their how-to guide and calculators, clauses surface templates that use them. Editorial internal links: 2588 → 3305 (+28%).</li></ul>
 <h2 id="v2-0-4">2.0.4 <span class="small muted">— <time datetime="2026-10-25">25 October 2026</time></span></h2>
@@ -255,7 +257,7 @@
 </ul>
 <h2 id="v1-72-2">1.72.2 <span class="small muted">— <time datetime="2026-10-24">24 October 2026</time></span></h2>
 <ul>
-  <li>Copy sweep: removed the word "project" from descriptions of Clausery itself (home, about, FAQ, organization JSON-LD, SoftwareApplication schema, copyright/CMI header, AI disambiguation note, copyguard message and service-worker comment). Clausery is described as an <em>independent open-source business</em> / <em>tool</em> / <em>product</em>, not a project. References to a client's project in invoices, quotes, contracts and guidance (e.g. project description, project fee, "project cancelled" kill-fee wording) are unchanged — those describe the user's work, not Clausery.</li>
+  <li>Copy sweep: removed "project" from descriptions of Clausery itself (home, about, FAQ, JSON-LD, CMI header, copyguard). Clausery is described as an independent open-source business/product, not a project. References to a client's project in invoices, quotes, contracts and guidance (project description, project fee, "project cancelled" kill-fee wording) are unchanged — those describe the user's work, not Clausery.</li>
 </ul>
 <h2 id="v1-72-1">1.72.1 <span class="small muted">— <time datetime="2026-10-24">24 October 2026</time></span></h2>
 <ul>
@@ -263,14 +265,14 @@
 </ul>
 <h2 id="v1-72-0">1.72.0 <span class="small muted">— <time datetime="2026-10-24">24 October 2026</time></span></h2>
 <ul>
-  <li><strong>Command palette (⌘K / Ctrl+K / /):</strong> a universal fast launcher on every page — fuzzy-search every template, invoice template, guide, clause, free tool and page, plus quick actions (New invoice / New quote / New receipt / Drafts / Pricing / Docs). Keyboard-navigable (↑↓ to browse, Enter to open, Esc to dismiss) with a search button in the header so it's discoverable on mobile too.</li>
-  <li><strong>Returning-visitor welcome bar:</strong> if you have saved drafts locally, a dismissible sticky bar under the header greets you back, names the last document you were working on, and drops you into your drafts in one click. Remembered across sessions; snoozed for 7 days once dismissed.</li>
-  <li><strong>Redesigned navigation:</strong> shorter 58px glass header with pill-shaped links, brand-tint active state, keyboard affordance and a unified search entry. The mobile nav is now a proper slide-in drawer with a backdrop instead of a crude dropdown; the primary CTA is "Make an invoice" instead of the generic "Open the app".</li>
-  <li><strong>Scroll-to-top button</strong> (plus the existing "Continue drafting" floating CTA) grouped in a floating action stack; CTA label now names your actual draft when one exists.</li>
-  <li><strong>Visual refresh v2:</strong> unified design tokens (OKLch-style accents, new radius 18px, layered shadows, ambient gradient wash on the page background, grainless light), refined typography scale with tighter headings, border-gradient primary button, animated 2px read-progress bar with glow, card spotlight on hover, feature-card arrow affordance, and quieter FAQ / table / quote treatments.</li>
-  <li><strong>Footer restructure</strong> into Brand / Product / Learn / Company / Legal columns with social icons; legal line adds the clausery.ai disambiguation.</li>
-  <li><strong>Breadcrumbs</strong> and <strong>scroll-reveal</strong> for feature/plan/step cards (respects prefers-reduced-motion).</li>
-  <li>0 new third parties; CSP unchanged; AGPL / CMI / trademarks preserved.</li>
+  <li><strong>Command palette (⌘K / Ctrl+K / /):</strong> universal fast launcher on every page — fuzzy-search every template, invoice, guide, clause, tool and page, plus quick actions (New invoice/quote/receipt, Drafts, Pricing, Docs). Keyboard-navigable; search button in the header for mobile.</li>
+  <li><strong>Returning-visitor welcome bar:</strong> if you have saved drafts, a dismissible sticky bar greets you back, names your last document and drops you into drafts. Remembered across sessions; snoozed 7 days after dismiss.</li>
+  <li><strong>Redesigned navigation:</strong> shorter 58px glass header with pill links, brand-tint active state and unified search. Mobile nav is a slide-in drawer; primary CTA is "Make an invoice" instead of "Open the app".</li>
+  <li><strong>Scroll-to-top button</strong> grouped with the existing "Continue drafting" floating CTA; CTA label names your actual draft when one exists.</li>
+  <li><strong>Visual refresh v2:</strong> unified design tokens (OKLch accents, 18px radius, layered shadows, ambient gradient, grainless light), tighter typography, border-gradient primary button, animated 2px read-progress bar, card spotlight on hover, quieter FAQ/table/quote treatments.</li>
+  <li><strong>Footer restructure</strong> into Brand/Product/Learn/Company/Legal columns; legal line adds the clausery.ai disambiguation.</li>
+  <li><strong>Breadcrumbs</strong> and <strong>scroll-reveal</strong> (respects prefers-reduced-motion).</li>
+  <li>No new third parties; CSP unchanged; AGPL/CMI/trademarks preserved.</li>
 </ul>
 <h2 id="v1-71-0">1.71.0 <span class="small muted">— <time datetime="2026-10-24">24 October 2026</time></span></h2>
 <ul>
@@ -583,7 +585,7 @@
       <a href="./legal/dmca.html">DMCA</a>
       <a href="./press/">Press kit</a>
     </div>
-    <div class="legal">© 2026 Clausery · <a href="./changelog.html#v2-1-0" style="color:inherit">v2.1.0</a> · <a href="./sitemap/" style="color:inherit">Sitemap</a> · Open source under <a href="./legal/license.html" style="color:inherit">AGPLv3</a> · Clausery name and logo are <a href="https://github.com/getclausery/getclausery.github.io/blob/main/TRADEMARKS.md" rel="noopener" style="color:inherit">trademarks</a>. Clausery is software, not legal advice; documents you generate are your responsibility. Not affiliated with Microsoft; Word is a trademark of Microsoft Corporation. Not affiliated with clausery.ai. <a href="https://github.com/getclausery/getclausery.github.io" rel="noopener" style="color:inherit">Source on GitHub</a></div>
+    <div class="legal">© 2026 Clausery · <a href="./changelog.html#v2-2-0" style="color:inherit">v2.2.0</a> · <a href="./sitemap/" style="color:inherit">Sitemap</a> · Open source under <a href="./legal/license.html" style="color:inherit">AGPLv3</a> · Clausery name and logo are <a href="https://github.com/getclausery/getclausery.github.io/blob/main/TRADEMARKS.md" rel="noopener" style="color:inherit">trademarks</a>. Clausery is software, not legal advice; documents you generate are your responsibility. Not affiliated with Microsoft; Word is a trademark of Microsoft Corporation. Not affiliated with clausery.ai. <a href="https://github.com/getclausery/getclausery.github.io" rel="noopener" style="color:inherit">Source on GitHub</a></div>
   </div>
 </footer>
 <script id="search-index" type="application/json" data-src="./search-index.json" defer></script>

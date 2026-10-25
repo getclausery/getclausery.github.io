@@ -64,9 +64,17 @@ const pageDate = (p, rel) => {
 const prettyTitle = (t) => String(t).replace(/\s*[·\-–—]\s*Clausery.*$/,'').replace(/\s*\(.*?\)\s*$/,'').trim() || t;
 const STOPWORDS = new Set(['a','an','the','and','or','of','for','to','in','on','with','is','it','you','your','free','template','word','letter','agreement','clause','how','what','guide','clausery','page','form','when','do','i','can','be','by','from','not','this','that','are','at','as','about','into','more','all','use','using','need','write']);
 const toks = (s) => String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim().split(/\s+/).filter((w) => w && w.length > 2 && !STOPWORDS.has(w));
-// Build prev/next topic siblings for guides so every guide links to adjacent guides in its topic cluster (stronger topical internal linking).
-const guideIdx = {};
 const indexable = pages.filter((pp) => pp.layout !== 'embed' && !pp.noindex && !pp.path.startsWith('.well-known') && !['404.html', 'go/', 'made-with/'].some((x) => pp.path === x || pp.path.startsWith(x)));
+// Build prev/next sibling chains for long-form pages (templates, clauses, guides, free tools, comparisons,
+// audience pages, invoice/NDA subpages) in source-file order. `<link rel=prev/next>` in the head strengthens
+// crawl chaining; a visible "Previous / Next" block below the article improves bounce rate. Previously this
+// only covered guides.
+const chainIdx = {};
+function chain(regex) {
+  const list = pages.filter((p) => regex.test(p.path) && !p.noindex && p.layout !== 'embed');
+  list.forEach((p, i, arr) => { chainIdx[p.path] = { i, arr }; });
+}
+for (const rx of [/^guides\/[^/]+\.html$/,/^templates\/[^/]+\.html$/,/^clauses\/[^/]+\.html$/,/^free-tools\/[^/]+\.html$/,/^compare\/[^/]+\.html$/,/^invoice-templates\/[^/]+\.html$/,/^nda-templates\/[^/]+\.html$/,/^for\/[^/]+\.html$/]) chain(rx);
 // Build a cross-type "Related reading" index for every long-form page. This is the biggest remaining internal-link
 // cluster win: guides currently only link sibling guides, templates only link templates, and clauses only link
 // clauses. A unified, server-rendered Related reading block that mixes templates, clauses, guides, free tools and
@@ -98,7 +106,7 @@ function relatedFor(p, limit = 6) {
   }).filter(({ s }) => s >= 4).sort((a, b) => b.s - a.s).slice(0, limit).map(({ c }) => c);
   return scored;
 }
-pages.filter(p => /^guides\/[^/]+\.html$/.test(p.path) && !p.noindex).forEach((p, i, arr) => { guideIdx[p.path] = { i, arr }; });
+pages.filter(p => /^guides\/[^/]+\.html$/.test(p.path) && !p.noindex).forEach((p, i, arr) => { /* handled by chainIdx now */ });
 for (const p of pages) {
   // GitHub Pages serves 404.html for a miss at any depth, so its links must be root-relative, not relative to its file.
   const rel = p.path === '404.html' ? '/' : p.path.split('/').filter(Boolean).length - (p.path.endsWith('/') || p.path === '' ? 0 : 1) > 0 ? '../'.repeat(p.path.split('/').filter(Boolean).length - (p.path.endsWith('/') || p.path === '' ? 0 : 1)) : './';
@@ -106,8 +114,9 @@ for (const p of pages) {
   const modified = p.layout === 'embed' ? null : pageDate(p, rel);
   p.modified = modified;
   let prev = null, next = null;
-  if (guideIdx[p.path]) {
-    const { i, arr } = guideIdx[p.path];
+  const ch = chainIdx[p.path];
+  if (ch) {
+    const { i, arr } = ch;
     if (i > 0) prev = arr[i - 1].path;
     if (i < arr.length - 1) next = arr[i + 1].path;
   }
@@ -257,8 +266,28 @@ for (const p of pages) {
   kws.add('free');
   kws.add('Word');
   const autoKeywords = [...kws].filter(Boolean).slice(0, 7).join(', ');
-  const html = p.layout === 'embed' ? embedPage({ title: p.title, description: p.description, extraHead: p.extraHead, rel, body: p.body(rel) })
+  let html = p.layout === 'embed' ? embedPage({ title: p.title, description: p.description, extraHead: p.extraHead, rel, body: p.body(rel) })
     : (head({ title: seoTitle, description: p.description, path: p.path, extraHead: p.extraHead || '', pageLd, ogImage: p.ogImage, ogType: p.feed ? 'article' : 'website', published: p.published, modified, rel, noindex: Boolean(p.noindex), prev, next, keywords: p.keywords || autoKeywords }) + finalBody + footer(rel)).replace(/<pre>/g, '<pre tabindex="0">');
+  // Visible Previous / Next navigation at the foot of any chained long-form page. Inserted at </main> so it sits
+  // directly above the site footer (matching the <link rel=prev/next> already in <head>).
+  if ((prev || next) && p.layout !== 'embed') {
+    const titleFor = (tpath) => prettyTitle(SEO_TITLES[tpath] || pages.find((pp) => pp.path === tpath)?.title || '');
+    const relFor = (target) => {
+      const pdir = p.path === '' ? [] : (p.path.endsWith('/') ? p.path.slice(0,-1).split('/').filter(Boolean) : p.path.split('/').slice(0,-1).filter(Boolean));
+      const rsegs = target.replace(/\.html$/, '').split('/').filter(Boolean);
+      let common=0;while(common<pdir.length&&common<rsegs.length&&pdir[common]===rsegs[common])common++;
+      const parts=[];
+      for(let i=common;i<pdir.length;i++)parts.push('..');
+      for(let i=common;i<rsegs.length;i++)parts.push(rsegs[i]);
+      let href = parts.length===0 ? './' : parts.join('/');
+      href += '.html';
+      return href;
+    };
+    const prevHtml = prev ? `<a class="prevnext prev" href="${relFor(prev)}" rel="prev"><span class="small muted">← Previous</span><strong>${esc(titleFor(prev))}</strong></a>` : '<span aria-hidden="true"></span>';
+    const nextHtml = next ? `<a class="prevnext next" href="${relFor(next)}" rel="next"><span class="small muted">Next →</span><strong>${esc(titleFor(next))}</strong></a>` : '<span aria-hidden="true"></span>';
+    const pnav = `<div class="wrap" style="max-width:46rem"><nav class="prevnext-nav" aria-label="Previous and next pages" style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;justify-content:space-between"><style>.prevnext{display:block;padding:.85rem 1rem;border:1px solid var(--border);border-radius:var(--radius);text-decoration:none;color:inherit;background:var(--surface);flex:1 1 13rem;min-width:0;max-width:22rem;transition:border-color .15s}.prevnext:hover{border-color:var(--accent)}.prevnext .small{display:block}.prevnext strong{display:block;margin-top:.15rem;font-size:.95rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.prevnext.next{text-align:right}</style>${prevHtml}${nextHtml}</nav></div>`;
+    html = html.replace('</main>', pnav + '</main>');
+  }
   mkdirSync(dirname(out), { recursive: true });
   let final = modified ? html.split(LASTMOD_LONG).join(longDate(modified)).split(LASTMOD).join(modified) : html;
   // "Updated …" only appears once a page has changed since it was published.
