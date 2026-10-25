@@ -148,7 +148,7 @@ export function head({ title, description, path, extraHead = '', pageLd = '', og
 <title>${esc(full)}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="${esc(description)}">
-${robots}${prev ? `<link rel="prev" href="${SITE}${prev}">` : ''}${next ? `<link rel="next" href="${SITE}${next}">` : ''}<link rel="canonical" href="${url}">
+${robots}${prev ? `<link rel="prev" href="${SITE}${prev}">` : ''}${next ? `<link rel="next" href="${SITE}${next}">` : ''}<link rel="canonical" href="${url}"><link rel="alternate" hreflang="en" href="${url}"><link rel="alternate" hreflang="en-GB" href="${url}"><link rel="alternate" hreflang="x-default" href="${url}">
 <meta property="og:type" content="${ogType}">
 <meta property="og:locale" content="en_GB">
 <meta property="og:site_name" content="Clausery">
