@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-10-25",
-  "hash": "8267bda215b20ce3"
+  "hash": "9d5a69cb9aec76ce"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -37,107 +37,107 @@
  },
  "changelog.html": {
   "date": "2026-10-25",
-  "hash": "7d49862933388500"
+  "hash": "dfce1a7361dd74a3"
  },
  "clauses/": {
   "date": "2026-10-25",
   "hash": "8ee5eab8f2006007"
  },
  "clauses/amendment-clause.html": {
-  "date": "2026-10-04",
-  "hash": "fd8842cb51fcb75e"
+  "date": "2026-10-25",
+  "hash": "445c4946fd018d84"
  },
  "clauses/assignment-clause.html": {
-  "date": "2026-10-04",
-  "hash": "374b4c3ee234dafd"
+  "date": "2026-10-25",
+  "hash": "353e62ef4c765601"
  },
  "clauses/at-will-employment-clause.html": {
-  "date": "2026-10-04",
-  "hash": "2d65a1a63b0d0e99"
+  "date": "2026-10-25",
+  "hash": "1f7341a384826174"
  },
  "clauses/confidentiality-clause.html": {
-  "date": "2026-10-04",
-  "hash": "6d38de7207b536ef"
+  "date": "2026-10-25",
+  "hash": "7634bc7de86e84a7"
  },
  "clauses/dispute-resolution-clause.html": {
-  "date": "2026-10-04",
-  "hash": "922d649ad02a2945"
+  "date": "2026-10-25",
+  "hash": "b6190f0c8ddfe500"
  },
  "clauses/electronic-signature-clause.html": {
-  "date": "2026-10-04",
-  "hash": "fcd5fb7c3cef29cd"
+  "date": "2026-10-25",
+  "hash": "ff80cb99cf3d5386"
  },
  "clauses/entire-agreement-clause.html": {
-  "date": "2026-10-04",
-  "hash": "91d2fcd85ddcad1f"
+  "date": "2026-10-25",
+  "hash": "0be72ee0d0cdd636"
  },
  "clauses/force-majeure-clause.html": {
-  "date": "2026-10-04",
-  "hash": "780cb117a4e8157b"
+  "date": "2026-10-25",
+  "hash": "b515cdaaa7581d54"
  },
  "clauses/governing-law-clause.html": {
-  "date": "2026-10-04",
-  "hash": "418c322b7fe9b13e"
+  "date": "2026-10-25",
+  "hash": "96931355aee67b45"
  },
  "clauses/indemnification-clause.html": {
-  "date": "2026-10-04",
-  "hash": "34a911d692c3ddaa"
+  "date": "2026-10-25",
+  "hash": "fd3bd29a14868b2e"
  },
  "clauses/independent-contractor-clause.html": {
-  "date": "2026-10-04",
-  "hash": "14d1130b1a565f85"
+  "date": "2026-10-25",
+  "hash": "fb4174a56505dff2"
  },
  "clauses/intellectual-property-clause.html": {
-  "date": "2026-10-04",
-  "hash": "442d56f9981a106a"
+  "date": "2026-10-25",
+  "hash": "b73c2db8db04ccda"
  },
  "clauses/late-payment-interest-clause.html": {
-  "date": "2026-10-04",
-  "hash": "c408bce48de41770"
+  "date": "2026-10-25",
+  "hash": "7b55903e56dfa180"
  },
  "clauses/limitation-of-liability-clause.html": {
-  "date": "2026-10-04",
-  "hash": "42f7426e538b2a44"
+  "date": "2026-10-25",
+  "hash": "c0578e7cf347d9ac"
  },
  "clauses/non-compete-clause.html": {
-  "date": "2026-10-04",
-  "hash": "a5952d653985a00d"
+  "date": "2026-10-25",
+  "hash": "997a2ac26f791e86"
  },
  "clauses/non-solicitation-clause.html": {
-  "date": "2026-10-04",
-  "hash": "c4976d7f504fa986"
+  "date": "2026-10-25",
+  "hash": "5bb983ceab1fbd31"
  },
  "clauses/notices-clause.html": {
-  "date": "2026-10-04",
-  "hash": "2f718233065f1d3a"
+  "date": "2026-10-25",
+  "hash": "544840a37e8e53ec"
  },
  "clauses/payment-terms-clause.html": {
-  "date": "2026-10-04",
-  "hash": "17e222cd2662cacb"
+  "date": "2026-10-25",
+  "hash": "ba718931905cd6d6"
  },
  "clauses/severability-clause.html": {
-  "date": "2026-10-04",
-  "hash": "305c2d04dd202bd5"
+  "date": "2026-10-25",
+  "hash": "94f582ef17ebf224"
  },
  "clauses/survival-clause.html": {
-  "date": "2026-10-04",
-  "hash": "3a07d4cea551b412"
+  "date": "2026-10-25",
+  "hash": "77a3fc8711723f6d"
  },
  "clauses/termination-for-cause-clause.html": {
-  "date": "2026-10-04",
-  "hash": "d4961799e296f43f"
+  "date": "2026-10-25",
+  "hash": "663bbf64386efe55"
  },
  "clauses/termination-for-convenience-clause.html": {
-  "date": "2026-10-24",
-  "hash": "9b240acbb154c896"
+  "date": "2026-10-25",
+  "hash": "c7c012bf18e0544a"
  },
  "clauses/waiver-clause.html": {
-  "date": "2026-10-04",
-  "hash": "a925e91699ff8b26"
+  "date": "2026-10-25",
+  "hash": "83f77966397dfb95"
  },
  "clauses/warranty-clause.html": {
-  "date": "2026-10-04",
-  "hash": "4569c681a89e136c"
+  "date": "2026-10-25",
+  "hash": "ab060fdfd4fc4edb"
  },
  "compare/": {
   "date": "2026-10-25",
@@ -697,7 +697,7 @@
  },
  "roadmap/": {
   "date": "2026-10-25",
-  "hash": "0bd5756e2ce21ffd"
+  "hash": "f316566d2ab542f5"
  },
  "search/": {
   "date": "2026-10-25",
@@ -713,7 +713,7 @@
  },
  "status/": {
   "date": "2026-10-25",
-  "hash": "07b69decbe5f03a1"
+  "hash": "b617e798f7ce55eb"
  },
  "templates/": {
   "date": "2026-10-25",

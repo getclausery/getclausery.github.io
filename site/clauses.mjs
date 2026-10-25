@@ -1,7 +1,7 @@
 // Clause library: one page per common contract clause (site/data/clauses.mjs) with a plain-English explanation,
 // copyable sample wording, what to check, and the same clause with Clausery tags. Pages link to the free templates
 // that use each clause, and template pages link back (site/library.mjs).
-import { esc, crumbsLd, collectionLd, fitSnippet } from '../tools/partials.mjs';
+import { esc, crumbsLd, collectionLd, fitSnippet, LASTMOD, LASTMOD_LONG } from '../tools/partials.mjs';
 import { CLAUSES, GROUPS } from './data/clauses.mjs';
 import { LIB } from './library.mjs';
 
@@ -69,6 +69,8 @@ export const pages = [
   <p class="eyebrow" style="margin-top:1rem">${esc(c.group)}</p>
   <h1>${esc(c.name)}: meaning and sample wording</h1>
   <p class="lead">${esc(c.what)}</p>
+
+  <p class="small muted guide-meta">Reviewed by <a href="${rel}about/">Clausery editors</a> · <time datetime="${LASTMOD}">Updated ${LASTMOD_LONG}</time></p>
 
   <h2>When to use it</h2>
   <p>${esc(c.when)}</p>
