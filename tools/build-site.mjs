@@ -79,32 +79,33 @@ for (const p of pages) {
   // hash (and therefore page-dates.json) claim that the editorial content changed.
   const hasPageNode = /"@type":"(CollectionPage|SearchResultsPage|AboutPage|ContactPage|WebSite)"/.test(p.extraHead || '');
   const skipPageLd = p.layout === 'embed' || p.noindex || p.path === '' || p.path === '404.html' || hasPageNode;
-  // For pages flagged _howTo (e.g. guides), render the body first and auto-inject HowTo JSON-LD into extraHead
-  // if the body contains an ordered-list of bolded steps under a how-to heading.
+  // For pages flagged _howTo or _toc (guides, clauses, templates), render body first: add h2 slug ids,
+  // server-rendered TOC, HowTo/Article/FAQ JSON-LD as appropriate.
   let renderedBody = null;
-  if (p._howTo && p.layout !== 'embed') {
+  const needsBodyPrep = (p._howTo || p._toc) && p.layout !== 'embed';
+  if (needsBodyPrep) {
     renderedBody = p.body(rel);
-    // Assign stable slug ids to every <h2>, collect sections for a server-rendered TOC (crawlable,
-    // no JS needed, works with in-page anchor links shared on social).
+    // Assign stable slug ids to every <h2>, collect sections for a server-rendered TOC.
     const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
     const seen = new Set();
-    const tocSkip = /^(sources|questions|more on |free templates|related|ready to)/i;
+    const tocSkip = /^(sources|questions|common questions|more on |free templates|related|ready to)/i;
     const headings = [];
     let hIdx = 0;
-    renderedBody = renderedBody.replace(/<h2>([\s\S]*?)<\/h2>/g, (m, inner) => {
+    renderedBody = renderedBody.replace(/<h2([^>]*)>([\s\S]*?)<\/h2>/g, (m, attrs, inner) => {
+      if (/\sid=/.test(attrs)) return m; // preserve existing id
       const text = inner.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
       const id = slug(text) || `section-${hIdx++}`;
       const unique = seen.has(id) ? `${id}-${++hIdx}` : id;
       seen.add(unique);
       if (!tocSkip.test(text)) headings.push({ id: unique, text });
-      return `<h2 id="${unique}">${inner}</h2>`;
+      return `<h2${attrs} id="${unique}">${inner}</h2>`;
     });
     if (headings.length >= 3) {
       const tocHtml = `<nav class="guide-toc" aria-label="On this page"><h4>On this page</h4><ol>${headings.map((h) => `<li><a href="#${h.id}">${h.text}</a></li>`).join('')}</ol></nav>`;
-      // Insert TOC immediately before the first h2 with an id (after the lead paragraph and any notice boxes).
-      const firstH2 = renderedBody.match(/<h2 id="[^"]+">/);
+      const firstH2 = renderedBody.match(/<h2[^>]* id="[^"]+">/);
       if (firstH2) renderedBody = renderedBody.slice(0, firstH2.index) + tocHtml + renderedBody.slice(firstH2.index);
     }
+    if (p._howTo) {
     const articleLd = `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', '@id': `${SITE}${p.path}#article`, isPartOf: { '@id': `${SITE}${p.path}#webpage` }, headline: p.title, description: p.description, datePublished: p.published, dateModified: modified, ...(modified ? { lastReviewed: modified } : {}), inLanguage: 'en-GB', image: `${SITE}assets/og.png`, mainEntityOfPage: `${SITE}${p.path}`, ...(p._sources ? { citation: p._sources.map(([, u]) => u) } : {}), ...(headings.length >= 3 ? { articleSection: headings.map((h) => h.text) } : {}), author: { '@type': 'Organization', name: 'Clausery', url: SITE }, publisher: { '@type': 'Organization', name: 'Clausery', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}assets/icon-512.png`, width: 512, height: 512 } } })}</script>`;
     p.extraHead = articleLd + (p.extraHead || '');
     const hasSteps = /<h2[^>]*>(What to include|How to|Steps to|Steps|What goes|What to write|How you can|How)/i.test(renderedBody) && /<ol>\s*<li><strong>/.test(renderedBody);
@@ -122,13 +123,13 @@ for (const p of pages) {
       ];
       p.extraHead += faqLd(generic);
       const inj = `<h2>Common questions</h2>\n<div class="faq">${generic.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>`;
-      // Insert before the helpfulWidget if present, else just before </div></section>.
       if (renderedBody.includes('data-helpful=')) {
         renderedBody = renderedBody.replace(/<p class="helpful"/, inj + '\n<p class="helpful"');
       } else {
         renderedBody = renderedBody.replace(/(<\/div><\/section>)\s*$/, inj + '\n$1');
       }
     }
+    } // close _howTo-only block
   }
   const pageLd = skipPageLd ? '' : `<script type="application/ld+json">${JSON.stringify({
     '@context': 'https://schema.org', '@type': /^templates\/[^/]+\.html$/.test(p.path) ? 'ItemPage' : 'WebPage', '@id': `${SITE}${p.path}#webpage`, url: `${SITE}${p.path}`,

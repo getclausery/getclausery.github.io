@@ -96,6 +96,8 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-99-0">1.99.0 <span class="small muted">— 25 October 2026</span></h2>
+<ul><li><strong>"On this page" TOC + h2 anchor ids on clauses and templates.</strong> All 24 clause pages and 87 template pages now have stable slug ids on every <code>&lt;h2&gt;</code> and a server-rendered "On this page" table of contents above the fold, matching the existing TOC on guides. This gives users a skimmable outline and Google stable named anchors for jump-to links.</li></ul>
 <h2 id="v1-98-0">1.98.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Author link + richer shared Organization node.</strong> Every page now carries <code>&lt;link rel="author" href="/about/"&gt;</code> and a <code>&lt;meta name="author" content="Clausery"&gt;</code>. The Organization schema emitted on every page now includes contactPoint (email), sameAs (GitHub repo) and full logo, matching the homepage Organization node.</li></ul>
 <h2 id="v1-97-0">1.97.0 <span class="small muted">— 25 October 2026</span></h2>
@@ -433,18 +435,10 @@ export const pages = [
 <ul><li>Invoice: configurable tax-number label (VAT/GST/ABN), separate UK date-of-supply, "Tax invoice" title for AU GST, and default bank-fraud warning line; four new guides (UK VAT, Canada GST/HST, AU tax invoices, bank details).</li></ul>
 <h2>1.21.0 <span class="small muted">— 6 October 2026</span></h2>
 <ul><li>Invoice/quote/PO/credit-note/expense templates calculate line amounts, discount, tax and totals live; new accounting-style layout, receipts with amount-in-words, change-order totals, clearer question order, live list-amounts, and gentler section-skip behaviour.</li></ul>
-</ul>
 <h2>1.20.1 <span class="small muted">— 5 October 2026</span></h2>
-<ul>
-  <li>Reach us by email at getclausery@gmail.com: key requests, questions, template requests and problem reports no longer need a GitHub account.</li>
-</ul>
+<ul><li>Reach us by email at getclausery@gmail.com: key requests, questions, template requests and problem reports no longer need a GitHub account.</li></ul>
 <h2>1.20.0 <span class="small muted">— 5 October 2026</span></h2>
-<ul>
-  <li>Live preview: the document takes shape beside the questions as you answer, with unanswered questions shown as [labels]. Turn it off with the Live preview button; the app remembers your choice.</li>
-  <li>Questions that only apply when a box is ticked, such as a purchase order number, a discount or bank details, now stay hidden until you tick it, in the app and in client intake forms.</li>
-  <li>Sections say how many answers are left, and only turn red once you try to move past them.</li>
-  <li>Clearer titles for the invoice, receipt and employment agreement templates.</li>
-</ul>
+<ul><li>Live document preview beside questions (toggleable, choice remembered); conditional questions hidden until ticked; sections show answers-left and only turn red on navigation; clearer titles for invoice, receipt and employment agreement.</li></ul>
 <h2>1.19.0 <span class="small muted">— 4 October 2026</span></h2>
 <ul>
   <li>Twelve new free templates: a room rental agreement, a rent payment plan agreement, a landlord reference letter, a performance improvement plan, a remote work agreement, an expense reimbursement form, a change order form, a consignment agreement, a pet sitting agreement, a coaching agreement, a contract termination letter and a credit note.</li>
