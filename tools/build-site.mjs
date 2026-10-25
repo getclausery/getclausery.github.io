@@ -60,12 +60,21 @@ const pageDate = (p, rel) => {
   if (!known || known.hash !== hash) dates[p.path] = { date: known ? today : p.published || today, hash };
   return dates[p.path].date;
 };
+// Build prev/next topic siblings for guides so every guide links to adjacent guides in its topic cluster (stronger topical internal linking).
+const guideIdx = {};
+pages.filter(p => /^guides\/[^/]+\.html$/.test(p.path) && !p.noindex).forEach((p, i, arr) => { guideIdx[p.path] = { i, arr }; });
 for (const p of pages) {
   // GitHub Pages serves 404.html for a miss at any depth, so its links must be root-relative, not relative to its file.
   const rel = p.path === '404.html' ? '/' : p.path.split('/').filter(Boolean).length - (p.path.endsWith('/') || p.path === '' ? 0 : 1) > 0 ? '../'.repeat(p.path.split('/').filter(Boolean).length - (p.path.endsWith('/') || p.path === '' ? 0 : 1)) : './';
   const out = p.path === '' ? 'index.html' : p.path.endsWith('/') ? p.path + 'index.html' : p.path;
   const modified = p.layout === 'embed' ? null : pageDate(p, rel);
   p.modified = modified;
+  let prev = null, next = null;
+  if (guideIdx[p.path]) {
+    const { i, arr } = guideIdx[p.path];
+    if (i > 0) prev = arr[i - 1].path;
+    if (i < arr.length - 1) next = arr[i + 1].path;
+  }
   // This page-level node is deliberately passed separately from extraHead: adding metadata must not make the content
   // hash (and therefore page-dates.json) claim that the editorial content changed.
   const hasPageNode = /"@type":"(CollectionPage|SearchResultsPage|AboutPage|ContactPage|WebSite)"/.test(p.extraHead || '');
@@ -112,7 +121,7 @@ for (const p of pages) {
   })}</script><script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE}#website`, url: SITE, name: 'Clausery', inLanguage: 'en-GB', publisher: { '@id': `${SITE}#organization` } })}</script><script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', '@id': `${SITE}#organization`, name: 'Clausery', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}assets/icon-512.png`, width: 512, height: 512 } })}</script>`;
   const body = renderedBody !== null ? renderedBody : p.body(rel);
   const html = p.layout === 'embed' ? embedPage({ title: p.title, description: p.description, extraHead: p.extraHead, rel, body: p.body(rel) })
-    : (head({ title: SEO_TITLES[p.path] || p.title, description: p.description, path: p.path, extraHead: p.extraHead || '', pageLd, ogImage: p.ogImage, ogType: p.feed ? 'article' : 'website', published: p.published, modified, rel, noindex: Boolean(p.noindex) }) + body + footer(rel)).replace(/<pre>/g, '<pre tabindex="0">');
+    : (head({ title: SEO_TITLES[p.path] || p.title, description: p.description, path: p.path, extraHead: p.extraHead || '', pageLd, ogImage: p.ogImage, ogType: p.feed ? 'article' : 'website', published: p.published, modified, rel, noindex: Boolean(p.noindex), prev, next }) + body + footer(rel)).replace(/<pre>/g, '<pre tabindex="0">');
   mkdirSync(dirname(out), { recursive: true });
   let final = modified ? html.split(LASTMOD_LONG).join(longDate(modified)).split(LASTMOD).join(modified) : html;
   // "Updated …" only appears once a page has changed since it was published.
