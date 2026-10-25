@@ -80,7 +80,7 @@
 <script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="./site.js" defer></script>
 <script type="speculationrules">{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"\?|#|/app/"}},{"not":{"selector_matches":"[download],[target=_blank],[rel~=nofollow],[href$=.xml],[href$=.txt],[href$=.json],[href$=.webmanifest]"}}]},"eagerness":"moderate"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Changelog","item":"https://getclausery.github.io/changelog.html"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://getclausery.github.io/changelog.html#webpage","url":"https://getclausery.github.io/changelog.html","name":"Changelog","description":"Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.","inLanguage":"en-GB","isPartOf":{"@id":"https://getclausery.github.io/#website"},"dateModified":"2026-10-25"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Changelog","item":"https://getclausery.github.io/changelog.html"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://getclausery.github.io/changelog.html#webpage","url":"https://getclausery.github.io/changelog.html","name":"Changelog","description":"Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.","inLanguage":"en-GB","isPartOf":{"@id":"https://getclausery.github.io/#website"},"publisher":{"@id":"https://getclausery.github.io/#organization"},"dateModified":"2026-10-25"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://getclausery.github.io/#website","url":"https://getclausery.github.io/","name":"Clausery","inLanguage":"en-GB","publisher":{"@id":"https://getclausery.github.io/#organization"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://getclausery.github.io/#organization","name":"Clausery","url":"https://getclausery.github.io/","logo":{"@type":"ImageObject","url":"https://getclausery.github.io/assets/icon-512.png","width":512,"height":512}}</script>
 </head>
 <body>
 <a class="sr-only" href="#main">Skip to content</a>
@@ -115,6 +115,10 @@
 <main id="main" tabindex="-1">
 <section class="section"><div class="wrap prose">
 <h1>Changelog <a href="./releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-89-0">1.89.0 <span class="small muted">— 25 October 2026</span></h2>
+<ul>
+  <li><strong>Schema graph on every page.</strong> Every page now emits the <code>WebSite</code> and <code>Organization</code> nodes inline (referenced by <code>@id</code>), so Google's parser sees a complete, connected schema graph without relying on a single node on the homepage. <code>publisher</code> on every <code>WebPage</code>/<code>Article</code>/<code>ItemPage</code> now points to the shared Organization <code>@id</code>.</li>
+</ul>
 <h2 id="v1-88-0">1.88.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul>
   <li><strong>Visible BreadcrumbList microdata on every page.</strong> All breadcrumb trails now carry RDFa microdata (<code>itemscope</code>/<code>itemprop=itemListElement</code>/<code>position</code>) matching the existing <code>BreadcrumbList</code> JSON-LD, so visible DOM and schema agree and Google can render breadcrumb paths in SERP snippets without relying solely on JSON-LD inference.</li>
@@ -407,27 +411,10 @@
 <ul>
   <li>Homepage SoftwareApplication schema lists every paid offer with availability.</li>
 </ul>
-<h2 id="v1-36-0">1.36.0 <span class="small muted">— 23 October 2026</span></h2>
-<ul>
-  <li>Added <a href="./customers/">Customers</a> page, <a href="./releases.xml">releases.xml</a> Atom feed, footer Customers link, and anchor ids on changelog entries.</li>
-</ul>
 <h2 id="v1-35-0">1.35.0 <span class="small muted">— 23 October 2026</span></h2>
-<ul>
-  <li>Redesigned plan cards on the pricing page with stronger visual hierarchy for the featured Pro plan, a clearer “no-card free trial” ribbon, refund-note trust signal, larger primary CTA, and more direct benefit copy.</li>
-  <li>Added a public <a href="./status/">status page</a> listing every component (site, repository, document engine, checkout) and where to verify each one, plus a public <a href="./roadmap/">roadmap</a> linked to changelog entries and open GitHub issues.</li>
-  <li>Footer now links to Status and Roadmap alongside Changelog; About page links to both.</li>
-  <li>Primary buttons now use a gradient fill with inset highlight, stronger hover lift and glow, active-state reset, and an accessible focus-visible ring.</li>
-  <li>Added Crawl-delay and Host directives to robots.txt and refined the robots policy.</li>
-</ul>
-<h2 id="v1-34-0">1.34.0 <span class="small muted">— 15 October 2026</span></h2>
-<ul>
-  <li>Try Pro free for 14 days with one click, from the upgrade dialog, Settings or the <a href="./pricing/">pricing page</a>. No card, no account and no email: the trial runs in your browser and simply ends, and you keep everything you made.</li>
-  <li>Paid plans now have a 30-day money-back guarantee on the first payment. See the updated <a href="./legal/terms.html">terms</a>.</li>
-  <li>On the Free plan, documents made from library templates end with a small “Made with Clausery” line. Pro, Team and the trial leave it out, and templates you upload yourself never get it.</li>
-  <li>Links inside a document preview open in a new tab, so a click never leaves the draft.</li>
-</ul>
+<ul><li>Pricing redesign with featured Pro plan, refund-note signal and stronger CTA; public <a href="./status/">status</a> and <a href="./roadmap/">roadmap</a> pages linked from footer and About; Crawl-delay/Host in robots.txt; <a href="./customers/">Customers</a> page and <a href="./releases.xml">Atom feed</a>; gradient primary buttons with focus ring.</li></ul>
 <h2 id="v1-33-0">1.33.0 <span class="small muted">— 9 October 2026</span></h2>
-<ul><li>Free <a href="./guides/invoice-email-template.html">invoice email templates</a> (send, remind, overdue, thanks); activation page accepts Lemon Squeezy return-link format and clears access links from the address bar.</li></ul>
+<ul><li>Free <a href="./guides/invoice-email-template.html">invoice email templates</a> (send, remind, overdue, thanks); 14-day free trial from the upgrade dialog with 30-day refund; "Made with Clausery" line on Free-plan library docs; activation page accepts Lemon Squeezy return-link format and clears access links from the address.</li></ul>
 <h2 id="v1-32-0">1.32.0 <span class="small muted">— 9 October 2026</span></h2>
 <ul>
   <li>Choose a plan, pay, then select Open Clausery after payment or in your receipt. Your plan activates automatically and opens the app, with no separate account or key to copy.</li>
@@ -754,7 +741,7 @@
       <a href="./legal/dmca.html">DMCA</a>
       <a href="./press/">Press kit</a>
     </div>
-    <div class="legal">© 2026 Clausery · <a href="./changelog.html#v1-88-0" style="color:inherit">v1.88.0</a> · <a href="./sitemap/" style="color:inherit">Sitemap</a> · Open source under <a href="./legal/license.html" style="color:inherit">AGPLv3</a> · Clausery name and logo are <a href="https://github.com/getclausery/getclausery.github.io/blob/main/TRADEMARKS.md" rel="noopener" style="color:inherit">trademarks</a>. Clausery is software, not legal advice; documents you generate are your responsibility. Not affiliated with Microsoft; Word is a trademark of Microsoft Corporation. Not affiliated with clausery.ai. <a href="https://github.com/getclausery/getclausery.github.io" rel="noopener" style="color:inherit">Source on GitHub</a></div>
+    <div class="legal">© 2026 Clausery · <a href="./changelog.html#v1-89-0" style="color:inherit">v1.89.0</a> · <a href="./sitemap/" style="color:inherit">Sitemap</a> · Open source under <a href="./legal/license.html" style="color:inherit">AGPLv3</a> · Clausery name and logo are <a href="https://github.com/getclausery/getclausery.github.io/blob/main/TRADEMARKS.md" rel="noopener" style="color:inherit">trademarks</a>. Clausery is software, not legal advice; documents you generate are your responsibility. Not affiliated with Microsoft; Word is a trademark of Microsoft Corporation. Not affiliated with clausery.ai. <a href="https://github.com/getclausery/getclausery.github.io" rel="noopener" style="color:inherit">Source on GitHub</a></div>
   </div>
 </footer>
 <script id="search-index" type="application/json" data-src="./search-index.json" defer></script>
