@@ -10,6 +10,8 @@ import { paymentReceiptHelp, receiptHelpHead } from './payment-receipt.mjs';
 import { esc, crumbsLd, collectionLd, faqLd, faqHtml, lowerFirst, fitSnippet, picture, helpfulWidget, SITE, LASTMOD, LASTMOD_LONG } from '../tools/partials.mjs';
 import { CLAUSES } from './data/clauses.mjs';
 import { previewHtml, PREVIEW_CSS, PREVIEW_SIZE } from '../tools/preview.mjs';
+
+const TPL_PUBLISHED = '2026-10-02'; // date the first template library shipped (v1.17)
 import { GUIDES } from './audience.mjs';
 import { SERVICE_GUIDES } from './data/service-guides.mjs';
 import { COUNTRIES } from './countries.mjs';
@@ -712,7 +714,7 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-label
     const qs = questionsFor(t.file);
     const faq = t.faq;
     return {
-      path: `templates/${t.slug}.html`, title: t.title, ogImage: `assets/og/${t.slug}.png`, _toc: true,
+      path: `templates/${t.slug}.html`, title: t.title, ogImage: `assets/og/${t.slug}.png`, _toc: true, published: TPL_PUBLISHED,
       description: t.description || fitSnippet(t.intro, { lead: `Free ${lowerFirst(t.name)} template for Word.`, tail: 'Fill it in online or download the .docx, free.' }),
       extraHead: docLd(t) + faqLd(faq) + crumbsLd([['Home', ''], ['Templates', 'templates/'], [t.name, `templates/${t.slug}.html`]]) + PREVIEW_CSS + THUMB_CSS + (t.slug === 'payment-receipt' ? receiptHelpHead : '') + `<style>.tpl-cta-fixed{display:none}@media(max-width:760px){.tpl-cta-fixed{display:flex;position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:20;gap:.5rem}.tpl-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35)}}@media(min-width:761px){.tpl-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.tpl-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`,
       body: (rel) => `

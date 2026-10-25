@@ -105,9 +105,11 @@ for (const p of pages) {
       const firstH2 = renderedBody.match(/<h2[^>]* id="[^"]+">/);
       if (firstH2) renderedBody = renderedBody.slice(0, firstH2.index) + tocHtml + renderedBody.slice(firstH2.index);
     }
-    if (p._howTo) {
-    const articleLd = `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', '@id': `${SITE}${p.path}#article`, isPartOf: { '@id': `${SITE}${p.path}#webpage` }, headline: p.title, description: p.description, datePublished: p.published, dateModified: modified, ...(modified ? { lastReviewed: modified } : {}), inLanguage: 'en-GB', image: `${SITE}assets/og.png`, mainEntityOfPage: `${SITE}${p.path}`, ...(p._sources ? { citation: p._sources.map(([, u]) => u) } : {}), ...(headings.length >= 3 ? { articleSection: headings.map((h) => h.text) } : {}), author: { '@type': 'Organization', name: 'Clausery', url: SITE }, publisher: { '@type': 'Organization', name: 'Clausery', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}assets/icon-512.png`, width: 512, height: 512 } } })}</script>`;
+    // Article schema on any long-form page with a published date (guides, clauses, templates and the deep-dive hubs).
+    if (p.published) {
+    const articleLd = `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', '@id': `${SITE}${p.path}#article`, isPartOf: { '@id': `${SITE}${p.path}#webpage` }, headline: p.title, description: p.description, datePublished: p.published, dateModified: modified, ...(modified ? { lastReviewed: modified } : {}), inLanguage: 'en-GB', image: p.ogImage ? `${SITE}${p.ogImage}` : `${SITE}assets/og.png`, mainEntityOfPage: `${SITE}${p.path}`, ...(p._sources ? { citation: p._sources.map(([, u]) => u) } : {}), ...(headings.length >= 3 ? { articleSection: headings.map((h) => h.text) } : {}), author: { '@type': 'Organization', name: 'Clausery', url: SITE }, publisher: { '@type': 'Organization', name: 'Clausery', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}assets/icon-512.png`, width: 512, height: 512 } } })}</script>`;
     p.extraHead = articleLd + (p.extraHead || '');
+    if (p._howTo) {
     const hasSteps = /<h2[^>]*>(What to include|How to|Steps to|Steps|What goes|What to write|How you can|How)/i.test(renderedBody) && /<ol>\s*<li><strong>/.test(renderedBody);
     if (hasSteps) {
       const howTo = howToLd({ name: p.title, description: p.description, steps: renderedBody, totalTime: 'PT10M' });
@@ -129,7 +131,8 @@ for (const p of pages) {
         renderedBody = renderedBody.replace(/(<\/div><\/section>)\s*$/, inj + '\n$1');
       }
     }
-    } // close _howTo-only block
+    } // close _howTo-only FAQ/HowTo block
+    } // close p.published Article block
   }
   const pageLd = skipPageLd ? '' : `<script type="application/ld+json">${JSON.stringify({
     '@context': 'https://schema.org', '@type': /^templates\/[^/]+\.html$/.test(p.path) ? 'ItemPage' : 'WebPage', '@id': `${SITE}${p.path}#webpage`, url: `${SITE}${p.path}`,
