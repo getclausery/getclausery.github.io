@@ -96,10 +96,12 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-1-0">2.1.0 <span class="small muted">— 25 October 2026</span></h2>
+<ul><li><strong>Related reading clusters</strong> on every long-form page. A server-rendered block at the foot of each page mixes matching pages from other sections (guides, templates, clauses, free tools, comparisons) scored on shared keywords — guides surface templates/clauses, templates surface their how-to guide and calculators, clauses surface templates that use them. Editorial internal links: 2588 → 3305 (+28%).</li></ul>
 <h2 id="v2-0-4">2.0.4 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li>Visible &lt;time datetime&gt; stamps on every changelog release heading. The 71 dated entries on this page now carry machine-readable ISO <code>YYYY-MM-DD</code> dates in the DOM, matching the visible byline on guides, clauses, templates and hub pages, so crawlers and readers see the same freshness signal everywhere.</li></ul>
 <h2 id="v2-0-3">2.0.3 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>E-E-A-T entity linking.</strong> Article schema now carries an <code>about</code> array of Topic entities derived from the page's visible h2 sections, a fully-specified <code>image</code> ImageObject (with width, height and <code>caption</code> matching the page title on pages that have a dedicated share card), <code>thumbnailUrl</code>, <code>mainEntityOfPage</code> as a WebPage reference, and <code>reviewedBy</code> on every long-form page. Every FAQPage block now gets a stable <code>@id</code> linked to its page's WebPage via <code>isPartOf</code>/<code>mainEntityOfPage</code>, so generic FAQ questions across pages are not merged into a single entity.</li></ul>
+<ul><li><strong>E-E-A-T entity linking.</strong> Article schema adds an <code>about</code> array of Topic entities from the page's h2 sections, a full <code>image</code> ImageObject (dimensions + caption) on pages with a dedicated share card, <code>thumbnailUrl</code>, and <code>reviewedBy</code>. Every FAQPage block gets a stable <code>@id</code> linked to its page's WebPage so repeated generic FAQs are not merged into one entity.</li></ul>
 <h2 id="v2-0-2">2.0.2 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li>Smart 404 suggestions: the not-found page now tokenises the missing URL (and any <code>#fragment</code>), scores every indexable page on word overlap, slug prefix and substring matches, and surfaces up to six "Were you looking for…?" links before the action buttons. Stale bookmarks, truncated links and renamed pages recover in one click instead of forcing a site search.</li></ul>
 <h2 id="v2-0-1">2.0.1 <span class="small muted">— 25 October 2026</span></h2>
@@ -401,22 +403,15 @@ export const pages = [
   <li>Added a <a href="${rel}self-hosting/">Self-hosting / Enterprise</a> marketing page covering intranet deployment, white-label, air-gapped use and license scope.</li>
 </ul>
 <h2 id="v1-41-0">1.41.0 <span class="small muted">— 23 October 2026</span></h2>
-<ul><li>Homepage <code>SiteNavigationElement</code> JSON-LD lists the primary navigation for crawlers and accessibility tooling; footer version badge links to this changelog; comparisons use a consistent vendor-source link pattern; added <code>/.well-known</code> redirects for privacy-policy, terms-of-service and support (RFC 9405); rewrote the <a href="${rel}made-with/">Made with Clausery</a> receiver page with FAQ and trust bar.</li></ul>
+<ul><li>Homepage <code>SiteNavigationElement</code> JSON-LD, footer version→changelog link, consistent vendor-source links on comparisons, RFC 9405 <code>/.well-known</code> redirects (privacy/terms/support), and a rewritten <a href="${rel}made-with/">Made with Clausery</a> receiver page with FAQ/trust bar.</li></ul>
 <h2 id="v1-35-0">1.35.0 <span class="small muted">— 23 October 2026</span></h2>
-<ul><li>Pricing redesign with featured Pro, refund signal, strong CTA; public <a href="${rel}status/">status</a>, <a href="${rel}roadmap/">roadmap</a>; Crawl-delay/Host; <a href="${rel}customers/">Customers</a>, <a href="${rel}releases.xml">Atom feed</a>, gradient buttons, <a href="${rel}guides/invoice-email-template.html">invoice emails</a>; ${TRIAL_DAYS}-day trial.</li></ul>
+<ul><li>Pricing redesign (featured Pro, refund signal, strong CTA), public <a href="${rel}status/">status</a>/<a href="${rel}roadmap/">roadmap</a>, Crawl-delay/Host, <a href="${rel}customers/">Customers</a>, <a href="${rel}releases.xml">Atom feed</a>, gradient buttons, <a href="${rel}guides/invoice-email-template.html">invoice emails</a>, and a ${TRIAL_DAYS}-day free trial.</li></ul>
 <h2 id="v1-32-0">1.32.0 <span class="small muted">— 9 October 2026</span></h2>
 <ul><li>Online checkout: click Open Clausery from receipt to activate; repeated clicks reuse browser activation; credentials removed from the address before routing; Settings leads with Plan and billing.</li></ul>
 <h2 id="v1-31-0">1.31.0 <span class="small muted">— 9 October 2026</span></h2>
-<ul>
-  <li>Online checkout is open through Lemon Squeezy: <a href="${rel}pricing/">Pro monthly, Pro yearly and five-seat Team</a>, with license keys delivered after purchase.</li>
-  <li>Paid licenses are matched to the published live products. Test-mode products cannot unlock a paid plan. Existing cached online keys without product information are checked again.</li>
-  <li>Pricing, activation instructions and privacy disclosures now describe online billing, device activation limits and extra Team seats by request.</li>
-</ul>
+<ul><li>LemonSqueezy online checkout open for Pro monthly/yearly and five-seat Team (license keys delivered post-purchase, paid-product matching, caching of unknown products re-checked), with pricing/activation/privacy updated to describe billing, activation limits and extra Team seats.</li></ul>
 <h2 id="v1-30-0">1.30.0 <span class="small muted">— 9 October 2026</span></h2>
-<ul>
-  <li>A <a href="${rel}guides/how-to-write-a-payment-receipt.html">payment receipt guide</a> with a Word example, partial-payment instructions and a sending checklist.</li>
-  <li>The <a href="${rel}templates/payment-receipt.html">Word receipt page</a> explains how to record a payment and includes a local balance calculator. The calculator distinguishes earlier payments from the current payment and flags overpayments.</li>
-</ul>
+<ul><li><a href="${rel}guides/how-to-write-a-payment-receipt.html">Payment receipt guide</a> with Word example/partial-payment instructions/checklist; <a href="${rel}templates/payment-receipt.html">receipt template page</a> with on-device balance calculator that distinguishes earlier payments and flags overpayments.</li></ul>
 <h2 id="v1-29-0">1.29.0 <span class="small muted">— 9 October 2026</span></h2>
 <ul><li><a href="${rel}guides/how-to-save-an-invoice-as-pdf.html">Save an invoice as PDF</a> guide; Print/Save-as-PDF waits for preview/fonts/images and a failed preview no longer opens the print dialog.</li></ul>
 <h2 id="v1-28-0">1.28.0 <span class="small muted">— 8 October 2026</span></h2>

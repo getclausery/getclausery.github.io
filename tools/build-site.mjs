@@ -62,9 +62,42 @@ const pageDate = (p, rel) => {
 };
 // Shared helpers used during per-page rendering and later for the search index and 404 suggestions.
 const prettyTitle = (t) => String(t).replace(/\s*[·\-–—]\s*Clausery.*$/,'').replace(/\s*\(.*?\)\s*$/,'').trim() || t;
+const STOPWORDS = new Set(['a','an','the','and','or','of','for','to','in','on','with','is','it','you','your','free','template','word','letter','agreement','clause','how','what','guide','clausery','page','form','when','do','i','can','be','by','from','not','this','that','are','at','as','about','into','more','all','use','using','need','write']);
+const toks = (s) => String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim().split(/\s+/).filter((w) => w && w.length > 2 && !STOPWORDS.has(w));
 // Build prev/next topic siblings for guides so every guide links to adjacent guides in its topic cluster (stronger topical internal linking).
 const guideIdx = {};
 const indexable = pages.filter((pp) => pp.layout !== 'embed' && !pp.noindex && !pp.path.startsWith('.well-known') && !['404.html', 'go/', 'made-with/'].some((x) => pp.path === x || pp.path.startsWith(x)));
+// Build a cross-type "Related reading" index for every long-form page. This is the biggest remaining internal-link
+// cluster win: guides currently only link sibling guides, templates only link templates, and clauses only link
+// clauses. A unified, server-rendered Related reading block that mixes templates, clauses, guides, free tools and
+// competitor comparisons based on shared keywords/tags/clause membership closes those gaps and strengthens the
+// topical graph across the whole site.
+const CANDIDATES = indexable.filter((pp) => !pp.noindex && pp.layout !== 'embed' && pp.path !== '404.html' && pp.path !== '' && /^(templates|clauses|guides|free-tools|compare|for|invoice-templates|nda-templates)\//.test(pp.path)).map((pp) => {
+  const title = prettyTitle(SEO_TITLES[pp.path] || pp.title);
+  const kind = /^templates\//.test(pp.path) ? 'template' : /^clauses\//.test(pp.path) ? 'clause' : /^guides\//.test(pp.path) ? 'guide' : /^free-tools\//.test(pp.path) ? 'tool' : /^compare\//.test(pp.path) ? 'compare' : /^invoice-templates\//.test(pp.path) ? 'template' : /^nda-templates\//.test(pp.path) ? 'template' : 'hub';
+  const seg = pp.path.split('/')[0];
+  const segKw = { templates:'template',clauses:'clause',guides:'guide','free-tools':'calculator tool',compare:'alternative','for':'business','invoice-templates':'invoice','nda-templates':'nda' }[seg] || '';
+  return { path: pp.path, title, kind, tokens: new Set(toks(title + ' ' + (pp.description||'') + ' ' + (pp.keywords||'') + ' ' + segKw)) };
+});
+// Score cross-type matches for a page. Token overlap is used as a tiebreaker; cross-type links are boosted so the
+// block surfaces content from other sections rather than more of the same.
+function relatedFor(p, limit = 6) {
+  if (!/^(templates|clauses|guides|free-tools|compare|for|invoice-templates|nda-templates)\//.test(p.path)) return [];
+  const title = prettyTitle(SEO_TITLES[p.path] || p.title);
+  const seg = p.path.split('/')[0];
+  const mine = new Set(toks(title + ' ' + (p.description||'') + ' ' + (p.keywords||'') + ' ' + seg));
+  const isTpl = /^templates\//.test(p.path), isClause = /^clauses\//.test(p.path), isGuide = /^guides\//.test(p.path);
+  const scored = CANDIDATES.filter((c) => c.path !== p.path).map((c) => {
+    let s = 0;
+    const crossType = !(isTpl && c.kind === 'template') && !(isClause && c.kind === 'clause') && !(isGuide && c.kind === 'guide');
+    if (crossType) s += 3;
+    for (const w of mine) if (c.tokens.has(w)) s += w.length >= 6 ? 2 : 1;
+    const sameDir = p.path.split('/')[0] === c.path.split('/')[0];
+    if (sameDir) s += 1;
+    return { c, s };
+  }).filter(({ s }) => s >= 4).sort((a, b) => b.s - a.s).slice(0, limit).map(({ c }) => c);
+  return scored;
+}
 pages.filter(p => /^guides\/[^/]+\.html$/.test(p.path) && !p.noindex).forEach((p, i, arr) => { guideIdx[p.path] = { i, arr }; });
 for (const p of pages) {
   // GitHub Pages serves 404.html for a miss at any depth, so its links must be root-relative, not relative to its file.
@@ -171,6 +204,41 @@ for (const p of pages) {
     ...(p.ogImage && p.ogImage !== 'assets/og.png' ? { primaryImageOfPage: { '@type': 'ImageObject', url: `${SITE}${p.ogImage}`, width: 1200, height: 630 } } : {}),
   })}</script><script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE}#website`, url: SITE, name: 'Clausery', inLanguage: 'en-GB', publisher: { '@id': `${SITE}#organization` } })}</script><script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', '@id': `${SITE}#organization`, name: 'Clausery', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}assets/icon-512.png`, width: 512, height: 512 }, sameAs: ['https://github.com/getclausery/getclausery.github.io'], contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', email: 'getclausery@gmail.com', availableLanguage: ['en-GB'] } })}</script>`;
   const body = renderedBody !== null ? renderedBody : p.body(rel);
+  // Inject a cross-type "Related reading" block on long-form pages, just before the helpful widget (or the final
+  // </div></section> if there is no widget). This tightens internal-link clusters between templates ↔ clauses ↔
+  // guides ↔ free tools ↔ comparisons without changing any page's editorial wording.
+  const related = relatedFor(p, 6);
+  let finalBody = body;
+  if (related.length) {
+    const kindLabel = { template: 'Templates', clause: 'Clause library', guide: 'Guides', tool: 'Free tools', compare: 'Comparisons', hub: 'Pages' };
+    const grouped = {};
+    for (const r of related) (grouped[r.kind] = grouped[r.kind] || []).push(r);
+    const order = ['guide','template','clause','tool','compare','hub'];
+    const relatedHtml = order.filter((k) => grouped[k] && grouped[k].length).map((k) => {
+      const items = grouped[k].slice(0, k==='tool'||k==='compare'?3:4).map((r) => {
+        // Directory of p (the page being built): if p ends with '/', that directory; otherwise the parent directory.
+        const pdir = p.path === '' ? '' : (p.path.endsWith('/') ? p.path.slice(0, -1).split('/') : p.path.split('/').slice(0, -1));
+        const psegs = pdir.length && pdir[0] === '' ? pdir.slice(1) : pdir;
+        const rsegs = r.path.endsWith('/') ? r.path.slice(0, -1).split('/').filter(Boolean) : r.path.replace(/\.html$/, '').split('/').filter(Boolean);
+        let common = 0; while (common < psegs.length && common < rsegs.length && psegs[common] === rsegs[common]) common++;
+        const parts = [];
+        for (let i = common; i < psegs.length; i++) parts.push('..');
+        for (let i = common; i < rsegs.length; i++) parts.push(rsegs[i]);
+        let href;
+        if (parts.length === 0) href = './';
+        else href = parts.join('/') + (r.path.endsWith('/') ? '/' : '.html');
+        return `<li><a href="${href}">${esc(r.title)}</a></li>`;
+      }).join('');
+      return `<div><h4 style="font-size:.9rem;margin:0 0 .35rem;color:var(--muted)">${kindLabel[k]}</h4><ul class="link-list" style="margin:0">${items}</ul></div>`;
+    }).join('');
+    const block = `<section class="related-reading" aria-labelledby="related-reading-heading" style="margin-top:2.5rem;padding:1rem 1.25rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface2,var(--surface))"><h3 id="related-reading-heading" style="font-size:1rem;margin:0 0 .75rem">Related reading</h3><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:.75rem 1.25rem">${relatedHtml}</div></section>`;
+    // Insert before the helpful widget when present; otherwise before the closing section.
+    if (/data-helpful=/.test(finalBody)) {
+      finalBody = finalBody.replace(/(<p class="helpful")/, block + '$1');
+    } else {
+      finalBody = finalBody.replace(/(<\/div><\/section>)\s*$/, block + '$1');
+    }
+  }
   // Build a short auto-generated keywords tag from title + hub (top-level path segment) + "free Word template".
   const seoTitle = SEO_TITLES[p.path] || p.title;
   const hubMap = { templates: 'free Word template', guides: 'guide', clauses: 'contract clause', compare: 'alternative', 'free-tools': 'calculator', 'invoice-templates': 'invoice template', for: 'for small business', 'nda-templates': 'NDA', docs: 'docs' };
@@ -190,7 +258,7 @@ for (const p of pages) {
   kws.add('Word');
   const autoKeywords = [...kws].filter(Boolean).slice(0, 7).join(', ');
   const html = p.layout === 'embed' ? embedPage({ title: p.title, description: p.description, extraHead: p.extraHead, rel, body: p.body(rel) })
-    : (head({ title: seoTitle, description: p.description, path: p.path, extraHead: p.extraHead || '', pageLd, ogImage: p.ogImage, ogType: p.feed ? 'article' : 'website', published: p.published, modified, rel, noindex: Boolean(p.noindex), prev, next, keywords: p.keywords || autoKeywords }) + body + footer(rel)).replace(/<pre>/g, '<pre tabindex="0">');
+    : (head({ title: seoTitle, description: p.description, path: p.path, extraHead: p.extraHead || '', pageLd, ogImage: p.ogImage, ogType: p.feed ? 'article' : 'website', published: p.published, modified, rel, noindex: Boolean(p.noindex), prev, next, keywords: p.keywords || autoKeywords }) + finalBody + footer(rel)).replace(/<pre>/g, '<pre tabindex="0">');
   mkdirSync(dirname(out), { recursive: true });
   let final = modified ? html.split(LASTMOD_LONG).join(longDate(modified)).split(LASTMOD).join(modified) : html;
   // "Updated …" only appears once a page has changed since it was published.
