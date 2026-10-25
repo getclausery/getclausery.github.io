@@ -1,9 +1,13 @@
 // Free drafting tools: small utilities people search for (amount in words, deadline calculator, template checker).
 // Each runs entirely in the page from an external module (strict CSP friendly) and points to Clausery for the full job.
 // The calculators also have bare embed pages (free-tools/embed/) that other sites can put in an iframe, with a credit link.
-import { SITE, esc, faqLd, faqHtml, crumbsLd, collectionLd } from '../tools/partials.mjs';
+import { readFileSync } from 'node:fs';
+import { SITE, esc, faqLd, faqHtml, crumbsLd, collectionLd, longDate } from '../tools/partials.mjs';
 import { invoiceDue } from '../free-tools/invoice-due-date.js';
 import { formatDate } from '../app/lib/expr.js';
+const DATES = JSON.parse(readFileSync(new URL('./data/page-dates.json', import.meta.url), 'utf8'));
+const shortMonth = (iso) => { const d = new Date(iso + 'T00:00:00Z'); return d.toLocaleDateString('en-GB', { month:'short', year:'numeric', timeZone:'UTC' }); };
+const cardUpdated = (path) => { const d = DATES[path]; if (!d) return ''; return `<span class="card-updated" title="Last updated ${longDate(d.date)}">Updated ${shortMonth(d.date)}</span>`; };
 const TOOL_CSS = `<style>
 .tool { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 1.5rem 0; }
 .tool label { display: block; font-weight: 600; margin-bottom: .3rem; }
@@ -251,7 +255,7 @@ export const pages = [
   { path: 'free-tools/', title: 'Free small-business calculators (Word, 2026)', description: 'Free tools for drafting and invoicing: amount in words, deadlines, invoice due dates, late payment interest, loans, commission, prorated rent and more.',
     extraHead: collectionLd({ path: 'free-tools/', name: 'Free drafting tools', description: 'Free tools for drafting and invoicing: amount in words, deadlines, invoice due dates, late payment interest, loans, commission, prorated rent and more.', items: TOOLS.map((t) => [t.name, `free-tools/${t.slug}.html`]) }),
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem"><h1>Free drafting tools</h1><p class="lead">Small tools for everyday drafting and invoicing. They run entirely in your browser; nothing you type is sent anywhere. The calculators can also be <a href="#embed">added to your own website</a> for free.</p>
-<div class="grid grid-3" style="margin-top:2rem">${TOOLS.map((t) => `<a class="feature" style="text-decoration:none;color:inherit" href="${rel}free-tools/${t.slug}.html"><h2 style="font-size:1.1rem">${t.name}</h2><p>${t.desc}</p></a>`).join('')}</div>
+<div class="grid grid-3 hub-cards" style="margin-top:2rem">${TOOLS.map((t) => `<a class="feature" href="${rel}free-tools/${t.slug}.html">${cardUpdated(`free-tools/${t.slug}.html`)}<h2 style="font-size:1.1rem">${t.name}</h2><p>${t.desc}</p></a>`).join('')}</div>
 <!--nav--><div class="feature" style="margin-top:1.5rem"><h2><a href="${rel}guides/invoice-email-template.html">Free invoice email generator</a></h2><p>Write the message to send with an invoice, a polite reminder, an overdue follow-up or a payment acknowledgement. Includes four examples to copy.</p></div><!--/nav-->
 <h2 id="embed" style="margin-top:3rem">Put a calculator on your website</h2>
 <p>Every calculator except the template checker can be embedded on another site with one line of code, free. Open a calculator and scroll to <strong>Add this calculator to your website</strong> to copy its code. The embedded calculators run in your visitors' browsers with no cookies or tracking, and carry a small credit link to Clausery.</p>

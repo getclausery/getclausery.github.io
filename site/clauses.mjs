@@ -1,12 +1,16 @@
 // Clause library: one page per common contract clause (site/data/clauses.mjs) with a plain-English explanation,
 // copyable sample wording, what to check, and the same clause with Clausery tags. Pages link to the free templates
 // that use each clause, and template pages link back (site/library.mjs).
-import { esc, crumbsLd, collectionLd, fitSnippet, LASTMOD, LASTMOD_LONG } from '../tools/partials.mjs';
+import { readFileSync } from 'node:fs';
+import { esc, crumbsLd, collectionLd, fitSnippet, LASTMOD, LASTMOD_LONG, longDate } from '../tools/partials.mjs';
 import { CLAUSES, GROUPS } from './data/clauses.mjs';
 import { LIB } from './library.mjs';
 
 export const PUBLISHED = '2026-09-26';
 const TPL = Object.fromEntries(LIB.map((t) => [t.slug, t.name]));
+const DATES = JSON.parse(readFileSync(new URL('./data/page-dates.json', import.meta.url), 'utf8'));
+const shortMonth = (iso) => { const d = new Date(iso + 'T00:00:00Z'); return d.toLocaleDateString('en-GB', { month:'short', year:'numeric', timeZone:'UTC' }); };
+const cardUpdated = (path) => { const d = DATES[path]; if (!d) return ''; return `<span class="card-updated" title="Last updated ${longDate(d.date)}">Updated ${shortMonth(d.date)}</span>`; };
 for (const c of CLAUSES) {
   if (!GROUPS.includes(c.group)) throw new Error(`${c.slug}: unknown group ${c.group}`);
   for (const s of c.templates) if (!TPL[s]) throw new Error(`${c.slug}: unknown template ${s}`);
@@ -45,7 +49,7 @@ export const pages = [
   <h1>Contract clauses, explained in plain English</h1>
   <p class="lead">What each clause does, sample wording you can copy, the points worth negotiating, and how to make the variable parts fill themselves in. ${CLAUSES.length} clauses, free, with no sign-up.</p>
   ${GROUPS.map((g) => `<h2 style="margin-top:2.5rem">${esc(g)}</h2>
-  <div class="grid grid-3">${CLAUSES.filter((c) => c.group === g).map((c) => `<a class="feature" style="text-decoration:none;color:inherit" href="${rel}clauses/${c.slug}.html"><h3 style="font-size:1.05rem">${esc(c.name)}</h3><p class="small">${esc(c.what.split('. ')[0].replace(/\.$/, ''))}.</p></a>`).join('')}</div>`).join('')}
+  <div class="grid grid-3">${CLAUSES.filter((c) => c.group === g).map((c) => `<a class="feature" href="${rel}clauses/${c.slug}.html">${cardUpdated(`clauses/${c.slug}.html`)}<h3>${esc(c.name)}</h3><p class="small">${esc(c.what.split('. ')[0].replace(/\.$/, ''))}.</p></a>`).join('')}</div>`).join('')}
 
   <h2 style="margin-top:3rem">Which clauses does my document need?</h2>
   <p>A starting point for the most common documents. Every deal is different, so treat this as a checklist, not a rule.</p>
