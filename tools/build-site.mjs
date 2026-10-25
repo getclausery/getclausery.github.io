@@ -216,7 +216,7 @@ for (const p of pages) {
   // "software" rich-result classification and associates keywords (invoice generator, NDA maker, etc.) with the
   // application entity. It also carries isAccessibleForFree=true and operatingSystem=Any, two signals that help
   // "free" / "no download" / "in browser" intent queries.
-  const appNode = { '@context': 'https://schema.org', '@type': ['WebApplication','SoftwareApplication'], '@id': `${SITE}#app`, name: 'Clausery', url: `${SITE}app/`, applicationCategory: 'BusinessApplication', applicationSubCategory: 'Word document generator', operatingSystem: 'Any (web browser)', isAccessibleForFree: true, offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '0', highPrice: String(PRICES.proYearly), offerCount: 3, availability: 'https://schema.org/InStock', url: `${SITE}pricing/` }, publisher: { '@id': `${SITE}#organization` }, creator: { '@id': `${SITE}#organization` }, softwareVersion: '2.18.0', license: `${SITE}legal/license.html`, description: 'Free Word invoice, quote, receipt, contract and NDA generator. Build editable .docx documents in your browser — nothing is uploaded.' };
+  const appNode = { '@context': 'https://schema.org', '@type': ['WebApplication','SoftwareApplication'], '@id': `${SITE}#app`, name: 'Clausery', url: `${SITE}app/`, applicationCategory: 'BusinessApplication', applicationSubCategory: 'Word document generator', operatingSystem: 'Any (web browser)', isAccessibleForFree: true, offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '0', highPrice: String(PRICES.proYearly), offerCount: 3, availability: 'https://schema.org/InStock', url: `${SITE}pricing/` }, publisher: { '@id': `${SITE}#organization` }, creator: { '@id': `${SITE}#organization` }, softwareVersion: '2.19.0', license: `${SITE}legal/license.html`, description: 'Free Word invoice, quote, receipt, contract and NDA generator. Build editable .docx documents in your browser — nothing is uploaded.' };
   // The source code repository (SoftwareSourceCode) gives the software entity a verifiable codebase pointer
   // and ties the Organization sameAs GitHub link into the schema graph. Emitted once per page so references
   // from codeRepository / targetProduct resolve consistently.
@@ -229,11 +229,51 @@ for (const p of pages) {
     mentions: { '@id': `${SITE}#app` },
   })}</script><script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE}#website`, url: SITE, name: 'Clausery', inLanguage: 'en-GB', publisher: { '@id': `${SITE}#organization` }, potentialAction: { '@type': 'SearchAction', target: { '@type': 'EntryPoint', urlTemplate: `${SITE}search/?q={search_term_string}` }, 'query-input': 'required name=search_term_string' } })}</script><script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', '@id': `${SITE}#organization`, name: 'Clausery', url: SITE, logo: { '@id': `${SITE}#logo`, '@type': 'ImageObject', url: `${SITE}assets/icon-512.png`, contentUrl: `${SITE}assets/icon-512.png`, width: 512, height: 512, encodingFormat: 'image/png' }, sameAs: ['https://github.com/getclausery/getclausery.github.io', 'https://github.com/getclausery'], contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', email: 'getclausery@gmail.com', availableLanguage: ['en-GB'] } })}</script><script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'SiteNavigationElement', '@id': `${SITE}#sitenav`, name: 'Main navigation', mainEntityOfPage: { '@id': `${SITE}#website` } })}</script><script type="application/ld+json">${JSON.stringify(editorNode)}</script><script type="application/ld+json">${JSON.stringify(appNode)}</script><script type="application/ld+json">${JSON.stringify(srcNode)}</script>`;
   const body = renderedBody !== null ? renderedBody : p.body(rel);
+  // Inject a 3-question FAQ block + FAQPage JSON-LD on major hub index pages to answer top-of-funnel objections
+  // and unlock FAQ rich-result snippets on hub SERPs.
+  const HUB_FAQS = {
+    'templates/': [
+      ['Are the templates really free?', 'Yes. Every template on this page is free to fill in online and download as an editable Word .docx. No account, no credit card and no watermark on the document. The Free plan lets you make unlimited documents; paid Pro and Team plans add team vaults, branding and saved drafts.'],
+      ['Do I need to sign up or give an email?', 'No. You can open any template, answer the questions and download a finished .docx without creating an account or giving an email address. Nothing you type is uploaded — the document is assembled in your browser.'],
+      ['Can I edit the downloaded Word file?', 'Yes. Downloads are standard .docx files that open in Microsoft Word, Google Docs, LibreOffice, Apple Pages and any other editor that reads Word. You can keep editing after download; the {curly-brace} placeholders become plain text once you download.'],
+    ],
+    'clauses/': [
+      ['Are these clauses legal advice?', 'No. The sample wording and explanations are general drafting information for reference, not legal advice. Contract law differs between countries and states, so have a lawyer review any clause you plan to rely on.'],
+      ['Can I copy the sample wording into my own contract?', 'Yes. Every sample box has a "Copy the clause" button that copies the wording to your clipboard. Adapt the bracketed placeholders and check the wording against your deal and jurisdiction before signing.'],
+      ['Do I need an account to read or copy the clauses?', 'No. All 24 clause explanations, sample wording and "what to negotiate" notes are free to read and copy without signing in or giving an email.'],
+    ],
+    'guides/': [
+      ['Are the guides free to read?', 'Yes. Every guide on this page is free to read, no sign-up or paywall. Each one links to the relevant free Word template so you can put the advice into practice directly.'],
+      ['Do the guides provide legal advice?', 'No. Guides explain how a document is usually structured and what the common options mean; they are drafting information, not legal advice tailored to your situation. Have a lawyer review important contracts.'],
+      ['How often are the guides updated?', 'Guides are reviewed by the Clausery editors (small-business owners, contract drafters and bookkeepers). The "Reviewed by" line at the top of each guide shows the last review date.'],
+    ],
+    'free-tools/': [
+      ['Are the calculators really free?', 'Yes. All nine calculators on this page run entirely in your browser and are free to use with no account, no email and no limit on calculations.'],
+      ['Do I need to download anything?', 'No. Every calculator works in the browser page you are on — enter the numbers and the answer updates live. Nothing you enter is sent to a server.'],
+      ['Can I save or print the result?', 'Yes. The Print/PDF button at the top of each calculator page sends a clean one-page result to your browser print dialog so you can save it as PDF or print it for your records.'],
+    ],
+    'for/': [
+      ['Is Clausery free for my team to try?', 'Yes. The Free plan lets anyone make unlimited Word documents from any template with no account, so your team can try every template before deciding whether Pro or self-hosting fits.'],
+      ['Which templates does my team use most?', 'Each team page lists the templates that team sends most often (e.g. offer letters and NDAs for HR; engagement letters for law firms; invoices and contracts for freelancers) and links to the relevant free templates.'],
+      ['Can we self-host or white-label Clausery?', 'Yes. Clausery is open source under AGPLv3. The Self-host / Enterprise page explains deploying on your own domain, removing the branding and running without any external calls.'],
+    ],
+    'invoice-templates/': [
+      ['Are the invoice templates free?', 'Yes. Every invoice template on this page is free to fill in online and download as an editable .docx, with totals, tax and numbering worked out for you. No account or credit card required.'],
+      ['Do the invoices calculate totals automatically?', 'Yes. When you fill one in online, line totals, subtotal, tax, discount and grand total update as you type, and the next invoice number is suggested. Downloaded Word files keep the figures as plain numbers so you can edit them freely.'],
+      ['Can I add my logo and branding?', 'Yes. The app lets you upload a logo, set your brand colour and save your business details so future invoices pre-fill automatically on your device.'],
+    ],
+  };
+  const hubFaq = HUB_FAQS[p.path];
+  let finalBody = body;
+  if (hubFaq) {
+    const faqHtml = `<div class="faq" style="margin-top:2.5rem"><h2 style="font-size:1.15rem">Common questions</h2>${hubFaq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>`;
+    p.extraHead = (p.extraHead || '') + faqLd(hubFaq);
+    finalBody = body.replace(/(<\/div><\/section>)\s*$/, faqHtml + '$1');
+  }
   // Inject a cross-type "Related reading" block on long-form pages, just before the helpful widget (or the final
   // </div></section> if there is no widget). This tightens internal-link clusters between templates ↔ clauses ↔
   // guides ↔ free tools ↔ comparisons without changing any page's editorial wording.
   const related = relatedFor(p, 6);
-  let finalBody = body;
   if (related.length) {
     const kindLabel = { template: 'Templates', clause: 'Clause library', guide: 'Guides', tool: 'Free tools', compare: 'Comparisons', hub: 'Pages' };
     const grouped = {};

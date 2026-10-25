@@ -96,24 +96,26 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-19-0">2.19.0 <span class="small muted">— 25 October 2026</span></h2>
+<ul><li><strong>FAQ rich results on major hub pages.</strong> Templates, Invoice templates, Clauses, Guides, Free tools and "Who it's for" hubs now carry a 3-question on-page FAQ (pricing, sign-up, editability) plus <code>FAQPage</code> JSON-LD, unlocking FAQ rich-result snippets on hub SERPs.</li></ul>
 <h2 id="v2-18-0">2.18.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>Home trust strip + TOC on comparison pages.</strong> Hero shows a four-pill trust grid (260+ free templates · No signup · Nothing uploaded · Open source) above the CTA. All 21 "Clausery vs …" comparison pages now get the same server-rendered "On this page" TOC and <code>TableOfContents</code> JSON-LD as guides/clauses/templates, unlocking Google's mobile "Jump to" strip on comparison SERPs.</li></ul>
+<ul><li><strong>Home trust strip + TOC on comparison pages.</strong> Hero shows a four-pill trust grid (260+ templates · No signup · Nothing uploaded · Open source) above the CTA. All 21 "Clausery vs …" pages get the server-rendered TOC and <code>TableOfContents</code> JSON-LD, unlocking Google's mobile "Jump to" strip.</li></ul>
 <h2 id="v2-17-0">2.17.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>Reading time on every long-form page.</strong> Byline ends with "· N min read" computed at build (~220 wpm; tooltip shows word count).</li></ul>
+<ul><li><strong>Reading time on every long-form page.</strong> Byline ends with "· N min read" from build-time word count (~220 wpm).</li></ul>
 <h2 id="v2-16-0">2.16.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Share button on every long-form page.</strong> "Share" sits top-right next to Print/PDF; opens the native share sheet on supporting browsers, copies the URL otherwise.</li></ul>
 <h2 id="v2-15-0">2.15.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Deep-link anchors on every section heading.</strong> <code>&lt;h2&gt;</code>/<code>&lt;h3&gt;</code> with an id show a <code>#</code> link on hover for copyable deep links; <code>site.js</code> minified to stay under 18 KB.</li></ul>
 <h2 id="v2-14-0">2.14.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>"Copy the whole template" on every template page.</strong> One-click copy above the full-text preview puts the complete wording on the clipboard alongside Download Word, so users pasting into email/another doc skip drag-select.</li></ul>
+<ul><li><strong>"Copy the whole template" on every template page.</strong> One-click copy above the full-text preview; works alongside Download Word so users pasting elsewhere skip drag-select.</li></ul>
 <h2 id="v2-13-0">2.13.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>Organization logo @id + sameAs.</strong> Global logo is a <code>#logo</code> ImageObject (icon-512.png, 512×512) for knowledge-panel eligibility; GitHub org added to <code>sameAs</code>.</li></ul>
+<ul><li><strong>Organization logo @id + sameAs.</strong> Global logo is a <code>#logo</code> ImageObject for knowledge-panel eligibility; GitHub org added to <code>sameAs</code>.</li></ul>
 <h2 id="v2-12-0">2.12.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>Sitelinks Searchbox + DigitalDocument dates.</strong> Global <code>WebSite</code> exposes <code>SearchAction</code> for <code>/search/?q={search_term_string}</code>; every template <code>DigitalDocument</code> carries real <code>datePublished</code> + <code>dateModified</code>.</li></ul>
+<ul><li><strong>Sitelinks Searchbox + DigitalDocument dates.</strong> Global <code>WebSite</code> exposes <code>SearchAction</code>; every template <code>DigitalDocument</code> carries real <code>datePublished</code> + <code>dateModified</code>.</li></ul>
 <h2 id="v2-11-0">2.11.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Print / PDF on clauses and long-form pages.</strong> Top-right button on every clause/template/guide/comparison opens print dialog with the v2.9 stylesheet; button is hidden from print output.</li></ul>
 <h2 id="v2-10-0">2.10.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>AggregateOffer in global software schema.</strong> Global WebApplication carries AggregateOffer (USD 0–annual Pro, 3 offers) pointing at /pricing/ so Google sees the price range, not a single $0 offer.</li></ul>
+<ul><li><strong>AggregateOffer in global schema.</strong> Global WebApplication carries AggregateOffer (USD 0–annual Pro, 3 offers) pointing at /pricing/ so Google sees the full price range.</li></ul>
 <h2 id="v2-9-0">2.9.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Comprehensive print stylesheet.</strong> Full <code>@media print</code> block: chrome hidden; black-on-white 11pt; 1.4 cm margins; h2/h3 avoid breaks after; clause boxes/details/cards avoid page breaks; external links render URLs after anchor for usable PDFs.</li></ul>
 <h2 id="v2-8-0">2.8.0 <span class="small muted">— 25 October 2026</span></h2>
@@ -133,17 +135,17 @@ export const pages = [
 <h2 id="v2-1-0">2.1.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Related reading clusters.</strong> Server-rendered block at the foot of each page mixes matching cross-section pages scored on shared keywords (+28% internal links).</li></ul>
 <h2 id="v2-0-4">2.0.4 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li>&lt;time datetime&gt; stamps on every changelog heading carry ISO <code>YYYY-MM-DD</code> dates matching visible bylines.</li></ul>
+<ul><li>&lt;time datetime&gt; stamps on every changelog heading carry ISO dates matching visible bylines.</li></ul>
 <h2 id="v2-0-3">2.0.3 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>E-E-A-T entity linking.</strong> Article schema adds <code>about</code> topics from h2 sections, an <code>image</code> ImageObject on share-card pages, <code>thumbnailUrl</code> and <code>reviewedBy</code>. FAQPage blocks get a stable <code>@id</code> so generic FAQs don't merge.</li></ul>
 <h2 id="v2-0-2">2.0.2 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li>Smart 404 suggestions: the not-found page tokenises the missing URL (and any <code>#fragment</code>), scores every indexable page on word overlap/slug matches, and surfaces up to six "Were you looking for…?" links so stale bookmarks recover in one click.</li></ul>
+<ul><li>Smart 404 suggestions: not-found page tokenises the URL and surfaces up to six "Were you looking for…?" matches so stale bookmarks recover in one click.</li></ul>
 <h2 id="v2-0-1">2.0.1 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li>Article schema (headline, datePublished, lastReviewed, author, publisher) on every long-form page — all 24 clauses and 87 templates carry a connected Article→WebPage→Organization graph.</li></ul>
 <h2 id="v2-0-0">2.0.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>SEO &amp; E-E-A-T milestone.</strong> v2.0 ships the structured-data / rich-result / content-quality pass: visible BreadcrumbList microdata on every nav, shared WebSite+Organization graph on every page, rel=prev/next chaining, hreflang, FAQPage on every long-form page, visible "Reviewed by / Updated" bylines, primaryImageOfPage share cards, lastReviewed/reviewedBy on WebPage/ItemPage, and server-rendered TOCs with h2 anchor ids. All 261 indexable pages carry a connected schema graph, freshness byline and share card.</li></ul>
 <h2 id="v1-99-0">1.99.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>"On this page" TOC + h2 anchors on clauses/templates.</strong> Clause/template pages have stable <code>&lt;h2&gt;</code> ids and a server-rendered TOC above the fold, matching guides.</li></ul>
+<ul><li><strong>"On this page" TOC + h2 anchors on clauses/templates.</strong> Clause/template pages have stable <code>&lt;h2&gt;</code> ids and a TOC above the fold.</li></ul>
 <h2 id="v1-98-0">1.98.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Author link + richer shared Organization node.</strong> Every page now carries <code>&lt;link rel="author" href="/about/"&gt;</code> and a <code>&lt;meta name="author" content="Clausery"&gt;</code>. The Organization schema emitted on every page now includes contactPoint (email), sameAs (GitHub repo) and full logo, matching the homepage Organization node.</li></ul>
 <h2 id="v1-97-0">1.97.0 <span class="small muted">— 25 October 2026</span></h2>
