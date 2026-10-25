@@ -96,6 +96,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-88-0">1.88.0 <span class="small muted">— 25 October 2026</span></h2>
+<ul>
+  <li><strong>Visible BreadcrumbList microdata on every page.</strong> All breadcrumb trails now carry RDFa microdata (<code>itemscope</code>/<code>itemprop=itemListElement</code>/<code>position</code>) matching the existing <code>BreadcrumbList</code> JSON-LD, so visible DOM and schema agree and Google can render breadcrumb paths in SERP snippets without relying solely on JSON-LD inference.</li>
+</ul>
 <h2 id="v1-87-0">1.87.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li><strong>Tighter template graph.</strong> Template <code>ItemPage</code> nodes now point at their <code>DigitalDocument</code> via <code>mainEntityOfPage</code> <code>@id</code> reference, and DigitalDocument carries <code>headline</code> + concise <code>keywords</code> for topicality. Guide Article <code>#article</code> @ids are referenced from template <code>isRelatedTo</code>, completing the template ↔ guide cross-link in the graph.</li>
@@ -404,11 +408,7 @@ export const pages = [
   <li>Links inside a document preview open in a new tab, so a click never leaves the draft.</li>
 </ul>
 <h2 id="v1-33-0">1.33.0 <span class="small muted">— 9 October 2026</span></h2>
-<ul><li>A free <a href="${rel}guides/invoice-email-template.html">invoice email generator and four message templates</a> for sending an invoice, reminding a client, following up on overdue payment and acknowledging money received. Details stay on your device; copy the message into your own email app.</li></ul>
-<h2 id="v1-32-1">1.32.1 <span class="small muted">— 9 October 2026</span></h2>
-<ul>
-  <li>The automatic activation page accepts the return-link format supported by Lemon Squeezy's confirmation and receipt buttons. Access links are cleared from the address before activation and are not sent as referrers.</li>
-</ul>
+<ul><li>Free <a href="${rel}guides/invoice-email-template.html">invoice email templates</a> (send, remind, overdue, thanks); activation page accepts Lemon Squeezy return-link format and clears access links from the address bar.</li></ul>
 <h2 id="v1-32-0">1.32.0 <span class="small muted">— 9 October 2026</span></h2>
 <ul>
   <li>Choose a plan, pay, then select Open Clausery after payment or in your receipt. Your plan activates automatically and opens the app, with no separate account or key to copy.</li>
