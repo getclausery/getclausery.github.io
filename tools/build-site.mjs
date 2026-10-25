@@ -146,9 +146,13 @@ for (const p of pages) {
       return `<h2${attrs} id="${unique}">${inner}</h2>`;
     });
     if (headings.length >= 3) {
-      const tocHtml = `<nav class="guide-toc" aria-label="On this page"><h4>On this page</h4><ol>${headings.map((h) => `<li><a href="#${h.id}">${h.text}</a></li>`).join('')}</ol></nav>`;
+      const tocItems = headings.map((h, idx) => `<li><a href="#${h.id}">${h.text}</a></li>`);
+      const tocHtml = `<nav class="guide-toc" aria-label="On this page"><h4>On this page</h4><ol>${tocItems.join('')}</ol></nav>`;
       const firstH2 = renderedBody.match(/<h2[^>]* id="[^"]+">/);
       if (firstH2) renderedBody = renderedBody.slice(0, firstH2.index) + tocHtml + renderedBody.slice(firstH2.index);
+      // TableOfContents JSON-LD unlocks "Jump to" section links in mobile SERPs for pages with a visible TOC.
+      const tocLd = { '@context': 'https://schema.org', '@type': 'TableOfContents', '@id': `${SITE}${p.path}#toc`, url: `${SITE}${p.path}#toc`, name: 'On this page', mainEntityOfPage: { '@id': `${SITE}${p.path}#webpage` }, about: { '@id': `${SITE}${p.path}#article` }, itemListElement: headings.map((h, idx) => ({ '@type': 'ListItem', position: idx + 1, name: h.text, url: `${SITE}${p.path}#${h.id}` })) };
+      p.extraHead = (p.extraHead || '') + `<script type="application/ld+json">${JSON.stringify(tocLd)}</script>`;
     }
     // Article schema on any long-form page with a published date (guides, clauses, templates and the deep-dive hubs).
     if (p.published) {
@@ -207,12 +211,23 @@ for (const p of pages) {
     });
   }
   const editorNode = { '@context': 'https://schema.org', '@type': 'Person', '@id': `${SITE}about/#editors`, name: 'Clausery editors', url: `${SITE}about/#editors`, description: 'The editorial team that writes and reviews every guide, clause explanation, template default and calculator on Clausery — practising small-business owners, freelance contract drafters and bookkeepers who use the tool themselves.', worksFor: { '@id': `${SITE}#organization` }, knowsAbout: ['Small-business invoicing','Freelance contracts','UK VAT invoices','Australian GST tax invoices','South African tax invoices','Canadian GST/HST','New Zealand GST','Word document automation','Contract clauses','Bookkeeping for freelancers'], sameAs: ['https://github.com/getclausery/getclausery.github.io/graphs/contributors'] };
+  // The Clausery product is a WebApplication / SoftwareApplication that generates Word .docx documents in the browser.
+  // Emitting this once on every page lets Google connect the pages to the software product, which can trigger
+  // "software" rich-result classification and associates keywords (invoice generator, NDA maker, etc.) with the
+  // application entity. It also carries isAccessibleForFree=true and operatingSystem=Any, two signals that help
+  // "free" / "no download" / "in browser" intent queries.
+  const appNode = { '@context': 'https://schema.org', '@type': ['WebApplication','SoftwareApplication'], '@id': `${SITE}#app`, name: 'Clausery', url: `${SITE}app/`, applicationCategory: 'BusinessApplication', applicationSubCategory: 'Word document generator', operatingSystem: 'Any (web browser)', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock' }, publisher: { '@id': `${SITE}#organization` }, creator: { '@id': `${SITE}#organization` }, softwareVersion: '2.5.0', license: `${SITE}legal/license.html`, description: 'Free Word invoice, quote, receipt, contract and NDA generator. Build editable .docx documents in your browser — nothing is uploaded.' };
+  // The source code repository (SoftwareSourceCode) gives the software entity a verifiable codebase pointer
+  // and ties the Organization sameAs GitHub link into the schema graph. Emitted once per page so references
+  // from codeRepository / targetProduct resolve consistently.
+  const srcNode = { '@context': 'https://schema.org', '@type': 'SoftwareSourceCode', '@id': `${SITE}#source`, name: 'Clausery source', codeRepository: 'https://github.com/getclausery/getclausery.github.io', programmingLanguage: 'JavaScript', license: `${SITE}legal/license.html`, isAccessibleForFree: true, provider: { '@id': `${SITE}#organization` }, targetProduct: { '@id': `${SITE}#app` } };
   const pageLd = skipPageLd ? '' : `<script type="application/ld+json">${JSON.stringify({
     '@context': 'https://schema.org', '@type': /^templates\/[^/]+\.html$/.test(p.path) ? 'ItemPage' : 'WebPage', '@id': `${SITE}${p.path}#webpage`, url: `${SITE}${p.path}`,
     name: SEO_TITLES[p.path] || p.title, description: p.description, inLanguage: 'en-GB', isPartOf: { '@id': `${SITE}#website` }, publisher: { '@id': `${SITE}#organization` },
     ...(p.published ? { datePublished: p.published } : {}), ...(modified ? { dateModified: modified, lastReviewed: modified, reviewedBy: { '@id': `${SITE}about/#editors` } } : {}),
     ...(p.ogImage && p.ogImage !== 'assets/og.png' ? { primaryImageOfPage: { '@type': 'ImageObject', url: `${SITE}${p.ogImage}`, width: 1200, height: 630 } } : {}),
-  })}</script><script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE}#website`, url: SITE, name: 'Clausery', inLanguage: 'en-GB', publisher: { '@id': `${SITE}#organization` } })}</script><script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', '@id': `${SITE}#organization`, name: 'Clausery', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}assets/icon-512.png`, width: 512, height: 512 }, sameAs: ['https://github.com/getclausery/getclausery.github.io'], contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', email: 'getclausery@gmail.com', availableLanguage: ['en-GB'] } })}</script><script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'SiteNavigationElement', '@id': `${SITE}#sitenav`, name: 'Main navigation', mainEntityOfPage: { '@id': `${SITE}#website` } })}</script><script type="application/ld+json">${JSON.stringify(editorNode)}</script>`;
+    mentions: { '@id': `${SITE}#app` },
+  })}</script><script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE}#website`, url: SITE, name: 'Clausery', inLanguage: 'en-GB', publisher: { '@id': `${SITE}#organization` } })}</script><script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', '@id': `${SITE}#organization`, name: 'Clausery', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}assets/icon-512.png`, width: 512, height: 512 }, sameAs: ['https://github.com/getclausery/getclausery.github.io'], contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', email: 'getclausery@gmail.com', availableLanguage: ['en-GB'] } })}</script><script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'SiteNavigationElement', '@id': `${SITE}#sitenav`, name: 'Main navigation', mainEntityOfPage: { '@id': `${SITE}#website` } })}</script><script type="application/ld+json">${JSON.stringify(editorNode)}</script><script type="application/ld+json">${JSON.stringify(appNode)}</script><script type="application/ld+json">${JSON.stringify(srcNode)}</script>`;
   const body = renderedBody !== null ? renderedBody : p.body(rel);
   // Inject a cross-type "Related reading" block on long-form pages, just before the helpful widget (or the final
   // </div></section> if there is no widget). This tightens internal-link clusters between templates ↔ clauses ↔
