@@ -270,14 +270,15 @@ export function header(rel, path, crumbItems = []) {
     </button>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">${ico(I.menu)} Menu</button>
     <div class="nav-backdrop" id="nav-backdrop"></div>
-    <nav class="site-nav" id="site-nav" aria-label="Site">
-      <a href="${rel}app/#/start/invoice" class="nav-mobile-head">+ Start an invoice</a>
-      <a href="${rel}templates/"${cur('templates/')}>Templates</a>
-      <a href="${rel}invoice-templates/"${cur('invoice-templates/')}>Invoices</a>
-      <a href="${rel}guides/"${cur('guides/')}>Guides</a>
-      <a href="${rel}pricing/"${cur('pricing/')}>Pricing</a>
-      <a href="${rel}docs/"${cur('docs/')}>Docs</a>
-      <a class="btn btn-primary btn-sm" href="${rel}app/#/start/invoice">Make an invoice <span class="arr">→</span></a>
+    <nav class="site-nav" id="site-nav" aria-label="Site" itemscope itemtype="https://schema.org/SiteNavigationElement">
+      <meta itemprop="name" content="Main navigation">
+      <a href="${rel}app/#/start/invoice" class="nav-mobile-head" itemprop="url"><span itemprop="name">+ Start an invoice</span></a>
+      <a href="${rel}templates/"${cur('templates/')} itemprop="url"><span itemprop="name">Templates</span></a>
+      <a href="${rel}invoice-templates/"${cur('invoice-templates/')} itemprop="url"><span itemprop="name">Invoices</span></a>
+      <a href="${rel}guides/"${cur('guides/')} itemprop="url"><span itemprop="name">Guides</span></a>
+      <a href="${rel}pricing/"${cur('pricing/')} itemprop="url"><span itemprop="name">Pricing</span></a>
+      <a href="${rel}docs/"${cur('docs/')} itemprop="url"><span itemprop="name">Docs</span></a>
+      <a class="btn btn-primary btn-sm" href="${rel}app/#/start/invoice" itemprop="url"><span itemprop="name">Make an invoice →</span></a>
     </nav>
   </div>
 </header>
