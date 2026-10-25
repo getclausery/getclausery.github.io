@@ -317,6 +317,11 @@ for (const p of pages) {
       final = final.replace(/(<h1[^>]*>[\s\S]*?<\/h1>)/, `$1\n${byline}`);
     }
   }
+  // Print / PDF button on every long-form page. Styles live in site.css (.page-print-btn).
+  if (!p.noindex && p.layout !== 'embed' && !p.path.endsWith('.pdf') && /<h1[^>]*>/.test(final) && !p.path.startsWith('app/')) {
+    const printBtn = `<button type="button" class="page-print-btn" onclick="window.print()" title="Print or save as PDF" aria-label="Print">Print/PDF</button>`;
+    final = final.replace(/(<h1[^>]*>[\s\S]*?<\/h1>)/, `$1${printBtn}`);
+  }
   // Add BreadcrumbList microdata to inline hand-written breadcrumb navs (visible DOM parity with crumbsLd JSON-LD).
   final = final.replace(/<nav([^>]*)aria-label="Breadcrumb"([^>]*)>([\s\S]*?)<\/nav>/g, (m, pre, post, inner) => {
     if (/itemscope/.test(inner)) return m; // already has microdata (from crumbsHtml helper)
