@@ -1,11 +1,15 @@
 // Comparisons should help someone choose a workflow, not just repeat the same alternative-to-X sales pitch.
 // Clausery prices/features come from product configuration. Vendor prices and plan limits are deliberately linked
 // to official sites instead of reproducing an unverified or stale third-party pricing snapshot.
-import { esc, faqLd, faqHtml, collectionLd } from '../tools/partials.mjs';
+import { readFileSync } from 'node:fs';
+import { esc, faqLd, faqHtml, collectionLd, longDate } from '../tools/partials.mjs';
 import { LIB } from './library.mjs';
 import { PRICES, TRIAL_DAYS } from '../app/config.js';
 import { PLANS } from '../app/lib/license.js';
 import { COMPARISON_WORKFLOWS } from './data/comparison-workflows.mjs';
+const DATES = JSON.parse(readFileSync(new URL('./data/page-dates.json', import.meta.url), 'utf8'));
+const shortMonth = (iso) => { const d = new Date(iso + 'T00:00:00Z'); return d.toLocaleDateString('en-GB', { month:'short', year:'numeric', timeZone:'UTC' }); };
+const cardUpdated = (path) => { const d = DATES[path]; if (!d) return ''; return `<span class="card-updated" title="Last updated ${longDate(d.date)}">Updated ${shortMonth(d.date)}</span>`; };
 
 const OUR_PRICE = `Free library templates, plus ${PLANS.free.maxTemplates} of your own; Pro $${PRICES.pro} per user per month`;
 const ROWS = ['Where documents are assembled', 'Account needed', 'Works offline', 'Uses your own Word templates', 'Conditional clauses and repeating lists', 'Calculations', 'Client questionnaires', 'Practice-management connection', 'Pricing and plan checks'];

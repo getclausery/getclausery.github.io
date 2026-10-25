@@ -1,5 +1,9 @@
 // Pages for each buyer, and how-to guides that answer the searches those buyers make.
-import { esc, faqLd, faqHtml, crumbsLd, collectionLd, helpfulWidget, lowerFirst, LASTMOD, LASTMOD_LONG } from '../tools/partials.mjs';
+import { readFileSync } from 'node:fs';
+import { esc, faqLd, faqHtml, crumbsLd, collectionLd, helpfulWidget, lowerFirst, LASTMOD, LASTMOD_LONG, longDate } from '../tools/partials.mjs';
+const DATES = JSON.parse(readFileSync(new URL('./data/page-dates.json', import.meta.url), 'utf8'));
+const shortMonth = (iso) => { const d = new Date(iso + 'T00:00:00Z'); return d.toLocaleDateString('en-GB', { month:'short', year:'numeric', timeZone:'UTC' }); };
+const cardUpdated = (path) => { const d = DATES[path]; if (!d) return ''; return `<span class="card-updated" title="Last updated ${longDate(d.date)}">Updated ${shortMonth(d.date)}</span>`; };
 import { HIGH_INTENT_GUIDES } from './data/high-intent-guides.mjs';
 import { SERVICE_GUIDES } from './data/service-guides.mjs';
 import { PRICES } from '../app/config.js';
@@ -2074,7 +2078,6 @@ const GUIDE_BY = Object.fromEntries(GUIDES.map((g) => [g.slug, g]));
 const topicOf = (slug) => GUIDE_TOPICS.find(([, slugs]) => slugs.includes(slug));
 const published = (g) => g.published || '2026-09-26';
 const topicId = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-const longDate = (d) => new Date(d + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 
 export const pages = [
   { path: 'for/', title: 'Who Clausery is for: teams that draft the same documents', description: 'Which teams use Clausery for invoices, contracts and HR letters, what each gets from a guided questionnaire, and how to choose the right template.',
@@ -2084,7 +2087,7 @@ export const pages = [
   <h1 style="margin-top:1rem">Who Clausery is for</h1>
   <p class="lead">Clausery suits anyone who sends the same kinds of documents again and again: invoices, contracts, HR letters and landlord forms. Each audience page shows the templates that team uses, the questions that change, and the guides that explain the wording.</p>
   <div class="grid grid-2" style="margin-top:2rem">
-    ${AUD.map((a) => `<a class="feature" style="text-decoration:none;color:inherit" href="${rel}for/${a.slug}.html"><h2 style="font-size:1.2rem">${esc(a.name)}</h2><p>${esc(a.intro.split('. ').slice(0, 2).join('. '))}.</p><p class="small muted">${a.templates.length} templates · ${a.related.length} related guides</p></a>`).join('\n    ')}
+    ${AUD.map((a) => `<a class="feature" href="${rel}for/${a.slug}.html">${cardUpdated(`for/${a.slug}.html`)}<h2 style="font-size:1.2rem">${esc(a.name)}</h2><p>${esc(a.intro.split('. ').slice(0, 2).join('. '))}.</p><p class="small muted">${a.templates.length} templates · ${a.related.length} related guides</p></a>`).join('\n    ')}
   </div>
   <h2 style="margin-top:2.5rem">What every team gets</h2>
   <ul>

@@ -2,12 +2,16 @@
 // it does something the generic invoice page does not: the app opens the invoice with that trade's usual lines already
 // in (#/start/invoice/<trade>), and the page explains what that trade in particular should put on an invoice, which
 // contract to sign before the work, and how that trade usually gets paid. Example prices are labelled as examples.
-import { esc, faqLd, collectionLd, LASTMOD, LASTMOD_LONG } from '../tools/partials.mjs';
+import { readFileSync } from 'node:fs';
+import { esc, faqLd, collectionLd, LASTMOD, LASTMOD_LONG, longDate } from '../tools/partials.mjs';
 import { PRESETS } from '../app/lib/presets.js';
 import { LIB } from './library.mjs';
 import { GUIDES } from './audience.mjs';
 import { TOOLS } from './free-tools.mjs';
 import { COUNTRIES } from './countries.mjs';
+const DATES = JSON.parse(readFileSync(new URL('./data/page-dates.json', import.meta.url), 'utf8'));
+const shortMonth = (iso) => { const d = new Date(iso + 'T00:00:00Z'); return d.toLocaleDateString('en-GB', { month:'short', year:'numeric', timeZone:'UTC' }); };
+const cardUpdated = (path) => { const d = DATES[path]; if (!d) return ''; return `<span class="card-updated" title="Last updated ${longDate(d.date)}">Updated ${shortMonth(d.date)}</span>`; };
 import { WORKFLOWS } from './invoice-workflows.mjs';
 
 const T = (slug, o) => ({ slug, preset: PRESETS.invoice[slug], ...o });
@@ -176,14 +180,14 @@ export const pages = [
   <p class="lead">Pick your trade and the invoice opens with the lines that trade usually bills, ready for your prices. Pick your country and it opens with the right tax, rate and tax number. Totals and tax are worked out for you, your next invoice remembers your details and number, and you download an editable Word file. Free, no sign-up, nothing uploaded.</p>
   <h2 style="margin-top:2rem">By billing task</h2>
   <p>Request an upfront deposit, bill hours, or reconcile the final balance. Each page has a worked example and an app starter for that task.</p>
-  <div class="grid grid-3" style="margin-top:1rem">${WORKFLOWS.map((w) => `<a class="feature" href="${rel}invoice-templates/${w.slug}.html"><h3>${esc(w.name)}</h3><p>${esc(w.description)}</p></a>`).join('')}</div>
+  <div class="grid grid-3 hub-cards" style="margin-top:1rem">${WORKFLOWS.map((w) => `<a class="feature" href="${rel}invoice-templates/${w.slug}.html">${cardUpdated(`invoice-templates/${w.slug}.html`)}<h3>${esc(w.name)}</h3><p>${esc(w.description)}</p></a>`).join('')}</div>
   <h2 style="margin-top:2rem">By trade</h2>
-  <div class="grid grid-3" style="margin-top:1.5rem">
-    ${TRADES.map((t) => `<a class="feature" style="text-decoration:none;color:inherit" href="${rel}invoice-templates/${t.slug}.html"><h3>${esc(t.title.replace(/ \(free, Word\)| template \(Word\)/, '').replace(/ template$/, ''))}</h3><p>${esc(t.preset.lines.slice(0, 3).map(([d]) => d.replace(/ \(.*\)$/, '')).join(', '))}</p></a>`).join('\n    ')}
+  <div class="grid grid-3 hub-cards" style="margin-top:1.5rem">
+    ${TRADES.map((t) => `<a class="feature" href="${rel}invoice-templates/${t.slug}.html">${cardUpdated(`invoice-templates/${t.slug}.html`)}<h3>${esc(t.title.replace(/ \(free, Word\)| template \(Word\)/, '').replace(/ template$/, ''))}</h3><p>${esc(t.preset.lines.slice(0, 3).map(([d]) => d.replace(/ \(.*\)$/, '')).join(', '))}</p></a>`).join('\n    ')}
   </div>
   <h2 style="margin-top:2.5rem">By country: VAT, GST and HST</h2>
-  <div class="grid grid-3" style="margin-top:1rem">
-    ${COUNTRIES.map((c) => `<a class="feature" style="text-decoration:none;color:inherit" href="${rel}invoice-templates/${c.slug}.html"><h3>${esc(c.h1.replace(/ template( for)?/, ''))}</h3><p>${esc(c.preset.answers.tax_name)} at ${c.preset.answers.tax_rate}%, your ${esc(c.preset.answers.tax_registration_label)}, amounts in ${esc(c.preset.currency)}</p></a>`).join('\n    ')}
+  <div class="grid grid-3 hub-cards" style="margin-top:1rem">
+    ${COUNTRIES.map((c) => `<a class="feature" href="${rel}invoice-templates/${c.slug}.html">${cardUpdated(`invoice-templates/${c.slug}.html`)}<h3>${esc(c.h1.replace(/ template( for)?/, ''))}</h3><p>${esc(c.preset.answers.tax_name)} at ${c.preset.answers.tax_rate}%, your ${esc(c.preset.answers.tax_registration_label)}, amounts in ${esc(c.preset.currency)}</p></a>`).join('\n    ')}
   </div>
   <h2 style="margin-top:2.5rem">Not listed?</h2>
   <p>Start from the general <a href="${rel}templates/invoice.html">invoice template</a> and add your own lines. For quotes before the work, use the <a href="${rel}templates/quote.html">price quote template</a>; for a supplier order, the <a href="${rel}templates/purchase-order.html">purchase order</a>; for a refund or correction, the <a href="${rel}templates/credit-note.html">credit note</a>; for payments received, the <a href="${rel}templates/payment-receipt.html">payment receipt</a>; and for rent, the <a href="${rel}templates/rent-receipt.html">rent receipt</a>.</p>
