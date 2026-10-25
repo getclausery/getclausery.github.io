@@ -96,6 +96,8 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-93-0">1.93.0 <span class="small muted">— 25 October 2026</span></h2>
+<ul><li><strong>Visible "Reviewed / Updated" byline on clause pages.</strong> Every clause page now shows a visible "Reviewed by Clausery editors · Updated …" line with a <code>&lt;time datetime&gt;</code> matching the JSON-LD last-modified date, giving users and crawlers an explicit freshness signal that already existed on guides.</li></ul>
 <h2 id="v1-92-0">1.92.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>FAQPage on every long-form page.</strong> All 67 guides, 24 clauses and 87 templates now carry a visible "Common questions" section and matching FAQPage JSON-LD (where an author-written FAQ didn't already exist), unlocking FAQ rich-result eligibility. Broadened HowTo detection so more step-by-step guides emit HowTo schema.</li></ul>
 <h2 id="v1-91-0">1.91.0 <span class="small muted">— 25 October 2026</span></h2>
@@ -405,12 +407,7 @@ export const pages = [
   <li>About, pricing and home page copy now lead with small business document workflows. The directory link points to the verified Clausery listing on Fazier.</li>
 </ul>
 <h2>1.27.0 <span class="small muted">— 8 October 2026</span></h2>
-<ul>
-  <li>New billing workflows: <a href="${rel}invoice-templates/deposit-invoice.html">deposit invoices</a>, <a href="${rel}invoice-templates/hourly-invoice.html">hourly invoices</a> and <a href="${rel}invoice-templates/final-invoice.html">final invoices</a>. Each has its own app starter, worked example and checklist.</li>
-  <li>The deposit invoice page calculates an agreed percentage and remaining balance on your device.</li>
-  <li>The Word invoice page explains how to prepare an invoice, what the online and Word downloads do, and how to keep amounts correct after editing.</li>
-  <li>Invoice pages are easier to find from the main navigation, template library and related documents.</li>
-</ul>
+<ul><li>New <a href="${rel}invoice-templates/deposit-invoice.html">deposit</a>, <a href="${rel}invoice-templates/hourly-invoice.html">hourly</a> and <a href="${rel}invoice-templates/final-invoice.html">final invoice</a> workflows with app starters, worked examples and checklists; deposit page calculates percentage and balance on-device.</li></ul>
 <h2>1.26.0 <span class="small muted">— 8 October 2026</span></h2>
 <ul>
   <li>Invoice templates by country: <a href="${rel}invoice-templates/uk-vat-invoice.html">UK VAT</a>, <a href="${rel}invoice-templates/ireland-vat-invoice.html">Ireland VAT</a>, <a href="${rel}invoice-templates/australia-tax-invoice.html">Australia GST</a>, <a href="${rel}invoice-templates/new-zealand-gst-invoice.html">New Zealand GST</a>, <a href="${rel}invoice-templates/canada-gst-hst-invoice.html">Canada GST/HST</a> and <a href="${rel}invoice-templates/south-africa-tax-invoice.html">South Africa VAT</a>. Each opens an invoice with that country's tax, standard rate, tax number and currency set up, and lists what the tax authority says an invoice must show.</li>
