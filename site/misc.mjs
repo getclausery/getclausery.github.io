@@ -96,6 +96,8 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-96-0">1.96.0 <span class="small muted">— 25 October 2026</span></h2>
+<ul><li><strong>primaryImageOfPage on every page with a custom share card.</strong> Pages with a dedicated 1200×630 OG image (all 87 templates + country invoice pages) now emit <code>primaryImageOfPage</code> ImageObject on their WebPage/ItemPage schema, up from templates-only. That completes image-signal parity for all high-intent landing pages.</li></ul>
 <h2 id="v1-95-0">1.95.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Auto-generated meta keywords on every page.</strong> Every indexable page now emits a <code>&lt;meta name="keywords"&gt;</code> built from the cleaned page title and hub segment (template, guide, clause, alternative, calculator…), reinforcing topical relevance signals without duplicating description or title.</li></ul>
 <h2 id="v1-94-0">1.94.0 <span class="small muted">— 25 October 2026</span></h2>
@@ -405,11 +407,7 @@ export const pages = [
   <li>Print / Save as PDF waits for the document preview, fonts and images to finish preparing. A failed preview no longer opens the print dialog or records a print action.</li>
 </ul>
 <h2 id="v1-28-0">1.28.0 <span class="small muted">— 8 October 2026</span></h2>
-<ul>
-  <li>A <a href="${rel}business-document-kit/">free small business Word document kit</a>: quote, statement of work, invoice, receipt, purchase order and credit note in one download, with instructions for editing the templates or filling them in online.</li>
-  <li>The <a href="${rel}press/">press kit</a> includes seven downloadable graphics for invoices, quotes, receipts and the business kit, with matching resource links.</li>
-  <li>About, pricing and home page copy now lead with small business document workflows. The directory link points to the verified Clausery listing on Fazier.</li>
-</ul>
+<ul><li><a href="${rel}business-document-kit/">Free small-business document kit</a> (quote, SOW, invoice, receipt, PO, credit note in one download) and <a href="${rel}press/">press kit</a> with seven graphics; home/pricing/about copy reframed around small-business document workflows.</li></ul>
 <h2>1.27.0 <span class="small muted">— 8 October 2026</span></h2>
 <ul><li>New <a href="${rel}invoice-templates/deposit-invoice.html">deposit</a>, <a href="${rel}invoice-templates/hourly-invoice.html">hourly</a> and <a href="${rel}invoice-templates/final-invoice.html">final invoice</a> workflows with app starters, worked examples and checklists; deposit page calculates percentage and balance on-device.</li></ul>
 <h2>1.26.0 <span class="small muted">— 8 October 2026</span></h2>
