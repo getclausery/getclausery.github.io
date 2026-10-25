@@ -2,7 +2,7 @@
 /* human-to-human credits file: https://humanstxt.org/ */
 
 /* TEAM */
-Founder, design & code: Clausery (independent open-source project, getclausery.github.io)
+Founder, design & code: Clausery (independent open-source business, getclausery.github.io)
 Contact: getclausery@gmail.com
 Twitter: @getclausery
 GitHub:  https://github.com/getclausery
