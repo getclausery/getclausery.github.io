@@ -137,8 +137,26 @@ for (const p of pages) {
     ...(/^templates\/[^/]+\.html$/.test(p.path) && p.ogImage ? { primaryImageOfPage: { '@type': 'ImageObject', url: `${SITE}${p.ogImage}`, width: 1200, height: 630 } } : {}),
   })}</script><script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE}#website`, url: SITE, name: 'Clausery', inLanguage: 'en-GB', publisher: { '@id': `${SITE}#organization` } })}</script><script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', '@id': `${SITE}#organization`, name: 'Clausery', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}assets/icon-512.png`, width: 512, height: 512 } })}</script>`;
   const body = renderedBody !== null ? renderedBody : p.body(rel);
+  // Build a short auto-generated keywords tag from title + hub (top-level path segment) + "free Word template".
+  const seoTitle = SEO_TITLES[p.path] || p.title;
+  const hubMap = { templates: 'free Word template', guides: 'guide', clauses: 'contract clause', compare: 'alternative', 'free-tools': 'calculator', 'invoice-templates': 'invoice template', for: 'for small business', 'nda-templates': 'NDA', docs: 'docs' };
+  const seg = p.path.split('/')[0];
+  const hubK = hubMap[seg] || '';
+  const kws = new Set();
+  const clean = (s) => s.replace(/[·\-–—].*$/, '').replace(/\(.*?\)/g, '').replace(/[?]/g, '').trim();
+  // Split on colon (subtitle separator) and use the part before the colon as the primary phrase.
+  const beforeColon = clean(seoTitle).split(':')[0].trim();
+  if (beforeColon && beforeColon.length > 2 && beforeColon.length < 60) kws.add(beforeColon.toLowerCase());
+  // Add 2–4 word phrases from the title (lower-cased) skipping stop words / year / brand.
+  const stop = /\b(free|template|word|clausery|download|online|2026|guide|the|a|an|for|with|and|or|of|in|on|to|from|your|you|it|that|this|is|are|be|by|as|at)\b/gi;
+  const phrase = clean(seoTitle).toLowerCase().replace(stop, ' ').replace(/\s+/g, ' ').trim();
+  if (phrase && phrase.length > 2 && phrase !== beforeColon.toLowerCase() && phrase.length < 60) kws.add(phrase);
+  if (hubK) kws.add(hubK);
+  kws.add('free');
+  kws.add('Word');
+  const autoKeywords = [...kws].filter(Boolean).slice(0, 7).join(', ');
   const html = p.layout === 'embed' ? embedPage({ title: p.title, description: p.description, extraHead: p.extraHead, rel, body: p.body(rel) })
-    : (head({ title: SEO_TITLES[p.path] || p.title, description: p.description, path: p.path, extraHead: p.extraHead || '', pageLd, ogImage: p.ogImage, ogType: p.feed ? 'article' : 'website', published: p.published, modified, rel, noindex: Boolean(p.noindex), prev, next }) + body + footer(rel)).replace(/<pre>/g, '<pre tabindex="0">');
+    : (head({ title: seoTitle, description: p.description, path: p.path, extraHead: p.extraHead || '', pageLd, ogImage: p.ogImage, ogType: p.feed ? 'article' : 'website', published: p.published, modified, rel, noindex: Boolean(p.noindex), prev, next, keywords: p.keywords || autoKeywords }) + body + footer(rel)).replace(/<pre>/g, '<pre tabindex="0">');
   mkdirSync(dirname(out), { recursive: true });
   let final = modified ? html.split(LASTMOD_LONG).join(longDate(modified)).split(LASTMOD).join(modified) : html;
   // "Updated …" only appears once a page has changed since it was published.
