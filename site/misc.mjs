@@ -96,6 +96,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-87-0">1.87.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li><strong>Tighter template graph.</strong> Template <code>ItemPage</code> nodes now point at their <code>DigitalDocument</code> via <code>mainEntityOfPage</code> <code>@id</code> reference, and DigitalDocument carries <code>headline</code> + concise <code>keywords</code> for topicality. Guide Article <code>#article</code> @ids are referenced from template <code>isRelatedTo</code>, completing the template ↔ guide cross-link in the graph.</li>
+</ul>
 <h2 id="v1-86-0">1.86.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li><strong>Richer template-page schema.</strong> Every template page now emits an <code>ItemPage</code> (instead of generic <code>WebPage</code>) with a <code>primaryImageOfPage</code> pointing at its 1200×630 share card, plus <code>headline</code> and <code>keywords</code> on its <code>DigitalDocument</code>. This lines template pages up with Google's product/document SERP expectations.</li>
@@ -374,18 +378,15 @@ export const pages = [
 </ul>
 <h2 id="v1-37-0">1.37.0 <span class="small muted">— 23 October 2026</span></h2>
 <ul>
-  <li>Added <code>/.well-known/support</code> (RFC 9405), redirecting to the contact page. Browsers and OSes that show a “Get support” entry for installed PWAs now resolve it somewhere useful instead of 404.</li>
+  <li>Added <code>/.well-known/support</code> (RFC 9405) redirecting to contact for installed-PWA "Get support" entries.</li>
 </ul>
 <h2 id="v1-36-1">1.36.1 <span class="small muted">— 23 October 2026</span></h2>
 <ul>
-  <li>Home-page SoftwareApplication schema now lists every paid offer (Pro monthly, Pro yearly, Team) with availability, so product rich results include the full price ladder.</li>
+  <li>Homepage SoftwareApplication schema lists every paid offer with availability.</li>
 </ul>
 <h2 id="v1-36-0">1.36.0 <span class="small muted">— 23 October 2026</span></h2>
 <ul>
-  <li>Added a <a href="${rel}customers/">Customers page</a> describing who uses Clausery (freelancers, consultants, landlords, HR teams, trades, small firms) and what they use it for, with links into real template and audience pages.</li>
-  <li>Added <a href="${rel}releases.xml">releases.xml</a>, an Atom feed of every version, linked from every page's <code>&lt;head&gt;</code> and from the changelog heading. Subscribe in any feed reader to get release notes.</li>
-  <li>Footer now links Customers alongside Pricing and Why Clausery.</li>
-  <li>Added anchor IDs to recent changelog entries so feed entries deep-link to the right version.</li>
+  <li>Added <a href="${rel}customers/">Customers</a> page, <a href="${rel}releases.xml">releases.xml</a> Atom feed, footer Customers link, and anchor ids on changelog entries.</li>
 </ul>
 <h2 id="v1-35-0">1.35.0 <span class="small muted">— 23 October 2026</span></h2>
 <ul>
