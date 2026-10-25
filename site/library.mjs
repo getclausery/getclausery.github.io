@@ -740,7 +740,7 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-label
   ${calculatedFor(t.slug).length ? `<p class="small"><strong>Does the maths for you:</strong> fill it in online and the ${esc(andList(calculatedFor(t.slug).map(lowerFirst)))} ${calculatedFor(t.slug).length > 1 ? 'are' : 'is'} calculated as you type.</p>
   ` : ''}${reuseFor(t.slug) ? `<p class="small"><strong>Remembers you:</strong> ${esc(reuseFor(t.slug))}</p>
   ` : ''}<p class="small muted">Free, with unlimited documents and no sign-up. Your answers stay in your browser. <strong>Who it is for:</strong> ${esc(t.who)}</p>
-  <p class="small muted">Reviewed by <a href="${rel}about/">Clausery editors</a> · Updated <time datetime="${LASTMOD}">${LASTMOD_LONG}</time> · Word (.docx) · Free to use and adapt</p>
+  <p class="small muted">Reviewed by <a href="${rel}about/#editors">Clausery editors</a> · Updated <time datetime="${LASTMOD}">${LASTMOD_LONG}</time> · Word (.docx) · Free to use and adapt</p>
   <!--nav--><p class="small muted">Need more than one? <a href="${rel}samples/${PACK_FILE}" download>Download all ${LIB.length} templates</a> as one .zip file.</p><!--/nav-->
 
   <div class="tpl-overview">

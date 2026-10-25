@@ -70,7 +70,7 @@ export const pages = [
   <h1>${esc(c.name)}: meaning and sample wording</h1>
   <p class="lead">${esc(c.what)}</p>
 
-  <p class="small muted guide-meta">Reviewed by <a href="${rel}about/">Clausery editors</a> · <time datetime="${LASTMOD}">Updated ${LASTMOD_LONG}</time></p>
+  <p class="small muted guide-meta">Reviewed by <a href="${rel}about/#editors">Clausery editors</a> · <time datetime="${LASTMOD}">Updated ${LASTMOD_LONG}</time></p>
 
   <h2>When to use it</h2>
   <p>${esc(c.when)}</p>

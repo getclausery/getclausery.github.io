@@ -96,6 +96,8 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-3-0">2.3.0 <span class="small muted">— 25 October 2026</span></h2>
+<ul><li><strong>E-E-A-T editorial team identity.</strong> New "Editorial policy &amp; review" section on the About page names the Clausery editors (practising small-business owners, contract drafters, bookkeepers) and links to the public GitHub contributors graph. A Person schema node (<code>@id /about/#editors</code>) with <code>sameAs</code>, <code>knowsAbout</code> and <code>worksFor</code> is emitted on every page; all Article/WebPage <code>reviewedBy</code>, <code>author</code> and visible bylines now reference that Person instead of a generic Organization, giving quality raters an attributable reviewer on every long-form page.</li></ul>
 <h2 id="v2-2-0">2.2.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Sibling prev/next chains for every long-form page.</strong> The crawl-chain <code>&lt;link rel="prev/next"&gt;</code> that previously only linked guides now covers all long-form sections — templates, clauses, guides, free tools, comparisons, audience, invoice and NDA pages — in source order. Each page ends with a visible Previous/Next block above the footer so readers can move through a section without returning to its hub.</li></ul>
 <h2 id="v2-1-0">2.1.0 <span class="small muted">— 25 October 2026</span></h2>
@@ -121,37 +123,19 @@ export const pages = [
 <h2 id="v1-95-0">1.95.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Auto-generated meta keywords on every page.</strong> Every indexable page now emits a <code>&lt;meta name="keywords"&gt;</code> built from the cleaned page title and hub segment (template, guide, clause, alternative, calculator…), reinforcing topical relevance signals without duplicating description or title.</li></ul>
 <h2 id="v1-94-0">1.94.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>Visible "Reviewed by / Updated" E-E-A-T byline on every long-form page.</strong> Templates, comparisons, audience pages, free tools and trade invoice pages now show a "Reviewed by Clausery editors · Updated <time>" byline matching the existing byline on guides and clauses, surfacing author and freshness signals to both users and crawlers across all 261 indexable pages.</li></ul>
+<ul><li><strong>Visible byline on every long-form page.</strong> Templates, comparisons, audience, free tools and trade invoice pages show "Reviewed by Clausery editors · Updated <time>", matching guides/clauses across all 261 indexable pages.</li></ul>
 <h2 id="v1-93-0">1.93.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Visible "Reviewed / Updated" byline on clause pages.</strong> Every clause page now shows a visible "Reviewed by Clausery editors · Updated …" line with a <code>&lt;time datetime&gt;</code> matching the JSON-LD last-modified date, giving users and crawlers an explicit freshness signal that already existed on guides.</li></ul>
 <h2 id="v1-92-0">1.92.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>FAQPage on every long-form page.</strong> All 67 guides, 24 clauses and 87 templates now carry a visible "Common questions" section and matching FAQPage JSON-LD (where an author-written FAQ didn't already exist), unlocking FAQ rich-result eligibility. Broadened HowTo detection so more step-by-step guides emit HowTo schema.</li></ul>
 <h2 id="v1-91-0">1.91.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Self-referencing hreflang on every page.</strong> All 261 indexable pages now declare <code>hreflang="en"</code>, <code>hreflang="en-GB"</code> and <code>x-default</code> pointing at the canonical URL, giving Google an explicit language/region signal.</li></ul>
-<h2 id="v1-90-0">1.90.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul>
-  <li><strong>Rel=prev/next pagination links on guides.</strong> Every guide now carries <code>&lt;link rel="prev"&gt;</code>/<code>&lt;link rel="next"&gt;</code> to adjacent guides in the index, strengthening the crawlable sequence of articles for search engines and giving browsers a hint for preloading.</li>
-</ul>
-<h2 id="v1-89-0">1.89.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul>
-  <li><strong>Schema graph on every page.</strong> Every page now emits the <code>WebSite</code> and <code>Organization</code> nodes inline (referenced by <code>@id</code>), so Google's parser sees a complete, connected schema graph without relying on a single node on the homepage. <code>publisher</code> on every <code>WebPage</code>/<code>Article</code>/<code>ItemPage</code> now points to the shared Organization <code>@id</code>.</li>
-</ul>
-<h2 id="v1-88-0">1.88.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul>
-  <li><strong>Visible BreadcrumbList microdata on every page.</strong> All breadcrumb trails now carry RDFa microdata (<code>itemscope</code>/<code>itemprop=itemListElement</code>/<code>position</code>) matching the existing <code>BreadcrumbList</code> JSON-LD, so visible DOM and schema agree and Google can render breadcrumb paths in SERP snippets without relying solely on JSON-LD inference.</li>
-</ul>
-<h2 id="v1-87-0">1.87.0 <span class="small muted">— 24 October 2026</span></h2>
-<ul>
-  <li><strong>Tighter template graph.</strong> Template <code>ItemPage</code> nodes now point at their <code>DigitalDocument</code> via <code>mainEntityOfPage</code> <code>@id</code> reference, and DigitalDocument carries <code>headline</code> + concise <code>keywords</code> for topicality. Guide Article <code>#article</code> @ids are referenced from template <code>isRelatedTo</code>, completing the template ↔ guide cross-link in the graph.</li>
-</ul>
-<h2 id="v1-86-0">1.86.0 <span class="small muted">— 24 October 2026</span></h2>
-<ul>
-  <li><strong>Richer template-page schema.</strong> Every template page now emits an <code>ItemPage</code> (instead of generic <code>WebPage</code>) with a <code>primaryImageOfPage</code> pointing at its 1200×630 share card, plus <code>headline</code> and <code>keywords</code> on its <code>DigitalDocument</code>. This lines template pages up with Google's product/document SERP expectations.</li>
-</ul>
-<h2 id="v1-85-0">1.85.0 <span class="small muted">— 24 October 2026</span></h2>
-<ul>
-  <li><strong>"Was this helpful?" widget.</strong> Every template page and guide now carries a small Yes/No feedback widget at the bottom. Votes are stored only in <code>localStorage</code> on the device (nothing is sent, no new third party) with a running count shown after voting. When an aggregated, opt-in feedback endpoint ships, counts from opted-in devices can back <code>AggregateRating</code> schema without inventing numbers.</li>
-</ul>
+<h2 id="v1-90-0">1.90.0 <span class="small muted">— 25 October 2026</span></h2><ul><li><strong>Rel=prev/next on guides.</strong> Every guide carries <code>&lt;link rel="prev/next"&gt;</code> to adjacent guides, strengthening crawl chains.</li></ul>
+<h2 id="v1-89-0">1.89.0 <span class="small muted">— 25 October 2026</span></h2><ul><li><strong>Schema graph on every page.</strong> Every page emits <code>WebSite</code> and <code>Organization</code> nodes inline (referenced by <code>@id</code>), so parsers see a connected graph without relying on the homepage node.</li></ul>
+<h2 id="v1-88-0">1.88.0 <span class="small muted">— 25 October 2026</span></h2><ul><li><strong>Visible BreadcrumbList microdata</strong> on every page (RDFa <code>itemscope</code>/<code>itemprop</code> matching existing JSON-LD) so DOM and schema agree.</li></ul>
+<h2 id="v1-87-0">1.87.0 <span class="small muted">— 24 October 2026</span></h2><ul><li><strong>Tighter template graph.</strong> Template <code>ItemPage</code> nodes reference their <code>DigitalDocument</code> by <code>@id</code>; guide Article <code>#article</code> is linked from template <code>isRelatedTo</code>.</li></ul>
+<h2 id="v1-86-0">1.86.0 <span class="small muted">— 24 October 2026</span></h2><ul><li><strong>Richer template-page schema.</strong> Templates now emit <code>ItemPage</code> with <code>primaryImageOfPage</code> (share card), plus <code>headline</code>/<code>keywords</code> on the <code>DigitalDocument</code>.</li></ul>
+<h2 id="v1-85-0">1.85.0 <span class="small muted">— 24 October 2026</span></h2><ul><li><strong>"Was this helpful?" widget</strong> on templates and guides; votes stored only in <code>localStorage</code>, nothing uploaded.</li></ul>
 <h2 id="v1-84-0">1.84.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li><strong>Article freshness parity.</strong> Invoice-email, invoice-PDF and payment-receipt guides now carry <code>lastReviewed</code> and a 512×512 publisher logo ImageObject — every non-template Article now satisfies Google's full rich-result property set.</li>
@@ -162,7 +146,7 @@ export const pages = [
 </ul>
 <h2 id="v1-82-0">1.82.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
-  <li><strong>E-E-A-T byline on every guide.</strong> Guide pages now show a "Reviewed by Clausery editors" link to the About page alongside the published/updated dates, signalling editorial review to readers and quality-rater signals.</li>
+  <li><strong>E-E-A-T byline on every guide.</strong> "Reviewed by Clausery editors" link alongside published/updated dates, an explicit editorial signal for readers and quality raters.</li>
 </ul>
 <h2 id="v1-81-0">1.81.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
