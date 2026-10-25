@@ -7,11 +7,17 @@ import { applySetup, setupFor } from '../app/lib/setups.js';
 import { PRESETS } from '../app/lib/presets.js';
 import { invoiceWordHelp, workflowLinks } from './invoice-workflows.mjs';
 import { paymentReceiptHelp, receiptHelpHead } from './payment-receipt.mjs';
-import { esc, crumbsLd, collectionLd, faqLd, faqHtml, lowerFirst, fitSnippet, picture, helpfulWidget, SITE, LASTMOD, LASTMOD_LONG } from '../tools/partials.mjs';
+import { esc, crumbsLd, collectionLd, faqLd, faqHtml, lowerFirst, fitSnippet, picture, helpfulWidget, SITE, LASTMOD, LASTMOD_LONG, longDate } from '../tools/partials.mjs';
 import { CLAUSES } from './data/clauses.mjs';
 import { previewHtml, PREVIEW_CSS, PREVIEW_SIZE } from '../tools/preview.mjs';
 
 const TPL_PUBLISHED = '2026-10-02'; // date the first template library shipped (v1.17)
+const DATES = JSON.parse(readFileSync(new URL('./data/page-dates.json', import.meta.url), 'utf8'));
+const shortDate = (iso) => { const d = new Date(iso + 'T00:00:00Z'); return d.toLocaleDateString('en-GB', { month:'short', year:'numeric', timeZone:'UTC' }); };
+const cardUpdated = (path) => {
+  const d = DATES[path]; if (!d) return '';
+  return `<span class="card-updated" title="Last updated ${longDate(d.date)}">Updated ${shortDate(d.date)}</span>`;
+};
 import { GUIDES } from './audience.mjs';
 import { SERVICE_GUIDES } from './data/service-guides.mjs';
 import { COUNTRIES } from './countries.mjs';
@@ -702,7 +708,11 @@ export const pages = [
   <div id="tpl-groups">
 ${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-labelledby="${catId(c)}"><h2 id="${catId(c)}" style="margin-top:2.5rem">${label}</h2>
   <div class="grid grid-3" style="margin-top:1rem">
-    ${LIB.filter((t) => t.category === c).map((t) => `<a class="feature" style="text-decoration:none;color:inherit" href="${rel}templates/${t.slug}.html"><span class="badge">${t.category}</span><h3 style="font-size:1.15rem;margin-top:.75rem">${esc(t.name)}</h3><p>${esc(t.intro)}</p></a>`).join('')}
+    ${LIB.filter((t) => t.category === c).map((t) => {
+      const raw = t.intro || '';
+      const short = raw.length > 70 ? raw.slice(0, 68).replace(/\s+\S*$/, '') + '…' : raw;
+      return `<a class="feature" href="${rel}templates/${t.slug}.html"><span class="badge">${t.category}</span>${cardUpdated(`templates/${t.slug}.html`)}<h3>${esc(t.name)}</h3><p>${esc(short)}</p></a>`;
+    }).join('')}
   </div></section>`).join('\n')}
   </div>
   <p class="filter-empty" data-filter-empty hidden>No template matches that. Try a broader word, such as the kind of agreement or who it is for.</p>
