@@ -96,6 +96,8 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-98-0">1.98.0 <span class="small muted">— 25 October 2026</span></h2>
+<ul><li><strong>Author link + richer shared Organization node.</strong> Every page now carries <code>&lt;link rel="author" href="/about/"&gt;</code> and a <code>&lt;meta name="author" content="Clausery"&gt;</code>. The Organization schema emitted on every page now includes contactPoint (email), sameAs (GitHub repo) and full logo, matching the homepage Organization node.</li></ul>
 <h2 id="v1-97-0">1.97.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>lastReviewed + reviewedBy on every WebPage/ItemPage.</strong> Every non-Article page now carries <code>lastReviewed</code> and <code>reviewedBy</code> (Organization: Clausery) schema matching the Article schema already emitted on guides, completing freshness/E-E-A-T signals across hub, comparison, tool and template pages.</li></ul>
 <h2 id="v1-96-0">1.96.0 <span class="small muted">— 25 October 2026</span></h2>
@@ -428,19 +430,9 @@ export const pages = [
 <h2>1.23.0 <span class="small muted">— 7 October 2026</span></h2>
 <ul><li>CSV/spreadsheet mail merge (one document per row, zipped; free 5/batch, Pro unlimited) runs locally; per-draft history with SHA-256 fingerprints, system share-sheet integration, storage-persistence prompt, and clearer home/FAQ answers.</li></ul>
 <h2>1.22.0 <span class="small muted">— 6 October 2026</span></h2>
-<ul>
-  <li>Invoice: name your tax number (VAT number, GST/HST number, ABN), add a separate date of supply for UK VAT, and title it "Tax invoice" for Australian GST.</li>
-  <li>Invoice: an optional line, on by default with bank details, telling clients your bank details never change by email, the most common invoice fraud.</li>
-  <li>Four new guides: what a UK VAT invoice must include, GST/HST invoice requirements in Canada, Australian tax invoices, and what bank details to put on an invoice.</li>
-</ul>
+<ul><li>Invoice: configurable tax-number label (VAT/GST/ABN), separate UK date-of-supply, "Tax invoice" title for AU GST, and default bank-fraud warning line; four new guides (UK VAT, Canada GST/HST, AU tax invoices, bank details).</li></ul>
 <h2>1.21.0 <span class="small muted">— 6 October 2026</span></h2>
-<ul>
-  <li>The invoice, quote, purchase order, credit note and expense claim templates do the maths: line amounts, subtotal, discount, tax from a percentage, totals and the balance due are calculated as you type.</li>
-  <li>Those five templates have a new layout: your details and the document's number and dates side by side, a proper item table, and a totals block, as in accounting software.</li>
-  <li>Receipts can write the amount in words for you, and change orders work out the new contract price.</li>
-  <li>Clearer questions, in the order you think about the document: your business, the details, the client, the items, then payment.</li>
-  <li>Calculated amounts inside a list, such as each line's amount, now show as you type.</li>
-  <li>Jumping ahead with the section list no longer marks the sections you skipped as needing fixes.</li>
+<ul><li>Invoice/quote/PO/credit-note/expense templates calculate line amounts, discount, tax and totals live; new accounting-style layout, receipts with amount-in-words, change-order totals, clearer question order, live list-amounts, and gentler section-skip behaviour.</li></ul>
 </ul>
 <h2>1.20.1 <span class="small muted">— 5 October 2026</span></h2>
 <ul>
