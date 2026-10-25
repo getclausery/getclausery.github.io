@@ -1,13 +1,9 @@
-/* Clausery <https://getclausery.github.io> — (C) 2026 Clausery. AGPL-3.0-or-later WITH Clausery-Trademark-Exception. Removing this notice is removal of CMI under 17 U.S.C. 1202. Source: https://github.com/getclausery/getclausery.github.io */
-/* Clausery site script: mobile menu, copy buttons, template finder, command palette (⌘K), in-page TOC, returning-visitor bar, read progress, scroll-to-top. External so pages work under a strict script-src 'self' policy. */
+/* Clausery <https://getclausery.github.io> — (C) 2026 Clausery. AGPL-3.0-or-later WITH Clausery-Trademark-Exception. Removing this notice is removal of copyright management information under 17 U.S.C. 1202. Source: https://github.com/getclausery/getclausery.github.io */
 const CLAUSERY_ANALYTICS={token:'20524027c20141ab8306d586c8518877',since:'2026-10-03',host:'getclausery.github.io'};
 if(CLAUSERY_ANALYTICS.token&&location.hostname===CLAUSERY_ANALYTICS.host){const s=document.createElement('script');s.type='module';s.src='https://static.cloudflareinsights.com/beacon.min.js';s.setAttribute('data-cf-beacon',JSON.stringify({token:CLAUSERY_ANALYTICS.token}));document.head.appendChild(s);}
-
 const $=(s,r=document)=>r.querySelector(s);
 const $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const K=(e,k)=>{const m=e.matches?e:e.target;if(!m)return false;try{return m.matches(k)}catch{return false}};
-
-/* ---------- Menu ---------- */
 document.addEventListener('click',e=>{
   const b=e.target.closest?.('.menu-btn');if(!b)return;
   const n=document.getElementById(b.getAttribute('aria-controls'));if(!n)return;
@@ -20,8 +16,6 @@ document.addEventListener('click',e=>{
   if(K(e,'#nav-backdrop')){const n=$('#site-nav'),b=$('.menu-btn');if(n)n.classList.remove('open');if(b)b.setAttribute('aria-expanded','false');const bd=$('#nav-backdrop');if(bd){bd.hidden=true;bd.classList.remove('show')}document.body.style.overflow=''}
   if(K(e,'.site-nav a')){const n=$('#site-nav'),b=$('.menu-btn'),bd=$('#nav-backdrop');if(n)n.classList.remove('open');if(b)b.setAttribute('aria-expanded','false');if(bd){bd.hidden=true;bd.classList.remove('show')}document.body.style.overflow=''}
 });
-
-/* ---------- Copy buttons ---------- */
 document.addEventListener('click',async e=>{
   const b=e.target.closest?.('.copy-btn');if(!b)return;
   const s=document.getElementById(b.dataset.copy),st=b.parentElement.querySelector('.copy-status');if(!s)return;
@@ -31,8 +25,6 @@ document.addEventListener('click',async e=>{
     const r=document.createRange();r.selectNodeContents(s);const sel=window.getSelection();sel.removeAllRanges();sel.addRange(r);
     if(st)st.textContent='Press Ctrl+C (or Cmd+C) to copy.'}
 });
-
-/* ---------- Template finder ---------- */
 for(const box of $$('[data-filter-for]')){
   const root=document.getElementById(box.dataset.filterFor),input=$('input',box);
   if(!root||!input)continue;
@@ -47,8 +39,6 @@ for(const box of $$('[data-filter-for]')){
   input.addEventListener('input',run);box.hidden=false;
   const q=new URL(location.href).searchParams.get('q');if(q){input.value=q;run()}
 }
-
-/* ---------- Read progress + to-top + scroll-cta ---------- */
 (function(){
   const bar=$('#read-progress'),cta=$('#scroll-cta'),topBtn=$('#to-top'),ctaLabel=$('#scroll-cta-label');
   let t=false,drafts=null;
@@ -70,8 +60,6 @@ for(const box of $$('[data-filter-for]')){
   if(topBtn)topBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
   if(bar||cta||topBtn){upd();window.addEventListener('scroll',()=>{if(!t){requestAnimationFrame(upd);t=true}},{passive:true})}
 })();
-
-/* ---------- Welcome-back bar ---------- */
 (function(){
   const bar=$('#welcome-bar'),msg=$('#wb-msg'),meta=$('#wb-meta'),dismiss=$('#wb-dismiss');
   if(!bar)return;
@@ -88,8 +76,6 @@ for(const box of $$('[data-filter-for]')){
   bar.classList.add('show');
   if(dismiss)dismiss.addEventListener('click',()=>{bar.classList.remove('show');sessionStorage.setItem(DISMISSED_KEY,'1');localStorage.setItem(DISMISSED_KEY+'_until',String(Date.now()+7*864e5))});
 })();
-
-/* ---------- Command palette ---------- */
 (function(){
   const root=$('#cmdk');if(!root)return;
   const input=$('#cmdk-input',root),list=$('#cmdk-list',root);
@@ -146,36 +132,26 @@ for(const box of $$('[data-filter-for]')){
   input.addEventListener('input',()=>render(input.value));
   list.addEventListener('mouseover',e=>{const a=e.target.closest?.('.cmdk-item');if(!a)return;flat.forEach(x=>x.setAttribute('aria-selected','false'));a.setAttribute('aria-selected','true');idx=flat.indexOf(a)});
 })();
-
-/* ---------- In-page TOC for long articles ---------- */
 (function(){
   const main=$('main');if(!main)return;
   const hs=[...main.querySelectorAll('h2')].filter(h=>h.id||(h.id='sec-'+(Math.random().toString(36).slice(2,8))));
   if(hs.length<3)return;
   const prose=hs[0].closest('.prose,.docs-body,.tpl-overview');if(!prose)return;
-
   if(!prose.closest('.docs-with-toc')&&hs.length<4)return;
   const wrap=document.createElement('aside');wrap.className='article-toc';wrap.setAttribute('aria-label','On this page');
   wrap.innerHTML=`<h4>On this page</h4><ol>${hs.map(h=>`<li><a href="#${h.id}">${h.textContent}</a></li>`).join('')}</ol>`;
   const container=prose.closest('.docs-with-toc');if(container){container.appendChild(wrap);return}
-
 })();
-
-/* ---------- Reveal on scroll ---------- */
 (function(){
   const els=$$('.feature,.plan,.steps li,.docs-card');if(!els.length||!('IntersectionObserver'in window))return;
   els.forEach((e,i)=>{e.classList.add('reveal');e.style.transitionDelay=(i%8)*30+'ms'});
   const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
   els.forEach(e=>io.observe(e));
 })();
-
-/* ---------- Feature card spotlight ---------- */
 document.addEventListener('pointermove',e=>{
   const f=e.target.closest?.('.feature');if(!f)return;
   const r=f.getBoundingClientRect();f.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');f.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
 });
-
-/* ---------- Copy-protection watermark ---------- */
 (function(){
   const OFFICIAL=['getclausery.github.io','getclausery.com','www.getclausery.com','clausery.app','www.clausery.app'];
   const h=location.hostname.toLowerCase();
@@ -190,16 +166,13 @@ document.addEventListener('pointermove',e=>{
   document.documentElement.setAttribute('data-copyguard','1');document.body.insertBefore(bar,document.body.firstChild);
   try{console.log('%cClausery','color:#fff;background:#0b5;padding:2px 6px;border-radius:3px','open source AGPLv3 — unlicensed copy detected.')}catch{}
 })();
-
-/* ---------- Frame-busting ---------- */
 (function(){
   try{if(window.top===window.self)return;
     const allowed=['getclausery.github.io','getclausery.com','www.getclausery.com','clausery.app','www.clausery.app'];let ok=false;
     try{const host=window.top.location.hostname;if(!host)ok=true;else for(const a of allowed)if(host===a||host.endsWith('.'+a)){ok=true;break}}catch{ok=false}
     if(!ok)window.top.location.replace(window.self.location.href)}catch{}
 })();
-
-/*/search live*/(()=>{const q=$('#site-q'),r=$('#site-q-results'),s=$('#site-q-status');if(!q||!r)return;
+(()=>{const q=$('#site-q'),r=$('#site-q-results'),s=$('#site-q-status');if(!q||!r)return;
 const E=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const R=a=>{if(!a.length){r.innerHTML='<p class="lead">No match. Try a broader word or <a href="templates/">browse templates</a>.</p>';return}
 r.innerHTML='<h2 style="margin-top:2rem;font-size:1.1rem">'+a.length+' result'+(a.length-1?'s':'')+'</h2><ul class="link-list" style="margin-top:.5rem">'+a.map(x=>'<li><a href="'+E(x[1])+'"><strong>'+E(x[0])+'</strong></a><div class="small muted">'+E(x[2])+'</div></li>').join('')+'</ul>'};
@@ -212,6 +185,6 @@ const h=A.map(x=>[x[0],x[1],x[2],sc(x[0]+' '+x[2])]).filter(x=>x[3]>0).sort((a,b
 R(h);s&&(s.textContent=h.length+' result'+(h.length-1?'s':'')+' for "'+w+'"')}catch(_){s&&(s.textContent='Offline.')}})()};
 q.addEventListener('input',()=>{clearTimeout(q._t);q._t=setTimeout(f,150)});
 const p=new URL(location.href).searchParams.get('q');if(p){q.value=p;f()}})();
-
-/* ---------- Was this helpful? widget (local-only) ---------- */
-!function(){const K='clausery.h',S=(()=>{try{return JSON.parse(localStorage.getItem(K)||'{}')}catch(_){return{}}})();document.querySelectorAll('.helpful[data-helpful]').forEach(w=>{const i=w.dataset.helpful,r=S[i]||{yes:0,no:0,v:null},bs=w.querySelectorAll('.helpful-btn'),c=w.querySelector('.helpful-count'),f=()=>{bs.forEach(b=>b.setAttribute('aria-pressed',b.dataset.vote===r.v));c.textContent=r.yes+r.no?`${r.yes}/${r.no}`:''};bs.forEach(b=>b.addEventListener('click',()=>{const v=b.dataset.vote;r.v===v?r[v]--:(r.v&&r[r.v]--,r[v]++,r.v=v);try{localStorage.setItem(K,JSON.stringify(S))}catch(_){}f()}));f()})}();
+!function(){const K='clausery.h',S=(()=>{try{return JSON.parse(localStorage.getItem(K)||'{}')}catch(_){return{}}})();document.querySelectorAll('.helpful[data-helpful]').forEach(w=>{const i=w.dataset.helpful,r=S[i]||{yes:0,no:0,v:null},bs=w.querySelectorAll('.helpful-btn'),c=w.querySelector('.helpful-count'),f=()=>{bs.forEach(b=>b.setAttribute('aria-pressed',b.dataset.vote===r.v));c.textContent=r.yes+r.no?`${r.yes}/${r.no}`:''};bs.forEach(b=>b.addEventListener('click',()=>{const v=b.dataset.vote;r.v===v?r[v]--:(r.v&&r[r.v]--,r[v]++,r.v=v);try{localStorage.setItem(K,JSON.stringify(S))}catch(_){}f()}));f()})}();;
+/* heading deep links */
+(function(){const hs=document.querySelectorAll('main h2[id],main h3[id]');if(!hs.length)return;const css=document.createElement('style');css.textContent='h2,h3{position:relative}h2>a.anchor,h3>a.anchor{position:absolute;left:-1.15rem;top:50%;transform:translateY(-50%);opacity:0;color:var(--muted);text-decoration:none;font-weight:400;padding:.2rem.3rem;transition:opacity .15s}h2:hover>a.anchor,h3:hover>a.anchor,h2>a.anchor:focus,h3>a.anchor:focus{opacity:1}@media(max-width:760px){h2>a.anchor,h3>a.anchor{left:auto;right:0}}';document.head.appendChild(css);hs.forEach(h=>{const a=document.createElement('a');a.className='anchor';a.href='#'+h.id;a.title='Link to this section';a.textContent='#';a.setAttribute('aria-label','Link to this section');h.prepend(a)})})();
