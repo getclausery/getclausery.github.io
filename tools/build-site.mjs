@@ -216,7 +216,7 @@ for (const p of pages) {
   // "software" rich-result classification and associates keywords (invoice generator, NDA maker, etc.) with the
   // application entity. It also carries isAccessibleForFree=true and operatingSystem=Any, two signals that help
   // "free" / "no download" / "in browser" intent queries.
-  const appNode = { '@context': 'https://schema.org', '@type': ['WebApplication','SoftwareApplication'], '@id': `${SITE}#app`, name: 'Clausery', url: `${SITE}app/`, applicationCategory: 'BusinessApplication', applicationSubCategory: 'Word document generator', operatingSystem: 'Any (web browser)', isAccessibleForFree: true, offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '0', highPrice: String(PRICES.proYearly), offerCount: 3, availability: 'https://schema.org/InStock', url: `${SITE}pricing/` }, publisher: { '@id': `${SITE}#organization` }, creator: { '@id': `${SITE}#organization` }, softwareVersion: '2.16.0', license: `${SITE}legal/license.html`, description: 'Free Word invoice, quote, receipt, contract and NDA generator. Build editable .docx documents in your browser — nothing is uploaded.' };
+  const appNode = { '@context': 'https://schema.org', '@type': ['WebApplication','SoftwareApplication'], '@id': `${SITE}#app`, name: 'Clausery', url: `${SITE}app/`, applicationCategory: 'BusinessApplication', applicationSubCategory: 'Word document generator', operatingSystem: 'Any (web browser)', isAccessibleForFree: true, offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '0', highPrice: String(PRICES.proYearly), offerCount: 3, availability: 'https://schema.org/InStock', url: `${SITE}pricing/` }, publisher: { '@id': `${SITE}#organization` }, creator: { '@id': `${SITE}#organization` }, softwareVersion: '2.17.0', license: `${SITE}legal/license.html`, description: 'Free Word invoice, quote, receipt, contract and NDA generator. Build editable .docx documents in your browser — nothing is uploaded.' };
   // The source code repository (SoftwareSourceCode) gives the software entity a verifiable codebase pointer
   // and ties the Organization sameAs GitHub link into the schema graph. Emitted once per page so references
   // from codeRepository / targetProduct resolve consistently.
@@ -315,6 +315,22 @@ for (const p of pages) {
     final = final.replace(/(<h1[^>]*>[\s\S]*?<\/h1>)(\s*<p class="lead")/, `$1\n${byline}$2`);
     if (!/Reviewed by/.test(final)) {
       final = final.replace(/(<h1[^>]*>[\s\S]*?<\/h1>)/, `$1\n${byline}`);
+    }
+  }
+  // Reading-time badge: count visible words in <main> and append a short "X min read" pill to the first .guide-meta,
+  // or inject one right after the h1 if no byline exists. ~200 wpm reading speed for English prose.
+  if (!p.noindex && p.layout !== 'embed' && /<h1[^>]*>/.test(final) && !p.path.startsWith('app/') && !p.path.endsWith('.pdf')) {
+    const main = final.match(/<main[^>]*>([\s\S]*?)<\/main>/);
+    if (main) {
+      const text = main[1].replace(/<script[\s\S]*?<\/script>/g,'').replace(/<style[\s\S]*?<\/style>/g,'').replace(/<[^>]+>/g,' ').replace(/&[a-z]+;/g,' ');
+      const words = text.trim().split(/\s+/).filter(Boolean).length;
+      if (words > 200) {
+        const mins = Math.max(1, Math.round(words / 220));
+        const badge = ` <span aria-label="${mins} minute read" title="~${words.toLocaleString()} words, ${mins} min read">· ${mins} min read</span>`;
+        if (/class="small muted guide-meta"/.test(final)) {
+          final = final.replace(/(class="small muted guide-meta"[^>]*>[\s\S]*?<\/p>)/, (m) => m.replace('</p>', badge + '</p>'));
+        }
+      }
     }
   }
   // Print/PDF + Share buttons on every long-form page. Styles live in site.css (.page-print-btn).
