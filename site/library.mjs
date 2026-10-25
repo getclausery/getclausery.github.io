@@ -762,7 +762,8 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-label
 
   <h2 style="margin-top:2.5rem" id="full-text">Read the full template</h2>
   <p class="small muted">This is the complete wording. <span class="tpl-ph">[Labels]</span> are filled in from your answers, and <span class="tpl-opt">highlighted text</span> only appears when it applies; hover over it to see when.</p>
-  <div class="tpl-doc" tabindex="0" role="region" aria-label="Full text of the ${esc(t.name)} template">${previewHtml(t.file)}</div>
+  <div class="clause-tools" style="margin-bottom:.75rem"><button class="btn copy-btn" type="button" data-copy="tpl-doc-text">Copy the whole template text</button><span class="small muted copy-status" role="status"></span> <span class="small muted" style="margin-left:.5rem">(<a href="${rel}samples/${t.file}" download>download Word</a> if you need the file itself)</span></div>
+  <div class="tpl-doc" id="tpl-doc-text" tabindex="0" role="region" aria-label="Full text of the ${esc(t.name)} template">${previewHtml(t.file)}</div>
 
   <h2 style="margin-top:2.5rem">The questions you answer</h2>
   <p>Clausery turns the template into a short questionnaire. Optional parts only appear when they apply${calculatedFor(t.slug).length ? ', and anything marked <em>Calculated for you</em> is worked out from your other answers' : ''}.</p>
