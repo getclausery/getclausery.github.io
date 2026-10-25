@@ -96,6 +96,8 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-91-0">1.91.0 <span class="small muted">— 25 October 2026</span></h2>
+<ul><li><strong>Self-referencing hreflang on every page.</strong> All 261 indexable pages now declare <code>hreflang="en"</code>, <code>hreflang="en-GB"</code> and <code>x-default</code> pointing at the canonical URL, giving Google an explicit language/region signal.</li></ul>
 <h2 id="v1-90-0">1.90.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul>
   <li><strong>Rel=prev/next pagination links on guides.</strong> Every guide now carries <code>&lt;link rel="prev"&gt;</code>/<code>&lt;link rel="next"&gt;</code> to adjacent guides in the index, strengthening the crawlable sequence of articles for search engines and giving browsers a hint for preloading.</li>
@@ -394,16 +396,12 @@ export const pages = [
 </ul>
 <h2 id="v1-36-1">1.36.1 <span class="small muted">— 23 October 2026</span></h2>
 <ul>
-  <li>Homepage SoftwareApplication schema lists every paid offer with availability.</li>
+  <li>Homepage SoftwareApplication schema lists paid offers with availability.</li>
 </ul>
 <h2 id="v1-35-0">1.35.0 <span class="small muted">— 23 October 2026</span></h2>
-<ul><li>Pricing redesign with featured Pro plan, refund signal and stronger CTA; public <a href="${rel}status/">status</a> and <a href="${rel}roadmap/">roadmap</a>; Crawl-delay/Host in robots.txt; <a href="${rel}customers/">Customers</a> page and <a href="${rel}releases.xml">Atom feed</a>; gradient primary buttons; <a href="${rel}guides/invoice-email-template.html">invoice email templates</a>; ${TRIAL_DAYS}-day free trial with ${REFUND_DAYS}-day refund.</li></ul>
+<ul><li>Pricing redesign with featured Pro, refund signal, strong CTA; public <a href="${rel}status/">status</a>, <a href="${rel}roadmap/">roadmap</a>; Crawl-delay/Host; <a href="${rel}customers/">Customers</a>, <a href="${rel}releases.xml">Atom feed</a>, gradient buttons, <a href="${rel}guides/invoice-email-template.html">invoice emails</a>; ${TRIAL_DAYS}-day trial.</li></ul>
 <h2 id="v1-32-0">1.32.0 <span class="small muted">— 9 October 2026</span></h2>
-<ul>
-  <li>Choose a plan, pay, then select Open Clausery after payment or in your receipt. Your plan activates automatically and opens the app, with no separate account or key to copy.</li>
-  <li>Repeated receipt clicks reuse the existing browser activation. Purchase credentials are removed from the address before routing or usage counts; the payment provider still verifies the purchase.</li>
-  <li>Settings now leads with Plan and billing and direct checkout buttons. Manual activation remains under Advanced activation for offline licenses and support.</li>
-</ul>
+<ul><li>Online checkout: click Open Clausery from receipt to activate; repeated clicks reuse browser activation; credentials removed from the address before routing; Settings leads with Plan and billing.</li></ul>
 <h2 id="v1-31-0">1.31.0 <span class="small muted">— 9 October 2026</span></h2>
 <ul>
   <li>Online checkout is open through Lemon Squeezy: <a href="${rel}pricing/">Pro monthly, Pro yearly and five-seat Team</a>, with license keys delivered after purchase.</li>

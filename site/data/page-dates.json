@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-10-25",
-  "hash": "93eca4f654779140"
+  "hash": "7dfdf676ec0eea34"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-25",
-  "hash": "dc57757da1505f46"
+  "hash": "a6f5412da1ddef75"
  },
  "clauses/": {
   "date": "2026-10-25",
@@ -697,7 +697,7 @@
  },
  "roadmap/": {
   "date": "2026-10-25",
-  "hash": "3d09502ca1b6450a"
+  "hash": "15c19b8294e6e569"
  },
  "search/": {
   "date": "2026-10-25",
@@ -713,7 +713,7 @@
  },
  "status/": {
   "date": "2026-10-25",
-  "hash": "ecf392da7459ce05"
+  "hash": "f1d20873a4025fe5"
  },
  "templates/": {
   "date": "2026-10-25",
