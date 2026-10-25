@@ -96,8 +96,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-16-0">2.16.0 <span class="small muted">— 25 October 2026</span></h2>
+<ul><li><strong>Share button on every long-form page.</strong> "Share" sits next to "Print/PDF" top-right. On supporting browsers it opens the native share sheet (Web Share API); elsewhere copies the page URL with a "Link copied" confirmation.</li></ul>
 <h2 id="v2-15-0">2.15.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>Deep-link anchors on every section heading.</strong> Every <code>&lt;h2&gt;</code>/<code>&lt;h3&gt;</code> with an id gets a <code>#</code> link icon on hover/focus (pinned right on mobile) pointing at that section, so readers can copy a shareable link straight to a specific clause, step or answer. Minified <code>site.js</code> to stay under 18 KB.</li></ul>
+<ul><li><strong>Deep-link anchors on every section heading.</strong> <code>&lt;h2&gt;</code>/<code>&lt;h3&gt;</code> with an id show a <code>#</code> link on hover/focus (pinned right on mobile); readers can copy a shareable link to a specific clause/step/answer. <code>site.js</code> minified to stay under 18 KB.</li></ul>
 <h2 id="v2-14-0">2.14.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>"Copy the whole template" on every template page.</strong> One-click copy above the full-text preview puts the complete wording on the clipboard alongside Download Word, so users pasting into email/another doc skip drag-select.</li></ul>
 <h2 id="v2-13-0">2.13.0 <span class="small muted">— 25 October 2026</span></h2>
@@ -107,27 +109,27 @@ export const pages = [
 <h2 id="v2-11-0">2.11.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Print / PDF on clauses and long-form pages.</strong> A "Print / PDF" button sits top-right on every clause box and template/guide/comparison page. It opens the print dialog with the v2.9 stylesheet for chrome-free output; the button is hidden from print.</li></ul>
 <h2 id="v2-10-0">2.10.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>Product aggregate pricing in the global software schema.</strong> The global WebApplication/SoftwareApplication node now carries an AggregateOffer (USD 0–annual Pro, 3 offers) pointing at /pricing/, so Google sees the Free tier and price range consistently instead of a single $0 offer. softwareVersion bumped to match.</li></ul>
+<ul><li><strong>AggregateOffer in global software schema.</strong> Global WebApplication/SoftwareApplication now carries AggregateOffer (USD 0–annual Pro, 3 offers) pointing at /pricing/ so Google sees the Free tier and price range, not a single $0 offer.</li></ul>
 <h2 id="v2-9-0">2.9.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>Comprehensive print stylesheet.</strong> Replaced the minimal print rule with a full <code>@media print</code> block: chrome (header/footer/nav/fab/cmdk/welcome-bar/thumbs/TOC/prevnext/helpful/related badges) hidden; black-on-white 11pt text with 1.4 cm margins; h2/h3 avoid page-breaks after; clause boxes, details and cards set to avoid breaking across pages; external links render their URL after the anchor (internal <code>#</code>/relative omitted) for usable printed PDFs; clause boxes use a thin black rule instead of teal.</li></ul>
+<ul><li><strong>Comprehensive print stylesheet.</strong> Replaced the minimal print rule with a full <code>@media print</code> block: chrome hidden; black-on-white 11pt text with 1.4 cm margins; h2/h3 avoid page-breaks after; clause boxes/details/cards avoid breaking across pages; external links render their URL after anchor for usable PDFs.</li></ul>
 <h2 id="v2-8-0">2.8.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>humans.txt copy fix.</strong> Corrected one remaining "independent open-source project" reference to "independent open-source business", matching the v1.72 copy sweep.</li></ul>
 <h2 id="v2-7-0">2.7.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>Freshness badges across all hubs.</strong> The "Updated Mmm YYYY" pill covers every listing card: Clauses (24), Free tools (9), audience hubs (5), Invoice templates (21), pulling each page's real last-modified date.</li></ul>
+<ul><li><strong>Freshness badges across all hubs.</strong> "Updated Mmm YYYY" pill on every listing card: Clauses (24), Free tools (9), audience hubs (5), Invoice templates (21), pulling real last-modified dates.</li></ul>
 <h2 id="v2-6-0">2.6.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>Freshness badges on template hub.</strong> Templates hub cards show an "Updated Mmm YYYY" pill pulled from the real last-modified date.</li></ul>
+<ul><li><strong>Freshness badges on template hub.</strong> Templates hub cards show an "Updated Mmm YYYY" pill from the real last-modified date.</li></ul>
 <h2 id="v2-5-0">2.5.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>WebApplication + TableOfContents schema.</strong> Every page emits a <code>WebApplication</code>/<code>SoftwareApplication</code> JSON-LD node (free in-browser Word doc generator, <code>isAccessibleForFree=true</code>) plus a <code>SoftwareSourceCode</code> node pointing at GitHub. Pages with a visible TOC emit <code>TableOfContents</code> JSON-LD for Google's "Jump to" strip.</li></ul>
 <h2 id="v2-4-0">2.4.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>Main-navigation schema.</strong> Header <code>&lt;nav&gt;</code> now carries <code>SiteNavigationElement</code> RDFa microdata (<code>itemprop="url"</code>/<code>itemprop="name"</code> per link) plus a JSON-LD node (<code>@id #sitenav</code>) on every page.</li></ul>
+<ul><li><strong>Main-navigation schema.</strong> Header <code>&lt;nav&gt;</code> carries <code>SiteNavigationElement</code> RDFa microdata plus a JSON-LD node (<code>@id #sitenav</code>) on every page.</li></ul>
 <h2 id="v2-3-0">2.3.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>E-E-A-T editorial team identity.</strong> "Editorial policy &amp; review" section on About names the Clausery editors (practising small-business owners, contract drafters, bookkeepers) and links to the GitHub contributors graph. A Person schema node (<code>@id /about/#editors</code>) with <code>sameAs</code>/<code>knowsAbout</code>/<code>worksFor</code> is emitted on every page; all Article/WebPage <code>reviewedBy</code>/<code>author</code>/visible bylines reference that Person.</li></ul>
+<ul><li><strong>E-E-A-T editorial team identity.</strong> "Editorial policy &amp; review" on About names the Clausery editors and links to GitHub contributors. A Person schema node (<code>@id /about/#editors</code>) is emitted on every page; all <code>reviewedBy</code>/<code>author</code>/visible bylines reference it.</li></ul>
 <h2 id="v2-2-0">2.2.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>Prev/next sibling links for every long-form page.</strong> The <code>&lt;link rel="prev/next"&gt;</code> crawl chain now covers templates, clauses, guides, free tools, comparisons, audience, invoice and NDA pages in source order, plus a visible Previous/Next block above the footer on each page.</li></ul>
+<ul><li><strong>Prev/next sibling links across long-form pages.</strong> <code>&lt;link rel="prev/next"&gt;</code> crawl chain covers templates/clauses/guides/tools/comparisons/audience/invoices/NDAs in source order, with a visible Previous/Next block above the footer.</li></ul>
 <h2 id="v2-1-0">2.1.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>Related reading clusters</strong> on every long-form page. A server-rendered block at the foot of each page mixes matching pages from other sections scored on shared keywords. Editorial internal links: 2588 → 3305 (+28%).</li></ul>
+<ul><li><strong>Related reading clusters.</strong> Server-rendered block at the foot of each page mixes matching cross-section pages scored on shared keywords (+28% internal links).</li></ul>
 <h2 id="v2-0-4">2.0.4 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li>Visible &lt;time datetime&gt; stamps on every changelog heading carry machine-readable ISO <code>YYYY-MM-DD</code> dates in the DOM, matching the visible bylines on guides/clauses/templates.</li></ul>
+<ul><li>&lt;time datetime&gt; stamps on every changelog heading carry ISO <code>YYYY-MM-DD</code> dates in the DOM, matching visible bylines.</li></ul>
 <h2 id="v2-0-3">2.0.3 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>E-E-A-T entity linking.</strong> Article schema adds <code>about</code> Topic entities from h2 sections, a full <code>image</code> ImageObject on share-card pages, <code>thumbnailUrl</code> and <code>reviewedBy</code>. FAQPage blocks get a stable <code>@id</code> linked to their page so generic FAQs don't merge.</li></ul>
 <h2 id="v2-0-2">2.0.2 <span class="small muted">— 25 October 2026</span></h2>

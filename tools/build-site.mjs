@@ -216,7 +216,7 @@ for (const p of pages) {
   // "software" rich-result classification and associates keywords (invoice generator, NDA maker, etc.) with the
   // application entity. It also carries isAccessibleForFree=true and operatingSystem=Any, two signals that help
   // "free" / "no download" / "in browser" intent queries.
-  const appNode = { '@context': 'https://schema.org', '@type': ['WebApplication','SoftwareApplication'], '@id': `${SITE}#app`, name: 'Clausery', url: `${SITE}app/`, applicationCategory: 'BusinessApplication', applicationSubCategory: 'Word document generator', operatingSystem: 'Any (web browser)', isAccessibleForFree: true, offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '0', highPrice: String(PRICES.proYearly), offerCount: 3, availability: 'https://schema.org/InStock', url: `${SITE}pricing/` }, publisher: { '@id': `${SITE}#organization` }, creator: { '@id': `${SITE}#organization` }, softwareVersion: '2.15.0', license: `${SITE}legal/license.html`, description: 'Free Word invoice, quote, receipt, contract and NDA generator. Build editable .docx documents in your browser — nothing is uploaded.' };
+  const appNode = { '@context': 'https://schema.org', '@type': ['WebApplication','SoftwareApplication'], '@id': `${SITE}#app`, name: 'Clausery', url: `${SITE}app/`, applicationCategory: 'BusinessApplication', applicationSubCategory: 'Word document generator', operatingSystem: 'Any (web browser)', isAccessibleForFree: true, offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '0', highPrice: String(PRICES.proYearly), offerCount: 3, availability: 'https://schema.org/InStock', url: `${SITE}pricing/` }, publisher: { '@id': `${SITE}#organization` }, creator: { '@id': `${SITE}#organization` }, softwareVersion: '2.16.0', license: `${SITE}legal/license.html`, description: 'Free Word invoice, quote, receipt, contract and NDA generator. Build editable .docx documents in your browser — nothing is uploaded.' };
   // The source code repository (SoftwareSourceCode) gives the software entity a verifiable codebase pointer
   // and ties the Organization sameAs GitHub link into the schema graph. Emitted once per page so references
   // from codeRepository / targetProduct resolve consistently.
@@ -317,10 +317,11 @@ for (const p of pages) {
       final = final.replace(/(<h1[^>]*>[\s\S]*?<\/h1>)/, `$1\n${byline}`);
     }
   }
-  // Print / PDF button on every long-form page. Styles live in site.css (.page-print-btn).
+  // Print/PDF + Share buttons on every long-form page. Styles live in site.css (.page-print-btn).
   if (!p.noindex && p.layout !== 'embed' && !p.path.endsWith('.pdf') && /<h1[^>]*>/.test(final) && !p.path.startsWith('app/')) {
     const printBtn = `<button type="button" class="page-print-btn" onclick="window.print()" title="Print or save as PDF" aria-label="Print">Print/PDF</button>`;
-    final = final.replace(/(<h1[^>]*>[\s\S]*?<\/h1>)/, `$1${printBtn}`);
+    const shareBtn = `<button type="button" class="page-print-btn page-share-btn" onclick="(function(s,b){if(navigator.share){navigator.share({title:document.title,url:location.href}).catch(()=>{})}else{navigator.clipboard.writeText(location.href);b.textContent='Link copied';setTimeout(()=>b.textContent='Share',1500)}})(this,this)" title="Share this page or copy link" aria-label="Share">Share</button>`;
+    final = final.replace(/(<h1[^>]*>[\s\S]*?<\/h1>)/, `$1${shareBtn}${printBtn}`);
   }
   // Add BreadcrumbList microdata to inline hand-written breadcrumb navs (visible DOM parity with crumbsLd JSON-LD).
   final = final.replace(/<nav([^>]*)aria-label="Breadcrumb"([^>]*)>([\s\S]*?)<\/nav>/g, (m, pre, post, inner) => {
