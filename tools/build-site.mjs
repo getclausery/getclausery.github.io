@@ -143,6 +143,15 @@ for (const p of pages) {
   let final = modified ? html.split(LASTMOD_LONG).join(longDate(modified)).split(LASTMOD).join(modified) : html;
   // "Updated …" only appears once a page has changed since it was published.
   final = final.replace(/<!--upd-->([\s\S]*?)<!--\/upd-->/g, (m, inner) => (p.published && p.published === modified ? '' : inner));
+  // Inject an E-E-A-T "Reviewed by / Updated" byline on long-form pages that don't already have one (templates, compare, audience, free-tools).
+  if (modified && !/guide-meta|Reviewed by/.test(final) && !p.noindex && p.layout !== 'embed' && !/^(\.|404|go\/|made-with\/|search\/|app\/|sitemap\/|feed|releases)/.test(p.path) && /<h1[^>]*>/.test(final)) {
+    const byline = `<p class="small muted guide-meta">Reviewed by <a href="${rel}about/">Clausery editors</a> · <time datetime="${modified}">${longDate(modified)}</time></p>`;
+    // Insert after the first <h1>... </h1> (and any immediate <p class="lead"> following it is fine — place right after h1).
+    final = final.replace(/(<h1[^>]*>[\s\S]*?<\/h1>)(\s*<p class="lead")/, `$1\n${byline}$2`);
+    if (!/Reviewed by/.test(final)) {
+      final = final.replace(/(<h1[^>]*>[\s\S]*?<\/h1>)/, `$1\n${byline}`);
+    }
+  }
   // Add BreadcrumbList microdata to inline hand-written breadcrumb navs (visible DOM parity with crumbsLd JSON-LD).
   final = final.replace(/<nav([^>]*)aria-label="Breadcrumb"([^>]*)>([\s\S]*?)<\/nav>/g, (m, pre, post, inner) => {
     if (/itemscope/.test(inner)) return m; // already has microdata (from crumbsHtml helper)

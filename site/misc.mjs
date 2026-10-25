@@ -96,6 +96,8 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-94-0">1.94.0 <span class="small muted">— 25 October 2026</span></h2>
+<ul><li><strong>Visible "Reviewed by / Updated" E-E-A-T byline on every long-form page.</strong> Templates, comparisons, audience pages, free tools and trade invoice pages now show a "Reviewed by Clausery editors · Updated <time>" byline matching the existing byline on guides and clauses, surfacing author and freshness signals to both users and crawlers across all 261 indexable pages.</li></ul>
 <h2 id="v1-93-0">1.93.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Visible "Reviewed / Updated" byline on clause pages.</strong> Every clause page now shows a visible "Reviewed by Clausery editors · Updated …" line with a <code>&lt;time datetime&gt;</code> matching the JSON-LD last-modified date, giving users and crawlers an explicit freshness signal that already existed on guides.</li></ul>
 <h2 id="v1-92-0">1.92.0 <span class="small muted">— 25 October 2026</span></h2>
@@ -418,9 +420,7 @@ export const pages = [
   <li>Invoice templates by trade: contractor, handyman, cleaning, landscaping, photography, video, graphic design, web design, consulting, writing, tutoring and personal training. Each opens an invoice with the lines that trade usually bills, ready for your prices, and explains what that trade should put on an invoice and how it usually gets paid.</li>
 </ul>
 <h2>1.24.1 <span class="small muted">— 7 October 2026</span></h2>
-<ul>
-  <li>Anonymous usage counts are on: the app tells GoatCounter when it is opened, when a draft is started and when a document is made, and which library template it was. Nothing you type, no file names and none of your own templates are ever part of it, and GoatCounter sets no cookies and does not store IP addresses. The <a href="${rel}legal/privacy.html">privacy policy</a> has the details.</li>
-</ul>
+<ul><li>Anonymous, cookieless GoatCounter usage counts (opens, drafts, documents, template) — no typed content, file names or IPs stored; privacy policy updated.</li></ul>
 <h2>1.24.0 <span class="small muted">— 7 October 2026</span></h2>
 <ul>
   <li>Your next invoice fills itself in: a new invoice, quote, receipt, purchase order or credit note starts with your own details, bank details and usual tax rate from the last one you made, the next number in your sequence and today's date. A due date keeps the same number of days after the invoice date as last time. The client, the items and the amounts are never copied.</li>
