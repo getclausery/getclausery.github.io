@@ -3,7 +3,7 @@
 import { writeFileSync, mkdirSync, readdirSync, readFileSync, existsSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { createHash } from 'node:crypto';
-import { head, footer, embedPage, crumbsLd, howToLd, SITE, LASTMOD, LASTMOD_LONG, longDate } from './partials.mjs';
+import { head, footer, embedPage, crumbsLd, howToLd, faqLd, esc, SITE, LASTMOD, LASTMOD_LONG, longDate } from './partials.mjs';
 import { PRICES, TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 
 const pages = [];
@@ -107,10 +107,27 @@ for (const p of pages) {
     }
     const articleLd = `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', '@id': `${SITE}${p.path}#article`, isPartOf: { '@id': `${SITE}${p.path}#webpage` }, headline: p.title, description: p.description, datePublished: p.published, dateModified: modified, ...(modified ? { lastReviewed: modified } : {}), inLanguage: 'en-GB', image: `${SITE}assets/og.png`, mainEntityOfPage: `${SITE}${p.path}`, ...(p._sources ? { citation: p._sources.map(([, u]) => u) } : {}), ...(headings.length >= 3 ? { articleSection: headings.map((h) => h.text) } : {}), author: { '@type': 'Organization', name: 'Clausery', url: SITE }, publisher: { '@type': 'Organization', name: 'Clausery', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}assets/icon-512.png`, width: 512, height: 512 } } })}</script>`;
     p.extraHead = articleLd + (p.extraHead || '');
-    const hasSteps = /<h2[^>]*>(What to include|How to|Steps|What goes|What to write|How)/i.test(renderedBody) && /<ol>\s*<li><strong>/.test(renderedBody);
+    const hasSteps = /<h2[^>]*>(What to include|How to|Steps to|Steps|What goes|What to write|How you can|How)/i.test(renderedBody) && /<ol>\s*<li><strong>/.test(renderedBody);
     if (hasSteps) {
       const howTo = howToLd({ name: p.title, description: p.description, steps: renderedBody, totalTime: 'PT10M' });
       p.extraHead += howTo;
+    }
+    // Auto-inject a short generic FAQ block (visible + JSON-LD) on guides that have no Questions section yet,
+    // so every long-form article qualifies for FAQ rich results. Questions are generic and factual.
+    if (!p.faq && !/<h2[^>]*>[^<]*Questions/i.test(renderedBody) && !/<div class="faq">/.test(renderedBody)) {
+      const generic = [
+        ['Is this guide and its template free?', 'Yes. Templates and guides are free to read, copy and adapt. Fill the Word version online or download the .docx with no account and nothing uploaded.'],
+        ['Do I need a lawyer to review it?', 'These are general samples, not legal advice. Contract, employment and tax rules differ by country and state, so have anything important reviewed for your jurisdiction.'],
+        ['Can I edit it in Word?', 'Yes. Download the .docx and edit it like any Word document, or add {tags} to turn it into a reusable questionnaire.'],
+      ];
+      p.extraHead += faqLd(generic);
+      const inj = `<h2>Common questions</h2>\n<div class="faq">${generic.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>`;
+      // Insert before the helpfulWidget if present, else just before </div></section>.
+      if (renderedBody.includes('data-helpful=')) {
+        renderedBody = renderedBody.replace(/<p class="helpful"/, inj + '\n<p class="helpful"');
+      } else {
+        renderedBody = renderedBody.replace(/(<\/div><\/section>)\s*$/, inj + '\n$1');
+      }
     }
   }
   const pageLd = skipPageLd ? '' : `<script type="application/ld+json">${JSON.stringify({

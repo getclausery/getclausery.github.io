@@ -96,6 +96,8 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-92-0">1.92.0 <span class="small muted">— 25 October 2026</span></h2>
+<ul><li><strong>FAQPage on every long-form page.</strong> All 67 guides, 24 clauses and 87 templates now carry a visible "Common questions" section and matching FAQPage JSON-LD (where an author-written FAQ didn't already exist), unlocking FAQ rich-result eligibility. Broadened HowTo detection so more step-by-step guides emit HowTo schema.</li></ul>
 <h2 id="v1-91-0">1.91.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Self-referencing hreflang on every page.</strong> All 261 indexable pages now declare <code>hreflang="en"</code>, <code>hreflang="en-GB"</code> and <code>x-default</code> pointing at the canonical URL, giving Google an explicit language/region signal.</li></ul>
 <h2 id="v1-90-0">1.90.0 <span class="small muted">— 25 October 2026</span></h2>
@@ -375,29 +377,7 @@ export const pages = [
   <li>Added a <a href="${rel}self-hosting/">Self-hosting / Enterprise</a> marketing page covering intranet deployment, white-label, air-gapped use and license scope.</li>
 </ul>
 <h2 id="v1-41-0">1.41.0 <span class="small muted">— 23 October 2026</span></h2>
-<ul>
-  <li>Homepage <code>SiteNavigationElement</code> JSON-LD lists the primary navigation for crawlers and accessibility tooling.</li>
-</ul>
-<h2 id="v1-40-0">1.40.0 <span class="small muted">— 23 October 2026</span></h2>
-<ul>
-  <li>Footer version badge links to the matching changelog anchor.</li>
-</ul>
-<h2 id="v1-39-0">1.39.0 <span class="small muted">— 23 October 2026</span></h2>
-<ul>
-  <li>Comparisons now carry the same "vendor source" link pattern consistently, and the trust-chips system used on pricing is available on other high-intent pages.</li>
-</ul>
-<h2 id="v1-38-0">1.38.0 <span class="small muted">— 23 October 2026</span></h2>
-<ul>
-  <li>Added <code>/.well-known/privacy-policy</code> and <code>/.well-known/terms-of-service</code> redirects; rewrote the <a href="${rel}made-with/">Made with Clausery</a> receiver page with FAQ, trust bar and sender contact.</li>
-</ul>
-<h2 id="v1-37-0">1.37.0 <span class="small muted">— 23 October 2026</span></h2>
-<ul>
-  <li>Added <code>/.well-known/support</code> (RFC 9405) redirecting to contact for installed-PWA "Get support" entries.</li>
-</ul>
-<h2 id="v1-36-1">1.36.1 <span class="small muted">— 23 October 2026</span></h2>
-<ul>
-  <li>Homepage SoftwareApplication schema lists paid offers with availability.</li>
-</ul>
+<ul><li>Homepage <code>SiteNavigationElement</code> JSON-LD lists the primary navigation for crawlers and accessibility tooling; footer version badge links to this changelog; comparisons use a consistent vendor-source link pattern; added <code>/.well-known</code> redirects for privacy-policy, terms-of-service and support (RFC 9405); rewrote the <a href="${rel}made-with/">Made with Clausery</a> receiver page with FAQ and trust bar.</li></ul>
 <h2 id="v1-35-0">1.35.0 <span class="small muted">— 23 October 2026</span></h2>
 <ul><li>Pricing redesign with featured Pro, refund signal, strong CTA; public <a href="${rel}status/">status</a>, <a href="${rel}roadmap/">roadmap</a>; Crawl-delay/Host; <a href="${rel}customers/">Customers</a>, <a href="${rel}releases.xml">Atom feed</a>, gradient buttons, <a href="${rel}guides/invoice-email-template.html">invoice emails</a>; ${TRIAL_DAYS}-day trial.</li></ul>
 <h2 id="v1-32-0">1.32.0 <span class="small muted">— 9 October 2026</span></h2>
