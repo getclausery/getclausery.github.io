@@ -1,4 +1,4 @@
-import { USAGE_ON } from '../tools/partials.mjs';
+import { USAGE_ON, SITE } from '../tools/partials.mjs';
 import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 
 // Machine-readable release list, newest first, used to build releases.xml (Atom) and kept in sync
@@ -60,7 +60,7 @@ export const pages = [
   {
     path: 'search/', title: 'Search free Word templates and guides',
     description: 'Search 87+ free Word templates, invoices, NDAs, contracts, letters and plain-English guides. Every result is a real page you can read or download — no account required.',
-    extraHead: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'SearchResultsPage', '@id': '${SITE}search/#webpage', url: '${SITE}search/', name: 'Search free Word templates and guides', description: 'Search 87+ free Word templates, invoices, NDAs, contracts, letters and plain-English guides. Every result is a real page you can read or download — no account required.', inLanguage: 'en-GB', isPartOf: { '@id': '${SITE}#website' } })}</script>`,
+    extraHead: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'SearchResultsPage', '@id': `${SITE}search/#webpage`, url: `${SITE}search/`, name: 'Search free Word templates and guides', description: 'Search 87+ free Word templates, invoices, NDAs, contracts, letters and plain-English guides. Every result is a real page you can read or download — no account required.', inLanguage: 'en-GB', isPartOf: { '@id': `${SITE}#website` } })}</script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">
 <p class="eyebrow">Search</p>
 <h1>Search free templates, invoices and guides</h1>
@@ -96,6 +96,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v1-86-0">1.86.0 <span class="small muted">— 24 October 2026</span></h2>
+<ul>
+  <li><strong>Richer template-page schema.</strong> Every template page now emits an <code>ItemPage</code> (instead of generic <code>WebPage</code>) with a <code>primaryImageOfPage</code> pointing at its 1200×630 share card, plus <code>headline</code> and <code>keywords</code> on its <code>DigitalDocument</code>. This lines template pages up with Google's product/document SERP expectations.</li>
+</ul>
 <h2 id="v1-85-0">1.85.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li><strong>"Was this helpful?" widget.</strong> Every template page and guide now carries a small Yes/No feedback widget at the bottom. Votes are stored only in <code>localStorage</code> on the device (nothing is sent, no new third party) with a running count shown after voting. When an aggregated, opt-in feedback endpoint ships, counts from opted-in devices can back <code>AggregateRating</code> schema without inventing numbers.</li>
