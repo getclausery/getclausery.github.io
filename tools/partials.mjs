@@ -109,7 +109,7 @@ export const howToLd = ({ name, description, steps, totalTime = 'PT15M', image =
   if (!stepItems || !stepItems.length) return '';
   return `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'HowTo', name, description, totalTime, estimatedCost: { '@type': 'MonetaryAmount', currency: 'USD', value: '0' }, image, inLanguage: 'en-GB', isAccessibleForFree: true, step: stepItems.map((s, i) => ({ '@type': 'HowToStep', position: i + 1, name: s.name || `Step ${i + 1}`, text: s.text, ...(s.image ? { image: s.image } : {}) })) })}</script>`;
 };
-export function head({ title, description, path, extraHead = '', pageLd = '', ogImage = 'assets/og.png', ogType = 'website', published, modified, rel: relOverride, noindex = false }) {
+export function head({ title, description, path, extraHead = '', pageLd = '', ogImage = 'assets/og.png', ogType = 'website', published, modified, rel: relOverride, noindex = false, prev, next }) {
   // Search results show about 60 characters of a title; drop the brand suffix rather than have the title cut off.
   // The home title leads with what the site is for (small businesses making invoices in Word) and what people search for.
   // A title that already names Clausery gets no suffix (no "About Clausery · Clausery").
@@ -148,7 +148,7 @@ export function head({ title, description, path, extraHead = '', pageLd = '', og
 <title>${esc(full)}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="${esc(description)}">
-${robots}<link rel="canonical" href="${url}">
+${robots}${prev ? `<link rel="prev" href="${SITE}${prev}">` : ''}${next ? `<link rel="next" href="${SITE}${next}">` : ''}<link rel="canonical" href="${url}">
 <meta property="og:type" content="${ogType}">
 <meta property="og:locale" content="en_GB">
 <meta property="og:site_name" content="Clausery">

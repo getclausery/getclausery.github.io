@@ -30,7 +30,7 @@ for (const f of files) {
     // preconnect and dns-prefetch are browser hints not executable resources; alternate for feeds/pingbacks;
     // rel="me" for indieauth / mastodon verification; icon/apple-touch-icon on the app path; opensearch is
     // same-site. Anything else is a third-party script or stylesheet and is rejected by the no-third-party promise.
-    if (/rel="[^"]*(?:canonical|noopener|preconnect|dns-prefetch|alternate|me|author|license)[^"]*"/.test(tag)) continue;
+    if (/rel="[^"]*(?:canonical|noopener|preconnect|dns-prefetch|alternate|me|author|license|prev|next)[^"]*"/.test(tag)) continue;
     fail(f, 'external script/stylesheet: ' + tag.slice(0, 120));
   }
   for (const m of html.matchAll(/(?:href|src)="([^"#?]+)(?:[#?][^"]*)?"/g)) {
