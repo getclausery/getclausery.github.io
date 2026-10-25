@@ -242,6 +242,10 @@ nav.breadcrumb span[aria-hidden="true"]{opacity:.45;padding:0 .05rem;user-select
 
 /* === badges / pills === */
 .badge{display:inline-block;padding:.2rem .7rem;border-radius:999px;font-size:.73rem;font-weight:700;letter-spacing:.03em;background:var(--accent-soft);color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 25%,transparent)}
+.card-updated{display:inline-block;margin-top:.4rem;padding:.05rem .5rem;border-radius:999px;font-size:.68rem;font-weight:600;color:var(--muted);background:color-mix(in srgb,var(--accent) 8%,transparent);border:1px solid color-mix(in srgb,var(--border) 70%,transparent);align-self:flex-start;line-height:1.4}
+#tpl-groups a.feature{display:flex;flex-direction:column}
+#tpl-groups a.feature h3{font-size:1.05rem;margin:.35rem 0 .2rem;line-height:1.25}
+#tpl-groups a.feature p{flex:1;font-size:.86rem;line-height:1.4;margin:0}
 .badge-warn{background:var(--warn-soft);color:var(--warn);border-color:color-mix(in srgb,var(--warn) 25%,transparent)}
 .release-pill{display:inline-flex;align-items:center;flex-wrap:wrap;gap:.35rem;margin:.35rem 0 0;padding:.35rem .8rem;border-radius:999px;background:color-mix(in srgb,var(--accent) 7%,var(--surface));border:1px solid color-mix(in srgb,var(--accent) 25%,transparent);font-size:.83rem;color:var(--muted)}
 .release-pill a{color:var(--accent);font-weight:600;text-decoration:none}.release-pill a:hover{text-decoration:underline}
