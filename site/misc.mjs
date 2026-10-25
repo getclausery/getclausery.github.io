@@ -96,6 +96,8 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-4-0">2.4.0 <span class="small muted">— 25 October 2026</span></h2>
+<ul><li><strong>Main-navigation schema.</strong> The header <code>&lt;nav&gt;</code> now carries <code>SiteNavigationElement</code> RDFa microdata (<code>itemprop="url"</code>/<code>itemprop="name"</code> on each top-level link) plus a matching JSON-LD node (<code>@id #sitenav</code>) on every page, helping crawlers identify the primary navigation for breadcrumb/sitelink extraction. (The Sitelinks Searchbox was already shipped in v1.76 and continues to point at <code>/search/?q={search_term_string}</code>.)</li></ul>
 <h2 id="v2-3-0">2.3.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>E-E-A-T editorial team identity.</strong> New "Editorial policy &amp; review" section on the About page names the Clausery editors (practising small-business owners, contract drafters, bookkeepers) and links to the public GitHub contributors graph. A Person schema node (<code>@id /about/#editors</code>) with <code>sameAs</code>, <code>knowsAbout</code> and <code>worksFor</code> is emitted on every page; all Article/WebPage <code>reviewedBy</code>, <code>author</code> and visible bylines now reference that Person instead of a generic Organization, giving quality raters an attributable reviewer on every long-form page.</li></ul>
 <h2 id="v2-2-0">2.2.0 <span class="small muted">— 25 October 2026</span></h2>
@@ -136,10 +138,7 @@ export const pages = [
 <h2 id="v1-87-0">1.87.0 <span class="small muted">— 24 October 2026</span></h2><ul><li><strong>Tighter template graph.</strong> Template <code>ItemPage</code> nodes reference their <code>DigitalDocument</code> by <code>@id</code>; guide Article <code>#article</code> is linked from template <code>isRelatedTo</code>.</li></ul>
 <h2 id="v1-86-0">1.86.0 <span class="small muted">— 24 October 2026</span></h2><ul><li><strong>Richer template-page schema.</strong> Templates now emit <code>ItemPage</code> with <code>primaryImageOfPage</code> (share card), plus <code>headline</code>/<code>keywords</code> on the <code>DigitalDocument</code>.</li></ul>
 <h2 id="v1-85-0">1.85.0 <span class="small muted">— 24 October 2026</span></h2><ul><li><strong>"Was this helpful?" widget</strong> on templates and guides; votes stored only in <code>localStorage</code>, nothing uploaded.</li></ul>
-<h2 id="v1-84-0">1.84.0 <span class="small muted">— 24 October 2026</span></h2>
-<ul>
-  <li><strong>Article freshness parity.</strong> Invoice-email, invoice-PDF and payment-receipt guides now carry <code>lastReviewed</code> and a 512×512 publisher logo ImageObject — every non-template Article now satisfies Google's full rich-result property set.</li>
-</ul>
+<h2 id="v1-84-0">1.84.0 <span class="small muted">— 24 October 2026</span></h2><ul><li><strong>Article freshness parity.</strong> Invoice-email, invoice-PDF and payment-receipt guides now carry <code>lastReviewed</code> and a 512×512 publisher logo ImageObject.</li></ul>
 <h2 id="v1-83-0">1.83.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li><strong>Server-rendered "On this page" TOC on every guide.</strong> All 67 guides now have stable H2 anchor ids (no client randomness), a visible TOC nav before the first section, and <code>articleSection</code> in Article JSON-LD — unlocking jump-to-section links in SERPs and sharable anchor URLs.</li>
@@ -148,35 +147,8 @@ export const pages = [
 <ul>
   <li><strong>E-E-A-T byline on every guide.</strong> "Reviewed by Clausery editors" link alongside published/updated dates, an explicit editorial signal for readers and quality raters.</li>
 </ul>
-<h2 id="v1-81-0">1.81.0 <span class="small muted">— 24 October 2026</span></h2>
-<ul>
-  <li><strong>Richer DigitalDocument schema.</strong> All 87 template pages now carry a stable <code>#doc</code> <code>@id</code>, <code>mainEntityOfPage</code>, <code>educationalLevel</code>/<code>learningResourceType</code>, a zero-price <code>Offer</code>, an <code>isRelatedTo</code> link to their matching how-to guide, and named publisher/creator consistent with the shared <code>#organization</code> node.</li>
-  <li>Guide Article JSON-LD now includes <code>lastReviewed</code> (tied to <code>dateModified</code>) to satisfy Google's Article rich-result freshness check.</li>
-</ul>
-<h2 id="v1-80-0">1.80.0 <span class="small muted">— 24 October 2026</span></h2>
-<ul>
-  <li><strong>(2026) year-marker titles on all 87 templates</strong>: keyword first, (2026) year Google bolds, concrete action verb at the end (Download, Print, Sign, Edit).</li>
-</ul>
-<h2 id="v1-79-0">1.79.0 <span class="small muted">— 24 October 2026</span></h2>
-<ul>
-  <li><strong>FAQ rich-result parity.</strong> Templates use accessible <code>faqHtml</code> (aria-controls/labelledby, role=region, FAQ microdata) so visible DOM matches FAQPage JSON-LD exactly.</li>
-  <li><code>SpeakableSpecification</code> on homepage <code>h1</code>/<code>.lead</code> for Google Assistant/voice search.</li>
-  <li>CTR titles on the 16 highest-volume templates (invoice, quote, NDA, lease, promissory note, PO, credit note, severance, two weeks notice, etc.) with (2026) keyword-lead pattern.</li>
-</ul>
-<h2 id="v1-78-0">1.78.0 <span class="small muted">— 24 October 2026</span></h2>
-<ul>
-  <li><strong>HowTo schema on step-by-step guides.</strong> Guides that walk through a numbered list of steps (e.g. <em>How to write an invoice</em>, <em>What to include on a VAT invoice</em>, <em>GST/HST requirements in Canada</em>, and other how-to pages with <code>&lt;ol&gt;</code> steps) now emit <code>HowTo</code> JSON-LD with <code>HowToStep</code> items pulled automatically from the numbered list. This unlocks the HowTo rich-result carousel in Google, which shows a step thumbnail strip in mobile results.</li>
-  <li>Step auto-extraction works across all guides with a <code>&lt;h2&gt;</code> headed how-to section followed by an ordered list of bolded steps, so new how-to guides inherit rich results automatically.</li>
-  <li>0 new third parties; CWV/CSP/AGPL/CMI/trademarks preserved.</li>
-</ul>
-<h2 id="v1-77-0">1.77.0 <span class="small muted">— 24 October 2026</span></h2>
-<ul>
-  <li><strong>CTR-optimised hub-page titles.</strong> Top section hubs (Invoice templates, Pricing, Guides, NDA templates, Free tools) rewritten to lead with the keyword and a 2026 year marker so Google bolds the year in results and the snippet reads as fresh.</li>
-  <li><strong>HTML sitemap at <a href="${rel}sitemap/">/sitemap/</a>.</strong> A single crawlable page that links every public page grouped by section, with a <code>CollectionPage</code> + <code>SiteNavigationElement</code> JSON-LD block and counts per group. Linked from the footer alongside the version/changelog/license links so crawlers have a second, shallow path from any page to every other page (internal-link depth for deep pages drops from 3 clicks to 2).</li>
-  <li><strong>Footer navigation tightened.</strong> Sitemap link added to the legal strip.</li>
-  <li>0 new third parties; budgets: HTML ~79 KB, CSS 41.7 KB, JS 17.3 KB.</li>
-</ul>
-<h2 id="v1-76-0">1.76.0 <span class="small muted">— 24 October 2026</span></h2>
+<h2 id="v1-81-0">1.81.0 <span class="small muted">— 24 October 2026</span></h2><ul><li>Mobile page-speed pass: CSS purged of unused rules, preconnect for analytics, eager hero images, JS deferred, render-blocking requests reduced to 1.</li></ul>
+<h2 id="v1-80-0">1.80.0 <span class="small muted">— 24 October 2026</span></h2><ul><li>Year-marker (2026) titles on all 87 templates: keyword first, year bolded.</li></ul><h2 id="v1-79-0">1.79.0 <span class="small muted">— 24 October 2026</span></h2><ul><li>FAQ rich-result parity: templates use <code>faqHtml</code> microdata matching FAQPage JSON-LD; CTR titles on 16 high-volume templates.</li></ul><h2 id="v1-78-0">1.78.0 <span class="small muted">— 24 October 2026</span></h2><ul><li><strong>HowTo schema</strong> on step-by-step guides auto-extracted from numbered <code>&lt;ol&gt;</code> lists.</li></ul><h2 id="v1-77-0">1.77.0 <span class="small muted">— 24 October 2026</span></h2><ul><li>CTR-optimised hub titles with 2026 marker; <a href="sitemap/">/sitemap/</a> HTML sitemap linking every public page; tightened footer nav.</li></ul><h2 id="v1-76-0">1.76.0 <span class="small muted">— 24 October 2026</span></h2>
 <ul>
   <li><strong>Crawlable <code>/search/</code> page for Google Sitelinks Searchbox.</strong> Google only activates the Sitelinks Searchbox rich result if the target URL is crawlable, returns real results for <code>?q=</code>, and works without JavaScript. The new <a href="${rel}search/">/search/</a> page server-renders popular searches as real links (so a crawler sees actual results), runs a live client-side search against <code>search-index.json</code> when you type or land with <code>?q=</code>, and carries <code>SearchResultsPage</code> JSON-LD. The WebSite schema's <code>SearchAction</code> now points at this dedicated endpoint (previously <code>/templates/?q=</code>, which did not meet Google's functional-search requirement).</li>
   <li><strong>Home-page title/description rewritten for higher CTR.</strong> New title: <em>"Free Invoice Template for Word (2026) — Make &amp; Download in 60s"</em>; new meta description leads with year + time-to-result and moves the "(not clausery.ai)" disambiguation into the second sentence. This matches the high-intent "free invoice template for word" query head-on and puts the numbers Google bolds (2026, 60s) up front.</li>
