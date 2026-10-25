@@ -60,8 +60,11 @@ const pageDate = (p, rel) => {
   if (!known || known.hash !== hash) dates[p.path] = { date: known ? today : p.published || today, hash };
   return dates[p.path].date;
 };
+// Shared helpers used during per-page rendering and later for the search index and 404 suggestions.
+const prettyTitle = (t) => String(t).replace(/\s*[·\-–—]\s*Clausery.*$/,'').replace(/\s*\(.*?\)\s*$/,'').trim() || t;
 // Build prev/next topic siblings for guides so every guide links to adjacent guides in its topic cluster (stronger topical internal linking).
 const guideIdx = {};
+const indexable = pages.filter((pp) => pp.layout !== 'embed' && !pp.noindex && !pp.path.startsWith('.well-known') && !['404.html', 'go/', 'made-with/'].some((x) => pp.path === x || pp.path.startsWith(x)));
 pages.filter(p => /^guides\/[^/]+\.html$/.test(p.path) && !p.noindex).forEach((p, i, arr) => { guideIdx[p.path] = { i, arr }; });
 for (const p of pages) {
   // GitHub Pages serves 404.html for a miss at any depth, so its links must be root-relative, not relative to its file.
@@ -195,13 +198,23 @@ for (const p of pages) {
     const cls = /class="[^"]*"/.test(pre + post) ? '' : ' class="small muted"';
     return `<nav${pre}aria-label="Breadcrumb"${post}${cls} itemscope itemtype="https://schema.org/BreadcrumbList"><ol class="bdcrums">${out}</ol></nav>`;
   });
+  // Smart 404 suggestions: embed a compact path→title map and a tiny client matcher. Tokenises the missing URL path,
+  // scores every indexable page on word overlap / prefix / slug substring matches, and surfaces up to 6 matches before
+  // the action buttons. This turns orphaned links and stale bookmarks into a recovery page instead of a dead end.
+  if (p._404) {
+    const suggestions = indexable.map((pp) => {
+      const title = prettyTitle(SEO_TITLES[pp.path] || pp.title);
+      const slug = pp.path.replace(/index\.html$/, '').replace(/\.html$/, '');
+      return { t: title, p: '/' + slug };
+    });
+    const js = `(function(){var D=${JSON.stringify(suggestions)};function toks(s){return(s||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim().split(/\\s+/).filter(Boolean)}var path=decodeURIComponent(location.pathname||'');var q=(location.hash||'').replace(/^#/,'').replace(/^\\//,'');var hay=path+'/'+q;var ht=toks(hay);if(!ht.length)return;var scored=[];for(var i=0;i<D.length;i++){var it=D[i];var slug=it.p.toLowerCase().replace(/\\.html$/,'').replace(/\\/$/,'');var st=toks(it.t+' '+slug.replace(/\\//g,' '));var sc=0;for(var j=0;j<ht.length;j++){var w=ht[j];if(!w)continue;for(var k=0;k<st.length;k++){var sw=st[k];if(sw===w)sc+=3;else if(sw.indexOf(w)===0&&w.length>=3)sc+=2;else if(sw.indexOf(w)>-1)sc+=1}if(slug.split('/').some(function(s){return s===w}))sc+=3;if(slug.indexOf(w)>-1&&w.length>=3)sc+=1}if(sc>2)scored.push({s:sc,it:it})}scored.sort(function(a,b){return b.s-a.s});var top=scored.slice(0,6);if(!top.length)return;var box=document.getElementById('suggested');var list=document.getElementById('suggested-list');if(!box||!list)return;for(var m=0;m<top.length;m++){var li=document.createElement('li');var a=document.createElement('a');a.href=top[m].it.p;a.textContent=top[m].it.t;li.appendChild(a);list.appendChild(li)}box.hidden=false})();`;
+    final = final.replace('</body>', `<script>${js}</script></body>`);
+  }
   writeFileSync(out, final);
   console.log('wrote', out);
 }
 // Build a compact search index for the in-page command palette, grouped by section.
-const prettyTitle = (t) => String(t).replace(/\s*[·\-–—]\s*Clausery.*$/,'').replace(/\s*\(.*?\)\s*$/,'').trim() || t;
 const named=(list)=>list.map(p=>({t:prettyTitle(p.title),p:p.path}));
-const indexable=pages.filter(p=>p.layout!=='embed'&&!p.noindex&&!p.path.startsWith('.well-known')&&!['404.html','go/','made-with/'].some(x=>p.path===x||p.path.startsWith(x)));
 const searchIndex={
   templates:named(indexable.filter(p=>/^templates\/[^/]+\.html$/.test(p.path))),
   invoices:named(indexable.filter(p=>p.path.startsWith('invoice-templates/')&&p.path.endsWith('.html'))),
