@@ -57,6 +57,12 @@ export const pages = [{
       <div class="notice-name">${ico(I.info,14)} Not clausery.ai — we're the independent open-source Word invoice generator; compliance software is over at <a href="https://www.clausery.ai/" rel="noopener">clausery.ai</a>.</div>
       <h1>Free invoice maker for Word — make a .docx in 60 seconds, no signup.</h1>
       <p class="lead">Answer a few questions and download a finished <strong>.docx</strong> you can still edit. Totals, tax, discounts and the next invoice number are done for you. Nothing you type is uploaded — it all runs in your browser.</p>
+      <ul class="hero-trust" aria-label="Why Clausery is different">
+        <li><strong>${LIB.length}+ templates</strong><span>All free Word</span></li>
+        <li><strong>No signup</strong><span>No card, no email</span></li>
+        <li><strong>Nothing uploaded</strong><span>Runs in your browser</span></li>
+        <li><strong>Open source</strong><span>AGPL, auditable</span></li>
+      </ul>
       <div class="actions">
         <a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make my free invoice <span class="arr">→</span></a>
         <a class="btn btn-lg" href="${rel}templates/">Browse ${LIB.length} free templates</a>
@@ -171,6 +177,12 @@ export const pages = [{
   .demo-foot{margin-top:.5rem}
 }
 .hero .btn-primary{transition:transform .12s,box-shadow .12s,background .15s;box-shadow:0 4px 14px -4px rgba(15,118,110,.5)}
+
+.hero-trust{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.75rem;margin:1.25rem 0 .5rem;padding:0;list-style:none}
+.hero-trust li{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:.7rem .85rem;text-align:center}
+.hero-trust strong{display:block;font-size:.92rem;color:var(--accent);font-weight:700}
+.hero-trust span{display:block;font-size:.72rem;color:var(--muted);margin-top:.15rem}
+@media(max-width:600px){.hero-trust{grid-template-columns:repeat(2,1fr);gap:.5rem}.hero-trust li{padding:.6rem .55rem}.hero-trust strong{font-size:.85rem}}
 .hero .btn-primary:hover{transform:translateY(-1px);box-shadow:0 8px 22px -4px rgba(15,118,110,.55)}
 .hero .actions .btn{transition:transform .12s,background .15s,border-color .15s}
 .hero .actions .btn:hover{transform:translateY(-1px)}
