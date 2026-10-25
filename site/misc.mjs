@@ -96,6 +96,8 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-0-0">2.0.0 <span class="small muted">— 25 October 2026</span></h2>
+<ul><li><strong>SEO & E-E-A-T milestone.</strong> v2.0 ships the full structured-data / rich-result / content-quality pass: visible BreadcrumbList microdata on every nav (1.88), complete shared WebSite+Organization schema graph on every page (1.89), rel=prev/next topical chaining on guides (1.90), self-referencing hreflang (1.91), FAQPage on every long-form page (1.92), visible "Reviewed by / Updated" byline on guides, clauses, templates, comparisons and hubs (1.93–1.94), auto-generated meta keywords (1.95), primaryImageOfPage on every page with a share card (1.96), lastReviewed/reviewedBy on WebPage/ItemPage (1.97), rel=author and contactPoint/sameAs on the Organization node (1.98), and server-rendered "On this page" TOC with h2 anchor ids on clauses and templates (1.99). All 261 indexable pages carry a connected schema graph, a visible freshness byline, crawlable internal links and a valid share card.</li></ul>
 <h2 id="v1-99-0">1.99.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>"On this page" TOC + h2 anchor ids on clauses and templates.</strong> All 24 clause pages and 87 template pages now have stable slug ids on every <code>&lt;h2&gt;</code> and a server-rendered "On this page" table of contents above the fold, matching the existing TOC on guides. This gives users a skimmable outline and Google stable named anchors for jump-to links.</li></ul>
 <h2 id="v1-98-0">1.98.0 <span class="small muted">— 25 October 2026</span></h2>
@@ -440,28 +442,13 @@ export const pages = [
 <h2>1.20.0 <span class="small muted">— 5 October 2026</span></h2>
 <ul><li>Live document preview beside questions (toggleable, choice remembered); conditional questions hidden until ticked; sections show answers-left and only turn red on navigation; clearer titles for invoice, receipt and employment agreement.</li></ul>
 <h2>1.19.0 <span class="small muted">— 4 October 2026</span></h2>
-<ul>
-  <li>Twelve new free templates: a room rental agreement, a rent payment plan agreement, a landlord reference letter, a performance improvement plan, a remote work agreement, an expense reimbursement form, a change order form, a consignment agreement, a pet sitting agreement, a coaching agreement, a contract termination letter and a credit note.</li>
-  <li>Eight new guides: how to write a performance improvement plan and a remote work agreement, what a credit note and a change order are, how to terminate a contract, how consignment works, how to set up a rent payment plan, and what to put in an agreement when you rent out a room in your home.</li>
-  <li>Every template page now shows a picture of the template's first page.</li>
-  <li>The app accepts license keys bought through online checkout: activate the key from your receipt once, and renewals and cancellations apply on their own. The app checks the key with our payment provider about once a week, sending only the key; your documents never leave your browser. Offline keys keep working as before.</li>
-  <li>Clearer page descriptions in search results for templates, clauses and guides.</li>
-</ul>
+<ul><li>Twelve new templates (room rental, rent payment plan, landlord reference, PIP, remote work, expense reimbursement, change order, consignment, pet sitting, coaching, termination letter, credit note), eight new guides, template preview thumbnails on every template page, online license-key checkout (documents stay in browser, key checked ~weekly), and cleaner search-result descriptions.</li></ul>
 <h2>1.18.2 <span class="small muted">— 3 October 2026</span></h2>
-<ul>
-  <li>The website now counts anonymous page views with Cloudflare Web Analytics, which uses no cookies and does not track individual visitors. The app and the embedded calculators are never counted; the privacy policy explains what is recorded.</li>
-  <li>Four guides now list the primary sources they rely on.</li>
-</ul>
+<ul><li>Anonymous Cloudflare Web Analytics (cookieless, no app/calculator events); four guides list their primary sources.</li></ul>
 <h2>1.18.1 <span class="small muted">— 3 October 2026</span></h2>
-<ul>
-  <li>License keys are signed with a new key, ready for online checkout of the Pro and Team plans.</li>
-</ul>
+<ul><li>New license signing key ready for online checkout.</li></ul>
 <h2>1.18.0 <span class="small muted">— 3 October 2026</span></h2>
-<ul>
-  <li>Eight new free templates: a non-compete agreement, a nanny contract, a gift letter for a mortgage, a lease termination agreement, a severance agreement and release, a job description, a catering contract and a board resolution.</li>
-  <li>Four new guides: whether non-competes are enforceable in 2026, how to write a gift letter for a mortgage, what to include in a severance agreement, and how to write a job description.</li>
-  <li>The HR, landlord, freelancer and law firm pages, and the clause library, link the new templates.</li>
-</ul>
+<ul><li>Eight new templates (non-compete, nanny contract, mortgage gift letter, lease termination, severance, job description, catering contract, board resolution) and four guides; HR/landlord/freelancer/law-firm hubs link the new items.</li></ul>
 <h2>1.17.0 <span class="small muted">— 2 October 2026</span></h2>
 <ul>
   <li>Nine new free templates: an invoice, a price quote, a purchase order, a payment receipt, meeting minutes, a two weeks notice letter, a hold harmless agreement, an equipment rental agreement and a cleaning services contract.</li>
