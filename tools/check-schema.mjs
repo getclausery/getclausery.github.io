@@ -47,7 +47,7 @@ for (const url of urls) {
     if (node['@id']) {
       if (localIds.has(node['@id'])) fail(file, `${type} repeats @id ${node['@id']} on one page`);
       localIds.add(node['@id']);
-      if (ids.has(node['@id']) && !node['@id'].endsWith('#website') && !node['@id'].endsWith('#organization') && !node['@id'].endsWith('#logo') && !node['@id'].endsWith('#editors') && !node['@id'].endsWith('#sitenav')) fail(file, `${type} @id ${node['@id']} is also used on ${ids.get(node['@id'])}`);
+      if (ids.has(node['@id']) && !node['@id'].endsWith('#website') && !node['@id'].endsWith('#organization') && !node['@id'].endsWith('#logo') && !node['@id'].endsWith('#editors') && !node['@id'].endsWith('#sitenav') && !node['@id'].endsWith('#app') && !node['@id'].endsWith('#source')) fail(file, `${type} @id ${node['@id']} is also used on ${ids.get(node['@id'])}`);
       else ids.set(node['@id'], file);
     }
     const ref = (id, where) => { if (typeof id === 'string' && id.startsWith(SITE)) referencedIds.set(id, `${file} (${where})`); };
