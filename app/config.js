@@ -1,7 +1,7 @@
 /* Clausery <https://getclausery.github.io> — (C) 2026 Clausery. AGPL-3.0-or-later WITH Clausery-Trademark-Exception. Removing this notice is removal of copyright management information under 17 U.S.C. 1202. Source: https://github.com/getclausery/getclausery.github.io */
 /* Clausery deployment configuration. Edit this file when you deploy your own copy. */
 export const APP_NAME = 'Clausery';
-export const APP_VERSION = '1.99.0';
+export const APP_VERSION = '2.0.0';
 
 /* Public site URL (no trailing slash). Used for links in exported files and the intake form footer. */
 export const SITE_URL = 'https://getclausery.github.io';
