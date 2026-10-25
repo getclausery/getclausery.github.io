@@ -197,7 +197,7 @@ ${GROUPS.map(([g, label]) => `  <h2 style="margin-top:2rem">${esc(label)}</h2>
     const workflow = COMPARISON_WORKFLOWS[c.slug];
     const faq = compareFaq(c);
     return {
-      path: `compare/${c.slug}.html`, title: c.title, description: c.description,
+      path: `compare/${c.slug}.html`, title: c.title, description: c.description, _toc: true,
       // WebPage schema for the comparison itself (search understands the page is about an alternative to
       // Clausery without us asserting any competitor prices/ratings we cannot verify — we intentionally
       // avoid SoftwareApplication for competitors because that would require a fabricated Offer price).
