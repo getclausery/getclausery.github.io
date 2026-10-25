@@ -117,6 +117,27 @@ for (const p of pages) {
   let final = modified ? html.split(LASTMOD_LONG).join(longDate(modified)).split(LASTMOD).join(modified) : html;
   // "Updated …" only appears once a page has changed since it was published.
   final = final.replace(/<!--upd-->([\s\S]*?)<!--\/upd-->/g, (m, inner) => (p.published && p.published === modified ? '' : inner));
+  // Add BreadcrumbList microdata to inline hand-written breadcrumb navs (visible DOM parity with crumbsLd JSON-LD).
+  final = final.replace(/<nav([^>]*)aria-label="Breadcrumb"([^>]*)>([\s\S]*?)<\/nav>/g, (m, pre, post, inner) => {
+    if (/itemscope/.test(inner)) return m; // already has microdata (from crumbsHtml helper)
+    let pos = 0;
+    const linkRe = /<a([^>]*?)href="([^"]+)"([^>]*)>([\s\S]*?)<\/a>/g;
+    const lastRe = /<span aria-current="page">([^<]*)<\/span>/;
+    const lastM = inner.match(lastRe);
+    let out = inner.replace(linkRe, (lm, a1, href, a2, txt) => {
+      pos++;
+      const clean = txt.replace(/<[^>]+>/g, '').trim();
+      return `<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item"${a1}href="${href}"${a2}><span itemprop="name">${clean}</span></a><meta itemprop="position" content="${pos}"></li>`;
+    });
+    if (lastM) {
+      pos++;
+      out = out.replace(lastRe, () => `<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name" aria-current="page">${lastM[1]}</span><meta itemprop="position" content="${pos}"></li>`);
+    }
+    // Replace raw › separators with aria-hidden spans
+    out = out.replace(/›/g, '<span aria-hidden="true">›</span>');
+    const cls = /class="[^"]*"/.test(pre + post) ? '' : ' class="small muted"';
+    return `<nav${pre}aria-label="Breadcrumb"${post}${cls} itemscope itemtype="https://schema.org/BreadcrumbList"><ol class="bdcrums">${out}</ol></nav>`;
+  });
   writeFileSync(out, final);
   console.log('wrote', out);
 }
