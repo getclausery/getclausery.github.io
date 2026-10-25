@@ -96,8 +96,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-15-0">2.15.0 <span class="small muted">— 25 October 2026</span></h2>
+<ul><li><strong>Deep-link anchors on every section heading.</strong> Every <code>&lt;h2&gt;</code>/<code>&lt;h3&gt;</code> with an id gets a <code>#</code> link icon on hover/focus (pinned right on mobile) pointing at that section, so readers can copy a shareable link straight to a specific clause, step or answer. Minified <code>site.js</code> to stay under 18 KB.</li></ul>
 <h2 id="v2-14-0">2.14.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>"Copy the whole template" on every template page.</strong> A one-click button above the "Read the full template" preview copies the complete wording to the clipboard alongside the Download Word link, so users pasting into email or another doc no longer drag-select through the long preview.</li></ul>
+<ul><li><strong>"Copy the whole template" on every template page.</strong> One-click copy above the full-text preview puts the complete wording on the clipboard alongside Download Word, so users pasting into email/another doc skip drag-select.</li></ul>
 <h2 id="v2-13-0">2.13.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Organization logo @id + sameAs.</strong> Global <code>Organization</code> logo now has its own <code>#logo</code> ImageObject <code>@id</code> (icon-512.png, 512×512, PNG) for knowledge-panel eligibility; added GitHub org profile to <code>sameAs</code>.</li></ul>
 <h2 id="v2-12-0">2.12.0 <span class="small muted">— 25 October 2026</span></h2>
@@ -109,13 +111,13 @@ export const pages = [
 <h2 id="v2-9-0">2.9.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Comprehensive print stylesheet.</strong> Replaced the minimal print rule with a full <code>@media print</code> block: chrome (header/footer/nav/fab/cmdk/welcome-bar/thumbs/TOC/prevnext/helpful/related badges) hidden; black-on-white 11pt text with 1.4 cm margins; h2/h3 avoid page-breaks after; clause boxes, details and cards set to avoid breaking across pages; external links render their URL after the anchor (internal <code>#</code>/relative omitted) for usable printed PDFs; clause boxes use a thin black rule instead of teal.</li></ul>
 <h2 id="v2-8-0">2.8.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>humans.txt copy fix.</strong> Fixed one remaining "independent open-source project" reference in <code>humans.txt</code> to "independent open-source business", matching the About/footer/JSON-LD copy sweep from v1.72.2.</li></ul>
+<ul><li><strong>humans.txt copy fix.</strong> Corrected one remaining "independent open-source project" reference to "independent open-source business", matching the v1.72 copy sweep.</li></ul>
 <h2 id="v2-7-0">2.7.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>Freshness badges across all hubs.</strong> The "Updated Mmm YYYY" pill from v2.6.0 now appears on every listing card: Clauses (24), Free tools (9), audience hubs (5), Invoice templates (21). Each badge pulls the page's real last-modified date, surfacing a visible freshness signal before click.</li></ul>
+<ul><li><strong>Freshness badges across all hubs.</strong> The "Updated Mmm YYYY" pill covers every listing card: Clauses (24), Free tools (9), audience hubs (5), Invoice templates (21), pulling each page's real last-modified date.</li></ul>
 <h2 id="v2-6-0">2.6.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>Freshness badges on template hub.</strong> Every Templates hub card now shows an "Updated Mmm YYYY" pill pulled from the real last-modified date, surfacing which templates were revised most recently.</li></ul>
+<ul><li><strong>Freshness badges on template hub.</strong> Templates hub cards show an "Updated Mmm YYYY" pill pulled from the real last-modified date.</li></ul>
 <h2 id="v2-5-0">2.5.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>WebApplication + TableOfContents schema.</strong> Every page emits a <code>WebApplication</code>/<code>SoftwareApplication</code> JSON-LD node (free in-browser Word doc generator, BusinessApplication, <code>isAccessibleForFree=true</code>, Offer $0, license) plus a <code>SoftwareSourceCode</code> node pointing at GitHub, tying long-form pages to the product via <code>mentions</code>. Pages with a visible TOC emit <code>TableOfContents</code> JSON-LD to unlock Google's mobile "Jump to" strip.</li></ul>
+<ul><li><strong>WebApplication + TableOfContents schema.</strong> Every page emits a <code>WebApplication</code>/<code>SoftwareApplication</code> JSON-LD node (free in-browser Word doc generator, <code>isAccessibleForFree=true</code>) plus a <code>SoftwareSourceCode</code> node pointing at GitHub. Pages with a visible TOC emit <code>TableOfContents</code> JSON-LD for Google's "Jump to" strip.</li></ul>
 <h2 id="v2-4-0">2.4.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Main-navigation schema.</strong> Header <code>&lt;nav&gt;</code> now carries <code>SiteNavigationElement</code> RDFa microdata (<code>itemprop="url"</code>/<code>itemprop="name"</code> per link) plus a JSON-LD node (<code>@id #sitenav</code>) on every page.</li></ul>
 <h2 id="v2-3-0">2.3.0 <span class="small muted">— 25 October 2026</span></h2>
@@ -125,7 +127,7 @@ export const pages = [
 <h2 id="v2-1-0">2.1.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Related reading clusters</strong> on every long-form page. A server-rendered block at the foot of each page mixes matching pages from other sections scored on shared keywords. Editorial internal links: 2588 → 3305 (+28%).</li></ul>
 <h2 id="v2-0-4">2.0.4 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li>Visible &lt;time datetime&gt; stamps on every changelog release heading. The 71 dated entries on this page now carry machine-readable ISO <code>YYYY-MM-DD</code> dates in the DOM, matching the visible byline on guides, clauses, templates and hub pages, so crawlers and readers see the same freshness signal everywhere.</li></ul>
+<ul><li>Visible &lt;time datetime&gt; stamps on every changelog heading carry machine-readable ISO <code>YYYY-MM-DD</code> dates in the DOM, matching the visible bylines on guides/clauses/templates.</li></ul>
 <h2 id="v2-0-3">2.0.3 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>E-E-A-T entity linking.</strong> Article schema adds <code>about</code> Topic entities from h2 sections, a full <code>image</code> ImageObject on share-card pages, <code>thumbnailUrl</code> and <code>reviewedBy</code>. FAQPage blocks get a stable <code>@id</code> linked to their page so generic FAQs don't merge.</li></ul>
 <h2 id="v2-0-2">2.0.2 <span class="small muted">— 25 October 2026</span></h2>
