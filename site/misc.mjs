@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '2.26.0', date: '28 October 2026', summary: 'Section jump-navs on Free tools and Who-it\u2019s-for hubs' },
   { version: '2.25.0', date: '28 October 2026', summary: 'CSS scroll()-driven read-progress bar + anchor Back-to-top' },
   { version: '2.24.0', date: '28 October 2026', summary: 'Server-rendered TOC on free-tools, audience and invoice detail pages' },
   { version: '2.23.0', date: '28 October 2026', summary: 'FAQ rich results on NDA templates hub' },
@@ -111,8 +112,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-26-0">2.26.0 <span class="small muted">— 28 October 2026</span></h2>
+<ul><li><strong>Section jump-navs on Free tools, Guides and "Who it's for" hubs.</strong> Free tools links to Calculators / Invoice email / Embed; "Who it's for" links to each audience card; each section carries a stable anchor id.</li></ul>
 <h2 id="v2-25-0">2.25.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>CSS-driven scroll progress bar + anchor-based Back to top.</strong> The top-of-page read-progress bar now uses <code>animation-timeline: scroll()</code> in Chromium/WebKit (zero JS for scroll updates in those browsers) with JS fallback for Firefox. The floating "Top" button is now a plain <code>&lt;a href="#top"&gt;</code> anchor; <code>&lt;body id="top"&gt;</code> lets it work without JS.</li></ul>
+<ul><li><strong>CSS scroll()-driven read-progress + anchor Back-to-top.</strong> Read-progress uses <code>animation-timeline: scroll()</code> in Chromium/WebKit with JS fallback for Firefox; "Top" is a plain <code>&lt;a href="#top"&gt;</code>.</li></ul>
 <h2 id="v2-24-0">2.24.0 <span class="small muted">— 28 October 2026</span></h2>
 <ul><li><strong>TOC on every long-form page.</strong> Free tools, audience and invoice pages get the build-time "On this page" TOC; 180/274 pages now carry an in-page TOC unlocking Google's mobile "Jump to" strip.</li></ul>
 <h2 id="v2-23-0">2.23.0 <span class="small muted">— 28 October 2026</span></h2>
