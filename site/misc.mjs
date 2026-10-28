@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '2.31.0', date: '28 October 2026', summary: 'Visible FAQ blocks across remaining marketing hubs' },
   { version: '2.30.0', date: '28 October 2026', summary: 'One-click deep-link anchors on section headings' },
   { version: '2.29.0', date: '28 October 2026', summary: 'Sticky category jump-nav on Templates hub' },
   { version: '2.28.0', date: '28 October 2026', summary: 'Sticky-header-friendly anchor jumps (scroll-margin-top)' },
@@ -116,8 +117,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-31-0">2.31.0 <span class="small muted">— 28 October 2026</span></h2>
+<ul><li><strong>Visible FAQ blocks on every marketing hub.</strong> About, Contact, Roadmap, Status, Press and Docs now carry on-page "Common questions" sections with matching <code>FAQPage</code> JSON-LD.</li></ul>
 <h2 id="v2-30-0">2.30.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>One-click deep-link anchors on section headings.</strong> Every <code>&lt;h2&gt;</code> on long-form pages now carries a <code>#</code> anchor link that appears on hover/focus, making it trivial to copy a direct link to any section. Build-time injection, zero JS.</li></ul>
+<ul><li><strong>Deep-link anchors on h2s.</strong> Every <code>&lt;h2&gt;</code> on long-form pages gets a <code>#</code> anchor (build-time, zero JS) for direct links.</li></ul>
 <h2 id="v2-29-0">2.29.0 <span class="small muted">— 28 October 2026</span></h2>
 <ul><li><strong>Sticky category jump-nav on Templates hub.</strong> Templates index uses the sticky <code>.hub-jump</code> strip; every major hub now has a sticky jump-nav.</li></ul>
 <h2 id="v2-28-0">2.28.0 <span class="small muted">— 28 October 2026</span></h2>
@@ -429,8 +432,6 @@ export const pages = [
 <ul><li>Nine launch templates (invoice, quote, PO, receipt, meeting minutes, two weeks notice, hold harmless, equipment rental, cleaning services contract), four launch guides, library templates unmetered on Free, about/contact pages, key-request flow ahead of online checkout, and per-page last-modified dates shown on pages and used in sitemaps/feed/structured data.</li></ul>
 <h2>1.16.0 <span class="small muted">— 2 October 2026</span></h2>
 <ul><li>Live template search on the templates page with a home search form, related-template suggestions at the foot of each template page, human-readable "Asked when" wording in the questions table, topic-grouped guides index with publish dates, and capitalisation fixes (mutual NDA, MOU, For HR teams).</li></ul>
-<h2>1.15.1 <span class="small muted">— 1 October 2026</span></h2>
-<ul><li>Home page reworked to lead with the template library (most-used templates, guides, calculators one click away), two-sentence search snippets, section sitemaps under a sitemap index with dates on guides/clauses.</li></ul>
 <h2>1.15.0 <span class="small muted">— 1 October 2026</span></h2>
 <ul><li>Five new guides (termination letter, security deposit return, rent increase letter, roommate agreement, non-compete vs non-solicitation), structured data on every indexable page (FAQ, pricing, breadcrumbs), clearer guides index title, taller deadline-calculator embed.</li></ul>
 <h2>1.14.0 <span class="small muted">— 28 September 2026</span></h2>
