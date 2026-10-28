@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '2.33.0', date: '28 October 2026', summary: 'FAQ page as <details> disclosures' },
   { version: '2.32.0', date: '28 October 2026', summary: 'Visible FAQ blocks on every docs sub-page' },
   { version: '2.31.0', date: '28 October 2026', summary: 'Visible FAQ blocks across remaining marketing hubs' },
   { version: '2.30.0', date: '28 October 2026', summary: 'One-click deep-link anchors on section headings' },
@@ -118,16 +119,18 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-33-0">2.33.0 <span class="small muted">— 28 October 2026</span></h2>
+<ul><li><strong>FAQ page uses <code>&lt;details&gt;</code> disclosure pattern</strong>, matching the hub FAQ blocks.</li></ul>
 <h2 id="v2-32-0">2.32.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>Visible FAQ blocks on every docs sub-page.</strong> Template syntax, Questionnaire design, Logic &amp; calculations, Client intake, Template packs, Backups, Security and Self-hosting pages now carry on-page FAQs with matching <code>FAQPage</code> JSON-LD.</li></ul>
+<ul><li><strong>Visible FAQ blocks on all docs sub-pages</strong> with <code>FAQPage</code> JSON-LD.</li></ul>
 <h2 id="v2-31-0">2.31.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>Visible FAQ blocks on remaining marketing hubs.</strong> About, Contact, Roadmap, Status, Press and Docs now carry on-page "Common questions" with <code>FAQPage</code> JSON-LD.</li></ul>
+<ul><li><strong>Visible FAQ blocks on remaining marketing hubs</strong> (About, Contact, Roadmap, Status, Press, Docs).</li></ul>
 <h2 id="v2-30-0">2.30.0 <span class="small muted">— 28 October 2026</span></h2>
 <ul><li><strong>Deep-link anchors on h2s</strong> (build-time, zero JS).</li></ul>
 <h2 id="v2-29-0">2.29.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>Sticky Templates hub jump-nav</strong>; all major hubs now use sticky jump-navs.</li></ul>
+<ul><li><strong>Sticky Templates hub jump-nav</strong>.</li></ul>
 <h2 id="v2-28-0">2.28.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>Sticky-header-friendly anchor jumps</strong>; <code>scroll-margin-top</code> on headings.</li></ul>
+<ul><li><strong>Sticky-header-friendly anchor jumps</strong>.</li></ul>
 <h2 id="v2-27-0">2.27.0 <span class="small muted">— 28 October 2026</span></h2>
 <ul><li><strong>Sticky hub jump-navs</strong> (zero JS, <code>position:sticky</code>).</li></ul>
 <h2 id="v2-26-0">2.26.0 <span class="small muted">— 28 October 2026</span></h2>

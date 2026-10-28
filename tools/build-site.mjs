@@ -136,13 +136,13 @@ for (const p of pages) {
     const tocSkip = /^(sources|questions|common questions|more on |free templates|related|ready to)/i;
     const headings = [];
     let hIdx = 0;
-    renderedBody = renderedBody.replace(/<h2([^>]*)>([\s\S]*?)<\/h2>/g, (m, attrs, inner) => {
+    renderedBody = renderedBody.replace(/<h2([\s\S]*?)>([\s\S]*?)<\/h2>/g, (m, attrs, inner) => {
       if (/\sid=/.test(attrs)) {
         const idM = attrs.match(/\sid="([^"]+)"/);
         if (idM && !/<a[^>]*class="h-anchor"/.test(inner)) {
           const text = inner.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-          const anchor = tocSkip.test(text) ? '' : `<a href="#${idM[1]}" class="h-anchor" aria-label="Link">#</a>`;
-          if (anchor) return `<h2${attrs}>${inner}${anchor}</h2>`;
+          const anchor = tocSkip.test(text) ? '' : `<a href=#${idM[1]} class=h-anchor aria-label=Link>#</a>`;
+          if (anchor) { if (p._toc) headings.push({ id: idM[1], text }); return `<h2${attrs}>${inner}${anchor}</h2>`; }
         }
         return m;
       }
@@ -151,10 +151,10 @@ for (const p of pages) {
       const unique = seen.has(id) ? `${id}-${++hIdx}` : id;
       seen.add(unique);
       if (!tocSkip.test(text)) headings.push({ id: unique, text });
-      const anchor = tocSkip.test(text) ? '' : `<a href="#${unique}" class="h-anchor" aria-label="Link">#</a>`;
+      const anchor = tocSkip.test(text) ? '' : `<a href=#${unique} class=h-anchor aria-label=Link>#</a>`;
       return `<h2${attrs} id="${unique}">${inner}${anchor}</h2>`;
     });
-    if (headings.length >= 3) {
+    if (p._toc && headings.length >= 3) {
       const tocItems = headings.map((h, idx) => `<li><a href="#${h.id}">${h.text}</a></li>`);
       const tocHtml = `<nav class="guide-toc" aria-label="On this page"><h4>On this page</h4><ol>${tocItems.join('')}</ol></nav>`;
       const firstH2 = renderedBody.match(/<h2[^>]* id="[^"]+">/);
@@ -225,7 +225,7 @@ for (const p of pages) {
   // "software" rich-result classification and associates keywords (invoice generator, NDA maker, etc.) with the
   // application entity. It also carries isAccessibleForFree=true and operatingSystem=Any, two signals that help
   // "free" / "no download" / "in browser" intent queries.
-  const appNode = { '@context': 'https://schema.org', '@type': ['WebApplication','SoftwareApplication'], '@id': `${SITE}#app`, name: 'Clausery', url: `${SITE}app/`, applicationCategory: 'BusinessApplication', applicationSubCategory: 'Word document generator', operatingSystem: 'Any (web browser)', isAccessibleForFree: true, offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '0', highPrice: String(PRICES.proYearly), offerCount: 3, availability: 'https://schema.org/InStock', url: `${SITE}pricing/` }, publisher: { '@id': `${SITE}#organization` }, creator: { '@id': `${SITE}#organization` }, softwareVersion: '2.32.0', license: `${SITE}legal/license.html`, description: 'Free Word invoice, quote, receipt, contract and NDA generator. Build editable .docx documents in your browser — nothing is uploaded.' };
+  const appNode = { '@context': 'https://schema.org', '@type': ['WebApplication','SoftwareApplication'], '@id': `${SITE}#app`, name: 'Clausery', url: `${SITE}app/`, applicationCategory: 'BusinessApplication', applicationSubCategory: 'Word document generator', operatingSystem: 'Any (web browser)', isAccessibleForFree: true, offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '0', highPrice: String(PRICES.proYearly), offerCount: 3, availability: 'https://schema.org/InStock', url: `${SITE}pricing/` }, publisher: { '@id': `${SITE}#organization` }, creator: { '@id': `${SITE}#organization` }, softwareVersion: '2.33.0', license: `${SITE}legal/license.html`, description: 'Free Word invoice, quote, receipt, contract and NDA generator. Build editable .docx documents in your browser — nothing is uploaded.' };
   // The source code repository (SoftwareSourceCode) gives the software entity a verifiable codebase pointer
   // and ties the Organization sameAs GitHub link into the schema graph. Emitted once per page so references
   // from codeRepository / targetProduct resolve consistently.

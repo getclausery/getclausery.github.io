@@ -348,5 +348,8 @@ Cache-Control: no-cache   (for HTML; long max-age for vendor/ and assets/)</code
 
 page('docs/faq.html', 'FAQ', 'Frequently asked questions about Clausery: compatibility, formatting, limits, browsers, offline use and licensing.', (rel) => `
 <h1>Frequently asked questions</h1>
-${DOCS_FAQ.map(([q, a]) => `<h2>${q}</h2>\n<p>${a(rel)}</p>`).join('\n')}`, faqLd(DOCS_FAQ.map(([q, a]) => [q, a('../').replace(/<[^>]+>/g, '')]))),
+<h2>Common questions</h2>
+<div class="faq">${DOCS_FAQ.map(([q, a]) => `<details><summary>${q}</summary><p>${a(rel)}</p></details>`).join('')}</div>
+<h2>More help</h2>
+<p>If your question is not answered here, check the topic pages (Templates, Logic, Backups, Security, Self-hosting) or email getclausery@gmail.com.</p>`, faqLd(DOCS_FAQ.map(([q, a]) => [q, a('../').replace(/<[^>]+>/g, '')]))),
 ];
