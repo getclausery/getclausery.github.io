@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '2.30.0', date: '28 October 2026', summary: 'One-click deep-link anchors on section headings' },
   { version: '2.29.0', date: '28 October 2026', summary: 'Sticky category jump-nav on Templates hub' },
   { version: '2.28.0', date: '28 October 2026', summary: 'Sticky-header-friendly anchor jumps (scroll-margin-top)' },
   { version: '2.27.0', date: '28 October 2026', summary: 'Sticky hub jump-navs (position: sticky)' },
@@ -115,8 +116,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-30-0">2.30.0 <span class="small muted">— 28 October 2026</span></h2>
+<ul><li><strong>One-click deep-link anchors on section headings.</strong> Every <code>&lt;h2&gt;</code> on long-form pages now carries a <code>#</code> anchor link that appears on hover/focus, making it trivial to copy a direct link to any section. Build-time injection, zero JS.</li></ul>
 <h2 id="v2-29-0">2.29.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>Sticky category jump-nav on Templates hub.</strong> Templates index now uses the same sticky <code>.hub-jump</code> strip as every other major hub (Clauses, Guides, Free tools, Invoice templates, Compare, NDA, Who-it's-for) with links to each document category plus "All templates". Zero new CSS/JS.</li></ul>
+<ul><li><strong>Sticky category jump-nav on Templates hub.</strong> Templates index uses the sticky <code>.hub-jump</code> strip; every major hub now has a sticky jump-nav.</li></ul>
 <h2 id="v2-28-0">2.28.0 <span class="small muted">— 28 October 2026</span></h2>
 <ul><li><strong>Sticky-header-friendly anchor jumps.</strong> <code>scroll-margin-top</code> on all headings/id elements so TOC/jump-nav/deep-link anchors land below the sticky header; site.js minified to 17,610 B (354 B headroom created).</li></ul>
 <h2 id="v2-27-0">2.27.0 <span class="small muted">— 28 October 2026</span></h2>
@@ -141,8 +144,6 @@ export const pages = [
 <ul><li><strong>Home trust strip + TOC on comparison pages.</strong> Hero shows a four-pill trust grid (260+ templates · No signup · Nothing uploaded · Open source) above the CTA. All 21 "Clausery vs …" pages get the server-rendered TOC and <code>TableOfContents</code> JSON-LD, unlocking Google's mobile "Jump to" strip.</li></ul>
 <h2 id="v2-17-0">2.17.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Reading time on every long-form page.</strong> Byline ends with "· N min read" from build-time word count (~220 wpm).</li></ul>
-<h2 id="v2-16-0">2.16.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>Share button on every long-form page.</strong> "Share" sits top-right next to Print/PDF; opens the native share sheet on supporting browsers, copies the URL otherwise.</li></ul>
 <h2 id="v2-15-0">2.15.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Deep-link anchors on every section heading.</strong> <code>&lt;h2&gt;</code>/<code>&lt;h3&gt;</code> with an id show a <code>#</code> link on hover for copyable deep links; <code>site.js</code> minified to stay under 18 KB.</li></ul>
 <h2 id="v2-12-0">2.12.0 <span class="small muted">— 25 October 2026</span></h2>
