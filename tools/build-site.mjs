@@ -225,7 +225,7 @@ for (const p of pages) {
   // "software" rich-result classification and associates keywords (invoice generator, NDA maker, etc.) with the
   // application entity. It also carries isAccessibleForFree=true and operatingSystem=Any, two signals that help
   // "free" / "no download" / "in browser" intent queries.
-  const appNode = { '@context': 'https://schema.org', '@type': ['WebApplication','SoftwareApplication'], '@id': `${SITE}#app`, name: 'Clausery', url: `${SITE}app/`, applicationCategory: 'BusinessApplication', applicationSubCategory: 'Word document generator', operatingSystem: 'Any (web browser)', isAccessibleForFree: true, offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '0', highPrice: String(PRICES.proYearly), offerCount: 3, availability: 'https://schema.org/InStock', url: `${SITE}pricing/` }, publisher: { '@id': `${SITE}#organization` }, creator: { '@id': `${SITE}#organization` }, softwareVersion: '2.31.0', license: `${SITE}legal/license.html`, description: 'Free Word invoice, quote, receipt, contract and NDA generator. Build editable .docx documents in your browser — nothing is uploaded.' };
+  const appNode = { '@context': 'https://schema.org', '@type': ['WebApplication','SoftwareApplication'], '@id': `${SITE}#app`, name: 'Clausery', url: `${SITE}app/`, applicationCategory: 'BusinessApplication', applicationSubCategory: 'Word document generator', operatingSystem: 'Any (web browser)', isAccessibleForFree: true, offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '0', highPrice: String(PRICES.proYearly), offerCount: 3, availability: 'https://schema.org/InStock', url: `${SITE}pricing/` }, publisher: { '@id': `${SITE}#organization` }, creator: { '@id': `${SITE}#organization` }, softwareVersion: '2.32.0', license: `${SITE}legal/license.html`, description: 'Free Word invoice, quote, receipt, contract and NDA generator. Build editable .docx documents in your browser — nothing is uploaded.' };
   // The source code repository (SoftwareSourceCode) gives the software entity a verifiable codebase pointer
   // and ties the Organization sameAs GitHub link into the schema graph. Emitted once per page so references
   // from codeRepository / targetProduct resolve consistently.
@@ -305,6 +305,46 @@ for (const p of pages) {
       ['Do I need to read all the docs to use Clausery?', 'No. Start with the Getting started page; the other pages cover specific topics (template tagging, logic, backups, self-hosting) you can read as needed.'],
       ['Are the docs available offline?', 'Yes. The docs ship with the app and work once the PWA is installed, with no network.'],
       ['Can I contribute to the docs?', 'Yes. The docs source is in the public GitHub repository; open a pull request with clarifications or fixes.'],
+    ],
+    'docs/templates.html': [
+      ['What characters can a tag name use?', 'Tags are letters, numbers and underscores inside {curly braces}; they cannot contain spaces or punctuation other than underscores. Use descriptive names like {client_name} or {invoice_total}.'],
+      ['Can templates include tables and repeating rows?', 'Yes. Mark a table row with {#items}…{/items} around it and the row repeats for each entry in the items list, with cell placeholders filled from each entry.'],
+      ['Do I need Word to write the tags?', 'No. Any editor that saves a real .docx works (Word, Google Docs, LibreOffice, Pages). Type the tags directly in the document body as plain text; the app replaces them at generation time.'],
+    ],
+    'docs/questionnaire.html': [
+      ['Can I reorder questions after creating them?', 'Yes. Drag questions up or down in the template designer to change the order. Reordering does not change existing drafts unless you reopen and resave them.'],
+      ['What is a show-when rule?', 'A show-when rule hides a question (or whole section) unless its condition is true \u2014 for example, only asking for a VAT number when {is_vat_registered} is yes. Rules are plain expressions.'],
+      ['Do required answers block document generation?', 'A required question that is left blank is flagged in the questionnaire and on Review, but the app does not stop you from downloading \u2014 you can skip and fill in later.'],
+    ],
+    'docs/logic.html': [
+      ['Can I calculate totals and tax in the template?', 'Yes. Computed fields support arithmetic, date and money functions, and conditionals; use them for subtotals, VAT/GST, discounts, pro-rata and due dates.'],
+      ['What happens if an expression has an error?', 'The designer shows the error with the field name and position; the document cannot be generated until the error is fixed, so no broken totals reach Word.'],
+      ['Can I format numbers as currency or dates?', 'Yes. Functions like money, date and format give you control over currency symbol, decimal places, thousand separators and date style.'],
+    ],
+    'docs/intake.html': [
+      ['Does the intake form upload answers?', 'No. The form is a single offline HTML file. The client fills it in, clicks Save, and gets a JSON answers file they send back to you by email or your usual channel; nothing is posted to a server.'],
+      ['Can I host intake forms on my own website?', 'Yes. The exported HTML is self-contained and has no external dependencies; upload it to your own site and link clients to it. Hosted copies still do not send answers anywhere.'],
+      ['Can intake forms include files or signatures?', 'The form supports text, numbers, dates, yes/no, choices and long-form answers. It does not upload files or collect e-signatures (Clausery is not a signing service).'],
+    ],
+    'docs/teams.html': [
+      ['What does a template pack contain?', 'A pack is an exported .zip holding the .docx template files, the question definitions (labels, help text, types, conditions, computed fields) and any logic. It does not contain drafts or answers.'],
+      ['Can pack updates overwrite colleagues\u2019 drafts?', 'No. Importing a pack updates the template and questionnaire definitions; each person\u2019s drafts stay in their own browser. New questions appear blank on existing drafts.'],
+      ['Do I need Team to share templates I made?', 'Yes on the public instance: importing/exporting packs works on any plan for moving templates between your own browsers, but sharing packs with other named users requires a Team or Enterprise seat.'],
+    ],
+    'docs/backups.html': [
+      ['How often should I back up?', 'Back up before clearing browser data, switching devices, or installing a major Clausery update; otherwise weekly or after important work. Exports are plain JSON you can keep anywhere.'],
+      ['What is the difference between Merge and Replace?', 'Merge keeps existing drafts/templates and adds anything from the backup that is not already present; Replace wipes the current workspace and restores exactly the backup. Always test on a copy before using Replace.'],
+      ['Are backups encrypted?', 'Backups exported from an encrypted workspace are AES-256-GCM encrypted with your passphrase; from an unencrypted workspace they are plain JSON. Keep encrypted backups safe; there is no password reset.'],
+    ],
+    'docs/security.html': [
+      ['Does the app send my documents anywhere?', 'No. The app only requests its own static files (HTML, CSS, JS, fonts, images) from the site that serves it, plus anonymous usage counts (if enabled) that contain nothing you type. Templates, answers and finished documents never leave your browser.'],
+      ['How is data encrypted at rest?', 'If you turn on encryption in Settings, templates, drafts and settings are encrypted with AES-256-GCM using a key derived from your passphrase via PBKDF2-SHA256 with 600,000 iterations. The passphrase never leaves the device.'],
+      ['How do I verify what the app does?', 'Open your browser\u2019s Network tab while using it \u2014 you will only see requests for the site\u2019s own files. The full source is on GitHub under AGPLv3, and the build is reproducible from source.'],
+    ],
+    'docs/self-hosting.html': [
+      ['What do I need to self-host Clausery?', 'Any static file server (nginx, Apache, Caddy, Caddy, S3/CloudFront, GitHub Pages, Netlify, an internal file server). There is no backend, database or server runtime to install.'],
+      ['Do I need a commercial license for internal use?', 'No. The AGPL permits internal use within an organisation without releasing source. You only need a commercial license to remove branding, ship a rebranded version to clients, or integrate into a closed-source product.'],
+      ['Can a self-hosted copy run completely offline?', 'Yes. Disable analytics and online-key checks at build time and there are zero third-party requests; offline license keys are verified by Ed25519 signature on-device.'],
     ],
   };
   const hubFaq = HUB_FAQS[p.path];

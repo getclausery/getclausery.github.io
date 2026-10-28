@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '2.32.0', date: '28 October 2026', summary: 'Visible FAQ blocks on every docs sub-page' },
   { version: '2.31.0', date: '28 October 2026', summary: 'Visible FAQ blocks across remaining marketing hubs' },
   { version: '2.30.0', date: '28 October 2026', summary: 'One-click deep-link anchors on section headings' },
   { version: '2.29.0', date: '28 October 2026', summary: 'Sticky category jump-nav on Templates hub' },
@@ -117,24 +118,26 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-32-0">2.32.0 <span class="small muted">— 28 October 2026</span></h2>
+<ul><li><strong>Visible FAQ blocks on every docs sub-page.</strong> Template syntax, Questionnaire design, Logic &amp; calculations, Client intake, Template packs, Backups, Security and Self-hosting pages now carry on-page FAQs with matching <code>FAQPage</code> JSON-LD.</li></ul>
 <h2 id="v2-31-0">2.31.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>Visible FAQ blocks on every marketing hub.</strong> About, Contact, Roadmap, Status, Press and Docs now carry on-page "Common questions" sections with matching <code>FAQPage</code> JSON-LD.</li></ul>
+<ul><li><strong>Visible FAQ blocks on remaining marketing hubs.</strong> About, Contact, Roadmap, Status, Press and Docs now carry on-page "Common questions" with <code>FAQPage</code> JSON-LD.</li></ul>
 <h2 id="v2-30-0">2.30.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>Deep-link anchors on h2s.</strong> Every <code>&lt;h2&gt;</code> on long-form pages gets a <code>#</code> anchor (build-time, zero JS) for direct links.</li></ul>
+<ul><li><strong>Deep-link anchors on h2s</strong> (build-time, zero JS).</li></ul>
 <h2 id="v2-29-0">2.29.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>Sticky category jump-nav on Templates hub.</strong> Templates index uses the sticky <code>.hub-jump</code> strip; every major hub now has a sticky jump-nav.</li></ul>
+<ul><li><strong>Sticky Templates hub jump-nav</strong>; all major hubs now use sticky jump-navs.</li></ul>
 <h2 id="v2-28-0">2.28.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>Sticky-header-friendly anchor jumps.</strong> <code>scroll-margin-top</code> on all headings/id elements so TOC/jump-nav/deep-link anchors land below the sticky header; site.js minified to 17,610 B (354 B headroom created).</li></ul>
+<ul><li><strong>Sticky-header-friendly anchor jumps</strong>; <code>scroll-margin-top</code> on headings.</li></ul>
 <h2 id="v2-27-0">2.27.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>Sticky hub jump-navs.</strong> Hub jump strips stay pinned just below the header on scroll (<code>position:sticky</code>, zero JS).</li></ul>
+<ul><li><strong>Sticky hub jump-navs</strong> (zero JS, <code>position:sticky</code>).</li></ul>
 <h2 id="v2-26-0">2.26.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>Section jump-navs on Free tools and "Who it's for" hubs.</strong> Free tools links to Calculators / Invoice email / Embed; "Who it's for" links to each audience card with stable anchor ids.</li></ul>
+<ul><li><strong>Section jump-navs</strong> on Free tools and "Who it's for" hubs.</li></ul>
 <h2 id="v2-25-0">2.25.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>CSS scroll()-driven read-progress + anchor Back-to-top.</strong> Read-progress uses <code>animation-timeline: scroll()</code> in Chromium/WebKit with JS fallback for Firefox; "Top" is a plain <code>&lt;a href="#top"&gt;</code>.</li></ul>
+<ul><li><strong>CSS scroll()-driven read-progress + anchor Back-to-top</strong>.</li></ul>
 <h2 id="v2-24-0">2.24.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>TOC on every long-form page.</strong> Free tools, audience and invoice pages get the build-time "On this page" TOC; 180/274 pages now carry an in-page TOC unlocking Google's mobile "Jump to" strip.</li></ul>
+<ul><li><strong>TOC on every long-form page</strong>; build-time "On this page" for free-tools, audience and invoice pages.</li></ul>
 <h2 id="v2-23-0">2.23.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>FAQ rich results on NDA templates hub.</strong> NDA templates landing page carries a 3-question on-page FAQ (free, mutual vs one-way, editability) plus <code>FAQPage</code> JSON-LD, completing 8/8 hubs.</li></ul>
+<ul><li><strong>FAQ rich results on NDA templates hub</strong>, completing 8/8 hubs.</li></ul>
 <h2 id="v2-22-0">2.22.0 <span class="small muted">— 28 October 2026</span></h2>
 <ul><li><strong>FAQ rich results on Compare hub.</strong> The Compare landing page now carries a 3-question on-page FAQ (editorial independence, price freshness, free trial) plus <code>FAQPage</code> JSON-LD, unlocking FAQ rich-result snippets on "alternative to" SERPs.</li></ul>
 <h2 id="v2-21-0">2.21.0 <span class="small muted">— 28 October 2026</span></h2>
