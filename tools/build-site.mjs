@@ -216,7 +216,7 @@ for (const p of pages) {
   // "software" rich-result classification and associates keywords (invoice generator, NDA maker, etc.) with the
   // application entity. It also carries isAccessibleForFree=true and operatingSystem=Any, two signals that help
   // "free" / "no download" / "in browser" intent queries.
-  const appNode = { '@context': 'https://schema.org', '@type': ['WebApplication','SoftwareApplication'], '@id': `${SITE}#app`, name: 'Clausery', url: `${SITE}app/`, applicationCategory: 'BusinessApplication', applicationSubCategory: 'Word document generator', operatingSystem: 'Any (web browser)', isAccessibleForFree: true, offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '0', highPrice: String(PRICES.proYearly), offerCount: 3, availability: 'https://schema.org/InStock', url: `${SITE}pricing/` }, publisher: { '@id': `${SITE}#organization` }, creator: { '@id': `${SITE}#organization` }, softwareVersion: '2.19.0', license: `${SITE}legal/license.html`, description: 'Free Word invoice, quote, receipt, contract and NDA generator. Build editable .docx documents in your browser — nothing is uploaded.' };
+  const appNode = { '@context': 'https://schema.org', '@type': ['WebApplication','SoftwareApplication'], '@id': `${SITE}#app`, name: 'Clausery', url: `${SITE}app/`, applicationCategory: 'BusinessApplication', applicationSubCategory: 'Word document generator', operatingSystem: 'Any (web browser)', isAccessibleForFree: true, offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '0', highPrice: String(PRICES.proYearly), offerCount: 3, availability: 'https://schema.org/InStock', url: `${SITE}pricing/` }, publisher: { '@id': `${SITE}#organization` }, creator: { '@id': `${SITE}#organization` }, softwareVersion: '2.20.0', license: `${SITE}legal/license.html`, description: 'Free Word invoice, quote, receipt, contract and NDA generator. Build editable .docx documents in your browser — nothing is uploaded.' };
   // The source code repository (SoftwareSourceCode) gives the software entity a verifiable codebase pointer
   // and ties the Organization sameAs GitHub link into the schema graph. Emitted once per page so references
   // from codeRepository / targetProduct resolve consistently.
@@ -379,6 +379,21 @@ for (const p of pages) {
     const shareBtn = `<button type="button" class="page-print-btn page-share-btn" onclick="(function(s,b){if(navigator.share){navigator.share({title:document.title,url:location.href}).catch(()=>{})}else{navigator.clipboard.writeText(location.href);b.textContent='Link copied';setTimeout(()=>b.textContent='Share',1500)}})(this,this)" title="Share this page or copy link" aria-label="Share">Share</button>`;
     final = final.replace(/(<h1[^>]*>[\s\S]*?<\/h1>)/, `$1${shareBtn}${printBtn}`);
   }
+  // Auto-inject a Breadcrumb nav on any indexable long-form page that doesn't already have one, so crawlers
+  // and screen readers get a visible trail. The existing regex below adds RDFa microdata to these navs.
+  if (!p.noindex && p.layout !== 'embed' && /<h1[^>]*>/.test(final) && !p.path.startsWith('app/') && p.path !== '404.html' && p.path !== '' && !/aria-label="Breadcrumb"/.test(final) && !p.path.endsWith('.pdf')) {
+    const segs = p.path.replace(/\/index\.html$/, '/').split('/').filter(Boolean);
+    const LABELS = {templates:'Templates',clauses:'Clause library',guides:'Guides','free-tools':'Free tools',compare:'Compare',pricing:'Pricing',about:'About',customers:'Customers','why-clausery':'Why Clausery',for:'Who it\u2019s for','invoice-templates':'Invoice templates','nda-templates':'NDA templates',contact:'Contact',roadmap:'Roadmap',status:'Status','self-hosting':'Self-host',press:'Press',docs:'Docs',legal:'Legal','business-document-kit':'Business document kit',marketing:'Marketing',madeWith:'Made with',search:'Search',sitemap:'Sitemap',changelog:'Changelog'};
+    const label = (s) => LABELS[s] || s.replace(/-/g,' ').replace(/\b\w/g,(c)=>c.toUpperCase());
+    const crumbHtml = [`<a href="${rel}">Home</a>`];
+    let accum = rel;
+    segs.forEach((s,i) => { accum += s + '/'; if (i < segs.length - 1) crumbHtml.push(`<a href="${accum}">${esc(label(s))}</a>`); });
+    const lastSeg = segs[segs.length-1] ? segs[segs.length-1].replace(/\.html$/,'') : '';
+    const lastLabel = lastSeg ? label(lastSeg) : 'Home';
+    crumbHtml.push(`<span aria-current="page">${esc(lastLabel)}</span>`);
+    const nav = `<nav class="small muted" aria-label="Breadcrumb">${crumbHtml.join(' › ')}</nav>`;
+    final = final.replace(/(<h1[^>]*>)/, nav + '$1');
+  }
   // Add BreadcrumbList microdata to inline hand-written breadcrumb navs (visible DOM parity with crumbsLd JSON-LD).
   final = final.replace(/<nav([^>]*)aria-label="Breadcrumb"([^>]*)>([\s\S]*?)<\/nav>/g, (m, pre, post, inner) => {
     if (/itemscope/.test(inner)) return m; // already has microdata (from crumbsHtml helper)
@@ -394,9 +409,16 @@ for (const p of pages) {
     if (lastM) {
       pos++;
       out = out.replace(lastRe, () => `<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name" aria-current="page">${lastM[1]}</span><meta itemprop="position" content="${pos}"></li>`);
+    } else {
+      // Bare-text last crumb (hand-written breadcrumbs like "... › Consulting agreement"): wrap trailing text after last </li>
+      const tailM = out.match(/<\/li>\s*›\s*([^<>]+?)\s*$/);
+      if (tailM) {
+        pos++;
+        out = out.slice(0, tailM.index) + `</li> <span aria-hidden="true">›</span> <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name" aria-current="page">${tailM[1]}</span><meta itemprop="position" content="${pos}"></li>`;
+      }
     }
-    // Replace raw › separators with aria-hidden spans
-    out = out.replace(/›/g, '<span aria-hidden="true">›</span>');
+    // Replace any remaining raw › separators with aria-hidden spans (skip if already wrapped)
+    out = out.replace(/(^|>[^<>]*?)›(?![^<]*<\/span>)/g, (m, pre) => pre + '<span aria-hidden="true">›</span>');
     const cls = /class="[^"]*"/.test(pre + post) ? '' : ' class="small muted"';
     return `<nav${pre}aria-label="Breadcrumb"${post}${cls} itemscope itemtype="https://schema.org/BreadcrumbList"><ol class="bdcrums">${out}</ol></nav>`;
   });

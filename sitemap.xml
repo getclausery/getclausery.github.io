@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url><loc>https://getclausery.github.io/about/</loc><lastmod>2026-10-25</lastmod><priority>0.5</priority></url>
   <url><loc>https://getclausery.github.io/business-document-kit/</loc><lastmod>2026-10-24</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/changelog.html</loc><lastmod>2026-10-25</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/changelog.html</loc><lastmod>2026-10-28</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/clauses/amendment-clause.html</loc><lastmod>2026-10-25</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/clauses/assignment-clause.html</loc><lastmod>2026-10-25</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/clauses/at-will-employment-clause.html</loc><lastmod>2026-10-25</lastmod><priority>0.8</priority></url>
@@ -136,7 +136,7 @@
   <url><loc>https://getclausery.github.io/guides/what-to-include-in-an-equipment-rental-agreement.html</loc><lastmod>2026-10-25</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/what-to-include-in-an-nda.html</loc><lastmod>2026-10-25</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/guides/what-to-include-on-a-vat-invoice.html</loc><lastmod>2026-10-25</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/</loc><lastmod>2026-10-25</lastmod><priority>1.0</priority></url>
+  <url><loc>https://getclausery.github.io/</loc><lastmod>2026-10-28</lastmod><priority>1.0</priority></url>
   <url><loc>https://getclausery.github.io/invoice-templates/australia-tax-invoice.html</loc><lastmod>2026-10-08</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/invoice-templates/canada-gst-hst-invoice.html</loc><lastmod>2026-10-08</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/invoice-templates/cleaning.html</loc><lastmod>2026-10-07</lastmod><priority>0.8</priority></url>
@@ -167,11 +167,11 @@
   <url><loc>https://getclausery.github.io/nda-templates/</loc><lastmod>2026-10-24</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/press/</loc><lastmod>2026-10-17</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/pricing/</loc><lastmod>2026-10-24</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/roadmap/</loc><lastmod>2026-10-25</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/roadmap/</loc><lastmod>2026-10-28</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/search/</loc><lastmod>2026-10-25</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/self-hosting/</loc><lastmod>2026-10-23</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/sitemap/</loc><lastmod>2026-10-24</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/status/</loc><lastmod>2026-10-25</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/status/</loc><lastmod>2026-10-28</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/templates/bill-of-sale.html</loc><lastmod>2026-10-25</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/previews/bill-of-sale.webp</image:loc><image:title>Bill of sale template for Word</image:title><image:caption>Free bill of sale template for a car, boat, equipment or any item, with VIN and odometer, deposit and balance, and as-is terms. Fill it in online or download.</image:caption></image:image></url>
   <url><loc>https://getclausery.github.io/templates/board-resolution.html</loc><lastmod>2026-10-25</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/previews/board-resolution.webp</image:loc><image:title>Board resolution template for Word</image:title><image:caption>Free board resolution template for Word: resolutions adopted at a meeting or by unanimous written consent, officer authority, signatures and a certificate.</image:caption></image:image></url>
   <url><loc>https://getclausery.github.io/templates/business-sale-nda.html</loc><lastmod>2026-10-25</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/previews/business-sale-nda.webp</image:loc><image:title>NDA for selling a business template for Word</image:title><image:caption>Free NDA for selling a business: keeps the sale and your numbers private, bars contact with staff and customers, optional no-hire. Word, no sign-up.</image:caption></image:image></url>
