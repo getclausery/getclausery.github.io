@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '2.34.0', date: '28 October 2026', summary: 'lastReviewed on AboutPage and other hand-written hub nodes' },
   { version: '2.33.0', date: '28 October 2026', summary: 'FAQ page as <details> disclosures' },
   { version: '2.32.0', date: '28 October 2026', summary: 'Visible FAQ blocks on every docs sub-page' },
   { version: '2.31.0', date: '28 October 2026', summary: 'Visible FAQ blocks across remaining marketing hubs' },
@@ -119,8 +120,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-34-0">2.34.0 <span class="small muted">— 28 October 2026</span></h2>
+<ul><li><strong>lastReviewed/dateModified on hand-written hub page nodes</strong> (About); E-E-A-T freshness on every indexable page.</li></ul>
 <h2 id="v2-33-0">2.33.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>FAQ page uses <code>&lt;details&gt;</code> disclosure pattern</strong>, matching the hub FAQ blocks.</li></ul>
+<ul><li><strong>FAQ page uses <code>&lt;details&gt;</code> disclosures</strong>, matching the hub FAQ pattern.</li></ul>
 <h2 id="v2-32-0">2.32.0 <span class="small muted">— 28 October 2026</span></h2>
 <ul><li><strong>Visible FAQ blocks on all docs sub-pages</strong> with <code>FAQPage</code> JSON-LD.</li></ul>
 <h2 id="v2-31-0">2.31.0 <span class="small muted">— 28 October 2026</span></h2>
