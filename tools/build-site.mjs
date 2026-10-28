@@ -216,7 +216,7 @@ for (const p of pages) {
   // "software" rich-result classification and associates keywords (invoice generator, NDA maker, etc.) with the
   // application entity. It also carries isAccessibleForFree=true and operatingSystem=Any, two signals that help
   // "free" / "no download" / "in browser" intent queries.
-  const appNode = { '@context': 'https://schema.org', '@type': ['WebApplication','SoftwareApplication'], '@id': `${SITE}#app`, name: 'Clausery', url: `${SITE}app/`, applicationCategory: 'BusinessApplication', applicationSubCategory: 'Word document generator', operatingSystem: 'Any (web browser)', isAccessibleForFree: true, offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '0', highPrice: String(PRICES.proYearly), offerCount: 3, availability: 'https://schema.org/InStock', url: `${SITE}pricing/` }, publisher: { '@id': `${SITE}#organization` }, creator: { '@id': `${SITE}#organization` }, softwareVersion: '2.22.0', license: `${SITE}legal/license.html`, description: 'Free Word invoice, quote, receipt, contract and NDA generator. Build editable .docx documents in your browser — nothing is uploaded.' };
+  const appNode = { '@context': 'https://schema.org', '@type': ['WebApplication','SoftwareApplication'], '@id': `${SITE}#app`, name: 'Clausery', url: `${SITE}app/`, applicationCategory: 'BusinessApplication', applicationSubCategory: 'Word document generator', operatingSystem: 'Any (web browser)', isAccessibleForFree: true, offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '0', highPrice: String(PRICES.proYearly), offerCount: 3, availability: 'https://schema.org/InStock', url: `${SITE}pricing/` }, publisher: { '@id': `${SITE}#organization` }, creator: { '@id': `${SITE}#organization` }, softwareVersion: '2.23.0', license: `${SITE}legal/license.html`, description: 'Free Word invoice, quote, receipt, contract and NDA generator. Build editable .docx documents in your browser — nothing is uploaded.' };
   // The source code repository (SoftwareSourceCode) gives the software entity a verifiable codebase pointer
   // and ties the Organization sameAs GitHub link into the schema graph. Emitted once per page so references
   // from codeRepository / targetProduct resolve consistently.
@@ -266,6 +266,11 @@ for (const p of pages) {
       ['Are the comparisons independent?', 'Yes. Every comparison is written by Clausery editors and clearly labels Clausery as the maker of this site. We do not accept paid placements, sponsored positions or affiliate commissions from the tools listed; links to competitor sites go straight to the vendor.'],
       ['Do the prices shown stay up to date?', 'Vendor plans and prices change. Each page links to the vendor\u2019s official site and notes that the date of last review is not a fresh price check — confirm current pricing with the vendor before you buy.'],
       ['Can I try Clausery without paying?', 'Yes. The Free plan lets you make unlimited Word documents from any library template with no account and no credit card, so you can compare the output against your current tool on a real document before deciding.'],
+    ],
+    'nda-templates/': [
+      ['Are the NDA templates free?', 'Yes. Every NDA on this page is free to download as an editable Word .docx and fill in online. No account, credit card or email required; nothing you type is uploaded.'],
+      ['What\u2019s the difference between mutual and one-way NDAs?', 'A one-way NDA has only one side disclosing confidential information (e.g. you sharing a business idea with a contractor). A mutual NDA has both sides disclosing to each other (e.g. two companies exploring a partnership). Pick the version that matches the direction of disclosure.'],
+      ['Can I edit the NDA after download?', 'Yes. Downloads are standard .docx files you can edit in Word, Google Docs, LibreOffice or Pages. Adapt the bracketed placeholders (parties, scope, term, jurisdiction) to your deal and have a lawyer review important agreements.'],
     ],
   };
   const hubFaq = HUB_FAQS[p.path];
