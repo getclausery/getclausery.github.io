@@ -5,7 +5,8 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
-  { version: '2.27.0', date: '28 October 2026', summary: 'Sticky hub jump-navs (position: sticky + backdrop-blur)' },
+  { version: '2.28.0', date: '28 October 2026', summary: 'Sticky-header-friendly anchor jumps (scroll-margin-top)' },
+  { version: '2.27.0', date: '28 October 2026', summary: 'Sticky hub jump-navs (position: sticky)' },
   { version: '2.26.0', date: '28 October 2026', summary: 'Section jump-navs on Free tools and Who-it\u2019s-for hubs' },
   { version: '2.25.0', date: '28 October 2026', summary: 'CSS scroll()-driven read-progress bar + anchor Back-to-top' },
   { version: '2.24.0', date: '28 October 2026', summary: 'Server-rendered TOC on free-tools, audience and invoice detail pages' },
@@ -113,8 +114,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-28-0">2.28.0 <span class="small muted">— 28 October 2026</span></h2>
+<ul><li><strong>Sticky-header friendly anchor jumps.</strong> <code>scroll-margin-top</code> on all headings and id-bearing elements so in-page anchors (TOC links, hub jump-navs, deep links) no longer land content under the sticky header; site.js further minified (17,571 B, ~390 B freed).</li></ul>
 <h2 id="v2-27-0">2.27.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>Sticky section jump-navs on hub pages.</strong> Hub jump-nav strips (Clauses, Guides, Free tools, Invoice templates, Compare, "Who it's for", NDA templates) now stick just below the header on scroll so section links stay reachable on long hub pages. Backdrop-filter for subtle blur; zero JS.</li></ul>
+<ul><li><strong>Sticky hub jump-navs.</strong> Hub jump strips stay pinned just below the header on scroll (<code>position:sticky</code>, zero JS).</li></ul>
 <h2 id="v2-26-0">2.26.0 <span class="small muted">— 28 October 2026</span></h2>
 <ul><li><strong>Section jump-navs on Free tools and "Who it's for" hubs.</strong> Free tools links to Calculators / Invoice email / Embed; "Who it's for" links to each audience card with stable anchor ids.</li></ul>
 <h2 id="v2-25-0">2.25.0 <span class="small muted">— 28 October 2026</span></h2>
@@ -139,8 +142,6 @@ export const pages = [
 <ul><li><strong>Share button on every long-form page.</strong> "Share" sits top-right next to Print/PDF; opens the native share sheet on supporting browsers, copies the URL otherwise.</li></ul>
 <h2 id="v2-15-0">2.15.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Deep-link anchors on every section heading.</strong> <code>&lt;h2&gt;</code>/<code>&lt;h3&gt;</code> with an id show a <code>#</code> link on hover for copyable deep links; <code>site.js</code> minified to stay under 18 KB.</li></ul>
-<h2 id="v2-14-0">2.14.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>"Copy the whole template" on every template page.</strong> One-click copy above the full-text preview; works alongside Download Word so users pasting elsewhere skip drag-select.</li></ul>
 <h2 id="v2-12-0">2.12.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Sitelinks Searchbox + DigitalDocument dates.</strong> Global <code>WebSite</code> exposes <code>SearchAction</code>; every template <code>DigitalDocument</code> carries <code>datePublished</code> + <code>dateModified</code>.</li></ul>
 <h2 id="v2-11-0">2.11.0 <span class="small muted">— 25 October 2026</span></h2>

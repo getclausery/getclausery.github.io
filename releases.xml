@@ -8,12 +8,20 @@
   <updated>2026-10-28T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
-    <title>Clausery v2.27.0 — Sticky hub jump-navs (position: sticky + backdrop-blur)</title>
+    <title>Clausery v2.28.0 — Sticky-header-friendly anchor jumps (scroll-margin-top)</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-28-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-28-0</id>
+    <published>2026-10-28T00:00:00Z</published>
+    <updated>2026-10-28T00:00:00Z</updated>
+    <summary>Sticky-header-friendly anchor jumps (scroll-margin-top)</summary>
+  </entry>
+  <entry>
+    <title>Clausery v2.27.0 — Sticky hub jump-navs (position: sticky)</title>
     <link href="https://getclausery.github.io/changelog.html#v2-27-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-27-0</id>
     <published>2026-10-28T00:00:00Z</published>
     <updated>2026-10-28T00:00:00Z</updated>
-    <summary>Sticky hub jump-navs (position: sticky + backdrop-blur)</summary>
+    <summary>Sticky hub jump-navs (position: sticky)</summary>
   </entry>
   <entry>
     <title>Clausery v2.26.0 — Section jump-navs on Free tools and Who-it’s-for hubs</title>
