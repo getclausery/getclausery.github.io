@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '2.25.0', date: '28 October 2026', summary: 'CSS scroll()-driven read-progress bar + anchor Back-to-top' },
   { version: '2.24.0', date: '28 October 2026', summary: 'Server-rendered TOC on free-tools, audience and invoice detail pages' },
   { version: '2.23.0', date: '28 October 2026', summary: 'FAQ rich results on NDA templates hub' },
   { version: '2.22.0', date: '28 October 2026', summary: 'FAQ rich results on Compare hub' },
@@ -110,8 +111,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-25-0">2.25.0 <span class="small muted">— 28 October 2026</span></h2>
+<ul><li><strong>CSS-driven scroll progress bar + anchor-based Back to top.</strong> The top-of-page read-progress bar now uses <code>animation-timeline: scroll()</code> in Chromium/WebKit (zero JS for scroll updates in those browsers) with JS fallback for Firefox. The floating "Top" button is now a plain <code>&lt;a href="#top"&gt;</code> anchor; <code>&lt;body id="top"&gt;</code> lets it work without JS.</li></ul>
 <h2 id="v2-24-0">2.24.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>Server-rendered "On this page" TOC on every long-form page.</strong> All 9 free-tool pages, 5 audience pages and 20 trade/country invoice pages now get a server-rendered "On this page" jump-TOC above the fold (previously only guides/clauses/templates had one). 180 pages now carry an in-page TOC, up from ~146 — unlocking Google's mobile "Jump to" strip across the entire clause/tool/audience/invoice corpus. Zero JS added.</li></ul>
+<ul><li><strong>TOC on every long-form page.</strong> Free tools, audience and invoice pages get the build-time "On this page" TOC; 180/274 pages now carry an in-page TOC unlocking Google's mobile "Jump to" strip.</li></ul>
 <h2 id="v2-23-0">2.23.0 <span class="small muted">— 28 October 2026</span></h2>
 <ul><li><strong>FAQ rich results on NDA templates hub.</strong> NDA templates landing page carries a 3-question on-page FAQ (free, mutual vs one-way, editability) plus <code>FAQPage</code> JSON-LD, completing 8/8 hubs.</li></ul>
 <h2 id="v2-22-0">2.22.0 <span class="small muted">— 28 October 2026</span></h2>
@@ -142,10 +145,8 @@ export const pages = [
 <ul><li><strong>Print stylesheet.</strong> <code>@media print</code> block: chrome hidden; black-on-white 11pt; 1.4 cm margins; h2/h3 avoid breaks after; external links render URLs after anchor for usable PDFs.</li></ul>
 <h2 id="v2-7-0">2.7.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Freshness badges across all hubs.</strong> "Updated Mmm YYYY" pill on every listing card, pulling real last-modified dates.</li></ul>
-<h2 id="v2-5-0">2.5.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>WebApplication + TableOfContents schema.</strong> Every page emits a <code>WebApplication</code>/<code>SoftwareApplication</code> JSON-LD node (free in-browser Word doc generator, <code>isAccessibleForFree=true</code>) plus a <code>SoftwareSourceCode</code> node pointing at GitHub. Pages with a visible TOC emit <code>TableOfContents</code> JSON-LD for Google's "Jump to" strip.</li></ul>
 <h2 id="v2-4-0">2.4.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>Main-navigation schema.</strong> Header <code>&lt;nav&gt;</code> carries <code>SiteNavigationElement</code> RDFa microdata plus a JSON-LD node (<code>@id #sitenav</code>) on every page.</li></ul>
+<ul><li><strong>Main-navigation schema.</strong> Header <code>&lt;nav&gt;</code> carries <code>SiteNavigationElement</code> RDFa microdata plus a JSON-LD node on every page.</li></ul>
 <h2 id="v2-3-0">2.3.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>E-E-A-T editorial team identity.</strong> "Editorial policy &amp; review" on About names the Clausery editors and links to GitHub contributors. A Person schema node (<code>@id /about/#editors</code>) is emitted on every page; all <code>reviewedBy</code>/<code>author</code>/visible bylines reference it.</li></ul>
 <h2 id="v2-2-0">2.2.0 <span class="small muted">— 25 October 2026</span></h2>
