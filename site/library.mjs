@@ -704,7 +704,7 @@ export const pages = [
   <p style="margin-top:1.25rem"><a class="btn" href="${rel}samples/${PACK_FILE}" download>Download all ${LIB.length} templates</a> <span class="small muted">One .zip file (${packSize()}), in a folder per category.</span></p>
   <p style="margin-top:1rem">Billing a client? <a href="${rel}invoice-templates/">Choose an invoice by billing task, trade or country</a>, or start with a <a href="${rel}templates/quote.html">price quote</a> and confirm payment with a <a href="${rel}templates/payment-receipt.html">receipt</a>. Looking for an NDA? <a href="${rel}nda-templates/">Compare the ${NDA_SLUGS.length} NDA templates</a>.</p>
   <p>Or start from the team you are in: <a href="${rel}for/law-firms.html">law firms</a>, <a href="${rel}for/hr-teams.html">HR teams</a>, <a href="${rel}for/freelancers.html">freelancers</a>, <a href="${rel}for/consultants.html">consultants</a> and <a href="${rel}for/landlords.html">landlords</a>. Each page lists the templates that team uses most. <a href="${rel}for/">Compare all the teams →</a></p>
-  <nav class="small" aria-label="Template categories" style="margin-top:1.5rem">${CATEGORY_ORDER.map(([c, label]) => `<a href="#${catId(c)}">${label}</a>`).join(' · ')}</nav>
+  <nav class="small hub-jump" aria-label="Template categories"><strong>Browse:</strong> ${CATEGORY_ORDER.map(([c, label]) => `<a href="#${catId(c)}">${label}</a>`).join(' · ')} · <a href="#tpl-groups">All ${LIB.length}</a></nav>
   <div id="tpl-groups">
 ${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-labelledby="${catId(c)}"><h2 id="${catId(c)}" style="margin-top:2.5rem">${label}</h2>
   <div class="grid grid-3" style="margin-top:1rem">
