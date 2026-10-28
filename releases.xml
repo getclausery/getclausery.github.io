@@ -5,8 +5,88 @@
   <link rel="self" href="https://getclausery.github.io/releases.xml"/>
   <link rel="alternate" href="https://getclausery.github.io/changelog.html"/>
   <id>https://getclausery.github.io/changelog.html</id>
-  <updated>2026-10-24T00:00:00Z</updated>
+  <updated>2026-10-28T00:00:00Z</updated>
   <author><name>Clausery</name></author>
+  <entry>
+    <title>Clausery v2.20.0 — Visible breadcrumb navigation and BreadcrumbList RDFa on every indexable page</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-20-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-20-0</id>
+    <published>2026-10-28T00:00:00Z</published>
+    <updated>2026-10-28T00:00:00Z</updated>
+    <summary>Visible breadcrumb navigation and BreadcrumbList RDFa on every indexable page</summary>
+  </entry>
+  <entry>
+    <title>Clausery v2.19.0 — FAQ rich results on major hub pages</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-19-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-19-0</id>
+    <published>2026-10-25T00:00:00Z</published>
+    <updated>2026-10-25T00:00:00Z</updated>
+    <summary>FAQ rich results on major hub pages</summary>
+  </entry>
+  <entry>
+    <title>Clausery v2.18.0 — Home trust strip + TOC on comparison pages</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-18-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-18-0</id>
+    <published>2026-10-25T00:00:00Z</published>
+    <updated>2026-10-25T00:00:00Z</updated>
+    <summary>Home trust strip + TOC on comparison pages</summary>
+  </entry>
+  <entry>
+    <title>Clausery v2.17.0 — Reading-time badges on guides</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-17-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-17-0</id>
+    <published>2026-10-25T00:00:00Z</published>
+    <updated>2026-10-25T00:00:00Z</updated>
+    <summary>Reading-time badges on guides</summary>
+  </entry>
+  <entry>
+    <title>Clausery v2.16.0 — Share button on every template page</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-16-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-16-0</id>
+    <published>2026-10-25T00:00:00Z</published>
+    <updated>2026-10-25T00:00:00Z</updated>
+    <summary>Share button on every template page</summary>
+  </entry>
+  <entry>
+    <title>Clausery v2.15.0 — Deep-link # anchors on guides and clauses</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-15-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-15-0</id>
+    <published>2026-10-25T00:00:00Z</published>
+    <updated>2026-10-25T00:00:00Z</updated>
+    <summary>Deep-link # anchors on guides and clauses</summary>
+  </entry>
+  <entry>
+    <title>Clausery v2.14.0 — Copy whole template button</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-14-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-14-0</id>
+    <published>2026-10-25T00:00:00Z</published>
+    <updated>2026-10-25T00:00:00Z</updated>
+    <summary>Copy whole template button</summary>
+  </entry>
+  <entry>
+    <title>Clausery v2.13.0 — Organization logo @id and sameAs GitHub</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-13-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-13-0</id>
+    <published>2026-10-25T00:00:00Z</published>
+    <updated>2026-10-25T00:00:00Z</updated>
+    <summary>Organization logo @id and sameAs GitHub</summary>
+  </entry>
+  <entry>
+    <title>Clausery v2.12.0 — Sitelinks Searchbox + DigitalDocument dates</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-12-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-12-0</id>
+    <published>2026-10-25T00:00:00Z</published>
+    <updated>2026-10-25T00:00:00Z</updated>
+    <summary>Sitelinks Searchbox + DigitalDocument dates</summary>
+  </entry>
+  <entry>
+    <title>Clausery v2.11.0 — Print/PDF button on every template page</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-11-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-11-0</id>
+    <published>2026-10-25T00:00:00Z</published>
+    <updated>2026-10-25T00:00:00Z</updated>
+    <summary>Print/PDF button on every template page</summary>
+  </entry>
   <entry>
     <title>Clausery v1.70.0 — offline.html icon/manifest/license/security/search autodiscovery parity</title>
     <link href="https://getclausery.github.io/changelog.html#v1-70-0"/>
