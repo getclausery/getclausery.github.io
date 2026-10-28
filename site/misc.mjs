@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '2.27.0', date: '28 October 2026', summary: 'Sticky hub jump-navs (position: sticky + backdrop-blur)' },
   { version: '2.26.0', date: '28 October 2026', summary: 'Section jump-navs on Free tools and Who-it\u2019s-for hubs' },
   { version: '2.25.0', date: '28 October 2026', summary: 'CSS scroll()-driven read-progress bar + anchor Back-to-top' },
   { version: '2.24.0', date: '28 October 2026', summary: 'Server-rendered TOC on free-tools, audience and invoice detail pages' },
@@ -112,8 +113,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-27-0">2.27.0 <span class="small muted">— 28 October 2026</span></h2>
+<ul><li><strong>Sticky section jump-navs on hub pages.</strong> Hub jump-nav strips (Clauses, Guides, Free tools, Invoice templates, Compare, "Who it's for", NDA templates) now stick just below the header on scroll so section links stay reachable on long hub pages. Backdrop-filter for subtle blur; zero JS.</li></ul>
 <h2 id="v2-26-0">2.26.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>Section jump-navs on Free tools, Guides and "Who it's for" hubs.</strong> Free tools links to Calculators / Invoice email / Embed; "Who it's for" links to each audience card; each section carries a stable anchor id.</li></ul>
+<ul><li><strong>Section jump-navs on Free tools and "Who it's for" hubs.</strong> Free tools links to Calculators / Invoice email / Embed; "Who it's for" links to each audience card with stable anchor ids.</li></ul>
 <h2 id="v2-25-0">2.25.0 <span class="small muted">— 28 October 2026</span></h2>
 <ul><li><strong>CSS scroll()-driven read-progress + anchor Back-to-top.</strong> Read-progress uses <code>animation-timeline: scroll()</code> in Chromium/WebKit with JS fallback for Firefox; "Top" is a plain <code>&lt;a href="#top"&gt;</code>.</li></ul>
 <h2 id="v2-24-0">2.24.0 <span class="small muted">— 28 October 2026</span></h2>
@@ -138,10 +141,8 @@ export const pages = [
 <ul><li><strong>Deep-link anchors on every section heading.</strong> <code>&lt;h2&gt;</code>/<code>&lt;h3&gt;</code> with an id show a <code>#</code> link on hover for copyable deep links; <code>site.js</code> minified to stay under 18 KB.</li></ul>
 <h2 id="v2-14-0">2.14.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>"Copy the whole template" on every template page.</strong> One-click copy above the full-text preview; works alongside Download Word so users pasting elsewhere skip drag-select.</li></ul>
-<h2 id="v2-13-0">2.13.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>Organization logo @id + sameAs.</strong> Global logo is a <code>#logo</code> ImageObject for knowledge-panel eligibility; GitHub org added to <code>sameAs</code>.</li></ul>
 <h2 id="v2-12-0">2.12.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>Sitelinks Searchbox + DigitalDocument dates.</strong> Global <code>WebSite</code> exposes <code>SearchAction</code>; every template <code>DigitalDocument</code> carries real <code>datePublished</code> + <code>dateModified</code>.</li></ul>
+<ul><li><strong>Sitelinks Searchbox + DigitalDocument dates.</strong> Global <code>WebSite</code> exposes <code>SearchAction</code>; every template <code>DigitalDocument</code> carries <code>datePublished</code> + <code>dateModified</code>.</li></ul>
 <h2 id="v2-11-0">2.11.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Print / PDF on clauses and long-form pages.</strong> Top-right button on every clause/template/guide/comparison opens print dialog with the v2.9 stylesheet; button is hidden from print output.</li></ul>
 <h2 id="v2-9-0">2.9.0 <span class="small muted">— 25 October 2026</span></h2>
