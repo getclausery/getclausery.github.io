@@ -46,18 +46,18 @@ for(const box of $$('[data-filter-for]')){
     try{const idx=localStorage.getItem('clausery:drafts-index');if(idx){const d=JSON.parse(idx);drafts=Array.isArray(d)?d:[]}else drafts=[]}catch{drafts=[]}
     return drafts};
   const lastDoc=()=>{try{return JSON.parse(localStorage.getItem('clausery:last-doc')||'null')}catch{return null}};
+  const cssProg=window.CSS&&window.CSS.supports&&window.CSS.supports("animation-timeline:scroll()");
   const upd=()=>{
     const h=document.documentElement,s=h.scrollTop||document.body.scrollTop,m=Math.max(1,h.scrollHeight-h.clientHeight),p=Math.min(100,Math.max(0,(s/m)*100));
-    if(bar)bar.style.width=p.toFixed(1)+'%';
+    if(bar&&!cssProg)bar.style.width=p.toFixed(1)+'%';
     const dd=readDrafts(),last=lastDoc();
     const hasD=dd.length>0||last;
     if(cta){
       const show=hasD?s>250:s>900&&p>20;cta.classList.toggle('show',show);
       if(ctaLabel){if(last&&last.title)ctaLabel.textContent=`Continue “${last.title.length>28?last.title.slice(0,26)+'…':last.title}”`;else if(dd.length)ctaLabel.textContent=`Continue drafting · ${dd.length} saved`;else ctaLabel.textContent='Start a new invoice'}
     }
-    if(topBtn)topBtn.classList.toggle('show',s>600);
+    if(topBtn)topBtn.classList.toggle("show",s>600);
     t=false};
-  if(topBtn)topBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
   if(bar||cta||topBtn){upd();window.addEventListener('scroll',()=>{if(!t){requestAnimationFrame(upd);t=true}},{passive:true})}
 })();
 (function(){
@@ -70,8 +70,7 @@ for(const box of $$('[data-filter-for]')){
   if(sessionStorage.getItem(DISMISSED_KEY))return;
   const dismissedUntil=+localStorage.getItem(DISMISSED_KEY+'_until')||0;
   if(Date.now()<dismissedUntil)return;
-  if(last&&last.title){msg.textContent=`Welcome back — pick up "${last.title.length>40?last.title.slice(0,38)+'…':last.title}"`}
-  else if(drafts.length){msg.textContent=`Welcome back — you have ${drafts.length} saved draft${drafts.length===1?'':'s'}`}
+  if(last&&last.title){msg.textContent=`Welcome back — pick up "${last.title.length>40?last.title.slice(0,38)+'…':last.title}"`}else if(drafts.length){msg.textContent=`Welcome back — you have ${drafts.length} saved draft${drafts.length===1?'':'s'}`}
   meta.textContent=drafts.length?last?`· plus ${drafts.length-1>0?drafts.length-1+' more':'latest draft'}`:'':'· Nothing to upload, all local';
   bar.classList.add('show');
   if(dismiss)dismiss.addEventListener('click',()=>{bar.classList.remove('show');sessionStorage.setItem(DISMISSED_KEY,'1');localStorage.setItem(DISMISSED_KEY+'_until',String(Date.now()+7*864e5))});
@@ -122,10 +121,7 @@ for(const box of $$('[data-filter-for]')){
     if(mod&&(e.key==='k'||e.key==='K')){e.preventDefault();root.classList.contains('show')?close():open();return}
     if(e.key==='/'&&!root.classList.contains('show')&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){e.preventDefault();open();return}
     if(!root.classList.contains('show'))return;
-    if(e.key==='Escape'){e.preventDefault();close()}
-    else if(e.key==='ArrowDown'){e.preventDefault();move(1)}
-    else if(e.key==='ArrowUp'){e.preventDefault();move(-1)}
-    else if(e.key==='Enter'){e.preventDefault();const a=flat[idx];if(a){a.click();close()}}
+    if(e.key==='Escape'){e.preventDefault();close()}else if(e.key==='ArrowDown'){e.preventDefault();move(1)}else if(e.key==='ArrowUp'){e.preventDefault();move(-1)}else if(e.key==='Enter'){e.preventDefault();const a=flat[idx];if(a){a.click();close()}}
   });
   if(openBtn)openBtn.addEventListener('click',open);
   root.addEventListener('click',e=>{if(e.target===root)close()});

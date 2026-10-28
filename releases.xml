@@ -8,6 +8,14 @@
   <updated>2026-10-28T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.25.0 — CSS scroll()-driven read-progress bar + anchor Back-to-top</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-25-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-25-0</id>
+    <published>2026-10-28T00:00:00Z</published>
+    <updated>2026-10-28T00:00:00Z</updated>
+    <summary>CSS scroll()-driven read-progress bar + anchor Back-to-top</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.24.0 — Server-rendered TOC on free-tools, audience and invoice detail pages</title>
     <link href="https://getclausery.github.io/changelog.html#v2-24-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-24-0</id>

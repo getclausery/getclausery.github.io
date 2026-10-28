@@ -221,7 +221,7 @@ ${path === '' ? `<link rel="preconnect" href="${rel}app/" crossorigin>` : ''}
 <script type="speculationrules">{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"\\?|#|/app/"}},{"not":{"selector_matches":"[download],[target=_blank],[rel~=nofollow],[href$=.xml],[href$=.txt],[href$=.json],[href$=.webmanifest]"}}]},"eagerness":"moderate"}]}</script>
 ${extraHead}${autoCrumb}${pageLd}
 </head>
-<body>
+<body id="top">
 <a class="sr-only" href="#main">Skip to content</a>
 ${header(rel, path, crumbItems)}
 `;
@@ -303,7 +303,7 @@ export function footer(rel) {
     ${ico('M3 12a9 9 0 1 0 3-6.7M3 4v5h5',15)}
     <span id="scroll-cta-label">Continue drafting</span>
   </a>
-  <button class="to-top" id="to-top" type="button" aria-label="Back to top">${ico(I.arrowUp,15)} Top</button>
+  <a class="to-top" id="to-top" href="#top" aria-label="Back to top">${ico(I.arrowUp,15)} Top</a>
 </div>
 <div class="cmdk-backdrop" id="cmdk" role="dialog" aria-modal="true" aria-label="Search and jump to" aria-labelledby="cmdk-title" hidden>
   <div class="cmdk" role="combobox" aria-expanded="true" aria-haspopup="listbox" aria-owns="cmdk-list" aria-controls="cmdk-list">
