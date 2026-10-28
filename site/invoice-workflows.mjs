@@ -90,7 +90,7 @@ const calculator = (rel) => `<h2 id="deposit-calculator-heading">Work out your d
 <script type="module" src="${rel}invoice-templates/deposit-calculator.js"></script>`;
 
 export const pages = WORKFLOWS.map((w) => ({
-  path: `invoice-templates/${w.slug}.html`, title: w.title, description: w.description,
+  path: `invoice-templates/${w.slug}.html`, title: w.title, description: w.description, _toc: true,
   extraHead: faqLd(w.faq) + (w.slug === 'deposit-invoice' ? `<style>
 .invoice-calculator { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:1.5rem; margin:1.5rem 0; }
 .invoice-calculator label { display:block; font-weight:600; margin-bottom:.5rem; }

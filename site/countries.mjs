@@ -117,7 +117,7 @@ const example = (c) => {
 };
 
 export const pages = COUNTRIES.map((c) => ({
-  path: `invoice-templates/${c.slug}.html`, title: c.title, description: c.description,
+  path: `invoice-templates/${c.slug}.html`, title: c.title, description: c.description, _toc: true,
   extraHead: faqLd(c.faq),
   body: (rel) => `<section class="section"><div class="wrap prose">
   <p class="small"><a href="${rel}invoice-templates/">Invoice templates</a></p>

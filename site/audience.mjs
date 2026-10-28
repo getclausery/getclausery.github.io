@@ -2104,7 +2104,7 @@ export const pages = [
 </div></section>`,
   },
   ...AUD.map((a) => ({
-    path: `for/${a.slug}.html`, title: a.title, description: a.description || a.intro.slice(0, 290), extraHead: faqLd(a.faq),
+    path: `for/${a.slug}.html`, title: a.title, description: a.description || a.intro.slice(0, 290), _toc: true, extraHead: faqLd(a.faq),
     body: (rel) => `<section class="hero"><div class="wrap" style="display:block;max-width:52rem">
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}for/">Who it's for</a> › ${esc(a.name)}</nav>
   <p class="eyebrow" style="margin-top:1rem">For ${esc(lowerFirst(a.name))}</p>
