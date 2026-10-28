@@ -225,7 +225,7 @@ for (const p of pages) {
   // "software" rich-result classification and associates keywords (invoice generator, NDA maker, etc.) with the
   // application entity. It also carries isAccessibleForFree=true and operatingSystem=Any, two signals that help
   // "free" / "no download" / "in browser" intent queries.
-  const appNode = { '@context': 'https://schema.org', '@type': ['WebApplication','SoftwareApplication'], '@id': `${SITE}#app`, name: 'Clausery', url: `${SITE}app/`, applicationCategory: 'BusinessApplication', applicationSubCategory: 'Word document generator', operatingSystem: 'Any (web browser)', isAccessibleForFree: true, offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '0', highPrice: String(PRICES.proYearly), offerCount: 3, availability: 'https://schema.org/InStock', url: `${SITE}pricing/` }, publisher: { '@id': `${SITE}#organization` }, creator: { '@id': `${SITE}#organization` }, softwareVersion: '2.30.0', license: `${SITE}legal/license.html`, description: 'Free Word invoice, quote, receipt, contract and NDA generator. Build editable .docx documents in your browser — nothing is uploaded.' };
+  const appNode = { '@context': 'https://schema.org', '@type': ['WebApplication','SoftwareApplication'], '@id': `${SITE}#app`, name: 'Clausery', url: `${SITE}app/`, applicationCategory: 'BusinessApplication', applicationSubCategory: 'Word document generator', operatingSystem: 'Any (web browser)', isAccessibleForFree: true, offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '0', highPrice: String(PRICES.proYearly), offerCount: 3, availability: 'https://schema.org/InStock', url: `${SITE}pricing/` }, publisher: { '@id': `${SITE}#organization` }, creator: { '@id': `${SITE}#organization` }, softwareVersion: '2.31.0', license: `${SITE}legal/license.html`, description: 'Free Word invoice, quote, receipt, contract and NDA generator. Build editable .docx documents in your browser — nothing is uploaded.' };
   // The source code repository (SoftwareSourceCode) gives the software entity a verifiable codebase pointer
   // and ties the Organization sameAs GitHub link into the schema graph. Emitted once per page so references
   // from codeRepository / targetProduct resolve consistently.
@@ -276,18 +276,66 @@ for (const p of pages) {
       ['Do the prices shown stay up to date?', 'Vendor plans and prices change. Each page links to the vendor\u2019s official site and notes that the date of last review is not a fresh price check — confirm current pricing with the vendor before you buy.'],
       ['Can I try Clausery without paying?', 'Yes. The Free plan lets you make unlimited Word documents from any library template with no account and no credit card, so you can compare the output against your current tool on a real document before deciding.'],
     ],
-    'nda-templates/': [
-      ['Are the NDA templates free?', 'Yes. Every NDA on this page is free to download as an editable Word .docx and fill in online. No account, credit card or email required; nothing you type is uploaded.'],
-      ['What\u2019s the difference between mutual and one-way NDAs?', 'A one-way NDA has only one side disclosing confidential information (e.g. you sharing a business idea with a contractor). A mutual NDA has both sides disclosing to each other (e.g. two companies exploring a partnership). Pick the version that matches the direction of disclosure.'],
-      ['Can I edit the NDA after download?', 'Yes. Downloads are standard .docx files you can edit in Word, Google Docs, LibreOffice or Pages. Adapt the bracketed placeholders (parties, scope, term, jurisdiction) to your deal and have a lawyer review important agreements.'],
+    'about/': [
+      ['Who makes Clausery?', 'Clausery is built by a small independent team (small-business owners, contract drafters and bookkeepers). The editors are named on the About page and the full source is on GitHub under AGPLv3.'],
+      ['Is Clausery a law firm?', 'No. Clausery is software, not a law firm, and does not give legal advice. Templates and clauses are general samples; adapt them to your deal and jurisdiction and have a lawyer review important contracts.'],
+      ['Can I use Clausery without an account?', 'Yes. Every template, clause explanation, guide and calculator on this site is free to read, copy and use without signing up, and nothing you type is uploaded.'],
+    ],
+    'contact/': [
+      ['How do I contact support?', 'Email getclausery@gmail.com from the address you used when you paid (or describe the issue and approximate purchase date if you did not buy yet). Replies usually arrive within one business day.'],
+      ['Do I need an account to email you?', 'No. There is no support account or ticket system. Just email the address above.'],
+      ['Can I get an invoice or a refund by email?', 'Yes. Email getclausery@gmail.com with your order reference (or the receipt email address) for invoices, refunds, VAT receipts or licence questions.'],
+    ],
+    'roadmap/': [
+      ['When do features ship?', 'The roadmap lists planned work in priority order with rough status (Planned / In progress / Shipped). Dates are estimates \u2014 Clausery is a small team and bug fixes or security work can pull items forward or push them back.'],
+      ['Can I vote on what is built next?', 'Yes. Email getclausery@gmail.com with what you need and why; customer requests are the main input to prioritisation.'],
+      ['Are shipped features removed from the roadmap?', 'Yes. Shipped items move to the changelog with their version number and release date.'],
+    ],
+    'status/': [
+      ['Is the app down right now?', 'Clausery runs entirely in your browser after the initial page load, so there is no central document server to be down. The status page tracks build deploys, the public site (getclausery.github.io) and the license-check endpoint.'],
+      ['Where do I report an outage?', 'Email getclausery@gmail.com with a screenshot and what you were doing. Check the status page for known incidents before writing.'],
+      ['Does an outage affect my saved drafts?', 'No. Drafts live in your browser (IndexedDB), not on Clausery\u2019s servers. They remain available even if the public site is temporarily unreachable.'],
+    ],
+    'press/': [
+      ['Can I use the Clausery name and logo in an article?', 'Yes. Refer to the product as \u201cClausery\u201d and use the logo files in the press kit. Clausery is a trademark; do not alter the logo or use it to imply endorsement.'],
+      ['Who do I contact for a press enquiry?', 'Email getclausery@gmail.com with \u201cPress\u201d in the subject line and your deadline. Interviews, screenshots and reviewer licences are arranged by email.'],
+      ['Is Clausery affiliated with clausery.ai?', 'No. This site (getclausery.github.io) is an independent open-source business making free Word invoice and document templates; clausery.ai is a separate company selling enterprise compliance software. The two products share the name but have different owners, teams and code.'],
+    ],
+    'docs/': [
+      ['Do I need to read all the docs to use Clausery?', 'No. Start with the Getting started page; the other pages cover specific topics (template tagging, logic, backups, self-hosting) you can read as needed.'],
+      ['Are the docs available offline?', 'Yes. The docs ship with the app and work once the PWA is installed, with no network.'],
+      ['Can I contribute to the docs?', 'Yes. The docs source is in the public GitHub repository; open a pull request with clarifications or fixes.'],
     ],
   };
   const hubFaq = HUB_FAQS[p.path];
   let finalBody = body;
-  if (hubFaq) {
+  if (hubFaq && !/class="faq"/.test(finalBody)) {
     const faqHtml = `<div class="faq" style="margin-top:2.5rem"><h2 style="font-size:1.15rem">Common questions</h2>${hubFaq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>`;
     p.extraHead = (p.extraHead || '') + faqLd(hubFaq);
-    finalBody = body.replace(/(<\/div><\/section>)\s*$/, faqHtml + '$1');
+    // Insert FAQ at the best available anchor, in priority order:
+    //  1) before the <!--nav--> CTA marker
+    //  2) before a trailing .docs-cta paragraph (docs landing pages)
+    //  3) before the final </div></section> (standard hub .wrap.prose pages)
+    //  4) before the final </article></div> (docs body pages)
+    //  5) before </main> (any remaining pages)
+    let inserted = false;
+    const ctaMatch = finalBody.match(/<!--nav-->/);
+    if (ctaMatch) { finalBody = finalBody.slice(0, ctaMatch.index) + faqHtml + finalBody.slice(ctaMatch.index); inserted = true; }
+    if (!inserted) {
+      const docsCta = finalBody.match(/<p class="docs-cta"/);
+      if (docsCta) { finalBody = finalBody.slice(0, docsCta.index) + faqHtml + finalBody.slice(docsCta.index); inserted = true; }
+    }
+    if (!inserted) {
+      const m = finalBody.match(/(<\/div><\/section>)\s*$/);
+      if (m) { finalBody = finalBody.slice(0, m.index) + faqHtml + finalBody.slice(m.index); inserted = true; }
+    }
+    if (!inserted) {
+      const m = finalBody.match(/(<\/article><\/div>)\s*$/);
+      if (m) { finalBody = finalBody.slice(0, m.index) + faqHtml + finalBody.slice(m.index); inserted = true; }
+    }
+    if (!inserted) {
+      finalBody = finalBody.replace('</main>', faqHtml + '</main>');
+    }
   }
   // Inject a cross-type "Related reading" block on long-form pages, just before the helpful widget (or the final
   // </div></section> if there is no widget). This tightens internal-link clusters between templates ↔ clauses ↔
