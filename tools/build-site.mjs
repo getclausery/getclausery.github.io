@@ -225,11 +225,37 @@ for (const p of pages) {
   // "software" rich-result classification and associates keywords (invoice generator, NDA maker, etc.) with the
   // application entity. It also carries isAccessibleForFree=true and operatingSystem=Any, two signals that help
   // "free" / "no download" / "in browser" intent queries.
-  const appNode = { '@context': 'https://schema.org', '@type': ['WebApplication','SoftwareApplication'], '@id': `${SITE}#app`, name: 'Clausery', url: `${SITE}app/`, applicationCategory: 'BusinessApplication', applicationSubCategory: 'Word document generator', operatingSystem: 'Any (web browser)', isAccessibleForFree: true, offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '0', highPrice: String(PRICES.proYearly), offerCount: 3, availability: 'https://schema.org/InStock', url: `${SITE}pricing/` }, publisher: { '@id': `${SITE}#organization` }, creator: { '@id': `${SITE}#organization` }, softwareVersion: '2.33.0', license: `${SITE}legal/license.html`, description: 'Free Word invoice, quote, receipt, contract and NDA generator. Build editable .docx documents in your browser — nothing is uploaded.' };
+  const appNode = { '@context': 'https://schema.org', '@type': ['WebApplication','SoftwareApplication'], '@id': `${SITE}#app`, name: 'Clausery', url: `${SITE}app/`, applicationCategory: 'BusinessApplication', applicationSubCategory: 'Word document generator', operatingSystem: 'Any (web browser)', isAccessibleForFree: true, offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '0', highPrice: String(PRICES.proYearly), offerCount: 3, availability: 'https://schema.org/InStock', url: `${SITE}pricing/` }, publisher: { '@id': `${SITE}#organization` }, creator: { '@id': `${SITE}#organization` }, softwareVersion: '2.34.0', license: `${SITE}legal/license.html`, description: 'Free Word invoice, quote, receipt, contract and NDA generator. Build editable .docx documents in your browser — nothing is uploaded.' };
   // The source code repository (SoftwareSourceCode) gives the software entity a verifiable codebase pointer
   // and ties the Organization sameAs GitHub link into the schema graph. Emitted once per page so references
   // from codeRepository / targetProduct resolve consistently.
   const srcNode = { '@context': 'https://schema.org', '@type': 'SoftwareSourceCode', '@id': `${SITE}#source`, name: 'Clausery source', codeRepository: 'https://github.com/getclausery/getclausery.github.io', programmingLanguage: 'JavaScript', license: `${SITE}legal/license.html`, isAccessibleForFree: true, provider: { '@id': `${SITE}#organization` }, targetProduct: { '@id': `${SITE}#app` } };
+  // Post-process any hand-written WebPage node in extraHead (e.g. AboutPage) to add dateModified/lastReviewed
+  // so E-E-A-T freshness signals apply consistently across hubs that define their own page-level schema.
+  if (p.extraHead && hasPageNode && modified) {
+    p.extraHead = p.extraHead.replace(/(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)/g, (_m, open, body, close) => {
+      try {
+        const data = JSON.parse(body);
+        const nodes = data['@graph'] || [data];
+        let touched = false;
+        for (const n of nodes) {
+          const t = n && n['@type'];
+          const types = Array.isArray(t) ? t : [t];
+          if (types.some((tt) => typeof tt === 'string' && /Page$/.test(tt))) {
+            if (!n['@id'] && n.url) { n['@id'] = n.url + (n.url.endsWith('/') ? '' : '/') + '#webpage'; touched = true; }
+            if (!n.description && p.description) { n.description = p.description; touched = true; }
+            if (!n.publisher) { n.publisher = { '@id': `${SITE}#organization` }; touched = true; }
+            if (!n.isPartOf) { n.isPartOf = { '@id': `${SITE}#website` }; touched = true; }
+            if (!n.dateModified) { n.dateModified = modified; touched = true; }
+            if (!n.lastReviewed) { n.lastReviewed = modified; touched = true; }
+            if (!n.reviewedBy) { n.reviewedBy = { '@id': `${SITE}about/#editors` }; touched = true; }
+            if (!n.inLanguage) { n.inLanguage = 'en-GB'; touched = true; }
+          }
+        }
+        return touched ? open + JSON.stringify(data) + close : open + body + close;
+      } catch (_e) { return open + body + close; }
+    });
+  }
   const pageLd = skipPageLd ? '' : `<script type="application/ld+json">${JSON.stringify({
     '@context': 'https://schema.org', '@type': /^templates\/[^/]+\.html$/.test(p.path) ? 'ItemPage' : 'WebPage', '@id': `${SITE}${p.path}#webpage`, url: `${SITE}${p.path}`,
     name: SEO_TITLES[p.path] || p.title, description: p.description, inLanguage: 'en-GB', isPartOf: { '@id': `${SITE}#website` }, publisher: { '@id': `${SITE}#organization` },
