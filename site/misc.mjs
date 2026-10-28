@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '2.24.0', date: '28 October 2026', summary: 'Server-rendered TOC on free-tools, audience and invoice detail pages' },
   { version: '2.23.0', date: '28 October 2026', summary: 'FAQ rich results on NDA templates hub' },
   { version: '2.22.0', date: '28 October 2026', summary: 'FAQ rich results on Compare hub' },
   { version: '2.21.0', date: '28 October 2026', summary: 'Section jump-navs on Clauses and Invoice templates hubs' },
@@ -109,8 +110,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-24-0">2.24.0 <span class="small muted">— 28 October 2026</span></h2>
+<ul><li><strong>Server-rendered "On this page" TOC on every long-form page.</strong> All 9 free-tool pages, 5 audience pages and 20 trade/country invoice pages now get a server-rendered "On this page" jump-TOC above the fold (previously only guides/clauses/templates had one). 180 pages now carry an in-page TOC, up from ~146 — unlocking Google's mobile "Jump to" strip across the entire clause/tool/audience/invoice corpus. Zero JS added.</li></ul>
 <h2 id="v2-23-0">2.23.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>FAQ rich results on NDA templates hub.</strong> The NDA templates landing page now carries a 3-question on-page FAQ (free, mutual vs one-way, editability) plus <code>FAQPage</code> JSON-LD. FAQ rich results now cover 8/8 major hubs: templates, clauses, guides, free tools, who it's for, invoice templates, compare, and NDAs.</li></ul>
+<ul><li><strong>FAQ rich results on NDA templates hub.</strong> NDA templates landing page carries a 3-question on-page FAQ (free, mutual vs one-way, editability) plus <code>FAQPage</code> JSON-LD, completing 8/8 hubs.</li></ul>
 <h2 id="v2-22-0">2.22.0 <span class="small muted">— 28 October 2026</span></h2>
 <ul><li><strong>FAQ rich results on Compare hub.</strong> The Compare landing page now carries a 3-question on-page FAQ (editorial independence, price freshness, free trial) plus <code>FAQPage</code> JSON-LD, unlocking FAQ rich-result snippets on "alternative to" SERPs.</li></ul>
 <h2 id="v2-21-0">2.21.0 <span class="small muted">— 28 October 2026</span></h2>
@@ -138,9 +141,7 @@ export const pages = [
 <h2 id="v2-9-0">2.9.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Print stylesheet.</strong> <code>@media print</code> block: chrome hidden; black-on-white 11pt; 1.4 cm margins; h2/h3 avoid breaks after; external links render URLs after anchor for usable PDFs.</li></ul>
 <h2 id="v2-7-0">2.7.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>Freshness badges across all hubs.</strong> "Updated Mmm YYYY" pill on every listing card: Clauses (24), Free tools (9), audience hubs (5), Invoice templates (21), pulling real last-modified dates.</li></ul>
-<h2 id="v2-6-0">2.6.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>Freshness badges on template hub.</strong> Templates hub cards show an "Updated Mmm YYYY" pill from the real last-modified date.</li></ul>
+<ul><li><strong>Freshness badges across all hubs.</strong> "Updated Mmm YYYY" pill on every listing card, pulling real last-modified dates.</li></ul>
 <h2 id="v2-5-0">2.5.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>WebApplication + TableOfContents schema.</strong> Every page emits a <code>WebApplication</code>/<code>SoftwareApplication</code> JSON-LD node (free in-browser Word doc generator, <code>isAccessibleForFree=true</code>) plus a <code>SoftwareSourceCode</code> node pointing at GitHub. Pages with a visible TOC emit <code>TableOfContents</code> JSON-LD for Google's "Jump to" strip.</li></ul>
 <h2 id="v2-4-0">2.4.0 <span class="small muted">— 25 October 2026</span></h2>

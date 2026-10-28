@@ -204,7 +204,7 @@ export const pages = [
 </div></section>`,
   },
   ...TRADES.map((t) => ({
-    path: `invoice-templates/${t.slug}.html`, title: t.title, description: t.description,
+    path: `invoice-templates/${t.slug}.html`, title: t.title, description: t.description, _toc: true,
     extraHead: faqLd(t.faq),
     body: (rel) => `<section class="section"><div class="wrap prose">
   <p class="small"><a href="${rel}invoice-templates/">Invoice templates by trade</a></p>
