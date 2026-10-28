@@ -2086,10 +2086,11 @@ export const pages = [
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › Who it's for</nav>
   <h1 style="margin-top:1rem">Who Clausery is for</h1>
   <p class="lead">Clausery suits anyone who sends the same kinds of documents again and again: invoices, contracts, HR letters and landlord forms. Each audience page shows the templates that team uses, the questions that change, and the guides that explain the wording.</p>
-  <div class="grid grid-2" style="margin-top:2rem">
-    ${AUD.map((a) => `<a class="feature" href="${rel}for/${a.slug}.html">${cardUpdated(`for/${a.slug}.html`)}<h2 style="font-size:1.2rem">${esc(a.name)}</h2><p>${esc(a.intro.split('. ').slice(0, 2).join('. '))}.</p><p class="small muted">${a.templates.length} templates · ${a.related.length} related guides</p></a>`).join('\n    ')}
+  <nav class="small hub-jump" aria-label="Jump to section"><strong>Jump to:</strong> ${AUD.map(a=>`<a href="#${a.slug}">${esc(a.name)}</a>`).join(' · ')} · <a href="#every-team">What every team gets</a></nav>
+  <div class="grid grid-2" style="margin-top:2rem" id="teams">
+    ${AUD.map((a) => `<a class="feature" id="${a.slug}" href="${rel}for/${a.slug}.html">${cardUpdated(`for/${a.slug}.html`)}<h2 style="font-size:1.2rem">${esc(a.name)}</h2><p>${esc(a.intro.split('. ').slice(0, 2).join('. '))}.</p><p class="small muted">${a.templates.length} templates · ${a.related.length} related guides</p></a>`).join('\n    ')}
   </div>
-  <h2 style="margin-top:2.5rem">What every team gets</h2>
+  <h2 id="every-team" style="margin-top:2.5rem">What every team gets</h2>
   <ul>
     <li><strong>The same approved wording.</strong> A template is set up once; everyone else answers plain-language questions and downloads the finished Word file.</li>
     <li><strong>Nothing uploaded.</strong> Names, salaries, client details and the document itself stay in the browser, which keeps vendor reviews and records of processing simpler.</li>

@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-10-28",
-  "hash": "ccbb11d7d2b7f1d3"
+  "hash": "792fc1336f60038d"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-28",
-  "hash": "a16127c7f12d57d7"
+  "hash": "95c6aab7b29896a0"
  },
  "clauses/": {
   "date": "2026-10-28",
@@ -236,8 +236,8 @@
   "hash": "a0e49c657020aa38"
  },
  "for/": {
-  "date": "2026-10-25",
-  "hash": "22bcaf94d1b5ad67"
+  "date": "2026-10-28",
+  "hash": "97ca15452bc17a32"
  },
  "for/consultants.html": {
   "date": "2026-10-24",
@@ -260,8 +260,8 @@
   "hash": "705666cc3abd8be3"
  },
  "free-tools/": {
-  "date": "2026-10-25",
-  "hash": "bc3cf69cc5d727c9"
+  "date": "2026-10-28",
+  "hash": "fa2450361da569e7"
  },
  "free-tools/amount-in-words.html": {
   "date": "2026-10-24",
@@ -697,7 +697,7 @@
  },
  "roadmap/": {
   "date": "2026-10-28",
-  "hash": "53fbf993ff75c9f8"
+  "hash": "304f72c4c668efae"
  },
  "search/": {
   "date": "2026-10-25",
@@ -713,7 +713,7 @@
  },
  "status/": {
   "date": "2026-10-28",
-  "hash": "f9df40d17cac3a6f"
+  "hash": "2f81573b1b362b88"
  },
  "templates/": {
   "date": "2026-10-25",
