@@ -216,7 +216,7 @@ for (const p of pages) {
   // "software" rich-result classification and associates keywords (invoice generator, NDA maker, etc.) with the
   // application entity. It also carries isAccessibleForFree=true and operatingSystem=Any, two signals that help
   // "free" / "no download" / "in browser" intent queries.
-  const appNode = { '@context': 'https://schema.org', '@type': ['WebApplication','SoftwareApplication'], '@id': `${SITE}#app`, name: 'Clausery', url: `${SITE}app/`, applicationCategory: 'BusinessApplication', applicationSubCategory: 'Word document generator', operatingSystem: 'Any (web browser)', isAccessibleForFree: true, offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '0', highPrice: String(PRICES.proYearly), offerCount: 3, availability: 'https://schema.org/InStock', url: `${SITE}pricing/` }, publisher: { '@id': `${SITE}#organization` }, creator: { '@id': `${SITE}#organization` }, softwareVersion: '2.21.0', license: `${SITE}legal/license.html`, description: 'Free Word invoice, quote, receipt, contract and NDA generator. Build editable .docx documents in your browser — nothing is uploaded.' };
+  const appNode = { '@context': 'https://schema.org', '@type': ['WebApplication','SoftwareApplication'], '@id': `${SITE}#app`, name: 'Clausery', url: `${SITE}app/`, applicationCategory: 'BusinessApplication', applicationSubCategory: 'Word document generator', operatingSystem: 'Any (web browser)', isAccessibleForFree: true, offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '0', highPrice: String(PRICES.proYearly), offerCount: 3, availability: 'https://schema.org/InStock', url: `${SITE}pricing/` }, publisher: { '@id': `${SITE}#organization` }, creator: { '@id': `${SITE}#organization` }, softwareVersion: '2.22.0', license: `${SITE}legal/license.html`, description: 'Free Word invoice, quote, receipt, contract and NDA generator. Build editable .docx documents in your browser — nothing is uploaded.' };
   // The source code repository (SoftwareSourceCode) gives the software entity a verifiable codebase pointer
   // and ties the Organization sameAs GitHub link into the schema graph. Emitted once per page so references
   // from codeRepository / targetProduct resolve consistently.
@@ -261,6 +261,11 @@ for (const p of pages) {
       ['Are the invoice templates free?', 'Yes. Every invoice template on this page is free to fill in online and download as an editable .docx, with totals, tax and numbering worked out for you. No account or credit card required.'],
       ['Do the invoices calculate totals automatically?', 'Yes. When you fill one in online, line totals, subtotal, tax, discount and grand total update as you type, and the next invoice number is suggested. Downloaded Word files keep the figures as plain numbers so you can edit them freely.'],
       ['Can I add my logo and branding?', 'Yes. The app lets you upload a logo, set your brand colour and save your business details so future invoices pre-fill automatically on your device.'],
+    ],
+    'compare/': [
+      ['Are the comparisons independent?', 'Yes. Every comparison is written by Clausery editors and clearly labels Clausery as the maker of this site. We do not accept paid placements, sponsored positions or affiliate commissions from the tools listed; links to competitor sites go straight to the vendor.'],
+      ['Do the prices shown stay up to date?', 'Vendor plans and prices change. Each page links to the vendor\u2019s official site and notes that the date of last review is not a fresh price check — confirm current pricing with the vendor before you buy.'],
+      ['Can I try Clausery without paying?', 'Yes. The Free plan lets you make unlimited Word documents from any library template with no account and no credit card, so you can compare the output against your current tool on a real document before deciding.'],
     ],
   };
   const hubFaq = HUB_FAQS[p.path];
