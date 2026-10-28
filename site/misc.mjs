@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '2.22.0', date: '28 October 2026', summary: 'FAQ rich results on Compare hub' },
   { version: '2.21.0', date: '28 October 2026', summary: 'Section jump-navs on Clauses and Invoice templates hubs' },
   { version: '2.20.0', date: '28 October 2026', summary: 'Visible breadcrumb navigation and BreadcrumbList RDFa on every indexable page' },
   { version: '2.19.0', date: '25 October 2026', summary: 'FAQ rich results on major hub pages' },
@@ -107,8 +108,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-22-0">2.22.0 <span class="small muted">— 28 October 2026</span></h2>
+<ul><li><strong>FAQ rich results on Compare hub.</strong> The Compare landing page now carries a 3-question on-page FAQ (editorial independence, price freshness, free trial) plus matching <code>FAQPage</code> JSON-LD, unlocking FAQ rich-result snippets on high-intent "alternative to" SERPs.</li></ul>
 <h2 id="v2-21-0">2.21.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>Section jump-navs on high-cardinality hubs.</strong> Clauses hub now exposes a sticky "Jump to" strip linking to each clause group (Risk &amp; liability, Confidentiality, Money, etc.) plus the by-document matrix; Invoice templates hub exposes jump links to By task / By trade / By country / Tax. In-page anchor navigation, zero JS, and each target carries an <code>id</code> for deep linking.</li></ul>
+<ul><li><strong>Section jump-navs on high-cardinality hubs.</strong> Clauses hub exposes a "Jump to" strip linking to each clause group plus the by-document matrix; Invoice templates hub exposes jump links to By task / By trade / By country / Tax. In-page anchors, zero JS.</li></ul>
 <h2 id="v2-20-0">2.20.0 <span class="small muted">— 28 October 2026</span></h2>
 <ul><li><strong>Visible breadcrumb navigation on every page.</strong> All 260 indexable pages now render a visible <code>&lt;nav aria-label="Breadcrumb"&gt;</code> above the H1, auto-injected on hubs and detail pages that lacked one. Hand-written crumbs pick up <code>BreadcrumbList</code> RDFa microdata for parity with JSON-LD.</li></ul>
 <h2 id="v2-19-0">2.19.0 <span class="small muted">— 25 October 2026</span></h2>
@@ -129,12 +132,8 @@ export const pages = [
 <ul><li><strong>Sitelinks Searchbox + DigitalDocument dates.</strong> Global <code>WebSite</code> exposes <code>SearchAction</code>; every template <code>DigitalDocument</code> carries real <code>datePublished</code> + <code>dateModified</code>.</li></ul>
 <h2 id="v2-11-0">2.11.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Print / PDF on clauses and long-form pages.</strong> Top-right button on every clause/template/guide/comparison opens print dialog with the v2.9 stylesheet; button is hidden from print output.</li></ul>
-<h2 id="v2-10-0">2.10.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>AggregateOffer in global schema.</strong> Global WebApplication carries AggregateOffer (USD 0–annual Pro, 3 offers) pointing at /pricing/ so Google sees the full price range.</li></ul>
 <h2 id="v2-9-0">2.9.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>Comprehensive print stylesheet.</strong> Full <code>@media print</code> block: chrome hidden; black-on-white 11pt; 1.4 cm margins; h2/h3 avoid breaks after; clause boxes/details/cards avoid page breaks; external links render URLs after anchor for usable PDFs.</li></ul>
-<h2 id="v2-8-0">2.8.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>humans.txt copy fix.</strong> Last "independent open-source project" reference fixed to "independent open-source business".</li></ul>
+<ul><li><strong>Print stylesheet.</strong> <code>@media print</code> block: chrome hidden; black-on-white 11pt; 1.4 cm margins; h2/h3 avoid breaks after; external links render URLs after anchor for usable PDFs.</li></ul>
 <h2 id="v2-7-0">2.7.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Freshness badges across all hubs.</strong> "Updated Mmm YYYY" pill on every listing card: Clauses (24), Free tools (9), audience hubs (5), Invoice templates (21), pulling real last-modified dates.</li></ul>
 <h2 id="v2-6-0">2.6.0 <span class="small muted">— 25 October 2026</span></h2>
