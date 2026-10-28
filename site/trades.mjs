@@ -178,20 +178,21 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap">
   <h1>Free Word invoice templates by task, trade and country</h1>
   <p class="lead">Pick your trade and the invoice opens with the lines that trade usually bills, ready for your prices. Pick your country and it opens with the right tax, rate and tax number. Totals and tax are worked out for you, your next invoice remembers your details and number, and you download an editable Word file. Free, no sign-up, nothing uploaded.</p>
-  <h2 style="margin-top:2rem">By billing task</h2>
+  <nav class="small hub-jump" aria-label="Jump to section"><strong>Jump to:</strong> <a href="#by-task">By billing task</a> · <a href="#by-trade">By trade</a> · <a href="#by-country">By country</a> · <a href="#tax">Tax &amp; payment</a></nav>
+  <h2 id="by-task" style="margin-top:2rem">By billing task</h2>
   <p>Request an upfront deposit, bill hours, or reconcile the final balance. Each page has a worked example and an app starter for that task.</p>
   <div class="grid grid-3 hub-cards" style="margin-top:1rem">${WORKFLOWS.map((w) => `<a class="feature" href="${rel}invoice-templates/${w.slug}.html">${cardUpdated(`invoice-templates/${w.slug}.html`)}<h3>${esc(w.name)}</h3><p>${esc(w.description)}</p></a>`).join('')}</div>
-  <h2 style="margin-top:2rem">By trade</h2>
+  <h2 id="by-trade" style="margin-top:2rem">By trade</h2>
   <div class="grid grid-3 hub-cards" style="margin-top:1.5rem">
     ${TRADES.map((t) => `<a class="feature" href="${rel}invoice-templates/${t.slug}.html">${cardUpdated(`invoice-templates/${t.slug}.html`)}<h3>${esc(t.title.replace(/ \(free, Word\)| template \(Word\)/, '').replace(/ template$/, ''))}</h3><p>${esc(t.preset.lines.slice(0, 3).map(([d]) => d.replace(/ \(.*\)$/, '')).join(', '))}</p></a>`).join('\n    ')}
   </div>
-  <h2 style="margin-top:2.5rem">By country: VAT, GST and HST</h2>
+  <h2 id="by-country" style="margin-top:2.5rem">By country: VAT, GST and HST</h2>
   <div class="grid grid-3 hub-cards" style="margin-top:1rem">
     ${COUNTRIES.map((c) => `<a class="feature" href="${rel}invoice-templates/${c.slug}.html">${cardUpdated(`invoice-templates/${c.slug}.html`)}<h3>${esc(c.h1.replace(/ template( for)?/, ''))}</h3><p>${esc(c.preset.answers.tax_name)} at ${c.preset.answers.tax_rate}%, your ${esc(c.preset.answers.tax_registration_label)}, amounts in ${esc(c.preset.currency)}</p></a>`).join('\n    ')}
   </div>
-  <h2 style="margin-top:2.5rem">Not listed?</h2>
+  <h2 id="not-listed" style="margin-top:2.5rem">Not listed?</h2>
   <p>Start from the general <a href="${rel}templates/invoice.html">invoice template</a> and add your own lines. For quotes before the work, use the <a href="${rel}templates/quote.html">price quote template</a>; for a supplier order, the <a href="${rel}templates/purchase-order.html">purchase order</a>; for a refund or correction, the <a href="${rel}templates/credit-note.html">credit note</a>; for payments received, the <a href="${rel}templates/payment-receipt.html">payment receipt</a>; and for rent, the <a href="${rel}templates/rent-receipt.html">rent receipt</a>.</p>
-  <h2 style="margin-top:2.5rem">Tax and payment details</h2>
+  <h2 id="tax" style="margin-top:2.5rem">Tax and payment details</h2>
   <ul>
     <li><a href="${rel}guides/what-to-include-on-a-vat-invoice.html">${esc(guideTitle('what-to-include-on-a-vat-invoice'))}</a></li>
     <li><a href="${rel}guides/gst-hst-invoice-requirements-canada.html">${esc(guideTitle('gst-hst-invoice-requirements-canada'))}</a></li>

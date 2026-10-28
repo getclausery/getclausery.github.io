@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '2.21.0', date: '28 October 2026', summary: 'Section jump-navs on Clauses and Invoice templates hubs' },
   { version: '2.20.0', date: '28 October 2026', summary: 'Visible breadcrumb navigation and BreadcrumbList RDFa on every indexable page' },
   { version: '2.19.0', date: '25 October 2026', summary: 'FAQ rich results on major hub pages' },
   { version: '2.18.0', date: '25 October 2026', summary: 'Home trust strip + TOC on comparison pages' },
@@ -106,8 +107,10 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-21-0">2.21.0 <span class="small muted">— 28 October 2026</span></h2>
+<ul><li><strong>Section jump-navs on high-cardinality hubs.</strong> Clauses hub now exposes a sticky "Jump to" strip linking to each clause group (Risk &amp; liability, Confidentiality, Money, etc.) plus the by-document matrix; Invoice templates hub exposes jump links to By task / By trade / By country / Tax. In-page anchor navigation, zero JS, and each target carries an <code>id</code> for deep linking.</li></ul>
 <h2 id="v2-20-0">2.20.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>Visible breadcrumb navigation on every page.</strong> All 260 indexable pages now render a visible <code>&lt;nav aria-label="Breadcrumb"&gt;</code> above the H1, auto-injected on hubs and detail pages that lacked one (templates/, guides/, free-tools/, invoice-templates/, pricing/, compare/, about/, customers/, why-clausery/). Hand-written crumbs pick up <code>BreadcrumbList</code> RDFa microdata for parity with the existing JSON-LD, giving Google a visible breadcrumb trail in SERPs.</li></ul>
+<ul><li><strong>Visible breadcrumb navigation on every page.</strong> All 260 indexable pages now render a visible <code>&lt;nav aria-label="Breadcrumb"&gt;</code> above the H1, auto-injected on hubs and detail pages that lacked one. Hand-written crumbs pick up <code>BreadcrumbList</code> RDFa microdata for parity with JSON-LD.</li></ul>
 <h2 id="v2-19-0">2.19.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>FAQ rich results on major hub pages.</strong> Templates, Clauses, Guides, Free tools and "Who it's for" hubs now carry a 3-question on-page FAQ (pricing, sign-up, editability) plus <code>FAQPage</code> JSON-LD, unlocking FAQ rich-result snippets on hub SERPs.</li></ul>
 <h2 id="v2-18-0">2.18.0 <span class="small muted">— 25 October 2026</span></h2>
@@ -148,10 +151,8 @@ export const pages = [
 <ul><li><strong>Related reading clusters.</strong> Server-rendered block at the foot of each page mixes matching cross-section pages scored on shared keywords (+28% internal links).</li></ul>
 <h2 id="v2-0-3">2.0.3 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>E-E-A-T entity linking.</strong> Article schema adds <code>about</code> topics, a share-card <code>image</code>, <code>thumbnailUrl</code>, <code>reviewedBy</code>; FAQPage blocks get a stable <code>@id</code>.</li></ul>
-<h2 id="v2-0-1">2.0.1 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li>Article schema (headline, datePublished, lastReviewed, author, publisher) on every long-form page — all 24 clauses and 87 templates carry a connected Article→WebPage→Organization graph.</li></ul>
 <h2 id="v2-0-0">2.0.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>SEO &amp; E-E-A-T milestone.</strong> v2.0 ships the structured-data / rich-result / content-quality pass: visible BreadcrumbList microdata on every nav, shared WebSite+Organization graph on every page, rel=prev/next chaining, hreflang, FAQPage on every long-form page, visible "Reviewed by / Updated" bylines, primaryImageOfPage share cards, lastReviewed/reviewedBy on WebPage/ItemPage, and server-rendered TOCs with h2 anchor ids. All 261 indexable pages carry a connected schema graph, freshness byline and share card.</li></ul>
+<ul><li><strong>SEO &amp; E-E-A-T milestone.</strong> Structured-data / rich-result pass: visible BreadcrumbList microdata, shared WebSite+Organization graph, rel=prev/next chaining, FAQPage on long-form pages, "Reviewed by / Updated" bylines, share cards and server-rendered TOCs across every indexable page.</li></ul>
 <h2 id="v1-99-0">1.99.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>"On this page" TOC + h2 anchors on clauses/templates.</strong> Clause/template pages have stable <code>&lt;h2&gt;</code> ids and a TOC above the fold.</li></ul>
 <h2 id="v1-98-0">1.98.0 <span class="small muted">— 25 October 2026</span></h2>

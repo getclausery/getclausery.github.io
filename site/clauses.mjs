@@ -50,10 +50,11 @@ export const pages = [
   <p class="eyebrow" style="margin-top:1rem">Free clause library</p>
   <h1>Contract clauses, explained in plain English</h1>
   <p class="lead">What each clause does, sample wording you can copy, the points worth negotiating, and how to make the variable parts fill themselves in. ${CLAUSES.length} clauses, free, with no sign-up.</p>
-  ${GROUPS.map((g) => `<h2 style="margin-top:2.5rem">${esc(g)}</h2>
-  <div class="grid grid-3">${CLAUSES.filter((c) => c.group === g).map((c) => `<a class="feature" href="${rel}clauses/${c.slug}.html">${cardUpdated(`clauses/${c.slug}.html`)}<h3>${esc(c.name)}</h3><p class="small">${esc(c.what.split('. ')[0].replace(/\.$/, ''))}.</p></a>`).join('')}</div>`).join('')}
+  <nav class="small hub-jump" aria-label="Jump to section"><strong>Jump to:</strong> ${GROUPS.map((g,i)=>{const id='clause-group-'+i;return `<a href="#${id}">${esc(g)}</a>`}).join(' · ')} · <a href="#by-document">By document</a></nav>
+  ${GROUPS.map((g,i) => {const id='clause-group-'+i;return `<h2 id="${id}" style="margin-top:2.5rem">${esc(g)}</h2>
+  <div class="grid grid-3">${CLAUSES.filter((c) => c.group === g).map((c) => `<a class="feature" href="${rel}clauses/${c.slug}.html">${cardUpdated(`clauses/${c.slug}.html`)}<h3>${esc(c.name)}</h3><p class="small">${esc(c.what.split('. ')[0].replace(/\.$/, ''))}.</p></a>`).join('')}</div>`;}).join('')}
 
-  <h2 style="margin-top:3rem">Which clauses does my document need?</h2>
+  <h2 id="by-document" style="margin-top:3rem">Which clauses does my document need?</h2>
   <p>A starting point for the most common documents. Every deal is different, so treat this as a checklist, not a rule.</p>
   <div class="table-wrap" tabindex="0"><table class="compare"><thead><tr><th scope="col">Document</th><th scope="col">Clauses to expect</th></tr></thead><tbody>
     ${BY_DOC.map(([doc, list]) => `<tr><th scope="row">${esc(doc)}</th><td>${list.map((s) => `<a href="${rel}clauses/${s}.html">${esc(short(BY_SLUG[s]))}</a>`).join(', ')}</td></tr>`).join('')}
