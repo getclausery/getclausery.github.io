@@ -35,8 +35,8 @@ const HOME_FAQ = [
 ];
 
 export const pages = [{
-  path: '', title: 'Free Invoice Maker for Word (2026) — Download in 60 seconds',
-  description: `Free invoice maker for Word in 2026. Make a professional invoice, quote or receipt in your browser in 60 seconds — editable .docx, no account, no card, nothing uploaded. Not affiliated with Clausery.ai.`,
+  path: '', title: 'Free Invoice Template | Make an Invoice Online (Word/PDF)',
+  description: `Free invoice template you can fill in online and download as an editable Word doc or printable PDF. Calculate totals, VAT/GST/sales tax, discount and balance due automatically — no sign-up, no card, nothing uploaded. Not affiliated with Clausery.ai.`,
   extraHead: `<link rel="prefetch" href="./app/" as="document">
 <meta name="directree-verify" content="18cd9ea3fefedd43ee1d57c58248886c">
 <script type="speculationrules">{"prerender":[{"source":"list","urls":["./app/"],"where":{"and":[{"href_matches":"./app/*"},{"not":{"selector_matches":".btn"}}]},"eagerness":"moderate"}]}</script>
@@ -52,8 +52,8 @@ export const pages = [{
       <div class="eyebrow">${ico(I.calc)} Free · No account · No card · Editable Word</div>
       <div class="release-pill"><a href="${rel}changelog.html#v${APP_VERSION.replace(/\./g,'-')}"><strong>New:</strong> v${APP_VERSION}</a> — <a href="${rel}app/#/drafts">track sent/paid invoices</a>, <a href="${rel}self-hosting/">self-host / Enterprise</a>, and sharper identity (not clausery.ai).</div>
       <div class="notice-name">${ico(I.info,14)} Not clausery.ai — we're the independent open-source Word invoice generator; compliance software is over at <a href="https://www.clausery.ai/" rel="noopener">clausery.ai</a>.</div>
-      <h1>Free invoice maker for Word — make a .docx in 60 seconds, no signup.</h1>
-      <p class="lead">Answer a few questions and download a finished <strong>.docx</strong> you can still edit. Totals, tax, discounts and the next invoice number are done for you. Nothing you type is uploaded — it all runs in your browser.</p>
+      <h1>Free invoice template — make a professional invoice online in 60 seconds.</h1>
+      <p class="lead">Answer a few questions and download a printable PDF or editable <strong>Word .docx</strong> invoice. Totals, VAT, GST or sales tax, discounts, and the next invoice number are worked out automatically. Also make <a href="${rel}templates/quote.html">quotes</a>, <a href="${rel}templates/purchase-order.html">purchase orders</a>, <a href="${rel}templates/credit-note.html">credit notes</a> and <a href="${rel}templates/payment-receipt.html">receipts</a> — everything runs in your browser; nothing is uploaded.</p>
       <ul class="hero-trust" aria-label="Why Clausery is different">
         <li><strong>${LIB.length}+ templates</strong><span>All free Word</span></li>
         <li><strong>No signup</strong><span>No card, no email</span></li>

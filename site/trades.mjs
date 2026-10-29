@@ -172,7 +172,7 @@ const example = (t) => {
 
 export const pages = [
   {
-    path: 'invoice-templates/', title: 'Free Invoice Templates for Word (2026) — Download & Edit',
+    path: 'invoice-templates/', title: 'Free Invoice Templates | Download & Print (Word/PDF)',
     description: 'Free Word invoice templates for deposits, hourly work and final balances, plus trade and country starters. Totals calculated online; editable .docx download.',
     extraHead: collectionLd({ path: 'invoice-templates/', name: 'Free Word invoice templates: task, trade and country', description: 'Free Word invoice templates for deposits, hourly work and final balances, plus trade and country starters. Totals calculated online; editable .docx download.', items: [...WORKFLOWS.map((w) => [w.name, `invoice-templates/${w.slug}.html`]), ...TRADES.map((t) => [t.title, `invoice-templates/${t.slug}.html`]), ...COUNTRIES.map((c) => [c.h1, `invoice-templates/${c.slug}.html`])] }),
     body: (rel) => `<section class="section"><div class="wrap">
