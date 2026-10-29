@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '2.39.0', date: '29 October 2026', summary: 'Template h1s lead with "Free" (matching titles); fixed 3 corrupted meta descriptions; all 276 titles ≤60 chars' },
   { version: '2.38.0', date: '29 October 2026', summary: 'SEO title and meta-description refresh across all pages targeting higher-volume keywords' },
   { version: '2.37.0', date: '29 October 2026', summary: 'Perf: shared SVG icon class, removed wasteful preload/preconnect/modulepreload hints, dropped dead CSS rules' },
   { version: '2.36.0', date: '28 October 2026', summary: 'Mobile/tablet CSS fixes (wrapping, scroll, sizing)' },
@@ -124,14 +125,16 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-39-0">2.39.0 <span class="small muted">— 29 October 2026</span></h2>
+<ul><li><strong>Template H1/description fixes</strong>: every template H1 leads with "Free"; three corrupted meta descriptions restored; all 276 titles ≤60 chars.</li></ul>
 <h2 id="v2-38-0">2.38.0 <span class="small muted">— 29 October 2026</span></h2>
-<ul><li><strong>SEO title/meta refresh</strong>: primary keywords (invoice template, NDA/non-disclosure, bill of sale, contractor agreement, employment contract, lease, resignation, promissory note, PO, credit note, rent receipt, loan, two weeks notice, offer letter, PIP) moved to the front of every <code>&lt;title&gt;</code> in Google's Keyword | Brand format; titles kept at ≤60 chars.</li><li>Home h1/lead rewritten around "free invoice template"; links added to PDF, quotes, POs, credit notes and receipts.</li></ul>
+<ul><li><strong>SEO title/meta refresh</strong>: primary keywords (invoice, NDA, bill of sale, contractor agreement, employment contract, lease, resignation, promissory note, PO, credit note, receipt, loan, offer letter, PIP) moved to front of every title in Keyword | Brand format; ≤60 chars.</li><li>Home h1/lead rewritten around "free invoice template"; links to PDF, quotes, POs, credit notes and receipts.</li></ul>
 <h2 id="v2-37-0">2.37.0 <span class="small muted">— 29 October 2026</span></h2>
-<ul><li><strong>Performance trim</strong>: shared <code>.i</code> class for inline icons; dropped wasteful preconnect/preload/modulepreload hints and invisible 1px hero image; removed dead CSS; deduplicated icon helper.</li></ul>
+<ul><li><strong>Performance trim</strong>: shared <code>.i</code> icon class; dropped wasteful preconnect/preload/modulepreload hints and the invisible 1px hero image; removed dead CSS.</li></ul>
 <h2 id="v2-36-0">2.36.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>Mobile/tablet fixes</strong>: URL/long-word wrapping, pre/code horizontal scroll, brand/button sizing, safe-area inset, billing-toggle overflow, tighter table cells, missing CSS units.</li></ul>
+<ul><li><strong>Mobile/tablet fixes</strong>: URL wrapping, pre/code scroll, brand/button sizing, safe-area inset, tighter table cells, missing CSS units.</li></ul>
 <h2 id="v2-35-0">2.35.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>h-anchor styles</strong>: # anchors fade in on h2 hover/focus.</li></ul>
+<ul><li><strong>h-anchor styles</strong>: # links fade in on h2 hover.</li></ul>
 <h2 id="v2-34-0">2.34.0 <span class="small muted">— 28 October 2026</span></h2>
 <ul><li><strong>lastReviewed/dateModified on hand-written hub page nodes</strong> (About, Contact).</li></ul>
 <h2 id="v2-33-0">2.33.0 <span class="small muted">— 28 October 2026</span></h2>
