@@ -2,6 +2,8 @@ import { readFileSync } from 'node:fs';
 // Shared HTML fragments for the static site pages (used by tools/build-site.mjs).
 // YEAR is taken from the build clock so the footer never needs a manual bump.
 export const YEAR = String(new Date().getUTCFullYear());
+// Inline stroke icon helper — shared across header/footer/welcome-bar to avoid repeating SVG attributes.
+export const ico = (d,s=22)=>`<svg class=i viewBox="0 0 24 24" width=${s} height=${s} aria-hidden=true><path d="${d}"/></svg>`;
 /* The theme script is 260 bytes and decides the colours before the first paint. Inlining it removes a
    render-blocking request from every page (the file stays in app/ for the app itself and for cached copies). */
 const THEME_FILE = readFileSync(new URL('../app/theme.js', import.meta.url), 'utf8');
@@ -208,10 +210,8 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" hreflang="x-default" href="${url}">
 <link rel="preconnect" href="https://static.cloudflareinsights.com" crossorigin>
 <link rel="dns-prefetch" href="https://static.cloudflareinsights.com">
-${path === '' ? `<link rel="preconnect" href="${rel}app/" crossorigin>` : ''}
 <link rel="preload" href="${rel}assets/icon.svg" as="image" type="image/svg+xml">
 <link rel="preload" href="${rel}site.css" as="style">
-<link rel="preload" href="${rel}site.js" as="script" fetchpriority="low">
 <link rel="stylesheet" href="${rel}site.css">
 <meta property="og:logo" content="${SITE}assets/icon-512.png">
 <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
@@ -261,14 +261,13 @@ ${body}
 export function header(rel, path, crumbItems = []) {
   const cur = (p) => (path.startsWith(p) && p !== '' ? ' aria-current="page"' : '');
   const I = { menu:'M4 6h16M4 12h16M4 18h16', search:'M11 4a7 7 0 100 14 7 7 0 000-14zm10 16l-4-4' };
-  const ico = (d,s=18)=>`<svg viewBox="0 0 24 24" width="${s}" height="${s}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;
   return `<header class="site-header" role="banner">
   <div class="wrap">
     <a class="brand" href="${rel}"><img src="${rel}assets/icon.svg" alt="" width="28" height="28" decoding="async"> Clausery</a>
     <button class="nav-search" id="nav-search" type="button" aria-label="Search or jump to… (⌘K)">
       ${ico(I.search,16)}<span>Search or jump to…</span><kbd>⌘K</kbd>
     </button>
-    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">${ico(I.menu)} Menu</button>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">${ico(I.menu,18)} Menu</button>
     <div class="nav-backdrop" id="nav-backdrop"></div>
     <nav class="site-nav" id="site-nav" aria-label="Site" itemscope itemtype="https://schema.org/SiteNavigationElement">
       <meta itemprop="name" content="Main navigation">
@@ -295,7 +294,6 @@ export function header(rel, path, crumbItems = []) {
 }
 export function footer(rel) {
   const I = { github:'M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22', rss:'M4 11a9 9 0 019 9M4 4a16 16 0 0116 16M5 19a1 1 0 100-2 1 1 0 000 2z', arrowUp:'M12 19V5M5 12l7-7 7 7' };
-  const ico = (d,s=16)=>`<svg viewBox="0 0 24 24" width="${s}" height="${s}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;
   return `</main>
 <div class="read-progress" id="read-progress" aria-hidden="true"></div>
 <div class="float-actions">

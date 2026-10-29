@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '2.37.0', date: '29 October 2026', summary: 'Perf: shared SVG icon class, removed wasteful preload/preconnect/modulepreload hints, dropped dead CSS rules' },
   { version: '2.36.0', date: '28 October 2026', summary: 'Mobile/tablet CSS fixes (wrapping, scroll, sizing)' },
   { version: '2.35.0', date: '28 October 2026', summary: 'h-anchor screen styles (fade-in # links)' },
   { version: '2.34.0', date: '28 October 2026', summary: 'lastReviewed on AboutPage and other hand-written hub nodes' },
@@ -122,6 +123,8 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-37-0">2.37.0 <span class="small muted">— 29 October 2026</span></h2>
+<ul><li><strong>Performance trim</strong>: shared <code>.i</code> class replaces per-SVG stroke/fill attributes (~90 B saved per inline icon across all pages); bogus same-origin <code>preconnect</code>, premature <code>modulepreload</code> of <code>app/main.js</code>, <code>preload</code> of non-critical <code>site.js</code>, and the 1px-hidden hero image preload removed (saves ~32 KB WebP on first paint); dead CSS rules dropped (<code>.btn-subtle</code>, <code>.cat-lists</code>, <code>.steps-compact</code>, <code>.cmdk-shortcut</code>, <code>.helpful-thanks</code>); duplicate inline-icon helper deduplicated into a single exported function.</li></ul>
 <h2 id="v2-36-0">2.36.0 <span class="small muted">— 28 October 2026</span></h2>
 <ul><li><strong>Mobile/tablet CSS fixes</strong>: URL/long-word wrapping, pre/code horizontal scroll, brand/button sizing, safe-area inset, billing-toggle overflow, table cell padding, unitless CSS values (max-width, dimensions, variable units).</li></ul>
 <h2 id="v2-35-0">2.35.0 <span class="small muted">— 28 October 2026</span></h2>

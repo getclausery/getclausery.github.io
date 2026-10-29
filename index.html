@@ -71,10 +71,8 @@
 <link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/">
 <link rel="preconnect" href="https://static.cloudflareinsights.com" crossorigin>
 <link rel="dns-prefetch" href="https://static.cloudflareinsights.com">
-<link rel="preconnect" href="./app/" crossorigin>
 <link rel="preload" href="./assets/icon.svg" as="image" type="image/svg+xml">
 <link rel="preload" href="./site.css" as="style">
-<link rel="preload" href="./site.js" as="script" fetchpriority="low">
 <link rel="stylesheet" href="./site.css">
 <meta property="og:logo" content="https://getclausery.github.io/assets/icon-512.png">
 <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
@@ -82,9 +80,7 @@
 <script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="./site.js" defer></script>
 <script type="speculationrules">{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"\?|#|/app/"}},{"not":{"selector_matches":"[download],[target=_blank],[rel~=nofollow],[href$=.xml],[href$=.txt],[href$=.json],[href$=.webmanifest]"}}]},"eagerness":"moderate"}]}</script>
-<link rel="preload" as="image" type="image/webp" href="./assets/screenshot-invoice.webp" imagesrcset="./assets/screenshot-invoice-800.webp 800w, ./assets/screenshot-invoice.webp 1200w" imagesizes="1px" fetchpriority="high">
 <link rel="prefetch" href="./app/" as="document">
-<link rel="modulepreload" href="./app/main.js">
 <meta name="directree-verify" content="18cd9ea3fefedd43ee1d57c58248886c">
 <script type="speculationrules">{"prerender":[{"source":"list","urls":["./app/"],"where":{"and":[{"href_matches":"./app/*"},{"not":{"selector_matches":".btn"}}]},"eagerness":"moderate"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://getclausery.github.io/#website","name":"Clausery (free Word invoices & templates)","alternateName":["getclausery","Clausery open source","Clausery invoice generator"],"url":"https://getclausery.github.io/","inLanguage":"en-GB","description":"Independent open-source tool for making free Word invoices, quotes and receipts in the browser. Not affiliated with Clausery.ai (clausery.ai), which sells separate enterprise compliance software.","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://getclausery.github.io/search/?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script>
@@ -99,9 +95,9 @@
   <div class="wrap">
     <a class="brand" href="./"><img src="./assets/icon.svg" alt="" width="28" height="28" decoding="async"> Clausery</a>
     <button class="nav-search" id="nav-search" type="button" aria-label="Search or jump to… (⌘K)">
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4a7 7 0 100 14 7 7 0 000-14zm10 16l-4-4"/></svg><span>Search or jump to…</span><kbd>⌘K</kbd>
+      <svg class=i viewBox="0 0 24 24" width=16 height=16 aria-hidden=true><path d="M11 4a7 7 0 100 14 7 7 0 000-14zm10 16l-4-4"/></svg><span>Search or jump to…</span><kbd>⌘K</kbd>
     </button>
-    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg> Menu</button>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><svg class=i viewBox="0 0 24 24" width=18 height=18 aria-hidden=true><path d="M4 6h16M4 12h16M4 18h16"/></svg> Menu</button>
     <div class="nav-backdrop" id="nav-backdrop"></div>
     <nav class="site-nav" id="site-nav" aria-label="Site" itemscope itemtype="https://schema.org/SiteNavigationElement">
       <meta itemprop="name" content="Main navigation">
@@ -121,7 +117,7 @@
     <span><strong id="wb-msg">Welcome back</strong> <span class="wb-meta" id="wb-meta"></span></span>
     <span class="wb-spacer"></span>
     <a class="wb-cta" id="wb-cta" href="./app/#/drafts">Continue <span class="arr">→</span></a>
-    <button class="wb-dismiss" type="button" aria-label="Dismiss" id="wb-dismiss"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <button class="wb-dismiss" type="button" aria-label="Dismiss" id="wb-dismiss"><svg class=i viewBox="0 0 24 24" width=16 height=16 aria-hidden=true><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   </div>
 </div>
 <main id="main" tabindex="-1">
@@ -129,9 +125,9 @@
 <section class="hero">
   <div class="wrap">
     <div>
-      <div class="eyebrow"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3h16v18H4zM8 7h8M8 12h2M12 12h2M16 12h0M8 16h2M12 16h2M16 16h0"/></svg> Free · No account · No card · Editable Word</div>
+      <div class="eyebrow"><svg class=i viewBox="0 0 24 24" width=22 height=22 aria-hidden=true><path d="M4 3h16v18H4zM8 7h8M8 12h2M12 12h2M16 12h0M8 16h2M12 16h2M16 16h0"/></svg> Free · No account · No card · Editable Word</div>
       <div class="release-pill"><a href="./changelog.html#v2-36-0"><strong>New:</strong> v2.36.0</a> — <a href="./app/#/drafts">track sent/paid invoices</a>, <a href="./self-hosting/">self-host / Enterprise</a>, and sharper identity (not clausery.ai).</div>
-      <div class="notice-name"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a10 10 0 100-20 10 10 0 000 20zM12 8h.01M11 12h1v5h1"/></svg> Not clausery.ai — we're the independent open-source Word invoice generator; compliance software is over at <a href="https://www.clausery.ai/" rel="noopener">clausery.ai</a>.</div>
+      <div class="notice-name"><svg class=i viewBox="0 0 24 24" width=14 height=14 aria-hidden=true><path d="M12 22a10 10 0 100-20 10 10 0 000 20zM12 8h.01M11 12h1v5h1"/></svg> Not clausery.ai — we're the independent open-source Word invoice generator; compliance software is over at <a href="https://www.clausery.ai/" rel="noopener">clausery.ai</a>.</div>
       <h1>Free invoice maker for Word — make a .docx in 60 seconds, no signup.</h1><button type="button" class="page-print-btn page-share-btn" onclick="(function(s,b){if(navigator.share){navigator.share({title:document.title,url:location.href}).catch(()=>{})}else{navigator.clipboard.writeText(location.href);b.textContent='Link copied';setTimeout(()=>b.textContent='Share',1500)}})(this,this)" title="Share this page or copy link" aria-label="Share">Share</button><button type="button" class="page-print-btn" onclick="window.print()" title="Print or save as PDF" aria-label="Print">Print/PDF</button>
 <p class="small muted guide-meta">Reviewed by <a href="./about/#editors">Clausery editors</a> · <time datetime="2026-10-29">29 October 2026</time> <span aria-label="14 minute read" title="~2,983 words, 14 min read">· 14 min read</span></p>
       <p class="lead">Answer a few questions and download a finished <strong>.docx</strong> you can still edit. Totals, tax, discounts and the next invoice number are done for you. Nothing you type is uploaded — it all runs in your browser.</p>
@@ -147,10 +143,10 @@
       </div>
       <p class="small" style="margin-top:.75rem">Or start with a <a href="./app/#/start/quote">quote</a> · <a href="./app/#/start/receipt">receipt</a> · <a href="./business-document-kit/">free 6-template business kit</a></p>
       <div class="proof">
-        <span><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg> No email, no password</span>
-        <span><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg> Downloads as a normal Word file</span>
-        <span><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg> Works offline once loaded</span>
-        <span><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg> 87 templates, all free</span>
+        <span><svg class=i viewBox="0 0 24 24" width=22 height=22 aria-hidden=true><path d="M5 12l5 5L20 7"/></svg> No email, no password</span>
+        <span><svg class=i viewBox="0 0 24 24" width=22 height=22 aria-hidden=true><path d="M5 12l5 5L20 7"/></svg> Downloads as a normal Word file</span>
+        <span><svg class=i viewBox="0 0 24 24" width=22 height=22 aria-hidden=true><path d="M5 12l5 5L20 7"/></svg> Works offline once loaded</span>
+        <span><svg class=i viewBox="0 0 24 24" width=22 height=22 aria-hidden=true><path d="M5 12l5 5L20 7"/></svg> 87 templates, all free</span>
       </div>
       <div class="as-seen" style="margin-top:1.25rem;display:flex;gap:.6rem 1rem;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#7a8ba3">
         <span style="display:inline-flex;align-items:center;gap:.4rem"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0l2 5h5l-4 3 1.5 5L8 10l-4.5 3L5 8 1 5h5z" fill="#f59e0b"/></svg> Featured on <a href="https://fazier.com/launches/clausery" rel="noopener" style="color:#cfe0f3">Fazier</a></span>
@@ -164,9 +160,8 @@
     </div>
     <figure class="shot" style="margin:0">
             <div class="hero-demo" aria-label="Interactive preview — fill in three fields and watch the invoice total update live">
-        <picture aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"><picture><source type="image/webp" srcset="./assets/screenshot-invoice-800.webp 800w, ./assets/screenshot-invoice.webp 1200w" sizes="1px"><img src="./assets/screenshot-invoice.png" width="1200" height="800" alt="" loading="eager" decoding="async" fetchpriority="high"></picture></picture>
         <div class="demo-q">
-          <p class="demo-label"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg> Try it live</p>
+          <p class="demo-label"><svg class=i viewBox="0 0 24 24" width=22 height=22 aria-hidden=true><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg> Try it live</p>
           <p class="demo-hint">Type in the three fields — the invoice updates. Nothing is sent anywhere.</p>
           <label>
             <span>Hourly rate ($)</span>
@@ -305,10 +300,10 @@
     <!--nav--><p><strong>By billing task:</strong> <a href="./invoice-templates/deposit-invoice.html">deposit invoice</a> · <a href="./invoice-templates/hourly-invoice.html">hourly invoice</a> · <a href="./invoice-templates/final-invoice.html">final invoice</a>. Worked examples and a starter for each stage of the job.</p><!--/nav-->
     <p><a class="btn" href="./business-document-kit/">Get the free six-template business kit</a> <span class="small muted">Quote, scope, invoice, receipt, purchase order and credit note. No email signup.</span></p>
     <div class="grid grid-3" style="margin-top:2rem">
-      <div class="feature"><div class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3h16v18H4zM8 7h8M8 12h2M12 12h2M16 12h0M8 16h2M12 16h2M16 16h0"/></svg></div><h3>Adds itself up</h3><p>Line amounts, discount, VAT, GST or sales tax, total and balance due update as you type. No formula to break.</p></div>
-      <div class="feature"><div class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></div><h3>Remembers your details</h3><p>Your next invoice starts with your business details, bank details, tax rate and the next number filled in. Only the client and the items are new.</p></div>
-      <div class="feature"><div class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a10 10 0 100-20 10 10 0 000 20zM12 7v5l3 3"/></svg></div><h3>Tracks who has paid</h3><p>Mark invoices sent or paid straight from the draft; overdue ones float to the top of your Drafts list with a red badge and a one-click reminder email. Everything stays on your device.</p></div>
-      <div class="feature"><div class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM22 21v-2a4 4 0 00-3-3.9M16 3.1a4 4 0 010 7.8"/></svg></div><h3>Many at once</h3><p>Monthly invoices for twenty clients? Fill in one row per client in a spreadsheet and get all twenty Word files in one go with Pro, or five at a time free.</p></div>
+      <div class="feature"><div class="ico"><svg class=i viewBox="0 0 24 24" width=22 height=22 aria-hidden=true><path d="M4 3h16v18H4zM8 7h8M8 12h2M12 12h2M16 12h0M8 16h2M12 16h2M16 16h0"/></svg></div><h3>Adds itself up</h3><p>Line amounts, discount, VAT, GST or sales tax, total and balance due update as you type. No formula to break.</p></div>
+      <div class="feature"><div class="ico"><svg class=i viewBox="0 0 24 24" width=22 height=22 aria-hidden=true><path d="M5 12l5 5L20 7"/></svg></div><h3>Remembers your details</h3><p>Your next invoice starts with your business details, bank details, tax rate and the next number filled in. Only the client and the items are new.</p></div>
+      <div class="feature"><div class="ico"><svg class=i viewBox="0 0 24 24" width=22 height=22 aria-hidden=true><path d="M12 22a10 10 0 100-20 10 10 0 000 20zM12 7v5l3 3"/></svg></div><h3>Tracks who has paid</h3><p>Mark invoices sent or paid straight from the draft; overdue ones float to the top of your Drafts list with a red badge and a one-click reminder email. Everything stays on your device.</p></div>
+      <div class="feature"><div class="ico"><svg class=i viewBox="0 0 24 24" width=22 height=22 aria-hidden=true><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM22 21v-2a4 4 0 00-3-3.9M16 3.1a4 4 0 010 7.8"/></svg></div><h3>Many at once</h3><p>Monthly invoices for twenty clients? Fill in one row per client in a spreadsheet and get all twenty Word files in one go with Pro, or five at a time free.</p></div>
     </div>
   </div>
 </section>
@@ -343,9 +338,9 @@
     <h2>For the paperwork around a small business job</h2>
     <p class="lead">Send a quote, define the scope, request a deposit, bill the work and record the payment. Clausery helps <a href="./for/freelancers.html">freelancers</a>, <a href="./for/consultants.html">consultants</a> and service businesses prepare the Word documents they send repeatedly, while keeping document contents on their own device.</p>
     <div class="grid grid-3">
-      <div class="feature"><div class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></div><h3>Your document contents stay local</h3><p>Templates, answers and generated documents are processed in your browser and saved on your device. Download backups to keep a separate copy or move your work.</p></div>
-      <div class="feature"><div class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6zM14 3v4h4"/></svg></div><h3>Your Word templates, unchanged</h3><p>Add tags like <code>{client_name}</code> to any .docx. Fonts, numbering, headers, tables and tracked formatting come through exactly as you set them in Word.</p></div>
-      <div class="feature"><div class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5a11 11 0 0114 0M8.5 16a6 6 0 017 0M12 20h.01M2 9a15 15 0 0120 0"/></svg></div><h3>Keep working offline</h3><p>Once the required app and template files are available, keep drafting on a train or at a client site. Online license checks have their own offline grace period.</p></div>
+      <div class="feature"><div class="ico"><svg class=i viewBox="0 0 24 24" width=22 height=22 aria-hidden=true><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></div><h3>Your document contents stay local</h3><p>Templates, answers and generated documents are processed in your browser and saved on your device. Download backups to keep a separate copy or move your work.</p></div>
+      <div class="feature"><div class="ico"><svg class=i viewBox="0 0 24 24" width=22 height=22 aria-hidden=true><path d="M6 3h8l4 4v14H6zM14 3v4h4"/></svg></div><h3>Your Word templates, unchanged</h3><p>Add tags like <code>{client_name}</code> to any .docx. Fonts, numbering, headers, tables and tracked formatting come through exactly as you set them in Word.</p></div>
+      <div class="feature"><div class="ico"><svg class=i viewBox="0 0 24 24" width=22 height=22 aria-hidden=true><path d="M5 12.5a11 11 0 0114 0M8.5 16a6 6 0 017 0M12 20h.01M2 9a15 15 0 0120 0"/></svg></div><h3>Keep working offline</h3><p>Once the required app and template files are available, keep drafting on a train or at a client site. Online license checks have their own offline grace period.</p></div>
     </div>
   </div>
 </section>
@@ -366,12 +361,12 @@
   <div class="wrap">
     <h2>Everything a drafting tool needs. Nothing that uploads your work.</h2>
     <div class="grid grid-3">
-      <div class="feature"><div class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div><h3>Conditional clauses</h3><p class="muted">Show or hide any part of the document based on answers: yes/no questions, choices, or expressions like <code>fee_type == "flat" and amount > 5000</code>.</p></div>
-      <div class="feature"><div class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM22 21v-2a4 4 0 00-3-3.9M16 3.1a4 4 0 010 7.8"/></svg></div><h3>Repeating groups</h3><p class="muted">Parties, attorneys, beneficiaries, line items: add as many as needed and the document repeats paragraphs, bullets or table rows for each one.</p></div>
-      <div class="feature"><div class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3h16v18H4zM8 7h8M8 12h2M12 12h2M16 12h0M8 16h2M12 16h2M16 16h0"/></svg></div><h3>Calculations</h3><p class="muted">Totals, dates, durations and amounts in words: <code>format_money(sum(items.amount) * 1.2)</code>, <code>add_days(signed_on, 30)</code>, <code>words(term_years)</code>.</p></div>
-      <div class="feature"><div class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 11h12v10H6zM9 11V7a3 3 0 016 0v4"/></svg></div><h3>Encrypted workspace</h3><p class="muted">Optionally encrypt everything stored in the browser with a passphrase (AES-256-GCM). The workspace locks itself after inactivity.</p></div>
-      <div class="feature"><div class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6zM14 3v4h4"/></svg></div><h3>Offline client intake</h3><p class="muted">Export a questionnaire as a single HTML file. The client fills it in on their own computer and sends back an answers file. No portal, no account for them either.</p></div>
-      <div class="feature"><div class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM22 21v-2a4 4 0 00-3-3.9M16 3.1a4 4 0 010 7.8"/></svg></div><h3>Template packs for teams</h3><p class="muted">Export a firm's templates as a pack and share it over your existing file share or email. Everyone drafts from the same approved versions.</p></div>
+      <div class="feature"><div class="ico"><svg class=i viewBox="0 0 24 24" width=22 height=22 aria-hidden=true><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div><h3>Conditional clauses</h3><p class="muted">Show or hide any part of the document based on answers: yes/no questions, choices, or expressions like <code>fee_type == "flat" and amount > 5000</code>.</p></div>
+      <div class="feature"><div class="ico"><svg class=i viewBox="0 0 24 24" width=22 height=22 aria-hidden=true><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM22 21v-2a4 4 0 00-3-3.9M16 3.1a4 4 0 010 7.8"/></svg></div><h3>Repeating groups</h3><p class="muted">Parties, attorneys, beneficiaries, line items: add as many as needed and the document repeats paragraphs, bullets or table rows for each one.</p></div>
+      <div class="feature"><div class="ico"><svg class=i viewBox="0 0 24 24" width=22 height=22 aria-hidden=true><path d="M4 3h16v18H4zM8 7h8M8 12h2M12 12h2M16 12h0M8 16h2M12 16h2M16 16h0"/></svg></div><h3>Calculations</h3><p class="muted">Totals, dates, durations and amounts in words: <code>format_money(sum(items.amount) * 1.2)</code>, <code>add_days(signed_on, 30)</code>, <code>words(term_years)</code>.</p></div>
+      <div class="feature"><div class="ico"><svg class=i viewBox="0 0 24 24" width=22 height=22 aria-hidden=true><path d="M6 11h12v10H6zM9 11V7a3 3 0 016 0v4"/></svg></div><h3>Encrypted workspace</h3><p class="muted">Optionally encrypt everything stored in the browser with a passphrase (AES-256-GCM). The workspace locks itself after inactivity.</p></div>
+      <div class="feature"><div class="ico"><svg class=i viewBox="0 0 24 24" width=22 height=22 aria-hidden=true><path d="M6 3h8l4 4v14H6zM14 3v4h4"/></svg></div><h3>Offline client intake</h3><p class="muted">Export a questionnaire as a single HTML file. The client fills it in on their own computer and sends back an answers file. No portal, no account for them either.</p></div>
+      <div class="feature"><div class="ico"><svg class=i viewBox="0 0 24 24" width=22 height=22 aria-hidden=true><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM22 21v-2a4 4 0 00-3-3.9M16 3.1a4 4 0 010 7.8"/></svg></div><h3>Template packs for teams</h3><p class="muted">Export a firm's templates as a pack and share it over your existing file share or email. Everyone drafts from the same approved versions.</p></div>
     </div>
   </div>
 </section>
@@ -471,16 +466,16 @@
 <div class="read-progress" id="read-progress" aria-hidden="true"></div>
 <div class="float-actions">
   <a class="scroll-cta" id="scroll-cta" href="./app/#/drafts" aria-label="Pick up where you left off — open your saved drafts">
-    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5"/></svg>
+    <svg class=i viewBox="0 0 24 24" width=15 height=15 aria-hidden=true><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5"/></svg>
     <span id="scroll-cta-label">Continue drafting</span>
   </a>
-  <a class="to-top" id="to-top" href="#top" aria-label="Back to top"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg> Top</a>
+  <a class="to-top" id="to-top" href="#top" aria-label="Back to top"><svg class=i viewBox="0 0 24 24" width=15 height=15 aria-hidden=true><path d="M12 19V5M5 12l7-7 7 7"/></svg> Top</a>
 </div>
 <div class="cmdk-backdrop" id="cmdk" role="dialog" aria-modal="true" aria-label="Search and jump to" aria-labelledby="cmdk-title" hidden>
   <div class="cmdk" role="combobox" aria-expanded="true" aria-haspopup="listbox" aria-owns="cmdk-list" aria-controls="cmdk-list">
     <div class="cmdk-bar">
       <span id="cmdk-title" class="sr-only">Search and jump to a page, template, guide or action</span>
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4a7 7 0 100 14 7 7 0 000-14zm10 16l-4-4"/></svg>
+      <svg class=i viewBox="0 0 24 24" width=20 height=20 aria-hidden=true><path d="M11 4a7 7 0 100 14 7 7 0 000-14zm10 16l-4-4"/></svg>
       <input id="cmdk-input" type="text" placeholder="Search templates, guides, pages, actions…" autocomplete="off" autocapitalize="off" spellcheck="false" aria-controls="cmdk-list" aria-label="Search" aria-describedby="cmdk-hint">
       <kbd>Esc</kbd>
     </div>
@@ -495,8 +490,8 @@
       <a class="brand" href="./"><img src="./assets/icon.svg" alt="" width="28" height="28" decoding="async"> Clausery</a>
       <p style="margin-top:.75rem">Make invoices, quotes and receipts in Word with the maths done for you. Your documents stay in your browser — no account required.</p>
       <div class="footer-social">
-        <a href="https://github.com/getclausery/getclausery.github.io" rel="noopener" aria-label="Source on GitHub"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg></a>
-        <a href="./releases.xml" aria-label="Releases Atom feed"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11a9 9 0 019 9M4 4a16 16 0 0116 16M5 19a1 1 0 100-2 1 1 0 000 2z"/></svg></a>
+        <a href="https://github.com/getclausery/getclausery.github.io" rel="noopener" aria-label="Source on GitHub"><svg class=i viewBox="0 0 24 24" width=22 height=22 aria-hidden=true><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg></a>
+        <a href="./releases.xml" aria-label="Releases Atom feed"><svg class=i viewBox="0 0 24 24" width=22 height=22 aria-hidden=true><path d="M4 11a9 9 0 019 9M4 4a16 16 0 0116 16M5 19a1 1 0 100-2 1 1 0 000 2z"/></svg></a>
       </div>
     </div>
     <div>

@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-10-29",
-  "hash": "e28106934467eed7"
+  "hash": "c126dc0060514347"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-29",
-  "hash": "3f22c6e006063ebd"
+  "hash": "1788b1c77def4063"
  },
  "clauses/": {
   "date": "2026-10-28",
@@ -192,8 +192,8 @@
   "hash": "23e8395c511845cd"
  },
  "customers/": {
-  "date": "2026-10-24",
-  "hash": "8024a01d924b648e"
+  "date": "2026-10-29",
+  "hash": "32101ad55687a493"
  },
  "docs/": {
   "date": "2026-10-17",
@@ -716,8 +716,8 @@
   "hash": "96004296e35a5b6a"
  },
  "templates/": {
-  "date": "2026-10-28",
-  "hash": "c9f9cd81a6fd73dd"
+  "date": "2026-10-29",
+  "hash": "68b8cbee496464ac"
  },
  "templates/bill-of-sale.html": {
   "date": "2026-10-25",

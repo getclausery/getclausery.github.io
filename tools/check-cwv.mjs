@@ -72,19 +72,9 @@ for (const url of urls) {
 }
 if (maxHtml > 82_000) fail('site', `largest page is ${maxHtml} bytes (budget: 82,000)`); // v1.72: 80k; v1.77 changelog grows with release notes
 
-// The home page must preload its LCP image and name it at high priority.
+// The home page LCP is text — verify no render-blocking hero image sneaks in.
 const home = readFileSync('index.html', 'utf8');
-const hero = home.match(/<picture>[\s\S]*?screenshot-invoice[\s\S]*?<\/picture>/)?.[0] || '';
-if (!/fetchpriority="high"/.test(hero)) fail('index.html', 'hero image is not fetchpriority="high"');
-if (/loading="lazy"/.test(hero)) fail('index.html', 'hero image is lazy-loaded');
-if (!/<link rel="preload" as="image" type="image\/webp"/.test(home)) fail('index.html', 'hero image is not preloaded');
-if (!/loading="eager"/.test(hero)) fail('index.html', 'hero image should be eager');
-for (const file of ['assets/screenshot-invoice.webp', 'assets/screenshot-invoice-800.webp']) {
-  if (!existsSync(file)) fail(file, 'LCP image variant is missing');
-  else if (bytes(file) > 100_000) fail(file, `LCP image variant is ${bytes(file)} bytes (budget: 100,000)`);
-}
-if (!/<source type="image\/webp"/.test(hero)) fail('index.html', 'hero picture has no WebP source');
-if (!/sizes="[^"]+"/.test(hero)) fail('index.html', 'hero picture has no sizes attribute');
+if (/fetchpriority="high"/.test(home) && /screenshot-invoice/.test(home)) fail('index.html', 'hidden screenshot-invoice picture should be removed (text LCP)');
 
 // Each template page's preview is its likely LCP image: eager, high priority, WebP, and reasonably small.
 for (const url of urls.filter((u) => /\/templates\/[^/]+\.html$/.test(u) && !u.endsWith('/templates/'))) {

@@ -1,5 +1,5 @@
 // About and contact pages: who runs Clausery, how it makes money, and how to reach the people behind it.
-import { SITE, REPO_URL, KEY_REQUEST_URL, CONTACT_EMAIL, mailto, ANALYTICS_ON, ONLINE_KEYS, USAGE_ON } from '../tools/partials.mjs';
+import { SITE, REPO_URL, KEY_REQUEST_URL, CONTACT_EMAIL, mailto, ANALYTICS_ON, ONLINE_KEYS, USAGE_ON, ico } from '../tools/partials.mjs';
 import { LIB } from './library.mjs';
 import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 
