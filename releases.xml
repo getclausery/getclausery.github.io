@@ -5,8 +5,16 @@
   <link rel="self" href="https://getclausery.github.io/releases.xml"/>
   <link rel="alternate" href="https://getclausery.github.io/changelog.html"/>
   <id>https://getclausery.github.io/changelog.html</id>
-  <updated>2026-10-28T00:00:00Z</updated>
+  <updated>2026-10-29T00:00:00Z</updated>
   <author><name>Clausery</name></author>
+  <entry>
+    <title>Clausery v2.37.0 — Perf: shared SVG icon class, removed wasteful preload/preconnect/modulepreload hints, dropped dead CSS rules</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-37-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-37-0</id>
+    <published>2026-10-29T00:00:00Z</published>
+    <updated>2026-10-29T00:00:00Z</updated>
+    <summary>Perf: shared SVG icon class, removed wasteful preload/preconnect/modulepreload hints, dropped dead CSS rules</summary>
+  </entry>
   <entry>
     <title>Clausery v2.36.0 — Mobile/tablet CSS fixes (wrapping, scroll, sizing)</title>
     <link href="https://getclausery.github.io/changelog.html#v2-36-0"/>

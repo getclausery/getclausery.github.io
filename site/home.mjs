@@ -1,4 +1,4 @@
-import { SITE, esc, picture, ONLINE_KEYS, USAGE_ON, USAGE_REQUEST, faqLd, faqHtml } from '../tools/partials.mjs';
+import { SITE, esc, picture, ONLINE_KEYS, USAGE_ON, USAGE_REQUEST, faqLd, faqHtml, ico } from '../tools/partials.mjs';
 import { PACK_FILE, LIB } from './library.mjs';
 import { GUIDES } from './audience.mjs';
 import { COMPETITORS } from './compare.mjs';
@@ -22,7 +22,6 @@ const SMALL_BUSINESS = [
 ];
 const pick = (list, slugs, what) => slugs.map((s) => list.find((x) => x.slug === s) || (() => { throw new Error(`home: no ${what} ${s}`); })());
 const linkList = (items) => `<ul class="link-cols">${items.map(([href, label]) => `<li><a href="${href}">${esc(label)}</a></li>`).join('')}</ul>`;
-const ico = (d, s=22) => `<svg viewBox="0 0 24 24" width="${s}" height="${s}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;
 const I = { lock: 'M6 11h12v10H6zM9 11V7a3 3 0 016 0v4', file: 'M6 3h8l4 4v14H6zM14 3v4h4', bolt: 'M13 2L4 14h7l-1 8 9-12h-7z', users: 'M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM22 21v-2a4 4 0 00-3-3.9M16 3.1a4 4 0 010 7.8', wifi: 'M5 12.5a11 11 0 0114 0M8.5 16a6 6 0 017 0M12 20h.01M2 9a15 15 0 0120 0', calc: 'M4 3h16v18H4zM8 7h8M8 12h2M12 12h2M16 12h0M8 16h2M12 16h2M16 16h0', check: 'M5 12l5 5L20 7', clock: 'M12 22a10 10 0 100-20 10 10 0 000 20zM12 7v5l3 3', shield: 'M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z', info: 'M12 22a10 10 0 100-20 10 10 0 000 20zM12 8h.01M11 12h1v5h1' };
 
 import { workflowLinks } from './invoice-workflows.mjs';
@@ -38,9 +37,7 @@ const HOME_FAQ = [
 export const pages = [{
   path: '', title: 'Free Invoice Maker for Word (2026) — Download in 60 seconds',
   description: `Free invoice maker for Word in 2026. Make a professional invoice, quote or receipt in your browser in 60 seconds — editable .docx, no account, no card, nothing uploaded. Not affiliated with Clausery.ai.`,
-  extraHead: `<link rel="preload" as="image" type="image/webp" href="./assets/screenshot-invoice.webp" imagesrcset="./assets/screenshot-invoice-800.webp 800w, ./assets/screenshot-invoice.webp 1200w" imagesizes="1px" fetchpriority="high">
-<link rel="prefetch" href="./app/" as="document">
-<link rel="modulepreload" href="./app/main.js">
+  extraHead: `<link rel="prefetch" href="./app/" as="document">
 <meta name="directree-verify" content="18cd9ea3fefedd43ee1d57c58248886c">
 <script type="speculationrules">{"prerender":[{"source":"list","urls":["./app/"],"where":{"and":[{"href_matches":"./app/*"},{"not":{"selector_matches":".btn"}}]},"eagerness":"moderate"}]}</script>
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE}#website`, name: 'Clausery (free Word invoices & templates)', alternateName: ['getclausery', 'Clausery open source', 'Clausery invoice generator'], url: SITE, inLanguage: 'en-GB', description: 'Independent open-source tool for making free Word invoices, quotes and receipts in the browser. Not affiliated with Clausery.ai (clausery.ai), which sells separate enterprise compliance software.', potentialAction: { '@type': 'SearchAction', target: { '@type': 'EntryPoint', urlTemplate: `${SITE}search/?q={search_term_string}` }, 'query-input': 'required name=search_term_string' } })}</script>
@@ -86,7 +83,6 @@ export const pages = [{
     </div>
     <figure class="shot" style="margin:0">
             <div class="hero-demo" aria-label="Interactive preview — fill in three fields and watch the invoice total update live">
-        <picture aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">${picture({ src: `${rel}assets/screenshot-invoice.png`, webp: [[`${rel}assets/screenshot-invoice-800.webp`, 800], [`${rel}assets/screenshot-invoice.webp`, 1200]], sizes: '1px', width: 1200, height: 800, loading: 'eager', fetchpriority: 'high', alt: '' })}</picture>
         <div class="demo-q">
           <p class="demo-label">${ico(I.bolt)} Try it live</p>
           <p class="demo-hint">Type in the three fields — the invoice updates. Nothing is sent anywhere.</p>

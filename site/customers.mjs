@@ -1,12 +1,11 @@
 // /customers/ page: who uses Clausery and how, drawn from the existing audience pages
 // (freelancers, consultants, landlords, HR teams, law firms) plus solo-business trades.
 // Every claim links through to an existing /for/ or /invoice-templates/ page — no invented testimonials.
-import { esc, faqLd, crumbsLd, REPO_URL } from '../tools/partials.mjs';
+import { esc, faqLd, crumbsLd, REPO_URL, ico } from '../tools/partials.mjs';
 import { LIB } from './library.mjs';
 import { TRIAL_DAYS, REFUND_DAYS, PRICES } from '../app/config.js';
 import { PRESETS } from '../app/lib/presets.js';
 
-const ico = (d) => `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;
 const I = { bolt: 'M13 2L4 14h7l-1 8 9-12h-7z', file: 'M6 3h8l4 4v14H6zM14 3v4h4', calc: 'M4 3h16v18H4zM8 7h8M8 12h2M12 12h2M16 12h0M8 16h2M12 16h2M16 16h0', shield: 'M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z', users: 'M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8z', lock: 'M6 11h12v10H6zM9 11V7a3 3 0 016 0v4' };
 
 const SEGMENTS = [
