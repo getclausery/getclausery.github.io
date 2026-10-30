@@ -67,6 +67,8 @@ export const pages = [{
 
   <h2 style="margin-top:2.5rem">Related</h2>
   <ul>
+    <li><a href="${rel}nda-templates/simple-nda.html">Simple NDA template</a>, a short plain-English version for first conversations</li>
+    <li><a href="${rel}nda-templates/non-disclosure-agreement.html">Non-disclosure agreement (NDA) guide</a> - what it is and which one to pick</li>
     <li><a href="${rel}templates/non-solicitation-agreement.html">Non-solicitation agreement</a>, to protect customer and staff relationships as well as information</li>
     <li><a href="${rel}guides/nda-vs-confidentiality-agreement.html">NDA vs confidentiality agreement</a>, and how both differ from non-solicitation and non-compete agreements</li>
     <li><a href="${rel}clauses/non-solicitation-clause.html">Non-solicitation clause</a>, used in the business sale NDA</li>
