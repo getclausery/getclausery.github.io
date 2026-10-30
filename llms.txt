@@ -36,6 +36,7 @@ Key facts:
 
 ## Free Word templates
 - [Free Word Templates | PDF & Docx Download](https://getclausery.github.io/templates/): 87 free Word templates you can fill in online and download as printable PDF or editable .docx — invoices, quotes, receipts, NDAs, contracts, employment letters, lease agreements and landlord forms. No account, no card, nothing uploaded.
+- [Freelance Contract Template | Free Word/PDF Agreement](https://getclausery.github.io/templates/freelance-contract.html): Free freelance contract template for designers, writers, developers and consultants. Download as Word or PDF, no sign-up.
 - [Free NDA Template | Non-Disclosure Agreement (Word)](https://getclausery.github.io/templates/mutual-nda.html): Free mutual NDA (non-disclosure agreement) template for Word. Both sides protected, standard exclusions, term, survival of confidentiality and governing law. Fill it in online, download as .docx — ready to sign.
 - [Non-Solicitation Agreement | Free Word Template](https://getclausery.github.io/templates/non-solicitation-agreement.html): Free non-solicitation agreement template for Word: stops former employees, contractors or sellers from poaching your staff, clients or suppliers. Defined period, scope and consideration — ready to sign.
 - [Free Liability Waiver Form | Printable Word Template](https://getclausery.github.io/templates/liability-waiver.html): Free liability waiver (release of liability) form template for Word: assumption of risk, release of claims and indemnity. For gyms, trainers, events, contractors, coaches and rental companies.
@@ -139,6 +140,7 @@ Key facts:
 - [Invoice Template PDF | Free Download & Print](https://getclausery.github.io/invoice-templates/invoice-template-pdf.html): Free invoice template you can download and print as a PDF. Fill in online, calculate totals, save as PDF or Word. No sign-up.
 - [Contractor Invoice Template | Free Word/PDF](https://getclausery.github.io/invoice-templates/contractor-invoice.html): Free contractor invoice template. Bill for contract work, materials, hours and change orders. Download as Word or PDF, no sign-up.
 - [Estimate Template | Free Word/PDF (Editable)](https://getclausery.github.io/invoice-templates/estimate-template.html): Free estimate template: give a client an informed price quote they can accept. Download as Word or PDF, no sign-up.
+- [Quotation Template | Free Quote Format (Word/PDF)](https://getclausery.github.io/invoice-templates/quotation-template.html): Free quotation template in Word/PDF. Send a formal price quotation clients can accept, with expiry date and terms.
 - [Free deposit invoice template for Word](https://getclausery.github.io/invoice-templates/deposit-invoice.html): Make a deposit invoice in Word: calculate the percentage, request only the deposit, and keep the final balance clear. Free, editable .docx, no sign-up.
 - [Free hourly invoice template for Word](https://getclausery.github.io/invoice-templates/hourly-invoice.html): Invoice hours in Word: enter work dates, tasks, hours and hourly rates, with line totals calculated. Free editable .docx for freelancers and consultants.
 - [Free final invoice template with balance due (Word)](https://getclausery.github.io/invoice-templates/final-invoice.html): Make a final invoice in Word: show the full project price, subtract deposits actually received, and calculate the remaining balance. Free, no sign-up.
@@ -159,6 +161,7 @@ Key facts:
 - [Free NDA Templates for Word (2026) — 5 ready-to-sign NDAs](https://getclausery.github.io/nda-templates/): Free NDA templates for Word: mutual, one-way, employee, contractor and business sale. Download or fill one in online, with no sign-up and nothing uploaded.
 - [Simple NDA Template | Free Non-Disclosure Agreement (Word)](https://getclausery.github.io/nda-templates/simple-nda.html): Free simple NDA template: short, plain-English mutual or one-way non-disclosure agreement. Download as Word or PDF.
 - [Non-Disclosure Agreement (NDA) | Free Word Template](https://getclausery.github.io/nda-templates/non-disclosure-agreement.html): Free non-disclosure agreement template: mutual or one-way NDA to protect confidential information. Download Word/PDF.
+- [NDA Form | Free Non-Disclosure Form (Word/PDF)](https://getclausery.github.io/nda-templates/nda-form.html): Free NDA form: a printable non-disclosure agreement you can fill in online, download and sign. Word and PDF.
 
 ## Who Clausery is for
 - [Who Clausery is for: teams that draft the same documents](https://getclausery.github.io/for/): Which teams use Clausery for invoices, contracts and HR letters, what each gets from a guided questionnaire, and how to choose the right template.
