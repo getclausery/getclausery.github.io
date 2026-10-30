@@ -178,7 +178,19 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap">
   <h1>Free Word invoice templates by task, trade and country</h1>
   <p class="lead">Pick your trade and the invoice opens with the lines that trade usually bills, ready for your prices. Pick your country and it opens with the right tax, rate and tax number. Totals and tax are worked out for you, your next invoice remembers your details and number, and you download an editable Word file. Free, no sign-up, nothing uploaded.</p>
-  <nav class="small hub-jump" aria-label="Jump to section"><strong>Jump to:</strong> <a href="#by-task">By billing task</a> · <a href="#by-trade">By trade</a> · <a href="#by-country">By country</a> · <a href="#tax">Tax &amp; payment</a></nav>
+  <nav class="small hub-jump" aria-label="Jump to section"><strong>Jump to:</strong> <a href="#popular">Popular</a> · <a href="#by-task">By billing task</a> · <a href="#by-trade">By trade</a> · <a href="#by-country">By country</a> · <a href="#tax">Tax &amp; payment</a></nav>
+  <h2 id="popular" style="margin-top:2rem">Popular invoice starters</h2>
+  <div class="grid grid-3 hub-cards" style="margin-top:1rem">
+    <a class="feature" href="${rel}invoice-templates/blank-invoice.html"><h3>Blank invoice</h3><p>Empty invoice you fill in online - line items, tax and totals calculated for you.</p></a>
+    <a class="feature" href="${rel}invoice-templates/simple-invoice.html"><h3>Simple invoice</h3><p>One-page invoice with no extra fields - for small jobs and one-off sales.</p></a>
+    <a class="feature" href="${rel}invoice-templates/invoice-template-pdf.html"><h3>Invoice template PDF</h3><p>Fill it in online and save as a printable PDF to email to clients.</p></a>
+    <a class="feature" href="${rel}invoice-templates/freelance-invoice.html"><h3>Freelance invoice</h3><p>Hourly, project and expense lines for freelancers and sole traders.</p></a>
+    <a class="feature" href="${rel}invoice-templates/contractor-invoice.html"><h3>Contractor invoice</h3><p>Labour, materials, change orders and retention for trade contractors.</p></a>
+    <a class="feature" href="${rel}invoice-templates/proforma-invoice.html"><h3>Proforma invoice</h3><p>Pre-supply pricing document for customs or quoting before the job.</p></a>
+    <a class="feature" href="${rel}invoice-templates/estimate-template.html"><h3>Estimate template</h3><p>Give an informed price before the job that can change if scope does.</p></a>
+    <a class="feature" href="${rel}templates/invoice.html"><h3>Full invoice template</h3><p>The main invoice with tax, discount, bank details and late-fee wording.</p></a>
+    <a class="feature" href="${rel}templates/quote.html"><h3>Price quote</h3><p>A fixed price that binds you once the customer accepts it.</p></a>
+  </div>
   <h2 id="by-task" style="margin-top:2rem">By billing task</h2>
   <p>Request an upfront deposit, bill hours, or reconcile the final balance. Each page has a worked example and an app starter for that task.</p>
   <div class="grid grid-3 hub-cards" style="margin-top:1rem">${WORKFLOWS.map((w) => `<a class="feature" href="${rel}invoice-templates/${w.slug}.html">${cardUpdated(`invoice-templates/${w.slug}.html`)}<h3>${esc(w.name)}</h3><p>${esc(w.description)}</p></a>`).join('')}</div>

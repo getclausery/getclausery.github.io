@@ -1,7 +1,7 @@
 {
  "": {
-  "date": "2026-10-29",
-  "hash": "50157931b6e8daad"
+  "date": "2026-10-30",
+  "hash": "ac8958ef7984dfce"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -36,8 +36,8 @@
   "hash": "56818b36a4909efa"
  },
  "changelog.html": {
-  "date": "2026-10-29",
-  "hash": "04cbbe23fa023377"
+  "date": "2026-10-30",
+  "hash": "157a5b9dd52b8369"
  },
  "clauses/": {
   "date": "2026-10-28",
@@ -572,12 +572,16 @@
   "hash": "5dca8627c421db5c"
  },
  "invoice-templates/": {
-  "date": "2026-10-29",
-  "hash": "ceea44ec5342596e"
+  "date": "2026-10-30",
+  "hash": "abb3d2b90edd78b2"
  },
  "invoice-templates/australia-tax-invoice.html": {
   "date": "2026-10-08",
   "hash": "495347c2114323b7"
+ },
+ "invoice-templates/blank-invoice.html": {
+  "date": "2026-10-29",
+  "hash": "3b3d8973c4939643"
  },
  "invoice-templates/canada-gst-hst-invoice.html": {
   "date": "2026-10-08",
@@ -595,13 +599,25 @@
   "date": "2026-10-07",
   "hash": "1da766c6c32ec914"
  },
+ "invoice-templates/contractor-invoice.html": {
+  "date": "2026-10-30",
+  "hash": "bef6884ad517394b"
+ },
  "invoice-templates/deposit-invoice.html": {
   "date": "2026-10-09",
   "hash": "8b388efc15978b72"
  },
+ "invoice-templates/estimate-template.html": {
+  "date": "2026-10-30",
+  "hash": "b012e54d7b90626a"
+ },
  "invoice-templates/final-invoice.html": {
   "date": "2026-10-09",
   "hash": "76c3a4a32db91032"
+ },
+ "invoice-templates/freelance-invoice.html": {
+  "date": "2026-10-29",
+  "hash": "e12c42ba7a509a46"
  },
  "invoice-templates/freelance-writing.html": {
   "date": "2026-10-07",
@@ -618,6 +634,10 @@
  "invoice-templates/hourly-invoice.html": {
   "date": "2026-10-09",
   "hash": "8c3d3f2b2d1f55e7"
+ },
+ "invoice-templates/invoice-template-pdf.html": {
+  "date": "2026-10-29",
+  "hash": "24575f3d1a791bb8"
  },
  "invoice-templates/ireland-vat-invoice.html": {
   "date": "2026-10-08",
@@ -638,6 +658,14 @@
  "invoice-templates/photography.html": {
   "date": "2026-10-07",
   "hash": "b91f676f71107b93"
+ },
+ "invoice-templates/proforma-invoice.html": {
+  "date": "2026-10-29",
+  "hash": "dd088ad4077a35b2"
+ },
+ "invoice-templates/simple-invoice.html": {
+  "date": "2026-10-29",
+  "hash": "5e9d7da216167096"
  },
  "invoice-templates/south-africa-tax-invoice.html": {
   "date": "2026-10-08",
@@ -684,8 +712,16 @@
   "hash": "43ed34bf980cd9e5"
  },
  "nda-templates/": {
-  "date": "2026-10-24",
-  "hash": "4cc8c72abdb4c2d1"
+  "date": "2026-10-30",
+  "hash": "fde1a8bd705e669a"
+ },
+ "nda-templates/non-disclosure-agreement.html": {
+  "date": "2026-10-30",
+  "hash": "72ac766f556c1f70"
+ },
+ "nda-templates/simple-nda.html": {
+  "date": "2026-10-29",
+  "hash": "fafd8f5b122f6040"
  },
  "press/": {
   "date": "2026-10-17",
@@ -694,6 +730,14 @@
  "pricing/": {
   "date": "2026-10-29",
   "hash": "a8abaadad3f1272c"
+ },
+ "receipts/cash-receipt.html": {
+  "date": "2026-10-29",
+  "hash": "4c7bead7e87936c2"
+ },
+ "receipts/donation-receipt.html": {
+  "date": "2026-10-30",
+  "hash": "bed403fd06c6f8f4"
  },
  "roadmap/": {
   "date": "2026-10-29",
@@ -716,12 +760,12 @@
   "hash": "e98617569aa2af24"
  },
  "templates/": {
-  "date": "2026-10-29",
-  "hash": "70a8248c87a2e019"
+  "date": "2026-10-30",
+  "hash": "de161767e282899e"
  },
  "templates/bill-of-sale.html": {
-  "date": "2026-10-29",
-  "hash": "4c18913dafdc6320"
+  "date": "2026-10-30",
+  "hash": "5e47d5cd5002d70a"
  },
  "templates/board-resolution.html": {
   "date": "2026-10-29",
@@ -764,12 +808,12 @@
   "hash": "9cc97e8d1d5eef6f"
  },
  "templates/contractor-nda.html": {
-  "date": "2026-10-29",
-  "hash": "44061fcdea64924a"
+  "date": "2026-10-30",
+  "hash": "c49defbef31a17ec"
  },
  "templates/credit-note.html": {
-  "date": "2026-10-29",
-  "hash": "883bb547c4bdede4"
+  "date": "2026-10-30",
+  "hash": "b1ddf111228e942b"
  },
  "templates/employee-nda.html": {
   "date": "2026-10-29",
@@ -781,7 +825,7 @@
  },
  "templates/employment-agreement.html": {
   "date": "2026-10-29",
-  "hash": "a81046f4e86b4fd5"
+  "hash": "22747d8f0c3c67ac"
  },
  "templates/employment-termination-letter.html": {
   "date": "2026-10-29",
@@ -837,7 +881,7 @@
  },
  "templates/invoice.html": {
   "date": "2026-10-29",
-  "hash": "e40b89852864ae1f"
+  "hash": "c3ba662ee8685734"
  },
  "templates/job-description.html": {
   "date": "2026-10-29",
@@ -872,8 +916,8 @@
   "hash": "943e5a5fc6510326"
  },
  "templates/meeting-minutes.html": {
-  "date": "2026-10-29",
-  "hash": "66e08c4d06b658e4"
+  "date": "2026-10-30",
+  "hash": "25dce358e422f806"
  },
  "templates/memorandum-of-understanding.html": {
   "date": "2026-10-29",
@@ -885,7 +929,7 @@
  },
  "templates/mutual-nda.html": {
   "date": "2026-10-29",
-  "hash": "6354008ad82c8e01"
+  "hash": "c3c769916220014a"
  },
  "templates/nanny-contract.html": {
   "date": "2026-10-29",
@@ -908,8 +952,8 @@
   "hash": "467118c72958838d"
  },
  "templates/one-way-nda.html": {
-  "date": "2026-10-29",
-  "hash": "b8d1cf491df25472"
+  "date": "2026-10-30",
+  "hash": "8fc737047458811c"
  },
  "templates/partnership-agreement.html": {
   "date": "2026-10-29",
@@ -921,7 +965,7 @@
  },
  "templates/payment-receipt.html": {
   "date": "2026-10-29",
-  "hash": "436417ad6a737584"
+  "hash": "8088d69850c5213a"
  },
  "templates/payment-reminder-letter.html": {
   "date": "2026-10-29",
@@ -956,16 +1000,16 @@
   "hash": "419000c0dc12e85a"
  },
  "templates/promotion-letter.html": {
-  "date": "2026-10-29",
-  "hash": "51dcdd1da89a329c"
+  "date": "2026-10-30",
+  "hash": "18f9929779db6246"
  },
  "templates/purchase-order.html": {
   "date": "2026-10-29",
-  "hash": "eaf36c0f2797951a"
+  "hash": "1ee9ab1f7e7921a9"
  },
  "templates/quote.html": {
   "date": "2026-10-29",
-  "hash": "18333313a8bc319e"
+  "hash": "b8bcaf7ef4d196e8"
  },
  "templates/reference-letter.html": {
   "date": "2026-10-29",
@@ -993,11 +1037,11 @@
  },
  "templates/residential-lease-agreement.html": {
   "date": "2026-10-29",
-  "hash": "eeb4ed9aa50f9ce2"
+  "hash": "66c5bd71629066ed"
  },
  "templates/resignation-letter.html": {
   "date": "2026-10-29",
-  "hash": "40f9b36c951de819"
+  "hash": "c42f36de42d5db82"
  },
  "templates/retainer-agreement.html": {
   "date": "2026-10-29",

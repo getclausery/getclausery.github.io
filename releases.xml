@@ -5,8 +5,16 @@
   <link rel="self" href="https://getclausery.github.io/releases.xml"/>
   <link rel="alternate" href="https://getclausery.github.io/changelog.html"/>
   <id>https://getclausery.github.io/changelog.html</id>
-  <updated>2026-10-29T00:00:00Z</updated>
+  <updated>2026-10-30T00:00:00Z</updated>
   <author><name>Clausery</name></author>
+  <entry>
+    <title>Clausery v2.40.0 — 11 new long-tail SEO hub pages (blank/simple/proforma/freelance/contractor invoice, invoice PDF, estimate, simple NDA, NDA explainer, cash and donation receipts); FAQ enrichment across 9 top templates</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-40-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-40-0</id>
+    <published>2026-10-30T00:00:00Z</published>
+    <updated>2026-10-30T00:00:00Z</updated>
+    <summary>11 new long-tail SEO hub pages (blank/simple/proforma/freelance/contractor invoice, invoice PDF, estimate, simple NDA, NDA explainer, cash and donation receipts); FAQ enrichment across 9 top templates</summary>
+  </entry>
   <entry>
     <title>Clausery v2.39.0 — Template h1s lead with "Free" (matching titles); fixed 3 corrupted meta descriptions; all 276 titles ≤60 chars</title>
     <link href="https://getclausery.github.io/changelog.html#v2-39-0"/>
