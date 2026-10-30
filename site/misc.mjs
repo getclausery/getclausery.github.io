@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '2.42.0', date: '30 October 2026', summary: 'Google Docs & Excel invoice template hubs; meta descriptions tightened to ≤155 chars across all LIB templates' },
   { version: '2.41.0', date: '30 October 2026', summary: '3 more long-tail hubs (quotation template, freelance contract, NDA form); expanded cross-links between invoice hubs' },
   { version: '2.40.0', date: '30 October 2026', summary: '11 new long-tail SEO hub pages (blank/simple/proforma/freelance/contractor invoice, invoice PDF, estimate, simple NDA, NDA explainer, cash and donation receipts); FAQ enrichment across 9 top templates' },
   { version: '2.39.0', date: '29 October 2026', summary: 'Template h1s lead with "Free" (matching titles); fixed 3 corrupted meta descriptions; all 276 titles ≤60 chars' },
@@ -127,6 +128,8 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-42-0">2.42.0 <span class="small muted">— 30 October 2026</span></h2>
+<ul><li><strong>Google Docs &amp; Excel invoice hubs</strong>: new <a href="${rel}invoice-templates/google-docs-invoice.html">Google Docs invoice template</a> and <a href="${rel}invoice-templates/excel-invoice-template.html">Excel invoice template</a> pages targeting those platform-specific searches; both linked from the invoice template and invoice hub.</li><li><strong>Meta descriptions tightened</strong>: all 73 template descriptions rewritten to ≤155 characters with primary keyword first, "free Word/PDF" value prop and CTA tail, following Google's snippet-length guidance.</li></ul>
 <h2 id="v2-41-0">2.41.0 <span class="small muted">— 30 October 2026</span></h2>
 <ul><li><strong>Three more long-tail SEO hubs</strong>: <a href="${rel}invoice-templates/quotation-template.html">quotation template</a>, <a href="${rel}templates/freelance-contract.html">freelance contract</a>, and <a href="${rel}nda-templates/nda-form.html">NDA form</a>, each with how-to steps, related internal links and 5-question FAQPage schema.</li><li><strong>Internal linking</strong>: invoice page "Pick the right billing task" block now links to contractor invoice and quotation/estimate pages; per-hub download buttons point at the correct Word source for each template type.</li></ul>
 <h2 id="v2-40-0">2.40.0 <span class="small muted">— 30 October 2026</span></h2>

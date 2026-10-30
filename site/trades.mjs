@@ -190,6 +190,8 @@ export const pages = [
     <a class="feature" href="${rel}invoice-templates/estimate-template.html"><h3>Estimate template</h3><p>Give an informed price before the job that can change if scope does.</p></a>
     <a class="feature" href="${rel}templates/invoice.html"><h3>Full invoice template</h3><p>The main invoice with tax, discount, bank details and late-fee wording.</p></a>
     <a class="feature" href="${rel}templates/quote.html"><h3>Price quote</h3><p>A fixed price that binds you once the customer accepts it.</p></a>
+    <a class="feature" href="${rel}invoice-templates/google-docs-invoice.html"><h3>Google Docs invoice</h3><p>Edit the invoice in Google Drive and share a link or PDF.</p></a>
+    <a class="feature" href="${rel}invoice-templates/excel-invoice-template.html"><h3>Excel invoice</h3><p>Auto-calculated totals layout you can also rebuild in Excel.</p></a>
   </div>
   <h2 id="by-task" style="margin-top:2rem">By billing task</h2>
   <p>Request an upfront deposit, bill hours, or reconcile the final balance. Each page has a worked example and an app starter for that task.</p>
