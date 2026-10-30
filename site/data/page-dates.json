@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-30",
-  "hash": "157a5b9dd52b8369"
+  "hash": "ea2af6d171fe03bb"
  },
  "clauses/": {
   "date": "2026-10-28",
@@ -663,6 +663,10 @@
   "date": "2026-10-29",
   "hash": "dd088ad4077a35b2"
  },
+ "invoice-templates/quotation-template.html": {
+  "date": "2026-10-30",
+  "hash": "cdde6bbc1cfd87b2"
+ },
  "invoice-templates/simple-invoice.html": {
   "date": "2026-10-29",
   "hash": "5e9d7da216167096"
@@ -713,7 +717,11 @@
  },
  "nda-templates/": {
   "date": "2026-10-30",
-  "hash": "fde1a8bd705e669a"
+  "hash": "d1aeceb329a9cd03"
+ },
+ "nda-templates/nda-form.html": {
+  "date": "2026-10-30",
+  "hash": "5923c10b43ceb77e"
  },
  "nda-templates/non-disclosure-agreement.html": {
   "date": "2026-10-30",
@@ -737,7 +745,7 @@
  },
  "receipts/donation-receipt.html": {
   "date": "2026-10-30",
-  "hash": "bed403fd06c6f8f4"
+  "hash": "57cc2cd59c352b16"
  },
  "roadmap/": {
   "date": "2026-10-29",
@@ -761,7 +769,7 @@
  },
  "templates/": {
   "date": "2026-10-30",
-  "hash": "de161767e282899e"
+  "hash": "e9ffc271da50a3db"
  },
  "templates/bill-of-sale.html": {
   "date": "2026-10-30",
@@ -851,6 +859,10 @@
   "date": "2026-10-29",
   "hash": "799bcb9b53d61dee"
  },
+ "templates/freelance-contract.html": {
+  "date": "2026-10-30",
+  "hash": "81d1aa7ed10293bc"
+ },
  "templates/freelance-writing-contract.html": {
   "date": "2026-10-29",
   "hash": "bee5296a2a4dbde5"
@@ -880,8 +892,8 @@
   "hash": "559e2e5051aab2d4"
  },
  "templates/invoice.html": {
-  "date": "2026-10-29",
-  "hash": "c3ba662ee8685734"
+  "date": "2026-10-30",
+  "hash": "72564b8622926c3c"
  },
  "templates/job-description.html": {
   "date": "2026-10-29",

@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '2.41.0', date: '30 October 2026', summary: '3 more long-tail hubs (quotation template, freelance contract, NDA form); expanded cross-links between invoice hubs' },
   { version: '2.40.0', date: '30 October 2026', summary: '11 new long-tail SEO hub pages (blank/simple/proforma/freelance/contractor invoice, invoice PDF, estimate, simple NDA, NDA explainer, cash and donation receipts); FAQ enrichment across 9 top templates' },
   { version: '2.39.0', date: '29 October 2026', summary: 'Template h1s lead with "Free" (matching titles); fixed 3 corrupted meta descriptions; all 276 titles ≤60 chars' },
   { version: '2.38.0', date: '29 October 2026', summary: 'SEO title and meta-description refresh across all pages targeting higher-volume keywords' },
@@ -126,6 +127,8 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-41-0">2.41.0 <span class="small muted">— 30 October 2026</span></h2>
+<ul><li><strong>Three more long-tail SEO hubs</strong>: <a href="${rel}invoice-templates/quotation-template.html">quotation template</a>, <a href="${rel}templates/freelance-contract.html">freelance contract</a>, and <a href="${rel}nda-templates/nda-form.html">NDA form</a>, each with how-to steps, related internal links and 5-question FAQPage schema.</li><li><strong>Internal linking</strong>: invoice page "Pick the right billing task" block now links to contractor invoice and quotation/estimate pages; per-hub download buttons point at the correct Word source for each template type.</li></ul>
 <h2 id="v2-40-0">2.40.0 <span class="small muted">— 30 October 2026</span></h2>
 <ul><li><strong>Long-tail SEO hubs</strong>: 11 new keyword-targeted pages — <a href="${rel}invoice-templates/blank-invoice.html">blank invoice</a>, <a href="${rel}invoice-templates/simple-invoice.html">simple invoice</a>, <a href="${rel}invoice-templates/proforma-invoice.html">proforma invoice</a>, <a href="${rel}invoice-templates/freelance-invoice.html">freelance invoice</a>, <a href="${rel}invoice-templates/contractor-invoice.html">contractor invoice</a>, <a href="${rel}invoice-templates/invoice-template-pdf.html">invoice PDF</a>, <a href="${rel}invoice-templates/estimate-template.html">estimate</a>, <a href="${rel}nda-templates/simple-nda.html">simple NDA</a>, <a href="${rel}nda-templates/non-disclosure-agreement.html">NDA explainer</a>, <a href="${rel}receipts/cash-receipt.html">cash receipt</a> and <a href="${rel}receipts/donation-receipt.html">donation receipt</a> — each with how-to, related links and FAQPage schema.</li><li><strong>FAQ enrichment</strong>: expanded keyword-infused FAQs on 9 top-traffic templates (invoice, quote, mutual NDA, bill of sale, payment receipt, residential lease, employment contract, resignation letter, purchase order); invoice FAQ grew from 5 to 7 items.</li><li><strong>Internal linking</strong>: new "Popular invoice starters" block on the invoice-templates hub; invoice page links to all new invoice hubs; NDA hub now links to simple NDA and NDA explainer.</li><li><strong>Title length pass</strong>: 7 titles trimmed so every indexable title is ≤60 chars with the <code>· Clausery</code> brand suffix.</li></ul>
 <h2 id="v2-39-0">2.39.0 <span class="small muted">— 29 October 2026</span></h2>
@@ -182,14 +185,10 @@ export const pages = [
 <ul><li><strong>Print stylesheet.</strong> <code>@media print</code> block: chrome hidden; black-on-white 11pt; 1.4 cm margins; h2/h3 avoid breaks after; external links render URLs after anchor for usable PDFs.</li></ul>
 <h2 id="v2-7-0">2.7.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>Freshness badges across all hubs.</strong> "Updated Mmm YYYY" pill on every listing card, pulling real last-modified dates.</li></ul>
-<h2 id="v2-4-0">2.4.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>Main-navigation schema.</strong> Header <code>&lt;nav&gt;</code> carries <code>SiteNavigationElement</code> RDFa microdata plus a JSON-LD node on every page.</li></ul>
-<h2 id="v2-3-0">2.3.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>E-E-A-T editorial team identity.</strong> "Editorial policy &amp; review" on About names the Clausery editors and links to GitHub contributors. A Person schema node (<code>@id /about/#editors</code>) is emitted on every page; all <code>reviewedBy</code>/<code>author</code>/visible bylines reference it.</li></ul>
-<h2 id="v2-2-0">2.2.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>Prev/next sibling links across long-form pages.</strong> <code>&lt;link rel="prev/next"&gt;</code> crawl chain covers templates/clauses/guides/tools/comparisons/audience/invoices/NDAs in source order, with a visible Previous/Next block above the footer.</li></ul>
-<h2 id="v2-1-0">2.1.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>Related reading clusters.</strong> Server-rendered block at the foot of each page mixes matching cross-section pages scored on shared keywords (+28% internal links).</li></ul>
+
+
+
+
 <h2 id="v2-0-3">2.0.3 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>E-E-A-T entity linking.</strong> Article schema adds <code>about</code> topics, a share-card <code>image</code>, <code>thumbnailUrl</code>, <code>reviewedBy</code>; FAQPage blocks get a stable <code>@id</code>.</li></ul>
 <h2 id="v2-0-0">2.0.0 <span class="small muted">— 25 October 2026</span></h2>

@@ -444,6 +444,130 @@ const HUBS = [
       ['Is the template tax advice?','No. The receipt covers the common fields; check the exact wording and value-threshold rules for your jurisdiction and tax authority.'],
     ],
     cta: { label: 'Make a donation receipt', href: 'app/#/start/payment-receipt' },
+    download: { href: 'samples/payment-receipt.docx', label: 'Download Word' },
+  },
+  {
+    path: 'invoice-templates/quotation-template.html', section: 'invoice-templates', sectionLabel: 'Invoice templates',
+    title: 'Quotation Template | Free Quote Format (Word/PDF)',
+    description: 'Free quotation template in Word/PDF. Send a formal price quotation clients can accept, with expiry date and terms.',
+    h1: 'Quotation template',
+    lead: 'Send a formal written quotation showing the price, scope, exclusions, validity and terms. A quotation is the same as a fixed price quote: once the customer accepts it in writing, you hold to that price. Fill it in online and download as PDF or Word.',
+    introParagraphs: [
+      'In many businesses "quotation" is used interchangeably with "quote" - a fixed price you will stick to, as distinct from an estimate which is an informed guess that can change. Use this template to issue a formal quotation with line items, terms and an expiry date.',
+      'The template is the same quote layout, with "Quotation" in the heading, a quotation number, itemised lines, what is not included, an expiry date, and an acceptance signature line. Download as an editable Word file or printable PDF.'
+    ],
+    bullets: [
+      ['Quotation number and date', 'Unique quotation number, the date you issue it, and an expiry date (commonly 14 or 30 days).'],
+      ['Customer details', 'The customer name, billing address and any reference they provided.'],
+      ['Itemised pricing', 'Each item or task with description, quantity, unit price and line total.'],
+      ['What is not included', 'Clear list of exclusions so the customer cannot assume scope you did not price.'],
+      ['Terms and acceptance', 'Payment terms, delivery, warranty (if any) and a short signature line the customer signs to accept.'],
+    ],
+    howTo: [
+      ['Open the quotation template', 'Start from the button below; the heading is already set to Quotation.'],
+      ['Add your business and the customer', 'Your name, contact details and tax number, plus the customer details and any quotation reference.'],
+      ['List items and prices', 'One line per item or task with quantity and rate; the template calculates line totals and subtotal for you.'],
+      ['Set the expiry and terms', '14 or 30 days is typical. State payment terms (for example 50% deposit on acceptance, balance on completion).'],
+      ['Send and get acceptance', 'Email the PDF and ask the customer to sign or reply in writing to accept. Once accepted you hold to the price unless they change the scope.'],
+    ],
+    related: [
+      ['Free quote template', 'templates/quote.html', 'The standard quote this quotation template is based on.'],
+      ['Estimate template', 'invoice-templates/estimate-template.html', 'Use an estimate when the price may change rather than a fixed quotation.'],
+      ['Proforma invoice template', 'invoice-templates/proforma-invoice.html', 'For pre-supply pricing, common for international shipping.'],
+      ['Quote vs estimate vs invoice', 'guides/quote-vs-estimate-vs-invoice.html', 'Which document to send at each stage.'],
+      ['Purchase order template', 'templates/purchase-order.html', 'The buyer usually replies to a quotation with a PO.'],
+    ],
+    faq: [
+      ['Is a quotation the same as a quote?','Yes. In most English-speaking business use, "quotation" and "quote" mean the same thing: a fixed price offer you stick to once accepted.'],
+      ['What is the difference between a quotation and an estimate?','A quotation is a fixed price you commit to; an estimate is an informed guess that can change. If you do not want to be held to a price, send an estimate and say how you will tell the customer if it changes.'],
+      ['Is a quotation legally binding?','Once the customer accepts it in writing (by signing or replying with a go-ahead), a quotation typically becomes a binding fixed-price contract for the scope described.'],
+      ['How long should a quotation be valid?','14 to 30 days is typical; shorter when material prices are moving quickly. The expiry date protects you from having to honour old prices.'],
+      ['Do I need to show tax?','State whether the prices include VAT/GST/sales tax or show it separately, following local rules.'],
+    ],
+    cta: { label: 'Make a quotation', href: 'app/#/start/quote' },
+    download: { href: 'samples/quote.docx', label: 'Download Word' },
+  },
+  {
+    path: 'templates/freelance-contract.html', section: 'templates', sectionLabel: 'Templates',
+    title: 'Freelance Contract Template | Free Word/PDF Agreement',
+    description: 'Free freelance contract template for designers, writers, developers and consultants. Download as Word or PDF, no sign-up.',
+    h1: 'Freelance contract template',
+    lead: 'A simple freelance contract covering scope, fee, payment terms, IP, revisions, late fees, confidentiality and termination. Fill it in online and download it as an editable Word file or printable PDF, ready to sign.',
+    introParagraphs: [
+      'A freelance contract sets out what you will do, how much you will be paid, who owns the work, and how either side can end it. It prevents the arguments that come from handshake deals - especially around scope creep, revisions and late payment.',
+      'This template is based on the independent contractor agreement, tuned for single-engagement freelance work (rather than ongoing arrangements). It has a clear scope section, optional kill fee, IP assignment on payment, and a short confidentiality clause.'
+    ],
+    bullets: [
+      ['Scope of work', 'What you will deliver, plus how many rounds of revisions are included and what counts as extra work.'],
+      ['Fee and payment', 'Project fee or hourly rate, payment schedule (deposit / milestones / on completion), late fee wording.'],
+      ['Intellectual property', 'Work transfers to the client once invoices are paid; you keep portfolio rights.'],
+      ['Revisions and scope changes', 'Number of included revision rounds, and how change orders are priced and approved.'],
+      ['Confidentiality and termination', 'Each side keeps information private; either side can end on written notice with payment for work done.'],
+    ],
+    howTo: [
+      ['Name both parties and the project', 'Your name (or business name) and the client, plus a short project title and the date.'],
+      ['Describe the deliverables', 'Be specific about what is and is not included - vague scope is the #1 reason for freelance disputes.'],
+      ['Set the fee and schedule', 'Total fee or hourly rate, deposit amount, milestone payments and the due date for each.'],
+      ['Add IP, revisions and kill-fee terms', 'IP transfers on payment; set included revision rounds; choose whether either side can kill the project mid-way and what is owed.'],
+      ['Sign and start work', 'Both sides sign (e-signature or wet signature); each keeps a copy before work begins.'],
+    ],
+    related: [
+      ['Independent contractor agreement', 'templates/independent-contractor-agreement.html', 'For ongoing contractor engagements.'],
+      ['Freelance invoice template', 'invoice-templates/freelance-invoice.html', 'Bill against the contract once work is done or milestones hit.'],
+      ['Consulting agreement', 'templates/consulting-agreement.html', 'For advisory and consulting engagements.'],
+      ['Retainer agreement', 'templates/retainer-agreement.html', 'For ongoing monthly work.'],
+      ['How to write a freelance contract', 'guides/how-to-write-a-freelance-contract.html', 'Ten clauses that matter.'],
+    ],
+    faq: [
+      ['Do I need a contract for every freelance job?','For small jobs with repeat clients you might skip it, but any project with real money, IP or deadlines deserves a written contract. Verbal agreements are hard to prove.'],
+      ['Who owns freelance work before payment?','Until invoices are paid, you usually own the copyright. The contract should state that IP transfers on final payment, which gives you leverage if the client does not pay.'],
+      ['Can I use this for ongoing work?','Use the retainer agreement or independent contractor agreement for ongoing work; this template is for a defined single project.'],
+      ['Should I ask for a deposit?','Yes for most freelance projects - 25% to 50% upfront is standard. It secures your schedule and reduces exposure if the client pulls out.'],
+      ['Do I need a lawyer?','For standard freelance engagements this template covers the key clauses. Have it reviewed by a lawyer for high-value work, unusual terms, or if your jurisdiction has specific rules.'],
+    ],
+    cta: { label: 'Make a freelance contract', href: 'app/#/start/independent-contractor-agreement' },
+    download: { href: 'samples/independent-contractor-agreement.docx', label: 'Download Word' },
+  },
+  {
+    path: 'nda-templates/nda-form.html', section: 'nda-templates', sectionLabel: 'NDA templates',
+    title: 'NDA Form | Free Non-Disclosure Form (Word/PDF)',
+    description: 'Free NDA form: a printable non-disclosure agreement you can fill in online, download and sign. Word and PDF.',
+    h1: 'NDA form',
+    lead: 'A ready-to-sign non-disclosure form for protecting confidential information shared between two parties. Fill it in online in a few minutes and download it as a printable PDF or editable Word file.',
+    introParagraphs: [
+      'An NDA form (non-disclosure form) is the same document as an NDA or confidentiality agreement - a short contract that sets out what information is confidential, how long it must stay private, and who can see it. The word "form" is often used when you want a document you can print, fill in and sign quickly.',
+      'Pick mutual or one-way depending on who is sharing, then fill in the names, the project, and the length of confidentiality. Download the Word file if you want to edit the wording further.'
+    ],
+    bullets: [
+      ['Parties', 'Full legal names of the people or companies signing, with addresses.'],
+      ['Purpose', 'What the confidential information will be used for (for example "evaluating a partnership").'],
+      ['Definition of confidential information', 'Written information marked confidential, plus things said in meetings.'],
+      ['Term', 'How long the duty lasts (commonly 2-5 years; trade secrets for as long as they stay secret).'],
+      ['Return or destruction', 'What happens to copies when the project ends or either side asks.'],
+    ],
+    howTo: [
+      ['Choose mutual or one-way', 'Mutual when both sides share information; one-way when only one side discloses.'],
+      ['Fill in the parties and purpose', 'Full legal names of both sides and a short description of the project.'],
+      ['Set the term', 'Typically 2 to 5 years for ordinary business information.'],
+      ['Edit if needed', 'Download the Word file to add or remove clauses - keep the basics (definition, exclusions, obligations, term).'],
+      ['Sign two copies', 'Both sides sign before confidential information is shared; each keeps a copy.'],
+    ],
+    related: [
+      ['Simple NDA template', 'nda-templates/simple-nda.html', 'Short plain-English NDA for quick conversations.'],
+      ['Mutual NDA template', 'templates/mutual-nda.html', 'Full mutual NDA with optional clauses.'],
+      ['One-way NDA template', 'templates/one-way-nda.html', 'Unilateral NDA when only one side discloses.'],
+      ['Non-disclosure agreement (NDA)', 'nda-templates/non-disclosure-agreement.html', 'Which NDA to pick for your situation.'],
+      ['What to include in an NDA', 'guides/what-to-include-in-an-nda.html', 'Clause-by-clause walk-through.'],
+    ],
+    faq: [
+      ['Is an NDA form different from an NDA?','No - "NDA form" is just another name for a non-disclosure agreement you fill in and sign. The content is the same.'],
+      ['Can I print it and fill it in by hand?','Yes. Fill it in online to get the names in the right places, then print and sign; or print the blank Word file and fill it in by hand.'],
+      ['Does it need to be notarized?','No. NDAs generally do not need a notary to be valid, unless your jurisdiction or the other side specifically asks for one.'],
+      ['How long should an NDA last?','Two to five years is common for ordinary business information. Trade secret wording lasts for as long as the information remains secret.'],
+      ['Can I edit the form?','Yes. Download the Word file to change any clause. Keep the definition of confidential information, the exclusions, the obligations and the term to make it enforceable.'],
+    ],
+    cta: { label: 'Start the NDA form', href: 'app/#/start/mutual-nda' },
+    download: { href: 'samples/mutual-nda.docx', label: 'Download Word' },
   },
 ];
 
@@ -464,7 +588,7 @@ function hubBody(h, rel) {
 <p class="lead">${esc(h.lead)}</p>
 <div class="actions" style="display:flex;gap:.75rem;flex-wrap:wrap;margin:1.5rem 0">
 <a class="btn btn-primary btn-lg" href="${rel}${h.cta.href}">${esc(h.cta.label)} <span class="arr">→</span></a>
-<a class="btn btn-lg" href="${rel}samples/invoice.docx" download>Download Word</a>
+<a class="btn btn-lg" href="${rel}${(h.download||{href:'samples/invoice.docx'}).href}" download>${esc((h.download||{label:'Download Word'}).label)}</a>
 </div>
 <p class="small muted">No sign-up. Editable Word (.docx) or print to PDF. Your answers stay in your browser. Updated <time datetime="${LASTMOD}">${LASTMOD_LONG}</time>.</p>
 ${intro}
