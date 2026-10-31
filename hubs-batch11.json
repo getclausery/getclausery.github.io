@@ -1,0 +1,202 @@
+[
+  {
+    "path": "templates/cease-and-desist-letter-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Cease and Desist Letter | Free Word Template",
+    "h1": "Free cease and desist letter template (Word)",
+    "description": "Free cease and desist letter: demand someone stop harmful behaviour (harassment, IP infringement, defamation, debt collection).",
+    "lead": "A formal letter demanding that an individual or business immediately stop a harmful activity — harassment, trademark/copyright infringement, defamation, breach of contract, or unwanted debt-collection contact.",
+    "introParagraphs": ["A cease and desist letter demands the recipient stop a specific harmful behaviour immediately, or face legal action. Common uses include harassment, defamation, trademark/copyright infringement, breach of non-compete, and unfair debt collection.", "A well-drafted letter can resolve the issue without a lawsuit. It creates a paper trail, shows you are serious, and gives the other side a chance to correct the behaviour before you escalate. Keep claims factual and avoid empty threats of criminal action."],
+    "bullets": [
+      ["Sender and recipient", "Your name/contact (or attorney letterhead), recipient name and address, date of letter."],
+      ["Behaviour to stop", "Specific description of the unlawful/harmful conduct with dates, examples and evidence referenced."],
+      ["Legal basis", "The law, contract clause or right being violated (e.g. trademark infringement, breach of non-compete, defamation, FDCPA)."],
+      ["Demand and deadline", "Exactly what you want them to stop doing, any corrective action (remove content, return property, pay damages), and a deadline (typically 10-15 days)."],
+      ["Consequences", "Statement that you will pursue legal remedies (injunction, damages, attorney fees) if they do not comply."]
+    ],
+    "howTo": [
+      ["Document the behaviour", "Gather screenshots, dates, witnesses and evidence of the conduct before drafting."],
+      ["Identify the legal basis", "Be specific about what law/contract is being violated; general 'you are being mean' language will not help."],
+      ["Be clear and specific", "State exactly what they must stop doing, by when, and what proof you require."],
+      ["Send with proof of delivery", "Certified mail with return receipt + email; keep a signed copy."],
+      ["Escalate if ignored", "If they do not comply by the deadline, contact an attorney to discuss an injunction, DMCA takedown or lawsuit."]
+    ],
+    "related": [
+      ["Payment demand letter", "templates/payment-demand-letter-template.html", "For demanding money owed."],
+      ["Contract termination letter", "templates/contract-termination-letter-template.html", "To end a contract for breach."],
+      ["NDA (non-disclosure agreement)", "templates/non-disclosure-agreement-template.html", "Confidentiality obligations often cited in cease-and-desist for disclosure."],
+      ["General release", "templates/general-release.html", "Settlement if the matter resolves."],
+      ["Free legal letter templates", "templates/contract-template.html", "Full letter/contract library."]
+    ],
+    "faq": [
+      ["Do I need a lawyer to send one?", "You can write your own, but an attorney letter carries more weight and reduces the risk of making threats that constitute extortion."],
+      ["Is a cease and desist legally binding?", "No — it is a demand letter, not a court order. But ignoring it increases the likelihood of a lawsuit and may show willfulness."],
+      ["Can I send one for harassment?", "Yes — cease-and-desist is commonly used for stalking, harassment, or unwanted contact; consider a restraining order if behaviour continues."],
+      ["What about trademark infringement?", "A cease-and-desist is the first step in trademark enforcement; it shows you are policing your mark (required to maintain it)."],
+      ["Can they reply or refuse?", "Yes — they may respond with their position or refuse; if so, decide whether to negotiate or litigate."]
+    ],
+    "cta": { "label": "Build your cease and desist", "href": "app/#/start/cease-and-desist-letter" },
+    "download": { "href": "samples/cease-and-desist-letter.docx", "label": "Download Word" }
+  },
+  {
+    "path": "templates/general-release-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "General Release of Liability | Free Word Template",
+    "h1": "Free general release of liability template (Word)",
+    "description": "Free general release of liability: settle a dispute or incident with a binding release of all claims.",
+    "lead": "A settlement agreement where one party (releasor) releases another (releasee) from all known and unknown claims arising from a specific incident or dispute, usually in exchange for payment.",
+    "introParagraphs": ["A general release (or release and waiver) is signed after an incident, dispute or termination where the parties agree to settle: the releasing party gives up their right to sue in exchange for something of value (usually money). It is common after car accidents, employment terminations, personal injuries and contract disputes.", "Once signed, a release generally bars future claims related to the matter. Make sure the settlement amount, scope of claims and any non-disclosure/non-disparagement terms are fully understood before signing — you cannot come back later for more money from the same incident."],
+    "bullets": [
+      ["Parties", "Releasor (person giving up claims) and releasee (person/company released); names, addresses and signing capacity."],
+      ["Incident/dispute", "Description of the specific incident, dispute or matter being released (e.g. motor vehicle accident on date, employment through date)." ],
+      ["Consideration", "What the releasor is receiving in exchange (payment amount, return of property, non-monetary terms)."],
+      ["Scope of release", "Release of all known and unknown claims, up to the effective date, including waiving Civil Code section 1542 (or equivalent) where applicable."],
+      ["Other terms", "Non-disclosure/confidentiality, non-disparagement, no admission of liability, governing law, and whether future claims from unknown injuries are included."]
+    ],
+    "howTo": [
+      ["Negotiate the terms", "Agree on the settlement amount, scope of release and any NDA terms before drafting."],
+      ["Identify the incident clearly", "Describe the incident/dispute specifically so future claims from unrelated matters are not accidentally released."],
+      ["Spell out consideration", "State the dollar amount or other consideration being exchanged — a release without consideration is generally unenforceable."],
+      ["Include unknown-claims waiver", "Include a waiver of unknown claims (e.g. California Civil Code 1542) if you want a full and final release."],
+      ["Sign and exchange funds", "Both parties sign; releasee pays the settlement; each party gets a fully signed copy."]
+    ],
+    "related": [
+      ["Severance agreement", "templates/severance-agreement-template.html", "Employment-specific release of claims."],
+      ["Liability waiver", "templates/liability-waiver-template.html", "Pre-activity release (before an incident happens)."],
+      ["Hold harmless agreement", "templates/hold-harmless-agreement-template.html", "Prospective indemnity for future claims."],
+      ["Payment demand letter", "templates/payment-demand-letter-template.html", "Often precedes a settlement release."],
+      ["Free contract templates", "templates/contract-template.html", "Full template library by category."]
+    ],
+    "faq": [
+      ["Can I sue after signing a release?", "Generally no for released claims; exceptions exist for fraud, duress, unknown injuries the release does not cover, or claims that cannot be waived by law."],
+      ["Do I need a lawyer?", "For small disputes a template can work; for car accidents, employment claims or medical injuries consult an attorney — signing the wrong release can cost you dearly."],
+      ["Is a verbal release enforceable?", "Rarely — releases of legal claims generally must be in writing and signed; always put releases on paper."],
+      ["What about future medical bills?", "Include a waiver of unknown injuries/claims (and specifically mention it) if you want to release them; otherwise a releasor can come back for later-discovered injuries."],
+      ["Can minors sign a release?", "Generally no, and parent-signed releases for minors are often not enforceable; court approval may be needed."]
+    ],
+    "cta": { "label": "Build your general release", "href": "app/#/start/general-release" },
+    "download": { "href": "samples/general-release.docx", "label": "Download Word" }
+  },
+  {
+    "path": "templates/letter-of-intent-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Letter of Intent (LOI) | Free Word Template",
+    "h1": "Free letter of intent (LOI) template (Word)",
+    "description": "Free letter of intent (LOI): outline key terms of a deal before drafting a binding contract.",
+    "lead": "A short document outlining the key terms of a proposed deal (business sale, investment, lease, job offer, partnership) before a full contract is negotiated and signed.",
+    "introParagraphs": ["A letter of intent (LOI, or memorandum of understanding/term sheet) sets out the headline terms parties have agreed on before they spend time negotiating a full contract. It covers price/key terms, timeline, exclusivity (if any), confidentiality, and which parts are binding vs non-binding.", "Most LOIs are mostly non-binding except for specific clauses (confidentiality, exclusivity, costs, governing law). Make it clear which parts are binding to avoid accidentally creating a contract before terms are final."],
+    "bullets": [
+      ["Parties and transaction", "Buyer/seller (or parties) names, transaction type (asset purchase, stock purchase, lease, investment, employment), and the target/business/property."],
+      ["Key deal terms", "Purchase price (or salary/grant/rent), payment structure, key assets included, major conditions and contingencies."],
+      ["Timeline and due diligence", "Expected signing date, due-diligence period, access to information, and key milestones."],
+      ["Binding provisions", "Confidentiality, exclusivity/no-shop period, costs/expenses, non-solicitation of employees, and governing law."],
+      ["Non-binding statement", "Clear statement that the LOI is non-binding (except the listed provisions) and no contract exists until a definitive agreement is signed."]
+    ],
+    "howTo": [
+      ["Agree on headline terms", "Negotiate price, structure and major deal points verbally or in email before drafting the LOI."],
+      ["Mark binding vs non-binding", "Explicitly identify which clauses are binding (usually confidentiality, exclusivity, expenses) and that the rest is not a contract."],
+      ["Set reasonable exclusivity", "If you ask for a no-shop period, keep it short (30-60 days) so neither side is locked in forever."],
+      ["Outline due diligence", "State what access you will provide or expect, and any conditions that must be satisfied."],
+      ["Sign and move to definitive agreement", "Both parties sign to confirm the framework; lawyers then draft the full contract based on these terms."]
+    ],
+    "related": [
+      ["Memorandum of understanding", "templates/memorandum-of-understanding.html", "Slightly more formal cousin of the LOI for partnerships/joint projects."],
+      ["Partnership agreement", "templates/partnership-agreement-template.html", "Final agreement for business partners."],
+      ["Purchase order", "templates/purchase-order-template.html", "Binding order for goods/services at smaller scale."],
+      ["Job offer letter", "templates/offer-letter-template.html", "Employment-specific LOI for new hires."],
+      ["Free contract templates", "templates/contract-template.html", "Full template library by category."]
+    ],
+    "faq": [
+      ["Is an LOI legally binding?", "Usually not for the deal itself — only for specific clauses like confidentiality and exclusivity; the contract only forms later."],
+      ["Can I back out after signing?", "If the LOI is properly non-binding, yes (subject to any binding exclusivity period)."],
+      ["Do I need a lawyer?", "For simple deals you can draft it yourself, but have counsel review for larger transactions — courts sometimes find implied contracts in sloppy LOIs."],
+      ["How long should it be?", "2-5 pages typically. The goal is to capture key terms, not to replace the full contract."],
+      ["LOI vs MOU vs term sheet?", "They overlap heavily — LOIs often read as letters, MOUs as agreements, term sheets as bullet-points; the substance is what matters."]
+    ],
+    "cta": { "label": "Build your letter of intent", "href": "app/#/start/letter-of-intent" },
+    "download": { "href": "samples/letter-of-intent.docx", "label": "Download Word" }
+  },
+  {
+    "path": "templates/memorandum-of-understanding-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Memorandum of Understanding (MOU) | Free Word Template",
+    "h1": "Free memorandum of understanding (MOU) template (Word)",
+    "description": "Free MOU template: outline agreed terms between two parties for a project, partnership or collaboration.",
+    "lead": "A document describing a shared understanding between two or more parties about a collaboration, project or partnership — often used between organisations, governments or co-founders before a formal contract.",
+    "introParagraphs": ["A memorandum of understanding (MOU) captures what parties have agreed to in a collaboration: goals, each party roles and responsibilities, resources, timeline, decision-making, and how the MOU can be ended. MOUs are common between businesses, nonprofits, universities and government agencies.", "Most MOUs are non-binding statements of intent, but some are binding contracts depending on the language and context. Make it explicit whether the MOU is binding and whether a formal contract will follow."],
+    "bullets": [
+      ["Parties", "Name and address of each party, signing representatives, and date of the MOU."],
+      ["Purpose / project", "Clear description of the collaboration, project or relationship the MOU covers and its goals."],
+      ["Roles and contributions", "What each party will provide (funding, staff, space, IP, marketing) and key responsibilities."],
+      ["Governance and term", "How decisions are made, meeting cadence, primary contacts, start date, end date, renewal and termination."],
+      ["Legal clauses", "Confidentiality, IP ownership of outputs, non-binding statement (or binding clauses), insurance/indemnity if needed, and governing law."]
+    ],
+    "howTo": [
+      ["Define the shared goal", "Write a one-paragraph purpose statement all parties agree on."],
+      ["List contributions clearly", "Be specific about who is providing what — money, time, space, IP, access."],
+      ["Decide binding or not", "If non-binding, state it explicitly; list any binding clauses (confidentiality, IP)."],
+      ["Set a term and exit", "State the MOU duration, renewal process and how either party can withdraw."],
+      ["Sign and exchange", "All parties sign; each gets a copy. Move to a formal contract if the collaboration becomes financial or high-stakes."]
+    ],
+    "related": [
+      ["Letter of intent", "templates/letter-of-intent-template.html", "Cousin of the MOU used in transactions and deals."],
+      ["Partnership agreement", "templates/partnership-agreement-template.html", "Formal binding agreement for business partners."],
+      ["Meeting minutes", "templates/meeting-minutes-template.html", "Capture decisions from governance meetings under the MOU."],
+      ["Statement of work", "templates/statement-of-work-template.html", "For specific project deliverables under an MOU."],
+      ["Free contract templates", "templates/contract-template.html", "Full template library by category."]
+    ],
+    "faq": [
+      ["Is an MOU a contract?", "Usually not — most are non-binding; but if it contains offer, acceptance, consideration and clear obligations, a court may enforce it as a contract."],
+      ["What is the difference between MOU and MOA?", "MOA (memorandum of agreement) tends to be more detailed and more often binding; MOU is generally a higher-level understanding."],
+      ["Do I need a lawyer?", "For collaborations between organisations or anything involving money/IP, yes — to ensure the binding/non-binding line is clear."],
+      ["Do MOUs need a term?", "Best practice is a fixed term (e.g. 12 months) with renewal option; open-ended MOUs can be hard to exit."],
+      ["Can individuals use MOUs?", "Yes — MOUs are useful for co-founders, creative collaborations and personal partnerships before a formal agreement is signed."]
+    ],
+    "cta": { "label": "Build your MOU", "href": "app/#/start/memorandum-of-understanding" },
+    "download": { "href": "samples/memorandum-of-understanding.docx", "label": "Download Word" }
+  },
+  {
+    "path": "templates/partnership-agreement-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Partnership Agreement | Free Word Template",
+    "h1": "Free partnership agreement template (Word)",
+    "description": "Free partnership agreement: set terms between business partners — ownership, profits, decisions and exit.",
+    "lead": "A binding contract between two or more business partners defining ownership percentages, profit/loss split, decision-making, capital contributions, roles and how a partner can leave or be bought out.",
+    "introParagraphs": ["A partnership agreement governs how co-owners run a business together. Without one, default state partnership law applies (usually equal ownership and 50/50 split of profits regardless of contribution), which rarely matches what founders intend.", "Cover ownership, capital, profit split, decision-making, admitting new partners, partner exits, death/disability, dispute resolution and dissolution. A good partnership agreement prevents costly disputes when things go well and when they do not."],
+    "bullets": [
+      ["Partners and business", "Legal names of partners, partnership name, business purpose, principal address and start date."],
+      ["Capital and ownership", "Each partner initial capital contribution (cash, property, services), ownership percentage, and how additional capital is called."],
+      ["Profits, losses and draws", "How profits/losses are allocated (may differ from ownership %), when distributions are made, and salary/draw rules."],
+      ["Management and decisions", "Voting rights (per capita or per ownership %), day-to-day authority, and what decisions require unanimous or supermajority vote (admitting partners, taking debt, selling the business)."],
+      ["Exit and dissolution", "What happens when a partner leaves, is disabled, dies or wants out: buyout formula, right of first refusal, non-compete, and wind-down process."]
+    ],
+    "howTo": [
+      ["Choose the partnership type", "Decide GP, LP or LLP structure (affects liability and tax); talk to an accountant about tax treatment."],
+      ["Agree on ownership and splits", "Talk openly about who contributes what, who does the work, and how profits/decisions are split — write that down."],
+      ["Define decision-making", "Specify what decisions require majority vs unanimous vote to avoid deadlock."],
+      ["Add buy-sell provisions", "Include a clear formula and process for buying out a departing/deceased/disabled partner and funding (life insurance is common)."],
+      ["Have a lawyer review", "Partnership law varies by state; have a business attorney review before signing, especially if you have outside investors or complex splits."]
+    ],
+    "related": [
+      ["Memorandum of understanding", "templates/memorandum-of-understanding-template.html", "Non-binding precursor to a partnership agreement."],
+      ["Letter of intent", "templates/letter-of-intent-template.html", "Headline terms before a formal agreement."],
+      ["Independent contractor agreement", "templates/independent-contractor-template.html", "For hiring non-partner service providers."],
+      ["Promissory note", "templates/promissory-note-template.html", "For partner loans to the business."],
+      ["Free contract templates", "templates/contract-template.html", "Full template library by category."]
+    ],
+    "faq": [
+      ["Do I need a written partnership agreement?", "Not legally required in most states, but strongly recommended — default rules rarely match your intentions and disputes are expensive."],
+      ["Is a 50/50 partnership a good idea?", "It is common but make sure you have a deadlock-breaking mechanism (e.g. mediation, buy-sell clause, tie-breaker director)."],
+      ["Can I change it later?", "Yes, by written agreement of all partners — amend and re-sign when circumstances change."],
+      ["What happens without one?", "Your state default partnership act applies: equal profit split, equal management rights, and partnership dissolves on a partner death or withdrawal."],
+      ["Should partners be employees too?", "Partners are generally not employees (they receive K-1s), but if a partner works day-to-day, a salary (guaranteed payment) can be specified in the agreement."]
+    ],
+    "cta": { "label": "Build your partnership agreement", "href": "app/#/start/partnership-agreement" },
+    "download": { "href": "samples/partnership-agreement.docx", "label": "Download Word" }
+  }
+]
