@@ -8,6 +8,14 @@
   <updated>2026-10-31T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.72.0 — Free-tools → hub cross-links: every free-tool page that mentions a Word template now links to the matching what-to-include hub (freelance rate → freelance/web-design/consulting/VA contract guides; template checker → independent contractor agreement; invoice due date, prorated rent, sales commission → their respective template guides), so calculator visitors can pivot directly into drafting guidance.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-72-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-72-0</id>
+    <published>2026-10-31T00:00:00Z</published>
+    <updated>2026-10-31T00:00:00Z</updated>
+    <summary>Free-tools → hub cross-links: every free-tool page that mentions a Word template now links to the matching what-to-include hub (freelance rate → freelance/web-design/consulting/VA contract guides; template checker → independent contractor agreement; invoice due date, prorated rent, sales commission → their respective template guides), so calculator visitors can pivot directly into drafting guidance.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.71.0 — Invoice sub-hub → flagship invoice hub cross-links: all 33 invoice-template subpages (by trade, country and format — simple/freelance/contractor/printable/quotation/estimate/etc.) now link back to the main invoice what-to-include hub, closing the last major internal-link gap in the invoice topical cluster.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-71-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-71-0</id>

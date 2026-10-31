@@ -305,7 +305,7 @@ ${termsTable()}
 <h2 style="margin-top:2rem">Choosing terms for your own invoices</h2>
 <ul><li><strong>Shorter terms get paid sooner.</strong> Net 14 is common for freelancers and small jobs; net 30 is the usual default between businesses.</li><li><strong>Put the terms in the contract, not just the invoice.</strong> A customer who agreed to net 14 in writing is harder to stretch to net 60. See the <a href="${rel}clauses/payment-terms-clause.html">payment terms clause</a> for sample wording.</li><li><strong>Say what happens when payment is late.</strong> A <a href="${rel}clauses/late-payment-interest-clause.html">late payment interest clause</a> gives you a right to interest and to pause work.</li><li><strong>Offer a discount only if cash matters more than margin.</strong> 2/10 net 30 gets many customers paying in 10 days, but it costs you 2% of every invoice they pay early.</li></ul>
 <h2>When the due date has passed</h2>
-<p>Send a polite reminder the day after, then a firmer one a week later. The free <a href="${rel}templates/payment-reminder-letter.html">payment reminder letter</a> and <a href="${rel}templates/payment-demand-letter.html">payment demand letter</a> templates are ready to fill in, the <a href="${rel}free-tools/late-payment-interest.html">late payment interest calculator</a> shows what you can add, and the guide <a href="${rel}guides/what-to-do-when-a-client-wont-pay.html">what to do when a client won't pay</a> covers the steps after that.</p>
+<p>Send a polite reminder the day after, then a firmer one a week later. The free <a href="${rel}templates/payment-reminder-letter.html">payment reminder letter</a> <span class="small muted">(<a href="${rel}templates/payment-reminder-letter-template.html">what to include</a>)</span> and <a href="${rel}templates/payment-demand-letter.html">payment demand letter</a> <span class="small muted">(<a href="${rel}templates/payment-demand-letter-template.html">what to include</a>)</span> are ready to fill in, the <a href="${rel}free-tools/late-payment-interest.html">late payment interest calculator</a> shows what you can add, and the guide <a href="${rel}guides/what-to-do-when-a-client-wont-pay.html">what to do when a client won't pay</a> covers the steps after that.</p>
 <p class="small muted">A calculation aid, not legal or tax advice. Your contract decides when payment is due.</p>
 ${embedSection('invoice-due-date')}
 <h2 style="margin-top:2.5rem">Questions</h2>
@@ -335,7 +335,7 @@ ${cta(rel, 'late-payment-interest')}</div></section>` },
 ${WIDGET['freelance-rate']}
 <p class="small muted">The tax rate is a single estimate; real tax depends on your country, income and deductions.</p>
 <h2>Put the rate in writing</h2>
-<p>Once you know your rate, put it in the contract with the revisions and extras it covers. See the free <a href="${rel}for/freelancers.html">freelance contract templates</a> and the <a href="${rel}clauses/payment-terms-clause.html">payment terms clause</a>.</p>
+<p>Once you know your rate, put it in the contract with the revisions and extras it covers. The free <a href="${rel}templates/freelance-contract.html">freelance contract template</a> sets out the rate, payment schedule, revisions, kill fee and IP terms, and the <a href="${rel}templates/web-design-contract-template.html">web design</a>, <a href="${rel}templates/consulting-agreement-template.html">consulting</a> and <a href="${rel}templates/virtual-assistant-agreement-template.html">virtual assistant</a> guides list clauses specific to each trade. See also the <a href="${rel}clauses/payment-terms-clause.html">payment terms clause</a> for sample wording.</p>
 ${embedSection('freelance-rate')}
 <h2 style="margin-top:2.5rem">Questions</h2>
 ${faqHtml(TOOL_FAQ[4])}
@@ -362,7 +362,7 @@ ${cta(rel, 'loan-repayment')}</div></section>` },
 ${WIDGET['sales-commission']}
 <p class="small muted">Commission is worked out on the sales figure you enter. If your plan pays on net sales, enter the amount after discounts, returns and taxes. A calculation aid, not financial or tax advice.</p>
 <h2>Put the commission plan in writing</h2>
-<p>A written plan avoids the most common commission disputes: what the rate applies to, when commission is earned, what happens on refunds, and what is paid after someone leaves. The free <a href="${rel}templates/sales-commission-agreement.html">sales commission agreement template</a> covers each of these, with an optional accelerator above a threshold and a recoverable or non-recoverable draw. Some places require commission plans for employees to be in writing, including California.</p>
+<p>A written plan avoids the most common commission disputes: what the rate applies to, when commission is earned, what happens on refunds, and what is paid after someone leaves. The free <a href="${rel}templates/sales-commission-agreement.html">sales commission agreement template</a> <span class="small muted">(<a href="${rel}templates/sales-commission-agreement-template.html">what to include</a>)</span> covers each of these, with an optional accelerator above a threshold and a recoverable or non-recoverable draw. Some places require commission plans for employees to be in writing, including California.</p>
 ${embedSection('sales-commission')}
 <h2 style="margin-top:2.5rem">Questions</h2>
 ${faqHtml(TOOL_FAQ[7])}
@@ -375,7 +375,7 @@ ${cta(rel, 'sales-commission')}</div></section>` },
 ${WIDGET['prorated-rent']}
 <p class="small muted">The move-in or move-out day counts as a day of the tenancy. Amounts are rounded to the cent and never exceed a full month's rent. A calculation aid, not legal or tax advice.</p>
 <h2>Write it into the lease</h2>
-<p>Put the prorated amount, the date it is due and the method in writing, so the first and last payments are not a surprise. The free <a href="${rel}templates/residential-lease-agreement.html">residential lease agreement</a> has an optional paragraph for a prorated first month, and a <a href="${rel}templates/sublease-agreement.html">sublease agreement</a> works for a room or a whole home for a few months. When a tenant leaves mid-month, the <a href="${rel}templates/security-deposit-return-letter.html">security deposit return letter</a> lists any rent still owed with the other deductions. More letters are on the <a href="${rel}for/landlords.html">landlord and tenant page</a>.</p>
+<p>Put the prorated amount, the date it is due and the method in writing, so the first and last payments are not a surprise. The free <a href="${rel}templates/residential-lease-agreement.html">residential lease agreement</a> <span class="small muted">(<a href="${rel}templates/residential-lease-agreement-template.html">what to include</a>)</span> has an optional paragraph for a prorated first month, and a <a href="${rel}templates/sublease-agreement.html">sublease agreement</a> <span class="small muted">(<a href="${rel}templates/sublease-agreement-template.html">what to include</a>)</span> works for a room or a whole home for a few months. When a tenant leaves mid-month, the <a href="${rel}templates/security-deposit-return-letter.html">security deposit return letter</a> <span class="small muted">(<a href="${rel}templates/security-deposit-return-letter-template.html">what to include</a>)</span> lists any rent still owed with the other deductions. More letters are on the <a href="${rel}for/landlords.html">landlord and tenant page</a>.</p>
 ${embedSection('prorated-rent')}
 <h2 style="margin-top:2.5rem">Questions</h2>
 ${faqHtml(TOOL_FAQ[8])}
@@ -391,7 +391,7 @@ ${cta(rel, 'prorated-rent')}</div></section>` },
 </div>
 <h2>What it checks</h2>
 <ul><li>Tags that are opened but not closed, such as <code>{client_name</code></li><li>Sections that do not match, such as <code>{#has_retainer}</code> closed by <code>{/retainer}</code></li><li>Tag names with spaces, hyphens or dots</li><li>Tags in the body, headers, footers, footnotes and endnotes</li></ul>
-<p>New to tags? Read <a href="${rel}guides/automate-word-templates.html">how to automate a Word template</a> or the full <a href="${rel}docs/templates.html">template syntax</a>.</p>
+<p>New to tags? Read <a href="${rel}guides/automate-word-templates.html">how to automate a Word template</a> or the full <a href="${rel}docs/templates.html">template syntax</a>. For a ready-made starting point, the <a href="${rel}templates/independent-contractor-template.html">independent contractor agreement guide</a> walks through a complete template with optional clauses and repeating lists.</p>
 <h2 style="margin-top:2.5rem">Questions</h2>
 ${faqHtml(TOOL_FAQ[2])}
 ${cta(rel, 'template-checker')}</div></section>` },
