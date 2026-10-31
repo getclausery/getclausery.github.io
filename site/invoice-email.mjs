@@ -2,7 +2,7 @@ import { esc, faqLd, SITE, LASTMOD, LASTMOD_LONG } from '../tools/partials.mjs';
 
 const PATH = 'guides/invoice-email-template.html';
 const TITLE = 'Invoice email template: send, remind and follow up';
-const DESCRIPTION = 'Write an invoice email with a free generator and four copyable examples: send an invoice, remind a client, follow up on overdue payment and acknowledge payment.';
+const DESCRIPTION = 'Write an invoice email with a free generator and four copyable examples: send an invoice, remind a client and follow up on late payment.';
 const SOURCES = [
   ['Australian Government: how to invoice', 'https://business.gov.au/finance/payments-and-invoicing/how-to-invoice'],
   ['Australian Government: what to do when you haven’t been paid', 'https://business.gov.au/finance/financial-trouble/what-to-do-when-you-havent-been-paid'],

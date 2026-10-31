@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-10-31",
-  "hash": "49aa74481a7a6ef0"
+  "hash": "878789e404356f27"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-31",
-  "hash": "33393ed9308a5747"
+  "hash": "0acd2f0a5e5366e7"
  },
  "clauses/": {
   "date": "2026-10-28",
@@ -300,56 +300,56 @@
   "hash": "fdf1b64a94b4b29d"
  },
  "guides/": {
-  "date": "2026-10-29",
-  "hash": "0f2f2db4e8866327"
+  "date": "2026-10-31",
+  "hash": "3d68e7d53441ecbf"
  },
  "guides/are-liability-waivers-enforceable.html": {
-  "date": "2026-10-25",
-  "hash": "774c252605b6de27"
+  "date": "2026-10-31",
+  "hash": "0762636e1ce0b05c"
  },
  "guides/are-non-competes-enforceable.html": {
-  "date": "2026-10-25",
-  "hash": "35836ff014ddd7d1"
+  "date": "2026-10-31",
+  "hash": "d75fdd3b2ff068d7"
  },
  "guides/automate-word-templates.html": {
-  "date": "2026-10-25",
-  "hash": "976b2b410356b93e"
+  "date": "2026-10-31",
+  "hash": "159f3baaab49a94c"
  },
  "guides/client-intake-without-a-portal.html": {
-  "date": "2026-10-25",
-  "hash": "989c00f9afeef8b8"
+  "date": "2026-10-31",
+  "hash": "d2f433457d20a61b"
  },
  "guides/conditional-clauses-in-word.html": {
-  "date": "2026-10-25",
-  "hash": "61cbdd63df49416a"
+  "date": "2026-10-31",
+  "hash": "2595fb3018e8ba15"
  },
  "guides/confidentiality-checklist-document-software.html": {
-  "date": "2026-10-25",
-  "hash": "5fc57e5626815003"
+  "date": "2026-10-31",
+  "hash": "6f07324b5c07f154"
  },
  "guides/do-i-need-a-model-release.html": {
-  "date": "2026-10-25",
-  "hash": "07d55be1fa2801e4"
+  "date": "2026-10-31",
+  "hash": "d327f6f59fab2bc2"
  },
  "guides/gst-hst-invoice-requirements-canada.html": {
-  "date": "2026-10-25",
-  "hash": "fde1072becc4c951"
+  "date": "2026-10-31",
+  "hash": "3170a2148851b96b"
  },
  "guides/how-does-consignment-work.html": {
-  "date": "2026-10-25",
-  "hash": "6f82c1fa113c3268"
+  "date": "2026-10-31",
+  "hash": "4ded00adcdb4e2be"
  },
  "guides/how-long-should-an-nda-last.html": {
-  "date": "2026-10-25",
-  "hash": "58d68cbf3ac9de92"
+  "date": "2026-10-31",
+  "hash": "fcc76d2b71f5c733"
  },
  "guides/how-to-lend-money-to-family.html": {
-  "date": "2026-10-25",
-  "hash": "49816c914b7e4d1f"
+  "date": "2026-10-31",
+  "hash": "3045ce42401432ef"
  },
  "guides/how-to-return-a-security-deposit.html": {
-  "date": "2026-10-25",
-  "hash": "9ce32fb21d54e56d"
+  "date": "2026-10-31",
+  "hash": "6b7358c207b6bd93"
  },
  "guides/how-to-save-an-invoice-as-pdf.html": {
   "date": "2026-10-24",
@@ -360,48 +360,48 @@
   "hash": "0fcc2e86c487ffd5"
  },
  "guides/how-to-terminate-a-contract.html": {
-  "date": "2026-10-25",
-  "hash": "ce8d460d6368fe52"
+  "date": "2026-10-31",
+  "hash": "caf98302a7774780"
  },
  "guides/how-to-write-a-bill-of-sale.html": {
-  "date": "2026-10-25",
-  "hash": "dac85c302d414645"
+  "date": "2026-10-31",
+  "hash": "97ea29c9444dc0b2"
  },
  "guides/how-to-write-a-cease-and-desist-letter.html": {
-  "date": "2026-10-25",
-  "hash": "da263c0263055fa5"
+  "date": "2026-10-31",
+  "hash": "439df07470e90926"
  },
  "guides/how-to-write-a-cleaning-services-contract.html": {
   "date": "2026-10-25",
   "hash": "7b6c2ea3cd37cf02"
  },
  "guides/how-to-write-a-freelance-contract.html": {
-  "date": "2026-10-25",
-  "hash": "3568a93971ea37fc"
+  "date": "2026-10-31",
+  "hash": "79dfad8e78b0bd89"
  },
  "guides/how-to-write-a-gift-letter-for-a-mortgage.html": {
-  "date": "2026-10-25",
-  "hash": "2b8567ad72f49aab"
+  "date": "2026-10-31",
+  "hash": "c9c77491083e5d92"
  },
  "guides/how-to-write-a-job-description.html": {
-  "date": "2026-10-25",
-  "hash": "9eabc8ef0e9ccbc2"
+  "date": "2026-10-31",
+  "hash": "cdf2debca8d0661c"
  },
  "guides/how-to-write-a-notice-to-vacate.html": {
-  "date": "2026-10-25",
-  "hash": "7d4e6b16063c9b0a"
+  "date": "2026-10-31",
+  "hash": "98bb9c40408fc8fa"
  },
  "guides/how-to-write-a-payment-demand-letter.html": {
-  "date": "2026-10-25",
-  "hash": "b9b6aecd56006e4c"
+  "date": "2026-10-31",
+  "hash": "abf927c65081516c"
  },
  "guides/how-to-write-a-payment-receipt.html": {
   "date": "2026-10-24",
   "hash": "001bc463f2d9d93f"
  },
  "guides/how-to-write-a-performance-improvement-plan.html": {
-  "date": "2026-10-25",
-  "hash": "713ada29be67d7e3"
+  "date": "2026-10-31",
+  "hash": "bc15ffcdc335bac5"
  },
  "guides/how-to-write-a-photography-contract.html": {
   "date": "2026-10-25",
@@ -412,100 +412,100 @@
   "hash": "c9325e301f67ebdb"
  },
  "guides/how-to-write-a-purchase-order.html": {
-  "date": "2026-10-25",
-  "hash": "a72095e7c62a063c"
+  "date": "2026-10-31",
+  "hash": "96cfcd785d4c1b22"
  },
  "guides/how-to-write-a-reference-letter.html": {
-  "date": "2026-10-25",
-  "hash": "24cbd49ae4fb8002"
+  "date": "2026-10-31",
+  "hash": "d2572f89ed6515cc"
  },
  "guides/how-to-write-a-remote-work-agreement.html": {
   "date": "2026-10-25",
   "hash": "effdaeb4948fc550"
  },
  "guides/how-to-write-a-rent-increase-letter.html": {
-  "date": "2026-10-25",
-  "hash": "0bb1f2937251b681"
+  "date": "2026-10-31",
+  "hash": "3408bc76e7e42404"
  },
  "guides/how-to-write-a-salary-increase-letter.html": {
-  "date": "2026-10-25",
-  "hash": "81e7b020fbeccea0"
+  "date": "2026-10-31",
+  "hash": "d691ed9fa0e8f062"
  },
  "guides/how-to-write-a-sublease-agreement.html": {
   "date": "2026-10-25",
   "hash": "7bc2b57e01e2c36a"
  },
  "guides/how-to-write-a-termination-letter.html": {
-  "date": "2026-10-25",
-  "hash": "b66ff51e8eed9b76"
+  "date": "2026-10-31",
+  "hash": "6bfe1b80c2bbf45c"
  },
  "guides/how-to-write-a-two-weeks-notice-letter.html": {
-  "date": "2026-10-25",
-  "hash": "3f2dc1e3bc9a85cb"
+  "date": "2026-10-31",
+  "hash": "7e7b92e10123e5b4"
  },
  "guides/how-to-write-an-employee-warning-letter.html": {
-  "date": "2026-10-25",
-  "hash": "4a284bd3b5b71f67"
+  "date": "2026-10-31",
+  "hash": "fc07650d511e38f4"
  },
  "guides/how-to-write-an-expense-reimbursement-form.html": {
-  "date": "2026-10-25",
-  "hash": "c5148f02006fc931"
+  "date": "2026-10-31",
+  "hash": "1022479cef9a22ae"
  },
  "guides/how-to-write-an-independent-contractor-agreement.html": {
   "date": "2026-10-25",
   "hash": "4b69789fd0812025"
  },
  "guides/how-to-write-an-invoice.html": {
-  "date": "2026-10-25",
-  "hash": "69fada09121e3cd2"
+  "date": "2026-10-31",
+  "hash": "673fff853d91a70d"
  },
  "guides/how-to-write-an-offer-letter.html": {
-  "date": "2026-10-25",
-  "hash": "07ae40c9c89c78c8"
+  "date": "2026-10-31",
+  "hash": "469a49c9a11ef510"
  },
  "guides/how-to-write-meeting-minutes.html": {
   "date": "2026-10-25",
   "hash": "706ab1819c3bd0d6"
  },
  "guides/invoice-email-template.html": {
-  "date": "2026-10-24",
-  "hash": "1bfcd4fec81ac33f"
+  "date": "2026-10-31",
+  "hash": "6008b0fc949b469e"
  },
  "guides/is-an-mou-legally-binding.html": {
-  "date": "2026-10-25",
-  "hash": "06064117c4452d25"
+  "date": "2026-10-31",
+  "hash": "219c80031daa21bf"
  },
  "guides/mail-merge-vs-document-automation.html": {
-  "date": "2026-10-25",
-  "hash": "0eb24ebecc850f8d"
+  "date": "2026-10-31",
+  "hash": "cbd4e0cd85d745b4"
  },
  "guides/mutual-vs-one-way-nda.html": {
-  "date": "2026-10-25",
-  "hash": "8a55958d8f7a7eb2"
+  "date": "2026-10-31",
+  "hash": "22f696d754c8078b"
  },
  "guides/nda-vs-confidentiality-agreement.html": {
-  "date": "2026-10-25",
-  "hash": "22248116b79582c1"
+  "date": "2026-10-31",
+  "hash": "8e884b1de7687ede"
  },
  "guides/non-compete-vs-non-solicitation.html": {
-  "date": "2026-10-25",
-  "hash": "ddb09de79296c38f"
+  "date": "2026-10-31",
+  "hash": "9a1465f3b932b5bb"
  },
  "guides/quote-vs-estimate-vs-invoice.html": {
-  "date": "2026-10-25",
-  "hash": "66f5cc897cf872e7"
+  "date": "2026-10-31",
+  "hash": "53a0effacbaee917"
  },
  "guides/repeating-lists-and-tables-in-word.html": {
-  "date": "2026-10-25",
-  "hash": "7b20ee67ef35d0d6"
+  "date": "2026-10-31",
+  "hash": "b4120d72bdf034fb"
  },
  "guides/tax-invoice-requirements-australia.html": {
-  "date": "2026-10-25",
-  "hash": "c53aacad49194243"
+  "date": "2026-10-31",
+  "hash": "db42d8d2728f0e40"
  },
  "guides/what-bank-details-to-put-on-an-invoice.html": {
-  "date": "2026-10-25",
-  "hash": "c1e859d7729bed1a"
+  "date": "2026-10-31",
+  "hash": "4c10a69224117a39"
  },
  "guides/what-is-a-change-order.html": {
   "date": "2026-10-25",
@@ -516,40 +516,40 @@
   "hash": "93f8f126e00cbcbc"
  },
  "guides/what-is-a-hold-harmless-agreement.html": {
-  "date": "2026-10-25",
-  "hash": "69ab73c4bf4f1fc9"
+  "date": "2026-10-31",
+  "hash": "3a71e4a0115c72dd"
  },
  "guides/what-is-a-kill-fee.html": {
-  "date": "2026-10-25",
-  "hash": "89d5cd94ec0cc0ce"
+  "date": "2026-10-31",
+  "hash": "bc2ea9d53e1e4b4c"
  },
  "guides/what-is-a-sales-commission-agreement.html": {
   "date": "2026-10-25",
   "hash": "ee5bf935e5d2c9af"
  },
  "guides/what-to-do-when-a-client-wont-pay.html": {
-  "date": "2026-10-25",
-  "hash": "bf7e5c558f00e388"
+  "date": "2026-10-31",
+  "hash": "20c12713085dc045"
  },
  "guides/what-to-include-in-a-lease-agreement.html": {
-  "date": "2026-10-25",
-  "hash": "c3c8c82499082b10"
+  "date": "2026-10-31",
+  "hash": "93c7337cf94185d7"
  },
  "guides/what-to-include-in-a-partnership-agreement.html": {
-  "date": "2026-10-25",
-  "hash": "26e76dd1e18b0685"
+  "date": "2026-10-31",
+  "hash": "e2b986c93d71b925"
  },
  "guides/what-to-include-in-a-room-rental-agreement.html": {
   "date": "2026-10-25",
   "hash": "37d08e59eb2dcf5e"
  },
  "guides/what-to-include-in-a-roommate-agreement.html": {
-  "date": "2026-10-25",
-  "hash": "fe873acd8dd3162c"
+  "date": "2026-10-31",
+  "hash": "829bbb38aed3defe"
  },
  "guides/what-to-include-in-a-severance-agreement.html": {
-  "date": "2026-10-25",
-  "hash": "006425ec0abb4ff6"
+  "date": "2026-10-31",
+  "hash": "c6b1c68728877bbf"
  },
  "guides/what-to-include-in-a-statement-of-work.html": {
   "date": "2026-10-25",
@@ -564,28 +564,28 @@
   "hash": "9a38f9591e989110"
  },
  "guides/what-to-include-in-an-nda.html": {
-  "date": "2026-10-25",
-  "hash": "e8a6a599d9f9a04e"
+  "date": "2026-10-31",
+  "hash": "dea7f2710be2bc28"
  },
  "guides/what-to-include-on-a-vat-invoice.html": {
-  "date": "2026-10-25",
-  "hash": "5dca8627c421db5c"
+  "date": "2026-10-31",
+  "hash": "716d20645b7bfe9d"
  },
  "invoice-templates/": {
   "date": "2026-10-31",
-  "hash": "c3a12f65ab6b298e"
+  "hash": "c04b4812eb458fd9"
  },
  "invoice-templates/australia-tax-invoice.html": {
-  "date": "2026-10-08",
-  "hash": "495347c2114323b7"
+  "date": "2026-10-31",
+  "hash": "e77c480e8d945064"
  },
  "invoice-templates/blank-invoice.html": {
   "date": "2026-10-31",
   "hash": "38bb6ea9314a7354"
  },
  "invoice-templates/canada-gst-hst-invoice.html": {
-  "date": "2026-10-08",
-  "hash": "b9cd2ca783339fad"
+  "date": "2026-10-31",
+  "hash": "8403c66bb9956212"
  },
  "invoice-templates/cleaning.html": {
   "date": "2026-10-07",
@@ -624,20 +624,20 @@
   "hash": "a5e3a37963d694f1"
  },
  "invoice-templates/freelance-writing.html": {
-  "date": "2026-10-07",
-  "hash": "b4f3ad41b88bf833"
+  "date": "2026-10-31",
+  "hash": "cfd68ff69a31156f"
  },
  "invoice-templates/google-docs-invoice.html": {
   "date": "2026-10-31",
   "hash": "1e88d40b60397335"
  },
  "invoice-templates/graphic-design.html": {
-  "date": "2026-10-07",
-  "hash": "1de08b47bdc125a5"
+  "date": "2026-10-31",
+  "hash": "e3cb8c87678544c9"
  },
  "invoice-templates/handyman.html": {
-  "date": "2026-10-07",
-  "hash": "8e92e4046d17f1c1"
+  "date": "2026-10-31",
+  "hash": "6ba69ad22aa81b0e"
  },
  "invoice-templates/hourly-invoice.html": {
   "date": "2026-10-09",
@@ -660,12 +660,12 @@
   "hash": "cfd6505b7da20692"
  },
  "invoice-templates/personal-training.html": {
-  "date": "2026-10-07",
-  "hash": "2b77695c351ff5c5"
+  "date": "2026-10-31",
+  "hash": "ac9fc16b309951ca"
  },
  "invoice-templates/photography.html": {
-  "date": "2026-10-07",
-  "hash": "b91f676f71107b93"
+  "date": "2026-10-31",
+  "hash": "a484f0f421b34a68"
  },
  "invoice-templates/proforma-invoice.html": {
   "date": "2026-10-31",
@@ -688,8 +688,8 @@
   "hash": "d89d8fb2dd786357"
  },
  "invoice-templates/uk-vat-invoice.html": {
-  "date": "2026-10-08",
-  "hash": "627ae7bcf4764f0b"
+  "date": "2026-10-31",
+  "hash": "15b407feb40d8188"
  },
  "invoice-templates/videography.html": {
   "date": "2026-10-07",
@@ -777,27 +777,27 @@
  },
  "templates/": {
   "date": "2026-10-31",
-  "hash": "9ad3eafce22ff380"
+  "hash": "c651b37e6302750f"
  },
  "templates/bill-of-sale.html": {
   "date": "2026-10-31",
-  "hash": "1f1f952b2a459926"
+  "hash": "f8ac14b3204e2d1c"
  },
  "templates/board-resolution.html": {
   "date": "2026-10-30",
   "hash": "976958b470d8bede"
  },
  "templates/business-sale-nda.html": {
-  "date": "2026-10-30",
-  "hash": "9f94dcaa13652689"
+  "date": "2026-10-31",
+  "hash": "717cd2ae15238f30"
  },
  "templates/catering-contract.html": {
-  "date": "2026-10-30",
-  "hash": "a33aef83d1ee4115"
+  "date": "2026-10-31",
+  "hash": "99da64c04458a8da"
  },
  "templates/cease-and-desist-letter.html": {
   "date": "2026-10-31",
-  "hash": "f05a2faf957cb86c"
+  "hash": "59d77c03df61c2d6"
  },
  "templates/change-order-form.html": {
   "date": "2026-10-30",
@@ -808,24 +808,24 @@
   "hash": "3984147a10375e76"
  },
  "templates/coaching-agreement.html": {
-  "date": "2026-10-30",
-  "hash": "55891306250d7aa6"
+  "date": "2026-10-31",
+  "hash": "177ab3fe9e28b7b8"
  },
  "templates/consignment-agreement.html": {
-  "date": "2026-10-30",
-  "hash": "b8b7bd5c4c62c8c4"
+  "date": "2026-10-31",
+  "hash": "49d43d93c87a7d9e"
  },
  "templates/consulting-agreement.html": {
   "date": "2026-10-31",
   "hash": "c42378467f481609"
  },
  "templates/contract-termination-letter.html": {
-  "date": "2026-10-30",
-  "hash": "58621a4827444539"
+  "date": "2026-10-31",
+  "hash": "655512583d848a51"
  },
  "templates/contractor-nda.html": {
   "date": "2026-10-31",
-  "hash": "8020137c9d2cb867"
+  "hash": "99ce80ade0c73a66"
  },
  "templates/credit-note.html": {
   "date": "2026-10-31",
@@ -833,23 +833,23 @@
  },
  "templates/employee-nda.html": {
   "date": "2026-10-31",
-  "hash": "fec97301edfccb29"
+  "hash": "00add306a3b5d989"
  },
  "templates/employee-warning-letter.html": {
-  "date": "2026-10-30",
-  "hash": "a72f4087b58b32fd"
+  "date": "2026-10-31",
+  "hash": "87671463f999bea9"
  },
  "templates/employment-agreement.html": {
   "date": "2026-10-31",
-  "hash": "e701a51750a4ec99"
+  "hash": "dc73fe1bcd561223"
  },
  "templates/employment-termination-letter.html": {
   "date": "2026-10-31",
-  "hash": "75cb84e244db8d65"
+  "hash": "4326fe2f2c6aadaf"
  },
  "templates/employment-verification-letter.html": {
-  "date": "2026-10-30",
-  "hash": "335915feb88600ea"
+  "date": "2026-10-31",
+  "hash": "c4b9800de769fbe7"
  },
  "templates/engagement-letter.html": {
   "date": "2026-10-30",
@@ -860,156 +860,156 @@
   "hash": "5f9869d5e6f4d1ee"
  },
  "templates/event-planning-contract.html": {
-  "date": "2026-10-30",
-  "hash": "1f6754661082b2a7"
+  "date": "2026-10-31",
+  "hash": "be92243a4c083b35"
  },
  "templates/expense-reimbursement-form.html": {
-  "date": "2026-10-30",
-  "hash": "2d5a3a27b39e54ba"
+  "date": "2026-10-31",
+  "hash": "460e7952542d581a"
  },
  "templates/freelance-contract.html": {
   "date": "2026-10-31",
   "hash": "c999f721b9040c03"
  },
  "templates/freelance-writing-contract.html": {
-  "date": "2026-10-30",
-  "hash": "1522638736ff4a7f"
+  "date": "2026-10-31",
+  "hash": "f7e68d53d0f11ebc"
  },
  "templates/general-release.html": {
-  "date": "2026-10-29",
-  "hash": "79b9789eddc3fe5f"
+  "date": "2026-10-31",
+  "hash": "779c2762a237012b"
  },
  "templates/gift-letter.html": {
-  "date": "2026-10-30",
-  "hash": "8f435182e8bb9f14"
+  "date": "2026-10-31",
+  "hash": "b99d37101f59f4e6"
  },
  "templates/graphic-design-contract.html": {
-  "date": "2026-10-30",
-  "hash": "8ef4c201ef8cbf48"
+  "date": "2026-10-31",
+  "hash": "70d8c1cb51b5b518"
  },
  "templates/hold-harmless-agreement.html": {
-  "date": "2026-10-30",
-  "hash": "79211e089178ca79"
+  "date": "2026-10-31",
+  "hash": "6c34114de7315de9"
  },
  "templates/independent-contractor-agreement.html": {
   "date": "2026-10-31",
   "hash": "eabed5c62e44e1f5"
  },
  "templates/internship-offer-letter.html": {
-  "date": "2026-10-30",
-  "hash": "794b771b7b97f708"
+  "date": "2026-10-31",
+  "hash": "57033321dec33f54"
  },
  "templates/invoice.html": {
   "date": "2026-10-31",
-  "hash": "94f659989da4dcb7"
+  "hash": "5f8b5c348d714a30"
  },
  "templates/job-description.html": {
-  "date": "2026-10-30",
-  "hash": "51f5bc13354b47b1"
+  "date": "2026-10-31",
+  "hash": "645cd47e8a8ea048"
  },
  "templates/landlord-reference-letter.html": {
-  "date": "2026-10-30",
-  "hash": "b54cbdd7cc4f88b2"
+  "date": "2026-10-31",
+  "hash": "953d98932a83d375"
  },
  "templates/late-rent-notice.html": {
   "date": "2026-10-31",
-  "hash": "f6a11baacb3f7809"
+  "hash": "8183a308774aa1e8"
  },
  "templates/lease-renewal-letter.html": {
-  "date": "2026-10-30",
-  "hash": "84776379f0bc5be6"
+  "date": "2026-10-31",
+  "hash": "cb75b4e4c819c946"
  },
  "templates/lease-termination-agreement.html": {
-  "date": "2026-10-30",
-  "hash": "dd9275d84deec1f3"
+  "date": "2026-10-31",
+  "hash": "a9aab7ab129ebefa"
  },
  "templates/letter-of-intent.html": {
-  "date": "2026-10-29",
-  "hash": "a55e74bdd8cbba8b"
+  "date": "2026-10-31",
+  "hash": "91775fd84462ead1"
  },
  "templates/liability-waiver.html": {
   "date": "2026-10-31",
-  "hash": "f701f14502b1f863"
+  "hash": "0a7c725f0c7233a6"
  },
  "templates/loan-agreement.html": {
   "date": "2026-10-31",
-  "hash": "2bc9d9c6ab312886"
+  "hash": "3c1d383dc5ae22f5"
  },
  "templates/meeting-minutes.html": {
   "date": "2026-10-31",
   "hash": "66e588fe7138f8ec"
  },
  "templates/memorandum-of-understanding.html": {
-  "date": "2026-10-29",
-  "hash": "d5b5b51df014cfdb"
+  "date": "2026-10-31",
+  "hash": "9d74cf78a8c52b08"
  },
  "templates/move-in-checklist.html": {
-  "date": "2026-10-30",
-  "hash": "034f7ea59be58602"
+  "date": "2026-10-31",
+  "hash": "b0b88da18e4e7dcc"
  },
  "templates/mutual-nda.html": {
   "date": "2026-10-31",
-  "hash": "38bc115072bfd078"
+  "hash": "0046011bb024c5ee"
  },
  "templates/nanny-contract.html": {
-  "date": "2026-10-30",
-  "hash": "b7f1e43e2ff36242"
+  "date": "2026-10-31",
+  "hash": "7d0a66b826addb48"
  },
  "templates/non-compete-agreement.html": {
   "date": "2026-10-31",
-  "hash": "4a303b9a197120cd"
+  "hash": "c18bcd055c1de5e4"
  },
  "templates/non-solicitation-agreement.html": {
   "date": "2026-10-31",
-  "hash": "7867f13df3c19512"
+  "hash": "d1583ec479e458c4"
  },
  "templates/notice-to-vacate.html": {
   "date": "2026-10-31",
-  "hash": "07e0238535fbc83d"
+  "hash": "beb1065597f314fe"
  },
  "templates/offer-letter.html": {
   "date": "2026-10-31",
-  "hash": "900bb575e358c84b"
+  "hash": "481f6d0a3276f379"
  },
  "templates/one-way-nda.html": {
   "date": "2026-10-31",
-  "hash": "9e7e46f68b70038e"
+  "hash": "1a70f0ad9e9bd5ee"
  },
  "templates/partnership-agreement.html": {
   "date": "2026-10-31",
-  "hash": "8164e3ae5aaa192b"
+  "hash": "a03df44eabd1a108"
  },
  "templates/payment-demand-letter.html": {
-  "date": "2026-10-30",
-  "hash": "5e4f4ee9f615a642"
+  "date": "2026-10-31",
+  "hash": "bce987dd47ffee77"
  },
  "templates/payment-receipt.html": {
   "date": "2026-10-31",
-  "hash": "2006c02e3ab47988"
+  "hash": "dfc8ccee3fa6b7ae"
  },
  "templates/payment-reminder-letter.html": {
-  "date": "2026-10-30",
-  "hash": "90ff4904ef2228ad"
+  "date": "2026-10-31",
+  "hash": "d683c4713d1c905e"
  },
  "templates/performance-improvement-plan.html": {
-  "date": "2026-10-30",
-  "hash": "48f7226a934c9ee8"
+  "date": "2026-10-31",
+  "hash": "2fc86df86b5cf822"
  },
  "templates/personal-training-agreement.html": {
-  "date": "2026-10-30",
-  "hash": "c09a9c0e9e88b0e6"
+  "date": "2026-10-31",
+  "hash": "86cfb2ea7e2daae2"
  },
  "templates/pet-addendum.html": {
-  "date": "2026-10-30",
-  "hash": "e3682488de2607dd"
+  "date": "2026-10-31",
+  "hash": "cbf69edb24761dd6"
  },
  "templates/pet-sitting-agreement.html": {
-  "date": "2026-10-29",
-  "hash": "41147a7d4948d975"
+  "date": "2026-10-31",
+  "hash": "8b9728dfcbf8a1c7"
  },
  "templates/photo-release-form.html": {
-  "date": "2026-10-29",
-  "hash": "9f565610872a72e3"
+  "date": "2026-10-31",
+  "hash": "4b235aefe84737d7"
  },
  "templates/photography-contract.html": {
   "date": "2026-10-30",
@@ -1020,8 +1020,8 @@
   "hash": "8a1f5b9718592b24"
  },
  "templates/promotion-letter.html": {
-  "date": "2026-10-30",
-  "hash": "c2dfd5e30c3a58ad"
+  "date": "2026-10-31",
+  "hash": "68cba2e26d6d5554"
  },
  "templates/purchase-order.html": {
   "date": "2026-10-31",
@@ -1029,11 +1029,11 @@
  },
  "templates/quote.html": {
   "date": "2026-10-31",
-  "hash": "9ae846cb7e31f30a"
+  "hash": "2991e7252c9f53a4"
  },
  "templates/reference-letter.html": {
   "date": "2026-10-31",
-  "hash": "65162522c0a9fa21"
+  "hash": "6f53ce66221d98f7"
  },
  "templates/remote-work-agreement.html": {
   "date": "2026-10-30",
@@ -1041,7 +1041,7 @@
  },
  "templates/rent-increase-letter.html": {
   "date": "2026-10-31",
-  "hash": "224c9f0cdb1857d8"
+  "hash": "8ceb9b870b66d36b"
  },
  "templates/rent-payment-plan-agreement.html": {
   "date": "2026-10-30",
@@ -1049,35 +1049,35 @@
  },
  "templates/rent-receipt.html": {
   "date": "2026-10-31",
-  "hash": "503bffab80086429"
+  "hash": "55e2834e449256b7"
  },
  "templates/rental-application.html": {
   "date": "2026-10-31",
-  "hash": "ddff0529119fa503"
+  "hash": "98c40b782e2ef213"
  },
  "templates/residential-lease-agreement.html": {
   "date": "2026-10-31",
-  "hash": "51d224e6292b26ff"
+  "hash": "8efb404f505a7a23"
  },
  "templates/resignation-letter.html": {
   "date": "2026-10-31",
-  "hash": "2a1119f2cbca665f"
+  "hash": "d129510ad81eaa5b"
  },
  "templates/retainer-agreement.html": {
-  "date": "2026-10-30",
-  "hash": "e9b850e5c87ffe3d"
+  "date": "2026-10-31",
+  "hash": "97b7225d03da3f08"
  },
  "templates/room-rental-agreement.html": {
   "date": "2026-10-30",
   "hash": "dd7d6ba1c104fee5"
  },
  "templates/roommate-agreement.html": {
-  "date": "2026-10-29",
-  "hash": "8b5fccb732adab7b"
+  "date": "2026-10-31",
+  "hash": "6c5f7cc979bdb7bf"
  },
  "templates/salary-increase-letter.html": {
   "date": "2026-10-31",
-  "hash": "4f793c6e5dc03cb9"
+  "hash": "d917d69d1c81601b"
  },
  "templates/sales-commission-agreement.html": {
   "date": "2026-10-29",
@@ -1085,27 +1085,27 @@
  },
  "templates/security-deposit-return-letter.html": {
   "date": "2026-10-31",
-  "hash": "4f43421e884c885e"
+  "hash": "f9a166f462800a55"
  },
  "templates/service-agreement.html": {
   "date": "2026-10-31",
   "hash": "20200a39700adb34"
  },
  "templates/severance-agreement.html": {
-  "date": "2026-10-30",
-  "hash": "1d44bf9f79cd9e64"
+  "date": "2026-10-31",
+  "hash": "5f3a28d7a7568e2a"
  },
  "templates/social-media-management-contract.html": {
-  "date": "2026-10-30",
-  "hash": "a079d433534e4c2e"
+  "date": "2026-10-31",
+  "hash": "aac105d493e6a3b4"
  },
  "templates/statement-of-work.html": {
   "date": "2026-10-30",
   "hash": "f9e4ddbdde31c1a4"
  },
  "templates/subcontractor-agreement.html": {
-  "date": "2026-10-30",
-  "hash": "d9d7ef66f499999c"
+  "date": "2026-10-31",
+  "hash": "d1971238818ef0f3"
  },
  "templates/sublease-agreement.html": {
   "date": "2026-10-29",
@@ -1117,19 +1117,19 @@
  },
  "templates/two-weeks-notice-letter.html": {
   "date": "2026-10-31",
-  "hash": "2b88dcc50adb6aef"
+  "hash": "4b9f215dc2b1609b"
  },
  "templates/video-production-contract.html": {
-  "date": "2026-10-30",
-  "hash": "199e025887e36ff2"
+  "date": "2026-10-31",
+  "hash": "95f81743b83fd4a0"
  },
  "templates/virtual-assistant-agreement.html": {
-  "date": "2026-10-30",
-  "hash": "980004b2c056d314"
+  "date": "2026-10-31",
+  "hash": "009b45fba01c0456"
  },
  "templates/web-design-contract.html": {
-  "date": "2026-10-30",
-  "hash": "aa999a6848a8ad7b"
+  "date": "2026-10-31",
+  "hash": "1df3daa0719d82b9"
  },
  "why-clausery/": {
   "date": "2026-10-24",
