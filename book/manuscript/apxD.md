@@ -76,21 +76,21 @@ A parish group can work through the argument in six evenings of about ninety min
 six weeks if each session carries a practice. Read the chapters before the session; the
 questions are for the ninety minutes, not for the reading.
 
-**Session one — the question in the room (chapters 1–4).** Read chapters 1, 2, and 4.
+**Session one — the question in the room (chapters 1–2, 4).** Read chapters 1, 2, and 4.
 Ask first: *what did you already believe about this before you opened the book, and where
 did that belief come from?* Then: *chapter 4 says attention, words, imagination, and desire
 really do shape a life. Which of those four has been true in your own experience — and which
 one do you distrust?* Between sessions: keep the journal of chapter 1 for a week, described
 plainly, with no attempt to make anything happen.
 
-**Session two — the audit (chapters 8–12, 13).** Read chapters 8, 9, and 13. Ask: *where
+**Session two — the audit (chapters 8–9, 13).** Read chapters 8, 9, and 13. Ask: *where
 does the engine actually fail — at the metaphysics, at the pastoral practice, or at the
 promise?* Then, working from Appendix A, each person takes one disputed question and argues
 it as the book does: describe the claim, admit what is true in it, name what must change,
 state the practice. Between sessions: take one manifest practice you still use and write
 the three-part answer to it for yourself.
 
-**Session three — the reclamation (chapters 16–20).** Read chapters 16, 19, and 20. Ask:
+**Session three — the reclamation (chapters 16, 19–20).** Read chapters 16, 19, and 20. Ask:
 *"manifestation" is a divine word before it is a technique — where in Scripture or the
 liturgy have you heard it used that way?* Then: *what would change in your week if you
 treated attention as a form of stewardship rather than a resource?* Between sessions: one
