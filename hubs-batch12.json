@@ -1,0 +1,202 @@
+[
+  {
+    "path": "templates/employee-nda-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Employee NDA | Free Word Template",
+    "h1": "Free employee NDA (confidentiality agreement) template (Word)",
+    "description": "Free employee NDA: protect company trade secrets and confidential information shared with staff.",
+    "lead": "A confidentiality agreement signed by an employee at hire (or before accessing sensitive information) promising not to disclose company trade secrets, customer lists or confidential information during or after employment.",
+    "introParagraphs": ["An employee NDA (or employee confidentiality agreement) protects company trade secrets, customer lists, business plans, source code and other confidential information from being disclosed by employees during or after employment.", "NDAs are enforceable when they protect legitimate business secrets. They cannot be used to silence whistleblowers, prevent reporting of illegal activity, or cover up harassment — many US states (including California, Washington and New York) have recently restricted overly broad NDAs."],
+    "bullets": [
+      ["Parties", "Employer name and address; employee name and role; effective date."],
+      ["Definition of confidential information", "Broad but specific categories: trade secrets, customer lists, financials, source code, product plans, internal processes — excluding public information and information the employee already knew."],
+      ["Employee obligations", "Not to disclose, not to use outside employment, to protect and return materials at termination, and to secure access."],
+      ["Exclusions", "Information that is/ becomes public through no fault of the employee, independently developed, rightfully received from a third party, or required to be disclosed by law."],
+      ["Term and remedies", "Duration of obligations (trade secrets typically last indefinitely; other info 1-5 years), return of property clause, and remedies (injunctive relief, damages, attorney fees) with governing law."]
+    ],
+    "howTo": [
+      ["Tailor to the role", "An engineering NDA is broader (covers source code, product plans) than a front-line staff NDA; avoid one-size-fits-all overreach."],
+      ["Include whistleblower carve-outs", "Add language that nothing prevents disclosing illegal activity to government agencies, as required by federal Defend Trade Secrets Act and state laws."],
+      ["Limit the term", "Do not claim indefinite confidentiality for non-trade-secret info; 1-5 years post-employment is typical."],
+      ["Sign before access", "Have the employee sign before they access confidential information (ideally on day one with onboarding paperwork)."],
+      ["Pair with IP assignment", "Most employee NDAs are bundled with a proprietary-information-and-inventions-assignment agreement covering work product IP."]
+    ],
+    "related": [
+      ["Mutual NDA", "templates/mutual-nda-template.html", "Use mutual NDA when both sides are disclosing (e.g. partnerships, diligence)."],
+      ["Contractor NDA", "templates/contractor-nda-template.html", "NDA variant for freelancers and consultants."],
+      ["One-way NDA", "templates/one-way-nda-template.html", "Generic one-way NDA for non-employees."],
+      ["Employment agreement", "templates/employment-agreement-template.html", "Full employment contract often includes an NDA."],
+      ["Free HR letter templates", "for/hr-teams.html", "Full HR/employee template set."]
+    ],
+    "faq": [
+      ["Are employee NDAs enforceable?", "Generally yes for legitimate trade secrets, but many states limit post-employment non-disclosure especially for harassment/assault and whistleblowing."],
+      ["Can employees talk about wages?", "No — under the federal NLRA, non-supervisory employees cannot be prohibited from discussing wages or working conditions."],
+      ["What about whistleblowers?", "Federal and state laws protect reports of illegal conduct; NDAs cannot waive those rights — include a carve-out."],
+      ["How long do obligations last?", "Trade secrets have no fixed end (until they become public); other confidential info is usually 1-5 years post-termination."],
+      ["Must it be signed on day one?", "It is safest to sign at onboarding; if signed later, provide separate consideration (raise, bonus, promotion) for it to be enforceable."]
+    ],
+    "cta": { "label": "Build your employee NDA", "href": "app/#/start/employee-nda" },
+    "download": { "href": "samples/employee-nda.docx", "label": "Download Word" }
+  },
+  {
+    "path": "templates/contractor-nda-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Contractor NDA | Free Word Template",
+    "h1": "Free contractor NDA (confidentiality agreement) template (Word)",
+    "description": "Free contractor NDA: protect confidential information shared with freelancers, vendors and consultants.",
+    "lead": "A confidentiality agreement signed by a freelancer, consultant or vendor before they access company confidential information — similar to an employee NDA but tailored to an engagement/scope.",
+    "introParagraphs": ["A contractor NDA ensures freelancers, consultants and vendors keep your confidential information confidential during and after their engagement. It covers what information is protected, what they can disclose to their own staff, and how materials are returned on completion.", "Contractors often work for multiple clients simultaneously. Tailor the NDA so it does not prevent them from working in their profession generally (that would be an unenforceable non-compete) — only from disclosing your specific confidential information."],
+    "bullets": [
+      ["Parties and engagement", "Company name; contractor name (and company if they operate through an LLC); effective date; brief description of the engagement."],
+      ["Definition of confidential info", "Categories of information shared (product plans, customer data, code, pricing, financials), specifically marked or reasonably understood to be confidential."],
+      ["Permitted disclosures", "What the contractor can share with their own employees/subcontractors with a need to know (and only under similar confidentiality), and what they cannot."],
+      ["IP and work product", "Confirm that work product created under the engagement is owned by the company (often a separate clause or agreement)."],
+      ["Term, return, remedies", "How long obligations last, return/destruction of materials at engagement end, injunctive relief, governing law, and any residual-knowledge carve-out."]
+    ],
+    "howTo": [
+      ["Sign before sharing", "Get the NDA signed before disclosing anything confidential — NDA after the fact is harder to enforce."],
+      ["Mark confidential materials", "Where practical mark sensitive docs 'confidential' and compartmentalise access to need-to-know."],
+      ["Avoid non-compete language", "Do not restrict the contractor from working in their field after the engagement — NDAs protect information, not competition."],
+      ["Include a residual clause (optional)", "Allows the contractor to use general knowledge/skills retained in unaided memory — contractors usually ask for this."],
+      ["Tie to the services agreement", "Reference the statement of work or services agreement; make return of materials a close-out step."]
+    ],
+    "related": [
+      ["Employee NDA", "templates/employee-nda-template.html", "NDA variant for employees."],
+      ["Mutual NDA", "templates/mutual-nda-template.html", "When both sides share confidential info."],
+      ["Independent contractor agreement", "templates/independent-contractor-template.html", "Master services contract that usually includes NDA language."],
+      ["Subcontractor agreement", "templates/subcontractor-agreement-template.html", "NDA flow-down often required in sub-agreements."],
+      ["Free contract templates", "templates/contract-template.html", "Full contract template library."]
+    ],
+    "faq": [
+      ["Is a contractor NDA different from an employee NDA?", "Same core obligations, but contractors often need residual-knowledge, permissive-disclosure-to-staff and non-exclusivity language."],
+      ["Can an NDA prevent a contractor working for competitors?", "Generally no — that would be a non-compete and must satisfy strict rules; broad anti-compete language in NDAs is often unenforceable."],
+      ["Does it survive the engagement?", "Yes — typically 1-5 years for confidential info; trade-secret protection can last as long as it remains a secret."],
+      ["Should I get an NDA before an RFP conversation?", "Yes — before sharing pricing, customer data or product plans with potential vendors/contractors."],
+      ["Do I need one per project?", "One master NDA covering all engagements with a contractor is enough if the terms are project-neutral."]
+    ],
+    "cta": { "label": "Build your contractor NDA", "href": "app/#/start/contractor-nda" },
+    "download": { "href": "samples/contractor-nda.docx", "label": "Download Word" }
+  },
+  {
+    "path": "templates/one-way-nda-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "One-Way NDA | Free Word Template",
+    "h1": "Free one-way (unilateral) NDA template (Word)",
+    "description": "Free one-way NDA: protect confidential information disclosed from one party to another in a one-sided arrangement.",
+    "lead": "A unilateral (one-way) non-disclosure agreement where one party (discloser) shares confidential information with another (recipient) and the recipient promises to keep it confidential — common for pitches, investors, advisors and interviews.",
+    "introParagraphs": ["A one-way NDA (or unilateral NDA) is used when only one side is disclosing confidential information — for example pitching an idea to an investor, sharing a business plan with an advisor, sending specs to a manufacturer, or evaluating a candidate.", "A mutual NDA is more common for partnerships or two-way discussions; use one-way when you are the only party sharing. Keep it short (1-3 pages), focused, and reasonable in duration."],
+    "bullets": [
+      ["Parties", "Disclosing party and receiving party names, addresses, effective date."],
+      ["Purpose and use", "Specific purpose for which information is being shared (e.g. evaluating an investment, exploring a partnership) — use is restricted to that purpose."],
+      ["Definition of confidential info", "Description of what counts as confidential (written, oral, visual), including anything marked or reasonably understood to be confidential."],
+      ["Obligations and exclusions", "Recipient will hold in confidence, use only for the purpose, restrict access to need-to-know staff under NDA; standard exclusions for public info, prior knowledge, third-party rightful receipt, independently developed, compelled disclosure."],
+      ["Term and termination", "How long the NDA lasts, how long confidentiality obligations survive, return/destruction of materials, and governing law."]
+    ],
+    "howTo": [
+      ["Pick the right direction", "Use one-way when you are the only discloser; mutual when both sides share."],
+      ["Define the purpose narrowly", "Limiting use to 'evaluating a potential investment' prevents misuse without blocking the discussion."],
+      ["Set a reasonable term", "2-5 years is typical for most commercial NDAs; trade secrets last longer."],
+      ["Don't overreach", "Overly broad NDAs get ignored or refused; stick to protecting what you are actually going to disclose."],
+      ["Sign before disclosure", "Get the NDA signed before sending materials; if you have to share first, mark everything 'confidential — subject to NDA to follow' and execute promptly."]
+    ],
+    "related": [
+      ["Mutual NDA", "templates/mutual-nda-template.html", "Two-way NDA for two-sided discussions."],
+      ["Employee NDA", "templates/employee-nda-template.html", "NDA variant for employees."],
+      ["Contractor NDA", "templates/contractor-nda-template.html", "NDA variant for contractors."],
+      ["Letter of intent", "templates/letter-of-intent-template.html", "Often paired with an NDA in deal conversations."],
+      ["Free contract templates", "templates/contract-template.html", "Full contract template library."]
+    ],
+    "faq": [
+      ["When do I use one-way vs mutual?", "One-way when you alone share confidential information (e.g. pitching an idea, hiring an advisor); mutual when both sides share (e.g. partnerships, vendor diligence)."],
+      ["Will investors sign one-way NDAs?", "Most VCs will not sign NDAs before a pitch; share non-confidential details first and reserve sensitive specifics until after relationship/LOI stage."],
+      ["Is it the same as a confidentiality agreement?", "Yes — NDA and confidentiality agreement are interchangeable terms."],
+      ["How long should it last?", "2-5 years post-disclosure is common; perpetual terms are acceptable for trade secrets but unusual for general commercial info."],
+      ["Can I NDA an idea I pitched orally?", "Yes if the NDA covers oral disclosures confirmed in writing within a short window (e.g. 30 days)."]
+    ],
+    "cta": { "label": "Build your one-way NDA", "href": "app/#/start/one-way-nda" },
+    "download": { "href": "samples/one-way-nda.docx", "label": "Download Word" }
+  },
+  {
+    "path": "templates/non-solicitation-agreement-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Non-Solicitation Agreement | Free Word Template",
+    "h1": "Free non-solicitation agreement template (Word)",
+    "description": "Free non-solicitation agreement: prevent employees or contractors poaching staff, customers or vendors after they leave.",
+    "lead": "A clause or standalone agreement preventing a departing employee or contractor from soliciting your employees, customers or vendors for a set period after they leave.",
+    "introParagraphs": ["A non-solicitation agreement protects a business from a departing worker poaching its employees, customers, or suppliers for a competing business. It can be a clause inside an employment/contractor agreement or a standalone document.", "Non-solicits are more widely enforceable than non-competes, but they must still be reasonable in duration (typically 6-12 months), geographic scope and the classes of people/customers restricted. Over-broad non-solicits can be struck down."],
+    "bullets": [
+      ["Parties", "Company name; employee/contractor name and role; effective date."],
+      ["Non-solicitation of employees", "For X months after departure, the worker will not recruit, hire or induce employees/contractors of the company to leave."],
+      ["Non-solicitation of customers", "For X months after departure, the worker will not solicit or do business with customers/clients the worker had contact with (or who were actively solicited) for competing products/services."],
+      ["Non-solicitation of vendors/suppliers", "Optional restriction on inducing key vendors/suppliers to stop doing business with the company."],
+      ["Exclusions and limits", "Clarifies that general advertising/unsolicited inbound enquiries are not 'solicitation', and that the restriction applies only to the worker new competing activity. Remedies, governing law and severability."]
+    ],
+    "howTo": [
+      ["Keep it narrow", "Restrict only customers the employee actually worked with or knew about, not every customer in the business."],
+      ["Use a reasonable time period", "6-12 months is common and generally enforceable; longer periods are harder to uphold."],
+      ["Pair with an NDA", "Non-solicitation typically sits alongside confidentiality/IP-assignment language; non-competes are separate and more restricted."],
+      ["Give consideration", "In most states continued at-will employment is enough for existing employees; new hires sign on day one. For existing employees asked to sign later, give extra consideration (raise, bonus)."],
+      ["Tailor to jurisdiction", "California bans most non-solicits of customers (except where trade secrets are involved); some states follow similar limits — check local law."]
+    ],
+    "related": [
+      ["Non-compete agreement", "templates/non-compete-agreement-template.html", "Broader restriction on working for competitors (use carefully)."],
+      ["Employee NDA", "templates/employee-nda-template.html", "Confidentiality obligations that usually accompany non-solicit."],
+      ["Employment agreement", "templates/employment-agreement-template.html", "Where non-solicitation clauses usually live."],
+      ["Severance agreement", "templates/severance-agreement-template.html", "Often reaffirms non-solicit in exchange for severance."],
+      ["Free HR letter templates", "for/hr-teams.html", "Full HR/employee template set."]
+    ],
+    "faq": [
+      ["Are non-solicitation agreements enforceable?", "More often than non-competes, but they must be reasonable in scope, duration and geography and protect a legitimate business interest."],
+      ["Can I ban an ex-employee from working for my clients entirely?", "No — they can work for clients who approach them independently without solicitation; solicitation is active targeting."],
+      ["Is it legal to ban them from hiring my staff?", "Yes in most states for a reasonable period; blanket 'never hire our people' clauses are not enforceable."],
+      ["What counts as solicitation?", "Direct outreach (calls, emails, messages) targeting the customer; general ads or passive inbound inquiries are usually not."],
+      ["Do I need a separate agreement?", "Often the clause is included in the employment contract or offer letter; a standalone form is useful for contractors or board members."]
+    ],
+    "cta": { "label": "Build your non-solicitation agreement", "href": "app/#/start/non-solicitation-agreement" },
+    "download": { "href": "samples/non-solicitation-agreement.docx", "label": "Download Word" }
+  },
+  {
+    "path": "templates/board-resolution-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Board Resolution | Free Word Template",
+    "h1": "Free board resolution template (Word)",
+    "description": "Free board resolution: formal record of a decision approved by a company board of directors.",
+    "lead": "A formal written record of a decision or action approved by a company board of directors — opening bank accounts, authorising contracts, appointing officers, approving loans or share issuances.",
+    "introParagraphs": ["A board resolution (or corporate resolution) documents a formal decision by a company board of directors. It is often required by banks (to open accounts or take loans), when signing major contracts, appointing officers, issuing shares, or approving large transactions.", "Resolutions stay in the corporate minute book and may need to be shown to banks, investors, auditors or counterparties. They should reference the meeting (or unanimous written consent) at which they were adopted."],
+    "bullets": [
+      ["Company details", "Full legal name of the company, state of incorporation, registered address, and the date and location of the board meeting (or 'unanimous written consent')."],
+      ["Recitals", "Statement that a quorum was present, the meeting was duly called, and the vote complied with bylaws."],
+      ["The resolved clauses", "Numbered 'RESOLVED' clauses stating exactly what is approved: opening a bank account, signing a contract, appointing an officer, authorising a loan, issuing shares, etc."],
+      ["Authorisation", "Who is authorised to execute documents on the company behalf for the action (e.g. the CEO or CFO)."],
+      ["Signatures", "Signature of the secretary or chair certifying the resolution was adopted; corporate seal if used; attached as an exhibit to minutes."]
+    ],
+    "howTo": [
+      ["Call a board meeting", "Give notice per your bylaws; or circulate a unanimous written consent if allowed and all directors agree."],
+      ["Draft resolutions precisely", "State the action clearly — who is authorised, what for, up to what amount, and any conditions."],
+      ["Hold the vote", "Record votes in the minutes; a majority (or higher if bylaws require) passes the resolution."],
+      ["Certify and sign", "Secretary or chair signs the resolution, certifying it was duly adopted at the meeting."],
+      ["File in the minute book", "Keep with corporate minutes; provide certified copies to banks, counterparties or regulators as requested."]
+    ],
+    "related": [
+      ["Meeting minutes", "templates/meeting-minutes-template.html", "Document the meeting where resolutions were passed."],
+      ["Partnership agreement", "templates/partnership-agreement-template.html", "Governs decisions for partnerships (where resolutions are partner-level)."],
+      ["Letter of intent", "templates/letter-of-intent-template.html", "Major transactions approved by resolution before signing."],
+      ["Employment agreement", "templates/employment-agreement-template.html", "Resolutions often appoint/hire executive officers."],
+      ["Free business templates", "templates/contract-template.html", "Full business/contract template library."]
+    ],
+    "faq": [
+      ["Who can sign a board resolution?", "Typically the corporate secretary or chair of the board; banks may require specific officer certifications."],
+      ["Do all decisions need a resolution?", "No — ordinary day-to-day business is handled by officers; use resolutions for major actions required by bylaws or requested by third parties (banks, counterparties)."],
+      ["Do I need a meeting?", "If all directors consent in writing (unanimous written consent), you can skip the meeting in most states."],
+      ["Do single-member LLCs need resolutions?", "Less common but useful for documenting major actions (e.g. taking a loan, signing a major contract) and piercing-the-veil protection."],
+      ["Do resolutions need to be notarised?", "Usually not — certified by the secretary is standard; certain filings (e.g. real estate) may require notarisation."]
+    ],
+    "cta": { "label": "Build your board resolution", "href": "app/#/start/board-resolution" },
+    "download": { "href": "samples/board-resolution.docx", "label": "Download Word" }
+  }
+]

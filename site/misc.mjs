@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '2.57.0', date: '31 October 2026', summary: '5 business/legal hubs: employee NDA, contractor NDA, one-way NDA, non-solicitation agreement, and board resolution — each with what-to-include, how-to steps, FAQ schema and cross-links' },
   { version: '2.56.0', date: '31 October 2026', summary: '5 legal/business hubs: cease and desist letter, general release of liability, letter of intent (LOI), memorandum of understanding (MOU), and partnership agreement — each with what-to-include, how-to steps, FAQ schema and cross-links' },
   { version: '2.55.0', date: '31 October 2026', summary: '5 legal/personal hubs: payment demand letter, payment reminder letter, liability waiver, hold harmless agreement, and gift letter — each with what-to-include, how-to steps, FAQ schema and cross-links' },
   { version: '2.54.0', date: '31 October 2026', summary: '5 HR/employment hubs: employment agreement, employment termination letter, severance agreement, internship offer letter, and contract termination letter — each with what-to-include, how-to steps, FAQ schema and cross-links' },
@@ -142,6 +143,8 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-57-0">2.57.0 <span class="small muted">— 31 October 2026</span></h2>
+<ul><li><strong>Five business/legal hubs</strong>: <a href="${rel}templates/employee-nda-template.html">employee NDA</a>, <a href="${rel}templates/contractor-nda-template.html">contractor NDA</a>, <a href="${rel}templates/one-way-nda-template.html">one-way NDA</a>, <a href="${rel}templates/non-solicitation-agreement-template.html">non-solicitation agreement</a>, and <a href="${rel}templates/board-resolution-template.html">board resolution</a>. Each with what-to-include bullets, how-to steps, cross-links and FAQ schema.</li></ul>
 <h2 id="v2-56-0">2.56.0 <span class="small muted">— 31 October 2026</span></h2>
 <ul><li><strong>Five legal/business hubs</strong>: <a href="${rel}templates/cease-and-desist-letter-template.html">cease and desist letter</a>, <a href="${rel}templates/general-release-template.html">general release of liability</a>, <a href="${rel}templates/letter-of-intent-template.html">letter of intent (LOI)</a>, <a href="${rel}templates/memorandum-of-understanding-template.html">memorandum of understanding (MOU)</a>, and <a href="${rel}templates/partnership-agreement-template.html">partnership agreement</a>. Each with what-to-include bullets, how-to steps, cross-links and FAQ schema.</li></ul>
 <h2 id="v2-55-0">2.55.0 <span class="small muted">— 31 October 2026</span></h2>
@@ -202,14 +205,6 @@ export const pages = [
 <ul><li><strong>Sticky-header-friendly anchor jumps</strong>.</li></ul>
 <h2 id="v2-27-0">2.27.0 <span class="small muted">— 28 October 2026</span></h2>
 <ul><li><strong>Sticky hub jump-navs</strong> (zero JS).</li></ul>
-<h2 id="v2-26-0">2.26.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>Section jump-navs</strong> on Free tools and audience hubs.</li></ul>
-<h2 id="v2-25-0">2.25.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>CSS scroll()-driven read-progress + anchor Back-to-top</strong>.</li></ul>
-<h2 id="v2-24-0">2.24.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>TOC on every long-form page</strong> (free-tools, audience, invoices).</li></ul>
-<h2 id="v2-23-0">2.23.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>FAQ rich results on NDA templates hub</strong>, completing 8/8 hubs.</li></ul>
 <h2 id="v1-96-0">1.96.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>primaryImageOfPage on every page with a custom share card.</strong> Pages with a dedicated 1200×630 OG image (all 87 templates + country invoice pages) now emit <code>primaryImageOfPage</code> ImageObject on their WebPage/ItemPage schema, up from templates-only. That completes image-signal parity for all high-intent landing pages.</li></ul>
 <h2 id="v1-95-0">1.95.0 <span class="small muted">— 25 October 2026</span></h2>
