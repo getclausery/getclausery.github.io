@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-31",
-  "hash": "7ed67d8d9d3f17f7"
+  "hash": "5d900e08e0ae4f28"
  },
  "clauses/": {
   "date": "2026-10-31",
@@ -260,8 +260,8 @@
   "hash": "9c079ba559690881"
  },
  "free-tools/": {
-  "date": "2026-10-28",
-  "hash": "fa2450361da569e7"
+  "date": "2026-10-31",
+  "hash": "2ea152bbd2282bc9"
  },
  "free-tools/amount-in-words.html": {
   "date": "2026-10-24",
@@ -272,12 +272,12 @@
   "hash": "c02e5bcf3e008f99"
  },
  "free-tools/freelance-rate.html": {
-  "date": "2026-10-24",
-  "hash": "d38762b5467a995c"
+  "date": "2026-10-31",
+  "hash": "fd4c47926533217a"
  },
  "free-tools/invoice-due-date.html": {
-  "date": "2026-10-24",
-  "hash": "d43abdb7cf50bfcd"
+  "date": "2026-10-31",
+  "hash": "fb309c5ff669e2cb"
  },
  "free-tools/late-payment-interest.html": {
   "date": "2026-10-24",
@@ -288,16 +288,16 @@
   "hash": "8a8601a203154155"
  },
  "free-tools/prorated-rent.html": {
-  "date": "2026-10-24",
-  "hash": "e85215c2470a913a"
+  "date": "2026-10-31",
+  "hash": "023abf45bb4609b3"
  },
  "free-tools/sales-commission.html": {
-  "date": "2026-10-24",
-  "hash": "a0e93a009b5c7e48"
+  "date": "2026-10-31",
+  "hash": "a872a6349bc8b585"
  },
  "free-tools/template-checker.html": {
-  "date": "2026-10-24",
-  "hash": "fdf1b64a94b4b29d"
+  "date": "2026-10-31",
+  "hash": "0271591f0dd28cfa"
  },
  "guides/": {
   "date": "2026-10-31",
