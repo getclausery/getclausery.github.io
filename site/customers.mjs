@@ -58,7 +58,7 @@ const FAQ = [
 
 export const pages = [{
   path: 'customers/', title: 'Who uses Clausery',
-  description: `Who uses Clausery: freelancers, consultants, small agencies, landlords, HR teams, service businesses and small law firms making Word invoices, contracts and letters without uploading anything.`,
+  description: `Who uses Clausery: freelancers, consultants, agencies, landlords, HR teams, service businesses and small law firms.`,
   extraHead: faqLd(FAQ) + crumbsLd([['Home', ''], ['Customers', 'customers/']]),
   body: (rel) => `<section class="section">
   <div class="wrap">

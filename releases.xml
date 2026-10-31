@@ -8,6 +8,14 @@
   <updated>2026-10-31T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.45.0 — Final description tightening: every page on the site now has a rendered title ≤60 chars and meta description ≤155 chars (country invoice templates, trade templates, hubs, home, customers, self-hosting)</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-45-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-45-0</id>
+    <published>2026-10-31T00:00:00Z</published>
+    <updated>2026-10-31T00:00:00Z</updated>
+    <summary>Final description tightening: every page on the site now has a rendered title ≤60 chars and meta description ≤155 chars (country invoice templates, trade templates, hubs, home, customers, self-hosting)</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.44.0 — CTR rewrite across 48 how-to guides: number lists (7/9/10/12 clauses), year markers (2026), concrete deliverable claims, free-template signals, and titles all fitting ≤60 chars with brand suffix</title>
     <link href="https://getclausery.github.io/changelog.html#v2-44-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-44-0</id>

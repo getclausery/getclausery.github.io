@@ -12,7 +12,7 @@ export const COUNTRIES = [
   C('uk-vat-invoice', {
     country: 'UK', title: 'VAT invoice template (UK): free, Word, VAT worked out',
     h1: 'VAT invoice template (UK)', locale: 'en-GB', tax: 'VAT', taxNumber: 'VAT registration number',
-    description: 'Free UK VAT invoice template for Word: your VAT number, 20% VAT worked out, the details HMRC asks for and a separate date of supply. Fill it in online, no sign-up.',
+    description: 'Free UK VAT invoice template for Word: your VAT number, 20% VAT worked out, the details HMRC asks for and a separate date of supply..',
     intro: 'A VAT invoice is what lets your VAT-registered customers reclaim the VAT you charge, so HMRC sets out what it must show. This template opens set up for UK VAT: your VAT registration number on the invoice, VAT at 20% worked out on the subtotal, and amounts in pounds.',
     lines: [['Bookkeeping (hours)', 12, 45], ['Year-end accounts', 1, 650], ['Software subscription (months)', 3, 25]],
     facts: [['Standard rate', '20% (reduced rate 5%, zero rate 0%)'], ['Registration threshold', 'Taxable turnover over £90,000 in any rolling 12 months'], ['When to issue', 'Within 30 days of the time of supply'], ['Simplified invoice', 'Allowed when the total including VAT is £250 or less']],
@@ -27,7 +27,7 @@ export const COUNTRIES = [
   C('ireland-vat-invoice', {
     country: 'Ireland', title: 'VAT invoice template for Ireland (free, Word)',
     h1: 'VAT invoice template for Ireland', locale: 'en-IE', tax: 'VAT', taxNumber: 'VAT number',
-    description: 'Free Irish VAT invoice template for Word: your VAT number, 23% VAT worked out, the date of supply and the details Revenue lists. Fill it in online, no sign-up, nothing uploaded.',
+    description: 'Free Irish VAT invoice template for Word: your VAT number, 23% VAT worked out, the date of supply and the details Revenue lists.',
     intro: 'Revenue lists what a VAT invoice in Ireland has to contain, from the sequential number to the date the goods or services were supplied. This template opens set up for Irish VAT: your VAT number, VAT at the 23% standard rate worked out for you, a date of supply, and amounts in euro.',
     lines: [['Web design (days)', 4, 450], ['Hosting set-up', 1, 150], ['Content upload (pages)', 10, 35]],
     facts: [['Standard rate', '23% (reduced rates 13.5% and 9%, zero rate 0%)'], ['Registration thresholds', '€85,000 a year for goods, €42,500 for services (since 1 January 2025)'], ['Date of supply', 'Must be on the invoice'], ['Foreign currency', 'Show the euro equivalents as well']],
@@ -41,7 +41,7 @@ export const COUNTRIES = [
   C('australia-tax-invoice', {
     country: 'Australia', title: 'Tax invoice template Australia: free, Word, GST added',
     h1: 'Tax invoice template for Australia', locale: 'en-AU', tax: 'GST', taxNumber: 'ABN',
-    description: 'Free Australian tax invoice template for Word: the words "Tax invoice", your ABN, 10% GST worked out and the buyer\'s details for sales of $1,000 or more. Fill it in online, no sign-up.',
+    description: 'Free Australian tax invoice template (Word): "Tax invoice", ABN, 10% GST and buyer details for $1,000+ sales. No sign-up.',
     intro: 'If you are registered for GST, your business customers need a tax invoice from you to claim the GST back. This template opens set up for Australia: titled "Tax invoice", your ABN on it, GST at 10% worked out, and amounts in Australian dollars.',
     lines: [['Electrical labour (hours)', 6, 95], ['Materials, as itemised', 1, 340], ['Call-out fee', 1, 80]],
     facts: [['GST rate', '10%'], ['Registration threshold', '$75,000 GST turnover ($150,000 for non-profits)'], ['When to issue', 'Within 28 days if the customer asks, unless the sale was $82.50 or less including GST'], ['Sales of $1,000 or more', 'Must also show the buyer\'s identity or ABN']],
@@ -56,7 +56,7 @@ export const COUNTRIES = [
   C('new-zealand-gst-invoice', {
     country: 'New Zealand', title: 'GST invoice template NZ (free, Word)',
     h1: 'GST invoice template for New Zealand', locale: 'en-NZ', tax: 'GST', taxNumber: 'GST number',
-    description: 'Free New Zealand GST invoice template for Word: your GST number, 15% GST worked out, and the taxable supply information Inland Revenue asks for at each amount. No sign-up.',
+    description: 'Free New Zealand GST invoice template for Word: GST number, 15% GST and the taxable supply info Inland Revenue requires. Fill in online, free. No sign-up.',
     intro: 'Since April 2023 New Zealand has used "taxable supply information" instead of the old tax invoice rules: what you must show depends on the amount. This template opens set up for New Zealand: your GST number, GST at 15% shown separately, and amounts in New Zealand dollars.',
     lines: [['Lawn mowing (visits)', 4, 55], ['Hedge trimming', 1, 180], ['Green waste removal', 1, 60]],
     facts: [['GST rate', '15%'], ['Registration threshold', 'Turnover over $60,000 in 12 months'], ['"Tax invoice" title', 'No longer required since 1 April 2023'], ['Buyer\'s details', 'Needed for supplies over $1,000 to a GST-registered buyer']],
@@ -70,7 +70,7 @@ export const COUNTRIES = [
   C('canada-gst-hst-invoice', {
     country: 'Canada', title: 'GST/HST invoice template for Canada (free, Word)',
     h1: 'GST/HST invoice template for Canada', locale: 'en-CA', tax: 'GST/HST', taxNumber: 'GST/HST number',
-    description: 'Free Canadian GST/HST invoice template for Word: your GST/HST number, the tax worked out at your province\'s rate, and the details the CRA asks for at $100 and $500. No sign-up.',
+    description: 'Free Canadian GST/HST invoice template for Word: GST/HST number, tax at your province rate, and CRA-required details for $100/$30 thresholds.',
     intro: 'Your business customers can only claim back the GST or HST you charge if your invoice shows what the Canada Revenue Agency asks for, and that depends on the amount. This template opens set up for Canada: your GST/HST number, tax at Ontario\'s 13% HST (change it for your province), and amounts in Canadian dollars.',
     lines: [['Consulting (hours)', 15, 120], ['Workshop day', 1, 1500], ['Travel, at cost', 1, 210]],
     facts: [['Rates (since 1 April 2025)', 'GST 5% (AB, BC, MB, QC, SK, territories); HST 13% ON; 14% NS; 15% NB, NL, PE'], ['Small supplier', 'No need to register until taxable sales pass $30,000 over four consecutive calendar quarters'], ['$100 or more', 'Show your GST/HST number and the tax charged'], ['$500 or more', 'Also show the customer\'s name, a description and the payment terms']],
@@ -85,7 +85,7 @@ export const COUNTRIES = [
   C('south-africa-tax-invoice', {
     country: 'South Africa', title: 'Tax invoice template South Africa (free, Word, VAT)',
     h1: 'Tax invoice template for South Africa', locale: 'en-ZA', tax: 'VAT', taxNumber: 'VAT registration number',
-    description: 'Free South African tax invoice template for Word: the words "Tax invoice", your VAT number, 15% VAT worked out and the details SARS lists for a full tax invoice. No sign-up.',
+    description: 'Free South African tax invoice template (Word): "Tax invoice", VAT number, 15% VAT and SARS-required details. No sign-up.',
     intro: 'A VAT vendor in South Africa has to issue a tax invoice within 21 days, and SARS lists what it must show. This template opens set up for South Africa: titled "Tax invoice", your VAT registration number, VAT at 15% worked out, and amounts in rand.',
     lines: [['Plumbing labour (hours)', 5, 450], ['Geyser element and thermostat', 1, 1250], ['Call-out fee', 1, 350]],
     facts: [['VAT rate', '15% (the planned increases were reversed)'], ['Compulsory registration', 'Taxable supplies over R2.3 million in 12 months (from 1 April 2026; was R1 million)'], ['When to issue', 'Within 21 days of the supply'], ['Full or abridged', 'A full tax invoice above R5,000; an abridged one is allowed for R5,000 or less']],

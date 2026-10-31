@@ -18,7 +18,7 @@ const T = (slug, o) => ({ slug, preset: PRESETS.invoice[slug], ...o });
 export const TRADES = [
   T('construction-contractor', {
     name: 'Contractor', title: 'Contractor invoice template (free, Word)',
-    description: 'Free contractor invoice template for Word: labour, materials, permits and change orders on separate lines, with tax and totals calculated. Fill it in online, no sign-up.',
+    description: 'Free contractor invoice template for Word: labour, materials, permits and change orders on separate lines, with tax and totals calculated..',
     intro: 'A construction invoice has to show the client what they are paying for: hours on site, materials, permits and any change agreed after the contract was signed. This template starts with those lines and works out the totals.',
     who: 'General contractors, builders, renovators and subcontractors billing a homeowner, a property manager or a main contractor.',
     rates: [65, 3240, 450, 380, 1200],
@@ -29,7 +29,7 @@ export const TRADES = [
   }),
   T('handyman', {
     name: 'Handyman', title: 'Handyman invoice template (free, Word)',
-    description: 'Free handyman invoice template for Word: labour hours, parts, call-out charge and disposal, totals calculated for you. Fill it in online and download it, no sign-up.',
+    description: 'Free handyman invoice template for Word: labour hours, parts, call-out charge and disposal, totals calculated for you..',
     intro: 'Handyman jobs are small and quick, so the invoice should be too: hours, parts, a call-out charge if you have one, and the total. This template starts with exactly those lines.',
     who: 'Handymen and odd-job businesses billing homeowners, landlords and small offices.',
     rates: [60, 85, 45, 30],
@@ -40,7 +40,7 @@ export const TRADES = [
   }),
   T('cleaning', {
     name: 'Cleaning', title: 'Cleaning invoice template (free, Word)',
-    description: 'Free cleaning invoice template for Word: regular visits, deep cleans, add-ons and supplies, with totals worked out. Fill it in online, no sign-up, nothing uploaded.',
+    description: 'Free cleaning invoice template for Word: regular visits, deep cleans, add-ons and supplies, with totals worked out. Fill it in online, no sign-up,.',
     intro: 'Cleaning businesses usually bill a number of visits over a period, plus the extras. This template starts with regular visits, a deep clean, add-ons and supplies, and adds them up for you.',
     who: 'House cleaners, office cleaning companies, end-of-tenancy and Airbnb turnover cleaners.',
     rates: [120, 260, 40, 25],
@@ -51,7 +51,7 @@ export const TRADES = [
   }),
   T('landscaping', {
     name: 'Landscaping', title: 'Landscaping and lawn care invoice template (Word)',
-    description: 'Free landscaping and lawn care invoice template for Word: mowing visits, trimming, materials and green waste, totals calculated. Fill it in online, no sign-up.',
+    description: 'Free landscaping and lawn care invoice template for Word: mowing visits, trimming, materials and green waste, totals calculated..',
     intro: 'Lawn care is billed by the visit and landscaping by the job plus materials. This template starts with mowing visits, trimming, supplied materials and green waste removal, and works out the total.',
     who: 'Lawn care and garden maintenance businesses, landscapers and tree and hedge services.',
     rates: [45, 120, 180, 60],
@@ -62,7 +62,7 @@ export const TRADES = [
   }),
   T('photography', {
     name: 'Photography', title: 'Photography invoice template (free, Word)',
-    description: 'Free photography invoice template for Word: session fee, edited images, usage licence, prints and travel, totals calculated. Fill it in online and download it, no sign-up.',
+    description: 'Free photography invoice template for Word: session fee, edited images, usage licence, prints and travel, totals calculated..',
     intro: 'A photography invoice sells more than time: it covers the session, the edited images, the rights to use them and any prints or travel. This template starts with those lines and does the maths.',
     who: 'Wedding, portrait, product, event and commercial photographers.',
     rates: [150, 12, 400, 220, 90],
@@ -73,7 +73,7 @@ export const TRADES = [
   }),
   T('videography', {
     name: 'Video production', title: 'Video production invoice template (free, Word)',
-    description: 'Free video production invoice template for Word: shoot days, editing hours, revisions, music licences and crew, totals calculated. Fill it in online, no sign-up.',
+    description: 'Free video production invoice template for Word: shoot days, editing hours, revisions, music licences and crew, totals calculated..',
     intro: 'Video jobs are billed in days and hours with licences on top. This template starts with a shoot day, editing time, extra revisions, music and crew, and adds them up.',
     who: 'Videographers, wedding filmmakers and small production companies.',
     rates: [1200, 75, 150, 60, 450],
@@ -84,7 +84,7 @@ export const TRADES = [
   }),
   T('graphic-design', {
     name: 'Graphic design', title: 'Graphic design invoice template (free, Word)',
-    description: 'Free graphic design invoice template for Word: project fee, extra revisions, source files and stock licences, totals calculated. Fill it in online and download it, no sign-up.',
+    description: 'Free graphic design invoice template for Word: project fee, extra revisions, source files and stock licences, totals calculated..',
     intro: 'Design work is usually priced per project, with extra revision rounds and files on top. This template starts with a project fee, an extra round, source files and stock licences.',
     who: 'Freelance graphic designers, illustrators and small studios.',
     rates: [1800, 150, 250, 45],
@@ -95,7 +95,7 @@ export const TRADES = [
   }),
   T('web-design', {
     name: 'Web design', title: 'Web design invoice template (free, Word)',
-    description: 'Free web design and development invoice template for Word: milestones, development hours, content and hosting, totals calculated. Fill it in online, no sign-up.',
+    description: 'Free web design and development invoice template for Word: milestones, development hours, content and hosting, totals calculated..',
     intro: 'Website projects are billed by milestone, with hours, content work and ongoing hosting on top. This template starts with a design milestone, development hours, content upload and a hosting plan.',
     who: 'Freelance web designers and developers and small web agencies.',
     rates: [1500, 85, 40, 35],
@@ -106,7 +106,7 @@ export const TRADES = [
   }),
   T('consulting', {
     name: 'Consulting', title: 'Consulting invoice template (free, Word)',
-    description: 'Free consulting invoice template for Word: hours or day rate, workshops, retainer and expenses at cost, totals calculated. Fill it in online and download it, no sign-up.',
+    description: 'Free consulting invoice template for Word: hours or day rate, workshops, retainer and expenses at cost, totals calculated..',
     intro: 'Consultants bill time, retainers and expenses, and clients want to match each to the engagement. This template starts with consulting hours, a workshop day, a monthly retainer and expenses at cost.',
     who: 'Independent consultants, advisers and small consultancies.',
     rates: [150, 1800, 2500, 340],
@@ -117,7 +117,7 @@ export const TRADES = [
   }),
   T('freelance-writing', {
     name: 'Freelance writing', title: 'Freelance writing invoice template (free, Word)',
-    description: 'Free freelance writer invoice template for Word: articles, rush fees, research time and kill fees, totals calculated. Fill it in online, no sign-up, nothing uploaded.',
+    description: 'Free freelance writer invoice template for Word: articles, rush fees, research time and kill fees, totals calculated. Fill it in online, no sign-up,.',
     intro: 'Writers bill per piece or per word, with research, rush delivery and the occasional kill fee on top. This template starts with those lines and adds them up.',
     who: 'Freelance writers, copywriters, journalists and editors.',
     rates: [450, 100, 60, 150],
@@ -128,7 +128,7 @@ export const TRADES = [
   }),
   T('tutoring', {
     name: 'Tutoring', title: 'Tutoring invoice template (free, Word)',
-    description: 'Free tutoring invoice template for Word: sessions, exam prep packs and late cancellations, totals worked out. Fill it in online and download it, no sign-up.',
+    description: 'Free tutoring invoice template for Word: sessions, exam prep packs and late cancellations, totals worked out..',
     intro: 'Tutoring is billed by the session or as a package paid in advance. This template starts with sessions, an exam preparation pack and a late cancellation line.',
     who: 'Private tutors and small tutoring businesses billing parents or adult students.',
     rates: [50, 80, 25],
@@ -174,7 +174,7 @@ export const pages = [
   {
     path: 'invoice-templates/', title: 'Free Invoice Templates | Word/PDF (No Signup)',
     description: 'Free invoice templates you can fill in online and download as editable Word or PDF. Invoices, quotes and receipts - totals calculated, no signup.',
-    extraHead: collectionLd({ path: 'invoice-templates/', name: 'Free Word invoice templates: task, trade and country', description: 'Free Word invoice templates for deposits, hourly work and final balances, plus trade and country starters. Totals calculated online; editable .docx download.', items: [...WORKFLOWS.map((w) => [w.name, `invoice-templates/${w.slug}.html`]), ...TRADES.map((t) => [t.title, `invoice-templates/${t.slug}.html`]), ...COUNTRIES.map((c) => [c.h1, `invoice-templates/${c.slug}.html`])] }),
+    extraHead: collectionLd({ path: 'invoice-templates/', name: 'Free Word invoice templates: task, trade and country', description: 'Free Word invoice templates for deposits, hourly work and final balances, plus trade and country starters.', items: [...WORKFLOWS.map((w) => [w.name, `invoice-templates/${w.slug}.html`]), ...TRADES.map((t) => [t.title, `invoice-templates/${t.slug}.html`]), ...COUNTRIES.map((c) => [c.h1, `invoice-templates/${c.slug}.html`])] }),
     body: (rel) => `<section class="section"><div class="wrap">
   <h1>Free Word invoice templates by task, trade and country</h1>
   <p class="lead">Pick your trade and the invoice opens with the lines that trade usually bills, ready for your prices. Pick your country and it opens with the right tax, rate and tax number. Totals and tax are worked out for you, your next invoice remembers your details and number, and you download an editable Word file. Free, no sign-up, nothing uploaded.</p>

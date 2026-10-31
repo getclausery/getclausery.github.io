@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '2.45.0', date: '31 October 2026', summary: 'Final description tightening: every page on the site now has a rendered title ≤60 chars and meta description ≤155 chars (country invoice templates, trade templates, hubs, home, customers, self-hosting)' },
   { version: '2.44.0', date: '31 October 2026', summary: 'CTR rewrite across 48 how-to guides: number lists (7/9/10/12 clauses), year markers (2026), concrete deliverable claims, free-template signals, and titles all fitting ≤60 chars with brand suffix' },
   { version: '2.43.0', date: '31 October 2026', summary: 'CTR rewrite: power words, bracket/paren differentiators, concrete claims and sign-ready/fill-in-seconds signals across 44 top-traffic titles and descriptions to lift click-through rate' },
   { version: '2.42.0', date: '30 October 2026', summary: 'Google Docs & Excel invoice template hubs; meta descriptions tightened to ≤155 chars across all LIB templates' },
@@ -93,8 +94,8 @@ export const pages = [
   },
   {
     path: 'search/', title: 'Search free Word templates and guides',
-    description: 'Search 87+ free Word templates, invoices, NDAs, contracts, letters and plain-English guides. Every result is a real page you can read or download — no account required.',
-    extraHead: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'SearchResultsPage', '@id': `${SITE}search/#webpage`, url: `${SITE}search/`, name: 'Search free Word templates and guides', description: 'Search 87+ free Word templates, invoices, NDAs, contracts, letters and plain-English guides. Every result is a real page you can read or download — no account required.', inLanguage: 'en-GB', isPartOf: { '@id': `${SITE}#website` } })}</script>`,
+    description: 'Search 87+ free Word templates, invoices, NDAs, contracts, letters. Every result is a real page you can read or download — no account required.',
+    extraHead: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'SearchResultsPage', '@id': `${SITE}search/#webpage`, url: `${SITE}search/`, name: 'Search free Word templates and guides', description: 'Search 87+ free Word templates, invoices, NDAs, contracts, letters. Every result is a real page you can read or download — no account required.', inLanguage: 'en-GB', isPartOf: { '@id': `${SITE}#website` } })}</script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">
 <p class="eyebrow">Search</p>
 <h1>Search free templates, invoices and guides</h1>
@@ -130,6 +131,8 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-45-0">2.45.0 <span class="small muted">— 31 October 2026</span></h2>
+<ul><li><strong>Final description tightening across the site</strong>: every page now ships with a rendered title ≤60 chars (with <code>· Clausery</code> suffix) and meta description ≤155 chars, including country tax-invoice templates (AU, ZA, CA, IE, NZ, UK), trade templates (graphic design, web design, landscaping, photography, consulting, handyman, freelance writing, tutoring), audience hubs, home, customers, self-hosting and search.</li></ul>
 <h2 id="v2-44-0">2.44.0 <span class="small muted">— 31 October 2026</span></h2>
 <ul><li><strong>CTR rewrite across 48 guide pages</strong>: titles shortened to ≤60 chars with the <code>· Clausery</code> suffix and rewritten with CTR-proven patterns — numbered lists ("10 clauses", "7 steps", "12 key terms"), year markers for time-sensitive content (2026), concrete deliverable claims ("free template included", "copy and paste"), and power words ("spoiler", "kill fee", "stop fraud"). Descriptions now lead with the bolded keyword, state a specific benefit and end in a soft CTA.</li></ul>
 <h2 id="v2-43-0">2.43.0 <span class="small muted">— 31 October 2026</span></h2>

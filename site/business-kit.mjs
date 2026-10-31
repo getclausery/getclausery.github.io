@@ -13,7 +13,7 @@ const FAQ = [
 ];
 export const pages = [{
   path: 'business-document-kit/', title: 'Free business document kit — 6 Word templates (no email)',
-  description: 'Download a free 6-template Word kit for small businesses: quote, scope of work, invoice, payment receipt, purchase order and credit note. No email signup, no account — one zip, editable .docx files.',
+  description: 'Download a free 6-template Word kit for small businesses: quote, scope of work, invoice, payment receipt, purchase order and credit note.',
   ogImage: 'assets/marketing/business-kit-social.png', extraHead: faqLd(FAQ) + crumbsLd([['Home', ''], ['Free business document kit', 'business-document-kit/']]),
   body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Six free Word templates for your next business job</h1>

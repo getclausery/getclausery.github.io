@@ -35,7 +35,7 @@ const FAQ = [
 
 export const pages = [{
   path: 'self-hosting/', title: 'Self-host Clausery on your domain or intranet',
-  description: 'Self-host or white-label Clausery: deploy the open-source document generator to your own domain or intranet, with optional commercial licensing for rebranding, firm-wide rollout and integration.',
+  description: 'Self-host or white-label Clausery: deploy the open-source generator to your domain or intranet. Optional commercial licensing for rebranding.',
   extraHead: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Product', name: 'Clausery self-hosted / Enterprise', description: 'Commercial self-hosted and white-label license for Clausery: editable Word document generation deployed on your own domain or intranet.', brand: { '@type': 'Brand', name: 'Clausery' }, url: `${SITE}self-hosting/`, category: 'Business Software', offers: { '@type': 'Offer', priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: `${SITE}contact/`, description: 'Custom-quoted Enterprise licenses; AGPL self-hosting is free.' } })}</script>` + faqLd(FAQ) + crumbsLd([['Home', ''], ['Self-hosting', 'self-hosting/']]),
   body: (rel) => `<section class="section">
   <div class="wrap">
