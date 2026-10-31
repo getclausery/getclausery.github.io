@@ -23,7 +23,7 @@ Forty chapters, six parts, eight appendices. You do not have to read it in order
 
 **Route one: straight through.** Seven hours or so. The parts are built to be read in sequence, and the argument accumulates: Part Two assumes the method established in Part One, and Part Four assumes the theology established in Part Three. If you have the time, this is the route the book was written for.
 
-**Route two: the short path.** Three hours, eight chapters: **1** (the phenomenon), **3** (why it works), **13** (the fourteen claims and their verdicts), **16** (the word), **22** (providence), **26** (the six marks), **31** (the novena), **32** (the triage), then **40**. Each stands on its own feet. This is the route for a reader who wants the argument without the scholarship.
+**Route two: the short path.** Three hours, eight chapters and then the conclusion: **1** (the phenomenon), **3** (why it works), **13** (the fourteen claims and their verdicts), **16** (the word), **22** (providence), **26** (the six marks), **31** (the novena), **32** (the triage), then **40**. Each stands on its own feet. This is the route for a reader who wants the argument without the scholarship.
 
 **Route three: triage only.** Forty minutes: **chapter 32** and **Appendix B**. That is the sheet you photocopy and keep in your breviary or your glove compartment. Come back for the rest when someone asks you a second question — because they will, and the second question is always harder than the first.
 

@@ -102,6 +102,42 @@ def check_manuscript():
                 r'\[insert', r'insert here', r'\bTBD\b', r'\bLorem\b'):
         check(f'no placeholder {bad}', not re.search(bad, text, re.I))
 
+    # The audit in chapter 13 is the book's central instrument: fourteen claims, each with a verdict, and a tally
+    # table that states 4 integrate / 3 correct / 7 reject. Check every claim carries exactly one verdict and that
+    # the table agrees with the body, so the book's own arithmetic cannot drift.
+    ch13 = read(os.path.join(MS, 'ch13.md'))
+    heads = [(int(m.group(1)), m.start()) for m in re.finditer(r'^### (\d+)\. ', ch13, re.M)]
+    verdicts = {}
+    for i, (num, pos) in enumerate(heads):
+        end_at = heads[i + 1][1] if i + 1 < len(heads) else len(ch13)
+        m = re.search(r'^\*\*(Integrate|Correct|Reject)', ch13[pos:end_at], re.M)
+        if m:
+            verdicts[num] = m.group(1)
+    check('14 claims stated', len(heads) == 14, len(heads))
+    check('every claim carries one verdict', sorted(verdicts) == list(range(1, 15)),
+          f'{len(verdicts)} of {len(heads)}')
+    tally = {v: sum(1 for k in verdicts.values() if k == v) for v in ('Integrate', 'Correct', 'Reject')}
+    check('verdicts: 4 integrate, 3 correct, 7 reject',
+          tally == {'Integrate': 4, 'Correct': 3, 'Reject': 7}, tally)
+    table = {}
+    for row in re.finditer(r'^\| \*\*(Integrate|Correct|Reject)\*\* \|([^|]+)\|', ch13, re.M):
+        for item in row.group(2).split('\u00b7'):
+            num = re.match(r'\s*(\d+)', item)
+            if num:
+                table[int(num.group(1))] = row.group(1)
+    check('the tally table agrees with the body', table == verdicts,
+          f'{len(table)} listed, {len(verdicts)} in the text')
+
+    # The eight-session study guide in the front matter assigns chapter ranges. They must cover all forty chapters
+    # once: a guide that skips a chapter, or assigns one twice, is a broken map for the reader who follows it.
+    read_plan = re.findall(r'^\| \d \| chs\. ([\d\u2013\-]+) \|', read(os.path.join(MS, '03-how-to-read.md')), re.M)
+    covered = []
+    for span in read_plan:
+        parts = re.split(r'[\u2013\-]', span)
+        covered += list(range(int(parts[0]), int(parts[-1]) + 1))
+    check('study guide covers all 40 chapters once', sorted(covered) == list(range(1, 41)),
+          f'{len(read_plan)} sessions, {len(covered)} chapter slots')
+
 
 # ------------------------------------------------------------------------ HTML
 def check_html(path, label, expect_chapnav=None):
@@ -566,6 +602,17 @@ def check_report():
     check('report: chapters', rep.get('chapters') == 40, rep.get('chapters'))
     check('report: words', rep.get('words', 0) > 70000, rep.get('words'))
     check('report: pdf pages', rep.get('pdf_pages', 0) >= 275, rep.get('pdf_pages'))
+
+    # The book states its own length in the note on method, from tokens the build fills in. It must equal the report.
+    stated = f"{rep['words']:,} words and {rep['pages_estimate']} printed pages"
+    for path, label in ((HTML, 'web'), (PRINT_HTML, 'print'), (EPUB, 'epub')):
+        if label == 'epub':
+            with zipfile.ZipFile(EPUB) as z:
+                body = ''.join(z.read(n).decode('utf-8', 'replace') for n in z.namelist() if n.endswith('.xhtml'))
+        else:
+            body = read(path)
+        check(f'{label}: states its own extent as the build counted it', stated in body, stated)
+        check(f'{label}: no unresolved build tokens', '{{' not in body and '}}' not in body)
 
 
 def main():

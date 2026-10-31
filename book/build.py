@@ -876,6 +876,11 @@ def build():
     pages = round(words / 244)      # measured against the typeset PDF, not guessed
     pages += pages % 2              # the printed book has an even number of pages
 
+    # The text may state its own extent ("the finished book runs to {{words}} words and {{pages}} pages") and the
+    # build fills it in, so a claim about the book's length can never drift out of date the way a typed number does.
+    def counts(s):
+        return s.replace('{{words}}', f'{words:,}').replace('{{pages}}', str(pages))
+
     # --- single-file HTML ---
     cover_uri = ''
     if os.path.exists(COVER):
@@ -957,7 +962,7 @@ def build():
 <p class="note">Web edition generated {date.today().isoformat()} &middot; {words:,} words &middot; approx. {pages} printed pages (5.5 &times; 8.5 in) &middot; {minutes} min at reading speed.<br>{esc(META['rights'])}</p>
 </main>
 </div>@@READER@@</body></html>"""
-    html_doc = html_doc.replace('@@READER@@', READER_JS)
+    html_doc = counts(html_doc.replace('@@READER@@', READER_JS))
     open(os.path.join(DIST, 'the-hidden-and-the-manifest.html'), 'w', encoding='utf-8').write(html_doc)
 
     # --- sample edition: cover, preface, argument, chapter one ---
@@ -996,6 +1001,7 @@ approx. {pages} printed pages.<br>{esc(META["rights"])}</p>
     uid = META['identifier']
 
     def xhtml(t, content, extra=''):
+        content = counts(content)
         return ('<?xml version="1.0" encoding="utf-8"?>\n<!DOCTYPE html>\n'
                 '<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" '
                 f'lang="{META["language"]}" xml:lang="{META["language"]}"><head><meta charset="utf-8"/>'
