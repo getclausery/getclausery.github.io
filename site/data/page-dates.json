@@ -37,107 +37,107 @@
  },
  "changelog.html": {
   "date": "2026-10-31",
-  "hash": "d381c8450fec8e65"
+  "hash": "5f330a2faa8c9630"
  },
  "clauses/": {
-  "date": "2026-10-28",
-  "hash": "a5346960afc0a714"
+  "date": "2026-10-31",
+  "hash": "53ed37abf264ee7d"
  },
  "clauses/amendment-clause.html": {
-  "date": "2026-10-25",
-  "hash": "d1eb5e91ca3704b6"
+  "date": "2026-10-31",
+  "hash": "6541266e4580206e"
  },
  "clauses/assignment-clause.html": {
-  "date": "2026-10-25",
-  "hash": "6a03ca1066f7efe2"
+  "date": "2026-10-31",
+  "hash": "bfb9b7fa9733d991"
  },
  "clauses/at-will-employment-clause.html": {
-  "date": "2026-10-25",
-  "hash": "4cacfba13b45b90e"
+  "date": "2026-10-31",
+  "hash": "018c0bb0c9eaf4e4"
  },
  "clauses/confidentiality-clause.html": {
-  "date": "2026-10-25",
-  "hash": "ef25f7fd37d92a02"
+  "date": "2026-10-31",
+  "hash": "6a4256eff754bd30"
  },
  "clauses/dispute-resolution-clause.html": {
-  "date": "2026-10-25",
-  "hash": "75c2a900eceb0fd6"
+  "date": "2026-10-31",
+  "hash": "15889a070097f330"
  },
  "clauses/electronic-signature-clause.html": {
-  "date": "2026-10-25",
-  "hash": "03b80ad3727b6f71"
+  "date": "2026-10-31",
+  "hash": "9f67eb9f51334b39"
  },
  "clauses/entire-agreement-clause.html": {
-  "date": "2026-10-25",
-  "hash": "b4a478bcbb22f86f"
+  "date": "2026-10-31",
+  "hash": "8af21ffa545249b8"
  },
  "clauses/force-majeure-clause.html": {
-  "date": "2026-10-25",
-  "hash": "336e8006a94ef25d"
+  "date": "2026-10-31",
+  "hash": "4d1fd7e39e1011b8"
  },
  "clauses/governing-law-clause.html": {
-  "date": "2026-10-25",
-  "hash": "10244d6852f470ca"
+  "date": "2026-10-31",
+  "hash": "0991f540b2280fcd"
  },
  "clauses/indemnification-clause.html": {
-  "date": "2026-10-25",
-  "hash": "ec2117b4df6a3245"
+  "date": "2026-10-31",
+  "hash": "9f95e8d3bd891085"
  },
  "clauses/independent-contractor-clause.html": {
-  "date": "2026-10-25",
-  "hash": "ee21d2d3368e7074"
+  "date": "2026-10-31",
+  "hash": "fb9f1e4fc019f021"
  },
  "clauses/intellectual-property-clause.html": {
-  "date": "2026-10-25",
-  "hash": "96d8831c6b6e8bfb"
+  "date": "2026-10-31",
+  "hash": "368b90138f767e2d"
  },
  "clauses/late-payment-interest-clause.html": {
-  "date": "2026-10-25",
-  "hash": "5df2dba0de440c11"
+  "date": "2026-10-31",
+  "hash": "dd4f3ce57593eed0"
  },
  "clauses/limitation-of-liability-clause.html": {
-  "date": "2026-10-25",
-  "hash": "5f7cf18f4d0b4d34"
+  "date": "2026-10-31",
+  "hash": "83224d59fcc7eb8b"
  },
  "clauses/non-compete-clause.html": {
-  "date": "2026-10-25",
-  "hash": "2ec0a7c018939df4"
+  "date": "2026-10-31",
+  "hash": "65cbc40b94ad7e61"
  },
  "clauses/non-solicitation-clause.html": {
-  "date": "2026-10-25",
-  "hash": "599604d5311260fa"
+  "date": "2026-10-31",
+  "hash": "2b79f3a08a9743a2"
  },
  "clauses/notices-clause.html": {
-  "date": "2026-10-25",
-  "hash": "b7072ebc73cc43b9"
+  "date": "2026-10-31",
+  "hash": "9252cf6eb41acffa"
  },
  "clauses/payment-terms-clause.html": {
-  "date": "2026-10-25",
-  "hash": "b766a3bfbd39da74"
+  "date": "2026-10-31",
+  "hash": "8d0c9e70d6318a0a"
  },
  "clauses/severability-clause.html": {
-  "date": "2026-10-25",
-  "hash": "436dac821be460de"
+  "date": "2026-10-31",
+  "hash": "fe8a8f08e2ba038b"
  },
  "clauses/survival-clause.html": {
-  "date": "2026-10-25",
-  "hash": "83066ef8f7471a79"
+  "date": "2026-10-31",
+  "hash": "5381d47f3e565844"
  },
  "clauses/termination-for-cause-clause.html": {
-  "date": "2026-10-25",
-  "hash": "bab3469c695a0453"
+  "date": "2026-10-31",
+  "hash": "082f4a5384dad641"
  },
  "clauses/termination-for-convenience-clause.html": {
-  "date": "2026-10-25",
-  "hash": "8d4ac75ed85efb12"
+  "date": "2026-10-31",
+  "hash": "326318fd0dc6a18c"
  },
  "clauses/waiver-clause.html": {
-  "date": "2026-10-25",
-  "hash": "5c842ef921043e48"
+  "date": "2026-10-31",
+  "hash": "4423c5ee166422ff"
  },
  "clauses/warranty-clause.html": {
-  "date": "2026-10-25",
-  "hash": "0a225775c5d0210e"
+  "date": "2026-10-31",
+  "hash": "881e6a2808c53ac4"
  },
  "compare/": {
   "date": "2026-10-31",
@@ -1037,7 +1037,7 @@
  },
  "templates/invoice.html": {
   "date": "2026-10-31",
-  "hash": "2e96b2167d714721"
+  "hash": "c171e64e503fc734"
  },
  "templates/job-description-template.html": {
   "date": "2026-10-31",

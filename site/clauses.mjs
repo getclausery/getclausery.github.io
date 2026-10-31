@@ -4,7 +4,7 @@
 import { readFileSync } from 'node:fs';
 import { esc, crumbsLd, collectionLd, fitSnippet, LASTMOD, LASTMOD_LONG, longDate } from '../tools/partials.mjs';
 import { CLAUSES, GROUPS } from './data/clauses.mjs';
-import { LIB } from './library.mjs';
+import { LIB, HUB_FOR } from './library.mjs';
 
 export const PUBLISHED = '2026-09-26';
 const TPL = Object.fromEntries(LIB.map((t) => [t.slug, t.name]));
@@ -22,13 +22,13 @@ const short = (c) => c.name.replace(/ clause$/, '');
 
 // Which clauses a reader should expect in each kind of document, for the index page.
 const BY_DOC = [
-  ['NDA', ['confidentiality-clause', 'governing-law-clause', 'entire-agreement-clause', 'notices-clause', 'survival-clause', 'electronic-signature-clause']],
-  ['Service or consulting agreement', ['payment-terms-clause', 'late-payment-interest-clause', 'warranty-clause', 'limitation-of-liability-clause', 'indemnification-clause', 'intellectual-property-clause', 'termination-for-convenience-clause', 'termination-for-cause-clause', 'force-majeure-clause', 'dispute-resolution-clause', 'governing-law-clause']],
-  ['Contractor agreement', ['independent-contractor-clause', 'intellectual-property-clause', 'confidentiality-clause', 'non-solicitation-clause', 'payment-terms-clause', 'termination-for-convenience-clause']],
-  ['Offer letter or employment contract', ['at-will-employment-clause', 'confidentiality-clause', 'intellectual-property-clause', 'non-solicitation-clause', 'non-compete-clause']],
+  ['NDA', 'mutual-nda-template', ['confidentiality-clause', 'governing-law-clause', 'entire-agreement-clause', 'notices-clause', 'survival-clause', 'electronic-signature-clause']],
+  ['Service or consulting agreement', 'service-agreement-template', ['payment-terms-clause', 'late-payment-interest-clause', 'warranty-clause', 'limitation-of-liability-clause', 'indemnification-clause', 'intellectual-property-clause', 'termination-for-convenience-clause', 'termination-for-cause-clause', 'force-majeure-clause', 'dispute-resolution-clause', 'governing-law-clause']],
+  ['Contractor agreement', 'independent-contractor-template', ['independent-contractor-clause', 'intellectual-property-clause', 'confidentiality-clause', 'non-solicitation-clause', 'payment-terms-clause', 'termination-for-convenience-clause']],
+  ['Offer letter or employment contract', 'offer-letter-template', ['at-will-employment-clause', 'confidentiality-clause', 'intellectual-property-clause', 'non-solicitation-clause', 'non-compete-clause']],
 ];
 const BY_SLUG = Object.fromEntries(CLAUSES.map((c) => [c.slug, c]));
-for (const [, list] of BY_DOC) for (const s of list) if (!BY_SLUG[s]) throw new Error(`clause index: unknown clause ${s}`);
+for (const [, , list] of BY_DOC) for (const s of list) if (!BY_SLUG[s]) throw new Error(`clause index: unknown clause ${s}`);
 
 const COPY_CSS = `<style>
 .clause-box { position: relative; background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: var(--radius-sm); padding: 1.25rem 1.25rem .5rem; margin: 1rem 0; font-family: Georgia, "Times New Roman", serif; }
@@ -57,7 +57,7 @@ export const pages = [
   <h2 id="by-document" style="margin-top:3rem">Which clauses does my document need?</h2>
   <p>A starting point for the most common documents. Every deal is different, so treat this as a checklist, not a rule.</p>
   <div class="table-wrap" tabindex="0"><table class="compare"><thead><tr><th scope="col">Document</th><th scope="col">Clauses to expect</th></tr></thead><tbody>
-    ${BY_DOC.map(([doc, list]) => `<tr><th scope="row">${esc(doc)}</th><td>${list.map((s) => `<a href="${rel}clauses/${s}.html">${esc(short(BY_SLUG[s]))}</a>`).join(', ')}</td></tr>`).join('')}
+    ${BY_DOC.map(([doc, hub, list]) => `<tr><th scope="row"><a href="${rel}templates/${hub}.html">${esc(doc)}</a></th><td>${list.map((s) => `<a href="${rel}clauses/${s}.html">${esc(short(BY_SLUG[s]))}</a>`).join(', ')} <span class="small muted">· <a href="${rel}templates/${hub}.html">what to include</a></span></td></tr>`).join('')}
   </tbody></table></div>
   <!--nav--><div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem;margin-top:0">Put the clauses into a document</h2><p>Clausery turns your own Word template into a questionnaire and builds the finished contract in your browser. Every template in the library is free, and the <a href="${rel}templates/">free contract templates</a> already use many of these clauses.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free templates</a></p></div><!--/nav-->
   <p class="small muted" style="margin-top:2rem">This library is general information, not legal advice. Laws differ between countries and states; have wording reviewed for your situation before you rely on it.</p>
@@ -99,7 +99,7 @@ ${c.tool ? `  <p>${esc(c.tool[2])} <a href="${rel}free-tools/${c.tool[0]}.html">
   <div class="faq">${faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>
 
   <h2>Free templates that use it</h2>
-  <ul>${c.templates.map((s) => `<li><a href="${rel}templates/${s}.html">${esc(TPL[s])}</a></li>`).join('')}</ul>
+  <ul>${c.templates.map((s) => `<li><a href="${rel}templates/${s}.html">${esc(TPL[s])}</a>${HUB_FOR[s] && HUB_FOR[s] !== s ? ` — <a href="${rel}templates/${HUB_FOR[s]}.html" class="small muted">what to include</a>` : ''}</li>`).join('')}</ul>
 ${related.length ? `
   <h2>Related clauses</h2>
   <ul>${related.map((x) => `<li><a href="${rel}clauses/${x.slug}.html">${esc(x.name)}</a></li>`).join('')}</ul>` : ''}

@@ -679,11 +679,13 @@ for (const t of LIB) if (!CATEGORY_ORDER.some(([c]) => c === t.category)) throw 
 for (const [t, g] of Object.entries(GUIDE_FOR)) if (!GUIDE[g] || !LIB.some((x) => x.slug === t)) throw new Error(`GUIDE_FOR: ${t} -> ${g}`);
 for (const [t, [tool]] of Object.entries(TOOL_FOR)) if (!existsSync(`free-tools/${tool}.js`) || !LIB.some((x) => x.slug === t)) throw new Error(`TOOL_FOR: ${t} -> ${tool}`);
 // The what-to-include hub page that goes with each LIB template (for internal cross-linking to -template SEO hubs).
-const HUB_FOR = {
+export const HUB_FOR = {
   'independent-contractor-agreement': 'independent-contractor-template',
   'employment-verification-letter': 'employment-verification-template',
   'salary-increase-letter': 'salary-increase-template',
   'two-weeks-notice-letter': 'two-weeks-notice-template',
+  'invoice': 'invoice', // hub at its own slug (no -template.html variant)
+  'freelance-contract': 'freelance-contract',
 };
 // Auto-populate HUB_FOR for any slug where templates/<slug>-template.html exists.
 for (const t of LIB) {
