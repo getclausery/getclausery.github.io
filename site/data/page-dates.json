@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-31",
-  "hash": "da0c5ae8bbf69347"
+  "hash": "951d2ab368b06ce6"
  },
  "clauses/": {
   "date": "2026-10-28",
@@ -1399,6 +1399,10 @@
   "date": "2026-10-31",
   "hash": "b87380ec0bbf2922"
  },
+ "templates/sales-commission-agreement-template.html": {
+  "date": "2026-10-31",
+  "hash": "4b251589631d135c"
+ },
  "templates/sales-commission-agreement.html": {
   "date": "2026-10-29",
   "hash": "23f650e7ae18969b"
@@ -1426,6 +1430,10 @@
  "templates/severance-agreement.html": {
   "date": "2026-10-31",
   "hash": "5f3a28d7a7568e2a"
+ },
+ "templates/social-media-management-contract-template.html": {
+  "date": "2026-10-31",
+  "hash": "485d5ab1e6657eed"
  },
  "templates/social-media-management-contract.html": {
   "date": "2026-10-31",
@@ -1478,6 +1486,10 @@
  "templates/video-production-contract.html": {
   "date": "2026-10-31",
   "hash": "95f81743b83fd4a0"
+ },
+ "templates/virtual-assistant-agreement-template.html": {
+  "date": "2026-10-31",
+  "hash": "5f55bbbe1567153f"
  },
  "templates/virtual-assistant-agreement.html": {
   "date": "2026-10-31",

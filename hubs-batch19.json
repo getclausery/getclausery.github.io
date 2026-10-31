@@ -1,0 +1,120 @@
+[
+  {
+    "path": "templates/sales-commission-agreement-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Sales Commission Agreement | Free Word Template",
+    "h1": "Free sales commission agreement template (Word)",
+    "description": "Free sales commission agreement: set commission structure, quotas, clawbacks and payment terms for sales reps.",
+    "lead": "An agreement between a company and a sales representative (employee or independent) defining commission structure, quotas, territory, when commissions are earned/paid, clawback rules and termination terms.",
+    "introParagraphs": ["A sales commission agreement spells out how sales reps earn commission: base salary (if any), commission rate per deal, quotas, territory, when commission is considered earned (on booking, on invoice, on customer payment), draw vs recoverable draw, clawbacks for refunds/chargebacks, and what happens on termination.", "Clear commission terms prevent disputes over who gets paid on which deal and when. Be explicit about whether commissions survive termination, and how splits work on team or channel deals."],
+    "bullets": [
+      ["Company and rep", "Company name; sales rep name and role (employee or independent contractor); effective date; territory (geographic, vertical, named accounts)."],
+      ["Compensation", "Base salary (if any) and commission structure: % of revenue/gross margin, tiered/accelerating rates above quota, bonuses/SPIFs, draw (recoverable or non-recoverable) if any."],
+      ["Quota and targets", "Monthly/quarterly/annual quota, how quota is set/reset, ramp-up periods for new reps, and territory/product assignment."],
+      ["Earning and payment", "When commission is earned (booking, invoicing, customer payment), payment timing (next payroll after close), splits between reps/teams, and clawback for cancellations/refunds/non-payment."],
+      ["Term and termination", "Agreement term, at-will status, what happens to commissions on deals in pipeline at termination (often none post-termination except for deals closed before end date), non-solicit/non-compete if applicable, and governing law."]
+    ],
+    "howTo": [
+      ["Pick a clear commission formula", "Avoid vague 'commission will be paid per company policy' — state the exact % and basis (revenue or margin)."],
+      ["Define 'earned' precisely", "Commission earned on close vs customer payment has big cash-flow implications; choose a policy and stick with it."],
+      ["Add clawback terms", "If a customer refunds or doesn't pay within a set window, claw back the commission — state clearly."],
+      ["Spell out post-termination", "Most states require paying commissions earned before termination; future pipeline deals do not usually earn unless contract says so."],
+      ["Review with counsel", "Commission disputes are common — especially post-termination. Make sure terms comply with state labor/commission laws (CA, NY and IL have specific rules)."]
+    ],
+    "related": [
+      ["Employment agreement", "templates/employment-agreement-template.html", "Base employment contract often paired with this commission plan."],
+      ["Independent contractor agreement", "templates/independent-contractor-template.html", "For independent (1099) sales reps."],
+      ["Retainer agreement", "templates/retainer-agreement-template.html", "Retainer differs from commission-based pay."],
+      ["Free HR/sales templates", "for/hr-teams.html", "Full sales/HR template set."]
+    ],
+    "faq": [
+      ["Are commissions owed after termination?", "Many US states require paying earned commissions post-termination; clauses that say 'no commission after termination' are unenforceable in CA, NY, IL and others for deals closed during employment."],
+      ["Can I claw back commissions?", "Yes for refunds/non-payment if agreed in writing; clawbacks on paid/customer-retained revenue are restricted."],
+      ["Draw vs guarantee?", "A recoverable draw is a loan against future commissions (repaid from later earnings); a non-recoverable draw/guarantee is paid regardless (essentially a guaranteed minimum)."],
+      ["Should I pay on revenue or margin?", "Margin-based commissions discourage discounting; revenue-based is simpler; be explicit."],
+      ["Do I need quotas?", "Quotas focus reps and trigger accelerators; always state how and when they are reset."]
+    ],
+    "cta": { "label": "Build your sales commission agreement", "href": "app/#/start/sales-commission-agreement" },
+    "download": { "href": "samples/sales-commission-agreement.docx", "label": "Download Word" }
+  },
+  {
+    "path": "templates/social-media-management-contract-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Social Media Management Contract | Free Word Template",
+    "h1": "Free social media management contract template (Word)",
+    "description": "Free social media management contract: set scope, platforms, posting cadence, fees, IP and KPIs for social media management.",
+    "lead": "A contract between a social media manager/freelancer/agency and a client covering platforms, posting cadence, content approval, KPIs/reporting, fees, IP rights and termination.",
+    "introParagraphs": ["A social media management contract defines what platforms the manager will run (Instagram, TikTok, X, LinkedIn, Facebook, YouTube), how often they post, content approval workflow, paid-ad spend handling, KPIs (engagement, followers, leads), reporting cadence, fees, content ownership and what happens if posts go viral or cause PR issues.", "Social media moves fast. A clear content-approval workflow (e.g. client approves posts X days in advance), a right to decline unethical content requests, and clear ownership of created content are essential."],
+    "bullets": [
+      ["Manager and client", "Social media manager/agency name; client name and brand; accounts/platforms being managed (handles listed); agreement start date and term."],
+      ["Scope and services", "Platforms, posting frequency (posts per week/stories/reels/Reels), content creation (photo, video, captions, graphics), community management (DMs/comments response time), paid ads management (and ad-spend pass-through)."],
+      ["Content approval and KPIs", "Approval workflow (shared calendar, approval SLA e.g. 48 hours), KPI targets (growth, engagement rate, leads), and monthly reporting."],
+      ["Fees and payment", "Monthly retainer or per-project fee, setup/onboarding fee, paid-spend billing (separate budget), payment terms, and rate for extra content beyond scope."],
+      ["IP, cancellation and liability", "Content ownership (typically client owns final approved content; manager retains portfolio rights), client brand guidelines/trademarks, confidentiality, termination notice (typically 30 days), and liability for account access/social-media crises."]
+    ],
+    "howTo": [
+      ["Do an audit first", "Start with an audit of existing accounts and set realistic baseline KPIs before promising growth."],
+      ["Lock the content approval process", "Define who approves, turnaround times, and what happens if client delays approvals (posts go out as drafted or delayed)."],
+      ["Handle ad spend separately", "Client pays ad spend directly or via a clear pass-through; do not co-mingle funds."],
+      ["Get account access securely", "Use business manager/partner access rather than sharing passwords; document access handover at end."],
+      ["Include crisis clauses", "If a post triggers PR issues, have an agreed escalation and take-down process."]
+    ],
+    "related": [
+      ["Retainer agreement", "templates/retainer-agreement-template.html", "Social media management is often a monthly retainer."],
+      ["Independent contractor agreement", "templates/independent-contractor-template.html", "For freelance managers."],
+      ["Graphic design contract", "templates/graphic-design-contract-template.html", "For visual assets that pair with social content."],
+      ["Free contract templates", "templates/contract-template.html", "Full template library."]
+    ],
+    "faq": [
+      ["Who owns the social content?", "Client typically owns approved posted content; manager retains portfolio rights and sometimes reusable templates."],
+      ["Do I guarantee follower growth?", "Avoid guarantees — algorithm changes make specific growth promises risky; commit to effort, posting cadence and best practices."],
+      ["Can I run ads under this contract?", "Specify whether ad management is included, and who pays ad spend (always the client)."],
+      ["What about negative comments/PR?", "Define response protocols and who is authorised to respond on behalf of the brand during crises."],
+      ["How long is the contract?", "Month-to-month with 30-day notice is common; some agencies offer discounts for 3/6/12-month terms."]
+    ],
+    "cta": { "label": "Build your social media management contract", "href": "app/#/start/social-media-management-contract" },
+    "download": { "href": "samples/social-media-management-contract.docx", "label": "Download Word" }
+  },
+  {
+    "path": "templates/virtual-assistant-agreement-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Virtual Assistant Agreement | Free Word Template",
+    "h1": "Free virtual assistant (VA) agreement template (Word)",
+    "description": "Free virtual assistant agreement: set VA scope, hours, pay, confidentiality, data security and termination.",
+    "lead": "An agreement between a client and a virtual assistant (VA) defining services, hours/availability, rate, payment terms, data security, confidentiality and termination.",
+    "introParagraphs": ["A virtual assistant (VA) agreement sets out the scope of administrative, technical or creative support a VA provides remotely: email management, scheduling, data entry, bookkeeping, social media, travel booking, research, customer support. It covers hours, rate (hourly or package), communication tools, confidentiality and data handling.", "VAs often access sensitive client information (email, passwords, customer data). Confidentiality and data-security clauses are essential, as is clarity on independent-contractor status (VAs are usually not employees)."],
+    "bullets": [
+      ["Client and VA", "Client name/company; VA name/business; effective date; time zone and primary communication channels (Slack, email, Asana)."],
+      ["Scope of services", "Specific services (email mgmt, calendar, travel, data entry, research, social posting, bookkeeping), expected weekly hours, and exclusions."],
+      ["Fees and payment", "Hourly rate or package price, invoicing frequency (weekly/bi-weekly/monthly), payment terms (net 7/15), payment method, rate for rush/overtime work, and any retainer."],
+      ["Confidentiality and data", "NDA/confidentiality for client information, password/credential handling (use password managers, never share insecurely), data-security responsibilities, and return/deletion of data on termination."],
+      ["Availability, IP and termination", "Working hours/availability (time zone), response SLAs, independent-contractor status, IP assignment for work product, termination notice (e.g. 14 days), and post-termination handover obligations."]
+    ],
+    "howTo": [
+      ["Define scope in detail", "List the tasks included and excluded; 'general admin' is too vague and leads to scope creep."],
+      ["Set communication norms", "Agree on tools, response times and working hours across time zones."],
+      ["Handle passwords securely", "Use a password manager (1Password, LastPass) — never send passwords by email."],
+      ["Start with a trial week", "A paid trial period (1-2 weeks) lets both sides confirm fit."],
+      ["Include confidentiality", "VAs access sensitive accounts — an NDA clause is standard; pair with strong data handling practices."]
+    ],
+    "related": [
+      ["Independent contractor agreement", "templates/independent-contractor-template.html", "Master contractor agreement for ongoing freelance work."],
+      ["Consulting agreement", "templates/consulting-agreement-template.html", "For more advisory project work."],
+      ["Employee NDA", "templates/employee-nda-template.html", "NDA terms apply to VAs as well as employees."],
+      ["Remote work agreement", "templates/remote-work-agreement-template.html", "For remote employees (different from VAs)."],
+      ["Free contract templates", "templates/contract-template.html", "Full template library."]
+    ],
+    "faq": [
+      ["Is a VA an employee or contractor?", "Most VAs are independent contractors running their own business; misclassifying can create tax liability."],
+      ["Do I need to give benefits?", "No for independent contractors; employees get benefits. Treat VAs as contractors unless they fit employee criteria."],
+      ["What about password/account access?", "Use password managers with limited access and revoke access immediately on termination."],
+      ["How many hours should I book?", "Start with a block of hours per month; adjust as you learn the workload."],
+      ["What if I am not happy?", "Include a short notice period (7-14 days) and pay for work done up to termination."]
+    ],
+    "cta": { "label": "Build your VA agreement", "href": "app/#/start/virtual-assistant-agreement" },
+    "download": { "href": "samples/virtual-assistant-agreement.docx", "label": "Download Word" }
+  }
+]
