@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-31",
-  "hash": "a6da3ab6daa1aeea"
+  "hash": "6975e233ce2d6b00"
  },
  "clauses/": {
   "date": "2026-10-28",
@@ -963,6 +963,10 @@
   "date": "2026-10-31",
   "hash": "c999f721b9040c03"
  },
+ "templates/freelance-writing-contract-template.html": {
+  "date": "2026-10-31",
+  "hash": "9d0735d4410d1c28"
+ },
  "templates/freelance-writing-contract.html": {
   "date": "2026-10-31",
   "hash": "f7e68d53d0f11ebc"
@@ -982,6 +986,10 @@
  "templates/gift-letter.html": {
   "date": "2026-10-31",
   "hash": "b99d37101f59f4e6"
+ },
+ "templates/graphic-design-contract-template.html": {
+  "date": "2026-10-31",
+  "hash": "d40cb6f4bd2fa435"
  },
  "templates/graphic-design-contract.html": {
   "date": "2026-10-31",
@@ -1219,6 +1227,10 @@
   "date": "2026-10-31",
   "hash": "4b235aefe84737d7"
  },
+ "templates/photography-contract-template.html": {
+  "date": "2026-10-31",
+  "hash": "e6ba4fadccd8d942"
+ },
  "templates/photography-contract.html": {
   "date": "2026-10-30",
   "hash": "ac3794ba5d4afe1c"
@@ -1419,6 +1431,10 @@
   "date": "2026-10-31",
   "hash": "c8e1e4e07c9cbe98"
  },
+ "templates/video-production-contract-template.html": {
+  "date": "2026-10-31",
+  "hash": "674edd83d32dd35a"
+ },
  "templates/video-production-contract.html": {
   "date": "2026-10-31",
   "hash": "95f81743b83fd4a0"
@@ -1426,6 +1442,10 @@
  "templates/virtual-assistant-agreement.html": {
   "date": "2026-10-31",
   "hash": "009b45fba01c0456"
+ },
+ "templates/web-design-contract-template.html": {
+  "date": "2026-10-31",
+  "hash": "42e2b1c21a0dc0ec"
  },
  "templates/web-design-contract.html": {
   "date": "2026-10-31",
