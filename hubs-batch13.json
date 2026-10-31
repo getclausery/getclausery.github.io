@@ -1,0 +1,202 @@
+[
+  {
+    "path": "templates/business-sale-nda-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Business Sale NDA | Free Word Template",
+    "h1": "Free business sale NDA (confidentiality agreement) template (Word)",
+    "description": "Free business sale NDA: protect confidential information shared during due diligence for selling a business.",
+    "lead": "A mutual non-disclosure agreement signed between a business seller and a prospective buyer (or their advisors) before sharing financials, customer lists and other confidential information during sale due diligence.",
+    "introParagraphs": ["A business sale NDA (or M&A confidentiality agreement) is signed before a prospective buyer gets access to a seller's confidential information — financial statements, customer lists, supplier contracts, employee data and trade secrets — during due diligence for a potential acquisition.", "This is typically a mutual NDA because both sides share sensitive information (the seller discloses the business; the buyer may disclose financing or acquisition strategy). It also usually includes a non-solicitation of employees for a set period."],
+    "bullets": [
+      ["Parties", "Seller and buyer names and addresses; effective date; reference to the proposed transaction."],
+      ["Definition of confidential information", "All non-public information about the business: financials, customers, suppliers, employees, IP, contracts, trade secrets — whether written, oral or electronic."],
+      ["Permitted use", "Buyer may use confidential information only to evaluate the proposed transaction, and may share it only with advisors (lawyers, accountants, bankers) bound by similar confidentiality."],
+      ["Non-solicitation", "For X months (often 12-24), buyer will not solicit or hire the seller's key employees or approach customers/suppliers improperly."],
+      ["Return/destruction, term, remedies", "On request or if the deal falls through, buyer returns or destroys all confidential materials; standard exclusions; injunctive relief; governing law."]
+    ],
+    "howTo": [
+      ["Sign early", "Execute the NDA before sharing any non-public financial or customer data."],
+      ["Define the transaction clearly", "Name the target business and the nature of the proposed transaction so use is properly scoped."],
+      ["Include non-solicit", "Prevent buyers from poaching employees or customers if the deal collapses."],
+      ["Add a standstill (optional)", "For public-company or controlling-interest deals, include a standstill preventing unsolicited takeover moves."],
+      ["Keep a term sheet reference", "Tie the NDA to the expected timeline of diligence/negotiations and specify how long obligations last (typically 2-3 years)."]
+    ],
+    "related": [
+      ["Mutual NDA", "templates/mutual-nda-template.html", "Generic mutual NDA for general-purpose discussions."],
+      ["Letter of intent", "templates/letter-of-intent-template.html", "Often signed alongside the NDA to outline deal terms."],
+      ["One-way NDA", "templates/one-way-nda-template.html", "Use one-way when only the seller disclosures are flowing."],
+      ["Partnership agreement", "templates/partnership-agreement-template.html", "For ongoing partnerships rather than acquisitions."],
+      ["Free business contract templates", "templates/contract-template.html", "Full business/contract library."]
+    ],
+    "faq": [
+      ["Is a business sale NDA mutual?", "Usually yes — both sides share strategic information, though the seller does most of the disclosing."],
+      ["How long does it last?", "Confidentiality 2-5 years; trade-secret protection longer; non-solicitation 12-24 months is common."],
+      ["Do I need one before sending a CIM?", "Yes — before sharing a confidential information memorandum or any financials."],
+      ["Can I tell employees about the NDA?", "Share on a need-to-know basis with people directly involved in the deal and bound by their own NDA."],
+      ["What if the buyer walks away?", "The NDA still binds them — they must return/destroy materials and remain bound by confidentiality and non-solicit."]
+    ],
+    "cta": { "label": "Build your business sale NDA", "href": "app/#/start/business-sale-nda" },
+    "download": { "href": "samples/business-sale-nda.docx", "label": "Download Word" }
+  },
+  {
+    "path": "templates/equipment-rental-agreement-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Equipment Rental Agreement | Free Word Template",
+    "h1": "Free equipment rental agreement template (Word)",
+    "description": "Free equipment rental agreement: rent out tools, machinery or vehicles with clear terms, rates and liability.",
+    "lead": "A contract between equipment owner and renter for short-term rental of tools, machinery, vehicles or other equipment, covering rental period, rates, deposit, condition, use and liability.",
+    "introParagraphs": ["An equipment rental agreement governs the short-term hire of tools, machinery, vehicles or other equipment from an owner to a renter. It covers the rental period, rate, deposit, condition at handover, permitted use, maintenance responsibilities, damage/loss liability and insurance.", "Equipment rental carries significant liability risk — the renter operating heavy equipment can cause injury or property damage. Include insurance/indemnity language and ensure the renter is competent/qualified for the equipment."],
+    "bullets": [
+      ["Owner and renter", "Owner name/company; renter name/company; addresses and contact details; driver's license/ID if relevant."],
+      ["Equipment and rental term", "Description of equipment (make, model, serial/VIN, accessories), pick-up/delivery date, return date, and location of use."],
+      ["Rates and charges", "Daily/weekly/monthly rate, minimum charge, security/damage deposit, fuel/cleaning fees, late-return fees and delivery/pick-up charges."],
+      ["Condition and use", "Condition at handover (attach a condition report/photos), permitted use, prohibited uses, who operates it, and maintenance responsibilities (daily checks by renter; major repairs by owner)."],
+      ["Liability and insurance", "Renter responsibility for damage, loss and theft; insurance required (and certificate); indemnification; owner disclaimer of liability for renter's use; security deposit return terms."]
+    ],
+    "howTo": [
+      ["Inspect and photograph", "Walk around the equipment with the renter, note existing damage on a condition sheet and take dated photos."],
+      ["Verify qualifications", "Check licenses/certifications for specialised equipment (e.g. forklifts, heavy machinery) and confirm insurance coverage."],
+      ["Set rates clearly", "State rate, billing increments, late fees, fuel policy and deposit; clarify minimum rental periods."],
+      ["Agree on damage responsibility", "Make clear the renter pays for damage, theft, or loss during the rental period (subject to normal wear); require a deposit."],
+      ["Sign and hand over", "Both sign; renter receives the equipment and a copy; owner files the agreement and condition report. Inspect again on return."]
+    ],
+    "related": [
+      ["Hold harmless agreement", "templates/hold-harmless-agreement-template.html", "Indemnity for injury/claims during rental."],
+      ["Liability waiver", "templates/liability-waiver-template.html", "Waiver signed by the operator for higher-risk equipment."],
+      ["Room rental agreement", "templates/room-rental-agreement-template.html", "For renting a room (similar structure, different asset)."],
+      ["General release", "templates/general-release.html", "Used post-incident if something goes wrong."],
+      ["Free contract templates", "templates/contract-template.html", "Full contract template library."]
+    ],
+    "faq": [
+      ["Do I need insurance?", "Owner should carry commercial/equipment insurance and require renters to carry liability coverage; ask for a certificate of insurance."],
+      ["Who pays for repairs?", "Renters are usually responsible for damage caused by misuse, accident or neglect during the rental; owners cover normal wear and mechanical failure."],
+      ["How much deposit?", "Typically 10-25% of the equipment value or one day rental rate; refund within a set period after return minus damage/loss/fuel."],
+      ["Can I rent to an unlicensed operator?", "For equipment requiring a license (vehicles, forklifts, certain heavy machinery) no — verify credentials before handover."],
+      ["What if equipment is returned late?", "Charge the daily rate plus a late fee per the agreement; specify in advance."]
+    ],
+    "cta": { "label": "Build your equipment rental agreement", "href": "app/#/start/equipment-rental-agreement" },
+    "download": { "href": "samples/equipment-rental-agreement.docx", "label": "Download Word" }
+  },
+  {
+    "path": "templates/retainer-agreement-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Retainer Agreement | Free Word Template",
+    "h1": "Free retainer agreement template (Word)",
+    "description": "Free retainer agreement: ongoing monthly services with a set fee, scope and rollover/use-it-or-lose-it terms.",
+    "lead": "A contract between a client and a service provider (lawyer, consultant, agency, freelancer) for ongoing services at a fixed recurring fee, with defined scope, hours/deliverables and unused-time policy.",
+    "introParagraphs": ["A retainer agreement sets up an ongoing relationship where a client pays a recurring fee (monthly is most common) to reserve a service provider time and availability. It defines the scope covered, hours or deliverables included, how additional work is billed, and whether unused time rolls over or expires.", "Retainers give the provider predictable income and the client guaranteed availability/priority response. Be clear about scope creep — define what is included and what triggers additional fees."],
+    "bullets": [
+      ["Client and provider", "Both parties names/companies, addresses and contact details; effective date."],
+      ["Services covered", "The scope of services included in the retainer (specific deliverables, hours per month, priority response, advisory access) and what is out of scope."],
+      ["Retainer fee and billing", "Monthly (or other period) retainer amount, payment schedule, invoicing cadence, accepted payment methods, and late-fee terms."],
+      ["Unused time / overages", "Whether unused hours roll over (and expiration) or are use-it-or-lose-it; hourly rate for work beyond the retainer scope/hours; change-order process for extra work."],
+      ["Term and termination", "Initial term, auto-renewal, notice period to cancel (typically 30 days), what happens to in-progress work on termination, confidentiality and IP ownership."]
+    ],
+    "howTo": [
+      ["Define scope precisely", "List what is included and, importantly, what is not; scope creep kills retainer profitability."],
+      ["Set a realistic fee", "Match retainer hours to typical client needs; if they routinely use 20 hours a month, price for 20 + buffer."],
+      ["Decide rollover policy", "Rollover reduces client anxiety about unused time; use-it-or-lose-it protects your capacity. Pick one and state it clearly."],
+      ["Specify overage rates", "State the hourly rate for work beyond scope and require written approval (change order) before exceeding the retainer."],
+      ["Include exit terms", "Set a notice period (30 days is standard) and how in-progress work and prepaid fees are handled on termination."]
+    ],
+    "related": [
+      ["Consulting agreement", "templates/consulting-agreement-template.html", "Master consulting agreement often used alongside a retainer."],
+      ["Service agreement", "templates/service-agreement-template.html", "Master services agreement for ongoing B2B work."],
+      ["Engagement letter", "templates/engagement-letter-template.html", "Professional-services letter that can define a retainer."],
+      ["Statement of work", "templates/statement-of-work-template.html", "Project-specific scope under a retainer/master."],
+      ["Free contract templates", "templates/contract-template.html", "Full contract template library."]
+    ],
+    "faq": [
+      ["Is a retainer refundable?", "Typically no — it reserves availability and is earned monthly; some arrangements hold a deposit/advance that is drawn down (true retainer vs evergreen retainer — be clear which yours is)."],
+      ["Do I need one for every client?", "For ongoing recurring work yes; one-off projects use a SOW or project contract instead."],
+      ["Is it the same as a deposit?", "No — a deposit is a one-time prepayment against future invoices; a retainer is recurring for ongoing availability."],
+      ["Should unused hours roll over?", "Rollover makes sense for intermittent-need clients (e.g. legal hotlines); use-it-or-lose-it for steady ongoing delivery. Be explicit."],
+      ["Can I raise the retainer?", "Yes, with proper notice (30-60 days) written into the agreement."]
+    ],
+    "cta": { "label": "Build your retainer agreement", "href": "app/#/start/retainer-agreement" },
+    "download": { "href": "samples/retainer-agreement.docx", "label": "Download Word" }
+  },
+  {
+    "path": "templates/engagement-letter-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Engagement Letter | Free Word Template",
+    "h1": "Free engagement letter template (Word)",
+    "description": "Free engagement letter: define scope, fees and terms for professional services (lawyers, accountants, consultants).",
+    "lead": "A formal letter from a professional (lawyer, accountant, consultant, designer) to a client setting out the scope of work, fees, responsibilities and terms of engagement.",
+    "introParagraphs": ["An engagement letter is the contract between a professional services provider and their client. Lawyers, accountants, consultants, bookkeepers, designers and other professionals use it to define scope, fees, responsibilities, conflicts, confidentiality and how either side can end the engagement.", "For regulated professions (law, accounting) engagement letters are often required by professional rules. A good engagement letter prevents fee disputes and scope creep by spelling out exactly what is and is not included."],
+    "bullets": [
+      ["Professional and client", "Professional/firm name, address, contact; client name and address; date of letter."],
+      ["Scope of services", "Specific matter or project description, and what is included (e.g. audit, tax preparation, case representation, consulting) and explicitly excluded work (related matters, appeals, etc.)."],
+      ["Fees and billing", "Hourly rates, flat fee, or contingency; retainer amount if any; billing frequency; payment terms (net 15/30); accepted payment methods; cost reimbursements (filing fees, travel)."],
+      ["Client responsibilities", "Documents/information the client must provide, timeliness, truthfulness, and decisions only the client can make."],
+      ["Other terms", "Confidentiality, conflicts check (law firms), file retention, termination by either side, limitation of liability, dispute resolution/arbitration, governing law, and signature lines."]
+    ],
+    "howTo": [
+      ["Send before work starts", "Have the engagement letter signed before you start billable work; do not rely on verbal go-aheads."],
+      ["List inclusions and exclusions", "Be specific about what services are covered (e.g. 'drafting the operating agreement') and what is not (e.g. 'employment disputes')."],
+      ["State fees clearly", "Disclose hourly rates per timekeeper, flat fees, contingency percentages, and who pays costs."],
+      ["Include termination", "State how either side can end the engagement (written notice) and how fees/work-in-progress are handled."],
+      ["Sign and keep a copy", "Client signs and returns; retain the signed letter in the client file for the duration of the engagement."]
+    ],
+    "related": [
+      ["Consulting agreement", "templates/consulting-agreement-template.html", "Full consulting contract (similar scope; more clauses)."],
+      ["Retainer agreement", "templates/retainer-agreement-template.html", "For ongoing monthly engagements."],
+      ["Coaching agreement", "templates/coaching-agreement-template.html", "A variant of engagement letter for coaches."],
+      ["Statement of work", "templates/statement-of-work-template.html", "Project-specific scope document."],
+      ["Free contract templates", "templates/contract-template.html", "Full contract template library."]
+    ],
+    "faq": [
+      ["Is an engagement letter a contract?", "Yes — when signed by both sides it is a binding contract for services."],
+      ["Do lawyers/accountants have to use one?", "Most bar associations and accounting bodies require a written engagement for new clients/matters."],
+      ["Can I change scope mid-engagement?", "With a written change order or amendment signed by both sides — do not rely on email approval alone for significant changes."],
+      ["How do I handle disputes over fees?", "Engagement letters usually include arbitration/mediation clauses; many professional bodies offer fee-dispute resolution."],
+      ["Do I need one for repeat clients?", "Best practice is a new letter per matter or per year for ongoing work to keep scope current."]
+    ],
+    "cta": { "label": "Build your engagement letter", "href": "app/#/start/engagement-letter" },
+    "download": { "href": "samples/engagement-letter.docx", "label": "Download Word" }
+  },
+  {
+    "path": "templates/meeting-minutes-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Meeting Minutes | Free Word Template",
+    "h1": "Free meeting minutes template (Word)",
+    "description": "Free meeting minutes: record attendees, decisions, actions and votes at board, member or corporate meetings.",
+    "lead": "A formal written record of a meeting (board of directors, shareholders, members, committee or staff) listing attendees, decisions taken, votes, action items and next meeting date.",
+    "introParagraphs": ["Meeting minutes are the official written record of what happened at a meeting — who attended, what was discussed, what decisions were made and how votes went. For corporate boards and shareholder meetings they are legally required and become part of the corporate record.", "Minutes should be concise and factual — record decisions and votes, not a transcript of discussion. Distribute draft minutes promptly after the meeting and approve them (with any corrections) at the next meeting."],
+    "bullets": [
+      ["Meeting header", "Organisation/company name, meeting type (board, shareholder, committee), date, time and location, chair and secretary."],
+      ["Attendance", "Names of attendees; who was absent (and whether apologies were received); quorum confirmation."],
+      ["Approval of prior minutes", "Approval (with corrections) of minutes from the previous meeting."],
+      ["Agenda items and decisions", "Each agenda item, a summary of discussion, motions made, seconded, votes (for/against/abstain), and whether the motion passed or failed."],
+      ["Action items and close", "List of action items with owner and deadline; next meeting date and time; adjournment time; chair and secretary signatures."]
+    ],
+    "howTo": [
+      ["Prepare an agenda", "Distribute an agenda before the meeting so the secretary can structure minutes around it."],
+      ["Capture decisions, not debate", "Record motions, votes and action items in concise bullet form — do not transcribe discussion word for word."],
+      ["Note who attended/left", "Record attendees and any arrivals/departures that affect quorum."],
+      ["Distribute draft promptly", "Send draft minutes within a few days while memories are fresh; label 'DRAFT' until approved."],
+      ["Approve at the next meeting", "Members vote to approve (with corrections if noted) at the next meeting; secretary signs and files in the minute book."]
+    ],
+    "related": [
+      ["Board resolution", "templates/board-resolution-template.html", "Formal resolutions often adopted and recorded in the minutes."],
+      ["Memorandum of understanding", "templates/memorandum-of-understanding-template.html", "Collaborative decisions sometimes documented in MOUs alongside minutes."],
+      ["Partnership agreement", "templates/partnership-agreement-template.html", "Usually specifies meeting frequency and minute requirements."],
+      ["Employment agreement", "templates/employment-agreement-template.html", "Officer appointments recorded in minutes."],
+      ["Free business templates", "templates/contract-template.html", "Full business document library."]
+    ],
+    "faq": [
+      ["Do small companies/LLCs need minutes?", "Corporations are legally required to keep minutes; LLCs are less strictly required but should document major decisions (loans, distributions, new members)."],
+      ["How detailed should they be?", "Concise: motions, votes, decisions, action items. Avoid verbatim debate or personal opinions."],
+      ["Who signs?", "Secretary (or chair) certifies minutes as accurate after approval."],
+      ["Where are they kept?", "In the corporate minute book (physical or digital) — auditors, banks, courts and shareholders may ask to see them."],
+      ["Can minutes be amended?", "Corrections are made at the next meeting when minutes are approved; the correction is noted in that meeting minutes."]
+    ],
+    "cta": { "label": "Build your meeting minutes", "href": "app/#/start/meeting-minutes" },
+    "download": { "href": "samples/meeting-minutes.docx", "label": "Download Word" }
+  }
+]
