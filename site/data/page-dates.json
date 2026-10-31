@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-31",
-  "hash": "f330c923e8ae90f6"
+  "hash": "9f43fddbed1aba5b"
  },
  "clauses/": {
   "date": "2026-10-28",
@@ -871,6 +871,10 @@
   "date": "2026-10-31",
   "hash": "99ce80ade0c73a66"
  },
+ "templates/credit-note-template.html": {
+  "date": "2026-10-31",
+  "hash": "faa0ed0d6b031f30"
+ },
  "templates/credit-note.html": {
   "date": "2026-10-31",
   "hash": "836197c6bf297247"
@@ -998,6 +1002,10 @@
  "templates/invoice.html": {
   "date": "2026-10-31",
   "hash": "5f8b5c348d714a30"
+ },
+ "templates/job-description-template.html": {
+  "date": "2026-10-31",
+  "hash": "d10f48d4c96687a7"
  },
  "templates/job-description.html": {
   "date": "2026-10-31",
@@ -1159,6 +1167,10 @@
   "date": "2026-10-31",
   "hash": "84a7f0af034c6246"
  },
+ "templates/payment-receipt-template.html": {
+  "date": "2026-10-31",
+  "hash": "04c59b3b3786b869"
+ },
  "templates/payment-receipt.html": {
   "date": "2026-10-31",
   "hash": "e4cb53171794642c"
@@ -1211,9 +1223,17 @@
   "date": "2026-10-31",
   "hash": "68cba2e26d6d5554"
  },
+ "templates/purchase-order-template.html": {
+  "date": "2026-10-31",
+  "hash": "9313543b720ca2f5"
+ },
  "templates/purchase-order.html": {
   "date": "2026-10-31",
   "hash": "4bb2ca10842da067"
+ },
+ "templates/quote-template.html": {
+  "date": "2026-10-31",
+  "hash": "5f1ceae4c45aae02"
  },
  "templates/quote.html": {
   "date": "2026-10-31",

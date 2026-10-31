@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '2.59.0', date: '31 October 2026', summary: '5 small-business hubs: credit note, purchase order (PO), price quote, payment receipt, and job description — each with what-to-include, how-to steps, FAQ schema and cross-links' },
   { version: '2.58.0', date: '31 October 2026', summary: '5 business hubs: business sale NDA, equipment rental agreement, retainer agreement, engagement letter, and meeting minutes — each with what-to-include, how-to steps, FAQ schema and cross-links' },
   { version: '2.57.0', date: '31 October 2026', summary: '5 business/legal hubs: employee NDA, contractor NDA, one-way NDA, non-solicitation agreement, and board resolution — each with what-to-include, how-to steps, FAQ schema and cross-links' },
   { version: '2.56.0', date: '31 October 2026', summary: '5 legal/business hubs: cease and desist letter, general release of liability, letter of intent (LOI), memorandum of understanding (MOU), and partnership agreement — each with what-to-include, how-to steps, FAQ schema and cross-links' },
@@ -144,6 +145,8 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-59-0">2.59.0 <span class="small muted">— 31 October 2026</span></h2>
+<ul><li><strong>Five small-business hubs</strong>: <a href="${rel}templates/credit-note-template.html">credit note</a>, <a href="${rel}templates/purchase-order-template.html">purchase order (PO)</a>, <a href="${rel}templates/quote-template.html">price quote</a>, <a href="${rel}templates/payment-receipt-template.html">payment receipt</a>, and <a href="${rel}templates/job-description-template.html">job description</a>. Each with what-to-include bullets, how-to steps, cross-links and FAQ schema.</li></ul>
 <h2 id="v2-58-0">2.58.0 <span class="small muted">— 31 October 2026</span></h2>
 <ul><li><strong>Five business hubs</strong>: <a href="${rel}templates/business-sale-nda-template.html">business sale NDA</a>, <a href="${rel}templates/equipment-rental-agreement-template.html">equipment rental agreement</a>, <a href="${rel}templates/retainer-agreement-template.html">retainer agreement</a>, <a href="${rel}templates/engagement-letter-template.html">engagement letter</a>, and <a href="${rel}templates/meeting-minutes-template.html">meeting minutes</a>. Each with what-to-include bullets, how-to steps, cross-links and FAQ schema.</li></ul>
 <h2 id="v2-57-0">2.57.0 <span class="small muted">— 31 October 2026</span></h2>
@@ -196,12 +199,6 @@ export const pages = [
 <ul><li><strong>lastReviewed/dateModified on hand-written hub page nodes</strong> (About, Contact).</li></ul>
 <h2 id="v2-33-0">2.33.0 <span class="small muted">— 28 October 2026</span></h2>
 <ul><li><strong>FAQ page uses <code>&lt;details&gt;</code> disclosures</strong>, matching the hub FAQ pattern.</li></ul>
-<h2 id="v2-32-0">2.32.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>Visible FAQ blocks on all docs sub-pages</strong> with <code>FAQPage</code> JSON-LD.</li></ul>
-<h2 id="v2-31-0">2.31.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>Visible FAQ blocks on remaining marketing hubs</strong> (About, Contact, Roadmap, Status, Press, Docs).</li></ul>
-<h2 id="v2-30-0">2.30.0 <span class="small muted">— 28 October 2026</span></h2>
-<ul><li><strong>Deep-link anchors on h2s</strong> (build-time, zero JS).</li></ul>
 <h2 id="v1-96-0">1.96.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>primaryImageOfPage on every page with a custom share card.</strong> Pages with a dedicated 1200×630 OG image (all 87 templates + country invoice pages) now emit <code>primaryImageOfPage</code> ImageObject on their WebPage/ItemPage schema, up from templates-only. That completes image-signal parity for all high-intent landing pages.</li></ul>
 <h2 id="v1-95-0">1.95.0 <span class="small muted">— 25 October 2026</span></h2>
