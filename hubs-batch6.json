@@ -1,0 +1,217 @@
+[
+  {
+    "path": "templates/late-rent-notice-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Late Rent Notice | Free Word Template",
+    "description": "Free late rent notice (pay or quit): amount owed, deadline, late fees and next steps for landlords.",
+    "h1": "Late rent notice",
+    "lead": "A formal notice from a landlord to a tenant that rent is overdue: how much is owed, by when it must be paid, the late fee and what happens if it is not paid by the deadline.",
+    "introParagraphs": [
+      "A late rent notice (often called a pay-or-quit notice) is the first formal step when a tenant misses rent. It states the amount owed, the deadline to pay, and the next steps (typically eviction) if payment is not received.",
+      "Check state and local law for required notice periods, language and delivery method - these vary a lot by jurisdiction and getting it wrong can invalidate an eviction."
+    ],
+    "bullets": [
+      ["Tenant and property", "Tenant name, property address and unit number, landlord/manager contact details."],
+      ["Amount owed", "Total rent past due, the months it covers, any late fee as allowed by the lease or local law, and daily interest if applicable."],
+      ["Deadline to pay", "Number of days to pay or quit (set by state law - often 3, 5, or 14 days) and the exact deadline date."],
+      ["How to pay", "Accepted payment methods and where to send payment."],
+      ["Consequences", "Clear statement that failure to pay by the deadline will result in eviction proceedings as allowed by law."]
+    ],
+    "howTo": [
+      ["Check local law", "Confirm the required notice period (pay-or-quit days), content and delivery method for your state/country."],
+      ["Calculate the amount", "Add unpaid rent, any allowed late fees, and any other charges owed under the lease."],
+      ["Set the deadline", "Count the notice days from proper service; state the exact date payment must be received."],
+      ["Deliver properly", "Most jurisdictions require hand delivery, posting on the door plus certified mail. Follow the rules exactly."],
+      ["Keep proof of service", "Have a witness, get a postal receipt, photograph the posted notice, and keep a copy for your file."]
+    ],
+    "related": [
+      ["Notice to vacate", "templates/notice-to-vacate-template.html", "End-of-tenancy notice (end of lease or cause)."],
+      ["Rent increase letter", "templates/rent-increase-letter-template.html", "Notice of rent increase before renewal."],
+      ["Eviction notice", "templates/eviction-notice-template.html", "Notice when pay-or-quit has expired."],
+      ["Payment plan agreement", "templates/payment-plan-agreement.html", "If tenant cannot pay in full, set up a written plan."],
+      ["Free landlord forms", "for/landlords.html", "Full set of landlord/tenant templates."]
+    ],
+    "faq": [
+      ["Do I have to give notice before evicting?", "Yes - every state requires some form of pay-or-quit notice before filing eviction. The number of days varies."],
+      ["Can I change locks or shut off utilities?", "No - that is illegal self-help eviction in almost every US state and most countries. You must go through the courts."],
+      ["Can I accept partial payment?", "Yes, but in many jurisdictions accepting partial payment resets the notice period. Put any payment plan in writing."],
+      ["How do I deliver the notice?", "Usually personal service or posting plus certified mail; check local rules. Email alone is rarely enough."],
+      ["What if they pay after the deadline?", "If you accept payment after the deadline you may waive the right to evict for that period; consult local rules."]
+    ],
+    "cta": { "label": "Build your late rent notice", "href": "app/#/start/late-rent-notice" },
+    "download": { "href": "samples/late-rent-notice.docx", "label": "Download Word" }
+  },
+  {
+    "path": "templates/notice-to-vacate-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Notice to Vacate | Free Letter Template",
+    "description": "Free notice to vacate letter from landlord or tenant: end date, move-out terms and inspection.",
+    "h1": "Notice to vacate",
+    "lead": "A formal letter from a landlord ending a tenancy (for cause or end of lease) or from a tenant giving notice they will leave - stating the last day, move-out requirements and next steps.",
+    "introParagraphs": [
+      "A notice to vacate tells the other party the tenancy is ending on a specific date. Landlords use it for non-renewal of a lease, end of a month-to-month tenancy or termination for cause; tenants use it to give required notice before moving out.",
+      "Notice periods are set by state and local law (typically 30, 60 or 90 days; longer in rent-controlled areas). Get the period and delivery method right - a defective notice can restart the clock."
+    ],
+    "bullets": [
+      ["Parties and property", "Tenant and landlord/manager names, property address and unit."],
+      ["Reason (if for cause)", "If terminating for cause (non-payment, lease violation), cite the lease clause and any prior notices; no-cause/end-of-lease notices just state the end date."],
+      ["Move-out date", "The date by which the tenant must be out with all belongings and keys returned; calculated from proper service of the notice."],
+      ["Move-out requirements", "Cleaning standard, condition expectations, return of keys, forwarding address for the security deposit."],
+      ["Next steps", "What happens if the tenant does not leave (eviction filing) or what the landlord will do (inspection, deposit return per local law)."]
+    ],
+    "howTo": [
+      ["Check required notice period", "Confirm the minimum notice days and permitted reasons for your jurisdiction and lease type."],
+      ["Calculate the vacate date", "Count days from proper service (not mailing); state the exact date."],
+      ["Cite cause if applicable", "Reference the lease violation and any prior notices (late rent, unauthorised occupant, etc.)."],
+      ["Deliver as required", "Hand delivery, posting plus certified mail, or other method required by local law. Email alone is usually insufficient."],
+      ["Keep proof of service", "Certificate of service signed by the person delivering, plus postal receipts and photographs."]
+    ],
+    "related": [
+      ["Late rent notice", "templates/late-rent-notice-template.html", "Pay-or-quit notice when rent is overdue."],
+      ["Lease termination agreement", "templates/lease-termination-agreement.html", "Mutual agreement to end the lease early."],
+      ["Eviction notice", "templates/eviction-notice-template.html", "Court-stage notice after notice to vacate expires."],
+      ["Security deposit return letter", "templates/security-deposit-return-letter.html", "Itemised deductions and refund after move-out."],
+      ["Free landlord forms", "for/landlords.html", "Full landlord/tenant template set."]
+    ],
+    "faq": [
+      ["Landlord or tenant can send it?", "Both - landlords serve it to end a tenancy; tenants send it to give required notice they are leaving."],
+      ["How much notice?", "Typically 30-60 days for month-to-month; longer in rent-controlled areas; fixed leases usually expire without notice. Check local law."],
+      ["Email enough?", "Rarely. Most jurisdictions require hand delivery, posting and/or certified mail for termination notices."],
+      ["What if they don't leave?", "You must file eviction (unlawful detainer) in court. Self-help (lockouts, utility shutoffs) is illegal."],
+      ["Can I revoke the notice?", "If the tenant agrees in writing - but if they dispute it you may have to start over."]
+    ],
+    "cta": { "label": "Build your notice to vacate", "href": "app/#/start/notice-to-vacate" },
+    "download": { "href": "samples/notice-to-vacate.docx", "label": "Download Word" }
+  },
+  {
+    "path": "templates/eviction-notice-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Eviction Notice | Free Letter Template",
+    "description": "Free eviction notice template: cure-or-quit notice for lease violations leading to eviction proceedings.",
+    "h1": "Eviction notice",
+    "lead": "A formal notice that eviction proceedings will begin if the tenant does not fix a lease violation (or leave) within the required deadline. Used after pay-or-quit or cure-or-quit deadlines have expired.",
+    "introParagraphs": [
+      "An eviction notice (cure-or-quit or unconditional quit) tells the tenant they have violated the lease and must either fix the violation (cure) or move out (quit) within a set number of days, or the landlord will file for eviction in court.",
+      "Eviction is heavily regulated - every step is dictated by state and local law. Using the wrong form, wrong notice period, or wrong delivery method can dismiss your case and force you to start over."
+    ],
+    "bullets": [
+      ["Tenant and property", "Tenant names, property address and unit number, landlord/manager."],
+      ["Violation", "Specific lease violation (non-payment, unauthorised pet, property damage, illegal activity) and dates of prior notices."],
+      ["Cure or quit", "Either fix the violation by X date (pay rent, remove pet, etc.) or vacate the property by Y date."],
+      ["Unconditional quit", "For severe violations (illegal activity, repeated non-payment, substantial damage), the notice may require leaving without option to cure."],
+      ["Court filing warning", "Notice that failure to comply will result in an unlawful detainer/eviction lawsuit and possible money judgment."]
+    ],
+    "howTo": [
+      ["Get legal guidance", "Consult a landlord-tenant attorney or local housing authority on the correct notice type and period."],
+      ["Use the correct form", "Cure-or-quit for curable violations; unconditional quit for severe breaches; pay-or-stay/quit for rent only."],
+      ["Reference prior notices", "Cite dates and types of any earlier notices already served on the tenant."],
+      ["Deliver per statute", "Follow exact service rules - hand it to the tenant, post on the door AND mail certified, as required."],
+      ["File with the court if needed", "If the tenant does not comply by the deadline, file for eviction in the appropriate court with proof of service."]
+    ],
+    "related": [
+      ["Late rent notice", "templates/late-rent-notice-template.html", "Pay-or-quit notice before eviction stage."],
+      ["Notice to vacate", "templates/notice-to-vacate-template.html", "End-of-tenancy notice for non-renewal."],
+      ["Lease termination agreement", "templates/lease-termination-agreement.html", "Mutual early move-out instead of eviction."],
+      ["Payment demand letter", "templates/payment-demand-letter.html", "Formal demand for unpaid rent before court."],
+      ["Free landlord forms", "for/landlords.html", "Full landlord/tenant template set."]
+    ],
+    "faq": [
+      ["Can I evict without notice?", "Almost never. Even illegal activity usually requires some notice. Self-help eviction (lockouts, shutting off utilities) is illegal everywhere."],
+      ["How long is the notice?", "3-30 days depending on state, reason and lease type. Illegal activity can sometimes be 24 hours; non-payment typically 3-14 days."],
+      ["Do I need a lawyer?", "Small claims/landlord-tenant court may allow self-representation but an attorney is recommended for anything complex."],
+      ["What if they pay during the notice?", "In most states full payment of rent within the pay-or-quit period stops the eviction for that non-payment episode."],
+      ["How long does eviction take?","Anywhere from 2 weeks to 3+ months depending on the state, court backlog and tenant defences."]
+    ],
+    "cta": { "label": "Read the landlord guide first", "href": "guides/how-to-write-a-notice-to-vacate.html" },
+    "download": { "href": "samples/late-rent-notice.docx", "label": "Download Word" }
+  },
+  {
+    "path": "templates/sublease-agreement-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+"title": "Sublease Agreement | Free Word Template",
+    "description": "Free sublease agreement template: subtenant, rent, term, rules and landlord consent for subletting.",
+    "h1": "Sublease agreement",
+    "lead": "A contract between a tenant (sublessor) and a subtenant who rents part or all of the rental from them, with the original landlord's written consent - setting out rent, dates, rules and responsibilities.",
+    "introParagraphs": [
+      "A sublease lets an existing tenant rent out all or part of their unit to someone else while remaining responsible to the landlord for the original lease terms. The original tenant becomes a landlord to the subtenant.",
+      "Always get the landlord's written consent before subletting - subletting without consent usually violates the lease and can be grounds for eviction. Check local law too; some cities restrict the landlord's ability to refuse."
+    ],
+    "bullets": [
+      ["Parties and landlord consent", "Original tenant (sublessor), subtenant, landlord consent (written approval attached), property address and unit."],
+      ["Term and access", "Start and end date (must not exceed original lease), what part the subtenant occupies (private room, whole unit), and how and when the sublessor can enter."],
+      ["Rent and bills", "Monthly rent amount, due date, payment method, security deposit (within legal caps), and split of utilities, internet and other bills."],
+      ["Rules and responsibilities", "House rules (quiet hours, guests, smoking, pets), who handles maintenance, and obligations to follow the master lease."],
+      ["Default and termination", "What happens if the subtenant misses rent, notice required to end the sublease, and that the subtenant agrees the master lease rules apply."]
+    ],
+    "howTo": [
+      ["Get landlord consent first", "Ask in writing; attach the proposed sublease and subtenant information (income, references)."],
+      ["Screen the subtenant", "Run a credit check, references and verify income - you remain liable for rent and damage."],
+      ["Set rent and deposits", "Rent can be up to what you pay (or more in some markets); security deposit limits usually mirror local landlord-tenant law."],
+      ["Define the space", "State which room/area is the subtenant's and what is shared (kitchen, bathroom, common areas)."],
+      ["Sign and move in", "Both sign, attach the landlord consent and master lease, collect the deposit and first month's rent, and do a move-in walk-through."]
+    ],
+    "related": [
+      ["Residential lease agreement", "templates/residential-lease-agreement-template.html", "The master lease the subtenant must also follow."],
+      ["Roommate agreement", "templates/roommate-agreement-template.html", "For roommates on the same lease (not subletting)."],
+      ["Room rental agreement", "templates/room-rental-agreement.html", "For renting a room within an occupied home."],
+      ["Rental application", "templates/rental-application.html", "Screen the subtenant like any tenant."],
+      ["How to write a sublease agreement", "guides/how-to-write-a-sublease-agreement.html", "Checklist and sample wording."]
+    ],
+    "faq": [
+      ["Do I need landlord permission?", "Almost always yes. Subletting without consent is usually a lease violation that can get you evicted. Some cities/campuses require 'good cause' for the landlord to refuse."],
+      ["Am I still liable?", "Yes - you are still the tenant on the master lease and owe rent even if the subtenant stops paying you. The landlord will come after you, not the subtenant."],
+      ["Can I charge more rent?", "Sometimes yes; some rent-control areas cap sublet rent. Check local rules."],
+      ["Who does the subtenant pay?", "Usually you, and you continue paying the landlord. Or the subtenant can pay the landlord directly, but you remain responsible."],
+      ["Can I evict the subtenant?", "Yes - you act as their landlord and must follow the same eviction process (notice, court) required in your jurisdiction."]
+    ],
+    "cta": { "label": "Build your sublease agreement", "href": "app/#/start/sublease-agreement" },
+    "download": { "href": "samples/sublease-agreement.docx", "label": "Download Word" }
+  },
+  {
+    "path": "templates/roommate-agreement-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Roommate Agreement | Free Word Template",
+    "description": "Free roommate agreement: rent split, chores, guests, quiet hours, bills and moving out terms.",
+    "h1": "Roommate agreement",
+    "lead": "A written agreement between roommates covering rent split, bills, chores, guests, quiet hours, food, security deposits and how to handle someone moving out early.",
+    "introParagraphs": [
+      "A roommate agreement sets expectations between people sharing a rental so small disagreements do not turn into disputes. It covers how rent and bills are split, chores, guests, quiet hours, and what happens if one roommate leaves early.",
+      "It does not replace the lease with the landlord - all roommates on the lease are jointly and severally liable for full rent to the landlord. The roommate agreement governs how roommates split costs and rules between themselves."
+    ],
+    "bullets": [
+      ["Rent and deposit", "Each roommate's share of rent and the security deposit, due date, and who pays the landlord."],
+      ["Bills and utilities", "How rent, electricity, gas, water, internet and streaming services are split and whose name they are in."],
+      ["Chores and common areas", "Cleaning schedule, shared groceries, who takes out bins, dish/kitchen rules, smoking/vaping and pets."],
+      ["Guests and quiet hours", "How often guests can stay over, overnight guest rules, parties, noise/quiet hours aligned with the lease."],
+      ["Moving out early", "Notice period required if a roommate leaves, how a replacement is found, and whether the departing roommate still owes rent."]
+    ],
+    "howTo": [
+      ["Talk it through first", "Sit down together and discuss rent, bills, cleaning, guests and food before drafting."],
+      ["Split rent fairly", "Equal split is normal; unequal room size may justify different amounts. Be clear who pays the landlord each month."],
+      ["Set guest and noise rules", "Decide on overnight guests, parties and quiet hours - make them compatible with the lease."],
+      ["Decide food and chores", "Shared vs separate food, a cleaning rota or expectations, and who buys shared supplies."],
+      ["Sign and each keep a copy", "All roommates sign; attach a copy to the lease if the landlord wants one."]
+    ],
+    "related": [
+      ["Sublease agreement", "templates/sublease-agreement-template.html", "When someone replaces a roommate via sublet."],
+      ["Residential lease agreement", "templates/residential-lease-agreement-template.html", "The master lease with the landlord."],
+      ["Room rental agreement", "templates/room-rental-agreement.html", "For a landlord renting a room to a tenant."],
+      ["Rental application", "templates/rental-application.html", "Screen potential roommates before signing."],
+      ["What to include in a roommate agreement", "guides/what-to-include-in-a-roommate-agreement.html", "Checklist and common pitfalls."]
+    ],
+    "faq": [
+      ["Is a roommate agreement legally binding?", "Yes - as between roommates, a signed agreement is a contract a court can enforce for rent contributions and shared costs."],
+      ["Does it bind the landlord?", "No - the lease is between tenants and landlord. The landlord is not a party to the roommate agreement."],
+      ["If my roommate leaves early, am I stuck with full rent?", "To the landlord - yes, all lease signers are jointly liable. The roommate agreement lets you sue your ex-roommate for their share."],
+      ["Can I evict a roommate?", "If they are on the lease, generally no - the landlord must do it. If they are your subtenant, you can as their landlord (see sublease)."],
+      ["How do we split the security deposit?", "Proportional to what each paid; document condition at move-in so damages can be fairly assigned."]
+    ],
+    "cta": { "label": "Build your roommate agreement", "href": "app/#/start/roommate-agreement" },
+    "download": { "href": "samples/roommate-agreement.docx", "label": "Download Word" }
+  }
+]
