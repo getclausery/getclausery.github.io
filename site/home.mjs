@@ -64,7 +64,7 @@ export const pages = [{
         <a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make my free invoice <span class="arr">→</span></a>
         <a class="btn btn-lg" href="${rel}templates/">Browse ${LIB.length} free templates</a>
       </div>
-      <p class="small" style="margin-top:.75rem">Or start with a <a href="${rel}app/#/start/quote">quote</a> · <a href="${rel}app/#/start/receipt">receipt</a> · <a href="${rel}business-document-kit/">free 6-template business kit</a></p>
+      <p class="small" style="margin-top:.75rem">Or start with a <a href="${rel}app/#/start/quote">quote</a> · <a href="${rel}app/#/start/receipt">receipt</a> · <a href="${rel}business-document-kit/">free 6-template business kit</a> · <a href="${rel}templates/invoice.html">what to put on an invoice</a></p>
       <div class="proof">
         <span>${ico(I.check)} No email, no password</span>
         <span>${ico(I.check)} Downloads as a normal Word file</span>
