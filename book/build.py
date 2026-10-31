@@ -447,6 +447,26 @@ def files():
     return sorted(f for f in os.listdir(MS) if f.endswith('.md'))
 
 
+def fill_counts(text):
+    """Fill {{words}} and {{pages}} in manuscript text from build-report.json.
+
+    build.py fills them itself from the figures it just computed. The PDF typesetter runs after it, in a
+    separate process, and needs the same numbers: it takes them from the report build.py wrote (words) and
+    from the previous typeset count (pdf_pages), which the layout then reproduces paragraph for paragraph.
+    """
+    rep = {}
+    try:
+        with open(os.path.join(DIST, 'build-report.json'), encoding='utf-8') as fh:
+            rep = json.load(fh)
+    except (OSError, ValueError):
+        pass
+    words = rep.get('words')
+    pages = rep.get('pdf_pages') or rep.get('pages_estimate')
+    if words is None or pages is None:
+        return text
+    return text.replace('{{words}}', f'{words:,}').replace('{{pages}}', str(pages))
+
+
 def collect():
     docs = []
     for f in files():

@@ -470,6 +470,11 @@ def build_pdf(out_path=OUT, index_override=None, headmap=None, offset=0, recto=(
             return _roman(page)
         return str(page - offset)
     docs = B.collect()
+    # The text states its own extent; the figures come from the build report that build.py has just written.
+    for d in docs:
+        d['body'] = B.fill_counts(d['body'])
+        if d.get('lede'):
+            d['lede'] = B.fill_counts(d['lede'])
     if index_override is None:
         idx = B.build_index_doc(docs)
         if idx:

@@ -255,6 +255,15 @@ def check_pdf():
     marks = d.get_toc()
     check('pdf: 280+ pages', d.page_count >= 280, d.page_count)
     check('pdf: even page count', d.page_count % 2 == 0, d.page_count)
+    # The typesetter fills the manuscript's {{words}}/{{pages}} tokens too, and it is the artifact a reader is
+    # most likely to print, so its statement of the book's extent is checked against the PDF's own page count.
+    pdf_text = '\n'.join(pg.get_text() for pg in d)
+    check('pdf: no unresolved build tokens',
+          '{{words}}' not in pdf_text and '{{pages}}' not in pdf_text)
+    stated = re.search(r'runs to about ([\d,]+) words and (\d+) printed pages', pdf_text)
+    check('pdf: states its own extent as printed',
+          bool(stated) and int(stated.group(2)) == d.page_count,
+          f'{stated.group(0)} against {d.page_count} pages' if stated else 'statement not found')
     check('pdf: 66 bookmarks', len(marks) == 66, len(marks))
     check('pdf: outline opens with the front matter',
           [t for _l, t, _p in marks[:5]] == ['Cover', 'Half-title', 'Title Page', 'Copyright', 'Contents'])
@@ -612,7 +621,8 @@ def check_report():
         else:
             body = read(path)
         check(f'{label}: states its own extent as the build counted it', stated in body, stated)
-        check(f'{label}: no unresolved build tokens', '{{' not in body and '}}' not in body)
+        check(f'{label}: no unresolved build tokens',
+              '{{words}}' not in body and '{{pages}}' not in body)
 
 
 def main():
