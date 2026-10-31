@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-31",
-  "hash": "e050f875633650a4"
+  "hash": "7b78b04850817835"
  },
  "clauses/": {
   "date": "2026-10-28",
@@ -787,6 +787,10 @@
   "date": "2026-10-31",
   "hash": "c651b37e6302750f"
  },
+ "templates/bill-of-sale-template.html": {
+  "date": "2026-10-31",
+  "hash": "ef088f670fb120da"
+ },
  "templates/bill-of-sale.html": {
   "date": "2026-10-31",
   "hash": "f8ac14b3204e2d1c"
@@ -826,6 +830,10 @@
  "templates/consignment-agreement.html": {
   "date": "2026-10-31",
   "hash": "49d43d93c87a7d9e"
+ },
+ "templates/consulting-agreement-template.html": {
+  "date": "2026-10-31",
+  "hash": "cb52205a357ea653"
  },
  "templates/consulting-agreement.html": {
   "date": "2026-10-31",
@@ -1091,6 +1099,10 @@
   "date": "2026-10-31",
   "hash": "705c135a17c8170c"
  },
+ "templates/residential-lease-agreement-template.html": {
+  "date": "2026-10-31",
+  "hash": "3e14040e4fff4699"
+ },
  "templates/residential-lease-agreement.html": {
   "date": "2026-10-31",
   "hash": "8efb404f505a7a23"
@@ -1139,9 +1151,17 @@
   "date": "2026-10-31",
   "hash": "aac105d493e6a3b4"
  },
+ "templates/statement-of-work-template.html": {
+  "date": "2026-10-31",
+  "hash": "b4ea2a3f1d77e2b1"
+ },
  "templates/statement-of-work.html": {
   "date": "2026-10-30",
   "hash": "f9e4ddbdde31c1a4"
+ },
+ "templates/subcontractor-agreement-template.html": {
+  "date": "2026-10-31",
+  "hash": "aa81c9716051b5d2"
  },
  "templates/subcontractor-agreement.html": {
   "date": "2026-10-31",
