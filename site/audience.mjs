@@ -71,6 +71,25 @@ for (const s of Object.keys(NAMES)) {
   if (existsSync(new URL(`../templates/${s}-template.html`, import.meta.url))) HUB_FOR_LIB[s] = `${s}-template`;
 }
 
+// Guides that should surface a "Free templates" call-out pointing to the related
+// LIB download + its what-to-include hub. Most guides already link their template
+// inline in body copy; this covers the remaining topical / explainer guides.
+const TEMPLATES_FOR_GUIDE = {
+  'are-liability-waivers-enforceable': ['liability-waiver', 'general-release', 'hold-harmless-agreement'],
+  'are-non-competes-enforceable': ['non-compete-agreement', 'non-solicitation-agreement', 'offer-letter', 'employment-agreement'],
+  'how-to-write-an-employee-warning-letter': ['employee-warning-letter'],
+  'nda-vs-confidentiality-agreement': ['mutual-nda', 'one-way-nda', 'employee-nda', 'contractor-nda'],
+  'non-compete-vs-non-solicitation': ['non-compete-agreement', 'non-solicitation-agreement'],
+  'what-to-include-in-an-nda': ['mutual-nda', 'one-way-nda', 'employee-nda'],
+  'gst-hst-invoice-requirements-canada': ['invoice'],
+  'tax-invoice-requirements-australia': ['invoice'],
+  'what-to-include-on-a-vat-invoice': ['invoice'],
+  'client-intake-without-a-portal': ['independent-contractor-agreement', 'engagement-letter', 'consulting-agreement'],
+  'conditional-clauses-in-word': ['independent-contractor-agreement', 'freelance-contract'],
+  'mail-merge-vs-document-automation': ['invoice', 'freelance-contract'],
+  'repeating-lists-and-tables-in-word': ['invoice', 'independent-contractor-agreement'],
+};
+
 export const GUIDES = [
   ...HIGH_INTENT_GUIDES,
   ...SERVICE_GUIDES,
@@ -2154,10 +2173,14 @@ ${GUIDE_TOPICS.map(([t, slugs]) => `  <h2 id="${topicId(t)}" style="margin-top:2
     extraHead: (g.faq ? faqLd(g.faq) : '') + crumbsLd([['Home', ''], ['Guides', 'guides/'], [g.title, `guides/${g.slug}.html`]]), _howTo: true, _sources: g.sources,
     body: (rel) => {
       const [topic, slugs] = topicOf(g.slug);
+      const tpls = TEMPLATES_FOR_GUIDE[g.slug] || [];
+      const tplBlock = tpls.length ? `
+<h2>Download a starter template</h2>
+<ul>${tpls.map((s) => `<li><a href="${rel}templates/${s}.html">${esc(NAMES[s])}</a>${HUB_FOR_LIB[s] && HUB_FOR_LIB[s] !== s ? ` — <a href="${rel}templates/${HUB_FOR_LIB[s]}.html" class="small muted">what to include</a>` : ''}</li>`).join('')}</ul>` : '';
       return `<section class="section"><div class="wrap prose"><nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}guides/">Guides</a></nav><h1 style="margin-top:1rem">${esc(g.title)}</h1>
 <p class="small muted guide-meta">Published <time datetime="${published(g)}">${longDate(published(g))}</time><!--upd--> · Updated <time datetime="${LASTMOD}">${LASTMOD_LONG}</time><!--/upd--> · Reviewed by <a href="${rel}about/#editors">Clausery editors</a> · <a href="${rel}guides/#${topicId(topic)}">${esc(topic)}</a></p>${g.body(rel)}${g.sources ? `
 <h2>Sources</h2>
-<ul class="sources">${g.sources.map(([label, url]) => `<li><a href="${esc(url)}" rel="noopener">${esc(label)}</a></li>`).join('')}</ul>` : ''}
+<ul class="sources">${g.sources.map(([label, url]) => `<li><a href="${esc(url)}" rel="noopener">${esc(label)}</a></li>`).join('')}</ul>` : ''}${tplBlock}
 ${g.faq ? `<h2>Questions</h2>${faqHtml(g.faq)}` : ''}<!--nav-->${['how-to-write-an-invoice', 'what-to-do-when-a-client-wont-pay', 'what-bank-details-to-put-on-an-invoice'].includes(g.slug) ? `<p>Write the sending message or a polite follow-up with the <a href="${rel}guides/invoice-email-template.html">free invoice email generator and four email templates</a>.</p>` : ''}<h2>More on ${esc(lowerFirst(topic))}</h2>
 <ul>${slugs.filter((x) => x !== g.slug).map((x) => `<li><a href="${rel}guides/${x}.html">${esc(GUIDE_BY[x].title)}</a></li>`).join('')}</ul>
 <p><a href="${rel}guides/">Browse all guides by topic</a></p><!--/nav-->
