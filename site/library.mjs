@@ -678,6 +678,32 @@ export const CATEGORY_ORDER = [['Finance', 'Invoices, receipts and money'], ['Bu
 for (const t of LIB) if (!CATEGORY_ORDER.some(([c]) => c === t.category)) throw new Error(`templates index: no heading for category ${t.category}`);
 for (const [t, g] of Object.entries(GUIDE_FOR)) if (!GUIDE[g] || !LIB.some((x) => x.slug === t)) throw new Error(`GUIDE_FOR: ${t} -> ${g}`);
 for (const [t, [tool]] of Object.entries(TOOL_FOR)) if (!existsSync(`free-tools/${tool}.js`) || !LIB.some((x) => x.slug === t)) throw new Error(`TOOL_FOR: ${t} -> ${tool}`);
+// The what-to-include hub page that goes with each LIB template (for internal cross-linking to -template SEO hubs).
+const HUB_FOR = {
+  'independent-contractor-agreement': 'independent-contractor-template',
+  'employment-verification-letter': 'employment-verification-template',
+  'salary-increase-letter': 'salary-increase-template',
+  'two-weeks-notice-letter': 'two-weeks-notice-template',
+};
+// Auto-populate HUB_FOR for any slug where templates/<slug>-template.html exists.
+for (const t of LIB) {
+  if (HUB_FOR[t.slug]) continue;
+  const p = new URL(`../templates/${t.slug}-template.html`, import.meta.url);
+  if (existsSync(p)) HUB_FOR[t.slug] = `${t.slug}-template`;
+}
+const hubTitle = (s) => {
+  const map = {
+    'What to include': 1,
+    clauses: 'What to include',
+    letter: 'What to include',
+    agreement: 'What to include',
+    contract: 'What to include',
+    form: 'How to fill it in',
+    checklist: 'How to use it',
+  };
+  for (const [suffix, label] of Object.entries(map)) if (s.endsWith(suffix)) return label;
+  return 'What to include';
+};
 
 export const pages = [
   {
@@ -779,7 +805,8 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-label
 ${['quote', 'payment-receipt', 'credit-note'].includes(t.slug) ? `<!--nav--><p style="margin-top:2rem"><strong>Invoice workflows:</strong> ${workflowLinks(rel)}. Match the invoice to the stage of the job and record actual payments separately.</p><!--/nav-->` : ''}${CLAUSES.some((c) => c.templates.includes(t.slug)) ? `  <h2 style="margin-top:2.5rem">Clauses in this template, explained</h2>
   <ul>${CLAUSES.filter((c) => c.templates.includes(t.slug)).map((c) => `<li><a href="${rel}clauses/${c.slug}.html">${esc(c.name)}</a></li>`).join('')}</ul>
 ` : ''}${PRESETS[t.slug] ? `  <p style="margin-top:2rem"><strong>By trade:</strong> start with the lines your trade usually bills: ${Object.entries(PRESETS[t.slug]).map(([slug, p]) => `<a href="${rel}invoice-templates/${slug}.html">${esc(p.name)}</a>`).join(' · ')} · <a href="${rel}invoice-templates/">all trades</a></p>${t.slug === 'invoice' ? `\n  <p><strong>By country:</strong> set up for your VAT or GST: ${COUNTRIES.map((c) => `<a href="${rel}invoice-templates/${c.slug}.html">${esc(c.country)}</a>`).join(' · ')}</p>` : ''}
-` : ''}${GUIDE_FOR[t.slug] ? `  <p style="margin-top:2rem"><strong>Guide:</strong> <a href="${rel}guides/${GUIDE_FOR[t.slug]}.html">${esc(GUIDE[GUIDE_FOR[t.slug]].title)}</a></p>
+` : ''}${HUB_FOR[t.slug] ? `  <p style="margin-top:2rem"><strong>${hubTitle(t.slug)}:</strong> <a href="${rel}templates/${HUB_FOR[t.slug]}.html">${esc(t.name)} template guide</a> — clauses, step-by-step how-to and FAQ.</p>
+` : ''}${GUIDE_FOR[t.slug] ? `  <p><strong>Guide:</strong> <a href="${rel}guides/${GUIDE_FOR[t.slug]}.html">${esc(GUIDE[GUIDE_FOR[t.slug]].title)}</a></p>
 ` : ''}${NDA_SLUGS.includes(t.slug) ? `  <p><strong>All NDA templates:</strong> <a href="${rel}nda-templates/">which NDA do you need?</a></p>
 ` : ''}${TOOL_FOR[t.slug] ? `  <p><strong>Free tool:</strong> <a href="${rel}free-tools/${TOOL_FOR[t.slug][0]}.html">${esc(TOOL_FOR[t.slug][1])}</a></p>
 ` : ''}<!--nav-->${['invoice', 'payment-reminder-letter', 'payment-receipt'].includes(t.slug) ? `<p>Ready to write the message? Use the <a href="${rel}guides/invoice-email-template.html">invoice email generator with sending, reminder and payment acknowledgement templates</a>.</p>` : ''}  <h2 style="margin-top:2.5rem">Related templates</h2>
