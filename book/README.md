@@ -170,10 +170,10 @@ The print edition is arranged the way a manufactured book is:
 | 2 | Half-title | — |
 | 3 | Title page (recto) | — |
 | 4 | Copyright page (verso) | — |
-| 5–10 | Contents | roman |
-| 11–30 | Epigraphs, preface, the argument on one page, promises, method, how to read | roman |
-| 31 | Part One (recto) | 1, unprinted |
-| 32 | Chapter 1 | arabic from 2 |
+| 5–9 | Contents | roman |
+| 10–28 | Epigraphs, preface, the argument on one page, promises, method, how to read | roman |
+| 29 | Part One (recto) | 1, unprinted |
+| 30 | Chapter 1 | arabic from 2 |
 
 Front matter takes **lower-case roman** folios, and the body restarts at arabic 1 on the
 part page so that every printed number in the contents, the running heads, and the two
@@ -184,7 +184,7 @@ suppressed in the front matter (folio only), on part pages, and on blank versos.
 is inserted. The build lays the book out, works out from the part pages which blanks are
 needed (subtracting the effect of the blanks already there, so a blank can be removed as
 well as added), rebuilds, and repeats until the set stops moving — three passes, about
-fifteen seconds. Chapters and appendices open on the next page, as in trade nonfiction,
+sixteen seconds, with the ladder fix folded into the same loop. Chapters and appendices open on the next page, as in trade nonfiction,
 which avoids half a book of blank pages. A final blank leaves the book with an even number
 of pages, because the last leaf cannot be a recto on its own.
 
