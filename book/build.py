@@ -969,7 +969,7 @@ def build():
               'The complete edition runs to forty chapters in six parts and eight appendices, including a one-page '
               'triage card, a nine-day novena, forty disputed questions, and a thirty-day pilot protocol for a parish.</p>'
               '<p>If the sample does what it claims, the rest is the working-out.</p></section>')
-    sample_doc = (html_doc.split('<body>')[0] + '<body><div class="wrap">' + title_html + banner
+    sample_doc = (html_doc.split('<body>')[0] + '<body><main id="main"><div class="wrap">' + title_html + banner
                   + ''.join(re.sub(r'<nav class="chapnav">.*?</nav>', '', _section(x), flags=re.S)
                             for x in ('01-preface', '01b-argument', 'ch01'))
                   + f'''<section class="sample-end" id="read-on">
@@ -984,7 +984,7 @@ the thirty-day pilot, the one-page triage card, and two indexes.</p>
 <a href="triage-card.pdf">The triage card, one page</a></p>
 <p class="note">Sample edition &middot; {words:,} words in the complete book &middot;
 approx. {pages} printed pages.<br>{esc(META["rights"])}</p>
-</section></div></body></html>''')
+</section></div></main></body></html>''')
     open(os.path.join(DIST, 'sample.html'), 'w', encoding='utf-8').write(sample_doc)
 
     # --- print edition: same text, laid out as a book on screen as well as on paper ---
