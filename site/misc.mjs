@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '2.66.0', date: '31 October 2026', summary: 'Internal linking from audience and compare pages to hubs: 5 audience landing pages and 11 competitor-compare pages now link listed templates to their what-to-include guides so link equity flows from high-intent landing pages to the how-to hubs' },
   { version: '2.65.0', date: '31 October 2026', summary: 'Internal cross-linking: every LIB download page now links to its corresponding what-to-include hub (clauses, how-to steps, FAQ), completing 87/87 sample-to-hub internal links' },
   { version: '2.64.0', date: '31 October 2026', summary: '3 small-business hubs: sales commission agreement, social media management contract, and virtual assistant agreement — each with what-to-include, how-to steps, FAQ schema and cross-links' },
   { version: '2.63.0', date: '31 October 2026', summary: '5 personal/HR/small-business hubs: nanny contract, pet addendum, performance improvement plan (PIP), expense reimbursement form, and consignment agreement — each with what-to-include, how-to steps, FAQ schema and cross-links' },
@@ -151,6 +152,8 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-66-0">2.66.0 <span class="small muted">— 31 October 2026</span></h2>
+<ul><li><strong>Internal linking from audience and compare pages to hubs</strong>: the five audience landing pages (HR teams, landlords, freelancers, consultants, law firms) now link each listed template to its what-to-include hub alongside the download page; all eleven competitor-compare pages gain a "Free templates to start with" section pointing to the invoice, independent contractor agreement, mutual NDA, offer letter and residential lease hubs. Link equity now flows from high-intent landing pages to the how-to hubs, not just from download pages.</li></ul>
 <h2 id="v2-65-0">2.65.0 <span class="small muted">— 31 October 2026</span></h2>
 <ul><li><strong>Internal cross-linking</strong>: every free-template download page now links directly to its what-to-include hub page (clauses, step-by-step how-to and FAQPage schema), completing 87/87 sample-to-hub internal links. Link equity flows from the high-traffic download pages up to the new hub pages.</li></ul>
 <h2 id="v2-64-0">2.64.0 <span class="small muted">— 31 October 2026</span></h2>
