@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '2.44.0', date: '31 October 2026', summary: 'CTR rewrite across 48 how-to guides: number lists (7/9/10/12 clauses), year markers (2026), concrete deliverable claims, free-template signals, and titles all fitting ≤60 chars with brand suffix' },
   { version: '2.43.0', date: '31 October 2026', summary: 'CTR rewrite: power words, bracket/paren differentiators, concrete claims and sign-ready/fill-in-seconds signals across 44 top-traffic titles and descriptions to lift click-through rate' },
   { version: '2.42.0', date: '30 October 2026', summary: 'Google Docs & Excel invoice template hubs; meta descriptions tightened to ≤155 chars across all LIB templates' },
   { version: '2.41.0', date: '30 October 2026', summary: '3 more long-tail hubs (quotation template, freelance contract, NDA form); expanded cross-links between invoice hubs' },
@@ -129,6 +130,8 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-44-0">2.44.0 <span class="small muted">— 31 October 2026</span></h2>
+<ul><li><strong>CTR rewrite across 48 guide pages</strong>: titles shortened to ≤60 chars with the <code>· Clausery</code> suffix and rewritten with CTR-proven patterns — numbered lists ("10 clauses", "7 steps", "12 key terms"), year markers for time-sensitive content (2026), concrete deliverable claims ("free template included", "copy and paste"), and power words ("spoiler", "kill fee", "stop fraud"). Descriptions now lead with the bolded keyword, state a specific benefit and end in a soft CTA.</li></ul>
 <h2 id="v2-43-0">2.43.0 <span class="small muted">— 31 October 2026</span></h2>
 <ul><li><strong>CTR-focused title and description rewrite</strong> across 44 top-traffic pages: invoice, quote, NDA, bill of sale, payment receipt, lease, employment contract, contractor agreement, resignation letter, PO, offer letter, promissory note and more. Titles now use bracket/parenthesis differentiators (<code>(PDF/Word)</code>, <code>(Ready to Sign)</code>, <code>(Free)</code>), concrete verbs ("fill in", "sign in minutes", "auto-calculate"), and concrete deliverable claims. Descriptions lead with the bolded keyword, state the specific benefit and end in a soft CTA - no more repetitive "Free X Template | Y (Word)" pattern.</li><li>Hub and home-page titles and descriptions rewritten the same way to be more distinctive in the SERP. All titles stay within 60 chars with the <code>· Clausery</code> suffix.</li></ul>
 <h2 id="v2-42-0">2.42.0 <span class="small muted">— 30 October 2026</span></h2>
@@ -199,8 +202,7 @@ export const pages = [
 
 
 
-<h2 id="v1-97-0">1.97.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>lastReviewed + reviewedBy on every WebPage/ItemPage.</strong> Every non-Article page now carries <code>lastReviewed</code> and <code>reviewedBy</code> (Organization: Clausery) schema matching the Article schema already emitted on guides, completing freshness/E-E-A-T signals across hub, comparison, tool and template pages.</li></ul>
+
 <h2 id="v1-96-0">1.96.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>primaryImageOfPage on every page with a custom share card.</strong> Pages with a dedicated 1200×630 OG image (all 87 templates + country invoice pages) now emit <code>primaryImageOfPage</code> ImageObject on their WebPage/ItemPage schema, up from templates-only. That completes image-signal parity for all high-intent landing pages.</li></ul>
 <h2 id="v1-95-0">1.95.0 <span class="small muted">— 25 October 2026</span></h2>

@@ -170,7 +170,7 @@ and this agreement, allowing for ordinary wear.</code></pre>
   {
     slug: 'how-to-write-a-purchase-order',
     title: 'How to write a purchase order (with an example)',
-    description: 'How to write a purchase order with clear items, prices, delivery and payment terms. Includes a worked PO example, approval checklist and free Word template.',
+    description: 'How to write a purchase order with clear items, prices, delivery and payment terms. Includes a worked PO example and free Word template.',
     published: '2026-10-17',
     sources: [
       ['Cornell Legal Information Institute: UCC 2-206, offer and acceptance', 'https://www.law.cornell.edu/ucc/2/2-206'],
