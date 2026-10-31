@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-31",
-  "hash": "9f43fddbed1aba5b"
+  "hash": "a6da3ab6daa1aeea"
  },
  "clauses/": {
   "date": "2026-10-28",
@@ -811,6 +811,10 @@
   "date": "2026-10-31",
   "hash": "717cd2ae15238f30"
  },
+ "templates/catering-contract-template.html": {
+  "date": "2026-10-31",
+  "hash": "0ecfd099c9e9b9a8"
+ },
  "templates/catering-contract.html": {
   "date": "2026-10-31",
   "hash": "99da64c04458a8da"
@@ -826,6 +830,10 @@
  "templates/cease-and-desist-template.html": {
   "date": "2026-10-31",
   "hash": "954ab8eeee8192ba"
+ },
+ "templates/change-order-form-template.html": {
+  "date": "2026-10-31",
+  "hash": "fcaf6a87c5c20f63"
  },
  "templates/change-order-form.html": {
   "date": "2026-10-30",
@@ -934,6 +942,10 @@
  "templates/equipment-rental-agreement.html": {
   "date": "2026-10-30",
   "hash": "5f9869d5e6f4d1ee"
+ },
+ "templates/event-planning-contract-template.html": {
+  "date": "2026-10-31",
+  "hash": "ba22112212dd5e14"
  },
  "templates/event-planning-contract.html": {
   "date": "2026-10-31",
@@ -1199,6 +1211,10 @@
   "date": "2026-10-31",
   "hash": "8b9728dfcbf8a1c7"
  },
+ "templates/photo-release-form-template.html": {
+  "date": "2026-10-31",
+  "hash": "94358432f4baa54c"
+ },
  "templates/photo-release-form.html": {
   "date": "2026-10-31",
   "hash": "4b235aefe84737d7"
@@ -1246,6 +1262,10 @@
  "templates/reference-letter.html": {
   "date": "2026-10-31",
   "hash": "6f53ce66221d98f7"
+ },
+ "templates/remote-work-agreement-template.html": {
+  "date": "2026-10-31",
+  "hash": "6c357c50683f34dd"
  },
  "templates/remote-work-agreement.html": {
   "date": "2026-10-30",
