@@ -1,6 +1,6 @@
 {
   "name": "clausery",
-  "version": "2.70.0",
+  "version": "2.70.1",
   "private": true,
   "description": "Clausery: invoices, quotes and receipts in Word. Turn templates into guided questionnaires and generate editable documents on your device.",
   "type": "module",
