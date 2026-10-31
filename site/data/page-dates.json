@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-31",
-  "hash": "e1361eae80a95502"
+  "hash": "e247125f6b4fe5b0"
  },
  "clauses/": {
   "date": "2026-10-28",
@@ -144,48 +144,48 @@
   "hash": "9d54df510023f427"
  },
  "compare/bonsai-alternative.html": {
-  "date": "2026-10-24",
-  "hash": "754f1a00f68eb477"
+  "date": "2026-10-31",
+  "hash": "627830809535a899"
  },
  "compare/clio-draft-alternative.html": {
-  "date": "2026-10-24",
-  "hash": "b707594443808490"
+  "date": "2026-10-31",
+  "hash": "e341826c98b7df4a"
  },
  "compare/docassemble-alternative.html": {
-  "date": "2026-10-24",
-  "hash": "0bd4bd7c94369e2d"
+  "date": "2026-10-31",
+  "hash": "d470fb9534298eb5"
  },
  "compare/dubsado-alternative.html": {
-  "date": "2026-10-24",
-  "hash": "fdc594c59e34be12"
+  "date": "2026-10-31",
+  "hash": "2aee6e871b221c5c"
  },
  "compare/eforms-alternative.html": {
-  "date": "2026-10-24",
-  "hash": "110b18997ea371bb"
+  "date": "2026-10-31",
+  "hash": "2dbcbfc0aa46f75b"
  },
  "compare/gavel-alternative.html": {
-  "date": "2026-10-24",
-  "hash": "3cf54522f75eb129"
+  "date": "2026-10-31",
+  "hash": "6b4e1cf4fabffd66"
  },
  "compare/honeybook-alternative.html": {
-  "date": "2026-10-24",
-  "hash": "1bfa8af32cb386f5"
+  "date": "2026-10-31",
+  "hash": "7a73cdca3f6d485e"
  },
  "compare/hotdocs-alternative.html": {
-  "date": "2026-10-24",
-  "hash": "806828259d577be1"
+  "date": "2026-10-31",
+  "hash": "ed7650bc89d511ad"
  },
  "compare/lawdepot-alternative.html": {
-  "date": "2026-10-24",
-  "hash": "a094f50f6ea02db0"
+  "date": "2026-10-31",
+  "hash": "0c2b68bb9ca16466"
  },
  "compare/pandadoc-alternative.html": {
-  "date": "2026-10-24",
-  "hash": "ba63132be45c7335"
+  "date": "2026-10-31",
+  "hash": "1298b609156a3848"
  },
  "compare/rocket-lawyer-alternative.html": {
-  "date": "2026-10-24",
-  "hash": "39c071e0a18e354c"
+  "date": "2026-10-31",
+  "hash": "a88b6ef85564f5a4"
  },
  "contact/": {
   "date": "2026-10-24",
@@ -237,27 +237,27 @@
  },
  "for/": {
   "date": "2026-10-31",
-  "hash": "3004f84024d24262"
+  "hash": "608b3a478d309fc6"
  },
  "for/consultants.html": {
   "date": "2026-10-31",
-  "hash": "3aec6ffe944441b6"
+  "hash": "aa18855d0c1bc3c0"
  },
  "for/freelancers.html": {
-  "date": "2026-10-29",
-  "hash": "12ed8ed893c08e33"
+  "date": "2026-10-31",
+  "hash": "4f1553c6b99c2240"
  },
  "for/hr-teams.html": {
   "date": "2026-10-31",
-  "hash": "e7790d5ccb4d6565"
+  "hash": "e2c56fe111f9edfa"
  },
  "for/landlords.html": {
-  "date": "2026-10-24",
-  "hash": "c151191bb321d29f"
+  "date": "2026-10-31",
+  "hash": "37df28ccbc6d1ff9"
  },
  "for/law-firms.html": {
-  "date": "2026-10-24",
-  "hash": "705666cc3abd8be3"
+  "date": "2026-10-31",
+  "hash": "9c079ba559690881"
  },
  "free-tools/": {
   "date": "2026-10-28",

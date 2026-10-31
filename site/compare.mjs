@@ -220,6 +220,16 @@ ${GROUPS.map(([g, label]) => `  <h2 style="margin-top:2rem">${esc(label)}</h2>
 ${moveSteps(c, rel)}
   <h2>What stays outside Clausery</h2>
   <p>Clausery prepares Word documents, including contracts, invoices, quotes and receipts. It does not collect signatures or payments, provide legal advice, maintain a hosted client portal or synchronise a CRM. Keep the systems needed for those tasks.</p>
+  <h2 style="margin-top:2.5rem">Free templates to start with</h2>
+  <p>Every library template is a free Word download with a guide to what belongs in it:</p>
+  <ul>
+    <li><a href="${rel}templates/invoice.html">Invoice template</a> — <a href="${rel}templates/invoice.html" class="small muted">what to include</a></li>
+    <li><a href="${rel}templates/independent-contractor-agreement.html">Independent contractor agreement</a> — <a href="${rel}templates/independent-contractor-template.html" class="small muted">what to include</a></li>
+    <li><a href="${rel}templates/mutual-nda.html">Mutual NDA</a> — <a href="${rel}templates/mutual-nda-template.html" class="small muted">what to include</a></li>
+    <li><a href="${rel}templates/offer-letter.html">Offer letter</a> — <a href="${rel}templates/offer-letter-template.html" class="small muted">what to include</a></li>
+    <li><a href="${rel}templates/residential-lease-agreement.html">Residential lease agreement</a> — <a href="${rel}templates/residential-lease-agreement-template.html" class="small muted">what to include</a></li>
+  </ul>
+  <p class="small muted"><a href="${rel}templates/">Browse the full template library</a> — 87 free Word templates covering invoices, contracts, NDAs, HR letters and landlord forms.</p>
   <h2 style="margin-top:2.5rem">Questions</h2>
   ${faqHtml(faq)}
   <h2 id="official-details" style="margin-top:2.5rem">Official product and plan details</h2>

@@ -1,5 +1,5 @@
 // Pages for each buyer, and how-to guides that answer the searches those buyers make.
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { esc, faqLd, faqHtml, crumbsLd, collectionLd, helpfulWidget, lowerFirst, LASTMOD, LASTMOD_LONG, longDate } from '../tools/partials.mjs';
 const DATES = JSON.parse(readFileSync(new URL('./data/page-dates.json', import.meta.url), 'utf8'));
 const shortMonth = (iso) => { const d = new Date(iso + 'T00:00:00Z'); return d.toLocaleDateString('en-GB', { month:'short', year:'numeric', timeZone:'UTC' }); };
@@ -55,6 +55,21 @@ const AUD = [
       ['What does it cost?', `The templates are free to download or fill in, with no limit. In the app you can also automate up to ${PLANS.free.maxTemplates} of your own templates free; Pro is $${PRICES.pro} per user per month.`]] },
 ];
 const NAMES = { 'room-rental-agreement': 'Room rental agreement', 'rent-payment-plan-agreement': 'Rent payment plan agreement', 'landlord-reference-letter': 'Landlord reference letter', 'performance-improvement-plan': 'Performance improvement plan', 'remote-work-agreement': 'Remote work agreement', 'expense-reimbursement-form': 'Expense reimbursement form', 'change-order-form': 'Change order form', 'pet-sitting-agreement': 'Pet sitting agreement', 'coaching-agreement': 'Coaching agreement', 'contract-termination-letter': 'Contract termination letter', 'credit-note': 'Credit note', 'employment-agreement': 'Employment agreement', 'employee-warning-letter': 'Employee warning letter', 'promotion-letter': 'Promotion letter', 'liability-waiver': 'Liability waiver', 'resignation-letter': 'Resignation letter', 'non-solicitation-agreement': 'Non-solicitation agreement', 'employee-nda': 'Employee NDA', 'contractor-nda': 'Contractor NDA', 'business-sale-nda': 'NDA for selling a business', 'rental-application': 'Rental application', 'rent-receipt': 'Rent receipt', 'lease-renewal-letter': 'Lease renewal letter', 'pet-addendum': 'Pet addendum', 'residential-lease-agreement': 'Residential lease agreement', 'sublease-agreement': 'Sublease agreement', 'move-in-checklist': 'Move-in and move-out checklist', 'late-rent-notice': 'Late rent notice', 'notice-to-vacate': 'Notice to vacate (tenant)', 'rent-increase-letter': 'Rent increase letter', 'security-deposit-return-letter': 'Security deposit return letter', 'roommate-agreement': 'Roommate agreement', 'partnership-agreement': 'Partnership agreement', 'sales-commission-agreement': 'Sales commission agreement', 'photo-release-form': 'Photo and model release', 'general-release': 'General release', 'memorandum-of-understanding': 'Memorandum of understanding (MOU)', 'letter-of-intent': 'Letter of intent (business purchase)', 'bill-of-sale': 'Bill of sale', 'loan-agreement': 'Loan agreement', 'payment-reminder-letter': 'Payment reminder letter', 'subcontractor-agreement': 'Subcontractor agreement', 'retainer-agreement': 'Retainer agreement', 'video-production-contract': 'Video production contract', 'virtual-assistant-agreement': 'Virtual assistant agreement', 'event-planning-contract': 'Event planning contract', 'personal-training-agreement': 'Personal training agreement', 'tutoring-agreement': 'Tutoring agreement', 'web-design-contract': 'Web design contract', 'graphic-design-contract': 'Graphic design contract', 'photography-contract': 'Photography contract', 'social-media-management-contract': 'Social media management contract', 'freelance-writing-contract': 'Freelance writing contract',  'one-way-nda': 'One-way NDA', 'cease-and-desist-letter': 'Cease and desist letter', 'promissory-note': 'Promissory note', 'internship-offer-letter': 'Internship offer letter', 'salary-increase-letter': 'Salary increase letter', 'reference-letter': 'Reference letter', 'employment-termination-letter': 'Termination letter', 'consulting-agreement': 'Consulting agreement', 'service-agreement': 'Service agreement', 'engagement-letter': 'Engagement letter', 'mutual-nda': 'Mutual NDA', 'payment-demand-letter': 'Payment demand letter', 'offer-letter': 'Offer letter', 'employment-verification-letter': 'Employment verification letter', 'independent-contractor-agreement': 'Independent contractor agreement', 'statement-of-work': 'Statement of work', 'invoice': 'Invoice', 'quote': 'Price quote', 'purchase-order': 'Purchase order', 'payment-receipt': 'Payment receipt', 'two-weeks-notice-letter': 'Two weeks notice letter', 'hold-harmless-agreement': 'Hold harmless agreement', 'equipment-rental-agreement': 'Equipment rental agreement', 'cleaning-services-contract': 'Cleaning services contract', 'meeting-minutes': 'Meeting minutes', 'non-compete-agreement': 'Non-compete agreement', 'nanny-contract': 'Nanny contract', 'gift-letter': 'Gift letter for a mortgage', 'lease-termination-agreement': 'Lease termination agreement', 'severance-agreement': 'Severance agreement', 'job-description': 'Job description', 'catering-contract': 'Catering contract', 'board-resolution': 'Board resolution' };
+
+// Map LIB slug -> hub slug for "what to include" cross-links on audience pages.
+// Most hubs are named `${slug}-template.html`; these exceptions map to hubs with different naming.
+const HUB_FOR_LIB = {
+  'independent-contractor-agreement': 'independent-contractor-template',
+  'employment-verification-letter': 'employment-verification-template',
+  'salary-increase-letter': 'salary-increase-template',
+  'two-weeks-notice-letter': 'two-weeks-notice-template',
+  'freelance-contract': 'freelance-contract',
+  'invoice': 'invoice',
+};
+for (const s of Object.keys(NAMES)) {
+  if (HUB_FOR_LIB[s]) continue;
+  if (existsSync(new URL(`../templates/${s}-template.html`, import.meta.url))) HUB_FOR_LIB[s] = `${s}-template`;
+}
 
 export const GUIDES = [
   ...HIGH_INTENT_GUIDES,
@@ -2118,7 +2133,7 @@ export const pages = [
 </div></div></section>
 <section class="section"><div class="wrap" style="max-width:52rem">
   <h2>Start from a free template</h2>
-  <ul>${a.templates.map((s) => `<li><a href="${rel}templates/${s}.html">${esc(NAMES[s])}</a></li>`).join('')}</ul>
+  <ul>${a.templates.map((s) => `<li><a href="${rel}templates/${s}.html">${esc(NAMES[s])}</a>${HUB_FOR_LIB[s] ? ` — <a href="${rel}templates/${HUB_FOR_LIB[s]}.html" class="small muted">what to include</a>` : ''}</li>`).join('')}</ul>
   <h2 style="margin-top:2.5rem">Questions</h2>
   ${faqHtml(a.faq)}
   <h2 style="margin-top:2.5rem">Further reading</h2>
