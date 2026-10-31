@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-31",
-  "hash": "802f2c433a60e190"
+  "hash": "5a2bd783a738e6ca"
  },
  "clauses/": {
   "date": "2026-10-28",
@@ -859,6 +859,10 @@
   "date": "2026-10-31",
   "hash": "00add306a3b5d989"
  },
+ "templates/employee-warning-letter-template.html": {
+  "date": "2026-10-31",
+  "hash": "51181cf6966b47e7"
+ },
  "templates/employee-warning-letter.html": {
   "date": "2026-10-31",
   "hash": "87671463f999bea9"
@@ -874,6 +878,10 @@
  "templates/employment-verification-letter.html": {
   "date": "2026-10-31",
   "hash": "c4b9800de769fbe7"
+ },
+ "templates/employment-verification-template.html": {
+  "date": "2026-10-31",
+  "hash": "24df100eba2fb480"
  },
  "templates/engagement-letter.html": {
   "date": "2026-10-30",
@@ -1075,6 +1083,10 @@
   "date": "2026-10-31",
   "hash": "8a1f5b9718592b24"
  },
+ "templates/promotion-letter-template.html": {
+  "date": "2026-10-31",
+  "hash": "c180dbbb639a543a"
+ },
  "templates/promotion-letter.html": {
   "date": "2026-10-31",
   "hash": "68cba2e26d6d5554"
@@ -1086,6 +1098,10 @@
  "templates/quote.html": {
   "date": "2026-10-31",
   "hash": "1a269e18a8c69fa1"
+ },
+ "templates/reference-letter-template.html": {
+  "date": "2026-10-31",
+  "hash": "8b3dcd6202fd1d9e"
  },
  "templates/reference-letter.html": {
   "date": "2026-10-31",
@@ -1142,6 +1158,10 @@
  "templates/salary-increase-letter.html": {
   "date": "2026-10-31",
   "hash": "d917d69d1c81601b"
+ },
+ "templates/salary-increase-template.html": {
+  "date": "2026-10-31",
+  "hash": "b87380ec0bbf2922"
  },
  "templates/sales-commission-agreement.html": {
   "date": "2026-10-29",
