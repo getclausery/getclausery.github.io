@@ -328,6 +328,25 @@ def check_pdf():
                 run = 0
         if run >= 2:
             runs.append(run)
+    # a subhead may not be the last thing on a page, with nothing under it
+    stranded = []
+    for i in range(offset, d.page_count):
+        lines = []
+        for b in d[i].get_text('dict')['blocks']:
+            for l in b.get('lines', []):
+                text = ''.join(sp['text'] for sp in l['spans']).strip()
+                fonts = {sp['font'].split('+')[-1] for sp in l['spans']}
+                if len(text) > 2:
+                    lines.append((l['bbox'], text, fonts))
+        body = [l for l in lines if l[0][3] < d[i].rect.height - 40]
+        if not body:
+            continue
+        (x0, _y0, x1, _y1), text, fonts = body[-1]
+        if fonts == {'CrimsonText-Bold'} and (x1 - x0) < 0.8 * 4.17 * 72 \
+                and not text.endswith(('.', '?', '\u201d', ')', ':')):
+            stranded.append((i + 1, text[:40]))
+    check('pdf: no subhead stranded at the foot of a page', not stranded, stranded[:3])
+
     check('pdf: no ladders of hyphenated lines',
           all(r <= 2 for r in runs), f'{sum(1 for r in runs if r >= 3)} ladders, '
                                      f'max run {max(runs) if runs else 0}')

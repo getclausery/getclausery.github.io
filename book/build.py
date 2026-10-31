@@ -873,7 +873,7 @@ def build():
     if not docs:
         print('no manuscript files'); sys.exit(1)
     body, toc, spine = render(docs)
-    pages = round(words / 250)      # measured against the typeset PDF, not guessed
+    pages = round(words / 247)      # measured against the typeset PDF, not guessed
     pages += pages % 2              # the printed book has an even number of pages
 
     # --- single-file HTML ---

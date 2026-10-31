@@ -23,8 +23,9 @@ from reportlab.lib.enums import TA_CENTER, TA_JUSTIFY, TA_LEFT
 from reportlab.lib.pagesizes import inch
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.pdfbase import pdfmetrics
-from reportlab.platypus import (BaseDocTemplate, Frame, Image, KeepTogether, NextPageTemplate,
-                                PageBreak, PageTemplate, Paragraph, Spacer, Table, TableStyle)
+from reportlab.platypus import (BaseDocTemplate, CondPageBreak, Frame, Image, KeepTogether,
+                                NextPageTemplate, PageBreak, PageTemplate, Paragraph, Spacer,
+                                Table, TableStyle)
 from reportlab.platypus.tableofcontents import TableOfContents
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -79,6 +80,7 @@ _REC = []            # (pid, page, y_bottom, y_top) for every paragraph part dra
 _NEXT_PID = [0]
 _DRY = set()         # paragraphs to set without hyphenation
 _DRY_STYLES = {}
+_COND_BREAK = [0.95 * inch]   # how much air a heading needs under it; 0 disables the break
 
 
 class TrackedParagraph(Paragraph):
@@ -149,6 +151,9 @@ def styles():
                              spaceAfter=5, textColor=INK, hyphenationLang='en_US')
     S['h3'] = ParagraphStyle('h3', fontName=BODY_I, fontSize=11.6, leading=14.8, spaceAfter=2,
                              spaceBefore=13, textColor=INK)
+    # a bold line on its own: a subhead inside a chapter, lighter than an h3
+    S['h4'] = ParagraphStyle('h4', fontName=BOLD, fontSize=11.0, leading=14.6, spaceBefore=11,
+                             spaceAfter=3.4, textColor=INK)
     S['bullet'] = ParagraphStyle('bullet', parent=S['body'], firstLineIndent=0, leftIndent=15,
                                  bulletIndent=4, spaceAfter=3)
     S['scene'] = ParagraphStyle('scene', fontName=BODY, fontSize=10, alignment=TA_CENTER,
@@ -354,7 +359,18 @@ def story_for(body):
         m = re.match(r'^(#{2,4})\s+(.*)$', s)
         if m:
             style = S['h2'] if len(m.group(1)) <= 2 else S['h3']
+            # a heading may not sit at the foot of a page with nothing under it: four
+            # lines of air before it, or it starts the next page
+            out.append(CondPageBreak(_COND_BREAK[0]))
             out.append(Paragraph(pdf_inline(m.group(2)), style))
+            prev_open = True
+            i += 1
+            continue
+        bold_head = re.fullmatch(r'\*\*([^*]{2,140})\*\*', s)
+        if bold_head:
+            # ninety-two lines in this book are a bold sentence standing alone: a subhead
+            out.append(CondPageBreak(_COND_BREAK[0]))
+            out.append(Paragraph(pdf_inline('**' + bold_head.group(1) + '**'), S['h4']))
             prev_open = True
             i += 1
             continue
@@ -964,7 +980,8 @@ def build_triage_card():
     doc.addPageTemplates([PageTemplate(id='card', frames=[frame], onPage=chrome)])
 
     # generous size for photocopying, but on one page
-    keep = {k: S[k] for k in ('body', 'first', 'bullet', 'quote', 'h2', 'h3', 'scene', 'chaptitle', 'lede', 'label')}
+    keep = {k: S[k] for k in ('body', 'first', 'bullet', 'quote', 'h2', 'h3', 'h4', 'scene',
+                              'chaptitle', 'lede', 'label')}
     S['body'] = ParagraphStyle('tb', fontName=BODY, fontSize=10.9, leading=13.9, textColor=INK,
                                alignment=TA_JUSTIFY, hyphenationLang='en_US', firstLineIndent=11)
     S['first'] = ParagraphStyle('tf', parent=S['body'], firstLineIndent=0)
@@ -976,6 +993,10 @@ def build_triage_card():
     S['chaptitle'] = ParagraphStyle('tt', fontName=BOLD, fontSize=22, leading=25, spaceAfter=6)
     S['lede'] = ParagraphStyle('tl', fontName=BODY_I, fontSize=11, leading=14, spaceAfter=10,
                                textColor=colors.HexColor('#3a332d'))
+    S['h4'] = ParagraphStyle('th4', fontName=BOLD, fontSize=11.3, leading=13.4, spaceBefore=6.5,
+                             spaceAfter=1.4, textColor=INK)
+    # a card cannot run to two pages, so no heading here is allowed to push the frame
+    _COND_BREAK[0] = 0
 
     story = [Paragraph('THE TRIAGE CARD', S['label']),
              Paragraph('Pastoral Triage Card', S['chaptitle']),
@@ -983,6 +1004,7 @@ def build_triage_card():
     story += story_for(body['body'].split('\n', 1)[1] if body['body'].startswith('**Two questions') else body['body'])
     doc.build(story)
     S.update(keep)
+    _COND_BREAK[0] = 0.95 * inch
     print('wrote', os.path.join(DIST, 'triage-card.pdf'))
     return os.path.join(DIST, 'triage-card.pdf')
 

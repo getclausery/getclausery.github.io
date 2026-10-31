@@ -18,7 +18,7 @@ The companion research brief is in `../research/harmonizing-the-manifestation-sp
 | `PITCH.md` | Pitch kit: back cover, comps, pitches, metadata, interview questions |
 | `cover.jpg` | 1600 × 2400 cover, embedded in the EPUB and page 1 of the PDF |
 | `fonts/` | Crimson Text (SIL OFL 1.1): four TTFs for the PDF, four woff2 subsets for the web and EPUB |
-| `verify.py` | 129 acceptance checks across the editions, the interior, and the cover |
+| `verify.py` | 130 acceptance checks across the editions, the interior, and the cover |
 | `publish.sh` | one command: build everything, copy the hand-out set, run the checks |
 | `dist/` | Build output (git-ignored) |
 
@@ -107,10 +107,10 @@ Writes, in `book/dist/` (git-ignored):
 - `the-hidden-and-the-manifest.html` — single-file reading edition (`index.html` alias)
 - `the-hidden-and-the-manifest.print.html` — print edition (5.5 × 8.5 in page CSS;
   open in a browser and print to PDF) (`print.html` alias)
-- `the-hidden-and-the-manifest.pdf` — reading edition, 298 pages: cover, front matter, the
+- `the-hidden-and-the-manifest.pdf` — reading edition, 302 pages: cover, front matter, the
   book, contents with real page numbers, page-numbered indexes
 - `the-hidden-and-the-manifest-interior.pdf` — the same book **without the cover page**, for a
-  printer, 298 pages, page labels intact, 65 bookmarks, contents and index links intact
+  printer, 302 pages, page labels intact, 65 bookmarks, contents and index links intact
 - `cover-wrap.pdf` — the full wrap a printer prints: back, spine, front, 1/8 in bleed
 - `cover.jpg` — the front cover at 2:3, for the EPUB and the web edition
 - `triage-card.pdf` — Appendix B as a standalone letter-size photocopy master
@@ -119,8 +119,8 @@ Writes, in `book/dist/` (git-ignored):
 - `book/editions/` — the same files copied out of the build directory as the published
   set (`dist/` is a scratch directory and is ignored by git)
 
-Page estimate uses 250 words per 5.5 × 8.5 page — measured against the typeset PDF
-(74,481 words → 298 pages), not guessed.
+Page estimate uses 247 words per 5.5 × 8.5 page — measured against the typeset PDF
+(74,481 words → 302 pages), not guessed.
 The PDF's page count is exact, because it is the typeset book.
 
 ## PDF build
@@ -219,7 +219,13 @@ broken by re-setting the offending paragraph:
   paragraph is drawn by a `TrackedParagraph` that records its page and its height), and
   the next pass sets that paragraph with hyphenation off. Two extra passes clear all of
   them: **0 ladders, maximum run 2.**
-- **The price of that.** Forty-one paragraphs out of about a thousand are set unhyphenated,
+- **Stranded heads.** Ninety-two lines in this book are a bold sentence standing alone —
+  the forty disputed questions, the six marks, the transpositions. Set as ordinary
+  paragraphs they ran on, and any of them could land at the foot of a page with nothing
+  under it. They are now subheads with their own spacing, and each heading (bold or
+  italic) asks `CondPageBreak` for four lines of air; if the page cannot give them, the
+  heading starts the next page. **0 stranded heads.**
+- **The price of that.** Thirty-eight paragraphs out of about a thousand are set unhyphenated,
   which loosens their justification slightly: lines stretched past twice the natural word
   space go from 21 to 26 across 6,500 prose lines. That is the trade a compositor makes —
   a ladder is visible, one loose line in one paragraph usually is not.
@@ -234,9 +240,9 @@ the three outer edges.
 
 The spine is a measurement, not a design choice — a paperback's spine width is the thickness
 of its paper times its page count. On KDP's white 50# stock that is 0.002252 in a leaf, so
-the 298-page book has a **0.671 in spine** and the sheet is
+the 302-page book has a **0.680 in spine** and the sheet is
 
-    0.125 + 5.5 + 0.671 + 5.5 + 0.125 = 11.921 in  ×  8.75 in
+    0.125 + 5.5 + 0.680 + 5.5 + 0.125 = 11.930 in  ×  8.75 in
 
 `make-wrap.py` reads the page count out of `build-report.json`, so the spine cannot drift
 out of date when a chapter is added; the wrap is rebuilt from the same count the interior
@@ -288,7 +294,7 @@ about sixty characters to the line.
 python3 book/verify.py
 ```
 
-129 assertions across the four editions, the print interior, the wrap, and the font files: manuscript completeness and placeholder text,
+130 assertions across the four editions, the print interior, the wrap, and the font files: manuscript completeness and placeholder text,
 markup balance and reader-script injection in each HTML file, the EPUB spine order
 (cover → title → copyright → contents → text), its XML, metadata, and accessibility
 statements, the PDF's page count, outline (starting with cover, half-title, title, copyright, contents), metadata, XMP, language tag, part-page
