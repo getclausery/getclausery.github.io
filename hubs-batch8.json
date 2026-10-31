@@ -1,0 +1,202 @@
+[
+  {
+    "path": "templates/room-rental-agreement-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Room Rental Agreement | Free Word Template",
+    "h1": "Free room rental agreement template (Word)",
+    "description": "Free room rental agreement template: rent a room in an occupied home with clear rules, rent and shared-bill terms.",
+    "lead": "An agreement between a homeowner/tenant and a roommate renting a room in an occupied home, covering rent, bills, shared spaces and house rules.",
+    "introParagraphs": ["A room rental agreement (or room lease) is used when someone rents a bedroom in a home the owner or primary tenant also lives in — common for housemates, students and live-in landlords. It covers rent, deposit, shared bills, house rules and notice.", "Unlike a standard residential lease where the tenant has exclusive possession, a room rental typically means shared kitchen/bathroom and rules set by the primary occupant. Local landlord-tenant law still applies to eviction and deposit handling."],
+    "bullets": [
+      ["Parties and room", "Homeowner/primary tenant name, roomer name, property address and which room is rented."],
+      ["Term and rent", "Move-in date, fixed term or month-to-month, monthly rent amount, due date, accepted payment and late fee."],
+      ["Security deposit", "Deposit amount (capped by state law where applicable), deductions allowed, and return timeline."],
+      ["Shared costs", "How utilities, internet, groceries and household supplies are split; who pays what and when."],
+      ["House rules", "Guests/overnight policy, quiet hours, smoking, pets, cleaning chores, shared-space use and notice to enter the room."]
+    ],
+    "howTo": [
+      ["Agree on terms first", "Discuss rent, bills, chores, guests, quiet hours and move-in date before drafting."],
+      ["Run it past existing flatmates", "If other people live there, make sure everyone agrees to the new arrangement."],
+      ["Sign the agreement", "Both primary occupant and roomer sign; each gets a copy."],
+      ["Collect deposit and first rent", "Take deposit + first month rent up front; document condition with photos at move-in."],
+      ["Set up standing payments", "Use a recurring transfer for rent and shared bills to avoid late-payment disputes."]
+    ],
+    "related": [
+      ["Roommate agreement", "templates/roommate-agreement-template.html", "For housemates on an equal lease (no master tenant)."],
+      ["Sublease agreement", "templates/sublease-agreement-template.html", "When a tenant sublets their whole unit/room under a master lease."],
+      ["Residential lease agreement", "templates/residential-lease-agreement-template.html", "Full-lease template for the whole property."],
+      ["Rent receipt", "templates/rent-receipt.html", "Provide receipts for rent paid in cash."],
+      ["Free landlord forms", "for/landlords.html", "Full landlord/tenant template set."]
+    ],
+    "faq": [
+      ["Does a room renter have tenant rights?", "Yes — even a verbal arrangement usually creates a tenancy with eviction and deposit protections under local law."],
+      ["Can I kick out a bad roommate without notice?", "No — you must follow local eviction procedures, even for someone renting just a room."],
+      ["Can I ban guests entirely?", "That is hard to enforce; a reasonable guest policy (number of nights, advance notice) is more typical."],
+      ["How much deposit?", "Typically one month rent; many states cap residential deposits at 1-2 months."],
+      ["Do I need to tell my landlord?", "Yes — most leases prohibit subletting/roomers without written landlord consent."]
+    ],
+    "cta": { "label": "Build your room rental agreement", "href": "app/#/start/room-rental-agreement" },
+    "download": { "href": "samples/room-rental-agreement.docx", "label": "Download Word" }
+  },
+  {
+    "path": "templates/rental-application-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Rental Application | Free Word Template",
+    "h1": "Free rental application template (Word)",
+    "description": "Free rental application form: screen tenants with income, employment, rental history and references.",
+    "lead": "A form used by landlords and property managers to collect information from prospective tenants — income, employment, rental history, references and consent for background/credit checks.",
+    "introParagraphs": ["A rental application is the screening step before a lease is signed. It collects enough information to verify income, employment, past tenancies and references, and typically includes authorisation to pull a credit report and background check.", "Use the same application form for every applicant to avoid fair-housing claims. Charge an application fee only where local law allows it and in the amount capped by statute."],
+    "bullets": [
+      ["Applicant details", "Full name, date of birth, SSN/ID number (for credit check), phone and email, current address."],
+      ["Employment and income", "Current employer, position, income, length of employment, pay stubs or proof of income, supervisor contact."],
+      ["Rental history", "Current and previous two landlords, addresses, dates, rent amounts, reason for leaving, landlord contact for reference."],
+      ["References", "Personal and/or professional references with phone numbers."],
+      ["Authorisation", "Signed consent to run credit, criminal and eviction-history checks; application fee disclosure."]
+    ],
+    "howTo": [
+      ["Provide the form", "Give every prospective tenant the same application at showings or digitally."],
+      ["Collect the fee (if any)", "Accept a non-refundable application fee only where legal and in the capped amount."],
+      ["Verify income and employment", "Ask for recent pay stubs or an offer letter; call the employer."],
+      ["Call past landlords", "Verify on-time rent, condition of unit left, and whether they would rent again."],
+      ["Run credit and background checks", "Use a reputable tenant-screening service with applicant consent; comply with FCRA adverse-action rules if you decline."]
+    ],
+    "related": [
+      ["Residential lease agreement", "templates/residential-lease-agreement-template.html", "The lease signed after approval."],
+      ["Landlord reference letter", "templates/landlord-reference-letter-template.html", "What you will be asked to write for past tenants."],
+      ["Employment verification letter", "templates/employment-verification-template.html", "Proof of income from an employer."],
+      ["Room rental agreement", "templates/room-rental-agreement-template.html", "For renting a room in an occupied home."],
+      ["Free landlord forms", "for/landlords.html", "Full landlord/tenant template set."]
+    ],
+    "faq": [
+      ["Can I charge an application fee?", "Most states allow it, but many cap the amount (often at actual screening cost) and some cities ban it."],
+      ["Can I ask about criminal history?", "It depends on the jurisdiction; many places ban blanket criminal-history screening or require an individualised assessment."],
+      ["Do I have to rent to the first qualified applicant?", "No, but you must apply consistent criteria to every applicant to avoid discrimination claims."],
+      ["What if they lie on the application?", "Material misrepresentation is usually grounds to reject the application or terminate a lease if already signed."],
+      ["How long does screening take?", "Typically 1-3 days for credit/background checks and reference calls."]
+    ],
+    "cta": { "label": "Build your rental application", "href": "app/#/start/rental-application" },
+    "download": { "href": "samples/rental-application.docx", "label": "Download Word" }
+  },
+  {
+    "path": "templates/rent-receipt-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Rent Receipt | Free Word Template",
+    "h1": "Free rent receipt template (Word)",
+    "description": "Free rent receipt template: proof of rent payment with date, amount, period and landlord/tenant names.",
+    "lead": "A written receipt given to a tenant when they pay rent, showing date paid, amount, the rent period, property address and who received it.",
+    "introParagraphs": ["A rent receipt is a simple record proving the tenant paid rent. It is especially important for cash payments (some states require it by law) and for tenants building a rental history or claiming housing benefits.", "Keep a copy for your records and give one to the tenant immediately on payment. Receipts help resolve disputes about whether and when rent was paid."],
+    "bullets": [
+      ["Tenant and property", "Tenant name, property address and unit number."],
+      ["Payment details", "Amount paid, date received, payment method (cash, cheque, transfer, money order) and cheque/transaction number."],
+      ["Rent period", "The month and year the payment covers (e.g. November 2026)."],
+      ["Balance", "Any remaining balance due or late fee outstanding."],
+      ["Signature", "Landlord/manager signature, printed name and date issued."]
+    ],
+    "howTo": [
+      ["Fill out at time of payment", "Issue the receipt when you receive payment — do not backdate."],
+      ["Include all required details", "Date, amount, period, property, payment method and signature."],
+      ["Sign and give to tenant", "Hand or email a copy; keep one for your records."],
+      ["Log in your rent ledger", "Record the payment in your tracking spreadsheet alongside the receipt number."],
+      ["Provide for cash by default", "Many states require a receipt for cash rent payments on demand — issue them proactively."]
+    ],
+    "related": [
+      ["Late rent notice", "templates/late-rent-notice-template.html", "Notice when rent is overdue."],
+      ["Rent payment plan", "templates/payment-plan-agreement.html", "Written plan for catching up on late rent."],
+      ["Payment receipt", "templates/payment-receipt.html", "Generic receipt for any payment."],
+      ["Residential lease agreement", "templates/residential-lease-agreement-template.html", "Lease governing the rent."],
+      ["Free landlord forms", "for/landlords.html", "Full landlord/tenant template set."]
+    ],
+    "faq": [
+      ["Do I have to give a rent receipt?", "Several US states require a receipt for cash payments; always give one if asked. Best practice is a receipt for every payment."],
+      ["Is an email confirmation enough?", "An email can act as a receipt but a signed PDF/printed document is stronger evidence in court."],
+      ["Can a receipt be handwritten?", "Yes — as long as it has the date, amount, period, property and signature it is valid."],
+      ["Should I issue one per tenant?", "Issue one per unit/payment; all tenants on the lease can request a copy."],
+      ["What if I use a property manager?", "The manager issues receipts in their name as your agent; they count as receipts from you."]
+    ],
+    "cta": { "label": "Build your rent receipt", "href": "app/#/start/rent-receipt" },
+    "download": { "href": "samples/rent-receipt.docx", "label": "Download Word" }
+  },
+  {
+    "path": "templates/rent-payment-plan-agreement-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Rent Payment Plan | Free Word Template",
+    "h1": "Free rent payment plan agreement template (Word)",
+    "description": "Free rent payment plan agreement: catch up on overdue rent in instalments and avoid eviction.",
+    "lead": "A written plan between landlord and tenant setting out how overdue rent will be paid back in instalments, while current rent continues to be paid on time.",
+    "introParagraphs": ["A rent payment plan agreement (or back-rent repayment plan) is used when a tenant has fallen behind and the landlord agrees to accept payment in instalments instead of proceeding straight to eviction. It states how much is owed, instalment amounts, due dates, and what happens if the tenant misses a payment.", "If local eviction moratoriums or rental-assistance programs apply, follow their documentation requirements. A signed plan protects both sides by putting the agreement in writing."],
+    "bullets": [
+      ["Parties and property", "Landlord, tenant, property address and unit."],
+      ["Arrears amount", "Total past-due rent and any late fees/charges being rolled into the plan, as of the plan date."],
+      ["Instalment schedule", "Amount of each instalment, due dates (often weekly or bi-weekly on top of ongoing rent), total instalments, and final payoff date."],
+      ["Current rent", "Statement that normal monthly rent is still due on the regular due date in addition to instalments."],
+      ["Default terms", "What happens if an instalment is missed (reinstatement of the original debt, possible eviction filing) and any waiver of late fees."]
+    ],
+    "howTo": [
+      ["Confirm the arrears total", "Look at your ledger and agree with the tenant on the exact amount owed before drafting."],
+      ["Set realistic instalments", "Match the plan to what the tenant can actually pay; a plan they cannot meet just delays eviction."],
+      ["Include ongoing rent", "Make it explicit that current rent plus instalment is due each period."],
+      ["Sign and date", "Both parties sign; the landlord keeps the original, tenant gets a copy."],
+      ["Track payments", "Log each instalment against the plan and issue receipts; if the tenant defaults, follow the written default procedure."]
+    ],
+    "related": [
+      ["Late rent notice", "templates/late-rent-notice-template.html", "Pay-or-quit notice usually sent before a plan is agreed."],
+      ["Lease termination agreement", "templates/lease-termination-agreement-template.html", "Alternative if the tenant cannot catch up and wants to move out."],
+      ["Eviction notice", "templates/eviction-notice-template.html", "Next step if the plan is broken."],
+      ["Promissory note", "templates/promissory-note-template.html", "For larger personal debts with a formal repayment structure."],
+      ["Free landlord forms", "for/landlords.html", "Full landlord/tenant template set."]
+    ],
+    "faq": [
+      ["Does a payment plan stop eviction?", "Only if the landlord agrees and the tenant complies; pending court cases may still need to be put on hold by agreement."],
+      ["Can I evict if they miss an instalment?", "Usually yes per the default clause; make sure the language is clear and complies with local law."],
+      ["Should I waive late fees?", "Waiving or reducing late fees in exchange for prompt payment is common and helps tenants catch up."],
+      ["Do I have to offer a plan?", "No in most places — you can proceed with eviction per normal procedure — but some jurisdictions/relief programs require it."],
+      ["Is a verbal plan enough?", "No — put it in writing so the terms (especially default and waiver of eviction) are enforceable."]
+    ],
+    "cta": { "label": "Build your rent payment plan", "href": "app/#/start/rent-payment-plan-agreement" },
+    "download": { "href": "samples/rent-payment-plan-agreement.docx", "label": "Download Word" }
+  },
+  {
+    "path": "templates/move-in-checklist-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Move-in Checklist | Free Word Template",
+    "h1": "Free move-in checklist template (Word)",
+    "description": "Free move-in checklist: document unit condition at move-in to avoid deposit disputes at move-out.",
+    "lead": "A room-by-room checklist the landlord and tenant walk through together at move-in, noting existing damage, cleanliness and working items before keys are handed over.",
+    "introParagraphs": ["A move-in checklist (or move-in/move-out inspection report) records the condition of the rental unit when the tenant moves in. Both landlord and tenant sign it, and it becomes the baseline for deciding what damage to deduct from the security deposit at move-out.", "Most states require a written move-in inspection, or give the tenant a right to be present at move-out with a similar checklist. Do it every time — even a quick walk-through with photos saves thousands in deposit disputes."],
+    "bullets": [
+      ["Unit and parties", "Tenant name(s), property address, unit number, move-in date, landlord/manager name."],
+      ["Room-by-room items", "Walls, floors, ceilings, doors, windows, blinds/curtains, light fixtures, outlets, smoke detectors per room."],
+      ["Appliances and systems", "Condition and working order of fridge, stove, dishwasher, washer/dryer, heating, AC, water heater, plumbing."],
+      ["Keys and meters", "Keys/remotes/fobs issued, utility meter readings at move-in."],
+      ["Sign-off", "Tenant and landlord/agent sign and date; both get copies; photos attached as evidence."]
+    ],
+    "howTo": [
+      ["Prepare the checklist before move-in", "Print one for each unit with all rooms and items listed; bring a camera."],
+      ["Walk through with the tenant", "Go room by room with the tenant present; mark condition (good, fair, poor) and note specific damage."],
+      ["Take dated photos", "Photograph every room plus any damage noted; include a date stamp or signed paper in the frame."],
+      ["Test appliances and detectors", "Turn on appliances, test smoke/CO detectors and note meter readings."],
+      ["Sign and copy", "Both sign; tenant gets a copy, landlord files the original with the lease. Repeat at move-out for comparison."]
+    ],
+    "related": [
+      ["Security deposit return letter", "templates/security-deposit-return-letter-template.html", "How deposits are returned using the checklist as baseline."],
+      ["Residential lease agreement", "templates/residential-lease-agreement-template.html", "Lease this checklist is attached to."],
+      ["Rent receipt", "templates/rent-receipt.html", "Receipt for first rent and deposit."],
+      ["Notice to vacate", "templates/notice-to-vacate-template.html", "Leads to a matching move-out checklist."],
+      ["Free landlord forms", "for/landlords.html", "Full landlord/tenant template set."]
+    ],
+    "faq": [
+      ["Is a move-in checklist required by law?", "Many US states require a written inspection or give tenants a right to one; always do one to avoid deposit disputes."],
+      ["What if we notice damage after move-in?", "Add it via a signed amendment within the first few days; send dated photos to the landlord."],
+      ["Can I use just photos?", "Photos are great evidence but pair with a signed written list noting what each photo shows."],
+      ["Who fills it out?", "Ideally together — landlord and tenant jointly so there is no disagreement later."],
+      ["Does it replace the lease?", "No — it is an addendum/attachment that documents condition only."]
+    ],
+    "cta": { "label": "Build your move-in checklist", "href": "app/#/start/move-in-checklist" },
+    "download": { "href": "samples/move-in-checklist.docx", "label": "Download Word" }
+  }
+]
