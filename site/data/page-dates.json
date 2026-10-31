@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-31",
-  "hash": "6e6639b65b3d0211"
+  "hash": "f330c923e8ae90f6"
  },
  "clauses/": {
   "date": "2026-10-28",
@@ -803,6 +803,10 @@
   "date": "2026-10-30",
   "hash": "976958b470d8bede"
  },
+ "templates/business-sale-nda-template.html": {
+  "date": "2026-10-31",
+  "hash": "3907e4027116fd37"
+ },
  "templates/business-sale-nda.html": {
   "date": "2026-10-31",
   "hash": "717cd2ae15238f30"
@@ -911,9 +915,17 @@
   "date": "2026-10-31",
   "hash": "24df100eba2fb480"
  },
+ "templates/engagement-letter-template.html": {
+  "date": "2026-10-31",
+  "hash": "46354a537b6dcdb1"
+ },
  "templates/engagement-letter.html": {
   "date": "2026-10-30",
   "hash": "747f356c01074078"
+ },
+ "templates/equipment-rental-agreement-template.html": {
+  "date": "2026-10-31",
+  "hash": "e47d8046ef3d0ae0"
  },
  "templates/equipment-rental-agreement.html": {
   "date": "2026-10-30",
@@ -1046,6 +1058,10 @@
  "templates/loan-agreement.html": {
   "date": "2026-10-31",
   "hash": "3c1d383dc5ae22f5"
+ },
+ "templates/meeting-minutes-template.html": {
+  "date": "2026-10-31",
+  "hash": "ca559e900691e0d3"
  },
  "templates/meeting-minutes.html": {
   "date": "2026-10-31",
@@ -1262,6 +1278,10 @@
  "templates/resignation-letter.html": {
   "date": "2026-10-31",
   "hash": "d129510ad81eaa5b"
+ },
+ "templates/retainer-agreement-template.html": {
+  "date": "2026-10-31",
+  "hash": "e91bf2c1d392f9ac"
  },
  "templates/retainer-agreement.html": {
   "date": "2026-10-31",
