@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-31",
-  "hash": "93483735d5c2d757"
+  "hash": "8e82255de9d6ea2b"
  },
  "clauses/": {
   "date": "2026-10-28",
@@ -927,6 +927,10 @@
   "date": "2026-10-31",
   "hash": "779c2762a237012b"
  },
+ "templates/gift-letter-template.html": {
+  "date": "2026-10-31",
+  "hash": "20726d3ba66f36eb"
+ },
  "templates/gift-letter.html": {
   "date": "2026-10-31",
   "hash": "b99d37101f59f4e6"
@@ -934,6 +938,10 @@
  "templates/graphic-design-contract.html": {
   "date": "2026-10-31",
   "hash": "70d8c1cb51b5b518"
+ },
+ "templates/hold-harmless-agreement-template.html": {
+  "date": "2026-10-31",
+  "hash": "fd7869cd4e2131a3"
  },
  "templates/hold-harmless-agreement.html": {
   "date": "2026-10-31",
@@ -998,6 +1006,10 @@
  "templates/letter-of-intent.html": {
   "date": "2026-10-31",
   "hash": "91775fd84462ead1"
+ },
+ "templates/liability-waiver-template.html": {
+  "date": "2026-10-31",
+  "hash": "726add050b9904c2"
  },
  "templates/liability-waiver.html": {
   "date": "2026-10-31",
@@ -1079,6 +1091,10 @@
   "date": "2026-10-31",
   "hash": "a03df44eabd1a108"
  },
+ "templates/payment-demand-letter-template.html": {
+  "date": "2026-10-31",
+  "hash": "adc1f885aaf29a9c"
+ },
  "templates/payment-demand-letter.html": {
   "date": "2026-10-31",
   "hash": "bce987dd47ffee77"
@@ -1090,6 +1106,10 @@
  "templates/payment-receipt.html": {
   "date": "2026-10-31",
   "hash": "e4cb53171794642c"
+ },
+ "templates/payment-reminder-letter-template.html": {
+  "date": "2026-10-31",
+  "hash": "044b048f0a558865"
  },
  "templates/payment-reminder-letter.html": {
   "date": "2026-10-31",
