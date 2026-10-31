@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-31",
-  "hash": "7923a699017ce9d4"
+  "hash": "5b86db8fed27d358"
  },
  "clauses/": {
   "date": "2026-10-28",
@@ -1003,6 +1003,10 @@
   "date": "2026-10-31",
   "hash": "9d74cf78a8c52b08"
  },
+ "templates/move-in-checklist-template.html": {
+  "date": "2026-10-31",
+  "hash": "0c6a83512f8d2cae"
+ },
  "templates/move-in-checklist.html": {
   "date": "2026-10-31",
   "hash": "b0b88da18e4e7dcc"
@@ -1143,13 +1147,25 @@
   "date": "2026-10-31",
   "hash": "8ceb9b870b66d36b"
  },
+ "templates/rent-payment-plan-agreement-template.html": {
+  "date": "2026-10-31",
+  "hash": "a5b8b2d8e87caca5"
+ },
  "templates/rent-payment-plan-agreement.html": {
   "date": "2026-10-30",
   "hash": "06bc4f2e87f66025"
  },
+ "templates/rent-receipt-template.html": {
+  "date": "2026-10-31",
+  "hash": "8bace7effb14853f"
+ },
  "templates/rent-receipt.html": {
   "date": "2026-10-31",
   "hash": "d60ba89807405715"
+ },
+ "templates/rental-application-template.html": {
+  "date": "2026-10-31",
+  "hash": "f3e7b512cf551c50"
  },
  "templates/rental-application.html": {
   "date": "2026-10-31",
@@ -1174,6 +1190,10 @@
  "templates/retainer-agreement.html": {
   "date": "2026-10-31",
   "hash": "97b7225d03da3f08"
+ },
+ "templates/room-rental-agreement-template.html": {
+  "date": "2026-10-31",
+  "hash": "e62b71ae5db51c08"
  },
  "templates/room-rental-agreement.html": {
   "date": "2026-10-30",
