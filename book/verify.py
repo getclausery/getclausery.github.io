@@ -192,6 +192,12 @@ def check_epub():
     chap_links = len(re.findall(r'<li><a href="ch\d+\.xhtml">', contents))
     check('epub: chapters nest under their parts',
           nested == 6 and chap_links == 40, f'{nested} parts, {chap_links} chapters')
+    sample = open(SAMPLE, encoding='utf-8').read()
+    check('sample: closes with the way into the whole book',
+          all(x in sample for x in ('Read on', 'the-hidden-and-the-manifest.pdf',
+                                    'the-hidden-and-the-manifest.epub', 'triage-card.pdf',
+                                    'index.html')))
+
     check('epub: language declared en-US',
           '<dc:language>en-US</dc:language>' in opf
           and 'lang="en-US"' in z.read('OEBPS/ch01.xhtml').decode())
@@ -375,6 +381,55 @@ def check_pdf():
 
 
 # ----------------------------------------------------------------------- report
+def _luminance(hex_colour):
+    h = hex_colour.lstrip('#')
+    if len(h) == 3:
+        h = ''.join(c * 2 for c in h)
+    r, g, b = (int(h[i:i + 2], 16) / 255.0 for i in (0, 2, 4))
+    def lin(c):
+        return c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4
+    return 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b)
+
+
+def contrast(a, b):
+    la, lb = _luminance(a), _luminance(b)
+    hi, lo = max(la, lb), min(la, lb)
+    return (hi + 0.05) / (lo + 0.05)
+
+
+def check_contrast():
+    """Every colour a reader actually reads at, in both schemes, against WCAG AA."""
+    print('\ncontrast')
+    css = open(HTML, encoding='utf-8').read()
+    light = re.search(r':root \{([^}]*)\}', css).group(1)
+    dark_block = re.search(r'@media \(prefers-color-scheme: dark\) \{(.*?)\n\}', css, re.S)
+    dark = re.search(r':root \{([^}]*)\}', dark_block.group(1)).group(1) if dark_block else ''
+
+    def var(block, name, fallback=None):
+        m = re.search(r'--' + name + r':\s*(#[0-9a-fA-F]{3,6})', block)
+        return m.group(1) if m else fallback
+
+    body_bg = '#fbf9f5'                      # body background, light
+    dark_bg = '#141210'
+    pairs = [
+        ('light ink on paper', var(light, 'ink'), body_bg, 4.5),
+        ('light muted on paper',
+         var(light, 'muted'), body_bg, 4.5),
+        ('light accent on paper', var(light, 'accent'), body_bg, 4.5),
+        ('dark ink on paper', var(dark, 'ink'), dark_bg, 4.5),
+        ('dark muted on paper', var(dark, 'muted'), dark_bg, 4.5),
+        ('dark accent on paper', var(dark, 'accent'), dark_bg, 4.5),
+    ]
+    for label, fg, bg, floor in pairs:
+        if not fg:
+            check(f'contrast: {label}', False, 'colour not declared')
+            continue
+        ratio = contrast(fg, bg)
+        check(f'contrast: {label}', ratio >= floor, f'{ratio:.1f}:1 ({fg} on {bg})')
+
+    check('web: keyboard focus is visible', ':focus-visible' in css and 'outline:' in css)
+
+
 def check_interior():
     """The file a printer prints: the pages between the boards, no cover."""
     import pymupdf
@@ -480,6 +535,7 @@ def main():
     check_html(SAMPLE, 'sample', expect_chapnav=0)
     check_epub()
     check_pdf()
+    check_contrast()
     check_interior()
     check_wrap()
     check_report()

@@ -18,7 +18,7 @@ The companion research brief is in `../research/harmonizing-the-manifestation-sp
 | `PITCH.md` | Pitch kit: back cover, comps, pitches, metadata, interview questions |
 | `cover.jpg` | 1600 × 2400 cover, embedded in the EPUB and page 1 of the PDF |
 | `fonts/` | Crimson Text (SIL OFL 1.1): four TTFs for the PDF, four woff2 subsets for the web and EPUB |
-| `verify.py` | 121 acceptance checks across the editions, the interior, and the cover |
+| `verify.py` | 129 acceptance checks across the editions, the interior, and the cover |
 | `publish.sh` | one command: build everything, copy the hand-out set, run the checks |
 | `dist/` | Build output (git-ignored) |
 
@@ -194,6 +194,19 @@ book can be one pass stale. This build lays the book out, reads the real section
 back, and repeats until the numbers stop moving, then emits the contents with `FixedTOC`
 so the printed numbers are the ones it was typeset with.
 
+## Reading on screen
+
+The HTML edition is one file with the fonts inlined, so it reads the same offline. It has
+a progress bar, saved position, a chapter drawer, and two colour schemes that are checked
+rather than assumed: `verify.py` computes the WCAG ratio of ink, muted text, and accent
+against the paper in **both** schemes (16.7:1, 5.7:1, 8.9:1 light; 14.5:1, 6.5:1, 6.7:1
+dark) and fails if any drops below 4.5:1. Keyboard focus is visible, headings balance, and
+paragraphs are set with `text-wrap: pretty` so the last line of a paragraph is not left
+with one word where a line can be re-broken.
+
+The sample ends with the way into the rest: browser, PDF, EPUB, and the one-page triage
+card, all relative links that work from `editions/` or from any host.
+
 ## Composition
 
 reportlab breaks lines greedily and hyphenates on request; it has no notion of a bad
@@ -275,7 +288,7 @@ about sixty characters to the line.
 python3 book/verify.py
 ```
 
-121 assertions across the four editions, the print interior, the wrap, and the font files: manuscript completeness and placeholder text,
+129 assertions across the four editions, the print interior, the wrap, and the font files: manuscript completeness and placeholder text,
 markup balance and reader-script injection in each HTML file, the EPUB spine order
 (cover → title → copyright → contents → text), its XML, metadata, and accessibility
 statements, the PDF's page count, outline (starting with cover, half-title, title, copyright, contents), metadata, XMP, language tag, part-page

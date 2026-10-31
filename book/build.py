@@ -114,9 +114,12 @@ h1, h2, h3, h4 { font-weight: 600; line-height: 1.2; text-wrap: balance; }
 h1 { font-size: 1.9rem; margin: 0 0 .4rem; letter-spacing: -.01em; }
 h2 { font-size: 1.35rem; margin: 2.4rem 0 .6rem; }
 h3 { font-size: 1.08rem; margin: 2rem 0 .4rem; font-style: italic; font-weight: 600; }
-p { margin: 0 0 1rem; text-align: justify; hyphens: auto; }
+p { margin: 0 0 1rem; text-align: justify; hyphens: auto; text-wrap: pretty; }
 p.first, h2 + p, h3 + p, blockquote + p, ul + p, ol + p, table + p, .scene + p { text-indent: 0; }
 a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+a:focus-visible, .topbar a:focus-visible, .chapnav a:focus-visible { outline-offset: 4px; }
+::selection { background: #f0d9c9; color: #1b1917; }
 em { font-style: italic; }
 blockquote { margin: 1.5rem 0 1.5rem 0; padding-left: 1.1rem; border-left: 2px solid var(--rule); color: #3a332d; font-style: italic; }
 blockquote p { text-align: left; }
@@ -241,6 +244,8 @@ body.print #progress, body.print .topbar { display: none; }
   .tp-cover { box-shadow: 0 14px 40px rgba(0,0,0,.6); }
   .titlepage .title, .part h1 { color: #f2ebdf; }
   pre { background: #1e1a16; }
+  ::selection { background: #4a342a; color: #f6efe4; }
+  blockquote { color: #cdc3b4; }
 }
 @media (max-width: 560px) {
   .wrap { padding: 1.6rem 1rem 4rem; }
@@ -306,6 +311,10 @@ th { font-variant: small-caps; font-weight: bold; }
 .part-epigraph cite { color: #7a2e1e; }
 .part .intro { font-style: italic; color: #444; }
 .chapnav, .topbar { display: none; }
+.sample-end { margin: 3rem 0 0; padding-top: 1.4rem; border-top: 2px solid var(--rule); }
+.sample-end h2 { margin: .3rem 0 .8rem; font-size: 1.3rem; }
+.sample-links { margin: 1.1rem 0 1.4rem; text-align: left; text-indent: 0; }
+.sample-links a { text-decoration-thickness: 1px; }
 .coverpage { margin: 0; padding: 0; text-align: center; }
 .coverpage img { max-width: 100%; height: auto; }
 .titlepage { text-align: center; margin-top: 18%; }
@@ -963,8 +972,19 @@ def build():
     sample_doc = (html_doc.split('<body>')[0] + '<body><div class="wrap">' + title_html + banner
                   + ''.join(re.sub(r'<nav class="chapnav">.*?</nav>', '', _section(x), flags=re.S)
                             for x in ('01-preface', '01b-argument', 'ch01'))
-                  + f'<p class="note">Sample edition &middot; {words:,} words in the complete book &middot; '
-                  f'approx. {pages} printed pages.<br>{esc(META["rights"])}</p></div></body></html>')
+                  + f'''<section class="sample-end" id="read-on">
+<div class="ap-label">The rest of the book</div>
+<h2>Read on</h2>
+<p>The complete edition is {words:,} words in forty chapters and six parts, with eight
+appendices: the audit of fourteen claims, the forty disputed questions, the nine-day novena,
+the thirty-day pilot, the one-page triage card, and two indexes.</p>
+<p class="sample-links"><a href="index.html">Read it in the browser</a> &middot;
+<a href="the-hidden-and-the-manifest.pdf">PDF, {pages} pages</a> &middot;
+<a href="the-hidden-and-the-manifest.epub">EPUB</a> &middot;
+<a href="triage-card.pdf">The triage card, one page</a></p>
+<p class="note">Sample edition &middot; {words:,} words in the complete book &middot;
+approx. {pages} printed pages.<br>{esc(META["rights"])}</p>
+</section></div></body></html>''')
     open(os.path.join(DIST, 'sample.html'), 'w', encoding='utf-8').write(sample_doc)
 
     # --- print edition: same text, laid out as a book on screen as well as on paper ---
