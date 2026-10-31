@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '2.46.0', date: '31 October 2026', summary: '5 new high-volume keyword hubs: independent contractor agreement, promissory note template, payment plan agreement, printable invoice, and a free contract templates directory page' },
   { version: '2.45.0', date: '31 October 2026', summary: 'Final description tightening: every page on the site now has a rendered title ≤60 chars and meta description ≤155 chars (country invoice templates, trade templates, hubs, home, customers, self-hosting)' },
   { version: '2.44.0', date: '31 October 2026', summary: 'CTR rewrite across 48 how-to guides: number lists (7/9/10/12 clauses), year markers (2026), concrete deliverable claims, free-template signals, and titles all fitting ≤60 chars with brand suffix' },
   { version: '2.43.0', date: '31 October 2026', summary: 'CTR rewrite: power words, bracket/paren differentiators, concrete claims and sign-ready/fill-in-seconds signals across 44 top-traffic titles and descriptions to lift click-through rate' },
@@ -131,6 +132,8 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-46-0">2.46.0 <span class="small muted">— 31 October 2026</span></h2>
+<ul><li><strong>Five new high-volume keyword hubs</strong>: <a href="${rel}templates/independent-contractor-template.html">independent contractor agreement</a>, <a href="${rel}templates/promissory-note-template.html">promissory note template</a>, <a href="${rel}templates/payment-plan-agreement.html">payment plan agreement</a>, <a href="${rel}invoice-templates/printable-invoice.html">printable invoice</a>, and a <a href="${rel}templates/contract-template.html">free contract templates</a> directory page. Each includes what-to-include bullets, a 5-step how-to, related templates/guides cross-links and a 5-question FAQPage schema block.</li></ul>
 <h2 id="v2-45-0">2.45.0 <span class="small muted">— 31 October 2026</span></h2>
 <ul><li><strong>Final description tightening across the site</strong>: every page now ships with a rendered title ≤60 chars (with <code>· Clausery</code> suffix) and meta description ≤155 chars, including country tax-invoice templates (AU, ZA, CA, IE, NZ, UK), trade templates (graphic design, web design, landscaping, photography, consulting, handyman, freelance writing, tutoring), audience hubs, home, customers, self-hosting and search.</li></ul>
 <h2 id="v2-44-0">2.44.0 <span class="small muted">— 31 October 2026</span></h2>
@@ -478,33 +481,7 @@ export const pages = [
 <h2>1.10.0 <span class="small muted">— 26 September 2026</span></h2>
 <ul><li>Four more landlord/tenant templates (residential lease, sublease, move-in/out checklist, late-rent notice), embeddable prorated rent calculator, guide to what to include in a residential lease, and cross-linking between free tools.</li>
 </ul>
-<h2>1.9.0 <span class="small muted">— 26 September 2026</span></h2>
-<ul><li>Four landlord/tenant templates (notice to vacate, rent increase letter, itemised security-deposit return, roommate agreement), a landlords-and-tenants hub with notice-to-vacate guide, and a "download all" .zip covering 42 templates in a landlord/tenant folder.</li></ul>
-<h2>1.8.1 <span class="small muted">— 26 September 2026</span></h2>
-<ul><li>"Download all templates" .zip (38 templates, folder per category); three new guides (bill of sale, lending money to family, when you need a model release).</li></ul>
-<h2>1.8.0 <span class="small muted">— 26 September 2026</span></h2>
-<ul><li>Four new templates (partnership agreement, sales commission agreement, photo/model release, general release), embeddable sales-commission calculator, and partnership-agreement guide.</li></ul>
-<h2>1.7.1 <span class="small muted">— 26 September 2026</span></h2>
-<ul><li>Template library grouped by category; comparison pages for LawDepot, Rocket Lawyer and eForms with prices and free-trial terms.</li></ul>
-<h2>1.7.0 <span class="small muted">— 26 September 2026</span></h2>
-<ul><li>Four new templates (MOU, letter of intent, bill of sale with vehicle details, loan agreement), embeddable loan-repayment calculator with schedule, and MOU vs letter-of-intent vs contract guide.</li></ul>
-<h2>1.6.0 <span class="small muted">— 26 September 2026</span></h2>
-<ul><li>Free invoice-due-date calculator covering net 30 / net 60 / EOM / 15 MFI / 2/10 net 30; all free calculators now embeddable on any site with a single line of code (cookieless, client-side, no tracking).</li></ul>
-<h2>1.5.0 <span class="small muted">— 26 September 2026</span></h2>
-<ul><li>Three new templates (payment reminder letter, subcontractor agreement, monthly retainer), client-won't-pay guide with copyable reminder emails, and comparison pages for HoneyBook, Bonsai, Dubsado and PandaDoc.</li></ul>
-<h2>1.4.0 <span class="small muted">— 26 September 2026</span></h2>
-<ul><li>Five new templates (video production, VA, event planning, personal training, tutoring), two free calculators (late-payment interest with UK statutory rate, freelance hourly/day rate), and freelance-contract and kill-fee guides.</li></ul>
-<h2>1.3.0 <span class="small muted">— 26 September 2026</span></h2>
-<ul><li>Five freelance-contract templates (web design, graphic design, photography, social media, writing), a freelancers hub, and sharper page titles/descriptions in search results.</li></ul>
-<h2>1.2.1 <span class="small muted">— 26 September 2026</span></h2>
-<ul><li>Site moved to <a href="https://getclausery.github.io/">getclausery.github.io</a>; old links redirect.</li></ul>
-<h2>1.2.0 <span class="small muted">— 26 September 2026</span></h2>
-<ul><li>Contract clause library (24 plain-English clauses with copyable sample wording and matching tags), new guides on offer letters, demand letters, SOWs and NDAs, clauses-linked-from-templates, Atom feed for guides/clauses, and llms.txt for AI crawlers.</li></ul>
-<h2>1.1.0 <span class="small muted">— 26 September 2026</span></h2>
-<ul><li>Launch library of 17 Word templates (NDAs, engagement letter, consulting/service/contractor/SOW/offer/internship/salary-increase/verification/reference/termination/resignation/demand/cease-and-desist/promissory note), one-click app start from template pages, shared-optional-question deduplication, and improved question types for instructions, assumptions, interest rates and notice dates.</li></ul>
-<h2>1.0.0 <span class="small muted">— 24 September 2026</span></h2>
-<p>First public release.</p>
-<ul><li>Tagged Word templates (conditional/inverted sections, repeating groups in paragraphs/bullets/tables), inferred questionnaire with field types and conditions, template designer (labels, help text, options, calculations), interview with stepper/autosave/validation/preview/download/print, expression language with date/money/text functions, in-browser workspace with backups/answer files/packs, optional AES-256-GCM encryption at rest with auto-lock, offline intake forms, installable PWA with strict CSP${USAGE_ON ? ' (anonymous usage counts only)' : ''}, and Ed25519 offline license keys (Free/Pro/Team/Enterprise).</li></ul>
+<p class="small muted">Releases 1.0.0–1.9.0 (24–26 September 2026) covered the public launch: clause library, 17 launch templates, freelancer hubs, calculators, comparisons, and search. Full history is in the <a href="https://github.com/getclausery/getclausery.github.io/commits/main">Git commit log</a>.</p>
 </ul>
 </div></section>`,
   },
