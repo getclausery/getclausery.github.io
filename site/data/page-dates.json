@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-31",
-  "hash": "6975e233ce2d6b00"
+  "hash": "c9e9b1385bdac23f"
  },
  "clauses/": {
   "date": "2026-10-28",
@@ -839,9 +839,17 @@
   "date": "2026-10-30",
   "hash": "43a711dd8ebc6b67"
  },
+ "templates/cleaning-services-contract-template.html": {
+  "date": "2026-10-31",
+  "hash": "15296c12d41ad38c"
+ },
  "templates/cleaning-services-contract.html": {
   "date": "2026-10-30",
   "hash": "3984147a10375e76"
+ },
+ "templates/coaching-agreement-template.html": {
+  "date": "2026-10-31",
+  "hash": "f4a721f33002d106"
  },
  "templates/coaching-agreement.html": {
   "date": "2026-10-31",
@@ -1207,6 +1215,10 @@
   "date": "2026-10-31",
   "hash": "2fc86df86b5cf822"
  },
+ "templates/personal-training-agreement-template.html": {
+  "date": "2026-10-31",
+  "hash": "2dcbf44e6bb00a02"
+ },
  "templates/personal-training-agreement.html": {
   "date": "2026-10-31",
   "hash": "86cfb2ea7e2daae2"
@@ -1214,6 +1226,10 @@
  "templates/pet-addendum.html": {
   "date": "2026-10-31",
   "hash": "cbf69edb24761dd6"
+ },
+ "templates/pet-sitting-agreement-template.html": {
+  "date": "2026-10-31",
+  "hash": "eb18b7ae67052133"
  },
  "templates/pet-sitting-agreement.html": {
   "date": "2026-10-31",
@@ -1418,6 +1434,10 @@
  "templates/sublease-agreement.html": {
   "date": "2026-10-29",
   "hash": "ea2802eeac1526c5"
+ },
+ "templates/tutoring-agreement-template.html": {
+  "date": "2026-10-31",
+  "hash": "b78b221d4a2c338e"
  },
  "templates/tutoring-agreement.html": {
   "date": "2026-10-30",
