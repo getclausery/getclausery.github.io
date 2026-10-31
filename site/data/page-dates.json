@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-31",
-  "hash": "7b78b04850817835"
+  "hash": "802f2c433a60e190"
  },
  "clauses/": {
   "date": "2026-10-28",
@@ -979,6 +979,10 @@
   "date": "2026-10-31",
   "hash": "b0b88da18e4e7dcc"
  },
+ "templates/mutual-nda-template.html": {
+  "date": "2026-10-31",
+  "hash": "d779fed707b394e0"
+ },
  "templates/mutual-nda.html": {
   "date": "2026-10-31",
   "hash": "23a92ae31a36f60a"
@@ -995,6 +999,10 @@
   "date": "2026-10-31",
   "hash": "c18bcd055c1de5e4"
  },
+ "templates/non-disclosure-agreement-template.html": {
+  "date": "2026-10-31",
+  "hash": "d02dbe445fbcffba"
+ },
  "templates/non-solicitation-agreement.html": {
   "date": "2026-10-31",
   "hash": "d1583ec479e458c4"
@@ -1002,6 +1010,10 @@
  "templates/notice-to-vacate.html": {
   "date": "2026-10-31",
   "hash": "beb1065597f314fe"
+ },
+ "templates/offer-letter-template.html": {
+  "date": "2026-10-31",
+  "hash": "8520dfca3cd26366"
  },
  "templates/offer-letter.html": {
   "date": "2026-10-31",
@@ -1107,6 +1119,10 @@
   "date": "2026-10-31",
   "hash": "8efb404f505a7a23"
  },
+ "templates/resignation-letter-template.html": {
+  "date": "2026-10-31",
+  "hash": "85fa9ef554783d87"
+ },
  "templates/resignation-letter.html": {
   "date": "2026-10-31",
   "hash": "d129510ad81eaa5b"
@@ -1178,6 +1194,10 @@
  "templates/two-weeks-notice-letter.html": {
   "date": "2026-10-31",
   "hash": "4b9f215dc2b1609b"
+ },
+ "templates/two-weeks-notice-template.html": {
+  "date": "2026-10-31",
+  "hash": "c8e1e4e07c9cbe98"
  },
  "templates/video-production-contract.html": {
   "date": "2026-10-31",
