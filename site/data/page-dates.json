@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-31",
-  "hash": "dd47d0be37876f08"
+  "hash": "e050f875633650a4"
  },
  "clauses/": {
   "date": "2026-10-28",
@@ -607,6 +607,10 @@
   "date": "2026-10-09",
   "hash": "8b388efc15978b72"
  },
+ "invoice-templates/editable-invoice.html": {
+  "date": "2026-10-31",
+  "hash": "fa94a4d37090edbf"
+ },
  "invoice-templates/estimate-template.html": {
   "date": "2026-10-31",
   "hash": "a1489154fa0106e5"
@@ -803,6 +807,10 @@
   "date": "2026-10-31",
   "hash": "59d77c03df61c2d6"
  },
+ "templates/cease-and-desist-template.html": {
+  "date": "2026-10-31",
+  "hash": "954ab8eeee8192ba"
+ },
  "templates/change-order-form.html": {
   "date": "2026-10-30",
   "hash": "43a711dd8ebc6b67"
@@ -943,6 +951,10 @@
   "date": "2026-10-31",
   "hash": "f18c8c5407f16697"
  },
+ "templates/loan-agreement-template.html": {
+  "date": "2026-10-31",
+  "hash": "46f0be40f74d773f"
+ },
  "templates/loan-agreement.html": {
   "date": "2026-10-31",
   "hash": "3c1d383dc5ae22f5"
@@ -966,6 +978,10 @@
  "templates/nanny-contract.html": {
   "date": "2026-10-31",
   "hash": "7d0a66b826addb48"
+ },
+ "templates/non-compete-agreement-template.html": {
+  "date": "2026-10-31",
+  "hash": "89b4d5e367f5366d"
  },
  "templates/non-compete-agreement.html": {
   "date": "2026-10-31",
@@ -1106,6 +1122,10 @@
  "templates/security-deposit-return-letter.html": {
   "date": "2026-10-31",
   "hash": "f9a166f462800a55"
+ },
+ "templates/service-agreement-template.html": {
+  "date": "2026-10-31",
+  "hash": "978396f420c6048c"
  },
  "templates/service-agreement.html": {
   "date": "2026-10-31",
