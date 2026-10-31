@@ -244,6 +244,7 @@ export const pages = [
   <h2 style="margin-top:2.5rem">Before the work: the paperwork</h2>
   <p>An invoice is easier to get paid when it points back to something the client signed. Use the free <a href="${rel}templates/${t.contract}.html">${esc(libName(t.contract).toLowerCase())}</a> to agree the price, scope and payment terms first${t.also.length ? `, and ${t.also.map((s) => `the <a href="${rel}templates/${s}.html">${esc(libName(s).toLowerCase())}</a>`).join(' or ')} when you need ${t.also.length > 1 ? 'them' : 'it'}` : ''}.</p>
   ${t.guide ? `<p><strong>Guide:</strong> <a href="${rel}guides/${t.guide}.html">${esc(guideTitle(t.guide))}</a></p>` : ''}${t.tool ? `<p><strong>Free tool:</strong> <a href="${rel}free-tools/${t.tool}.html">${esc(toolName(t.tool))}</a>, to work out what to charge.</p>` : ''}
+  <p><strong>What to put on every invoice:</strong> <a href="${rel}templates/invoice.html">invoice template guide</a> — the full list of details, clauses and step-by-step how-to.</p>
 
   <h2 style="margin-top:2.5rem">Questions</h2>
   <div class="faq">${t.faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>

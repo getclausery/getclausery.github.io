@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '2.71.0', date: '31 October 2026', summary: 'Invoice sub-hub → flagship invoice hub cross-links: all 33 invoice-template subpages (by trade, country and format — simple/freelance/contractor/printable/quotation/estimate/etc.) now link back to the main invoice what-to-include hub, closing the last major internal-link gap in the invoice topical cluster.' },
   { version: '2.70.1', date: '31 October 2026', summary: 'Fix: removed a self-referencing "template guide" link on the invoice hub page itself (a page that is its own hub should not link to itself).' },
   { version: '2.70.0', date: '31 October 2026', summary: 'Guide pages → hub cross-links: the 13 topical/explainer guides that previously did not surface a related template now carry a "Download a starter template" block linking each relevant free Word download to its what-to-include hub. All 68 guides now pass link equity into the hub network.' },
   { version: '2.69.0', date: '31 October 2026', summary: 'Clause library → hub cross-links: the 24 individual clause pages and the clauses index now link every listed template to its what-to-include hub (the "by document" table rows also link directly to the matching guide)' },
@@ -157,6 +158,8 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-71-0">2.71.0 <span class="small muted">— 31 October 2026</span></h2>
+<ul><li><strong>Invoice subpages → invoice hub cross-links</strong>: all 33 invoice-template subpages now link back to the main invoice what-to-include hub. Trade pages (27: photography, web design, consulting, handyman, etc.) gain a "What to put on every invoice" paragraph pointing at the invoice guide; country pages (7: UK VAT, Canada GST/HST, Australia tax, Ireland VAT, NZ GST, South Africa tax, USA) add the invoice guide to their Related list; format hub pages (simple, freelance, contractor, printable, quotation, estimate) auto-include an "Invoice template guide" related card via the shared hub renderer so they do not rely on individual related-list maintenance.</li></ul>
 <h2 id="v2-70-1">2.70.1 <span class="small muted">— 31 October 2026</span></h2>
 <ul><li><strong>Fix</strong>: removed a self-referencing "template guide" link on the invoice hub page itself — a page that is its own hub should not render a link to itself.</li></ul>
 <h2 id="v2-70-0">2.70.0 <span class="small muted">— 31 October 2026</span></h2>

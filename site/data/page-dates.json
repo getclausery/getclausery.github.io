@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-31",
-  "hash": "234a1056a1f9f677"
+  "hash": "7ed67d8d9d3f17f7"
  },
  "clauses/": {
   "date": "2026-10-31",
@@ -577,7 +577,7 @@
  },
  "invoice-templates/australia-tax-invoice.html": {
   "date": "2026-10-31",
-  "hash": "8965e76997eb1fe0"
+  "hash": "ecac92443063719e"
  },
  "invoice-templates/blank-invoice.html": {
   "date": "2026-10-31",
@@ -585,23 +585,23 @@
  },
  "invoice-templates/canada-gst-hst-invoice.html": {
   "date": "2026-10-31",
-  "hash": "fd52675d3de05a1f"
+  "hash": "c7f40eaccb4f5ff0"
  },
  "invoice-templates/cleaning.html": {
   "date": "2026-10-31",
-  "hash": "139aeb82820660b1"
+  "hash": "afc9e09259ebcf73"
  },
  "invoice-templates/construction-contractor.html": {
   "date": "2026-10-31",
-  "hash": "a87600365154d26b"
+  "hash": "cb2d20e24daa2c4b"
  },
  "invoice-templates/consulting.html": {
   "date": "2026-10-31",
-  "hash": "62b7a203e658d350"
+  "hash": "5105c1c657ad1c13"
  },
  "invoice-templates/contractor-invoice.html": {
   "date": "2026-10-31",
-  "hash": "c05c0f0b0a35add9"
+  "hash": "0ae970efc65e1062"
  },
  "invoice-templates/deposit-invoice.html": {
   "date": "2026-10-09",
@@ -609,11 +609,11 @@
  },
  "invoice-templates/editable-invoice.html": {
   "date": "2026-10-31",
-  "hash": "fa94a4d37090edbf"
+  "hash": "4b3910d5bbd2ef6c"
  },
  "invoice-templates/estimate-template.html": {
   "date": "2026-10-31",
-  "hash": "a1489154fa0106e5"
+  "hash": "98daf6bce8e0014d"
  },
  "invoice-templates/excel-invoice-template.html": {
   "date": "2026-10-31",
@@ -625,11 +625,11 @@
  },
  "invoice-templates/freelance-invoice.html": {
   "date": "2026-10-31",
-  "hash": "a5e3a37963d694f1"
+  "hash": "5a9938d29f28daf3"
  },
  "invoice-templates/freelance-writing.html": {
   "date": "2026-10-31",
-  "hash": "1bbc97893daa177a"
+  "hash": "afd6852c666e8e17"
  },
  "invoice-templates/google-docs-invoice.html": {
   "date": "2026-10-31",
@@ -637,11 +637,11 @@
  },
  "invoice-templates/graphic-design.html": {
   "date": "2026-10-31",
-  "hash": "b1dd46f0951b08d7"
+  "hash": "333b4ada0ddfdb5b"
  },
  "invoice-templates/handyman.html": {
   "date": "2026-10-31",
-  "hash": "e01082fd086b810c"
+  "hash": "b0abe1701b6497a7"
  },
  "invoice-templates/hourly-invoice.html": {
   "date": "2026-10-09",
@@ -653,59 +653,59 @@
  },
  "invoice-templates/ireland-vat-invoice.html": {
   "date": "2026-10-31",
-  "hash": "f87942cdcd56749d"
+  "hash": "78a33837d304f2ba"
  },
  "invoice-templates/landscaping.html": {
   "date": "2026-10-31",
-  "hash": "78bc576d90774654"
+  "hash": "c79f92843ebb3f56"
  },
  "invoice-templates/new-zealand-gst-invoice.html": {
   "date": "2026-10-31",
-  "hash": "582165dd736f4e62"
+  "hash": "6732c7a4be129eba"
  },
  "invoice-templates/personal-training.html": {
   "date": "2026-10-31",
-  "hash": "ac9fc16b309951ca"
+  "hash": "710b8a46e58accd0"
  },
  "invoice-templates/photography.html": {
   "date": "2026-10-31",
-  "hash": "462a8c3f4162eb3f"
+  "hash": "e8b4bef9e5c045f0"
  },
  "invoice-templates/printable-invoice.html": {
   "date": "2026-10-31",
-  "hash": "d9aa14312ee24c1d"
+  "hash": "07f2245765e79f78"
  },
  "invoice-templates/proforma-invoice.html": {
   "date": "2026-10-31",
   "hash": "486649ced4fd937b"
  },
  "invoice-templates/quotation-template.html": {
-  "date": "2026-10-30",
-  "hash": "cdde6bbc1cfd87b2"
+  "date": "2026-10-31",
+  "hash": "38bae4bf647f7ff0"
  },
  "invoice-templates/simple-invoice.html": {
   "date": "2026-10-31",
-  "hash": "c85936d676e393b5"
+  "hash": "4f178e644f2b08b6"
  },
  "invoice-templates/south-africa-tax-invoice.html": {
   "date": "2026-10-31",
-  "hash": "d4417679e405d8b4"
+  "hash": "d2744231bcf22fe2"
  },
  "invoice-templates/tutoring.html": {
   "date": "2026-10-31",
-  "hash": "6558511663942dba"
+  "hash": "89e1ce76b573e423"
  },
  "invoice-templates/uk-vat-invoice.html": {
   "date": "2026-10-31",
-  "hash": "233144def5fd687d"
+  "hash": "4e597ed59d958b9e"
  },
  "invoice-templates/videography.html": {
   "date": "2026-10-31",
-  "hash": "9df29b18464204cf"
+  "hash": "10fb42001868799f"
  },
  "invoice-templates/web-design.html": {
   "date": "2026-10-31",
-  "hash": "d8c033ee274eb358"
+  "hash": "f725afec97557f3e"
  },
  "legal/dmca.html": {
   "date": "2026-10-23",
