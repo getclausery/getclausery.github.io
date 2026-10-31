@@ -187,6 +187,16 @@ ${GROUPS.map(([g, label]) => `  <h2 style="margin-top:2rem">${esc(label)}</h2>
     ${COMPETITORS.map((c) => `<tr><th scope="row"><a href="${rel}compare/${c.slug}.html">${esc(c.name)}</a></th><td>${esc(c.bestFor)}</td><td>${esc(c.planCheck)} <a href="${esc(c.vendorUrl)}" rel="noopener">Official ${esc(c.name)} site</a></td></tr>`).join('')}
   </tbody></table></div>
   <p class="small muted">No current competitor price quote is reproduced here. Confirm plans, limits, export rights and renewal terms directly with the provider. Clausery prices shown above come from the same configuration as the app and pricing page.</p>
+  <h2 style="margin-top:2.5rem">Start with a guide to what belongs in each document</h2>
+  <p>Before you compare tools, decide what wording the document itself needs. Each hub below walks through the clauses, step-by-step how-to and FAQ for one common template:</p>
+  <ul>
+    <li><a href="${rel}templates/invoice.html">Invoice template</a> — <a href="${rel}templates/invoice.html" class="small muted">what to include</a></li>
+    <li><a href="${rel}templates/independent-contractor-agreement.html">Independent contractor agreement</a> — <a href="${rel}templates/independent-contractor-template.html" class="small muted">what to include</a></li>
+    <li><a href="${rel}templates/mutual-nda.html">Mutual NDA</a> — <a href="${rel}templates/mutual-nda-template.html" class="small muted">what to include</a></li>
+    <li><a href="${rel}templates/offer-letter.html">Offer letter</a> — <a href="${rel}templates/offer-letter-template.html" class="small muted">what to include</a></li>
+    <li><a href="${rel}templates/residential-lease-agreement.html">Residential lease agreement</a> — <a href="${rel}templates/residential-lease-agreement-template.html" class="small muted">what to include</a></li>
+  </ul>
+  <p class="small muted"><a href="${rel}templates/">Browse the full library</a> — 87 free Word templates, every download page links to its what-to-include guide.</p>
   <!--nav--><div class="feature" style="margin-top:2rem"><h2 style="font-size:1.15rem;margin-top:0">Test one small document first</h2><p>Use fictional details, compare the downloaded Word output, then check every handoff that remains outside drafting. No account is required to try Clausery's library templates.</p><p><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free Word templates</a></p></div><!--/nav-->
 </div></section>`,
   },
