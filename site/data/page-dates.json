@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-10-31",
-  "hash": "254750b49f4af12a"
+  "hash": "4546cfa4d52a34a7"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -261,7 +261,7 @@
  },
  "free-tools/": {
   "date": "2026-10-31",
-  "hash": "2ea152bbd2282bc9"
+  "hash": "0ae46a73321edf27"
  },
  "free-tools/amount-in-words.html": {
   "date": "2026-10-24",
@@ -396,8 +396,8 @@
   "hash": "abf927c65081516c"
  },
  "guides/how-to-write-a-payment-receipt.html": {
-  "date": "2026-10-24",
-  "hash": "001bc463f2d9d93f"
+  "date": "2026-10-31",
+  "hash": "2b26eff607ae79be"
  },
  "guides/how-to-write-a-performance-improvement-plan.html": {
   "date": "2026-10-31",
@@ -764,8 +764,8 @@
   "hash": "65fa328cc89af891"
  },
  "roadmap/": {
-  "date": "2026-10-29",
-  "hash": "0a40b3b12e8e241d"
+  "date": "2026-10-31",
+  "hash": "acd0079e34b30da5"
  },
  "search/": {
   "date": "2026-10-31",
@@ -780,8 +780,8 @@
   "hash": "0000000000000001"
  },
  "status/": {
-  "date": "2026-10-29",
-  "hash": "e98617569aa2af24"
+  "date": "2026-10-31",
+  "hash": "e29e7945cec92969"
  },
  "templates/": {
   "date": "2026-10-31",
