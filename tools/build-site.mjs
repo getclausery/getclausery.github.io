@@ -520,7 +520,10 @@ for (const p of pages) {
     const label = (s) => LABELS[s] || s.replace(/-/g,' ').replace(/\b\w/g,(c)=>c.toUpperCase());
     const crumbHtml = [`<a href="${rel}">Home</a>`];
     let accum = rel;
-    segs.forEach((s,i) => { accum += s + '/'; if (i < segs.length - 1) crumbHtml.push(`<a href="${accum}">${esc(label(s))}</a>`); });
+    // A middle crumb is only a link if that section really has an index page. Linking an unbuilt directory
+    // (legal/ has five documents and no hub) sends people and crawlers to a 404 for the sake of a separator.
+    const sectionIndex = (i) => pages.some((pp) => pp.path === segs.slice(0, i + 1).join('/') + '/index.html');
+    segs.forEach((s,i) => { accum += s + '/'; if (i < segs.length - 1) crumbHtml.push(sectionIndex(i) ? `<a href="${accum}">${esc(label(s))}</a>` : `<span>${esc(label(s))}</span>`); });
     const lastSeg = segs[segs.length-1] ? segs[segs.length-1].replace(/\.html$/,'') : '';
     const lastLabel = lastSeg ? label(lastSeg) : 'Home';
     crumbHtml.push(`<span aria-current="page">${esc(lastLabel)}</span>`);

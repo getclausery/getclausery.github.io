@@ -12,7 +12,9 @@ import { SITE } from './partials.mjs';
 import { LIB } from '../site/library.mjs';
 
 const base = SITE;
-const skip = (f) => /^(node_modules|app|test-results|playwright-report|free-tools\/embed)\//.test(f) || f === '404.html' || f === 'offline.html' || f === 'made-with/index.html' || /^google[0-9a-f]+\.html$/.test(f);   // search-console verification files; embed pages are noindex
+// book/dist and book/editions are the book's own typesetting output (book/.gitignore ignores them); they are build
+// artifacts with no canonical of their own, so listing them would put URLs in the sitemap that a fresh clone does not have.
+const skip = (f) => /^(node_modules|app|test-results|playwright-report|free-tools\/embed|book\/(dist|editions))\//.test(f) || f === '404.html' || f === 'offline.html' || f === 'made-with/index.html' || /^google[0-9a-f]+\.html$/.test(f);   // search-console verification files; embed pages are noindex
 const pages = globSync('**/*.html').map((f) => f.split('\\').join('/')).filter((f) => !skip(f)).sort();
 // Exclude pages the page module marks noindex (social landing pages, iframes, internal flows).
 // Detect by meta robots tag containing "noindex" in the built HTML.

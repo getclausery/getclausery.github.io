@@ -4,7 +4,7 @@
 // that silently drops a URL looks like an indexing problem, so this check runs in verify.
 import { readFileSync, existsSync, globSync } from 'node:fs';
 import { SITE } from './partials.mjs';
-import { LIB } from '../site/library.mjs';
+import { LIB, HUB_FOR } from '../site/library.mjs';
 
 const failures = [];
 const fail = (file, message) => failures.push(`${file}: ${message}`);
@@ -57,8 +57,14 @@ for (const entry of mainUrls) {
     if (bytes.length < 1024) fail(file, 'is suspiciously small');
   }
 }
-const templateEntries = mainUrls.filter((u) => /\/templates\/[^/]+\.html$/.test(u.loc) && !u.loc.endsWith('/templates/'));
-if (templateEntries.length !== LIB.length) fail('sitemap.xml', `${templateEntries.length} template pages for ${LIB.length} library templates`);
+const templateEntries = mainUrls.filter((u) => /\/templates\/[^/]+\.html$/.test(u.loc) && !u.loc.endsWith('/templates/index.html'));
+// Every library template needs its download page listed, and every what-to-include hub that HUB_FOR resolves to needs
+// its page listed. A count comparison cannot express that any more (the hub set has grown past the library), and a
+// dropped URL is what this check exists to catch, so each page is asserted by name.
+const hubPages = new Set(Object.values(HUB_FOR).filter((slug) => !LIB.some((t) => t.slug === slug)));
+const listedTemplates = new Set(templateEntries.map((u) => u.loc));
+for (const t of LIB) if (!listedTemplates.has(`${SITE}templates/${t.slug}.html`)) fail('sitemap.xml', `library template ${t.slug} is missing from the sitemap`);
+for (const slug of hubPages) if (!listedTemplates.has(`${SITE}templates/${slug}.html`)) fail('sitemap.xml', `what-to-include hub ${slug} is missing from the sitemap`);
 for (const t of LIB) if (!imageUrls.has(`${SITE}assets/previews/${t.slug}.webp`)) fail('sitemap.xml', `template ${t.slug} has no image entry`);
 
 // The index and the section files must partition the main sitemap exactly.

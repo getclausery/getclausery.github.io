@@ -5,6 +5,7 @@ import { SITE } from './partials.mjs';
 import { socialCardProblems } from './social-card.mjs';
 import { editorialLinkGraph } from './editorial-links.mjs';
 import { createRobotsPolicy } from './robots.mjs';
+import { LIB } from '../site/library.mjs';
 
 const failures = [];
 const fail = (file, message) => failures.push(`${file}: ${message}`);
@@ -32,6 +33,7 @@ const checkStructuredUrls = (value, file) => {
 };
 // All indexed pages need a real, absolute same-site share card. Template cards must be distinct by URL and bytes,
 // so accidentally pointing several templates at the generic card (or copying it to new filenames) cannot pass.
+const LIB_PAGES = new Set(LIB.map((t) => `templates/${t.slug}.html`));
 const checkShareImage = (file, html) => {
   const images = [...html.matchAll(/<meta property="og:image" content="([^"]+)"/g)].map(([, u]) => decode(u));
   if (images.length !== 1) { fail(file, 'expected exactly one og:image'); return; }
@@ -54,7 +56,9 @@ const checkShareImage = (file, html) => {
   const twitterImage = html.match(/<meta name="twitter:image" content="([^"]+)"/)?.[1];
   if (!twitterImage || decode(twitterImage) !== image) fail(file, 'twitter:image must match og:image');
   if (!/<meta name="twitter:card" content="summary_large_image"/.test(html)) fail(file, 'twitter:card must be summary_large_image');
-  if (/^templates\/[^/]+\.html$/.test(file) && file !== 'templates/index.html') {
+  // Only the library download pages carry a rendered share card of their own (assets/og/<slug>.png). The "-template"
+  // what-to-include hubs are text pages that use the site card by design, so they are not required to have one.
+  if (LIB_PAGES.has(file)) {
     if (image === SITE + 'assets/og.png') fail(file, 'template needs its own share card, not the generic site image');
     if (templateImages.has(image)) fail(file, `shares its og:image with ${templateImages.get(image)}`);
     else templateImages.set(image, file);
@@ -147,7 +151,12 @@ for (const loc of indexed) if (loc !== SITE && !editorial.incoming.get(loc)?.siz
 const editorialEdges = [...editorial.outgoing.values()].reduce((sum, targets) => sum + targets.size, 0);
 
 // Catch newly generated public pages left out of the sitemap. Noindex embeds and app/private files are excluded.
-for (const file of globSync('**/*.html', { exclude: (p) => /^(node_modules|app|test-results|playwright-report)\//.test(p) })) {
+// book/dist is the book's own typesetting output: book/.gitignore ignores it, nothing under it is deployed,
+// and its pages carry no canonical of their own — so it is a build artifact, not a public page.
+// globSync's `exclude` option is not honoured by every Node version we run on, so the skip is done here.
+const notPublic = new RegExp('^(node_modules|app|test-results|playwright-report|book/(dist|editions))/');
+for (const file of globSync('**/*.html')) {
+  if (notPublic.test(file)) continue;
   if (file === '404.html' || file === 'offline.html' || /^google[0-9a-f]+\.html$/.test(file)) continue;
   const html = readFileSync(file, 'utf8');
   if (/<meta[^>]+name="robots"[^>]+content="[^"]*noindex/.test(html)) continue;

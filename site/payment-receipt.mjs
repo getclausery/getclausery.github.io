@@ -43,6 +43,7 @@ export const pages = [{
 <p class="small muted guide-meta">Published <time datetime="2026-10-09">9 October 2026</time><!--upd--> · Updated <time datetime="${LASTMOD}">${LASTMOD_LONG}</time><!--/upd--></p>
 <p class="lead">Write a payment receipt after money arrives. Identify who paid, what the payment covers and how much you received. For a deposit or instalment, show the balance still due so the client can distinguish this payment from the full invoice.</p>
 <p><a class="btn btn-primary" href="${rel}app/#/start/payment-receipt">Make a payment receipt, free</a> · <a href="${rel}templates/payment-receipt.html">Get the Word receipt template</a></p>
+<p>Paying in cash, or acknowledging a gift rather than a sale? Two one-page masters cover those cases with the wording each one needs: a <a href="${rel}receipts/cash-receipt.html">cash receipt</a> and a <a href="${rel}receipts/donation-receipt.html">donation receipt</a>.</p>
 <nav class="small" aria-label="On this page"><a href="#details">Receipt details</a> · <a href="#example">Worked example</a> · <a href="#receipt-balance">Balance calculator</a> · <a href="#word">Word steps</a> · <a href="#check">Sending checklist</a> · <a href="#questions">Questions</a></nav>
 <h2 id="details">What should a payment receipt include?</h2>
 <p>An invoice normally asks a client to pay; a receipt records money received. At a retail sale, one document may serve both purposes when it records the payment. For a later payment on a business invoice, link your receipt to that invoice rather than creating a second payment request.</p>
