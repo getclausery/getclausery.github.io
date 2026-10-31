@@ -150,6 +150,14 @@ def check_html(path, label, expect_chapnav=None):
     p.close()
     check(f'{label}: markup balanced', not p.errors and not p.stack,
           '; '.join(p.errors[:3]) or f'{len(p.stack)} unclosed')
+    # A printed book quotes in curly marks. A straight quote left in the text is a copyediting miss, and an odd
+    # number of one of the curved marks means a quotation was opened and never closed.
+    body_only = re.sub(r'<script.*?</script>|<style.*?</style>', '', doc, flags=re.S)
+    body_text = re.sub(r'<[^>]+>', ' ', body_only)
+    straight = body_text.count('"')
+    opens, closes = body_text.count('\u201c'), body_text.count('\u201d')
+    check(f'{label}: quotation marks curled and balanced',
+          straight == 0 and opens == closes, f'{straight} straight, {opens} open, {closes} close')
     check(f'{label}: reader script injected', '@@READER@@' not in doc)
     if label != 'sample':
         check(f'{label}: 60+ sections', p.counts.get('section', 0) >= 60, p.counts.get('section', 0))
@@ -260,6 +268,10 @@ def check_pdf():
     pdf_text = '\n'.join(pg.get_text() for pg in d)
     check('pdf: no unresolved build tokens',
           '{{words}}' not in pdf_text and '{{pages}}' not in pdf_text)
+    curly_open, curly_close = pdf_text.count('\u201c'), pdf_text.count('\u201d')
+    check('pdf: quotation marks curled and balanced',
+          pdf_text.count('"') == 0 and curly_open == curly_close,
+          f'{curly_open} open, {curly_close} close')
     stated = re.search(r'runs to about ([\d,]+) words and (\d+) printed pages', pdf_text)
     check('pdf: states its own extent as printed',
           bool(stated) and int(stated.group(2)) == d.page_count,

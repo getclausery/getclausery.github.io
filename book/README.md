@@ -18,7 +18,7 @@ The companion research brief is in `../research/harmonizing-the-manifestation-sp
 | `PITCH.md` | Pitch kit: back cover, comps, pitches, metadata, interview questions |
 | `cover.jpg` | 1600 × 2400 cover, embedded in the EPUB and page 1 of the PDF |
 | `fonts/` | Crimson Text (SIL OFL 1.1): four TTFs for the PDF, four woff2 subsets for the web and EPUB |
-| `verify.py` | 144 acceptance checks across the editions, the interior, and the cover |
+| `verify.py` | 148 acceptance checks across the editions, the interior, and the cover |
 | `publish.sh` | one command: build everything, copy the hand-out set, run the checks |
 | `dist/` | Build output (git-ignored) |
 
