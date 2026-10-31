@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-31",
-  "hash": "9cc20f8b06f13f76"
+  "hash": "dd47d0be37876f08"
  },
  "clauses/": {
   "date": "2026-10-28",
@@ -667,6 +667,10 @@
   "date": "2026-10-31",
   "hash": "462a8c3f4162eb3f"
  },
+ "invoice-templates/printable-invoice.html": {
+  "date": "2026-10-31",
+  "hash": "d9aa14312ee24c1d"
+ },
  "invoice-templates/proforma-invoice.html": {
   "date": "2026-10-31",
   "hash": "486649ced4fd937b"
@@ -819,6 +823,10 @@
   "date": "2026-10-31",
   "hash": "c42378467f481609"
  },
+ "templates/contract-template.html": {
+  "date": "2026-10-31",
+  "hash": "4b25dcbfd242f89d"
+ },
  "templates/contract-termination-letter.html": {
   "date": "2026-10-31",
   "hash": "655512583d848a51"
@@ -894,6 +902,10 @@
  "templates/independent-contractor-agreement.html": {
   "date": "2026-10-31",
   "hash": "eabed5c62e44e1f5"
+ },
+ "templates/independent-contractor-template.html": {
+  "date": "2026-10-31",
+  "hash": "ae79c8f5573b4693"
  },
  "templates/internship-offer-letter.html": {
   "date": "2026-10-31",
@@ -983,6 +995,10 @@
   "date": "2026-10-31",
   "hash": "bce987dd47ffee77"
  },
+ "templates/payment-plan-agreement.html": {
+  "date": "2026-10-31",
+  "hash": "84a7f0af034c6246"
+ },
  "templates/payment-receipt.html": {
   "date": "2026-10-31",
   "hash": "e4cb53171794642c"
@@ -1014,6 +1030,10 @@
  "templates/photography-contract.html": {
   "date": "2026-10-30",
   "hash": "ac3794ba5d4afe1c"
+ },
+ "templates/promissory-note-template.html": {
+  "date": "2026-10-31",
+  "hash": "40dcd9440ba322a1"
  },
  "templates/promissory-note.html": {
   "date": "2026-10-31",
