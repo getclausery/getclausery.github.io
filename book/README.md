@@ -120,7 +120,7 @@ Writes, in `book/dist/` (git-ignored):
   set (`dist/` is a scratch directory and is ignored by git)
 
 Page estimate uses 244 words per 5.5 × 8.5 page — measured against the typeset PDF
-(75,054 words → 308 pages), not guessed.
+(75,056 words → 308 pages), not guessed.
 The PDF's page count is exact, because it is the typeset book.
 
 ## PDF build
