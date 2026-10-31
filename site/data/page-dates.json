@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-31",
-  "hash": "8e82255de9d6ea2b"
+  "hash": "6efa272bd5fc3658"
  },
  "clauses/": {
   "date": "2026-10-28",
@@ -807,6 +807,10 @@
   "date": "2026-10-31",
   "hash": "99da64c04458a8da"
  },
+ "templates/cease-and-desist-letter-template.html": {
+  "date": "2026-10-31",
+  "hash": "b8020d8fd4d8011e"
+ },
  "templates/cease-and-desist-letter.html": {
   "date": "2026-10-31",
   "hash": "59d77c03df61c2d6"
@@ -923,6 +927,10 @@
   "date": "2026-10-31",
   "hash": "f7e68d53d0f11ebc"
  },
+ "templates/general-release-template.html": {
+  "date": "2026-10-31",
+  "hash": "8c4d3dffc2bf02a4"
+ },
  "templates/general-release.html": {
   "date": "2026-10-31",
   "hash": "779c2762a237012b"
@@ -1003,6 +1011,10 @@
   "date": "2026-10-31",
   "hash": "a9aab7ab129ebefa"
  },
+ "templates/letter-of-intent-template.html": {
+  "date": "2026-10-31",
+  "hash": "efaebc354546dc23"
+ },
  "templates/letter-of-intent.html": {
   "date": "2026-10-31",
   "hash": "91775fd84462ead1"
@@ -1026,6 +1038,10 @@
  "templates/meeting-minutes.html": {
   "date": "2026-10-31",
   "hash": "66e588fe7138f8ec"
+ },
+ "templates/memorandum-of-understanding-template.html": {
+  "date": "2026-10-31",
+  "hash": "2a86d93de3b5bfcc"
  },
  "templates/memorandum-of-understanding.html": {
   "date": "2026-10-31",
@@ -1086,6 +1102,10 @@
  "templates/one-way-nda.html": {
   "date": "2026-10-31",
   "hash": "1a70f0ad9e9bd5ee"
+ },
+ "templates/partnership-agreement-template.html": {
+  "date": "2026-10-31",
+  "hash": "9519fee0e110b3eb"
  },
  "templates/partnership-agreement.html": {
   "date": "2026-10-31",
