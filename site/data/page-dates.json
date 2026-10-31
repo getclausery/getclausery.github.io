@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-31",
-  "hash": "821a596036e152c2"
+  "hash": "7923a699017ce9d4"
  },
  "clauses/": {
   "date": "2026-10-28",
@@ -947,6 +947,10 @@
   "date": "2026-10-31",
   "hash": "645cd47e8a8ea048"
  },
+ "templates/landlord-reference-letter-template.html": {
+  "date": "2026-10-31",
+  "hash": "d1a07fbaa1ace9f1"
+ },
  "templates/landlord-reference-letter.html": {
   "date": "2026-10-31",
   "hash": "953d98932a83d375"
@@ -959,9 +963,17 @@
   "date": "2026-10-31",
   "hash": "8183a308774aa1e8"
  },
+ "templates/lease-renewal-letter-template.html": {
+  "date": "2026-10-31",
+  "hash": "44f5569a0bfca3b5"
+ },
  "templates/lease-renewal-letter.html": {
   "date": "2026-10-31",
   "hash": "cb75b4e4c819c946"
+ },
+ "templates/lease-termination-agreement-template.html": {
+  "date": "2026-10-31",
+  "hash": "dd2e778499d0f77a"
  },
  "templates/lease-termination-agreement.html": {
   "date": "2026-10-31",
@@ -1123,6 +1135,10 @@
   "date": "2026-10-30",
   "hash": "65d9973c9c34661b"
  },
+ "templates/rent-increase-letter-template.html": {
+  "date": "2026-10-31",
+  "hash": "eecd28db052ff496"
+ },
  "templates/rent-increase-letter.html": {
   "date": "2026-10-31",
   "hash": "8ceb9b870b66d36b"
@@ -1182,6 +1198,10 @@
  "templates/sales-commission-agreement.html": {
   "date": "2026-10-29",
   "hash": "23f650e7ae18969b"
+ },
+ "templates/security-deposit-return-letter-template.html": {
+  "date": "2026-10-31",
+  "hash": "f16480c55d1bf471"
  },
  "templates/security-deposit-return-letter.html": {
   "date": "2026-10-31",
