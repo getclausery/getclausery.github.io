@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-31",
-  "hash": "6efa272bd5fc3658"
+  "hash": "6e6639b65b3d0211"
  },
  "clauses/": {
   "date": "2026-10-28",
@@ -795,6 +795,10 @@
   "date": "2026-10-31",
   "hash": "f8ac14b3204e2d1c"
  },
+ "templates/board-resolution-template.html": {
+  "date": "2026-10-31",
+  "hash": "74950ca1f96ad366"
+ },
  "templates/board-resolution.html": {
   "date": "2026-10-30",
   "hash": "976958b470d8bede"
@@ -855,6 +859,10 @@
   "date": "2026-10-31",
   "hash": "655512583d848a51"
  },
+ "templates/contractor-nda-template.html": {
+  "date": "2026-10-31",
+  "hash": "60e39aa3fde77fed"
+ },
  "templates/contractor-nda.html": {
   "date": "2026-10-31",
   "hash": "99ce80ade0c73a66"
@@ -862,6 +870,10 @@
  "templates/credit-note.html": {
   "date": "2026-10-31",
   "hash": "836197c6bf297247"
+ },
+ "templates/employee-nda-template.html": {
+  "date": "2026-10-31",
+  "hash": "7e73911ff305eb3a"
  },
  "templates/employee-nda.html": {
   "date": "2026-10-31",
@@ -1079,6 +1091,10 @@
   "date": "2026-10-31",
   "hash": "d02dbe445fbcffba"
  },
+ "templates/non-solicitation-agreement-template.html": {
+  "date": "2026-10-31",
+  "hash": "21f22e2e366d90f8"
+ },
  "templates/non-solicitation-agreement.html": {
   "date": "2026-10-31",
   "hash": "d1583ec479e458c4"
@@ -1098,6 +1114,10 @@
  "templates/offer-letter.html": {
   "date": "2026-10-31",
   "hash": "c6b7a44f416cc5c6"
+ },
+ "templates/one-way-nda-template.html": {
+  "date": "2026-10-31",
+  "hash": "c2c610333e1e3973"
  },
  "templates/one-way-nda.html": {
   "date": "2026-10-31",
