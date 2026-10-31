@@ -1,0 +1,201 @@
+[
+  {
+    "path": "templates/nanny-contract-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Nanny Contract | Free Word Template",
+    "h1": "Free nanny contract template (Word)",
+    "description": "Free nanny contract: set duties, hours, pay, benefits, time off and termination for in-home childcare.",
+    "lead": "A contract between a family and a nanny (or au pair/babysitter) defining duties, work hours, pay rate, overtime, paid time off, benefits (health, mileage, taxes), house rules and termination terms.",
+    "introParagraphs": ["A nanny contract (or nanny work agreement) sets out the terms of in-home childcare: hours, schedule, duties (childcare only vs housework related to children), pay rate, overtime, paid time off, holidays, sick days, mileage/reimbursement, tax withholding, trial period and termination notice.", "In many countries nannies are employees (not independent contractors) — families are responsible for payroll taxes, workers comp and minimum wage/overtime compliance. A contract protects both sides and avoids awkward mid-employment conversations."],
+    "bullets": [
+      ["Family and nanny", "Employing family names and address; nanny name and contact; children names/ages; start date and schedule (days/hours)."],
+      ["Duties and scope", "Primary childcare responsibilities (meals, bedtime routine, school runs, homework, activities); additional household duties related to children (laundry, tidying kids rooms); explicitly excluded duties."],
+      ["Compensation", "Hourly rate, pay frequency (weekly/bi-weekly), overtime rate (as required by law), performance review/raise schedule, and method of payment."],
+      ["Benefits and time off", "Paid time off (vacation, sick days, holidays), health insurance stipend if offered, mileage reimbursement for driving children, paid parking/tolls, and continuing-education/professional-development support."],
+      ["Taxes, house rules and termination", "Tax classification (nanny as employee with proper payroll/withholding), emergency medical authorisation, confidentiality/social-media policy, trial period, notice period for termination (typically 2-4 weeks) and severance terms."]
+    ],
+    "howTo": [
+      ["Do a trial period first", "Build in a 30-60-90 day trial period for both sides to confirm fit."],
+      ["Align on duties upfront", "Be specific about whether cooking, light housework, pet care or homework help is included."],
+      ["Pay legally", "Use a nanny payroll service to handle tax withholding, workers comp and compliance — misclassifying as contractor creates liability."],
+      ["Set a schedule and overtime", "Specify fixed hours; overtime rates apply when hours exceed legal thresholds (40+ hours/week for live-out in many US states)."],
+      ["Agree termination terms", "Standard notice is 2-4 weeks or pay in lieu; include grounds for immediate termination (neglect, safety)."]
+    ],
+    "related": [
+      ["Pet sitting agreement", "templates/pet-sitting-agreement-template.html", "For pet-specific care."],
+      ["Employment agreement", "templates/employment-agreement-template.html", "Standard employment contract; nannies are often employees."],
+      ["Remote work agreement", "templates/remote-work-agreement-template.html", "For families where parents work from home."],
+      ["Coaching agreement", "templates/coaching-agreement-template.html", "For parent coaches (different from in-home care)."],
+      ["Free contract templates", "templates/contract-template.html", "Full template library."]
+    ],
+    "faq": [
+      ["Is a nanny an employee or contractor?", "In the US nannies are almost always household employees with tax/overtime obligations; misclassification triggers IRS/state penalties."],
+      ["Do I need to pay overtime?", "Live-out nannies in most US states must receive overtime for hours over 40/week or over a daily threshold; live-in rules vary."],
+      ["What about mileage?", "Reimburse IRS standard mileage rate for miles driven while transporting children."],
+      ["Do I provide health insurance?", "Not required by law in most places; some families offer a stipend as a benefit."],
+      ["Can I terminate without notice for neglect?", "Yes for serious issues (safety, abuse, neglect); include immediate-termination grounds in the contract."]
+    ],
+    "cta": { "label": "Build your nanny contract", "href": "app/#/start/nanny-contract" },
+    "download": { "href": "samples/nanny-contract.docx", "label": "Download Word" }
+  },
+  {
+    "path": "templates/pet-addendum-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Pet Addendum to Lease | Free Word Template",
+    "h1": "Free pet addendum to lease template (Word)",
+    "description": "Free pet addendum to lease: add a pet to a rental with pet rent, deposit, rules and approval.",
+    "lead": "A lease addendum granting a tenant permission to keep a specific pet (or pets) in the rental unit, setting pet rent/deposit, rules, insurance requirements and tenant responsibility for damage.",
+    "introParagraphs": ["A pet addendum (or pet agreement) is added to a lease when a tenant wants to keep a pet. It describes the pet (species, breed, age, weight), adds a pet deposit or monthly pet rent, spells out rules (leash, waste cleanup, noise, pets off furniture), and confirms the tenant is liable for damage and injury.", "Without a written pet addendum, pets may violate the lease and lead to eviction. If the property is in a no-pets building, get landlord permission in writing first. Service animals and emotional support animals are not pets and do not require pet deposits under US fair housing law, though documentation may be requested."],
+    "bullets": [
+      ["Landlord, tenant and pet", "Landlord name; tenant name(s); property address; pet details (species, breed, name, age, weight, colour, photo, licensing/vaccination status)."],
+      ["Permission granted", "Landlord consents to the specific pet described; no additional pets or pet-sitting for extended periods without further written consent."],
+      ["Pet fees and rent", "One-time pet fee (if any), refundable pet deposit (within legal limits), monthly pet rent, and how they interact with the security deposit."],
+      ["Rules and responsibilities", "Leash laws, waste cleanup, noise (barking/disturbance), flea treatment, pet not left alone excessively, pet-damage repair, tenant liability for injury, and renter insurance with animal-liability coverage."],
+      ["Violation and removal", "What happens if rules are broken (cure notice, removal of pet, eviction); pet deposit return/inspection terms at move-out."]
+    ],
+    "howTo": [
+      ["Get written permission first", "Never bring a pet in before the addendum is signed; unauthorised pets can lead to eviction."],
+      ["Describe the pet specifically", "Name, breed, weight, age; permission is for this animal only — substitutes need approval."],
+      ["Comply with deposit caps", "Many states cap total deposits (security + pet); ensure the pet deposit is within legal limits."],
+      ["Require vaccination proof", "Ask for current rabies and core vaccinations as a condition."],
+      ["Require renters insurance", "Require the tenant to carry renter insurance with animal liability and name landlord as an additional interest."]
+    ],
+    "related": [
+      ["Residential lease agreement", "templates/residential-lease-agreement-template.html", "The base lease this addendum attaches to."],
+      ["Room rental agreement", "templates/room-rental-agreement-template.html", "For renting a room (same pet-addendum structure)."],
+      ["Pet sitting agreement", "templates/pet-sitting-agreement-template.html", "For short-term pet care rather than a permanent resident pet."],
+      ["Security deposit return letter", "templates/security-deposit-return-letter-template.html", "Pet deposit is itemised against damage at move-out."],
+      ["Free landlord forms", "for/landlords.html", "Full landlord/tenant template set."]
+    ],
+    "faq": [
+      ["Are pet deposits legal?", "Generally yes but capped in most states (often 1-2 months total deposit including security)."],
+      ["Can a landlord refuse pets?", "Yes generally, with exceptions for service animals and emotional support animals under fair housing law."],
+      ["What about service animals / ESAs?", "They are not pets; landlords cannot charge pet deposits/rent for them but can require verification and the tenant remains liable for damage."],
+      ["Can my guest bring a dog?", "Short visits are usually fine; extended stays that violate the pet clause need landlord consent."],
+      ["What if the pet damages the unit?", "Costs are deducted from the pet/security deposit at move-out, and tenant is responsible for damage beyond the deposit."]
+    ],
+    "cta": { "label": "Build your pet addendum", "href": "app/#/start/pet-addendum" },
+    "download": { "href": "samples/pet-addendum.docx", "label": "Download Word" }
+  },
+  {
+    "path": "templates/performance-improvement-plan-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Performance Improvement Plan (PIP) | Free Word Template",
+    "h1": "Free performance improvement plan (PIP) template (Word)",
+    "description": "Free PIP template: document performance gaps, goals, support and timeline for an underperforming employee.",
+    "lead": "A formal HR document outlining specific performance gaps, measurable improvement goals, support/resources provided, a review timeline, and consequences if improvement is not achieved.",
+    "introParagraphs": ["A performance improvement plan (PIP) is a structured HR tool giving an underperforming employee a clear period (often 30/60/90 days) to meet specific, measurable goals, with management support, before further disciplinary action (including termination) is taken.", "A well-crafted PIP is specific (what needs to improve, by how much, by when), fair, gives the employee a genuine chance to succeed, and protects the company if termination becomes necessary. Vague PIPs can create wrongful-termination risk."],
+    "bullets": [
+      ["Employee and role", "Employee name, role/title, manager, department, PIP start date, PIP duration (e.g. 60 days) and final review date."],
+      ["Performance gaps", "Specific, factual description of performance issues (missed targets, behaviour, quality issues) with dates and examples — not opinions."],
+      ["Improvement goals", "Measurable, specific objectives the employee must meet (e.g. 'maintain 95% QA score for 4 consecutive weeks', 'close 8 tickets per week') with interim milestones."],
+      ["Support and resources", "What management will provide: training, mentoring, weekly check-ins, tools, adjusted workload; employee commitment to engage."],
+      ["Consequences and review", "Schedule of check-ins (e.g. weekly), what happens if goals are met (PIP closes) vs not met (further discipline up to termination); employee acknowledgment signature."]
+    ],
+    "howTo": [
+      ["Be specific about the gaps", "Cite objective metrics, dates, and examples; avoid personality judgments ('bad attitude')."],
+      ["Set measurable goals", "Make goals specific and achievable — SMART (specific, measurable, achievable, relevant, time-bound)."],
+      ["Provide genuine support", "Training, mentorship, or reduced workload; a PIP without support looks pretextual."],
+      ["Schedule regular check-ins", "Weekly or bi-weekly to track progress, document results, and course-correct early."],
+      ["Meet at the end", "At PIP end, hold a meeting to confirm improvement (close the PIP) or discuss consequences (demotion, termination). Document everything."]
+    ],
+    "related": [
+      ["Employee warning letter", "templates/employee-warning-letter-template.html", "Often precedes a PIP as a first formal step."],
+      ["Employment termination letter", "templates/employment-termination-letter-template.html", "Used if PIP does not succeed."],
+      ["Severance agreement", "templates/severance-agreement-template.html", "Sometimes offered in connection with a termination."],
+      ["Employment agreement", "templates/employment-agreement-template.html", "Base employment terms."],
+      ["Free HR letter templates", "for/hr-teams.html", "Full HR/employee template set."]
+    ],
+    "faq": [
+      ["How long should a PIP last?", "30, 60 or 90 days is typical; long enough for the employee to demonstrate improvement but not drawn out."],
+      ["Is a PIP just a precursor to firing?", "It should not be. A fair PIP gives a genuine chance to improve and closes successfully for many employees. Courts look at whether support was provided."],
+      ["Do I need a lawyer/HR review?", "Have HR and possibly employment counsel review before issuing, especially for protected-class employees or long-tenured staff."],
+      ["Can the employee respond?", "Let the employee respond in writing and include their comments; signatures confirm receipt, not necessarily agreement."],
+      ["Can the employee resign during a PIP?", "Yes — employees sometimes resign during a PIP; severance may or may not be offered."]
+    ],
+    "cta": { "label": "Build your performance improvement plan", "href": "app/#/start/performance-improvement-plan" },
+    "download": { "href": "samples/performance-improvement-plan.docx", "label": "Download Word" }
+  },
+  {
+    "path": "templates/expense-reimbursement-form-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Expense Reimbursement Form | Free Word Template",
+    "h1": "Free expense reimbursement form template (Word)",
+    "description": "Free expense reimbursement form: request repayment for work-related expenses with receipts and coding.",
+    "lead": "A standard form employees use to request reimbursement for work-related expenses they paid out of pocket — travel, meals, supplies, mileage — with receipts attached and coding for accounting.",
+    "introParagraphs": ["An expense reimbursement form is how employees submit out-of-pocket work expenses for repayment: travel, client meals, mileage, supplies, conference fees, or other approved business costs. It itemises each expense, attaches receipts, codes to the right budget/category and gets manager approval before payment.", "Many US states require employers to reimburse necessary business expenses (e.g. California Labor Code 2802). A standard form creates the paper trail required for tax compliance and reimbursement."],
+    "bullets": [
+      ["Employee info", "Employee name, department, manager, employee ID, pay period/date submitted."],
+      ["Expense details per line", "Date of expense, description/purpose, category (travel, meals, mileage, supplies, lodging, other), amount, and whether it is billable to a client/project."],
+      ["Mileage (if applicable)", "From/to locations, miles driven, purpose; multiply by the standard mileage rate (IRS HMRC per-km)."],
+      ["Receipts and coding", "Receipts attached (original or scanned), accounting/GL code, project/client if billable; totals and any cash advance to offset."],
+      ["Approvals", "Employee signature, manager approval signature (and finance approval if over threshold), approval date, and date paid."]
+    ],
+    "howTo": [
+      ["Submit promptly", "Submit expenses within the company deadline (often monthly or within 30 days)."],
+      ["Itemise each expense", "One line per expense; do not lump together; label personal portions."],
+      ["Attach receipts", "Attach original or scanned receipts — credit card statements alone are not always sufficient; keep copies."],
+      ["Code correctly", "Apply the right GL/cost centre; client-billable expenses get a client code."],
+      ["Manager approval", "Manager reviews for business purpose and policy compliance, signs and submits to payroll/AP for reimbursement."]
+    ],
+    "related": [
+      ["Payment receipt", "templates/payment-receipt-template.html", "Receipt form for payments received."],
+      ["Credit note", "templates/credit-note-template.html", "For credits against invoices."],
+      ["Remote work agreement", "templates/remote-work-agreement-template.html", "Often includes work-from-home expense reimbursement."],
+      ["Free HR/small-business templates", "templates/contract-template.html", "Full template library."]
+    ],
+    "faq": [
+      ["Are receipts required?", "Company policy determines the threshold; IRS requires receipts for expenditures over $75. Always require itemised receipts for meals/hotel."],
+      ["Is reimbursement taxable?", "If made under an accountable plan (business connection, substantiated, excess returned), reimbursements are not wages and not taxed."],
+      ["Do I have to reimburse employee expenses?", "Some states (e.g. California) require reimbursement of all necessary business expenses; best practice everywhere."],
+      ["What about mileage?", "Reimburse at or below the IRS standard mileage rate for business miles; require a log showing business purpose, date and miles."],
+      ["Can I refuse non-policy expenses?", "Yes — if the expense violates policy (alcohol without client, unapproved travel) it can be declined."]
+    ],
+    "cta": { "label": "Build your expense reimbursement form", "href": "app/#/start/expense-reimbursement-form" },
+    "download": { "href": "samples/expense-reimbursement-form.docx", "label": "Download Word" }
+  },
+  {
+    "path": "templates/consignment-agreement-template.html",
+    "section": "templates",
+    "sectionLabel": "Templates",
+    "title": "Consignment Agreement | Free Word Template",
+    "h1": "Free consignment agreement template (Word)",
+    "description": "Free consignment agreement: sell goods through a consignee/shop with pricing, commission, unsold goods and payment terms.",
+    "lead": "An agreement between a consignor (owner of goods) and a consignee (shop/gallery/retailer) allowing the consignee to display and sell the consignor goods in exchange for a commission, with unsold goods returned after a set period.",
+    "introParagraphs": ["A consignment agreement lets you place your goods (art, clothing, crafts, antiques, second-hand goods) in a shop or gallery to sell without transferring ownership. The shop earns a commission when items sell; unsold items are returned to you after an agreed period.", "It covers pricing, commission split, discount rules, duration, payment timing, insurance for loss/damage, and who is responsible for stolen or damaged goods."],
+    "bullets": [
+      ["Consignor and consignee", "Consignor name/address; consignee (shop/gallery) name/address; agreement date and store location."],
+      ["Goods and pricing", "List (or attach a schedule) of items consigned, description, SKU, and retail price; who sets price and whether discounts are allowed."],
+      ["Commission and payment", "Commission percentage to consignee (e.g. 40-60%), consignor share, how and when consignor gets paid (monthly, on sale), and any fees (setup, marketing, credit card processing)."],
+      ["Duration and unsold goods", "Consignment period (typically 30-90 days), what happens if items do not sell (returned to consignor, donated, discounted automatically), and pickup deadline for returns."],
+      ["Insurance, loss and other terms", "Consignee responsibility for damage/theft while in store, insurance carried, exclusivity (if any) within area, marketing duties, and governing law."]
+    ],
+    "howTo": [
+      ["Inventory everything", "Attach an itemised list with description, price and SKU; both parties initial the inventory list."],
+      ["Set commission and discounts up front", "Agree on commission % and whether discounts reduce consignor share proportionally."],
+      ["Define the consignment period", "Typical 60-90 day cycles; after that items are returned or auto-discounted."],
+      ["Insure the goods", "Consignee should carry insurance covering theft/damage; state responsibility in the agreement."],
+      ["Get paid on schedule", "Monthly payouts with a sales report showing which items sold and net proceeds to consignor."]
+    ],
+    "related": [
+      ["Bill of sale", "templates/bill-of-sale-template.html", "Used when items sell outright."],
+      ["Sales commission agreement", "templates/sales-commission-agreement-template.html", "For commissioned sales reps (different structure)."],
+      ["Retainer agreement", "templates/retainer-agreement-template.html", "Ongoing service retainer (different from goods consignment)."],
+      ["Purchase order", "templates/purchase-order-template.html", "For wholesale purchases (non-consignment)."],
+      ["Free contract templates", "templates/contract-template.html", "Full template library."]
+    ],
+    "faq": [
+      ["Who owns the goods on consignment?", "The consignor retains ownership until sold; unsold goods must be returned."],
+      ["What if something is stolen or damaged?", "The consignee usually bears risk and should insure — state this clearly in the agreement."],
+      ["Can the shop discount items?", "Only as agreed; specify markdown rules (e.g. after 60 days shop may discount up to 20% with commission adjusted)."],
+      ["When do I get paid?", "Typically at month-end following a sale, with an itemised sales report."],
+      ["Do I need an inventory list?", "Yes — attach an itemised schedule as an exhibit and update each cycle."]
+    ],
+    "cta": { "label": "Build your consignment agreement", "href": "app/#/start/consignment-agreement" },
+    "download": { "href": "samples/consignment-agreement.docx", "label": "Download Word" }
+  }
+]

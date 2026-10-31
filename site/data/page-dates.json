@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-31",
-  "hash": "c9e9b1385bdac23f"
+  "hash": "da0c5ae8bbf69347"
  },
  "clauses/": {
   "date": "2026-10-28",
@@ -855,6 +855,10 @@
   "date": "2026-10-31",
   "hash": "177ab3fe9e28b7b8"
  },
+ "templates/consignment-agreement-template.html": {
+  "date": "2026-10-31",
+  "hash": "ad2ce2aa846182eb"
+ },
  "templates/consignment-agreement.html": {
   "date": "2026-10-31",
   "hash": "49d43d93c87a7d9e"
@@ -962,6 +966,10 @@
  "templates/eviction-notice-template.html": {
   "date": "2026-10-31",
   "hash": "e4a621b55b3177d5"
+ },
+ "templates/expense-reimbursement-form-template.html": {
+  "date": "2026-10-31",
+  "hash": "bf172aee5f00223a"
  },
  "templates/expense-reimbursement-form.html": {
   "date": "2026-10-31",
@@ -1127,6 +1135,10 @@
   "date": "2026-10-31",
   "hash": "23a92ae31a36f60a"
  },
+ "templates/nanny-contract-template.html": {
+  "date": "2026-10-31",
+  "hash": "45ebf5c6d0656738"
+ },
  "templates/nanny-contract.html": {
   "date": "2026-10-31",
   "hash": "7d0a66b826addb48"
@@ -1211,6 +1223,10 @@
   "date": "2026-10-31",
   "hash": "d683c4713d1c905e"
  },
+ "templates/performance-improvement-plan-template.html": {
+  "date": "2026-10-31",
+  "hash": "a97e273392965e74"
+ },
  "templates/performance-improvement-plan.html": {
   "date": "2026-10-31",
   "hash": "2fc86df86b5cf822"
@@ -1222,6 +1238,10 @@
  "templates/personal-training-agreement.html": {
   "date": "2026-10-31",
   "hash": "86cfb2ea7e2daae2"
+ },
+ "templates/pet-addendum-template.html": {
+  "date": "2026-10-31",
+  "hash": "f9fb74b21c92b5f3"
  },
  "templates/pet-addendum.html": {
   "date": "2026-10-31",
