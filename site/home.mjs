@@ -35,7 +35,7 @@ const HOME_FAQ = [
 ];
 
 export const pages = [{
-  path: '', title: 'Free Invoice Template | Make an Invoice Online (Word/PDF)',
+  path: '', title: 'Free Invoice Template | Make Invoices in Seconds',
   description: `Free invoice template you can fill in online and download as an editable Word doc or printable PDF. Calculate totals, VAT/GST/sales tax, discount and balance due automatically — no sign-up, no card, nothing uploaded. Not affiliated with Clausery.ai.`,
   extraHead: `<link rel="prefetch" href="./app/" as="document">
 <meta name="directree-verify" content="18cd9ea3fefedd43ee1d57c58248886c">

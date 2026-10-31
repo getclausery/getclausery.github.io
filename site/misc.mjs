@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  { version: '2.43.0', date: '31 October 2026', summary: 'CTR rewrite: power words, bracket/paren differentiators, concrete claims and sign-ready/fill-in-seconds signals across 44 top-traffic titles and descriptions to lift click-through rate' },
   { version: '2.42.0', date: '30 October 2026', summary: 'Google Docs & Excel invoice template hubs; meta descriptions tightened to ≤155 chars across all LIB templates' },
   { version: '2.41.0', date: '30 October 2026', summary: '3 more long-tail hubs (quotation template, freelance contract, NDA form); expanded cross-links between invoice hubs' },
   { version: '2.40.0', date: '30 October 2026', summary: '11 new long-tail SEO hub pages (blank/simple/proforma/freelance/contractor invoice, invoice PDF, estimate, simple NDA, NDA explainer, cash and donation receipts); FAQ enrichment across 9 top templates' },
@@ -128,6 +129,8 @@ export const pages = [
     path: 'changelog.html', title: 'Changelog', description: 'Release notes for Clausery, newest first: the free templates, guides, calculators and app features added in each version.',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
+<h2 id="v2-43-0">2.43.0 <span class="small muted">— 31 October 2026</span></h2>
+<ul><li><strong>CTR-focused title and description rewrite</strong> across 44 top-traffic pages: invoice, quote, NDA, bill of sale, payment receipt, lease, employment contract, contractor agreement, resignation letter, PO, offer letter, promissory note and more. Titles now use bracket/parenthesis differentiators (<code>(PDF/Word)</code>, <code>(Ready to Sign)</code>, <code>(Free)</code>), concrete verbs ("fill in", "sign in minutes", "auto-calculate"), and concrete deliverable claims. Descriptions lead with the bolded keyword, state the specific benefit and end in a soft CTA - no more repetitive "Free X Template | Y (Word)" pattern.</li><li>Hub and home-page titles and descriptions rewritten the same way to be more distinctive in the SERP. All titles stay within 60 chars with the <code>· Clausery</code> suffix.</li></ul>
 <h2 id="v2-42-0">2.42.0 <span class="small muted">— 30 October 2026</span></h2>
 <ul><li><strong>Google Docs &amp; Excel invoice hubs</strong>: new <a href="${rel}invoice-templates/google-docs-invoice.html">Google Docs invoice template</a> and <a href="${rel}invoice-templates/excel-invoice-template.html">Excel invoice template</a> pages targeting those platform-specific searches; both linked from the invoice template and invoice hub.</li><li><strong>Meta descriptions tightened</strong>: all 73 template descriptions rewritten to ≤155 characters with primary keyword first, "free Word/PDF" value prop and CTA tail, following Google's snippet-length guidance.</li></ul>
 <h2 id="v2-41-0">2.41.0 <span class="small muted">— 30 October 2026</span></h2>
@@ -192,14 +195,10 @@ export const pages = [
 
 
 
-<h2 id="v2-0-3">2.0.3 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>E-E-A-T entity linking.</strong> Article schema adds <code>about</code> topics, a share-card <code>image</code>, <code>thumbnailUrl</code>, <code>reviewedBy</code>; FAQPage blocks get a stable <code>@id</code>.</li></ul>
-<h2 id="v2-0-0">2.0.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>SEO &amp; E-E-A-T milestone.</strong> Structured-data / rich-result pass: visible BreadcrumbList microdata, shared WebSite+Organization graph, rel=prev/next chaining, FAQPage on long-form pages, "Reviewed by / Updated" bylines, share cards and server-rendered TOCs across every indexable page.</li></ul>
-<h2 id="v1-99-0">1.99.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>"On this page" TOC + h2 anchors on clauses/templates.</strong> Clause/template pages have stable <code>&lt;h2&gt;</code> ids and a TOC above the fold.</li></ul>
-<h2 id="v1-98-0">1.98.0 <span class="small muted">— 25 October 2026</span></h2>
-<ul><li><strong>Author link + richer shared Organization node.</strong> Every page now carries <code>&lt;link rel="author" href="/about/"&gt;</code> and a <code>&lt;meta name="author" content="Clausery"&gt;</code>. The Organization schema emitted on every page now includes contactPoint (email), sameAs (GitHub repo) and full logo, matching the homepage Organization node.</li></ul>
+
+
+
+
 <h2 id="v1-97-0">1.97.0 <span class="small muted">— 25 October 2026</span></h2>
 <ul><li><strong>lastReviewed + reviewedBy on every WebPage/ItemPage.</strong> Every non-Article page now carries <code>lastReviewed</code> and <code>reviewedBy</code> (Organization: Clausery) schema matching the Article schema already emitted on guides, completing freshness/E-E-A-T signals across hub, comparison, tool and template pages.</li></ul>
 <h2 id="v1-96-0">1.96.0 <span class="small muted">— 25 October 2026</span></h2>

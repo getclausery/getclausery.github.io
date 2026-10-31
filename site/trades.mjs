@@ -172,8 +172,8 @@ const example = (t) => {
 
 export const pages = [
   {
-    path: 'invoice-templates/', title: 'Free Invoice Templates | Download & Print (Word/PDF)',
-    description: 'Free Word invoice templates for deposits, hourly work and final balances, plus trade and country starters. Totals calculated online; editable .docx download.',
+    path: 'invoice-templates/', title: 'Free Invoice Templates | Word/PDF (No Signup)',
+    description: 'Free invoice templates you can fill in online and download as editable Word or PDF. Invoices, quotes and receipts - totals calculated, no signup.',
     extraHead: collectionLd({ path: 'invoice-templates/', name: 'Free Word invoice templates: task, trade and country', description: 'Free Word invoice templates for deposits, hourly work and final balances, plus trade and country starters. Totals calculated online; editable .docx download.', items: [...WORKFLOWS.map((w) => [w.name, `invoice-templates/${w.slug}.html`]), ...TRADES.map((t) => [t.title, `invoice-templates/${t.slug}.html`]), ...COUNTRIES.map((c) => [c.h1, `invoice-templates/${c.slug}.html`])] }),
     body: (rel) => `<section class="section"><div class="wrap">
   <h1>Free Word invoice templates by task, trade and country</h1>
