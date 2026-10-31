@@ -2204,7 +2204,16 @@ function hubBody(h, rel) {
   const crumbs = [['Home', '']];
   if (h.section) crumbs.push([h.sectionLabel, h.section + '/']);
   crumbs.push([h.h1, h.path]);
-  const linksHtml = h.related.map(([label, href, desc]) =>
+  // Ensure section hubs always link back to the flagship hub for that section
+  // (e.g. every invoice-templates/* hub relates back to templates/invoice.html).
+  const related = [...h.related];
+  if (h.section === 'invoice-templates' && !related.some(([, href]) => href === 'templates/invoice.html')) {
+    related.unshift(['Invoice template guide', 'templates/invoice.html', 'The full list of what to include, how to number and date an invoice, and step-by-step how-to.']);
+  }
+  if (h.section === 'nda-templates' && !related.some(([, href]) => href === 'templates/mutual-nda.html' || href === 'nda-templates/')) {
+    related.unshift(['NDA templates', 'nda-templates/', 'Compare the five NDA forms — mutual, one-way, employee, contractor and business sale.']);
+  }
+  const linksHtml = related.map(([label, href, desc]) =>
     `<a class="feature" href="${rel}${href}"><h3>${esc(label)}</h3><p>${esc(desc)}</p></a>`
   ).join('');
   const bulletsHtml = h.bullets.map(([t, d]) => `<li><strong>${esc(t)}.</strong> ${esc(d)}</li>`).join('');

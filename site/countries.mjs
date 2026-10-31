@@ -152,6 +152,7 @@ export const pages = COUNTRIES.map((c) => ({
 
   <h2 style="margin-top:2.5rem">Related</h2>
   <ul>
+    <li><a href="${rel}templates/invoice.html">What to put on an invoice</a> — the full list of details, how to number and date it, and step-by-step how-to.</li>
     <li><a href="${rel}templates/credit-note.html">Credit note template</a>, to correct or cancel an invoice you have sent.</li>
     <li><a href="${rel}templates/quote.html">Price quote template</a>, for agreeing the price before the work.</li>
     <li><a href="${rel}invoice-templates/">Invoice templates by trade</a>, which start with the lines your trade usually bills.</li>
