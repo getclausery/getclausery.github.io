@@ -139,7 +139,9 @@ def _roman(n):
 def styles():
     base = dict(fontName=BODY, fontSize=11.0, leading=15.0, textColor=INK,
                 alignment=TA_JUSTIFY, hyphenationLang='en_US', embeddedHyphenation=1,
-                spaceBefore=0, spaceAfter=0)
+                spaceBefore=0, spaceAfter=0,
+                # a paragraph never leaves one line alone at the top or the foot of a page
+                allowWidows=0, allowOrphans=0)
     S['body'] = ParagraphStyle('body', firstLineIndent=14, **base)
     S['first'] = ParagraphStyle('first', firstLineIndent=0, **base)
     S['quote'] = ParagraphStyle('quote', fontName=BODY_I, fontSize=10.4, leading=14.2,

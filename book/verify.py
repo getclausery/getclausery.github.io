@@ -328,6 +328,29 @@ def check_pdf():
                 run = 0
         if run >= 2:
             runs.append(run)
+    # a widow is the last line of a paragraph carried alone to the top of the next page:
+    # body paragraphs are indented, so the giveaway is an unindented first line followed
+    # by an indented one
+    left_edge, indent = 56.2, 14
+    def page_lines(pno):
+        rows = []
+        for b in d[pno].get_text('dict')['blocks']:
+            for l in b.get('lines', []):
+                text = ''.join(sp['text'] for sp in l['spans']).strip()
+                if len(text) > 2 and 40 < l['bbox'][1] < d[pno].rect.height - 40:
+                    rows.append((l['bbox'], text))
+        return rows
+    widows = []
+    for pno in range(offset, d.page_count):
+        rows = page_lines(pno)
+        if len(rows) < 3:
+            continue
+        (x0, _y0, _x1, _y1), text = rows[0]
+        (nx0, _ny0, _nx1, _ny1), _ = rows[1]
+        if abs(x0 - left_edge) < 3 and abs(nx0 - (left_edge + indent)) < 3:
+            widows.append((pno + 1, text[:36]))
+    check('pdf: no widows at the heads of pages', len(widows) <= 2, widows[:3])
+
     # a subhead may not be the last thing on a page, with nothing under it
     stranded = []
     for i in range(offset, d.page_count):
