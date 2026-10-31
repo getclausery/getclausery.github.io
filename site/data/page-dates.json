@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-31",
-  "hash": "5b86db8fed27d358"
+  "hash": "93483735d5c2d757"
  },
  "clauses/": {
   "date": "2026-10-28",
@@ -843,6 +843,10 @@
   "date": "2026-10-31",
   "hash": "4b25dcbfd242f89d"
  },
+ "templates/contract-termination-letter-template.html": {
+  "date": "2026-10-31",
+  "hash": "f77b7342294d1754"
+ },
  "templates/contract-termination-letter.html": {
   "date": "2026-10-31",
   "hash": "655512583d848a51"
@@ -867,9 +871,17 @@
   "date": "2026-10-31",
   "hash": "87671463f999bea9"
  },
+ "templates/employment-agreement-template.html": {
+  "date": "2026-10-31",
+  "hash": "7532da9c0796c7c1"
+ },
  "templates/employment-agreement.html": {
   "date": "2026-10-31",
   "hash": "dc73fe1bcd561223"
+ },
+ "templates/employment-termination-letter-template.html": {
+  "date": "2026-10-31",
+  "hash": "4b876e163a260b71"
  },
  "templates/employment-termination-letter.html": {
   "date": "2026-10-31",
@@ -934,6 +946,10 @@
  "templates/independent-contractor-template.html": {
   "date": "2026-10-31",
   "hash": "ae79c8f5573b4693"
+ },
+ "templates/internship-offer-letter-template.html": {
+  "date": "2026-10-31",
+  "hash": "0912b2daf6d11842"
  },
  "templates/internship-offer-letter.html": {
   "date": "2026-10-31",
@@ -1234,6 +1250,10 @@
  "templates/service-agreement.html": {
   "date": "2026-10-31",
   "hash": "20200a39700adb34"
+ },
+ "templates/severance-agreement-template.html": {
+  "date": "2026-10-31",
+  "hash": "6f6d07bd831f3db3"
  },
  "templates/severance-agreement.html": {
   "date": "2026-10-31",
