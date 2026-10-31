@@ -5,7 +5,7 @@ import { esc, faqLd, faqHtml, LASTMOD, LASTMOD_LONG, crumbsLd } from '../tools/p
 const HUBS = [
   {
     path: 'invoice-templates/blank-invoice.html', section: 'invoice-templates', sectionLabel: 'Invoice templates',
-    title: 'Blank Invoice Template | Fillable PDF/Word (Free)',
+    title: 'Blank Invoice Template | Fillable PDF/Word (Free, No Signup)',
     description: 'Free blank invoice template. Fill in online, download as printable PDF or editable Word, and send to clients. Calculates totals for you.',
     h1: 'Blank invoice template',
     lead: 'Start with an empty invoice: add your business details, your client, the line items and your payment terms. Fill it in online to have totals and tax calculated for you, then download the blank invoice as a printable PDF or an editable Word file.',
@@ -46,7 +46,7 @@ const HUBS = [
   },
   {
     path: 'invoice-templates/simple-invoice.html', section: 'invoice-templates', sectionLabel: 'Invoice templates',
-    title: 'Simple Invoice Template | One-Page PDF/Word (Free)',
+    title: 'Simple Invoice Template | One-Page Free PDF/Word',
     description: 'Free simple invoice template: one page, no clutter. Fill in, download as PDF or Word, and send. For freelancers and small businesses.',
     h1: 'Simple invoice template',
     lead: 'A minimal one-page invoice for small jobs, one-off sales and freelancers who want to bill clearly without extra fields. Fill in the basics, get the totals calculated, and download it as a printable PDF or editable Word file.',
@@ -85,7 +85,7 @@ const HUBS = [
   },
   {
     path: 'invoice-templates/proforma-invoice.html', section: 'invoice-templates', sectionLabel: 'Invoice templates',
-    title: 'Proforma Invoice Template | Free Word/PDF',
+    title: 'Proforma Invoice | Free Word/PDF (Ready to Send)',
     description: 'Free proforma invoice template. Show prices before supply, for customs or quotes. Download as Word or PDF. No sign-up.',
     h1: 'Proforma invoice template',
     lead: 'A proforma invoice shows prices and details before the goods or services are supplied. It is not a demand for payment and not a VAT or tax invoice. Fill it in online and download it as an editable Word file or printable PDF.',
@@ -125,7 +125,7 @@ const HUBS = [
   },
   {
     path: 'invoice-templates/freelance-invoice.html', section: 'invoice-templates', sectionLabel: 'Invoice templates',
-    title: 'Freelance Invoice Template | Free Word/PDF (2026)',
+    title: 'Freelance Invoice | Free Word/PDF (Hours & Projects)',
     description: 'Free freelance invoice template for designers, writers, consultants and developers. Bill by the hour or project, download as PDF or Word.',
     h1: 'Freelance invoice template',
     lead: 'Bill freelance work clearly, whether you charge by the hour, by the project or a mix. Fill the invoice in online, get totals calculated, and download it as an editable Word file or printable PDF. Designed for freelancers and sole traders.',
@@ -166,7 +166,7 @@ const HUBS = [
   },
   {
     path: 'invoice-templates/invoice-template-pdf.html', section: 'invoice-templates', sectionLabel: 'Invoice templates',
-    title: 'Invoice Template PDF | Free Download & Print',
+    title: 'Invoice Template PDF | Free Download (Print & Email)',
     description: 'Free invoice template you can download and print as a PDF. Fill in online, calculate totals, save as PDF or Word. No sign-up.',
     h1: 'Invoice template PDF',
     lead: 'Create a PDF invoice you can email or print. Fill it in online - totals and tax are calculated as you type - then save it as a PDF or download an editable Word file. Free, with no sign-up.',
@@ -205,7 +205,7 @@ const HUBS = [
   },
   {
     path: 'nda-templates/simple-nda.html', section: 'nda-templates', sectionLabel: 'NDA templates',
-    title: 'Simple NDA Template | Free Non-Disclosure Agreement (Word)',
+    title: 'Simple NDA | Short Non-Disclosure Form (Word)',
     description: 'Free simple NDA template: short, plain-English mutual or one-way non-disclosure agreement. Download as Word or PDF.',
     h1: 'Simple NDA template',
     lead: 'A short, plain-English non-disclosure agreement (NDA) for protecting confidential information shared in a meeting, with a supplier, contractor or potential partner. Fill it in online and download as an editable Word file or PDF.',
@@ -246,7 +246,7 @@ const HUBS = [
   },
   {
     path: 'receipts/cash-receipt.html', section: null,
-    title: 'Cash Receipt Template | Free Printable PDF/Word',
+    title: 'Cash Receipt | Free Printable PDF/Word (Sign & Go)',
     description: 'Free cash receipt template: record cash payments for sales, rent or personal loans. Printable PDF, editable Word, no sign-up.',
     h1: 'Cash receipt template',
     lead: 'Issue a clear receipt when someone pays you in cash. A cash receipt records who paid, how much, what for and on what date, so both sides have proof of payment. Download it as a printable PDF or editable Word file.',
@@ -286,7 +286,7 @@ const HUBS = [
   },
   {
     path: 'invoice-templates/contractor-invoice.html', section: 'invoice-templates', sectionLabel: 'Invoice templates',
-    title: 'Contractor Invoice Template | Free Word/PDF',
+    title: 'Contractor Invoice | Free Word/PDF (Labour & Materials)',
     description: 'Free contractor invoice template. Bill for contract work, materials, hours and change orders. Download as Word or PDF, no sign-up.',
     h1: 'Contractor invoice template',
     lead: 'Invoice contract work clearly - whether you are a general contractor, electrician, plumber, landscaper or other trade. Show hours, materials, change orders and any retention, then download the invoice as a printable PDF or editable Word file.',
@@ -327,7 +327,7 @@ const HUBS = [
   },
   {
     path: 'invoice-templates/estimate-template.html', section: 'invoice-templates', sectionLabel: 'Invoice templates',
-    title: 'Estimate Template | Free Word/PDF (Editable)',
+    title: 'Estimate Template | Free Editable Word/PDF',
     description: 'Free estimate template: give a client an informed price quote they can accept. Download as Word or PDF, no sign-up.',
     h1: 'Estimate template',
     lead: 'Give a customer an informed estimate for work before they commit. An estimate is not a fixed price - it says what you expect the job to cost and how you will tell them if the price changes. Fill it in online and download as Word or PDF.',
@@ -367,7 +367,7 @@ const HUBS = [
   },
   {
     path: 'nda-templates/non-disclosure-agreement.html', section: 'nda-templates', sectionLabel: 'NDA templates',
-    title: 'Non-Disclosure Agreement (NDA) | Free Word Template',
+    title: 'NDA (Non-Disclosure Agreement) | Free Word Template',
     description: 'Free non-disclosure agreement template: mutual or one-way NDA to protect confidential information. Download Word/PDF.',
     h1: 'Non-disclosure agreement (NDA)',
     lead: 'A non-disclosure agreement (NDA) keeps shared business information confidential. Pick a mutual NDA when both sides share, or a one-way NDA when only one side discloses, fill it in online and download a ready-to-sign Word file or PDF.',
@@ -408,7 +408,7 @@ const HUBS = [
   },
   {
     path: 'receipts/donation-receipt.html', section: null,
-    title: 'Donation Receipt Template | Free PDF/Word',
+    title: 'Donation Receipt | Free PDF/Word (Tax-Ready)',
     description: 'Free donation receipt template: issue a gift acknowledgement for tax purposes. Printable PDF, editable Word, no sign-up.',
     h1: 'Donation receipt template',
     lead: 'Issue a clear donation receipt when someone gives money or goods to your organisation, charity or fundraiser. A written receipt helps the donor with tax records and gives your records proof of the gift. Download it as a printable PDF or editable Word file.',
@@ -489,7 +489,7 @@ const HUBS = [
   },
   {
     path: 'templates/freelance-contract.html', section: 'templates', sectionLabel: 'Templates',
-    title: 'Freelance Contract Template | Free Word/PDF Agreement',
+    title: 'Freelance Contract | Free Agreement (Word/PDF)',
     description: 'Free freelance contract template for designers, writers, developers and consultants. Download as Word or PDF, no sign-up.',
     h1: 'Freelance contract template',
     lead: 'A simple freelance contract covering scope, fee, payment terms, IP, revisions, late fees, confidentiality and termination. Fill it in online and download it as an editable Word file or printable PDF, ready to sign.',
@@ -530,7 +530,7 @@ const HUBS = [
   },
   {
     path: 'nda-templates/nda-form.html', section: 'nda-templates', sectionLabel: 'NDA templates',
-    title: 'NDA Form | Free Non-Disclosure Form (Word/PDF)',
+    title: 'NDA Form | Free Non-Disclosure Agreement (Word/PDF)',
     description: 'Free NDA form: a printable non-disclosure agreement you can fill in online, download and sign. Word and PDF.',
     h1: 'NDA form',
     lead: 'A ready-to-sign non-disclosure form for protecting confidential information shared between two parties. Fill it in online in a few minutes and download it as a printable PDF or editable Word file.',
@@ -571,7 +571,7 @@ const HUBS = [
   },
   {
     path: 'invoice-templates/google-docs-invoice.html', section: 'invoice-templates', sectionLabel: 'Invoice templates',
-    title: 'Google Docs Invoice Template | Free Editable Download',
+    title: 'Google Docs Invoice | Free Editable Template',
     description: 'Free Google Docs invoice template: open, edit, share and download as PDF. Works in Google Drive, no Word needed.',
     h1: 'Google Docs invoice template',
     lead: 'Make an invoice in Google Docs. Fill in the template, share a view-only link with your client, or download it as a PDF to attach to email. Editable directly in Google Drive - no Microsoft Word required.',
@@ -584,7 +584,7 @@ const HUBS = [
   },
   {
     path: 'invoice-templates/excel-invoice-template.html', section: 'invoice-templates', sectionLabel: 'Invoice templates',
-    title: 'Excel Invoice Template | Free Editable Spreadsheet',
+    title: 'Excel Invoice | Free Editable Spreadsheet',
     description: 'Free Excel invoice template with auto-calculating totals, tax and balance. Download as .xlsx or fill in online first.',
     h1: 'Excel invoice template',
     lead: 'An invoice that adds line totals, subtotal, tax and balance due automatically. Fill it in online to get a Word or PDF invoice with all the maths done for you, or download the structure and rebuild it in Excel using the column layout described here.',

@@ -5,8 +5,16 @@
   <link rel="self" href="https://getclausery.github.io/releases.xml"/>
   <link rel="alternate" href="https://getclausery.github.io/changelog.html"/>
   <id>https://getclausery.github.io/changelog.html</id>
-  <updated>2026-10-30T00:00:00Z</updated>
+  <updated>2026-10-31T00:00:00Z</updated>
   <author><name>Clausery</name></author>
+  <entry>
+    <title>Clausery v2.43.0 — CTR rewrite: power words, bracket/paren differentiators, concrete claims and sign-ready/fill-in-seconds signals across 44 top-traffic titles and descriptions to lift click-through rate</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-43-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-43-0</id>
+    <published>2026-10-31T00:00:00Z</published>
+    <updated>2026-10-31T00:00:00Z</updated>
+    <summary>CTR rewrite: power words, bracket/paren differentiators, concrete claims and sign-ready/fill-in-seconds signals across 44 top-traffic titles and descriptions to lift click-through rate</summary>
+  </entry>
   <entry>
     <title>Clausery v2.42.0 — Google Docs & Excel invoice template hubs; meta descriptions tightened to ≤155 chars across all LIB templates</title>
     <link href="https://getclausery.github.io/changelog.html#v2-42-0"/>
