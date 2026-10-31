@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-10-31",
-  "hash": "e247125f6b4fe5b0"
+  "hash": "e0613d3990ac4412"
  },
  "clauses/": {
   "date": "2026-10-28",
@@ -140,8 +140,8 @@
   "hash": "0a225775c5d0210e"
  },
  "compare/": {
-  "date": "2026-10-25",
-  "hash": "9d54df510023f427"
+  "date": "2026-10-31",
+  "hash": "9421fbf2d853770a"
  },
  "compare/bonsai-alternative.html": {
   "date": "2026-10-31",
@@ -785,7 +785,7 @@
  },
  "templates/": {
   "date": "2026-10-31",
-  "hash": "fcc0b8108c995de9"
+  "hash": "eb5fa78d8f19f29f"
  },
  "templates/bill-of-sale-template.html": {
   "date": "2026-10-31",
