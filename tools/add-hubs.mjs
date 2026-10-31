@@ -1,7 +1,6 @@
 // Generic hub-adder tool. Reads HUBS array from a JSON file and inserts into site/hub-pages.mjs.
 // Usage: node tools/add-hubs.mjs hubs-file.json
 import fs from 'fs';
-import path from 'path';
 
 const file = process.argv[2];
 if (!file) { console.error('Usage: node tools/add-hubs.mjs <hubs.json>'); process.exit(1); }
