@@ -8,6 +8,14 @@
   <updated>2026-10-31T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.70.1 — Fix: removed a self-referencing "template guide" link on the invoice hub page itself (a page that is its own hub should not link to itself).</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-70-1"/>
+    <id>https://getclausery.github.io/changelog.html#v2-70-1</id>
+    <published>2026-10-31T00:00:00Z</published>
+    <updated>2026-10-31T00:00:00Z</updated>
+    <summary>Fix: removed a self-referencing &quot;template guide&quot; link on the invoice hub page itself (a page that is its own hub should not link to itself).</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.70.0 — Guide pages → hub cross-links: the 13 topical/explainer guides that previously did not surface a related template now carry a "Download a starter template" block linking each relevant free Word download to its what-to-include hub. All 68 guides now pass link equity into the hub network.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-70-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-70-0</id>
