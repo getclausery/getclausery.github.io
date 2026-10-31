@@ -144,11 +144,11 @@ def styles():
     S['first'] = ParagraphStyle('first', firstLineIndent=0, **base)
     S['quote'] = ParagraphStyle('quote', fontName=BODY_I, fontSize=10.4, leading=14.2,
                                 leftIndent=22, rightIndent=12, spaceBefore=7, spaceAfter=7,
-                                textColor=colors.HexColor('#3a332d'), hyphenationLang='en_US')
+                                textColor=colors.HexColor('#3a332d'))
     S['cite'] = ParagraphStyle('cite', fontName=BODY, fontSize=8.8, leading=11.6, leftIndent=22,
                                spaceAfter=9, textColor=MUTED)
     S['h2'] = ParagraphStyle('h2', fontName=BOLD, fontSize=13.2, leading=16.4, spaceBefore=16,
-                             spaceAfter=5, textColor=INK, hyphenationLang='en_US')
+                             spaceAfter=5, textColor=INK)
     S['h3'] = ParagraphStyle('h3', fontName=BODY_I, fontSize=11.6, leading=14.8, spaceAfter=2,
                              spaceBefore=13, textColor=INK)
     # a bold line on its own: a subhead inside a chapter, lighter than an h3
@@ -164,7 +164,7 @@ def styles():
                                     spaceBefore=2, spaceAfter=8, textColor=INK)
     S['lede'] = ParagraphStyle('lede', fontName=BODY_I, fontSize=11.2, leading=15.6,
                                textColor=colors.HexColor('#3a332d'), spaceAfter=14,
-                               alignment=TA_LEFT, hyphenationLang='en_US')
+                               alignment=TA_LEFT)
     S['partlabel'] = ParagraphStyle('partlabel', fontName=BOLD, fontSize=8.4, leading=11,
                                     alignment=TA_CENTER, textColor=ACCENT, spaceAfter=14)
     S['parttitle'] = ParagraphStyle('parttitle', fontName=BOLD, fontSize=24.5, leading=27.5,
@@ -174,8 +174,7 @@ def styles():
     S['partcite'] = ParagraphStyle('partcite', fontName=BODY, fontSize=8.2, leading=11,
                                    alignment=TA_CENTER, textColor=ACCENT, spaceBefore=4)
     S['partintro'] = ParagraphStyle('partintro', fontName=BODY_I, fontSize=11.2, leading=15.8,
-                                    alignment=TA_LEFT, textColor=colors.HexColor('#4a423b'),
-                                    hyphenationLang='en_US')
+                                    alignment=TA_LEFT, textColor=colors.HexColor('#4a423b'))
     # entries are set in the text face, not in bold: the numbers and the parts carry
     # the emphasis, and sixty bold lines in a row read as a price list
     S['toc1'] = ParagraphStyle('toc1', fontName=BODY, fontSize=10.2, leading=14.6, textColor=INK,
@@ -184,8 +183,7 @@ def styles():
                                textColor=INK)
     S['toc0'] = ParagraphStyle('toc0', fontName=BOLD, fontSize=8.5, leading=12.4, textColor=ACCENT,
                                spaceBefore=8)
-    S['apstyle'] = ParagraphStyle('apstyle', fontName=BODY, fontSize=9.9, leading=13.2,
-                                  hyphenationLang='en_US')
+    S['apstyle'] = ParagraphStyle('apstyle', fontName=BODY, fontSize=9.9, leading=13.2)
     S['aplabel'] = ParagraphStyle('aplabel', fontName=BOLD, fontSize=7.2, leading=9, textColor=ACCENT)
     S['tablehead'] = ParagraphStyle('tablehead', fontName=BOLD, fontSize=8, leading=10)
     S['tablecell'] = ParagraphStyle('tablecell', fontName=BODY, fontSize=8, leading=10.2)

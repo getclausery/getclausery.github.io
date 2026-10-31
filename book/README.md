@@ -225,6 +225,10 @@ broken by re-setting the offending paragraph:
   under it. They are now subheads with their own spacing, and each heading (bold or
   italic) asks `CondPageBreak` for four lines of air; if the page cannot give them, the
   heading starts the next page. **0 stranded heads.**
+- **Hyphens belong to justification.** Quotes, chapter ledes, part introductions, section
+  heads and the apparatus are set ragged, and ragged text is not hyphenated: a hyphen at
+  the end of a line that already ends where the words ended is a hyphen nobody needed.
+  Only the justified text — body paragraphs, the card — hyphenates.
 - **The price of that.** Thirty-eight paragraphs out of about a thousand are set unhyphenated,
   which loosens their justification slightly: lines stretched past twice the natural word
   space go from 21 to 26 across 6,500 prose lines. That is the trade a compositor makes —
