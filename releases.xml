@@ -8,6 +8,14 @@
   <updated>2026-11-01T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.77.0 — Trial activation moment: after starting a free Pro trial from the post-download win notice, the credit note and win notice swap out for a green "Pro trial is active" panel with a one-click "Download unbranded .docx" primary button. This converts a trial-start into an immediate unbranded download — the activation event that actually teaches the user what Pro delivers, instead of leaving them to figure out they need to press Download again.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-77-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-77-0</id>
+    <published>2026-11-01T00:00:00Z</published>
+    <updated>2026-11-01T00:00:00Z</updated>
+    <summary>Trial activation moment: after starting a free Pro trial from the post-download win notice, the credit note and win notice swap out for a green &quot;Pro trial is active&quot; panel with a one-click &quot;Download unbranded .docx&quot; primary button. This converts a trial-start into an immediate unbranded download — the activation event that actually teaches the user what Pro delivers, instead of leaving them to figure out they need to press Download again.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.76.0 — First-run friction fix: the stepper "Next" button no longer blocks you from moving forward when a section has unanswered fields. Errors are shown but you can keep going — the Review tab has always said "You can generate anyway; missing answers render blank"; the Next button now matches that promise. On the Items & totals section (where you see the price add up) a "Review & download" shortcut button appears so a first-time visitor can skip the rest and download a file immediately, filling in business/client details later.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-76-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-76-0</id>

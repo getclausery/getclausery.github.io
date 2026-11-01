@@ -84,7 +84,8 @@ export async function render(ctx, { id }) {
   }
   function persist() { if (stopped) return; pendingSave = true; clearTimeout(saveTimer); saveTimer = setTimeout(flush, SAVE_DELAY); }
   let justDownloaded = false;
-  const onChange = (answers, path, ev) => { evaluation = ev; draft.status = 'draft'; draft.sentAt = null; draft.paidAt = null; justDownloaded = false; renderStepper(); persist(); schedulePreview(); };
+  let justStartedTrial = false;
+  const onChange = (answers, path, ev) => { evaluation = ev; draft.status = 'draft'; draft.sentAt = null; draft.paidAt = null; justDownloaded = false; justStartedTrial = false; renderStepper(); persist(); schedulePreview(); };
 
   const heading = h('h1.sr-only', draft.title || template.name);
   const titleInput = h('input.input', { value: draft.title || '', placeholder: 'Draft name (optional)', 'aria-label': 'Draft name', oninput: (e) => { draft.title = e.target.value; setTitle(draft.title || template.name); heading.textContent = draft.title || template.name; persist(); } });
@@ -232,11 +233,22 @@ export async function render(ctx, { id }) {
         await record('print');
       } catch (e) { fail(e); } finally { printBtn.disabled = false; }
     } }, icon('print', 16), 'Print / Save as PDF');
+    const downloadUnbranded = async () => {
+      try {
+        const { data: freshData } = buildRenderData(template, draft.answers, ctx.settings);
+        const blob = renderDocx(bytes, freshData, { credit: false });
+        downloadBlob(blob, fileName);
+        await record('download'); keepStorage();
+        toast('Unbranded document downloaded. It has no "Made with Clausery" line.', { type: 'ok', timeout: 7000 });
+        justStartedTrial = false; renderReview();
+      } catch (e) { fail(e); }
+    };
     const startTrial = async (e) => {
       if (e) e.preventDefault();
       await ctx.trial.start();
-      toast(`Your free Pro trial has started: ${daysLeftText(TRIAL_DAYS)}. Documents you make now leave the line out.`, { type: 'ok', timeout: 7000 });
-      justDownloaded = false; renderReview(); refreshPreview();
+      justStartedTrial = true; justDownloaded = false;
+      toast(`Your free ${TRIAL_DAYS}-day Pro trial is active. The "Made with Clausery" line is now removed — download your clean file below.`, { type: 'ok', timeout: 7000 });
+      renderReview(); refreshPreview();
     };
     const generate = async () => {
       try {
@@ -258,14 +270,19 @@ export async function render(ctx, { id }) {
       } catch (e) { if (e && e.name === 'AbortError') return; fail(e); }
     };
     const trialUnused = ctx.trial.state().status === 'unused';
-    const creditNote = credited() && !justDownloaded ? h('div.notice#credit-note', { style: { marginTop: '1rem' } }, icon('info'), h('div.small',
+    const creditNote = (credited() && !justDownloaded && !justStartedTrial) ? h('div.notice#credit-note', { style: { marginTop: '1rem' } }, icon('info'), h('div.small',
       h('strong', 'Free plan: '), 'documents from library templates end with a small “Made with Clausery” line. ',
       trialUnused ? [h('a', { href: '#', onclick: startTrial }, `Leave it out with a free ${TRIAL_DAYS}-day Pro trial`), ' (no card needed).']
         : [h('a', { href: '#/settings' }, 'Leave it out with Pro'), '.'])) : null;
-    const winNote = justDownloaded ? h('div.notice.notice-info', { style: { marginTop: '1rem' } }, icon('sparkle'), h('div.small',
+    const winNote = (justDownloaded && !justStartedTrial) ? h('div.notice.notice-info', { style: { marginTop: '1rem' } }, icon('sparkle'), h('div.small',
       h('strong', 'Your document is ready. '), trialUnused
         ? ['Want the “Made with Clausery” line gone, plus bulk-from-spreadsheet, encryption and your own templates? ', h('a', { href: '#', onclick: startTrial }, `Start a free ${TRIAL_DAYS}-day Pro trial`), ' — no card, nothing renews. Download again to get the unbranded file.']
         : ['Want the “Made with Clausery” line gone? ', h('a', { href: '#/settings' }, 'Upgrade to Pro'), '.'])) : null;
+    const trialActiveNote = justStartedTrial ? h('div.notice.notice-ok', { style: { marginTop: '1rem' } }, icon('check'), h('div',
+      h('strong', 'Pro trial is active. '), h('span.small', `Your documents won't include the "Made with Clausery" line for the next ${TRIAL_DAYS} days.`),
+      h('div.row', { style: { marginTop: '.75rem', gap: '.6rem', flexWrap: 'wrap' } },
+        h('button.btn.btn-primary.btn-sm', { type: 'button', onclick: downloadUnbranded }, icon('download', 14), ' Download unbranded .docx'),
+        h('span.small.muted', 'Also: bulk from spreadsheet, encrypted backup, unlimited custom templates.')))) : null;
     const answered = template.fields.filter((f) => f.type !== 'computed' && f.type !== 'repeat' && ev.visible[f.key] !== false && draft.answers[f.key] !== '' && draft.answers[f.key] != null).length;
     const totalQ = template.fields.filter((f) => f.type !== 'computed' && f.type !== 'repeat' && ev.visible[f.key] !== false).length;
     setChildren(bodyEl, h('div.stack',
@@ -276,7 +293,7 @@ export async function render(ctx, { id }) {
         h('div.row', { style: { marginTop: '1rem' } }, h('button.btn.btn-primary.btn-lg', { type: 'button', onclick: generate }, icon('download', 18), 'Download .docx'), previewBtn, printBtn,
           canShareFiles() ? h('button.btn', { type: 'button', onclick: share }, icon('share', 16), 'Share…') : null,
           h('button.btn', { type: 'button', onclick: openBulk }, icon('table', 16), 'From a spreadsheet')),
-        creditNote, winNote,
+        creditNote, winNote, trialActiveNote,
         h('p.small.muted', { style: { marginTop: '1rem', marginBottom: 0 } }, 'The Word file is assembled in your browser from the template and these answers. Nothing is uploaded. This draft stays saved here, so you can change any answer and download it again later.')),
       paymentControls(),
       h('div.card',
