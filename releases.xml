@@ -8,6 +8,14 @@
   <updated>2026-11-01T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.81.0 — SEO fixes on the home page (footer heading hierarchy, decorative logo alt, byline removal, question-form H3 for AEO), plus two conversion nudges: a Section 1 reassurance line that only name and email are required to get a finished invoice, and a personalised trial-ended modal that counts how many documents you made during your Pro trial.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-81-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-81-0</id>
+    <published>2026-11-01T00:00:00Z</published>
+    <updated>2026-11-01T00:00:00Z</updated>
+    <summary>SEO fixes on the home page (footer heading hierarchy, decorative logo alt, byline removal, question-form H3 for AEO), plus two conversion nudges: a Section 1 reassurance line that only name and email are required to get a finished invoice, and a personalised trial-ended modal that counts how many documents you made during your Pro trial.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.80.0 — Trial-expiring reminder: when a user is on a Pro trial with 3 or fewer days left, the Review card shows a subtle orange banner (existing .notice.notice-warn style) saying how many days remain, that everything stays but the credit line returns, and linking to the pricing page to keep Pro. Catches users at the moment they are actively generating documents, which is when the reminder is most salient.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-80-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-80-0</id>

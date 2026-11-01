@@ -263,7 +263,7 @@ export function header(rel, path, crumbItems = []) {
   const I = { menu:'M4 6h16M4 12h16M4 18h16', search:'M11 4a7 7 0 100 14 7 7 0 000-14zm10 16l-4-4' };
   return `<header class="site-header" role="banner">
   <div class="wrap">
-    <a class="brand" href="${rel}"><img src="${rel}assets/icon.svg" alt="" width="28" height="28" decoding="async"> Clausery</a>
+    <a class="brand" href="${rel}"><img src="${rel}assets/icon.svg" alt="" role="presentation" width="28" height="28" decoding="async"> Clausery</a>
     <button class="nav-search" id="nav-search" type="button" aria-label="Search or jump to… (⌘K)">
       ${ico(I.search,16)}<span>Search or jump to…</span><kbd>⌘K</kbd>
     </button>
@@ -318,8 +318,9 @@ export function footer(rel) {
 </div>
 <footer class="site-footer" role="contentinfo">
   <div class="wrap">
+    <h2 class="sr-only">Site navigation</h2>
     <div class="brand-col">
-      <a class="brand" href="${rel}"><img src="${rel}assets/icon.svg" alt="" width="28" height="28" decoding="async"> Clausery</a>
+      <a class="brand" href="${rel}"><img src="${rel}assets/icon.svg" alt="" role="presentation" width="28" height="28" decoding="async"> Clausery</a>
       <p style="margin-top:.75rem">Make invoices, quotes and receipts in Word with the maths done for you. Your documents stay in your browser — no account required.</p>
       <div class="footer-social">
         <a href="${REPO_URL}" rel="noopener" aria-label="Source on GitHub">${ico(I.github)}</a>
@@ -327,7 +328,7 @@ export function footer(rel) {
       </div>
     </div>
     <div>
-      <h4>Product</h4>
+      <h3>Product</h3>
       <a href="${rel}app/">Open the app</a>
       <a href="${rel}app/#/drafts">Your drafts</a>
       <a href="${rel}templates/">Templates</a>
@@ -337,7 +338,7 @@ export function footer(rel) {
       <a href="${rel}changelog.html">Changelog</a>
     </div>
     <div>
-      <h4>Learn</h4>
+      <h3>Learn</h3>
       <a href="${rel}docs/">Getting started</a>
       <a href="${rel}guides/">Guides</a>
       <a href="${rel}clauses/">Clause library</a>
@@ -347,7 +348,7 @@ export function footer(rel) {
       <a href="${rel}compare/">Compare</a>
     </div>
     <div>
-      <h4>Company</h4>
+      <h3>Company</h3>
       <a href="${rel}about/">About</a>
       <a href="${rel}customers/">Customers</a>
       <a href="${rel}why-clausery/">Why Clausery</a>
@@ -357,7 +358,7 @@ export function footer(rel) {
       <a href="${rel}contact/">Contact</a>
     </div>
     <div>
-      <h4>Legal</h4>
+      <h3>Legal</h3>
       <a href="${rel}legal/privacy.html">Privacy</a>
       <a href="${rel}legal/terms.html">Terms</a>
       <a href="${rel}legal/dpa.html">Data processing</a>

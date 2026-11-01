@@ -204,10 +204,24 @@ async function trialEnded() {
   // bought a plan in the meantime: nothing to say now, and nothing about the trial if that plan ever lapses
   if (plan.isPaid) return;
   countEvent('trial-ended');
+  // Personalise: count documents finished during the trial window so the user sees concrete value.
+  let docsMade = 0;
+  try {
+    const all = await store.all('drafts').catch(() => []);
+    const trialStart = trialRec.startedAt ? new Date(trialRec.startedAt).getTime() : 0;
+    for (const d of all || []) {
+      for (const h of (Array.isArray(d.history) ? d.history : [])) {
+        if ((h.kind === 'download' || h.kind === 'print' || h.kind === 'share') && (!trialStart || !h.at || new Date(h.at).getTime() >= trialStart)) docsMade++;
+      }
+    }
+  } catch {}
+  const intro = docsMade > 0
+    ? h('p', `You made ${docsMade} document${docsMade === 1 ? '' : 's'} during your trial. Everything is still here and keeps working; this browser is back on the Free plan, so these Pro features are paused:`)
+    : h('p', 'Everything you made is still here and keeps working. This browser is back on the Free plan, so these Pro features are paused:');
   modal({
-    title: 'Your free Pro trial has ended',
+    title: docsMade > 0 ? `Your Pro trial ended — ${docsMade} document${docsMade === 1 ? '' : 's'} ready` : 'Your free Pro trial has ended',
     body: h('div.stack',
-      h('p', 'Everything you made is still here and keeps working. This browser is back on the Free plan, so these Pro features are paused:'),
+      intro,
       h('ul.feature-list', Object.values(FEATURE_LABELS).map((f) => h('li', icon('lock', 16), f))),
       h('p.small', priceLine())),
     actions: [{ label: 'Stay on Free' }, { label: buyLabel(), primary: true, onClick: () => { ctx.checkout('pro'); return false; } }],
