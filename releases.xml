@@ -8,6 +8,14 @@
   <updated>2026-11-01T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.79.0 — "Send it" nudge after download: on mobile (any device with navigator.share for files), after downloading an invoice, quote or receipt the Review card adds a subtle "Now send it" hint pointing at the existing Share button — personalised with the client's first name when known. Pushes users into the natural next action (sending the document to their client), which reinforces habit and exposes the file to a second person via the share sheet.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-79-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-79-0</id>
+    <published>2026-11-01T00:00:00Z</published>
+    <updated>2026-11-01T00:00:00Z</updated>
+    <summary>&quot;Send it&quot; nudge after download: on mobile (any device with navigator.share for files), after downloading an invoice, quote or receipt the Review card adds a subtle &quot;Now send it&quot; hint pointing at the existing Share button — personalised with the client's first name when known. Pushes users into the natural next action (sending the document to their client), which reinforces habit and exposes the file to a second person via the share sheet.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.78.0 — Returning-user upgrade copy: the pre-download Free plan note and the post-download win notice now count how many library-template documents you have made and tailor their copy. After three downloads the pitch switches from the generic "Leave it out with a free trial" to "You've made N documents with Clausery — leave the line out permanently" — talking to the user whose behaviour already proves value. Trial-used users now link to the public pricing page (target=_blank) instead of a dead Settings anchor.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-78-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-78-0</id>
