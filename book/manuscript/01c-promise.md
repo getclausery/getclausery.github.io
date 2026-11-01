@@ -19,7 +19,7 @@ Most books promise more than they deliver, and the blurbs are written by people 
 
 ::scene
 
-**What it costs you.** Forty chapters. At ten minutes a chapter, the main argument is about seven hours — a long evening a week for two months, or a weekend and a half if you are the kind of person who reads a book the way other people take a course. The short path is three hours: chapters 1, 3, 13, 16, 22, 26, 31, and 32, then the conclusion. The triage-only path is forty minutes: chapter 32 and Appendix B.
+**What it costs you.** Forty chapters. At ten minutes a chapter, the main argument is about seven hours — a long evening a week for two months, or a weekend and a half if you are the kind of person who reads a book the way other people take a course. The short path is three hours: chapters 1, 2, 3, 13, 16, 22, 26, 31, and 32, then the conclusion. The triage-only path is forty minutes: chapter 32 and Appendix B.
 
 **What it asks of you.** Only what any argument asks: that you hold your objection in mind while the case is being made, and that you let it be answered before you decide it has not been.
 

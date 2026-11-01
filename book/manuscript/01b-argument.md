@@ -15,7 +15,7 @@ That sentence is the whole book. The observations are real: attention shapes per
 
 **The argument in eight steps.**
 
-**1. This is not a fringe.** It is a grammar that a generation learned before it learned the Creed — a vocabulary, a set of procedures, and a mood, distributed by feed and group chat. It is the first spiritual system most of its adherents ever met that told them their inner life mattered (chapters 1–2).
+**1. This is not a fringe.** It is a grammar that a generation learned before it learned the Creed — a vocabulary, a set of procedures, and a mood, distributed by feed and group chat. It is the first spiritual system most of its adherents ever met that told them their inner life mattered — and it is not ancient wisdom but a datable American product, whose every rule has an author (chapters 1–2).
 
 **2. It works, partly, because it is partly true.** Four of its observations are secure, and the Church has taught all four for longer than the movement has existed. What fails is the causal architecture — and the failure is not cosmetic, because it makes the creature into the creator and the sufferer into the author of her own suffering (chapters 3–4).
 
@@ -33,11 +33,12 @@ That sentence is the whole book. The observations are real: attention shapes per
 
 ::scene
 
-**The toolkit.** Eight instruments, each stated in one line, each portable enough to be used by someone who has not read the book.
+**The toolkit.** Nine instruments, each stated in one line, each portable enough to be used by someone who has not read the book.
 
 | Instrument | What it does | Where |
 |---|---|---|
 | **The Seven Rules** | The manifest space's grammar, stated in its own terms — refute one rule and six remain | ch. 2 |
+| **The Genealogy** | Every rule has an author and a date — and a system with a history can be converted | ch. 2 |
 | **The Six Moves** | Aquinas's method of reconstruction, translated into the work this book attempts | ch. 6 |
 | **The Four Tests** | Creator, grace, cross, Church — four questions that sort any claim | chs. 8–12 |
 | **The Fourteen Verdicts** | Integrate, correct, reject — applied claim by claim, with reasons | chs. 13–14 |

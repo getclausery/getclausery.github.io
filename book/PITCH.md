@@ -111,7 +111,7 @@ Then the practice, the programme, and the two chapters of objections from both s
 **Subtitle:** A Catholic Theology of Manifestation, and How the Church May Baptize an Age
 **Keywords:** manifestation, law of attraction, Neville Goddard, New Thought, Catholic theology, Aquinas, discernment of spirits, providence, novena, pastoral care, spiritual direction
 **BISAC:** REL010000 RELIGION / Christianity / Catholic · REL062000 RELIGION / Spirituality · OCC014000 BODY, MIND & SPIRIT / New Thought
-**Length:** 75,616 words · 40 chapters · 8 appendices · 308 typeset pages at 5.5 × 8.5 in
+**Length:** 75,663 words · 40 chapters · 8 appendices · 308 typeset pages at 5.5 × 8.5 in
 (set in Crimson Text 11/15 with mirrored margins and a 0.78 in gutter, front matter in
 roman folios, body from page 1, parts opening on a recto)
 
