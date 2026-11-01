@@ -78,10 +78,21 @@ export function applyPreset(template, answers, preset) {
   const list = preset.lines && fields.find((f) => f.type === 'repeat');
   if (!list) return out;
   const kids = (list.children || []).filter((c) => c.type !== 'computed').map((c) => c.key);
-  const [descKey, qtyKey] = [kids.find((k) => /name|description/.test(k)), kids.find((k) => /quantity|qty/.test(k))];
+  const descKey = kids.find((k) => /name|description/.test(k));
+  const qtyKey = kids.find((k) => /quantity|qty/.test(k));
+  // The unit-price (rate) child: first non-computed money/number child that isn't qty or desc — usually item_rate/unit_price.
+  const rateKey = kids.find((k) => k !== descKey && k !== qtyKey && (/rate|price|unit|amount/.test(k)) && !/total|subtotal|balance/.test(k));
   if (!descKey) return out;
   const blank = Object.fromEntries((list.children || []).filter((c) => c.type !== 'computed').map((c) => [c.key, c.default ?? (c.type === 'checkbox' ? false : '')]));
-  return { ...out, [list.key]: preset.lines.map(([desc, qty]) => ({ ...blank, [descKey]: desc, ...(qtyKey ? { [qtyKey]: qty } : {}) })) };
+  return { ...out, [list.key]: preset.lines.map((entry) => {
+    const desc = Array.isArray(entry) ? entry[0] : entry.desc || entry.description || entry.name || '';
+    const qty = Array.isArray(entry) ? entry[1] : (entry.qty ?? entry.quantity);
+    const rate = Array.isArray(entry) ? entry[2] : entry.rate;
+    const row = { ...blank, [descKey]: desc };
+    if (qtyKey && qty !== undefined && qty !== null && qty !== '') row[qtyKey] = qty;
+    if (rateKey && rate !== undefined && rate !== null && rate !== '' && rate !== 0) row[rateKey] = rate;
+    return row;
+  }) };
 }
 
 /** The sentence shown when a draft starts from a preset. */

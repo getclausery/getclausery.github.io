@@ -15,11 +15,13 @@ export class Router {
       e.preventDefault(); el.focus({ preventScroll: true }); el.scrollIntoView();
     });
   }
-  add(pattern, handler) { const keys = []; const rx = new RegExp('^' + pattern.replace(/:([\w]+)/g, (_, k) => { keys.push(k); return '([^/]+)'; }) + '/?$'); this.routes.push({ rx, keys, handler }); return this; }
-  path() { return location.hash.replace(/^#/, '') || '/'; }
+  add(pattern, handler) { const keys = []; const rx = new RegExp('^' + pattern.replace(/:([\w]+)/g, (_, k) => { keys.push(k); return '([^/?]+)'; }) + '/?$'); this.routes.push({ rx, keys, handler }); return this; }
+  path() { const h = location.hash.replace(/^#/, '') || '/'; const qi = h.indexOf('?'); return qi === -1 ? h : h.slice(0, qi); }
+  query() { const h = location.hash.replace(/^#/, ''); const qi = h.indexOf('?'); if (qi === -1) return {}; const out = {}; for (const pair of h.slice(qi + 1).split('&')) { const eq = pair.indexOf('='); if (eq === -1) { if (pair) out[decode(pair)] = ''; continue; } out[decode(pair.slice(0, eq))] = decode(pair.slice(eq + 1)); } return out; }
   go(path, replace = false) { if (replace) history.replaceState(null, '', '#' + path); else location.hash = path; if (replace) this.resolve(); }
   async resolve() {
     let path = this.path();
+    const query = this.query();
     if (!path.startsWith('/')) {
       if (this.current) return;   // a fragment such as #main: the browser scrolls to it, the view stays
       path = '/';                 // a bookmarked fragment on a cold load: land on the home route
@@ -31,9 +33,9 @@ export class Router {
     }
     for (const r of this.routes) {
       const m = r.rx.exec(path);
-      if (m) { const params = {}; r.keys.forEach((k, i) => { params[k] = decode(m[i + 1]); }); this.current = { path, params }; await r.handler(params, path); return; }
+      if (m) { const params = { ...query }; r.keys.forEach((k, i) => { params[k] = decode(m[i + 1]); }); this.current = { path, params }; await r.handler(params, path); return; }
     }
-    this.current = { path, params: {} };
+    this.current = { path, params: query };
     if (this.notFound) await this.notFound(path);
   }
 }

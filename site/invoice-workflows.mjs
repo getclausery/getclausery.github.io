@@ -86,6 +86,7 @@ const calculator = (rel) => `<h2 id="deposit-calculator-heading">Work out your d
   <div><label for="deposit-currency">Currency</label><select id="deposit-currency" name="currency"><option value="USD">US dollars</option><option value="GBP">British pounds</option><option value="EUR">Euros</option><option value="CAD">Canadian dollars</option><option value="AUD">Australian dollars</option><option value="NZD">New Zealand dollars</option><option value="ZAR">South African rand</option></select></div>
 </form>
 <p id="deposit-result" role="status" aria-live="polite"><strong>$600.00 deposit · $1,400.00 remaining</strong></p>
+<p style="margin:.85rem 0 0"><a id="deposit-open" class="btn btn-primary" href="${rel}app/#/start/invoice/deposit-invoice">Open a deposit invoice for this amount <span class="arr">→</span></a></p>
 <noscript><p>Without JavaScript: deposit = agreed amount × percentage ÷ 100. Remaining balance = agreed amount − deposit.</p></noscript></div>
 <script type="module" src="${rel}invoice-templates/deposit-calculator.js"></script>`;
 

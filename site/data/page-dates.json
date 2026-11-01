@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-11-01",
-  "hash": "f676697458032542"
+  "hash": "76a14f0bf905473d"
  },
  "clauses/": {
   "date": "2026-10-31",
@@ -572,8 +572,8 @@
   "hash": "0f454db6569fd1b7"
  },
  "invoice-templates/": {
-  "date": "2026-10-31",
-  "hash": "8a64ac7132e7df65"
+  "date": "2026-11-01",
+  "hash": "77a7b1f1e4b5cf84"
  },
  "invoice-templates/australia-tax-invoice.html": {
   "date": "2026-10-31",
@@ -604,8 +604,8 @@
   "hash": "0ae970efc65e1062"
  },
  "invoice-templates/deposit-invoice.html": {
-  "date": "2026-10-09",
-  "hash": "8b388efc15978b72"
+  "date": "2026-11-01",
+  "hash": "71f8e4ba942161cb"
  },
  "invoice-templates/editable-invoice.html": {
   "date": "2026-10-31",
