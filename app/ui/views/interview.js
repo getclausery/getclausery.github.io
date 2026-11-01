@@ -339,6 +339,19 @@ export async function render(ctx, { id }) {
           h('button.btn', { type: 'button', onclick: openBulk }, icon('table', 16), 'From a spreadsheet')),
         creditNote, winNote, trialActiveNote, trialExpiringNote, sendHint,
         h('p.small.muted', { style: { marginTop: '1rem', marginBottom: 0 } }, 'The Word file is assembled in your browser from the template and these answers. Nothing is uploaded. This draft stays saved here, so you can change any answer and download it again later.')),
+      // Overdue reminder banner: shows at the top of Review for invoices that are sent + past due, giving the
+      // reminder email one prominent place alongside the existing "Send reminder" button in the status card.
+      (() => {
+        if (!isInvoiceLike(template) || template.kind === 'receipt' || draft.status !== 'sent' || draft.paidAt) return null;
+        const due = draft.answers.due_date ? new Date(draft.answers.due_date + 'T00:00:00') : null;
+        if (!due) return null;
+        const daysOverdue = daysBetween(due.toISOString(), new Date().toISOString());
+        if (daysOverdue <= 0) return null;
+        return h('div.notice.notice-warn', { style: { marginTop: '1rem' } }, icon('warn'), h('div',
+          h('strong', `This invoice is ${daysOverdue} day${daysOverdue === 1 ? '' : 's'} overdue. `),
+          `Sent ${draft.sentAt ? new Date(draft.sentAt).toLocaleDateString() : ''}, due ${due.toLocaleDateString()}. `,
+          h('button.btn.btn-sm', { type: 'button', onclick: openReminderEmail, style: { marginLeft: '.4rem' } }, icon('mail', 13), ' Send a reminder email')));
+      })(),
       paymentControls(),
       h('div.card',
         h('h3', 'Answers'),

@@ -8,6 +8,14 @@
   <updated>2026-11-01T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.84.0 — Overdue-invoice reminder banner: when you open a sent invoice that is past its due date, the Review card now shows an orange notice at the top saying how many days overdue it is, with a one-click "Send a reminder email" button. Surfaces the reminder action the moment you return to an overdue draft, instead of requiring you to notice the small badge in the Invoice status card.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-84-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-84-0</id>
+    <published>2026-11-01T00:00:00Z</published>
+    <updated>2026-11-01T00:00:00Z</updated>
+    <summary>Overdue-invoice reminder banner: when you open a sent invoice that is past its due date, the Review card now shows an orange notice at the top saying how many days overdue it is, with a one-click &quot;Send a reminder email&quot; button. Surfaces the reminder action the moment you return to an overdue draft, instead of requiring you to notice the small badge in the Invoice status card.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.83.0 — "New invoice for this client" shortcut: after you mark an invoice sent or paid, the invoice status card now shows a one-click "New invoice for [Client]" button that starts a new invoice pre-filled with that client's details (name, address, project reference, PO number) on top of your usual remembered business details, next invoice number and today's date; line items, totals and per-invoice fields start blank. Turns the most common repeat-invoice workflow (same client, new amount) from "duplicate draft → clear line items → increment number → update date" into a single click.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-83-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-83-0</id>
