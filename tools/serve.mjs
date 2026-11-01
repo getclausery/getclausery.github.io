@@ -5,8 +5,11 @@ import { readFile, stat } from 'node:fs/promises';
 import { join, extname, resolve, sep } from 'node:path';
 
 const port = parseInt(process.argv[2] || process.env.PORT || '4173', 10);
+// Bind to all interfaces by default so the sandbox preview proxy (which reaches the container from outside)
+// can connect; 127.0.0.1 stays reachable from inside the container for Playwright.
+const host = process.env.HOST || '0.0.0.0';
 const root = resolve(new URL('..', import.meta.url).pathname);
-const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json', '.webmanifest': 'application/manifest+json', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.ico': 'image/x-icon', '.docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', '.txt': 'text/plain; charset=utf-8', '.xml': 'application/xml', '.woff2': 'font/woff2', '.map': 'application/json' };
+const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json', '.webmanifest': 'application/manifest+json', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.ico': 'image/x-icon', '.pdf': 'application/pdf', '.epub': 'application/epub+zip', '.webp': 'image/webp', '.avif': 'image/avif', '.md': 'text/markdown; charset=utf-8', '.docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', '.txt': 'text/plain; charset=utf-8', '.xml': 'application/xml', '.woff2': 'font/woff2', '.map': 'application/json' };
 
 createServer(async (req, res) => {
   try {
@@ -20,4 +23,4 @@ createServer(async (req, res) => {
     res.writeHead(200, { 'Content-Type': TYPES[extname(file)] || 'application/octet-stream', 'Cache-Control': 'no-cache', 'X-Content-Type-Options': 'nosniff' });
     res.end(body);
   } catch (e) { res.writeHead(500); res.end(String(e)); }
-}).listen(port, '127.0.0.1', () => console.log(`serving ${root} at http://127.0.0.1:${port}/`));
+}).listen(port, host, () => console.log(`serving ${root} at http://${host}:${port}/`));
