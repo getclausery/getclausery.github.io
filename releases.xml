@@ -8,6 +8,14 @@
   <updated>2026-11-01T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.75.0 — Post-download "win moment" upgrade nudge: right after your document finishes downloading (or sharing), the Review & generate card shows a subtle sparkle notice offering the free 14-day Pro trial — the exact moment you just confirmed the product works. The pre-download "Free plan: Made with Clausery" note swaps out for the win notice once you download, so the ask is earned rather than pre-emptive, and clears itself the moment you edit an answer.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-75-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-75-0</id>
+    <published>2026-11-01T00:00:00Z</published>
+    <updated>2026-11-01T00:00:00Z</updated>
+    <summary>Post-download &quot;win moment&quot; upgrade nudge: right after your document finishes downloading (or sharing), the Review &amp; generate card shows a subtle sparkle notice offering the free 14-day Pro trial — the exact moment you just confirmed the product works. The pre-download &quot;Free plan: Made with Clausery&quot; note swaps out for the win notice once you download, so the ask is earned rather than pre-emptive, and clears itself the moment you edit an answer.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.74.0 — Demo→app handoff: the home-page invoice demo and the deposit-invoice calculator now carry the numbers you just typed straight into your first invoice draft. When you click "Make my real invoice" after trying rate×hours×tax in the demo, the first line, quantity, unit price and tax rate open pre-filled so the total you saw is the total in your draft — no retyping. Same on the deposit-invoice calculator: "Open a deposit invoice for this amount" stamps the deposit into the unit price so you download instead of copy-pasting.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-74-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-74-0</id>
