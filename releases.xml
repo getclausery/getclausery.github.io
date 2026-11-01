@@ -8,6 +8,14 @@
   <updated>2026-11-01T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.73.1 — Follow-up mobile fixes: added viewport-fit=cover on LIB pages (matches app pages) so env(safe-area-inset-bottom) actually applies to the sticky "Fill it in" CTA on iPhones; added global table{max-width:100%;width:100%;border-collapse:collapse} and td/th{word-break:break-word;min-width:0} so any unwrapped table compresses instead of forcing horizontal scroll.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-73-1"/>
+    <id>https://getclausery.github.io/changelog.html#v2-73-1</id>
+    <published>2026-11-01T00:00:00Z</published>
+    <updated>2026-11-01T00:00:00Z</updated>
+    <summary>Follow-up mobile fixes: added viewport-fit=cover on LIB pages (matches app pages) so env(safe-area-inset-bottom) actually applies to the sticky &quot;Fill it in&quot; CTA on iPhones; added global table{max-width:100%;width:100%;border-collapse:collapse} and td/th{word-break:break-word;min-width:0} so any unwrapped table compresses instead of forcing horizontal scroll.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.73.0 — Mobile UI fixes and above-the-fold conversion lift: iOS 16px input fix to stop zoom-on-focus; tightened hero-demo invoice columns for phones under 420px; safe-area-aware sticky CTA on template pages; hero-trust grid collapses to 2 columns on mobile; replaced the secondary CTA with a "See it work in 10 seconds" anchor to the live demo; added an explicit "Free forever · no credit card · no account · nothing uploaded" reassurance line under the primary CTA.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-73-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-73-0</id>
