@@ -277,7 +277,10 @@ export async function render(ctx, { id }) {
         renderReview();
       } catch (e) { if (e && e.name === 'AbortError') return; fail(e); }
     };
-    const trialUnused = ctx.trial.state().status === 'unused';
+    const trialNow = ctx.trial.state();
+    const trialUnused = trialNow.status === 'unused';
+    const trialExpiringNote = (ctx.plan.isTrial && trialNow.status === 'active' && trialNow.daysLeft <= 3) ? h('div.notice.notice-warn', { style: { marginTop: '1rem' } }, icon('clock'), h('div.small',
+      h('strong', `Your Pro trial ends ${trialNow.daysLeft === 1 ? 'tomorrow' : 'in ' + trialNow.daysLeft + ' days'}. `), 'Everything you made stays here; when the trial ends the "Made with Clausery" line returns. ', h('a', { href: '../pricing/', target: '_blank', rel: 'noopener' }, 'Keep Pro'), ' to keep unbranded documents and bulk features.')) : null;
     // Tailor the copy: returning users who've made several documents get a firmer value line
     // (you're clearly using this — Pro removes the credit and unlocks repeat-use tools); first-timers get gentler copy.
     const repeat = libDocsMade >= 3;
@@ -316,7 +319,7 @@ export async function render(ctx, { id }) {
         h('div.row', { style: { marginTop: '1rem' } }, h('button.btn.btn-primary.btn-lg', { type: 'button', onclick: generate }, icon('download', 18), 'Download .docx'), previewBtn, printBtn,
           canShareFiles() ? h('button.btn', { type: 'button', onclick: share }, icon('share', 16), 'Share…') : null,
           h('button.btn', { type: 'button', onclick: openBulk }, icon('table', 16), 'From a spreadsheet')),
-        creditNote, winNote, trialActiveNote, sendHint,
+        creditNote, winNote, trialActiveNote, trialExpiringNote, sendHint,
         h('p.small.muted', { style: { marginTop: '1rem', marginBottom: 0 } }, 'The Word file is assembled in your browser from the template and these answers. Nothing is uploaded. This draft stays saved here, so you can change any answer and download it again later.')),
       paymentControls(),
       h('div.card',
