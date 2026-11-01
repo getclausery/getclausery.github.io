@@ -62,9 +62,10 @@ export const pages = [{
       </ul>
       <div class="actions">
         <a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make my free invoice <span class="arr">→</span></a>
-        <a class="btn btn-lg" href="${rel}templates/">Browse ${LIB.length} free templates</a>
+        <a class="btn btn-lg" href="#try-it">See it work in 10 seconds</a>
       </div>
-      <p class="small" style="margin-top:.75rem">Or start with a <a href="${rel}app/#/start/quote">quote</a> · <a href="${rel}app/#/start/receipt">receipt</a> · <a href="${rel}business-document-kit/">free 6-template business kit</a> · <a href="${rel}templates/invoice.html">what to put on an invoice</a></p>
+      <p class="small" style="margin-top:.75rem;color:var(--muted)">Free forever · no credit card · no account · nothing uploaded</p>
+      <p class="small" style="margin-top:.5rem">Or start with a <a href="${rel}app/#/start/quote">quote</a> · <a href="${rel}app/#/start/receipt">receipt</a> · <a href="${rel}business-document-kit/">free 6-template business kit</a> · <a href="${rel}templates/invoice.html">what to put on an invoice</a></p>
       <div class="proof">
         <span>${ico(I.check)} No email, no password</span>
         <span>${ico(I.check)} Downloads as a normal Word file</span>
@@ -81,7 +82,7 @@ export const pages = [{
         <span>No ads, no tracking cookies</span>
       </div>
     </div>
-    <figure class="shot" style="margin:0">
+    <figure class="shot" id="try-it" style="margin:0">
             <div class="hero-demo" aria-label="Interactive preview — fill in three fields and watch the invoice total update live">
         <div class="demo-q">
           <p class="demo-label">${ico(I.bolt)} Try it live</p>
@@ -171,6 +172,16 @@ export const pages = [{
   .demo-inv{order:1;border-radius:20px 20px 0 0;padding:1.15rem 1.2rem 1rem}
   .demo-cta-sm{margin-top:.6rem}
   .demo-foot{margin-top:.5rem}
+}
+@media (max-width:420px){
+  .demo-inv{font-size:.68rem;padding:1rem 1rem .9rem}
+  .inv-row{grid-template-columns:minmax(0,1fr) 34px 48px 70px;gap:.35rem}
+  .inv-meta{gap:.35rem}
+  .inv-meta span{padding:.12rem .3rem;font-size:.6rem}
+  .inv-head strong{font-size:1.2rem}
+  .inv-total .amt{font-size:1.05rem}
+  .hero-trust{grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}
+  .hero-trust li{padding:.6rem .6rem}
 }
 .hero .btn-primary{transition:transform .12s,box-shadow .12s,background .15s;box-shadow:0 4px 14px -4px rgba(15,118,110,.5)}
 
