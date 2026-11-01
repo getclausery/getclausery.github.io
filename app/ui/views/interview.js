@@ -298,6 +298,14 @@ export async function render(ctx, { id }) {
       h('div.row', { style: { marginTop: '.75rem', gap: '.6rem', flexWrap: 'wrap' } },
         h('button.btn.btn-primary.btn-sm', { type: 'button', onclick: downloadUnbranded }, icon('download', 14), ' Download unbranded .docx'),
         h('span.small.muted', 'Also: bulk from spreadsheet, encrypted backup, unlimited custom templates.')))) : null;
+    // Post-download "send it" hint: after a successful download of an invoice/quote/receipt on a device
+    // that supports file sharing (mobile), offer a one-tap Share… nudge. This is the natural next
+    // action and (on mobile) exposes the app to the client via the share sheet without a new button.
+    const canShare = canShareFiles();
+    const isSendable = /invoice|quote|receipt|bill/i.test(template.name || '');
+    const hasClient = draft.answers && draft.answers.client_name;
+    const sendHint = justDownloaded && canShare && isSendable ? h('div.notice', { style: { marginTop: '.75rem' } }, icon('share', 16), h('div.small',
+      h('strong', 'Now send it. '), hasClient ? `Tap Share to send this ${template.name.toLowerCase()} straight to ${String(draft.answers.client_name).split(/\s+/)[0]} via Mail, WhatsApp, Slack or Drive.` : 'Tap Share to send it via Mail, WhatsApp, Slack or save it to Drive.')) : null;
     const answered = template.fields.filter((f) => f.type !== 'computed' && f.type !== 'repeat' && ev.visible[f.key] !== false && draft.answers[f.key] !== '' && draft.answers[f.key] != null).length;
     const totalQ = template.fields.filter((f) => f.type !== 'computed' && f.type !== 'repeat' && ev.visible[f.key] !== false).length;
     setChildren(bodyEl, h('div.stack',
@@ -308,7 +316,7 @@ export async function render(ctx, { id }) {
         h('div.row', { style: { marginTop: '1rem' } }, h('button.btn.btn-primary.btn-lg', { type: 'button', onclick: generate }, icon('download', 18), 'Download .docx'), previewBtn, printBtn,
           canShareFiles() ? h('button.btn', { type: 'button', onclick: share }, icon('share', 16), 'Share…') : null,
           h('button.btn', { type: 'button', onclick: openBulk }, icon('table', 16), 'From a spreadsheet')),
-        creditNote, winNote, trialActiveNote,
+        creditNote, winNote, trialActiveNote, sendHint,
         h('p.small.muted', { style: { marginTop: '1rem', marginBottom: 0 } }, 'The Word file is assembled in your browser from the template and these answers. Nothing is uploaded. This draft stays saved here, so you can change any answer and download it again later.')),
       paymentControls(),
       h('div.card',
