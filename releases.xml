@@ -8,6 +8,14 @@
   <updated>2026-11-01T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.78.0 — Returning-user upgrade copy: the pre-download Free plan note and the post-download win notice now count how many library-template documents you have made and tailor their copy. After three downloads the pitch switches from the generic "Leave it out with a free trial" to "You've made N documents with Clausery — leave the line out permanently" — talking to the user whose behaviour already proves value. Trial-used users now link to the public pricing page (target=_blank) instead of a dead Settings anchor.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-78-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-78-0</id>
+    <published>2026-11-01T00:00:00Z</published>
+    <updated>2026-11-01T00:00:00Z</updated>
+    <summary>Returning-user upgrade copy: the pre-download Free plan note and the post-download win notice now count how many library-template documents you have made and tailor their copy. After three downloads the pitch switches from the generic &quot;Leave it out with a free trial&quot; to &quot;You've made N documents with Clausery — leave the line out permanently&quot; — talking to the user whose behaviour already proves value. Trial-used users now link to the public pricing page (target=_blank) instead of a dead Settings anchor.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.77.0 — Trial activation moment: after starting a free Pro trial from the post-download win notice, the credit note and win notice swap out for a green "Pro trial is active" panel with a one-click "Download unbranded .docx" primary button. This converts a trial-start into an immediate unbranded download — the activation event that actually teaches the user what Pro delivers, instead of leaving them to figure out they need to press Download again.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-77-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-77-0</id>

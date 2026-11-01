@@ -57,9 +57,9 @@ function livePreviewWanted() {
 }
 
 export async function render(ctx, { id }) {
-  const draft = await ctx.drafts.get(id);
+  const [draft, allDrafts, templates] = await Promise.all([ctx.drafts.get(id), ctx.drafts.list(), ctx.templates.list()]);
   if (!draft) { setChildren(ctx.main, h('div.empty', h('h2', 'Draft not found'), h('a.btn', { href: '#/drafts' }, 'Back to drafts'))); return; }
-  const template = await ctx.templates.get(draft.templateId);
+  const template = templates.find((t) => t.id === draft.templateId);
   if (!template) { setChildren(ctx.main, h('div.empty', h('h2', 'The template for this draft was deleted'), h('p', 'The answers are still stored. Re-import the template pack or delete the draft.'), h('a.btn', { href: '#/drafts' }, 'Back to drafts'))); return; }
   const bytes = await ctx.templates.getFile(template.id);
   setTitle(draft.title || template.name);
@@ -67,6 +67,14 @@ export async function render(ctx, { id }) {
   // made while this draft is open applies straight away
   const credited = () => !!template.sample && !ctx.plan.can('unbranded');
   const opts = () => ({ credit: credited() });
+  // Count how many library-template documents this user has ever downloaded, to surface a
+  // more persuasive upgrade nudge once they have repeated the action a few times.
+  const tmap = new Map(templates.map((t) => [t.id, t]));
+  const libDocsMade = allDrafts.reduce((n, d) => {
+    const tt = tmap.get(d.templateId);
+    if (!tt || !tt.sample) return n;
+    return n + (Array.isArray(d.history) ? d.history.filter((h) => h.kind === 'download' || h.kind === 'print' || h.kind === 'share').length : 0);
+  }, 0);
 
   const steps = [...template.sections.map((s) => ({ id: s.id, title: s.title, description: s.description })), { id: '__review', title: 'Review & generate' }];
   let stepIndex = Math.max(0, Math.min(steps.length - 1, Number(sessionStorage.getItem('clausery.step.' + id)) || 0));
@@ -270,14 +278,21 @@ export async function render(ctx, { id }) {
       } catch (e) { if (e && e.name === 'AbortError') return; fail(e); }
     };
     const trialUnused = ctx.trial.state().status === 'unused';
-    const creditNote = (credited() && !justDownloaded && !justStartedTrial) ? h('div.notice#credit-note', { style: { marginTop: '1rem' } }, icon('info'), h('div.small',
-      h('strong', 'Free plan: '), 'documents from library templates end with a small “Made with Clausery” line. ',
-      trialUnused ? [h('a', { href: '#', onclick: startTrial }, `Leave it out with a free ${TRIAL_DAYS}-day Pro trial`), ' (no card needed).']
-        : [h('a', { href: '#/settings' }, 'Leave it out with Pro'), '.'])) : null;
-    const winNote = (justDownloaded && !justStartedTrial) ? h('div.notice.notice-info', { style: { marginTop: '1rem' } }, icon('sparkle'), h('div.small',
-      h('strong', 'Your document is ready. '), trialUnused
-        ? ['Want the “Made with Clausery” line gone, plus bulk-from-spreadsheet, encryption and your own templates? ', h('a', { href: '#', onclick: startTrial }, `Start a free ${TRIAL_DAYS}-day Pro trial`), ' — no card, nothing renews. Download again to get the unbranded file.']
-        : ['Want the “Made with Clausery” line gone? ', h('a', { href: '#/settings' }, 'Upgrade to Pro'), '.'])) : null;
+    // Tailor the copy: returning users who've made several documents get a firmer value line
+    // (you're clearly using this — Pro removes the credit and unlocks repeat-use tools); first-timers get gentler copy.
+    const repeat = libDocsMade >= 3;
+    const creditPitch = trialUnused
+      ? (repeat
+          ? [h('strong', `You've made ${libDocsMade} documents with Clausery. `), 'Leave the “Made with” line out permanently, send invoices from a spreadsheet and back up encrypted — ', h('a', { href: '#', onclick: startTrial }, `try Pro free for ${TRIAL_DAYS} days`), ' (no card).']
+          : [h('strong', 'Free plan: '), 'documents end with a small “Made with Clausery” line. ', h('a', { href: '#', onclick: startTrial }, `Leave it out with a free ${TRIAL_DAYS}-day Pro trial`), ' (no card needed).'])
+      : [h('strong', 'Free plan: '), 'documents end with a “Made with Clausery” line. ', h('a', { href: '../pricing/', target: '_blank', rel: 'noopener' }, 'Upgrade to Pro'), ' to remove it.'];
+    const creditNote = (credited() && !justDownloaded && !justStartedTrial) ? h('div.notice#credit-note', { style: { marginTop: '1rem' } }, icon('info'), h('div.small', creditPitch)) : null;
+    const winPitch = trialUnused
+      ? (repeat
+          ? ['You are using Clausery regularly. Want clean, unbranded documents plus bulk-from-spreadsheet, encrypted backup and unlimited custom templates? ', h('a', { href: '#', onclick: startTrial }, `Start a free ${TRIAL_DAYS}-day Pro trial`), ' — no card, nothing renews.']
+          : ['Want the “Made with Clausery” line gone, plus bulk-from-spreadsheet, encryption and your own templates? ', h('a', { href: '#', onclick: startTrial }, `Start a free ${TRIAL_DAYS}-day Pro trial`), ' — no card, nothing renews.'])
+      : ['Want the “Made with Clausery” line gone permanently? ', h('a', { href: '../pricing/', target: '_blank', rel: 'noopener' }, 'Upgrade to Pro'), '.'];
+    const winNote = (justDownloaded && !justStartedTrial) ? h('div.notice.notice-info', { style: { marginTop: '1rem' } }, icon('sparkle'), h('div.small', h('strong', 'Your document is ready. '), winPitch)) : null;
     const trialActiveNote = justStartedTrial ? h('div.notice.notice-ok', { style: { marginTop: '1rem' } }, icon('check'), h('div',
       h('strong', 'Pro trial is active. '), h('span.small', `Your documents won't include the "Made with Clausery" line for the next ${TRIAL_DAYS} days.`),
       h('div.row', { style: { marginTop: '.75rem', gap: '.6rem', flexWrap: 'wrap' } },
