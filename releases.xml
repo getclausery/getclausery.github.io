@@ -5,8 +5,16 @@
   <link rel="self" href="https://getclausery.github.io/releases.xml"/>
   <link rel="alternate" href="https://getclausery.github.io/changelog.html"/>
   <id>https://getclausery.github.io/changelog.html</id>
-  <updated>2026-10-31T00:00:00Z</updated>
+  <updated>2026-11-01T00:00:00Z</updated>
   <author><name>Clausery</name></author>
+  <entry>
+    <title>Clausery v2.73.0 — Mobile UI fixes and above-the-fold conversion lift: iOS 16px input fix to stop zoom-on-focus; tightened hero-demo invoice columns for phones under 420px; safe-area-aware sticky CTA on template pages; hero-trust grid collapses to 2 columns on mobile; replaced the secondary CTA with a "See it work in 10 seconds" anchor to the live demo; added an explicit "Free forever · no credit card · no account · nothing uploaded" reassurance line under the primary CTA.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-73-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-73-0</id>
+    <published>2026-11-01T00:00:00Z</published>
+    <updated>2026-11-01T00:00:00Z</updated>
+    <summary>Mobile UI fixes and above-the-fold conversion lift: iOS 16px input fix to stop zoom-on-focus; tightened hero-demo invoice columns for phones under 420px; safe-area-aware sticky CTA on template pages; hero-trust grid collapses to 2 columns on mobile; replaced the secondary CTA with a &quot;See it work in 10 seconds&quot; anchor to the live demo; added an explicit &quot;Free forever · no credit card · no account · nothing uploaded&quot; reassurance line under the primary CTA.</summary>
+  </entry>
   <entry>
     <title>Clausery v2.72.0 — Free-tools → hub cross-links: every free-tool page that mentions a Word template now links to the matching what-to-include hub (freelance rate → freelance/web-design/consulting/VA contract guides; template checker → independent contractor agreement; invoice due date, prorated rent, sales commission → their respective template guides), so calculator visitors can pivot directly into drafting guidance.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-72-0"/>
