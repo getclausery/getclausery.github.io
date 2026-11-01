@@ -315,3 +315,4 @@ details.section > .section-body { padding: 0 1rem 1rem; }
 #clausery-copyguard a:hover { color: #fff !important; }
 body { padding-top: 0; }
 html[data-copyguard] body { padding-top: 52px; }
+.nav-badge{margin-left:auto;background:var(--danger);color:#fff;font-size:.65rem;font-weight:700;padding:.05rem .35rem;border-radius:999px;min-width:1.1rem;text-align:center;line-height:1.3}@media(max-width:760px){.nav-badge{margin-left:0;font-size:.6rem;padding:0 .25rem;position:absolute;top:-.1rem;right:-.1rem}.sidenav a{position:relative}}
