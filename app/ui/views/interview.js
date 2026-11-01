@@ -509,9 +509,19 @@ export async function render(ctx, { id }) {
     return out;
   }
   function openReminderEmail() {
-    const subj = encodeURIComponent(invoiceSummary());
-    const body = encodeURIComponent(`Hi${draft.answers.client_name ? ' ' + draft.answers.client_name : ''},\n\nJust a friendly reminder that ${invoiceSummary()} is due${draft.answers.due_date ? ' on ' + draft.answers.due_date : ''}. I've attached the invoice.\n\nThanks!\n`);
-    location.href = `mailto:?subject=${subj}&body=${body}`;
+    const to = draft.answers.client_email ? encodeURIComponent(draft.answers.client_email) : '';
+    const overdueDays = (() => {
+      const due = draft.answers.due_date ? new Date(draft.answers.due_date + 'T00:00:00') : null;
+      if (!due) return 0;
+      return Math.max(0, daysBetween(due.toISOString(), new Date().toISOString()));
+    })();
+    const invNum = draft.answers.invoice_number ? ' #' + draft.answers.invoice_number : '';
+    const balance = draft.answers.balance_due || draft.answers.invoice_total || '';
+    const amountLine = balance ? ` The balance due is ${balance}.` : '';
+    const overdueLine = overdueDays > 0 ? ` — it was due on ${draft.answers.due_date} (${overdueDays} day${overdueDays === 1 ? '' : 's'} ago)` : (draft.answers.due_date ? ` on ${draft.answers.due_date}` : '');
+    const subj = encodeURIComponent(`Reminder: Invoice${invNum}${overdueDays > 0 ? ' (overdue)' : ''}`);
+    const body = encodeURIComponent(`Hi${draft.answers.client_name ? ' ' + draft.answers.client_name : ''},\n\nJust a friendly reminder about invoice${invNum}${overdueLine}.${amountLine} I've attached the invoice.\n\nThanks!\n`);
+    location.href = `mailto:${to}?subject=${subj}&body=${body}`;
   }
   function paymentControls() {
     if (!isInvoiceLike(template) || template.kind === 'receipt') return null;
