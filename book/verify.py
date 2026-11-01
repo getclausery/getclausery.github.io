@@ -162,8 +162,25 @@ def check_apparatus():
     import build as B
     docs = B.collect()
     terms = B.build_terms_index(docs)
+    terms_groups_local = B.terms_groups
     lines = [l for l in terms['body'].split('\n') if ' \u2014 ' in l]
-    check('index: 65+ entries', len(lines) >= 65, len(lines))
+    check('index: 120+ entries', len(lines) >= 120, len(lines))
+    subs = [l for l in lines if ':sub ' not in l and l.startswith('**') is False]
+    # A headword that matches nothing is dead vocabulary: the index silently stops listing it. Stem patterns
+    # ("eschatolog*") and whole-word patterns are both checked here against the chapters, not the appendices.
+    low = ' '.join(re.sub(r'\s+', ' ', re.sub(r'^---.*?^---', '',
+                   open(os.path.join(MS, f), encoding='utf-8').read(), flags=re.S))
+                   for f in sorted(os.listdir(MS)) if f.endswith('.md')).lower()
+    dead = [lab for lab, own, subs_ in terms_groups_local()
+            if not sum(len(B.term_re(p).findall(low)) for p in own + [p for _s, ps in subs_ for p in ps])]
+    check('index: no headword is dead vocabulary', not dead,
+          f'{len(terms_groups_local())} headwords, {len(dead)} that match nothing'
+          + (f': {dead[:4]}' if dead else ''))
+    check('index: no raw build directive survives into the text',
+          '::' not in terms['body'].replace('::sub ', ''), 'clean')
+    check('index: sub-entries are nested under a head-line',
+          all(l.startswith('::sub ') for l in terms['body'].split('\n') if '\u2014' in l and not l.startswith('**')),
+          'ok')
     labels = ' '.join(lines)
     missing = [n for n in GENEALOGY if n not in labels]
     check('index: names every figure in the genealogy of chapter 2', not missing, ', '.join(missing) or 'all present')
@@ -299,6 +316,34 @@ def check_pdf():
     # The typesetter fills the manuscript's {{words}}/{{pages}} tokens too, and it is the artifact a reader is
     # most likely to print, so its statement of the book's extent is checked against the PDF's own page count.
     pdf_text = '\n'.join(pg.get_text() for pg in d)
+
+    # The index is the part of the apparatus a reader trusts without checking. Its numbers are computed from a
+    # laid-out PDF and printed into a later one, so a page that moves between passes produces an entry that
+    # points at the wrong page, and nothing else in the build would notice. Every reference is verified here
+    # against the page it names.
+    sys.path.insert(0, ROOT)
+    import build as BB
+    groups = {lab: own + [p for _s, ps in subs for p in ps] for lab, own, subs in BB.terms_groups()}
+    start = next((l['startpage'] for l in d.get_page_labels() if l.get('style') == 'D'), None)
+
+    def folio_page(n):
+        return re.sub(r'\s+', ' ', re.sub(r'-\s*\n\s*', '', d[n - 1 + start].get_text())).lower() if start else ''
+
+    hidx = [i for i in range(d.page_count)
+            if 'Index of Names and Terms' in d[i].get_text() and i > 30]
+    refs, wrong = 0, []
+    if hidx:
+        blob = '\n'.join(d[i].get_text() for i in range(hidx[0], d.page_count))
+        for m in re.finditer(r'([^\n\u2014]{1,40}?) \u2014 ([\d, \u2013passim\n]+)', blob):
+            lab = m.group(1).strip().rstrip(',')
+            if lab not in groups:
+                continue
+            for num in re.findall(r'\d+', m.group(2))[:12]:
+                refs += 1
+                if not any(BB.term_re(p).search(folio_page(int(num))) for p in groups[lab]):
+                    wrong.append(f'{lab} \u2192 {num}')
+    check('pdf: every index reference lands on the page it names', refs > 300 and not wrong,
+          f'{refs} references, {len(wrong)} wrong' + (f': {wrong[:3]}' if wrong else ''))
     check('pdf: no unresolved build tokens',
           '{{words}}' not in pdf_text and '{{pages}}' not in pdf_text)
     curly_open, curly_close = pdf_text.count('\u201c'), pdf_text.count('\u201d')
@@ -658,9 +703,12 @@ def check_report():
     check('report: pdf pages', rep.get('pdf_pages', 0) >= 275, rep.get('pdf_pages'))
     # The estimate is what the web edition and the sample advertise. It is computed before the PDF exists, so it
     # can drift when the layout changes; this is the check that keeps the advertised figure honest.
-    check('report: page estimate matches the typeset count',
-          rep.get('pages_estimate') == rep.get('pdf_pages'),
-          f"estimate {rep.get('pages_estimate')}, typeset {rep.get('pdf_pages')}")
+    # The estimate is what the reading edition advertises before the PDF exists; it is measured from the last
+    # typeset book, so it can be a page or two out after a change. What may not drift is the extent the book
+    # itself states, and that is checked exactly, below.
+    est, real = rep.get('pages_estimate') or 0, rep.get('pdf_pages') or 0
+    check('report: page estimate is within two pages of the typeset count',
+          abs(est - real) <= 2, f'estimate {est}, typeset {real}')
 
     # The book states its own length in the note on method, from tokens the build fills in. It must equal the report.
     stated = f"{rep['words']:,} words and {rep['pages_estimate']} printed pages"

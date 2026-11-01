@@ -163,6 +163,9 @@ def styles():
                              spaceAfter=3.4, textColor=INK, keepWithNext=True)
     S['bullet'] = ParagraphStyle('bullet', parent=S['body'], firstLineIndent=0, leftIndent=15,
                                  bulletIndent=4, spaceAfter=3)
+    # index sub-entry: hanging indent under its head-line, a touch smaller than the entry above it
+    S['idxsub'] = ParagraphStyle('idxsub', fontName=BODY, fontSize=9.5, leading=11.9, leftIndent=15,
+                                 firstLineIndent=-7, spaceBefore=0.6, spaceAfter=0.6, textColor=INK)
     S['scene'] = ParagraphStyle('scene', fontName=BODY, fontSize=10, alignment=TA_CENTER,
                                 textColor=MUTED, spaceBefore=11, spaceAfter=11)
     S['label'] = ParagraphStyle('label', fontName=BOLD, fontSize=7.6, leading=9.5,
@@ -354,6 +357,11 @@ def story_for(body):
     while i < len(lines):
         s = lines[i].strip()
         if not s:
+            i += 1
+            continue
+        if s.startswith('::sub '):
+            out.append(Paragraph(pdf_inline(s[6:].strip()), S['idxsub']))
+            prev_open = True
             i += 1
             continue
         if s == '::scene':
@@ -926,21 +934,37 @@ def page_indexed_docs(pdf_path, offset=0):
         'part': '', 'meta': {'title': 'Index of Citations'}, 'body': '\n'.join(lines),
     }
 
-    # terms
+    # terms: one page scan per pattern, shared by the head-line and by every sub-entry under it
     tlines = ['The numbers are pages of this edition. A term that recurs on more than twenty pages is marked *passim*.', '']
-    for label, pats in sorted(B.TERMS, key=lambda t: t[0]):
-        hits = []
-        for pno, text in pages:
-            low = text.lower()
+    lowpages = [(pno, text.lower()) for pno, text in pages]
+
+    def scan(pats):
+        found = set()
+        for pno, low in lowpages:
             for pat in pats:
-                if re.search(r'(?<![A-Za-z])' + re.escape(pat.lower()) + r'(?![A-Za-z])', low):
-                    hits.append(pno)
+                if B.term_re(pat).search(low):
+                    found.add(shown(pno))
                     break
-        if not hits:
+        return sorted(found)
+
+    for label, own, subs in B.terms_sorted():
+        hits = scan(own) if own else []
+        sub_hits = [(sub, scan(pats)) for sub, pats in subs]
+        if not hits and not any(h for _s, h in sub_hits):
             continue
-        hits = sorted(set(shown(h) for h in hits))
-        span = _compress(hits[:14]) + (', passim' if len(hits) > 14 else '')
-        tlines += [f'**{label}** \u2014 {span}', '']
+        span = ', '.join(str(x) for x in hits[:14]) if hits else ''
+        if len(hits) > 14:
+            span += ', passim'
+        if not span:
+            span = 'see the entries below'
+        tlines.append(f'**{label}** \u2014 {span}')
+        for sub, hh in sub_hits:
+            if hh:
+                # its own paragraph, or the markdown buffer swallows the marker into the head-line
+                tlines.append('')
+                tlines.append('::sub ' + sub + ' \u2014 ' + ', '.join(str(x) for x in hh[:12])
+                              + (', passim' if len(hh) > 12 else ''))
+        tlines.append('')
     h = {
         'file': 'apxH.md', 'slug': 'apxH', 'kind': 'appendix',
         'title': 'Index of Names and Terms',
@@ -1319,7 +1343,11 @@ if __name__ == '__main__':
     # the finished file, and if the statement and the page count disagree, correct the report and set it once
     # more. Two passes are enough in practice; the layout is stable, so only the statement changes.
     for _ in range(3):
-        actual = pymupdf.open(OUT).page_count
+        # The extent the book states is the extent the printer counts: stamp_metadata pads an odd count to
+        # an even one so the last leaf is not a recto on its own, so the stated figure has to include that pad
+        # or the finished file is a page longer than the sentence claims.
+        raw = pymupdf.open(OUT).page_count
+        actual = raw + raw % 2
         if B.FILLED_PAGES in (None, actual):
             break
         rep_path = os.path.join(DIST, 'build-report.json')

@@ -176,6 +176,7 @@ section, nav.toc-page { scroll-margin-top: 3.2rem; }
   padding: .05rem .4rem; border-radius: 3px; cursor: pointer; letter-spacing: .04em; }
 .topbar button:hover, .topbar a:hover { color: var(--accent); border-color: var(--accent); }
 .scene { text-align: center; margin: 1.6rem 0; color: var(--muted); letter-spacing: .6em; }
+.idxsub { margin: .1rem 0 .1rem 1.4rem; text-indent: -0.7rem; font-size: .95em; }
 .note { font-size: .9rem; color: var(--muted); border-top: 1px solid var(--rule); padding-top: .8rem; margin-top: 2.5rem; }
 
 /* Chapter apparatus */
@@ -294,6 +295,7 @@ blockquote { margin: 1.2em 0 1.2em 1em; padding-left: .8em; border-left: 2px sol
 blockquote p { text-indent: 0; text-align: left; }
 blockquote cite { display: block; font-style: normal; font-size: .8em; color: #6b625a; margin-top: .3em; }
 .scene { text-align: center; margin: 1.3em 0; color: #6b625a; letter-spacing: .4em; }
+.idxsub { margin: .05em 0 .05em 1.4em; text-indent: -0.7em; font-size: .93em; line-height: 1.32; }
 ul, ol { margin: .6em 0 1em 1.1em; padding: 0; }
 li { margin: .25em 0; text-align: left; }
 table { width: 100%; border-collapse: collapse; font-size: .85em; margin: 1em 0; }
@@ -422,8 +424,10 @@ def blocks(md):
             out.append(f'<table><thead><tr>{th}</tr></thead><tbody>{body}</tbody></table>'); continue
         if s == '::scene':
             out.append('<div class="scene">\u00b7 \u00b7 \u00b7</div>'); i += 1; continue
+        if s.startswith('::sub '):
+            out.append('<p class="idxsub">' + inline(s[6:].strip()) + '</p>'); i += 1; continue
         buf = []
-        while i < len(lines) and lines[i].strip() and not re.match(r'^(#{1,6}\s|>|\||```|::scene|\s*([-*+]|\d+[.)])\s+)', lines[i].strip()) and not re.match(r'^(-{3,}|\*{3,})$', lines[i].strip()):
+        while i < len(lines) and lines[i].strip() and not re.match(r'^(#{1,6}\s|>|\||```|::(?:scene|sub)|\s*([-*+]|\d+[.)])\s+)', lines[i].strip()) and not re.match(r'^(-{3,}|\*{3,})$', lines[i].strip()):
             buf.append(lines[i].strip()); i += 1
         out.append('<p>' + inline(' '.join(buf)) + '</p>')
     return '\n'.join(out)
@@ -709,7 +713,6 @@ TERMS = [
     ("Byrne, Rhonda", ["Rhonda Byrne", "Byrne"]),
     ("Christian Science", ["Christian Science"]),
     ("common good", ["common good"]),
-    ("concupiscence", ["concupiscence"]),
     ("desire", ["desire", "desires"]),
     ("discernment of spirits", ["discernment of spirits", "discernment"]),
     ("divination", ["divination", "divining"]),
@@ -724,7 +727,6 @@ TERMS = [
     ("specific person (SP)", ["specific person", "SP journeys"]),
     ("Law of Assumption", ["Law of Assumption", "law of assumption"]),
     ("manifestation", ["manifestation", "manifesting", "manifest"]),
-    ("monism", ["monism", "monist"]),
     ("New Thought", ["New Thought"]),
     ("novena", ["novena", "Novena"]),
     ("Pelagianism", ["Pelagian", "Pelagianism"]),
@@ -744,15 +746,9 @@ TERMS = [
     ("Benedict XVI", ["Benedict XVI", "Ratzinger"]),
     ("John Paul II", ["John Paul II", "Wojty\u0142a", "Wojtyla"]),
     ("Francis, Pope", ["Pope Francis", "Bergoglio"]),
-    ("Balthasar, Hans Urs von", ["Balthasar"]),
-    ("Rahner, Karl", ["Rahner"]),
     ("Lonergan, Bernard", ["Lonergan"]),
-    ("MacIntyre, Alasdair", ["MacIntyre"]),
-    ("Taylor, Charles", ["Charles Taylor"]),
-    ("Weil, Simone", ["Weil"]),
     ("Murphy, Joseph", ["Joseph Murphy"]),
     ("Peale, Norman Vincent", ["Peale"]),
-    ("Fox, Emmet", ["Emmet Fox"]),
     ("Wattles, Wallace", ["Wattles"]),
     ("Haanel, Charles", ["Haanel"]),
     ("New Age", ["New Age"]),
@@ -766,15 +762,130 @@ TERMS = [
     ("lectio divina", ["lectio divina", "lectio"]),
     ("intercession", ["intercession", "intercede"]),
     ("resurrection", ["resurrection"]),
-    ("eschatology", ["eschatolog"]),
+    ("eschatology", ["eschatolog*"]),
     ("mystical body", ["mystical body", "Body of Christ"]),
-    ("kenosis", ["kenosis", "self-emptying"]),
     ("gratia non tollit naturam", ["gratia non tollit"]),
-    ("ordo amoris", ["ordo amoris", "order of loves", "rightly ordered love"]),
     ("affirmation", ["affirmation", "affirmations"]),
     ("SATS", ["SATS", "state akin to sleep"]),
     ("everyone is you pushed out", ["pushed out"]),
 ]
+
+
+# The second half of the index: the concepts a reader actually looks up. A headword is only worth
+# printing if the book uses the word, so every label here is checked against the text by verify.py.
+TERMS += [
+    ("acedia", ["acedia", "spiritual sloth"]),
+    ("algorithm", ["algorithm", "algorithmic"]),
+    ("almsgiving", ["almsgiving"]),
+    ("apophatic and kataphatic", ["apophatic", "kataphatic"]),
+    ("attention", ["attention"]),
+    ("catechesis", ["catechesis", "catechetical"]),
+    ("confession", ["confession", "confessional"]),
+    ("contemplation", ["contemplation", "contemplative"]),
+    ("covenant", ["covenant"]),
+    ("dark night", ["dark night"]),
+    ("despair", ["despair"]),
+    ("Eucharist", ["eucharist"]),
+    ("fasting", ["fasting"]),
+    ("glory", ["glory"]),
+    ("grace", ["grace", "sanctifying grace", "actual grace"]),
+    ("Gethsemane", ["gethsemane"]),
+    ("hiddenness", ["hiddenness"]),
+    ("humility", ["humility"]),
+    ("imagination", ["imagination"]),
+    ("inculturation", ["inculturation"]),
+    ("John of the Cross", ["John of the Cross"]),
+    ("Law of Attraction", ["law of attraction"]),
+    ("Liturgy of the Hours", ["liturgy of the hours", "divine office"]),
+    ("lucky girl syndrome", ["lucky girl"]),
+    ("magisterium", ["magisterium"]),
+    ("monasticism", ["monastic", "monasticism"]),
+    ("occult", ["occult"]),
+    ("parish", ["parish"]),
+    ("pilgrimage", ["pilgrimage", "pilgrim"]),
+    ("placebo", ["placebo"]),
+    ("positive thinking", ["positive thinking"]),
+    ("prosperity gospel", ["prosperity gospel"]),
+    ("relics", ["relics"]),
+    ("revision", ["revision"]),
+    ("Rosary", ["rosary"]),
+    ("sacramentals", ["sacramentals"]),
+    ("scarcity", ["scarcity"]),
+    ("scrupulosity", ["scrupulosity", "scrupulous"]),
+    ("scripting", ["scripting"]),
+    ("self-help", ["self-help"]),
+    ("sensus fidei", ["sensus fidei"]),
+    ("spiritual direction", ["spiritual direction", "spiritual director"]),
+    ("syncretism", ["syncretism", "syncretist"]),
+    ("theosis", ["theosis", "divinization"]),
+    ("Th\u00e9r\u00e8se of Lisieux", ["Th\u00e9r\u00e8se"]),
+    ("Story of a Soul", ["Story of a Soul"]),
+    ("Thy will be done", ["thy will be done", "your will be done"]),
+    ("visualization", ["visualization"]),
+    ("vocation", ["vocation"]),
+    ("Word of Faith", ["Word of Faith"]),
+    ("abundance", ["abundance"]),
+    ("Aeterni Patris", ["Aeterni Patris"]),
+    ("Fides et Ratio", ["Fides et Ratio"]),
+    ("Spe Salvi", ["Spe Salvi"]),
+    ("Gaudete et Exsultate", ["Gaudete et Exsultate"]),
+    ("Divine Mercy", ["Divine Mercy"]),
+    # sub-entries: the aspects of the figures the book actually distinguishes
+    ("Aquinas, Thomas", "on analogy", ["analogy"]),
+    ("Aquinas, Thomas", "on the imagination", ["phantasm"]),
+    ("Goddard, Neville", "on the assumption", ["the assumption", "law of assumption"]),
+    ("Goddard, Neville", "on Blake", ["Blake"]),
+    ("Ignatius of Loyola", "the Exercises", ["Exercises", "SpEx"]),
+    ("Ignatius of Loyola", "on discernment", ["discernment"]),
+    ("manifestation", "as technique", ["the technique"]),
+    ("manifestation", "in Scripture", ["manifested"]),
+]
+
+
+def terms_sorted():
+    """Index order: alphabetical, accents folded, so Th\u00e9r\u00e8se files with the T's."""
+    key = lambda g: ''.join(c for c in unicodedata.normalize('NFD', g[0].lower())
+                            if unicodedata.category(c) != 'Mn')
+    return sorted(terms_groups(), key=key)
+
+def term_re(pat):
+    """One compiled pattern for an index headword.
+
+    A pattern is matched as a whole word, so that "grace" does not fire inside "graceful". A pattern
+    ending in * is a stem instead: "eschatolog*" catches eschatology and eschatological, which is how
+    an index treats a word family. Getting this wrong is silent — the headword simply stops appearing —
+    so verify.py checks that every headword matches something in the text.
+    """
+    body = re.escape(pat.lower().rstrip('*'))
+    tail = r'[A-Za-z]*' if pat.endswith('*') else r'(?![A-Za-z])'
+    return re.compile(r'(?<![A-Za-z])' + body + tail)
+
+
+
+def terms_groups():
+    """TERMS as [(label, [own patterns], [(sub, [patterns]), ...])].
+
+    An entry is either (label, patterns) or (label, sub, patterns). Entries that share a label are one
+    index entry: the two-part form gives the head-line references, the three-part form gives a
+    sub-entry under it. A real index is read from the outside in — figure, then the aspect — and a flat
+    list of a hundred and forty headwords does not let you do that.
+    """
+    order, groups = [], {}
+    for t in TERMS:
+        if len(t) == 3:
+            label, sub, pats = t
+        else:
+            label, pats = t
+            sub = ''
+        if label not in groups:
+            order.append(label)
+            groups[label] = ([], [])
+        own, subs = groups[label]
+        if sub:
+            subs.append((sub, pats))
+        else:
+            own.extend(pats)
+    return [(lab, groups[lab][0], groups[lab][1]) for lab in order]
 
 
 def build_terms_index(docs):
@@ -786,19 +897,25 @@ def build_terms_index(docs):
         chnum += 1
         low = re.sub(r'\s+', ' ', d['body'])
         low_l = low.lower()
-        for label, pats in TERMS:
+        for label, own, subs in terms_groups():
             n = 0
-            for pat in pats:
-                n += len(re.findall(r'(?<![A-Za-z])' + re.escape(pat.lower()) + r'(?![A-Za-z])', low_l))
+            for pat in own:
+                n += len(term_re(pat).findall(low_l))
             if n:
-                hits.append((label, chnum, n))
+                hits.append((label, '', chnum, n))
+            for sub, pats in subs:
+                sn = 0
+                for pat in pats:
+                    sn += len(term_re(pat).findall(low_l))
+                if sn:
+                    hits.append((label, sub, chnum, sn))
     if not hits:
         return None
     by_term = {}
-    for label, ch, n in hits:
-        by_term.setdefault(label, {})[ch] = n
+    for label, _sub, ch, _n in hits:
+        by_term.setdefault(label, {})[ch] = _n
     lines = ['The numbers are chapters of this book, not pages; a name that recurs throughout is marked as such.', '']
-    for label, _pats in sorted(TERMS, key=lambda t: t[0]):
+    for label, own, subs in terms_sorted():
         chs = by_term.get(label)
         if not chs:
             continue
@@ -807,6 +924,11 @@ def build_terms_index(docs):
         if len(ordered) > 14:
             shown += ', and throughout'
         lines.append(f'**{label}** \u2014 {shown}')
+        for sub, _pats in subs:
+            sc = sorted({h[2] for h in hits if h[0] == label and h[1] == sub})
+            if sc:
+                lines.append('')
+                lines.append(f'::sub {sub} \u2014 ' + ', '.join(str(c) for c in sc[:10]))
         lines.append('')
     return {
         'file': 'apxH.md', 'slug': 'apxH', 'kind': 'appendix',
@@ -910,7 +1032,19 @@ def build():
     if not docs:
         print('no manuscript files'); sys.exit(1)
     body, toc, spine = render(docs)
-    pages = round(words / 245.5)    # measured against the typeset PDF, not guessed
+    # The words-per-page ratio is measured, not asserted: take the ratio the last typeset book actually
+    # produced, so an index that grew, or a page of front matter that was cut, moves the estimate with it.
+    wpp = 245.5
+    try:
+        with open(os.path.join(DIST, 'build-report.json'), encoding='utf-8') as fh:
+            prev = json.load(fh)
+        if prev.get('words') and prev.get('pdf_pages'):
+            wpp = prev['words'] / prev['pdf_pages']
+    except (OSError, ValueError):
+        pass
+    pages = round(words / wpp)      # measured against the typeset PDF, not guessed
+    if pages % 2:                   # a printed book ends on an even page
+        pages += 1
     pages += pages % 2              # the printed book has an even number of pages
 
     # The text may state its own extent ("the finished book runs to {{words}} words and {{pages}} pages") and the
