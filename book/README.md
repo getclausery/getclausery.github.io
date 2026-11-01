@@ -121,6 +121,8 @@ Writes, in `book/dist/` (git-ignored):
 - `build-report.json` — word count, chapter count, parts, appendices, PDF pages, edition
 - `book/editions/` — the same files copied out of the build directory as the published
   set (`dist/` is a scratch directory and is ignored by git)
+- `The-Hidden-and-the-Manifest.pdf` and `.epub` — the reading copy, committed at the top of
+  `book/` so the finished book can be found and downloaded without running a build
 
 The page estimate is not a constant: it divides the word count by the words-per-page ratio the last
 typeset book actually produced (75,803 words / 314 pages), and rounds to an even page. Change the book
