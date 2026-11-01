@@ -6,9 +6,10 @@ import { evaluateForm, buildRenderData, buildPreviewData, summarize } from '../.
 import { renderDocx, renderDocxBytes, zipFiles, previewDocx, describeTemplateError, isDocxError } from '../../lib/render.js';
 import { recordHistory, KIND_LABELS } from '../../lib/history.js';
 import { parseCsv, mapHeaders, rowsToAnswers, templateCsv, uniqueNames, FREE_BULK_ROWS, MAX_BULK_ROWS } from '../../lib/bulk.js';
+import { prefillAnswers } from '../../lib/prefill.js';
 import { requestPersistence } from '../../lib/store.js';
 import { downloadBlob, safeFilename } from '../../lib/backup.js';
-import { nowISO } from '../../lib/schema.js';
+import { nowISO, newDraft } from '../../lib/schema.js';
 import { buildIntakeHtml, parseAnswersFile, sanitizeAnswers } from '../../lib/intake.js';
 import { countEvent } from '../../lib/usage.js';
 import { daysLeftText } from '../../lib/trial.js';
@@ -407,6 +408,48 @@ export async function render(ctx, { id }) {
     draft.status = draft.generatedAt ? 'generated' : 'draft'; draft.sentAt = null; draft.paidAt = null;
     pendingSave = true; flush(); renderReview();
   }
+  // Start a new invoice draft for the same client — copies all client_* and project_* answers from the current draft
+  // on top of the usual prefill (your business details, next invoice number, today's date). Puts a repeat-invoice
+  // workflow one click away after marking an invoice sent/paid.
+  async function newInvoiceForClient() {
+    const clientKeys = Object.keys(draft.answers || {}).filter((k) => /^client|^project|^purchase_order/i.test(k));
+    const seed = {};
+    for (const k of clientKeys) {
+      const v = draft.answers[k];
+      if (v != null && v !== '') seed[k] = v;
+    }
+    const d = newDraft(template, { answers: { ...blankAnswersFor(template), ...seed } });
+    // Apply normal prefill (business details, next number, today's date) on top of the client answers.
+    const drafts = await ctx.drafts.list();
+    const { answers, info } = prefillAnswers(template, d.answers, drafts, await ctx.templates.list());
+    // Client answers from this draft win over whatever prefill found from earlier drafts.
+    d.answers = { ...answers, ...seed };
+    // Blank line items, totals and per-invoice dates/numbers so the new invoice starts fresh; client details carry over.
+    const blankRe = /^(line_items|quote_items|order_items|credited_items|receipt_items|subtotal_amount|discount_amount|tax_amount|invoice_total|quote_total|order_total|total_credit_amount|amount_paid|balance_due|invoice_number|quote_number|credit_note_number|receipt_number|order_number|invoice_date|quote_date|credit_note_date|payment_date|due_date|valid_until_date)/i;
+    for (const k of Object.keys(d.answers)) {
+      if (blankRe.test(k)) {
+        const f = template.fields.find((x) => x.key === k);
+        if (f && f.type === 'repeat') d.answers[k] = [];
+        else if (f && f.type === 'checkbox') d.answers[k] = false;
+        else if (f && f.type === 'computed') d.answers[k] = '';
+        else d.answers[k] = '';
+      }
+    }
+    await ctx.drafts.save(d);
+    countEvent('new-invoice-for-client');
+    ctx.router.go('/drafts/' + d.id);
+    const clientFirst = (seed.client_name || '').split(/\s+/)[0];
+    if (clientFirst) toast(`New invoice started for ${clientFirst} — client details pre-filled.`, { type: 'ok', timeout: 6000 });
+  }
+  function blankAnswersFor(t) {
+    const out = {};
+    for (const f of t.fields || []) {
+      if (f.type === 'repeat') out[f.key] = [];
+      else if (f.type === 'checkbox') out[f.key] = false;
+      else out[f.key] = f.type === 'computed' ? '' : (f.default != null ? f.default : '');
+    }
+    return out;
+  }
   function openReminderEmail() {
     const subj = encodeURIComponent(invoiceSummary());
     const body = encodeURIComponent(`Hi${draft.answers.client_name ? ' ' + draft.answers.client_name : ''},\n\nJust a friendly reminder that ${invoiceSummary()} is due${draft.answers.due_date ? ' on ' + draft.answers.due_date : ''}. I've attached the invoice.\n\nThanks!\n`);
@@ -433,6 +476,13 @@ export async function render(ctx, { id }) {
     }
     if (draft.status === 'sent' || draft.status === 'paid') {
       controls.append(h('button.btn.btn-sm.btn-ghost', { type: 'button', onclick: resetStatus, title: 'Clear sent/paid marker' }, icon('x', 14)));
+    }
+    // "New invoice for this client" shortcut when the current draft is for a named client —
+    // lets a repeat-invoice workflow be one click instead of starting from scratch.
+    const clientName = draft.answers && draft.answers.client_name;
+    if (clientName && template.kind === 'invoice') {
+      controls.append(h('button.btn.btn-sm', { type: 'button', onclick: newInvoiceForClient, title: `Start a new invoice pre-filled for ${String(clientName).split(/\s+/)[0]}` },
+        icon('plus', 14), 'New invoice for ' + String(clientName).split(/\s+/)[0]));
     }
     return h('div.card', { style: { marginTop: '1rem' } },
       h('div.row', { style: { alignItems: 'center', justifyContent: 'space-between', gap: '.75rem', flexWrap: 'wrap' } },
