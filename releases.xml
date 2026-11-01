@@ -8,6 +8,14 @@
   <updated>2026-11-01T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.76.0 — First-run friction fix: the stepper "Next" button no longer blocks you from moving forward when a section has unanswered fields. Errors are shown but you can keep going — the Review tab has always said "You can generate anyway; missing answers render blank"; the Next button now matches that promise. On the Items & totals section (where you see the price add up) a "Review & download" shortcut button appears so a first-time visitor can skip the rest and download a file immediately, filling in business/client details later.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-76-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-76-0</id>
+    <published>2026-11-01T00:00:00Z</published>
+    <updated>2026-11-01T00:00:00Z</updated>
+    <summary>First-run friction fix: the stepper &quot;Next&quot; button no longer blocks you from moving forward when a section has unanswered fields. Errors are shown but you can keep going — the Review tab has always said &quot;You can generate anyway; missing answers render blank&quot;; the Next button now matches that promise. On the Items &amp; totals section (where you see the price add up) a &quot;Review &amp; download&quot; shortcut button appears so a first-time visitor can skip the rest and download a file immediately, filling in business/client details later.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.75.0 — Post-download "win moment" upgrade nudge: right after your document finishes downloading (or sharing), the Review & generate card shows a subtle sparkle notice offering the free 14-day Pro trial — the exact moment you just confirmed the product works. The pre-download "Free plan: Made with Clausery" note swaps out for the win notice once you download, so the ask is earned rather than pre-emptive, and clears itself the moment you edit an answer.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-75-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-75-0</id>
