@@ -218,7 +218,43 @@ export async function render(ctx, { id }) {
           h('br'),
           ' Address and extra contact details are optional — and Clausery remembers each client so you only type them once.')
       : null;
-    setChildren(bodyEl, h('div.card', h('h2', step.title), step.description ? h('p.muted', step.description) : null, bizNudge, clientNudge, form.element,
+    // Recent-clients chip row: on the client step, show up to 5 distinct client names from previous drafts as tappable chips
+    // so a repeat sender can tap to pre-fill instead of retyping. Only shown when the current client_name is empty
+    // (first-timers see this immediately; returning users who already typed see it cleared on edit).
+    let clientChips = null;
+    if (isClientStep) {
+      const seen = new Set();
+      const recent = [];
+      for (const d of allDrafts) {
+        const name = d.answers && d.answers.client_name;
+        const key = String(name || '').trim().toLowerCase();
+        if (!key || seen.has(key) || key === String(draft.answers.client_name || '').trim().toLowerCase()) continue;
+        seen.add(key); recent.push(String(name).trim());
+        if (recent.length >= 5) break;
+      }
+      if (recent.length && !String(draft.answers.client_name || '').trim()) {
+        clientChips = h('div', { style: { display: 'flex', gap: '.35rem', flexWrap: 'wrap', marginTop: '-.25rem', marginBottom: '.75rem' } },
+          h('span.small.muted', { style: { alignSelf: 'center' } }, 'Recent:'),
+          ...recent.map((name) => h('button.btn.btn-sm', { type: 'button',
+            onclick: (e) => {
+              // Fill client_name; copy other client_* / project_* / purchase_order fields if the source draft had them and the field exists on this template.
+              const src = allDrafts.find((d) => String(d.answers && d.answers.client_name || '').trim().toLowerCase() === name.toLowerCase());
+              draft.answers.client_name = name;
+              if (src) {
+                for (const k of Object.keys(src.answers || {})) {
+                  if (/^client_|^project|^purchase_order/i.test(k)) {
+                    const f = template.fields.find((x) => x.key === k);
+                    const v = src.answers[k];
+                    if (f && v != null && v !== '') draft.answers[k] = structuredClone(v);
+                  }
+                }
+              }
+              pendingSave = true; flush(); renderStep();
+            },
+            title: `Fill in ${name.split(/\s+/)[0]}'s details from the last invoice` }, name.split(/\s+/)[0])));
+      }
+    }
+    setChildren(bodyEl, h('div.card', h('h2', step.title), step.description ? h('p.muted', step.description) : null, bizNudge, clientNudge, clientChips, form.element,
       h('div.interview-nav', h('button.btn', { type: 'button', disabled: stepIndex === 0, onclick: () => go(stepIndex - 1) }, icon('back', 16), 'Back'), h('button.btn.btn-primary', { type: 'button', onclick: () => go(stepIndex + 1) }, stepIndex === steps.length - 2 ? 'Review' : 'Next', icon('chevron', 16)), skipBtn)));
     const first = form.element.querySelector('input, select, textarea'); if (first && stepIndex > 0) first.focus({ preventScroll: true });
     announce(`Section ${stepIndex + 1} of ${steps.length}: ${step.title}`);
@@ -415,7 +451,16 @@ export async function render(ctx, { id }) {
   function markPaid() {
     draft.status = 'paid'; draft.paidAt = nowISO(); if (!draft.sentAt) draft.sentAt = draft.paidAt;
     pendingSave = true; flush(); renderReview();
-    toast('Marked as paid.', { type: 'ok' });
+    // Post-paid cross-sell: offer a one-click receipt for this client (natural next action after payment).
+    const clientFirst = String(draft.answers.client_name || '').split(/\s+/)[0];
+    const paidMsg = clientFirst
+      ? h('div', h('strong', `Marked ${clientFirst}'s invoice as paid. `),
+          h('a', { href: '#/start/payment-receipt', style: 'text-decoration:underline', onclick: (e) => {
+            e.preventDefault();
+            ctx.startDraft(templates.find((t) => t.sample === 'payment-receipt') || templates.find((t) => /receipt/i.test(t.name)));
+          }}, 'Make a receipt →'))
+      : 'Marked as paid.';
+    toast(paidMsg, { type: 'ok', timeout: 8000 });
   }
   function resetStatus() {
     draft.status = draft.generatedAt ? 'generated' : 'draft'; draft.sentAt = null; draft.paidAt = null;
