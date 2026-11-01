@@ -138,6 +138,39 @@ def check_manuscript():
     check('study guide covers all 40 chapters once', sorted(covered) == list(range(1, 41)),
           f'{len(read_plan)} sessions, {len(covered)} chapter slots')
 
+    # Every pointer the book makes — "(Ch. 22)", "chapter 28", "chapters 8–12" — has to land on a chapter that
+    # exists. A renumbered or deleted chapter turns these into dead ends, and there are hundreds of them.
+    pointers = set()
+    for m in re.finditer(r'(?:\b[Cc]hapters?|\bCh\.)\s*(\d{1,2})(?:\s*[\u2013-]\s*(\d{1,2}))?', text):
+        lo, hi = int(m.group(1)), int(m.group(2) or m.group(1))
+        pointers.update(range(lo, hi + 1))
+    bad = sorted(n for n in pointers if not 1 <= n <= 40)
+    check('cross-references: every chapter pointer lands on a real chapter', not bad,
+          f'{len(pointers)} chapters pointed at, {len(bad)} out of range' + (f': {bad[:5]}' if bad else ''))
+
+
+# ------------------------------------------------------------------- apparatus
+# The indexes and the bibliography are generated from the manuscript, so they can lose an entry without anyone
+# noticing. These check that the apparatus still covers the figures the argument actually leans on.
+GENEALOGY = ('Quimby', 'Evans', 'Eddy', 'Wattles', 'Haanel', 'Hill', 'Murphy', 'Peale', 'Holmes', 'Hopkins',
+             'Satter', 'Bowler', 'Burton', 'Illouz')
+
+
+def check_apparatus():
+    print('\napparatus')
+    sys.path.insert(0, ROOT)
+    import build as B
+    docs = B.collect()
+    terms = B.build_terms_index(docs)
+    lines = [l for l in terms['body'].split('\n') if ' \u2014 ' in l]
+    check('index: 65+ entries', len(lines) >= 65, len(lines))
+    labels = ' '.join(lines)
+    missing = [n for n in GENEALOGY if n not in labels]
+    check('index: names every figure in the genealogy of chapter 2', not missing, ', '.join(missing) or 'all present')
+    bib = read(os.path.join(MS, 'apxD.md'))
+    missing = [n for n in GENEALOGY if n not in bib]
+    check('bibliography: lists every work the genealogy names', not missing, ', '.join(missing) or 'all present')
+
 
 # ------------------------------------------------------------------------ HTML
 def check_html(path, label, expect_chapnav=None):
@@ -623,6 +656,11 @@ def check_report():
     check('report: chapters', rep.get('chapters') == 40, rep.get('chapters'))
     check('report: words', rep.get('words', 0) > 70000, rep.get('words'))
     check('report: pdf pages', rep.get('pdf_pages', 0) >= 275, rep.get('pdf_pages'))
+    # The estimate is what the web edition and the sample advertise. It is computed before the PDF exists, so it
+    # can drift when the layout changes; this is the check that keeps the advertised figure honest.
+    check('report: page estimate matches the typeset count',
+          rep.get('pages_estimate') == rep.get('pdf_pages'),
+          f"estimate {rep.get('pages_estimate')}, typeset {rep.get('pdf_pages')}")
 
     # The book states its own length in the note on method, from tokens the build fills in. It must equal the report.
     stated = f"{rep['words']:,} words and {rep['pages_estimate']} printed pages"
@@ -641,6 +679,7 @@ def main():
     print('The Hidden and the Manifest \u2014 acceptance checks')
     check_fonts()
     check_manuscript()
+    check_apparatus()
     check_html(HTML, 'web')
     check_html(PRINT_HTML, 'print')
     check_html(SAMPLE, 'sample', expect_chapnav=0)

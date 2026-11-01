@@ -11,9 +11,12 @@ real page numbers.
 Requires reportlab and pyphen:
     pip install --break-system-packages reportlab pyphen
 """
+import json
 import os
 import re
 import sys
+
+import pymupdf
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build as B  # noqa: E402  (manuscript parsing, apparatus, metadata)
@@ -149,13 +152,15 @@ def styles():
                                 textColor=colors.HexColor('#3a332d'))
     S['cite'] = ParagraphStyle('cite', fontName=BODY, fontSize=8.8, leading=11.6, leftIndent=22,
                                spaceAfter=9, textColor=MUTED)
+    # keepWithNext is the backstop for the CondPageBreak above every heading: a heading that fits on the page
+    # but leaves no room for a line of text under it still moves to the next page, so no page can end on one.
     S['h2'] = ParagraphStyle('h2', fontName=BOLD, fontSize=13.2, leading=16.4, spaceBefore=16,
-                             spaceAfter=5, textColor=INK)
+                             spaceAfter=5, textColor=INK, keepWithNext=True)
     S['h3'] = ParagraphStyle('h3', fontName=BODY_I, fontSize=11.6, leading=14.8, spaceAfter=2,
-                             spaceBefore=13, textColor=INK)
+                             spaceBefore=13, textColor=INK, keepWithNext=True)
     # a bold line on its own: a subhead inside a chapter, lighter than an h3
     S['h4'] = ParagraphStyle('h4', fontName=BOLD, fontSize=11.0, leading=14.6, spaceBefore=11,
-                             spaceAfter=3.4, textColor=INK)
+                             spaceAfter=3.4, textColor=INK, keepWithNext=True)
     S['bullet'] = ParagraphStyle('bullet', parent=S['body'], firstLineIndent=0, leftIndent=15,
                                  bulletIndent=4, spaceAfter=3)
     S['scene'] = ParagraphStyle('scene', fontName=BODY, fontSize=10, alignment=TA_CENTER,
@@ -1309,6 +1314,25 @@ if __name__ == '__main__':
     build_pdf(OUT, index_override=override, headmap=heads, offset=offset,
               recto=recto, toc_entries=entries, starts=starts, colophon_page=colophon_page,
               dry=dry)
+    # The note on method prints the book's own page count, filled from build-report.json. That file holds the
+    # count of the last typeset run, so a book that has grown since then would print yesterday's number. Read
+    # the finished file, and if the statement and the page count disagree, correct the report and set it once
+    # more. Two passes are enough in practice; the layout is stable, so only the statement changes.
+    for _ in range(3):
+        actual = pymupdf.open(OUT).page_count
+        if B.FILLED_PAGES in (None, actual):
+            break
+        rep_path = os.path.join(DIST, 'build-report.json')
+        with open(rep_path, encoding='utf-8') as fh:
+            rep = json.load(fh)
+        rep['pdf_pages'] = actual
+        with open(rep_path, 'w', encoding='utf-8') as fh:
+            json.dump(rep, fh, indent=1)
+            fh.write('\n')
+        print(f'  extent: the text now states {actual} pages; setting it again')
+        build_pdf(OUT, index_override=override, headmap=heads, offset=offset,
+                  recto=recto, toc_entries=entries, starts=starts, colophon_page=colophon_page,
+                  dry=dry)
     os.remove(work)
     jumps = link_index(OUT, offset)
     print(f'  index: {jumps} page numbers made clickable')

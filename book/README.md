@@ -18,7 +18,7 @@ The companion research brief is in `../research/harmonizing-the-manifestation-sp
 | `PITCH.md` | Pitch kit: back cover, comps, pitches, metadata, interview questions |
 | `cover.jpg` | 1600 × 2400 cover, embedded in the EPUB and page 1 of the PDF |
 | `fonts/` | Crimson Text (SIL OFL 1.1): four TTFs for the PDF, four woff2 subsets for the web and EPUB |
-| `verify.py` | 148 acceptance checks across the editions, the interior, and the cover |
+| `verify.py` | 153 acceptance checks across the editions, the interior, and the cover |
 | `publish.sh` | one command: build everything, copy the hand-out set, run the checks |
 | `dist/` | Build output (git-ignored) |
 
@@ -107,10 +107,10 @@ Writes, in `book/dist/` (git-ignored):
 - `the-hidden-and-the-manifest.html` — single-file reading edition (`index.html` alias)
 - `the-hidden-and-the-manifest.print.html` — print edition (5.5 × 8.5 in page CSS;
   open in a browser and print to PDF) (`print.html` alias)
-- `the-hidden-and-the-manifest.pdf` — reading edition, 306 pages: cover, front matter, the
+- `the-hidden-and-the-manifest.pdf` — reading edition, 308 pages: cover, front matter, the
   book, contents with real page numbers, page-numbered indexes
 - `the-hidden-and-the-manifest-interior.pdf` — the same book **without the cover page**, for a
-  printer, 306 pages, page labels intact, 65 bookmarks, contents and index links intact
+  printer, 308 pages, page labels intact, 65 bookmarks, contents and index links intact
 - `cover-wrap.pdf` — the full wrap a printer prints: back, spine, front, 1/8 in bleed
 - `cover.jpg` — the front cover at 2:3, for the EPUB and the web edition
 - `triage-card.pdf` — Appendix B as a standalone letter-size photocopy master
@@ -119,8 +119,8 @@ Writes, in `book/dist/` (git-ignored):
 - `book/editions/` — the same files copied out of the build directory as the published
   set (`dist/` is a scratch directory and is ignored by git)
 
-Page estimate uses 244 words per 5.5 × 8.5 page — measured against the typeset PDF
-(74,501 words → 306 pages), not guessed.
+Page estimate uses 245.5 words per 5.5 × 8.5 page — measured against the typeset PDF
+(75,616 words → 308 pages), not guessed.
 The PDF's page count is exact, because it is the typeset book.
 
 The text may state its own length: `{{words}}` and `{{pages}}` in the manuscript are filled
@@ -253,9 +253,9 @@ the three outer edges.
 
 The spine is a measurement, not a design choice — a paperback's spine width is the thickness
 of its paper times its page count. On KDP's white 50# stock that is 0.002252 in a leaf, so
-the 306-page book has a **0.689 in spine** and the sheet is
+the 308-page book has a **0.694 in spine** and the sheet is
 
-    0.125 + 5.5 + 0.689 + 5.5 + 0.125 = 11.939 in  ×  8.75 in
+    0.125 + 5.5 + 0.694 + 5.5 + 0.125 = 11.944 in  ×  8.75 in
 
 `make-wrap.py` reads the page count out of `build-report.json`, so the spine cannot drift
 out of date when a chapter is added; the wrap is rebuilt from the same count the interior

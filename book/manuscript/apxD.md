@@ -36,6 +36,33 @@ lede: What to read, in what order, and why. Asterisks mark the ten works that wo
 
 **John Henry Newman, *An Essay in Aid of a Grammar of Assent*.** Real and notional assent; the reason chapter 15 exists.
 
+## The movement's own sources
+
+**Phineas P. Quimby.** *The Quimby Manuscripts*, edited by Horatio W. Dresser (1921). The origin, as his
+students transcribed it: disease as belief, and the cure as argument. Read it beside the chapter 2
+genealogy, and notice how much metaphysics he never supplied.
+
+**Warren Felt Evans, *The Mental Cure* (1869) and *Mental Medicine* (1875).** The first books of the
+movement, and the moment a clinic became a system.
+
+**Mary Baker Eddy, *Science and Health with Key to the Scriptures* (1875).** The rival branch of mind
+cure — not the same thing, and not on good terms with it. Read with Satter on why the quarrel mattered.
+
+**Emma Curtis Hopkins (1849\u20131925), *Class Lessons of 1888* and *High Mysticism*.** The movement's
+teacher of teachers: almost every founder of its institutions studied with her or with one of her students.
+Read her for the mysticism, which the business wing quietly dropped.
+
+**Wallace D. Wattles, *The Science of Getting Rich* (1910); Charles F. Haanel, *The Master Key System*
+(1912); Napoleon Hill, *Think and Grow Rich* (1937).** The business wing, which supplied the promise and
+the course.
+
+**Ernest Holmes, *The Science of Mind* (1926).** Religious Science: the movement's most systematic attempt
+at a theology, and the reason some of its teachers can sound almost orthodox.
+
+**Norman Vincent Peale, *The Power of Positive Thinking* (1952); Joseph Murphy, *The Power of Your
+Subconscious Mind* (1963).** The passage into mainline respectability, and the paperback that carried the
+method into the places a parish priest is likely to meet it.
+
 ## The manifest space, described seriously
 
 **Neville Goddard, *Feeling Is the Secret* (1944) and *The Power of Awareness* (1952).** The most metaphysically explicit version. *

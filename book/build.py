@@ -447,6 +447,9 @@ def files():
     return sorted(f for f in os.listdir(MS) if f.endswith('.md'))
 
 
+FILLED_WORDS, FILLED_PAGES = None, None
+
+
 def fill_counts(text):
     """Fill {{words}} and {{pages}} in manuscript text from build-report.json.
 
@@ -464,6 +467,8 @@ def fill_counts(text):
     pages = rep.get('pdf_pages') or rep.get('pages_estimate')
     if words is None or pages is None:
         return text
+    global FILLED_WORDS, FILLED_PAGES
+    FILLED_WORDS, FILLED_PAGES = words, pages
     return text.replace('{{words}}', f'{words:,}').replace('{{pages}}', str(pages))
 
 
@@ -685,6 +690,18 @@ def build_index_doc(docs):
 
 
 TERMS = [
+    ("Bowler, Kate", ["Bowler"]),
+    ("Burton, Tara Isabella", ["Burton"]),
+    ("Eddy, Mary Baker", ["Mary Baker Eddy", "Eddy"]),
+    ("Evans, Warren Felt", ["Warren Felt Evans", "Evans"]),
+    ("Fillmore, Charles and Myrtle", ["Fillmore"]),
+    ("Holmes, Ernest", ["Ernest Holmes", "Religious Science", "Science of Mind"]),
+    ("Hopkins, Emma Curtis", ["Emma Curtis Hopkins"]),
+    ("Illouz, Eva", ["Illouz"]),
+    ("Satter, Beryl", ["Satter"]),
+    ("Divine Science", ["Divine Science"]),
+    ("mind cure", ["mind cure"]),
+    ("hermetic tradition", ["hermetic", "hermetism"]),
     ("Aquinas, Thomas", ["Aquinas", "Thomas Aquinas", "the Angelic Doctor", "St. Thomas", "Saint Thomas"]),
     ("analogy", ["analogy", "analogical"]),
     ("Aristotle", ["Aristotle", "the Philosopher", "Aristotelian"]),
@@ -893,7 +910,7 @@ def build():
     if not docs:
         print('no manuscript files'); sys.exit(1)
     body, toc, spine = render(docs)
-    pages = round(words / 244)      # measured against the typeset PDF, not guessed
+    pages = round(words / 245.5)    # measured against the typeset PDF, not guessed
     pages += pages % 2              # the printed book has an even number of pages
 
     # The text may state its own extent ("the finished book runs to {{words}} words and {{pages}} pages") and the
