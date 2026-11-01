@@ -237,6 +237,37 @@ function checkTrialEnd() {
 
 function setNav(name) {
   for (const a of document.querySelectorAll('#nav a[data-nav]')) { if (a.dataset.nav === name) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); }
+  // Refresh the draft-count badge whenever we navigate (cheap IndexedDB count, reflects just-made status changes).
+  updateNavBadges();
+}
+
+// Count outstanding (sent + unpaid) invoices from all drafts and show a small red badge on the Drafts nav item.
+// Gives returning users an immediate "you have N invoices still waiting on payment" reminder before they click anything.
+async function updateNavBadges() {
+  const badge = document.getElementById('nav-drafts-badge');
+  if (!badge) return;
+  try {
+    const drafts = await store.all('drafts');
+    let outstanding = 0, overdue = 0;
+    const today = new Date().toISOString().slice(0, 10);
+    for (const d of drafts || []) {
+      if (d.status === 'sent' && !d.paidAt) {
+        outstanding++;
+        const due = d.answers && d.answers.due_date;
+        if (due && String(due) < today) overdue++;
+      }
+    }
+    if (outstanding > 0) {
+      badge.hidden = false;
+      badge.textContent = overdue > 0 ? `${overdue}❗` : String(outstanding);
+      badge.title = overdue > 0
+        ? `${outstanding} outstanding invoice${outstanding === 1 ? '' : 's'}, ${overdue} overdue`
+        : `${outstanding} outstanding invoice${outstanding === 1 ? '' : 's'}`;
+      badge.style.background = overdue > 0 ? 'var(--danger)' : 'var(--warn, #d97706)';
+    } else {
+      badge.hidden = true; badge.textContent = '';
+    }
+  } catch {}
 }
 
 async function guarded(fn, params, navName, title) {
@@ -283,7 +314,7 @@ async function onRemoteVault() {
   store.setKey(null);
   store.vaultMeta = await store.getSetting('vault', null);
   if (!store.vaultMeta && await store.hasEncryptedRecords()) store.vaultMeta = { missing: true };
-  renderStatus(); armIdle();
+  renderStatus(); armIdle(); updateNavBadges();
   await router.resolve();
 }
 

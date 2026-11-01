@@ -8,6 +8,14 @@
   <updated>2026-11-01T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.86.0 — Outstanding-invoice nav badge: the Drafts sidebar item now shows a small red/amber badge with the count of sent-but-unpaid invoices (red with "!" when any are past due), so returning users see how many invoices are still waiting on payment before they click anything. Badge refreshes on every navigation so marking paid/sent updates it immediately.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-86-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-86-0</id>
+    <published>2026-11-01T00:00:00Z</published>
+    <updated>2026-11-01T00:00:00Z</updated>
+    <summary>Outstanding-invoice nav badge: the Drafts sidebar item now shows a small red/amber badge with the count of sent-but-unpaid invoices (red with &quot;!&quot; when any are past due), so returning users see how many invoices are still waiting on payment before they click anything. Badge refreshes on every navigation so marking paid/sent updates it immediately.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.85.0 — Changelog compressed (v1.x collapsed into a single summary block, freeing ~42 KB); recent-clients chip row on the Bill-to step for repeat senders (tap to pre-fill the client name plus address/project/PO details from the last invoice for that client, shown when client_name is empty and previous drafts exist); post-paid receipt offer: marking an invoice paid now shows a toast with a one-click "Make a receipt" link pre-filled for that client.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-85-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-85-0</id>
