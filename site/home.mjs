@@ -369,7 +369,9 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
 
 <section class="section section-alt" id="faq">
   <div class="wrap" style="max-width:48rem">
-    <h2>Questions</h2>
+    <h2>Common questions</h2>
+    <h3 style="font-size:1.15rem;margin:-.25rem 0 .5rem">Is Clausery really free — and do I need an account?</h3>
+    <p class="small" style="margin:-.25rem 0 .75rem;color:var(--muted)">No account, no card. Every library template is free forever; you only pay for Pro if you want the &quot;Made with Clausery&quot; line left out, unlimited templates of your own, spreadsheet batch mode and encrypted backups. <a href="${rel}pricing/">See Pro →</a></p>
     <div class="faq">
       ${faqHtml(HOME_FAQ).replace(/^<div class="faq"[^>]*>/, '<div class="faq">')}
       <details><summary>Can it add a clause only when it applies, or make many documents at once?</summary><p>Yes to both. A rule such as <code>contract_value &gt; 5000</code> can switch a clause on or off, and the money templates add up line items and tax for you (see <a href="${rel}docs/logic.html">logic and calculations</a>). <em>From a spreadsheet</em> makes one document per row of a CSV file, such as an invoice for each client.</p></details>

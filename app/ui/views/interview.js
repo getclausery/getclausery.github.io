@@ -202,7 +202,14 @@ export async function render(ctx, { id }) {
     const skipBtn = (isFirstRun && isItems && stepIndex < steps.length - 1)
       ? h('button.btn', { type: 'button', onclick: () => go(steps.length - 1, true), title: 'Download now — missing answers will be blank, you can fill them in later' }, icon('download', 16), 'Review & download')
       : null;
-    setChildren(bodyEl, h('div.card', h('h2', step.title), step.description ? h('p.muted', step.description) : null, form.element,
+    // Section 1 friction reducer: reassure first-timers only name + email are required on this step.
+    const bizNudge = (isFirstRun && stepIndex === 0 && /your business|business/i.test(step.title || ''))
+      ? h('p.small', { style: { color: 'var(--muted)', margin: '-.25rem 0 .75rem' } },
+          icon('check', 13), ' Only your business name and email are required.',
+          h('br'),
+          ' Phone, tax number and address can be left blank for now — add them later if you want them on the invoice.')
+      : null;
+    setChildren(bodyEl, h('div.card', h('h2', step.title), step.description ? h('p.muted', step.description) : null, bizNudge, form.element,
       h('div.interview-nav', h('button.btn', { type: 'button', disabled: stepIndex === 0, onclick: () => go(stepIndex - 1) }, icon('back', 16), 'Back'), h('button.btn.btn-primary', { type: 'button', onclick: () => go(stepIndex + 1) }, stepIndex === steps.length - 2 ? 'Review' : 'Next', icon('chevron', 16)), skipBtn)));
     const first = form.element.querySelector('input, select, textarea'); if (first && stepIndex > 0) first.focus({ preventScroll: true });
     announce(`Section ${stepIndex + 1} of ${steps.length}: ${step.title}`);

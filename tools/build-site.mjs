@@ -156,7 +156,7 @@ for (const p of pages) {
     });
     if (p._toc && headings.length >= 3) {
       const tocItems = headings.map((h, idx) => `<li><a href="#${h.id}">${h.text}</a></li>`);
-      const tocHtml = `<nav class="guide-toc" aria-label="On this page"><h4>On this page</h4><ol>${tocItems.join('')}</ol></nav>`;
+      const tocHtml = `<nav class="guide-toc" aria-label="On this page"><h3>On this page</h3><ol>${tocItems.join('')}</ol></nav>`;
       const firstH2 = renderedBody.match(/<h2[^>]* id="[^"]+">/);
       if (firstH2) renderedBody = renderedBody.slice(0, firstH2.index) + tocHtml + renderedBody.slice(firstH2.index);
       // TableOfContents JSON-LD unlocks "Jump to" section links in mobile SERPs for pages with a visible TOC.
@@ -427,7 +427,7 @@ for (const p of pages) {
         else href = parts.join('/') + (r.path.endsWith('/') ? '/' : '.html');
         return `<li><a href="${href}">${esc(r.title)}</a></li>`;
       }).join('');
-      return `<div><h4 style="font-size:.9rem;margin:0 0 .35rem;color:var(--muted)">${kindLabel[k]}</h4><ul class="link-list" style="margin:0">${items}</ul></div>`;
+      return `<div><h3 style="font-size:.9rem;margin:0 0 .35rem;color:var(--muted)">${kindLabel[k]}</h3><ul class="link-list" style="margin:0">${items}</ul></div>`;
     }).join('');
     const block = `<section class="related-reading" aria-labelledby="related-reading-heading" style="margin-top:2.5rem;padding:1rem 1.25rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface2,var(--surface))"><h3 id="related-reading-heading" style="font-size:1rem;margin:0 0 .75rem">Related reading</h3><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:.75rem 1.25rem">${relatedHtml}</div></section>`;
     // Insert before the helpful widget when present; otherwise before the closing section.
@@ -482,10 +482,11 @@ for (const p of pages) {
   // "Updated …" only appears once a page has changed since it was published.
   final = final.replace(/<!--upd-->([\s\S]*?)<!--\/upd-->/g, (m, inner) => (p.published && p.published === modified ? '' : inner));
   // Inject an E-E-A-T "Reviewed by / Updated" byline on long-form pages that don't already have one (templates, compare, audience, free-tools).
-  if (modified && !/guide-meta|Reviewed by/.test(final) && !p.noindex && p.layout !== 'embed' && !/^(\.|404|go\/|made-with\/|search\/|app\/|sitemap\/|feed|releases)/.test(p.path) && /<h1[^>]*>/.test(final)) {
+  // Skip the homepage ('') which is a landing page, not an article; a byline there makes the first quotable line a metadata stamp.
+  if (modified && !/guide-meta|Reviewed by/.test(final) && !p.noindex && p.layout !== 'embed' && p.path !== '' && !/^(\.|404|go\/|made-with\/|search\/|app\/|sitemap\/|feed|releases)/.test(p.path) && /<h1[^>]*>/.test(final)) {
     const byline = `<p class="small muted guide-meta">Reviewed by <a href="${rel}about/#editors">Clausery editors</a> · <time datetime="${modified}">${longDate(modified)}</time></p>`;
-    // Insert after the first <h1>... </h1> (and any immediate <p class="lead"> following it is fine — place right after h1).
-    final = final.replace(/(<h1[^>]*>[\s\S]*?<\/h1>)(\s*<p class="lead")/, `$1\n${byline}$2`);
+    // Insert after the first <h1>...</h1>, before any injected print/share buttons (which have class page-print-btn) or <p class="lead">.
+    final = final.replace(/(<h1[^>]*>[\s\S]*?<\/h1>)(\s*(?:<button[^>]*class="[^"]*page-print-btn[^"]*"[^>]*>[^<]*<\/button>)*\s*<p class="lead")/, `$1\n${byline}$2`);
     if (!/Reviewed by/.test(final)) {
       final = final.replace(/(<h1[^>]*>[\s\S]*?<\/h1>)/, `$1\n${byline}`);
     }
