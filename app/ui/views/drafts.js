@@ -2,6 +2,7 @@
 import { h, icon, toast, modal, confirmDialog, relativeTime, setChildren } from '../dom.js';
 import { uid } from '../../lib/schema.js';
 import { summarize } from '../../lib/logic.js';
+import { PRICES } from '../../config.js';
 
 const STATUS_LABEL = { draft: 'In progress', generated: 'Ready to send', sent: 'Sent', paid: 'Paid' };
 function statusBadge(d, t) {
@@ -69,6 +70,25 @@ export async function render(ctx) {
     return due && !isNaN(due) && due.getTime() < Date.now();
   })()).length;
 
+  // Post-trial banner on the drafts list: if the user's trial ended and they are not on a paid plan,
+  // remind them their documents are still here and anchor the upgrade ask on how many docs they finished.
+  // Only shown when there is at least one draft (empty-state has its own copy above).
+  const trialNow = ctx.trial && ctx.trial.state ? ctx.trial.state() : null;
+  const trialEndedBanner = (ordered.length && !ctx.plan.isPaid && trialNow && trialNow.status === 'ended') ? (() => {
+    let docsMade = 0;
+    for (const d of drafts) {
+      for (const h of (Array.isArray(d.history) ? d.history : [])) {
+        if (h.kind === 'download' || h.kind === 'print' || h.kind === 'share') docsMade++;
+      }
+    }
+    const countLine = docsMade > 0 ? `Your ${docsMade} document${docsMade === 1 ? ' is' : 's are'} still here and keep working. ` : 'Everything you made is still here and keeps working. ';
+    return h('div.notice', { style: { marginBottom: '1rem' } }, icon('sparkle'), h('div.small',
+      h('strong', 'Free plan. '), countLine,
+      'Documents from library templates end with a small “Made with Clausery” line. ',
+      h('a', { href: '../pricing/', target: '_blank', rel: 'noopener' }, 'Upgrade to Pro'),
+      ` to remove it permanently — $${PRICES.pro}/month, cancel anytime.`));
+  })() : null;
+
   const rowEl = (d) => {
     const t = tmap.get(d.templateId);
     return h('tr', { dataset: { draftId: d.id } },
@@ -90,6 +110,7 @@ export async function render(ctx) {
           'Every answered questionnaire, ready to generate again. Invoices track sent and paid status locally on this device.'),
       ),
       h('button.btn.btn-primary', { type: 'button', onclick: create }, icon('plus', 16), 'New draft')),
+    trialEndedBanner,
     ordered.length ? h('div.card', { style: { padding: 0, overflow: 'auto' } }, h('table.table', h('thead', h('tr', h('th', 'Draft'), h('th', 'Status'), h('th', 'Updated'), h('th', { class: 'actions' }, h('span.sr-only', 'Actions')))), h('tbody', ordered.map(rowEl))))
       : h('div.empty', h('h2', 'No drafts yet'), h('p', 'Start a draft from any template and answer the questions. Drafts save automatically as you type.'), h('button.btn.btn-primary', { type: 'button', onclick: create }, 'New draft')),
   ));

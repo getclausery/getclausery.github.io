@@ -8,6 +8,14 @@
   <updated>2026-11-01T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.82.0 — Fixed the last two empty-alt brand images in the app shell (role=presentation); added an explicit price micro-line under every in-app trial-start CTA ("After the 14 days, Pro is $19/month — cancel anytime, nothing auto-renews") to remove bait-and-switch doubt; added a post-trial banner to the drafts list anchoring the upgrade ask on documents already produced; and added a Section 2 (Bill to) friction nudge ("Client name is enough — Clausery remembers each client") to mirror the Section 1 reassurance.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-82-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-82-0</id>
+    <published>2026-11-01T00:00:00Z</published>
+    <updated>2026-11-01T00:00:00Z</updated>
+    <summary>Fixed the last two empty-alt brand images in the app shell (role=presentation); added an explicit price micro-line under every in-app trial-start CTA (&quot;After the 14 days, Pro is $19/month — cancel anytime, nothing auto-renews&quot;) to remove bait-and-switch doubt; added a post-trial banner to the drafts list anchoring the upgrade ask on documents already produced; and added a Section 2 (Bill to) friction nudge (&quot;Client name is enough — Clausery remembers each client&quot;) to mirror the Section 1 reassurance.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.81.0 — SEO fixes on the home page (footer heading hierarchy, decorative logo alt, byline removal, question-form H3 for AEO), plus two conversion nudges: a Section 1 reassurance line that only name and email are required to get a finished invoice, and a personalised trial-ended modal that counts how many documents you made during your Pro trial.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-81-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-81-0</id>
