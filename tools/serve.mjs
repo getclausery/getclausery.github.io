@@ -8,7 +8,8 @@ const port = parseInt(process.argv[2] || process.env.PORT || '4173', 10);
 // Bind to all interfaces by default so the sandbox preview proxy (which reaches the container from outside)
 // can connect; 127.0.0.1 stays reachable from inside the container for Playwright.
 const host = process.env.HOST || '0.0.0.0';
-const root = resolve(new URL('..', import.meta.url).pathname);
+// ROOT lets you serve a subtree (e.g. ROOT=book/editions for the reading edition) instead of the whole site.
+const root = resolve(new URL('..', import.meta.url).pathname, process.env.ROOT || '.');
 const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json', '.webmanifest': 'application/manifest+json', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.ico': 'image/x-icon', '.pdf': 'application/pdf', '.epub': 'application/epub+zip', '.webp': 'image/webp', '.avif': 'image/avif', '.md': 'text/markdown; charset=utf-8', '.docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', '.txt': 'text/plain; charset=utf-8', '.xml': 'application/xml', '.woff2': 'font/woff2', '.map': 'application/json' };
 
 createServer(async (req, res) => {
