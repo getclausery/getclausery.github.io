@@ -184,6 +184,18 @@ def check_apparatus():
     labels = ' '.join(lines)
     missing = [n for n in GENEALOGY if n not in labels]
     check('index: names every figure in the genealogy of chapter 2', not missing, ', '.join(missing) or 'all present')
+    # The book's self-description is a promise to the reader, and it lives in the copyright page, which every
+    # edition renders from the same rows. Check the claims rather than the wording, so the sentence can change.
+    copy = ' '.join(t for _l, t in B.COPYRIGHT_ROWS)
+    byline = [t for l, t in B.COPYRIGHT_ROWS if l in ('Copyright', 'How to cite')]
+    check('copyright: names the author', all(('Kidus Yared' in t) or ('Yared, Kidus' in t) for t in byline),
+          B.META['author'])
+    check('copyright: says it is a theological research project',
+          'theological research project' in copy.lower(), 'stated')
+    check('copyright: says it is not authoritative', 'not authoritative' in copy.lower(), 'stated')
+    check('copyright: says it was written with the help of the Holy Spirit',
+          'help of the Holy Spirit' in copy, 'stated')
+
     bib = read(os.path.join(MS, 'apxD.md'))
     missing = [n for n in GENEALOGY if n not in bib]
     check('bibliography: lists every work the genealogy names', not missing, ', '.join(missing) or 'all present')
@@ -374,7 +386,7 @@ def check_pdf():
 
     meta = d.metadata
     check('pdf: title metadata', 'Hidden and the Manifest' in (meta.get('title') or ''))
-    check('pdf: author metadata', meta.get('author') == 'The Clausery Authors', meta.get('author'))
+    check('pdf: author metadata', meta.get('author') == 'Kidus Yared', meta.get('author'))
     check('pdf: keywords metadata', bool(meta.get('keywords')))
     check('pdf: XMP packet', 'dc:title' in (d.get_xml_metadata() or ''))
     check('pdf: catalogue language', d.xref_get_key(d.pdf_catalog(), 'Lang')[1] == 'en-US')

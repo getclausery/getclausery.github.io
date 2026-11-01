@@ -84,7 +84,7 @@ def main():
 
     # foot
     d.line([(W / 2 - 60, H - 250), (W / 2 + 60, H - 250)], fill=(120, 96, 55), width=1)
-    tracked(d, H - 208, 'THE CLAUSERY AUTHORS', f_small, (176, 160, 134), tracking=10)
+    tracked(d, H - 208, 'KIDUS YARED', f_small, (176, 160, 134), tracking=10)
     tracked(d, H - 162, 'MMXXVI', f_small, (150, 134, 110), tracking=10)
 
     img.save(OUT, quality=90, optimize=True, progressive=True)

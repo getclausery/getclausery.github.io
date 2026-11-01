@@ -125,7 +125,7 @@ def main():
     c = canvas.Canvas(pdf_path, pagesize=(width * inch, height * inch))
     c.setFont('Crimson', 10)          # never leave the default Helvetica in the resources
     c.setTitle('The Hidden and the Manifest \u2014 full wrap cover')
-    c.setAuthor('The Clausery Authors')
+    c.setAuthor('Kidus Yared')
     c.setSubject('Paperback cover: back, spine and front, 5.5 x 8.5 in trim, '
                  f'{n} pages, {spine} in spine, 0.125 in bleed')
     c.drawImage(art, 0, 0, width * inch, height * inch)
@@ -241,7 +241,7 @@ def main():
     # ---- spine --------------------------------------------------------------
     mid = (sx0 + sx1) / 2.0 / DPI * inch      # the fold, in points, not pixels
     title, tsize, ttrack = 'THE HIDDEN AND THE MANIFEST', 10.2, 120
-    author, asize, atrack = 'THE CLAUSERY AUTHORS', 7.0, 140
+    author, asize, atrack = 'KIDUS YARED', 7.0, 150
     tw = sum(pdfmetrics.stringWidth(ch, 'Crimson-Bold', tsize) for ch in title) \
         + (ttrack - 1000) * (tsize / 1000.0) * (len(title) - 1) * 0
     tw = sum(pdfmetrics.stringWidth(ch, 'Crimson-Bold', tsize) for ch in title) \
@@ -283,7 +283,7 @@ def main():
             11.4, dim, tracking=34, center=mid_f)
 
     c.line(mid_f - 0.42 * inch, top - 7.02 * inch, mid_f + 0.42 * inch, top - 7.02 * inch)
-    tracked(0, top - 7.34 * inch, 'THE CLAUSERY AUTHORS', 'Crimson', 10.2,
+    tracked(0, top - 7.34 * inch, 'KIDUS YARED', 'Crimson', 10.2,
             (0.690, 0.627, 0.525), tracking=118, center=mid_f)
     tracked(0, top - 7.60 * inch, 'MMXXVI', 'Crimson', 9.0, (0.588, 0.525, 0.431),
             tracking=118, center=mid_f)
@@ -297,7 +297,7 @@ def main():
     d = pymupdf.open(pdf_path)
     d.set_metadata({
         'title': 'The Hidden and the Manifest \u2014 full wrap cover',
-        'author': 'The Clausery Authors',
+        'author': 'Kidus Yared',
         'creator': 'The Hidden and the Manifest \u2014 book/make-wrap.py',
         'producer': 'ReportLab + PyMuPDF',
         'subject': f'Paperback wrap: {n} pages, {spine} in spine, 0.125 in bleed',

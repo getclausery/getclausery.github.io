@@ -42,7 +42,7 @@ def font_css(embed=False):
 META = {
     'title': 'The Hidden and the Manifest',
     'subtitle': 'A Catholic Theology of Manifestation, and How the Church May Baptize an Age',
-    'author': 'The Clausery Authors',
+    'author': 'Kidus Yared',
     'imprint': 'Clausery',
     'url': 'https://getclausery.github.io',
     'edition': 'First edition, MMXXVI',
@@ -63,9 +63,10 @@ META = {
 # marks italics and is understood by both B.inline() and the PDF's pdf_inline().
 COPYRIGHT_ROWS = [
     ('Edition', 'First edition, MMXXVI'),
-    ('Copyright', '\u00a9 2026 the Clausery authors. Free to read, copy, and distribute, in whole '
-                  'or in part, provided this notice travels with it and any changes are marked as '
-                  'changes.'),
+    ('Copyright', '\u00a9 2026 Kidus Yared. Free to read, copy, and distribute, in whole or in '
+                  'part, provided this notice travels with it and any changes are marked as changes.'),
+    ('Nature', 'A theological research project: an inquiry, not a textbook, and not a statement of '
+               'anyone\u2019s teaching office.'),
     ('Imprint', 'Clausery \u00b7 getclausery.github.io'),
     ('Identifier', META['identifier']),
     ('Typeface', 'Crimson Text, by Sebastian Kosch, set at 11 on 15 and justified with '
@@ -76,10 +77,13 @@ COPYRIGHT_ROWS = [
     ('Citations', 'Scripture is quoted in the author\u2019s working translation unless otherwise '
                   'noted; magisterial documents are cited by paragraph; Aquinas by part, question, '
                   'and article.'),
-    ('Authority', 'Not an official publication of any ecclesiastical authority: no *imprimatur* has '
-                  'been sought or granted, and the book is submitted for correction.'),
+    ('Authority', 'Not authoritative, and not an official publication of any ecclesiastical '
+                  'authority: no *imprimatur* has been sought or granted. It was written with the help '
+                  'of the Holy Spirit and is submitted to the Church for correction \u2014 the first is '
+                  'a claim about help received, the second a claim about authority, and only the second '
+                  'is a bishop\u2019s to make.'),
     ('Corrections', 'See Appendix F, *Note on the Text*.'),
-    ('How to cite', 'Clausery Authors. *The Hidden and the Manifest: A Catholic Theology of '
+    ('How to cite', 'Yared, Kidus. *The Hidden and the Manifest: A Catholic Theology of '
                     'Manifestation, and How the Church May Baptize an Age*. First edition. '
                     'Clausery, 2026. getclausery.github.io.'),
 ]
@@ -1308,7 +1312,7 @@ approx. {pages} printed pages.<br>{esc(META["rights"])}</p>
 <dc:title>{esc(META['title'])}: {esc(META['subtitle'])}</dc:title>
 <dc:creator id="creator">{esc(META['author'])}</dc:creator>
 <meta refines="#creator" property="role" scheme="marc:relators">aut</meta>
-<meta refines="#creator" property="file-as">Clausery Authors, The</meta>
+<meta refines="#creator" property="file-as">Yared, Kidus</meta>
 <dc:language>{META['language']}</dc:language>
 <dc:description>{esc(META['description'])}</dc:description>
 <dc:rights>{esc(META['rights'])}</dc:rights>
