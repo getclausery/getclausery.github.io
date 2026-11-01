@@ -21,7 +21,14 @@ createServer(async (req, res) => {
     if (s && s.isDirectory()) { if (!path.endsWith('/')) { res.writeHead(301, { Location: path + '/' }); return res.end(); } file = join(file, 'index.html'); s = await stat(file).catch(() => null); }
     if (!s) { const nf = join(root, '404.html'); /* GitHub Pages serves the root 404.html for every miss */ res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' }); return res.end(await readFile(nf).catch(() => 'Not found')); }
     const body = await readFile(file);
-    res.writeHead(200, { 'Content-Type': TYPES[extname(file)] || 'application/octet-stream', 'Cache-Control': 'no-cache', 'X-Content-Type-Options': 'nosniff' });
+    const headers = { 'Content-Type': TYPES[extname(file)] || 'application/octet-stream', 'Cache-Control': 'no-cache', 'X-Content-Type-Options': 'nosniff' };
+    // A link carrying ?download saves the file instead of rendering it. The anchor's download attribute does the
+    // same job on a static host, but a sandboxed preview frame may refuse it; a Content-Disposition header works
+    // once the navigation leaves the frame, so both routes are offered.
+    if (new URL(req.url, 'http://x').searchParams.has('download')) {
+      headers['Content-Disposition'] = `attachment; filename="${file.split('/').pop()}"`;
+    }
+    res.writeHead(200, headers);
     res.end(body);
   } catch (e) { res.writeHead(500); res.end(String(e)); }
 }).listen(port, host, () => console.log(`serving ${root} at http://${host}:${port}/`));

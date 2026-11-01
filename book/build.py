@@ -175,6 +175,7 @@ section, nav.toc-page { scroll-margin-top: 3.2rem; }
 .dlbar a { color: var(--ink); text-decoration: none; border: 1px solid var(--rule); border-radius: 999px;
   padding: .22rem .75rem; }
 .dlbar a:hover, .dlbar a:focus-visible { color: var(--accent); border-color: var(--accent); }
+.dlhint { margin: -.9rem 0 1.5rem; font-size: .72rem; line-height: 1.5; color: var(--muted); text-align: center; }
 .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 29; display: flex; align-items: center; gap: .8rem;
   padding: .42rem .9rem; font-size: .7rem; font-variant: small-caps; letter-spacing: .09em; color: var(--muted);
   background: rgba(251,249,245,.94); border-bottom: 1px solid var(--rule);
@@ -242,7 +243,7 @@ body.print .copyrightpage { page-break-before: always; page-break-after: always;
 body.print .titlepage { padding-top: 1.6in; }
 body.print .tp-cover { width: 58%; box-shadow: none; page-break-after: always; }
 body.print table { font-size: .82rem; }
-body.print #progress, body.print .topbar, body.print .dlbar { display: none; }
+body.print #progress, body.print .topbar, body.print .dlbar, body.print .dlhint { display: none; }
 @media (prefers-color-scheme: dark) {
   :root { --ink: #e9e2d6; --muted: #a2978a; --rule: #3a342c; --accent: #d08a6a; }
   body { background: #141210; }
@@ -279,7 +280,7 @@ body.print #progress, body.print .topbar, body.print .dlbar { display: none; }
   a.xref { text-decoration: none; }
   .chapnav { display: none; }
   body.print .chapnav { display: none; }
-  #progress, .topbar, .dlbar { display: none; }
+  #progress, .topbar, .dlbar, .dlhint { display: none; }
   .titlepage { padding-top: 3in; }
   .halftitle { padding-top: 3in; }
   .copyrightpage { page-break-before: always; page-break-after: always; margin-top: 2in; }
@@ -1138,10 +1139,14 @@ def build():
 <div class="wrap">
 <nav class="dlbar" aria-label="The book as a file">
   <span>The book as a file</span>
-  <a href="the-hidden-and-the-manifest.pdf" download>Download the PDF</a>
-  <a href="the-hidden-and-the-manifest.epub" download>Download the EPUB</a>
-  <a href="the-hidden-and-the-manifest.pdf" target="_blank" rel="noopener">Open the PDF here</a>
+  <a href="the-hidden-and-the-manifest.pdf?download" download="The-Hidden-and-the-Manifest.pdf"
+     target="_blank" rel="noopener">Download the PDF</a>
+  <a href="the-hidden-and-the-manifest.epub?download" download="The-Hidden-and-the-Manifest.epub"
+     target="_blank" rel="noopener">Download the EPUB</a>
+  <a href="the-hidden-and-the-manifest.pdf" target="_blank" rel="noopener">Read the PDF here</a>
 </nav>
+<p class="dlhint">If a download does not start, open this page in its own browser tab and try again, or open the PDF
+and use the download button in the viewer; the whole book is also readable below.</p>
 {title_html}
 <nav class="toc-page" id="contents" aria-label="Contents"><h1>Contents</h1>{toc}</nav>
 <main id="main">
