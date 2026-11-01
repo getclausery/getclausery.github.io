@@ -8,6 +8,14 @@
   <updated>2026-11-01T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.87.0 — Smarter reminder emails: "Send reminder" now pre-fills the To field with the client email (when the Bill-to step collected it), adds "Reminder: Invoice #N (overdue)" to the subject when past due, and includes the balance-due amount in the body when known. Removes the most common friction in following up (finding the client email and remembering the invoice number).</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-87-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-87-0</id>
+    <published>2026-11-01T00:00:00Z</published>
+    <updated>2026-11-01T00:00:00Z</updated>
+    <summary>Smarter reminder emails: &quot;Send reminder&quot; now pre-fills the To field with the client email (when the Bill-to step collected it), adds &quot;Reminder: Invoice #N (overdue)&quot; to the subject when past due, and includes the balance-due amount in the body when known. Removes the most common friction in following up (finding the client email and remembering the invoice number).</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.86.0 — Outstanding-invoice nav badge: the Drafts sidebar item now shows a small red/amber badge with the count of sent-but-unpaid invoices (red with "!" when any are past due), so returning users see how many invoices are still waiting on payment before they click anything. Badge refreshes on every navigation so marking paid/sent updates it immediately.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-86-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-86-0</id>
