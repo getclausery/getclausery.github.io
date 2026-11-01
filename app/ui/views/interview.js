@@ -173,8 +173,9 @@ export async function render(ctx, { id }) {
 
   function go(i, force = false) {
     if (i < 0 || i >= steps.length) return;
-    if (i > stepIndex && form && !force) { checked.add(steps[stepIndex].id); form.setShowErrors(true); if (sectionErrors(steps[stepIndex].id) && form.focusFirstError()) { renderStepper(); toast('Complete the highlighted answers, or use the section list to skip ahead.', { type: 'warn' }); return; } }
-    // Next and Back count as trying to move on; jumping ahead from the section list is a deliberate skip and flags nothing
+    // Mark the section as "tried" so errors show, but never block forward motion — visitors can skip ahead to
+    // Items & totals (or straight to Review) and download with blank answers; the Review tab lists what's missing.
+    if (i > stepIndex && form) { checked.add(steps[stepIndex].id); form.setShowErrors(true); }
     if (!force && stepIndex < steps.length - 1 && i !== stepIndex) checked.add(steps[stepIndex].id);
     stepIndex = i; sessionStorage.setItem('clausery.step.' + id, String(i)); renderStep(); window.scrollTo({ top: 0, behavior: scrollBehavior() });
   }
@@ -184,8 +185,16 @@ export async function render(ctx, { id }) {
     const step = steps[stepIndex];
     if (step.id === '__review') { form = null; renderReview(); return; }
     form = renderForm({ template, answers: draft.answers, settings: ctx.settings, sectionId: step.id, onChange });
+    // First-run shortcut: if the visitor hasn't filled their business name yet, show a "Review & download" button
+    // alongside Next so they see they don't have to finish every section to get a file. Shown on Items & totals
+    // (the moment of value) and on Review itself, not on the early "about you" sections where it would be noise.
+    const isItems = /item|total|line/i.test(step.title || '');
+    const isFirstRun = !draft.answers.business_name && !(draft.history && draft.history.length);
+    const skipBtn = (isFirstRun && isItems && stepIndex < steps.length - 1)
+      ? h('button.btn', { type: 'button', onclick: () => go(steps.length - 1, true), title: 'Download now — missing answers will be blank, you can fill them in later' }, icon('download', 16), 'Review & download')
+      : null;
     setChildren(bodyEl, h('div.card', h('h2', step.title), step.description ? h('p.muted', step.description) : null, form.element,
-      h('div.interview-nav', h('button.btn', { type: 'button', disabled: stepIndex === 0, onclick: () => go(stepIndex - 1) }, icon('back', 16), 'Back'), h('button.btn.btn-primary', { type: 'button', onclick: () => go(stepIndex + 1) }, stepIndex === steps.length - 2 ? 'Review' : 'Next', icon('chevron', 16)))));
+      h('div.interview-nav', h('button.btn', { type: 'button', disabled: stepIndex === 0, onclick: () => go(stepIndex - 1) }, icon('back', 16), 'Back'), h('button.btn.btn-primary', { type: 'button', onclick: () => go(stepIndex + 1) }, stepIndex === steps.length - 2 ? 'Review' : 'Next', icon('chevron', 16)), skipBtn)));
     const first = form.element.querySelector('input, select, textarea'); if (first && stepIndex > 0) first.focus({ preventScroll: true });
     announce(`Section ${stepIndex + 1} of ${steps.length}: ${step.title}`);
   }
