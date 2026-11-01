@@ -8,6 +8,14 @@
   <updated>2026-11-01T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.85.0 — Changelog compressed (v1.x collapsed into a single summary block, freeing ~42 KB); recent-clients chip row on the Bill-to step for repeat senders (tap to pre-fill the client name plus address/project/PO details from the last invoice for that client, shown when client_name is empty and previous drafts exist); post-paid receipt offer: marking an invoice paid now shows a toast with a one-click "Make a receipt" link pre-filled for that client.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-85-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-85-0</id>
+    <published>2026-11-01T00:00:00Z</published>
+    <updated>2026-11-01T00:00:00Z</updated>
+    <summary>Changelog compressed (v1.x collapsed into a single summary block, freeing ~42 KB); recent-clients chip row on the Bill-to step for repeat senders (tap to pre-fill the client name plus address/project/PO details from the last invoice for that client, shown when client_name is empty and previous drafts exist); post-paid receipt offer: marking an invoice paid now shows a toast with a one-click &quot;Make a receipt&quot; link pre-filled for that client.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.84.0 — Overdue-invoice reminder banner: when you open a sent invoice that is past its due date, the Review card now shows an orange notice at the top saying how many days overdue it is, with a one-click "Send a reminder email" button. Surfaces the reminder action the moment you return to an overdue draft, instead of requiring you to notice the small badge in the Invoice status card.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-84-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-84-0</id>
