@@ -235,7 +235,7 @@ export function embedPage({ title, description, extraHead = '', rel, body }) {
 <head>
 <meta charset="utf-8">
 <title>${esc(title)}</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="${esc(clipDescription(description))}">
 <meta name="robots" content="noindex, follow">
 <meta name="referrer" content="strict-origin-when-cross-origin">
