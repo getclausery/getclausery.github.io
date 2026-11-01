@@ -12,7 +12,7 @@ import { nowISO } from '../../lib/schema.js';
 import { buildIntakeHtml, parseAnswersFile, sanitizeAnswers } from '../../lib/intake.js';
 import { countEvent } from '../../lib/usage.js';
 import { daysLeftText } from '../../lib/trial.js';
-import { TRIAL_DAYS } from '../../config.js';
+import { TRIAL_DAYS, PRICES } from '../../config.js';
 
 const SAVE_DELAY = 400;
 const DOCX_MIME = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
@@ -209,7 +209,15 @@ export async function render(ctx, { id }) {
           h('br'),
           ' Phone, tax number and address can be left blank for now — add them later if you want them on the invoice.')
       : null;
-    setChildren(bodyEl, h('div.card', h('h2', step.title), step.description ? h('p.muted', step.description) : null, bizNudge, form.element,
+    // Section 2 friction reducer: reassure first-timers client name is enough; address is optional and auto-remembered for next invoice.
+    const isClientStep = /bill to|client|recipient|who pays/i.test(step.title || '');
+    const clientNudge = (isFirstRun && isClientStep && stepIndex === 1)
+      ? h('p.small', { style: { color: 'var(--muted)', margin: '-.25rem 0 .75rem' } },
+          icon('check', 13), ' Client name is enough to generate.',
+          h('br'),
+          ' Address and extra contact details are optional — and Clausery remembers each client so you only type them once.')
+      : null;
+    setChildren(bodyEl, h('div.card', h('h2', step.title), step.description ? h('p.muted', step.description) : null, bizNudge, clientNudge, form.element,
       h('div.interview-nav', h('button.btn', { type: 'button', disabled: stepIndex === 0, onclick: () => go(stepIndex - 1) }, icon('back', 16), 'Back'), h('button.btn.btn-primary', { type: 'button', onclick: () => go(stepIndex + 1) }, stepIndex === steps.length - 2 ? 'Review' : 'Next', icon('chevron', 16)), skipBtn)));
     const first = form.element.querySelector('input, select, textarea'); if (first && stepIndex > 0) first.focus({ preventScroll: true });
     announce(`Section ${stepIndex + 1} of ${steps.length}: ${step.title}`);
@@ -291,17 +299,19 @@ export async function render(ctx, { id }) {
     // Tailor the copy: returning users who've made several documents get a firmer value line
     // (you're clearly using this — Pro removes the credit and unlocks repeat-use tools); first-timers get gentler copy.
     const repeat = libDocsMade >= 3;
+    // Price micro-line under the trial-start CTA so visitors see price before they click (removes "is this a bait-and-switch?" doubt).
+    const trialPrice = h('span.small.muted', { style: { display: 'block', marginTop: '.25rem' } }, `After the ${TRIAL_DAYS} days, Pro is $${PRICES.pro}/month — cancel anytime, nothing auto-renews.`);
     const creditPitch = trialUnused
       ? (repeat
-          ? [h('strong', `You've made ${libDocsMade} documents with Clausery. `), 'Leave the “Made with” line out permanently, send invoices from a spreadsheet and back up encrypted — ', h('a', { href: '#', onclick: startTrial }, `try Pro free for ${TRIAL_DAYS} days`), ' (no card).']
-          : [h('strong', 'Free plan: '), 'documents end with a small “Made with Clausery” line. ', h('a', { href: '#', onclick: startTrial }, `Leave it out with a free ${TRIAL_DAYS}-day Pro trial`), ' (no card needed).'])
+          ? [h('strong', `You've made ${libDocsMade} documents with Clausery. `), 'Leave the “Made with” line out permanently, send invoices from a spreadsheet and back up encrypted — ', h('a', { href: '#', onclick: startTrial }, `try Pro free for ${TRIAL_DAYS} days`), ' (no card).', trialPrice]
+          : [h('strong', 'Free plan: '), 'documents end with a small “Made with Clausery” line. ', h('a', { href: '#', onclick: startTrial }, `Leave it out with a free ${TRIAL_DAYS}-day Pro trial`), ' (no card needed).', trialPrice])
       : [h('strong', 'Free plan: '), 'documents end with a “Made with Clausery” line. ', h('a', { href: '../pricing/', target: '_blank', rel: 'noopener' }, 'Upgrade to Pro'), ' to remove it.'];
     const creditNote = (credited() && !justDownloaded && !justStartedTrial) ? h('div.notice#credit-note', { style: { marginTop: '1rem' } }, icon('info'), h('div.small', creditPitch)) : null;
     const winPitch = trialUnused
       ? (repeat
-          ? ['You are using Clausery regularly. Want clean, unbranded documents plus bulk-from-spreadsheet, encrypted backup and unlimited custom templates? ', h('a', { href: '#', onclick: startTrial }, `Start a free ${TRIAL_DAYS}-day Pro trial`), ' — no card, nothing renews.']
-          : ['Want the “Made with Clausery” line gone, plus bulk-from-spreadsheet, encryption and your own templates? ', h('a', { href: '#', onclick: startTrial }, `Start a free ${TRIAL_DAYS}-day Pro trial`), ' — no card, nothing renews.'])
-      : ['Want the “Made with Clausery” line gone permanently? ', h('a', { href: '../pricing/', target: '_blank', rel: 'noopener' }, 'Upgrade to Pro'), '.'];
+          ? ['You are using Clausery regularly. Want clean, unbranded documents plus bulk-from-spreadsheet, encrypted backup and unlimited custom templates? ', h('a', { href: '#', onclick: startTrial }, `Start a free ${TRIAL_DAYS}-day Pro trial`), ' — no card, nothing renews.', trialPrice]
+          : ['Want the “Made with Clausery” line gone, plus bulk-from-spreadsheet, encryption and your own templates? ', h('a', { href: '#', onclick: startTrial }, `Start a free ${TRIAL_DAYS}-day Pro trial`), ' — no card, nothing renews.', trialPrice])
+      : ['Want the “Made with Clausery” line gone permanently? ', h('a', { href: '../pricing/', target: '_blank', rel: 'noopener' }, 'Upgrade to Pro'), `. $${PRICES.pro}/month.`];
     const winNote = (justDownloaded && !justStartedTrial) ? h('div.notice.notice-info', { style: { marginTop: '1rem' } }, icon('sparkle'), h('div.small', h('strong', 'Your document is ready. '), winPitch)) : null;
     const trialActiveNote = justStartedTrial ? h('div.notice.notice-ok', { style: { marginTop: '1rem' } }, icon('check'), h('div',
       h('strong', 'Pro trial is active. '), h('span.small', `Your documents won't include the "Made with Clausery" line for the next ${TRIAL_DAYS} days.`),
