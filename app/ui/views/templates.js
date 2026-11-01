@@ -148,9 +148,28 @@ async function loadSample(ctx, s) {
   if (t) ctx.navigate('/templates/' + t.id);
 }
 
+/** Build a synthetic preset from URL query params when a visitor arrives from the live hero demo or a calculator:
+    ?rate=&hours=&tax= seeds the first line and tax rate so the number the visitor just saw is what opens. */
+function urlPreset(slug, params) {
+  if (slug !== 'invoice') return null;
+  const rate = parseFloat(params.rate), hours = parseFloat(params.hours), tax = parseFloat(params.tax);
+  if (isNaN(rate) && isNaN(hours)) return null;
+  const qty = hours > 0 ? Math.round(hours * 100) / 100 : 1;
+  const unit = rate >= 0 ? Math.round(rate * 100) / 100 : '';
+  const desc = hours > 0 ? 'Work (hours)' : 'Service';
+  const lines = [[desc, qty, unit]];
+  const answers = {};
+  if (!isNaN(tax) && tax >= 0) {
+    answers.has_tax = tax > 0;
+    if (tax > 0) { answers.tax_rate = tax; answers.tax_name = 'Tax'; }
+  }
+  return { name: 'Your numbers', lines, answers, note: 'Your numbers are filled in from the calculator — change anything before you download.' };
+}
+
 /** Deep link from the public template library (#/start/<slug>): reuse the sample if it is already in the workspace,
-    otherwise import it, then open a new draft straight away so a visitor is filling it in within one click. */
-export async function startFromSample(ctx, { slug, preset: presetSlug }) {
+    otherwise import it, then open a new draft straight away so a visitor is filling it in within one click.
+    URL query params (?rate=&hours=&tax= for invoices) pre-fill the first line and tax so the demo carries through. */
+export async function startFromSample(ctx, { slug, preset: presetSlug, ...rest }) {
   const s = SAMPLES.find((x) => x.slug === slug);
   if (!s) { toast('That template is not available.', { type: 'warn' }); ctx.navigate('/templates'); return; }
   // a copy imported before the library template gained its setup (or an older one) is left alone, untouched, and a fresh
@@ -159,8 +178,22 @@ export async function startFromSample(ctx, { slug, preset: presetSlug }) {
   const existing = (await ctx.templates.list()).find((t) => (t.sample === slug || t.fileName === s.file) && current(t));
   const t = existing || await importSample(ctx, s);
   if (!t) { ctx.router.go('/templates', true); return; }
-  const p = presetSlug ? presetFor(slug, presetSlug) : null;
-  await ctx.startDraft(t, { replace: true, preset: p && { ...p, slug: presetSlug } });
+  // trade / workflow / country preset first, then URL params override one line with the user's demo numbers
+  const tradeP = presetSlug ? presetFor(slug, presetSlug) : null;
+  const urlP = urlPreset(slug, rest);
+  let preset = tradeP ? { ...tradeP, slug: presetSlug } : urlP;
+  if (tradeP && urlP) {
+    // combine: URL numbers replace the first trade line; URL tax overrides if given
+    const lines = tradeP.lines ? [...tradeP.lines] : [['Work', 1]];
+    lines[0] = urlP.lines[0];
+    preset = { ...tradeP, slug: presetSlug, lines, answers: { ...(tradeP.answers || {}), ...(urlP.answers || {}) } };
+  }
+  // Apply URL-set currency before startDraft (same mechanism a country preset uses: patch settings on an empty workspace)
+  if (rest.currency) {
+    const drafts = await ctx.drafts.list();
+    if (!drafts.length && rest.currency !== ctx.settings.currency) await ctx.saveSettings({ currency: rest.currency });
+  }
+  await ctx.startDraft(t, { replace: true, preset });
 }
 
 async function importPack(ctx) {

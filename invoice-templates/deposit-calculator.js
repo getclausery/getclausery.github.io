@@ -11,12 +11,19 @@ export function calculateDeposit(amount, percentage) {
 if (typeof document !== 'undefined') {
   const form = document.querySelector('#deposit-calculator');
   if (form) {
+    const output = document.querySelector('#deposit-result');
+    const cta = document.querySelector('#deposit-open');
+    const fmt = (n, c) => new Intl.NumberFormat('en', { style: 'currency', currency: c }).format(n);
     const update = () => {
       const result = calculateDeposit(form.elements.amount.value, form.elements.percentage.value);
-      const output = document.querySelector('#deposit-result');
       if (!result) { output.textContent = 'Enter a non-negative project amount and a deposit from 0% to 100%.'; return; }
-      const money = new Intl.NumberFormat('en', { style: 'currency', currency: form.elements.currency.value });
-      output.textContent = `${money.format(result.deposit)} deposit · ${money.format(result.balance)} remaining`;
+      const currency = form.elements.currency.value;
+      output.innerHTML = `<strong>${fmt(result.deposit, currency)} deposit · ${fmt(result.balance, currency)} remaining</strong>`;
+      if (cta && result.deposit > 0) {
+        const base = cta.getAttribute('data-href') || cta.getAttribute('href');
+        if (!cta.getAttribute('data-href')) cta.setAttribute('data-href', base);
+        cta.setAttribute('href', base + '?rate=' + result.deposit + '&hours=1&tax=0&currency=' + encodeURIComponent(currency));
+      }
     };
     form.addEventListener('input', update);
     form.addEventListener('change', update);

@@ -8,6 +8,14 @@
   <updated>2026-11-01T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.74.0 — Demo→app handoff: the home-page invoice demo and the deposit-invoice calculator now carry the numbers you just typed straight into your first invoice draft. When you click "Make my real invoice" after trying rate×hours×tax in the demo, the first line, quantity, unit price and tax rate open pre-filled so the total you saw is the total in your draft — no retyping. Same on the deposit-invoice calculator: "Open a deposit invoice for this amount" stamps the deposit into the unit price so you download instead of copy-pasting.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-74-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-74-0</id>
+    <published>2026-11-01T00:00:00Z</published>
+    <updated>2026-11-01T00:00:00Z</updated>
+    <summary>Demo→app handoff: the home-page invoice demo and the deposit-invoice calculator now carry the numbers you just typed straight into your first invoice draft. When you click &quot;Make my real invoice&quot; after trying rate×hours×tax in the demo, the first line, quantity, unit price and tax rate open pre-filled so the total you saw is the total in your draft — no retyping. Same on the deposit-invoice calculator: &quot;Open a deposit invoice for this amount&quot; stamps the deposit into the unit price so you download instead of copy-pasting.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.73.1 — Follow-up mobile fixes: added viewport-fit=cover on LIB pages (matches app pages) so env(safe-area-inset-bottom) actually applies to the sticky "Fill it in" CTA on iPhones; added global table{max-width:100%;width:100%;border-collapse:collapse} and td/th{word-break:break-word;min-width:0} so any unwrapped table compresses instead of forcing horizontal scroll.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-73-1"/>
     <id>https://getclausery.github.io/changelog.html#v2-73-1</id>
