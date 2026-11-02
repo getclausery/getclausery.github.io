@@ -254,6 +254,21 @@ export async function render(ctx, { id }) {
             title: `Fill in ${name.split(/\s+/)[0]}'s details from the last invoice` }, name.split(/\s+/)[0])));
       }
     }
+    // Client autocomplete datalist: attach a recent-clients <datalist> to the client_name <input> so mid-type suggestions appear.
+    if (isClientStep) {
+      const seen = new Set();
+      const opts = [];
+      for (const d of allDrafts) {
+        const name = String((d.answers && d.answers.client_name) || '').trim();
+        if (!name || seen.has(name.toLowerCase())) continue;
+        seen.add(name.toLowerCase()); opts.push(h('option', { value: name }, name));
+        if (opts.length >= 10) break;
+      }
+      const dl = h('datalist', { id: 'recent-clients' }, ...opts);
+      form.element.append(dl);
+      const cnField = form.element.querySelector('[data-path="client_name"] input');
+      if (cnField) cnField.setAttribute('list', 'recent-clients');
+    }
     setChildren(bodyEl, h('div.card', h('h2', step.title), step.description ? h('p.muted', step.description) : null, bizNudge, clientNudge, clientChips, form.element,
       h('div.interview-nav', h('button.btn', { type: 'button', disabled: stepIndex === 0, onclick: () => go(stepIndex - 1) }, icon('back', 16), 'Back'), h('button.btn.btn-primary', { type: 'button', onclick: () => go(stepIndex + 1) }, stepIndex === steps.length - 2 ? 'Review' : 'Next', icon('chevron', 16)), skipBtn)));
     const first = form.element.querySelector('input, select, textarea'); if (first && stepIndex > 0) first.focus({ preventScroll: true });

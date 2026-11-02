@@ -314,8 +314,72 @@ async function onRemoteVault() {
   store.setKey(null);
   store.vaultMeta = await store.getSetting('vault', null);
   if (!store.vaultMeta && await store.hasEncryptedRecords()) store.vaultMeta = { missing: true };
-  renderStatus(); armIdle(); updateNavBadges();
+  renderStatus(); armIdle(); updateNavBadges(); installQuickJump();
   await router.resolve();
+}
+
+// Quick-jump palette: press "/" anywhere (outside an input/textarea) to open a small menu that jumps
+// to high-frequency destinations in one keystroke. Esc closes, number/arrow keys select.
+function installQuickJump() {
+  const items = [
+    { key: 'n', label: 'New invoice', run: async () => {
+        const all = await ctx.templates.list();
+        const inv = all.find((t) => t.sample === 'invoice') || all[0];
+        if (inv) ctx.startDraft(inv); else router.go('/templates');
+      } },
+    { key: 'd', label: 'Drafts', run: () => router.go('/drafts') },
+    { key: 'o', label: 'Outstanding invoices', run: () => { router.go('/drafts'); } },
+    { key: 't', label: 'Templates', run: () => router.go('/templates') },
+    { key: 's', label: 'Settings', run: () => router.go('/settings') },
+  ];
+  let box = null;
+  let selected = 0;
+  function close() { if (box) { box.remove(); box = null; document.removeEventListener('keydown', onKey); } }
+  function open() {
+    if (box) return;
+    if (openModalCloses.size) return; // don't stack over another modal
+    const tag = document.activeElement && document.activeElement.tagName;
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+    if (document.activeElement && document.activeElement.isContentEditable) return;
+    selected = 0;
+    box = h('div.quickjump', { role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Quick jump' },
+      h('div.quickjump-panel', { onclick: (e) => { if (e.target === box || e.target.classList.contains('quickjump-panel')) close(); } },
+        h('div.small.muted', { style: { padding: '.5rem .75rem 0' } }, 'Press a letter or ↑↓+Enter. Esc to close.'),
+        h('ul.quickjump-list', { role: 'listbox' }, items.map((it, i) => h('li', {
+          role: 'option', 'aria-selected': String(i === selected), tabindex: -1,
+          dataset: { key: it.key },
+          onclick: () => { close(); it.run(); },
+        }, h('span.kbd', it.key.toUpperCase()), h('span.qj-label', it.label))))));
+    document.body.append(box);
+    document.addEventListener('keydown', onKey);
+    updateSel();
+  }
+  function updateSel() {
+    if (!box) return;
+    [...box.querySelectorAll('li')].forEach((li, i) => {
+      li.setAttribute('aria-selected', String(i === selected));
+      if (i === selected) li.classList.add('sel'); else li.classList.remove('sel');
+    });
+  }
+  function onKey(e) {
+    if (!box) return;
+    if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+    if (e.key === 'ArrowDown') { e.preventDefault(); selected = (selected + 1) % items.length; updateSel(); return; }
+    if (e.key === 'ArrowUp') { e.preventDefault(); selected = (selected - 1 + items.length) % items.length; updateSel(); return; }
+    if (e.key === 'Enter') { e.preventDefault(); const it = items[selected]; close(); it.run(); return; }
+    const k = e.key.toLowerCase();
+    const hit = items.findIndex((it) => it.key === k);
+    if (hit >= 0) { e.preventDefault(); const it = items[hit]; close(); it.run(); }
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '/' && !box) {
+      const tag = document.activeElement && document.activeElement.tagName;
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+      if (document.activeElement && document.activeElement.isContentEditable) return;
+      if (openModalCloses.size) return;
+      e.preventDefault(); open();
+    }
+  });
 }
 
 async function boot() {
