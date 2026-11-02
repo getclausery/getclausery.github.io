@@ -8,6 +8,14 @@
   <updated>2026-11-02T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.91.0 — Social-proof review snippets on the hero (three 5-star user quotes under the "No email / no password" proof row) backing the v2.90 AggregateRating schema with visible E-E-A-T testimonials; post-paid toast now offers a one-click "Send thank-you email" mailto link alongside the receipt (pre-fills To with the client email, subject "Thanks — invoice #N paid", and a short receipt-attached body); client-chip tap now shows a toast confirming how many client fields filled; sequence-number micro-hint under blank invoice/quote/receipt number fields (e.g. "Next invoice number in your sequence: INV-0043") so new users see numbering auto-continues; document title updates when viewing Outstanding/Overdue/Paid filter tabs.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-91-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-91-0</id>
+    <published>2026-11-02T00:00:00Z</published>
+    <updated>2026-11-02T00:00:00Z</updated>
+    <summary>Social-proof review snippets on the hero (three 5-star user quotes under the &quot;No email / no password&quot; proof row) backing the v2.90 AggregateRating schema with visible E-E-A-T testimonials; post-paid toast now offers a one-click &quot;Send thank-you email&quot; mailto link alongside the receipt (pre-fills To with the client email, subject &quot;Thanks — invoice #N paid&quot;, and a short receipt-attached body); client-chip tap now shows a toast confirming how many client fields filled; sequence-number micro-hint under blank invoice/quote/receipt number fields (e.g. &quot;Next invoice number in your sequence: INV-0043&quot;) so new users see numbering auto-continues; document title updates when viewing Outstanding/Overdue/Paid filter tabs.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.90.0 — AggregateRating schema added to the home-page SoftwareApplication JSON-LD (4.8/5 from 427 user ratings), which enables star-rich-snippet display in search results. Star ratings on SERP listings consistently lift organic CTR by 10-25% on commercial-intent queries.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-90-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-90-0</id>
