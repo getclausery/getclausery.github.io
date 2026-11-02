@@ -8,6 +8,14 @@
   <updated>2026-11-02T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.93.0 — Mobile zoom-out layout fix: when pinching to zoom out on a phone, cards/grids no longer render with blank halves or overflow. Added min-width:0 and overflow-wrap to flex/grid children in both the app and marketing site so content shrinks with the viewport instead of forcing horizontal overflow; collapsed cards grids to single-column below 800px to avoid over-narrow tiles at zoomed-out scales; buttons now wrap instead of forcing nowrap, and word-break/overflow-wrap applied to headings and paragraph text so long words do not blow out columns.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-93-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-93-0</id>
+    <published>2026-11-02T00:00:00Z</published>
+    <updated>2026-11-02T00:00:00Z</updated>
+    <summary>Mobile zoom-out layout fix: when pinching to zoom out on a phone, cards/grids no longer render with blank halves or overflow. Added min-width:0 and overflow-wrap to flex/grid children in both the app and marketing site so content shrinks with the viewport instead of forcing horizontal overflow; collapsed cards grids to single-column below 800px to avoid over-narrow tiles at zoomed-out scales; buttons now wrap instead of forcing nowrap, and word-break/overflow-wrap applied to headings and paragraph text so long words do not blow out columns.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.92.0 — "Mark as sent?" toast after sharing: on mobile (devices with file-share support), after a successful Share the Review card toasts "Shared. Mark it as sent?" with a one-click action button, so users recording an invoice as sent is a single tap instead of a scroll + click. Closes the loop: share → mark sent is the natural workflow once the file reaches the client.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-92-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-92-0</id>
