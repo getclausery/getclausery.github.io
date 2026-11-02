@@ -8,6 +8,14 @@
   <updated>2026-11-02T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.92.0 — "Mark as sent?" toast after sharing: on mobile (devices with file-share support), after a successful Share the Review card toasts "Shared. Mark it as sent?" with a one-click action button, so users recording an invoice as sent is a single tap instead of a scroll + click. Closes the loop: share → mark sent is the natural workflow once the file reaches the client.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-92-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-92-0</id>
+    <published>2026-11-02T00:00:00Z</published>
+    <updated>2026-11-02T00:00:00Z</updated>
+    <summary>&quot;Mark as sent?&quot; toast after sharing: on mobile (devices with file-share support), after a successful Share the Review card toasts &quot;Shared. Mark it as sent?&quot; with a one-click action button, so users recording an invoice as sent is a single tap instead of a scroll + click. Closes the loop: share → mark sent is the natural workflow once the file reaches the client.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.91.0 — Social-proof review snippets on the hero (three 5-star user quotes under the "No email / no password" proof row) backing the v2.90 AggregateRating schema with visible E-E-A-T testimonials; post-paid toast now offers a one-click "Send thank-you email" mailto link alongside the receipt (pre-fills To with the client email, subject "Thanks — invoice #N paid", and a short receipt-attached body); client-chip tap now shows a toast confirming how many client fields filled; sequence-number micro-hint under blank invoice/quote/receipt number fields (e.g. "Next invoice number in your sequence: INV-0043") so new users see numbering auto-continues; document title updates when viewing Outstanding/Overdue/Paid filter tabs.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-91-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-91-0</id>

@@ -368,6 +368,10 @@ export async function render(ctx, { id }) {
         await record('share'); keepStorage();
         justDownloaded = !ctx.plan.isPaid && !ctx.plan.isTrial;
         renderReview();
+        // "Mark as sent?" nudge: sharing a file is the natural sent moment on mobile. Offer one click.
+        if (isInvoiceLike(template) && template.kind !== 'receipt' && draft.status !== 'sent' && draft.status !== 'paid') {
+          toast('Shared. Mark it as sent?', { type: 'ok', timeout: 8000, action: { label: 'Mark sent', onClick: () => { markSent(); } } });
+        }
       } catch (e) { if (e && e.name === 'AbortError') return; fail(e); }
     };
     const trialNow = ctx.trial.state();
