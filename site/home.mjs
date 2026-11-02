@@ -35,8 +35,8 @@ const HOME_FAQ = [
 ];
 
 export const pages = [{
-  path: '', title: 'Free Invoice Template | Make Invoices in Seconds',
-  description: `Free invoice template you can fill in online and download as Word/PDF. Totals, VAT/GST, discount and balance auto-calculate — no sign-up.`,
+  path: '', title: 'Free Invoice Template | No Sign-Up, Download',
+  description: `Fill in a free invoice template online and download as Word/PDF in 60 seconds. Totals, VAT/GST and discount auto-calculate. No sign-up, no credit card.`,
   extraHead: `<link rel="prefetch" href="./app/" as="document">
 <meta name="directree-verify" content="18cd9ea3fefedd43ee1d57c58248886c">
 <script type="speculationrules">{"prerender":[{"source":"list","urls":["./app/"],"where":{"and":[{"href_matches":"./app/*"},{"not":{"selector_matches":".btn"}}]},"eagerness":"moderate"}]}</script>
@@ -61,7 +61,7 @@ export const pages = [{
         <li><strong>Open source</strong><span>AGPL, auditable</span></li>
       </ul>
       <div class="actions">
-        <a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make my free invoice <span class="arr">→</span></a>
+        <a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make a free invoice — no sign up <span class="arr">→</span></a>
         <a class="btn btn-lg" href="#try-it">See it work in 10 seconds</a>
       </div>
       <p class="small" style="margin-top:.75rem;color:var(--muted)">Free forever · no credit card · no account · nothing uploaded</p>
@@ -390,7 +390,7 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
   <div class="wrap">
     <h2>Your next invoice is one minute away.</h2>
     <p class="lead" style="margin:0 auto">No signup, no card. Fill in the boxes, download a Word file, done. Pro is only for people who want to automate their own templates — and it's free to try for ${TRIAL_DAYS} days.</p>
-    <div class="actions"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make my free invoice <span class="arr">→</span></a><a class="btn btn-lg" href="${rel}pricing/">See Pro ($${PRICES.pro}/mo)</a></div>
+    <div class="actions"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make a free invoice — no sign up <span class="arr">→</span></a><a class="btn btn-lg" href="${rel}pricing/">See Pro ($${PRICES.pro}/mo)</a></div>
     <p class="small muted" style="margin-top:1.5rem">Read <a href="${rel}about/">about Clausery</a>, see the <a href="${rel}why-clausery/">differences from other tools</a>, or browse <a href="${rel}templates/">all ${LIB.length} free templates</a>.</p>
   </div>
 </section>`,

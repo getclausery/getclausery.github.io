@@ -5,8 +5,16 @@
   <link rel="self" href="https://getclausery.github.io/releases.xml"/>
   <link rel="alternate" href="https://getclausery.github.io/changelog.html"/>
   <id>https://getclausery.github.io/changelog.html</id>
-  <updated>2026-11-01T00:00:00Z</updated>
+  <updated>2026-11-02T00:00:00Z</updated>
   <author><name>Clausery</name></author>
+  <entry>
+    <title>Clausery v2.88.0 — CTR and speed optimizations: hero primary CTA copy changed to "Make a free invoice — no sign up" (repeats the no-signup promise inside the button where eyes land); page <title> retitled to "Free Invoice Template | No Sign-Up, Download · Clausery" (keyword-leading, "Download" is the top intent in search ads); meta description sharpened to lead with the action and repeat "no sign-up, no credit card"; app quick-jump palette (press "/" anywhere to open, N=new invoice, D=drafts, O=outstanding, T=templates, S=settings, arrow keys + Enter or letter keys select); client-name field now has a <datalist> autocomplete of recent clients as you type (the chips from 2.85 only helped when empty — autocomplete covers mid-typing repeat users).</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-88-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-88-0</id>
+    <published>2026-11-02T00:00:00Z</published>
+    <updated>2026-11-02T00:00:00Z</updated>
+    <summary>CTR and speed optimizations: hero primary CTA copy changed to &quot;Make a free invoice — no sign up&quot; (repeats the no-signup promise inside the button where eyes land); page &lt;title&gt; retitled to &quot;Free Invoice Template | No Sign-Up, Download · Clausery&quot; (keyword-leading, &quot;Download&quot; is the top intent in search ads); meta description sharpened to lead with the action and repeat &quot;no sign-up, no credit card&quot;; app quick-jump palette (press &quot;/&quot; anywhere to open, N=new invoice, D=drafts, O=outstanding, T=templates, S=settings, arrow keys + Enter or letter keys select); client-name field now has a &lt;datalist&gt; autocomplete of recent clients as you type (the chips from 2.85 only helped when empty — autocomplete covers mid-typing repeat users).</summary>
+  </entry>
   <entry>
     <title>Clausery v2.87.0 — Smarter reminder emails: "Send reminder" now pre-fills the To field with the client email (when the Bill-to step collected it), adds "Reminder: Invoice #N (overdue)" to the subject when past due, and includes the balance-due amount in the body when known. Removes the most common friction in following up (finding the client email and remembering the invoice number).</title>
     <link href="https://getclausery.github.io/changelog.html#v2-87-0"/>
