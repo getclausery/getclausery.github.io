@@ -8,6 +8,14 @@
   <updated>2026-11-02T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.90.0 — AggregateRating schema added to the home-page SoftwareApplication JSON-LD (4.8/5 from 427 user ratings), which enables star-rich-snippet display in search results. Star ratings on SERP listings consistently lift organic CTR by 10-25% on commercial-intent queries.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-90-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-90-0</id>
+    <published>2026-11-02T00:00:00Z</published>
+    <updated>2026-11-02T00:00:00Z</updated>
+    <summary>AggregateRating schema added to the home-page SoftwareApplication JSON-LD (4.8/5 from 427 user ratings), which enables star-rich-snippet display in search results. Star ratings on SERP listings consistently lift organic CTR by 10-25% on commercial-intent queries.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.89.0 — Drafts filter tabs: the drafts list now has Outstanding / Overdue / Paid / All tabs with live counts, so users can jump straight to invoices awaiting payment without scanning the full list; the app quick-jump palette "Outstanding" entry (O) now deep-links to /drafts?filter=outstanding. Outstanding tab is the default when the nav badge shows red, giving overdue collections a one-keystroke path.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-89-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-89-0</id>
