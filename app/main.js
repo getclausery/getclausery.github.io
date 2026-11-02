@@ -328,7 +328,7 @@ function installQuickJump() {
         if (inv) ctx.startDraft(inv); else router.go('/templates');
       } },
     { key: 'd', label: 'Drafts', run: () => router.go('/drafts') },
-    { key: 'o', label: 'Outstanding invoices', run: () => { router.go('/drafts'); } },
+    { key: 'o', label: 'Outstanding invoices', run: () => { router.go('/drafts?filter=outstanding'); } },
     { key: 't', label: 'Templates', run: () => router.go('/templates') },
     { key: 's', label: 'Settings', run: () => router.go('/settings') },
   ];

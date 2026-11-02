@@ -36,9 +36,22 @@ function subMeta(d, t) {
   return parts.length ? h('div.small.muted', parts.join(' · ')) : null;
 }
 
-export async function render(ctx) {
+export async function render(ctx, params = {}) {
   const [drafts, templates] = await Promise.all([ctx.drafts.list(), ctx.templates.list()]);
   const tmap = new Map(templates.map((t) => [t.id, t]));
+  // Filter tabs: support ?filter=outstanding|sent|paid|all (quick-jump uses ?filter=outstanding).
+  const today = new Date().toISOString().slice(0, 10);
+  const isOverdue = (d) => d.status === 'sent' && !d.paidAt && d.answers && d.answers.due_date && String(d.answers.due_date) < today;
+  const isSentUnpaid = (d) => d.status === 'sent' && !d.paidAt;
+  const FILTERS = [
+    { id: 'outstanding', label: 'Outstanding', match: isSentUnpaid },
+    { id: 'overdue', label: 'Overdue', match: isOverdue },
+    { id: 'paid', label: 'Paid', match: (d) => d.status === 'paid' },
+    { id: 'all', label: 'All', match: () => true },
+  ];
+  const active = (params && params.filter) || 'all';
+  const activeFilter = FILTERS.find((f) => f.id === active) || FILTERS[FILTERS.length - 1];
+  function setFilter(id) { ctx.router.go('/drafts?filter=' + id, true); }
 
   async function create() {
     if (!templates.length) { toast('Add a template first.', { type: 'warn' }); ctx.navigate('/templates'); return; }
@@ -59,7 +72,7 @@ export async function render(ctx) {
     if (d.status === 'paid') return 3;
     return 4; // draft
   }
-  const ordered = [...drafts].sort((a, b) => {
+  const ordered = [...drafts].filter(activeFilter.match).sort((a, b) => {
     const ra = rank(a), rb = rank(b);
     if (ra !== rb) return ra - rb;
     return (b.updatedAt || '').localeCompare(a.updatedAt || '');
@@ -111,7 +124,14 @@ export async function render(ctx) {
       ),
       h('button.btn.btn-primary', { type: 'button', onclick: create }, icon('plus', 16), 'New draft')),
     trialEndedBanner,
+    h('div.row', { style: { gap: '.35rem', flexWrap: 'wrap', marginBottom: '.75rem' } },
+      ...FILTERS.map((f) => h('button.btn.btn-sm', {
+        type: 'button',
+        class: f.id === activeFilter.id ? 'btn-primary' : '',
+        onclick: () => setFilter(f.id),
+        style: { fontWeight: 500 },
+      }, f.label, f.id !== 'all' ? ` (${drafts.filter(f.match).length})` : ''))),
     ordered.length ? h('div.card', { style: { padding: 0, overflow: 'auto' } }, h('table.table', h('thead', h('tr', h('th', 'Draft'), h('th', 'Status'), h('th', 'Updated'), h('th', { class: 'actions' }, h('span.sr-only', 'Actions')))), h('tbody', ordered.map(rowEl))))
-      : h('div.empty', h('h2', 'No drafts yet'), h('p', 'Start a draft from any template and answer the questions. Drafts save automatically as you type.'), h('button.btn.btn-primary', { type: 'button', onclick: create }, 'New draft')),
+      : h('div.empty', h('h2', activeFilter.id === 'all' ? 'No drafts yet' : `No ${activeFilter.label.toLowerCase()} invoices`), h('p', activeFilter.id === 'all' ? 'Start a draft from any template and answer the questions. Drafts save automatically as you type.' : 'Invoices you mark as sent or paid will show up here.'), h('button.btn.btn-primary', { type: 'button', onclick: create }, 'New draft')),
   ));
 }
