@@ -44,7 +44,7 @@ META = {
     'subtitle': 'A Catholic Theology of Manifestation, and How the Church May Baptize an Age',
     'author': 'Kidus Yared',
     'imprint': 'Clausery',
-    'url': 'https://getclausery.github.io',
+    'url': 'https://ykidus053-create.github.io/the-hidden-and-the-manifest/',
     'edition': 'First edition, MMXXVI',
     'year': 2026,
     'language': 'en-US',
@@ -67,7 +67,7 @@ COPYRIGHT_ROWS = [
                   'part, provided this notice travels with it and any changes are marked as changes.'),
     ('Nature', 'A theological research project: an inquiry, not a textbook, and not a statement of '
                'anyone\u2019s teaching office.'),
-    ('Imprint', 'Clausery \u00b7 getclausery.github.io'),
+    ('Imprint', 'Clausery \u00b7 ykidus053-create.github.io/the-hidden-and-the-manifest'),
     ('Identifier', META['identifier']),
     ('Typeface', 'Crimson Text, by Sebastian Kosch, set at 11 on 15 and justified with '
                  'hyphenation. Used under the SIL Open Font License 1.1; embedded and subset '
@@ -85,7 +85,7 @@ COPYRIGHT_ROWS = [
     ('Corrections', 'See Appendix F, *Note on the Text*.'),
     ('How to cite', 'Yared, Kidus. *The Hidden and the Manifest: A Catholic Theology of '
                     'Manifestation, and How the Church May Baptize an Age*. First edition. '
-                    'Clausery, 2026. getclausery.github.io.'),
+                    'Clausery, 2026. ykidus053-create.github.io/the-hidden-and-the-manifest/.'),
 ]
 
 # The colophon closes every edition with the same account of how the book was made.

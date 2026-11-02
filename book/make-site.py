@@ -17,7 +17,7 @@ import re
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(ROOT, 'site-dist')
-DEFAULT_BASE = 'https://ykidus053-create.github.io/'
+DEFAULT_BASE = 'https://ykidus053-create.github.io/the-hidden-and-the-manifest/'
 
 LINK_MAP = [
     # the landing page in the book folder points at its siblings; the site keeps them at the root
