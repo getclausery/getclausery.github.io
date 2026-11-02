@@ -6,7 +6,8 @@ import { evaluateForm, buildRenderData, buildPreviewData, summarize } from '../.
 import { renderDocx, renderDocxBytes, zipFiles, previewDocx, describeTemplateError, isDocxError } from '../../lib/render.js';
 import { recordHistory, KIND_LABELS } from '../../lib/history.js';
 import { parseCsv, mapHeaders, rowsToAnswers, templateCsv, uniqueNames, FREE_BULK_ROWS, MAX_BULK_ROWS } from '../../lib/bulk.js';
-import { prefillAnswers } from '../../lib/prefill.js';
+import { prefillAnswers, nextInSequence } from '../../lib/prefill.js';
+import { setupFor } from '../../lib/setups.js';
 import { requestPersistence } from '../../lib/store.js';
 import { downloadBlob, safeFilename } from '../../lib/backup.js';
 import { nowISO, newDraft } from '../../lib/schema.js';
@@ -250,8 +251,33 @@ export async function render(ctx, { id }) {
                 }
               }
               pendingSave = true; flush(); renderStep();
+              const filled = src ? Object.keys(src.answers || {}).filter((k) => /^client_|^project|^purchase_order/i.test(k) && src.answers[k] !== '' && src.answers[k] != null).length - 1 : 0;
+              toast(`Filled in ${name.split(/\s+/)[0]}'s details${filled > 1 ? ` (${filled} field${filled === 2 ? '' : 's'})` : ''}.`, { type: 'ok', timeout: 3500 });
             },
             title: `Fill in ${name.split(/\s+/)[0]}'s details from the last invoice` }, name.split(/\s+/)[0])));
+      }
+    }
+    // Next-invoice-number microcopy: if the current step contains a sequence field (invoice_number, quote_number, …)
+    // and it is blank on a brand-new draft (history empty), show a muted hint under the field saying "Next in your sequence: INV-0043"
+    // so first-time users see the numbering will auto-continue, and returning users see what's coming next.
+    {
+      const setup = template.sample && setupFor(template.sample);
+      const seqKeys = setup && setup.sequence ? setup.sequence : [];
+      for (const key of seqKeys) {
+        if (draft.answers[key]) continue;
+        const vals = allDrafts
+          .filter((d) => d.answers && d.answers[key] != null && d.answers[key] !== '')
+          .map((d) => d.answers[key]);
+        const nxt = nextInSequence(vals);
+        if (!nxt) continue;
+        const field = template.fields.find((x) => x.key === key);
+        if (!field) continue;
+        const wrap = form.element.querySelector(`[data-path="${key}"]`);
+        if (wrap && !wrap.querySelector('.seq-hint')) {
+          const label = field.label || key;
+          wrap.append(h('p.small.muted.seq-hint', { style: { marginTop: '.25rem', marginBottom: 0 } },
+            `Next ${label.toLowerCase()} in your sequence: `, h('strong', nxt), '.'));
+        }
       }
     }
     // Client autocomplete datalist: attach a recent-clients <datalist> to the client_name <input> so mid-type suggestions appear.
@@ -468,14 +494,20 @@ export async function render(ctx, { id }) {
     pendingSave = true; flush(); renderReview();
     // Post-paid cross-sell: offer a one-click receipt for this client (natural next action after payment).
     const clientFirst = String(draft.answers.client_name || '').split(/\s+/)[0];
+    const invNum = draft.answers.invoice_number ? ' #' + draft.answers.invoice_number : '';
+    const toEmail = draft.answers.client_email || '';
+    const thankSubject = encodeURIComponent(`Thanks — invoice${invNum} paid`);
+    const thankBody = encodeURIComponent(`Hi${clientFirst ? ' ' + clientFirst : ''},\n\nThanks — I've marked invoice${invNum} as paid. Receipt attached.\n\nAll the best!\n`);
     const paidMsg = clientFirst
       ? h('div', h('strong', `Marked ${clientFirst}'s invoice as paid. `),
+          h('a', { href: `mailto:${toEmail}?subject=${thankSubject}&body=${thankBody}`, style: 'text-decoration:underline', onclick: () => countEvent('paid-thankyou') }, 'Send thank-you email'),
+          ' · ',
           h('a', { href: '#/start/payment-receipt', style: 'text-decoration:underline', onclick: (e) => {
             e.preventDefault();
             ctx.startDraft(templates.find((t) => t.sample === 'payment-receipt') || templates.find((t) => /receipt/i.test(t.name)));
           }}, 'Make a receipt →'))
       : 'Marked as paid.';
-    toast(paidMsg, { type: 'ok', timeout: 8000 });
+    toast(paidMsg, { type: 'ok', timeout: 10000 });
   }
   function resetStatus() {
     draft.status = draft.generatedAt ? 'generated' : 'draft'; draft.sentAt = null; draft.paidAt = null;

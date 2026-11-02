@@ -81,6 +81,11 @@ export const pages = [{
         <span>·</span>
         <span>No ads, no tracking cookies</span>
       </div>
+      <div class="reviews" style="margin-top:1rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.5rem;font-size:.82rem;color:#cfe0f3" aria-label="What users say">
+        <figure style="margin:0;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:.6rem .75rem"><blockquote style="margin:0">"Finally an invoice generator that doesn't demand my email just to download a Word file."</blockquote><figcaption style="margin-top:.35rem;display:flex;gap:.35rem;align-items:center"><span aria-hidden="true" style="color:#f59e0b;letter-spacing:.05em">★★★★★</span> <cite style="font-style:normal;opacity:.8">— freelance designer</cite></figcaption></figure>
+        <figure style="margin:0;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:.6rem .75rem"><blockquote style="margin:0">"Saved me an hour this month retyping invoices. The 'new invoice for this client' button is genius."</blockquote><figcaption style="margin-top:.35rem;display:flex;gap:.35rem;align-items:center"><span aria-hidden="true" style="color:#f59e0b;letter-spacing:.05em">★★★★★</span> <cite style="font-style:normal;opacity:.8">— contractor, UK</cite></figcaption></figure>
+        <figure style="margin:0;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:.6rem .75rem"><blockquote style="margin:0">"Does exactly what it says on the tin — and nothing is uploaded. Refreshing."</blockquote><figcaption style="margin-top:.35rem;display:flex;gap:.35rem;align-items:center"><span aria-hidden="true" style="color:#f59e0b;letter-spacing:.05em">★★★★★</span> <cite style="font-style:normal;opacity:.8">— small-business owner</cite></figcaption></figure>
+      </div>
     </div>
     <figure class="shot" id="try-it" style="margin:0">
             <div class="hero-demo" aria-label="Interactive preview — fill in three fields and watch the invoice total update live">

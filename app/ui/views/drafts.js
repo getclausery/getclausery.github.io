@@ -1,5 +1,5 @@
 /* Clausery <https://getclausery.github.io> — (C) 2026 Clausery. AGPL-3.0-or-later WITH Clausery-Trademark-Exception. Removing this notice is removal of copyright management information under 17 U.S.C. 1202. Source: https://github.com/getclausery/getclausery.github.io */
-import { h, icon, toast, modal, confirmDialog, relativeTime, setChildren } from '../dom.js';
+import { h, icon, toast, modal, confirmDialog, relativeTime, setChildren, setTitle } from '../dom.js';
 import { uid } from '../../lib/schema.js';
 import { summarize } from '../../lib/logic.js';
 import { PRICES } from '../../config.js';
@@ -37,6 +37,9 @@ function subMeta(d, t) {
 }
 
 export async function render(ctx, params = {}) {
+  if (params && params.filter === 'outstanding') setTitle('Outstanding invoices');
+  else if (params && params.filter === 'overdue') setTitle('Overdue invoices');
+  else if (params && params.filter === 'paid') setTitle('Paid invoices');
   const [drafts, templates] = await Promise.all([ctx.drafts.list(), ctx.templates.list()]);
   const tmap = new Map(templates.map((t) => [t.id, t]));
   // Filter tabs: support ?filter=outstanding|sent|paid|all (quick-jump uses ?filter=outstanding).
