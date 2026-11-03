@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-03",
-  "hash": "1304fe12d9383738"
+  "hash": "0767ac40e0fc3af0"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-11-03",
-  "hash": "f8e80fbb351fade5"
+  "hash": "b9f9c2a47afff24f"
  },
  "clauses/": {
   "date": "2026-10-31",
@@ -627,6 +627,10 @@
   "date": "2026-10-09",
   "hash": "76c3a4a32db91032"
  },
+ "invoice-templates/free-invoice-generator.html": {
+  "date": "2026-11-03",
+  "hash": "94afb94fdc4a620e"
+ },
  "invoice-templates/freelance-invoice.html": {
   "date": "2026-11-03",
   "hash": "192fd094ea1a19f1"
@@ -676,8 +680,8 @@
   "hash": "e8b4bef9e5c045f0"
  },
  "invoice-templates/printable-invoice.html": {
-  "date": "2026-10-31",
-  "hash": "07f2245765e79f78"
+  "date": "2026-11-03",
+  "hash": "fdc86f666916f932"
  },
  "invoice-templates/proforma-invoice.html": {
   "date": "2026-10-31",
@@ -686,6 +690,10 @@
  "invoice-templates/quotation-template.html": {
   "date": "2026-10-31",
   "hash": "38bae4bf647f7ff0"
+ },
+ "invoice-templates/self-employed-invoice.html": {
+  "date": "2026-11-03",
+  "hash": "6d8750704a8bcfcd"
  },
  "invoice-templates/simple-invoice.html": {
   "date": "2026-10-31",
@@ -773,7 +781,7 @@
  },
  "roadmap/": {
   "date": "2026-11-03",
-  "hash": "0c60f0961e7471a9"
+  "hash": "8493dc2195462552"
  },
  "search/": {
   "date": "2026-10-31",
@@ -789,7 +797,7 @@
  },
  "status/": {
   "date": "2026-11-03",
-  "hash": "65623ce7e5c083cd"
+  "hash": "10531615c4fd7ac2"
  },
  "templates/": {
   "date": "2026-11-03",

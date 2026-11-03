@@ -8,6 +8,14 @@
   <updated>2026-11-03T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.96.0 — Two more high-intent invoice keyword hubs: "Free invoice generator" (free-invoice-generator) and "Self-employed invoice template" (self-employed-invoice), targeting the tool-intent cluster ("invoice generator", "free invoice maker", "generate invoice online") and the audience cluster ("self employed invoice template", "sole trader invoice", "freelance invoice uk"). Printable invoice title trimmed to fit the 60-char brand-suffix limit; internal links from the new generator page into create-online / Word / Blank / Simple / Editable / due-date calculator and from the self-employed page into Freelance / Simple / Editable / Blank / invoice-generator / how-to guide.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-96-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-96-0</id>
+    <published>2026-11-03T00:00:00Z</published>
+    <updated>2026-11-03T00:00:00Z</updated>
+    <summary>Two more high-intent invoice keyword hubs: &quot;Free invoice generator&quot; (free-invoice-generator) and &quot;Self-employed invoice template&quot; (self-employed-invoice), targeting the tool-intent cluster (&quot;invoice generator&quot;, &quot;free invoice maker&quot;, &quot;generate invoice online&quot;) and the audience cluster (&quot;self employed invoice template&quot;, &quot;sole trader invoice&quot;, &quot;freelance invoice uk&quot;). Printable invoice title trimmed to fit the 60-char brand-suffix limit; internal links from the new generator page into create-online / Word / Blank / Simple / Editable / due-date calculator and from the self-employed page into Freelance / Simple / Editable / Blank / invoice-generator / how-to guide.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.95.0 — Keyword & title optimization pass: core invoice/quote template titles rebalanced to fit the 60-char limit with the Clausery suffix ("Free Invoice Template | Edit, Download (Word/PDF)" + "Free Quote Template | Editable Word/PDF Download"), over-long variant titles (blank, freelance, PDF, contractor) trimmed back to ≤60 with high-intent keywords preserved. Two new keyword landing pages: "Create an invoice online" (free invoice maker / create-invoice-online) and "Free Word invoice template" (Word .docx download), covering top-of-funnel searches for the action ("create invoice") and format ("invoice template word / .docx"). Description meta tags tightened with keyword-first phrasing.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-95-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-95-0</id>
