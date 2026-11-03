@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-03",
-  "hash": "67f72c1616d1c3b6"
+  "hash": "73a9d571c4a85702"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-11-03",
-  "hash": "8a016d2662771cc0"
+  "hash": "dae31aeb32081ca3"
  },
  "clauses/": {
   "date": "2026-10-31",
@@ -572,8 +572,8 @@
   "hash": "0f454db6569fd1b7"
  },
  "invoice-templates/": {
-  "date": "2026-11-01",
-  "hash": "77a7b1f1e4b5cf84"
+  "date": "2026-11-03",
+  "hash": "fd506111723ca35a"
  },
  "invoice-templates/australia-tax-invoice.html": {
   "date": "2026-10-31",
@@ -592,16 +592,16 @@
   "hash": "c7f40eaccb4f5ff0"
  },
  "invoice-templates/cleaning.html": {
-  "date": "2026-10-31",
-  "hash": "afc9e09259ebcf73"
+  "date": "2026-11-03",
+  "hash": "14251e1f8a6bf096"
  },
  "invoice-templates/construction-contractor.html": {
-  "date": "2026-10-31",
-  "hash": "cb2d20e24daa2c4b"
+  "date": "2026-11-03",
+  "hash": "125de5d9f7673302"
  },
  "invoice-templates/consulting.html": {
-  "date": "2026-10-31",
-  "hash": "5105c1c657ad1c13"
+  "date": "2026-11-03",
+  "hash": "6501c6796e0452c4"
  },
  "invoice-templates/contractor-invoice.html": {
   "date": "2026-11-03",
@@ -640,20 +640,20 @@
   "hash": "192fd094ea1a19f1"
  },
  "invoice-templates/freelance-writing.html": {
-  "date": "2026-10-31",
-  "hash": "afd6852c666e8e17"
+  "date": "2026-11-03",
+  "hash": "b673066e4994df83"
  },
  "invoice-templates/google-docs-invoice.html": {
   "date": "2026-10-31",
   "hash": "1e88d40b60397335"
  },
  "invoice-templates/graphic-design.html": {
-  "date": "2026-10-31",
-  "hash": "333b4ada0ddfdb5b"
+  "date": "2026-11-03",
+  "hash": "e5a99219158d027b"
  },
  "invoice-templates/handyman.html": {
-  "date": "2026-10-31",
-  "hash": "b0abe1701b6497a7"
+  "date": "2026-11-03",
+  "hash": "493860ca47b565ff"
  },
  "invoice-templates/hourly-invoice.html": {
   "date": "2026-10-09",
@@ -668,20 +668,20 @@
   "hash": "78a33837d304f2ba"
  },
  "invoice-templates/landscaping.html": {
-  "date": "2026-10-31",
-  "hash": "c79f92843ebb3f56"
+  "date": "2026-11-03",
+  "hash": "decdd6fd8019fe7a"
  },
  "invoice-templates/new-zealand-gst-invoice.html": {
   "date": "2026-10-31",
   "hash": "6732c7a4be129eba"
  },
  "invoice-templates/personal-training.html": {
-  "date": "2026-10-31",
-  "hash": "710b8a46e58accd0"
+  "date": "2026-11-03",
+  "hash": "69f95f68aeba5c96"
  },
  "invoice-templates/photography.html": {
-  "date": "2026-10-31",
-  "hash": "e8b4bef9e5c045f0"
+  "date": "2026-11-03",
+  "hash": "56f744253849d0f5"
  },
  "invoice-templates/printable-invoice.html": {
   "date": "2026-11-03",
@@ -720,20 +720,20 @@
   "hash": "6bc718c0eab9427d"
  },
  "invoice-templates/tutoring.html": {
-  "date": "2026-10-31",
-  "hash": "89e1ce76b573e423"
+  "date": "2026-11-03",
+  "hash": "26a95e00d58fe6af"
  },
  "invoice-templates/uk-vat-invoice.html": {
   "date": "2026-10-31",
   "hash": "4e597ed59d958b9e"
  },
  "invoice-templates/videography.html": {
-  "date": "2026-10-31",
-  "hash": "10fb42001868799f"
+  "date": "2026-11-03",
+  "hash": "bf36cdc7a97fea96"
  },
  "invoice-templates/web-design.html": {
-  "date": "2026-10-31",
-  "hash": "f725afec97557f3e"
+  "date": "2026-11-03",
+  "hash": "1ea35feeacf98614"
  },
  "invoice-templates/word.html": {
   "date": "2026-11-03",
@@ -797,7 +797,7 @@
  },
  "roadmap/": {
   "date": "2026-11-03",
-  "hash": "2960fd26a854d5a7"
+  "hash": "f8933ff2b10eea13"
  },
  "search/": {
   "date": "2026-10-31",
@@ -813,7 +813,7 @@
  },
  "status/": {
   "date": "2026-11-03",
-  "hash": "4d14b0f54af1e638"
+  "hash": "6b459e97d0b68581"
  },
  "templates/": {
   "date": "2026-11-03",

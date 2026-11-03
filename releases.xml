@@ -8,6 +8,14 @@
   <updated>2026-11-03T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.99.0 — Trade invoice title tag pass: all twelve trade-specific invoice pages (cleaning, contractor, consulting, freelance writing, graphic design, handyman, landscaping/lawn care, personal training, photography, tutoring, video production, web design) updated from the parenthetical "(free, Word)" format to a title structure that includes Word/PDF and "Free" or "Download" keywords, so trade-intent searchers ("cleaning invoice template", "contractor invoice template word", "photography invoice pdf") see the format keyword in the SERP title.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-99-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-99-0</id>
+    <published>2026-11-03T00:00:00Z</published>
+    <updated>2026-11-03T00:00:00Z</updated>
+    <summary>Trade invoice title tag pass: all twelve trade-specific invoice pages (cleaning, contractor, consulting, freelance writing, graphic design, handyman, landscaping/lawn care, personal training, photography, tutoring, video production, web design) updated from the parenthetical &quot;(free, Word)&quot; format to a title structure that includes Word/PDF and &quot;Free&quot; or &quot;Download&quot; keywords, so trade-intent searchers (&quot;cleaning invoice template&quot;, &quot;contractor invoice template word&quot;, &quot;photography invoice pdf&quot;) see the format keyword in the SERP title.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.98.0 — Two more invoice keyword hubs: "Basic invoice template" (basic-invoice) — minimal one-page invoice with only essential fields, targeting "basic invoice template", "simple free invoice", "basic invoice form" — and a generic "Free tax invoice template" (tax-invoice) targeting VAT/GST tax invoices across regimes (VAT invoice template, GST tax invoice, sales tax invoice), cross-linking to the six existing country-specific VAT/GST variants (UK, AU, NZ, CA, ZA, IE) from its related block so the generic page ranks for the broad head term while surfacing the jurisdiction-correct page.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-98-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-98-0</id>
