@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-03",
-  "hash": "725e86b68824e079"
+  "hash": "1304fe12d9383738"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-11-03",
-  "hash": "d425e9a91712f9d0"
+  "hash": "f8e80fbb351fade5"
  },
  "clauses/": {
   "date": "2026-10-31",
@@ -580,8 +580,8 @@
   "hash": "ecac92443063719e"
  },
  "invoice-templates/blank-invoice.html": {
-  "date": "2026-10-31",
-  "hash": "38bb6ea9314a7354"
+  "date": "2026-11-03",
+  "hash": "3b3d8973c4939643"
  },
  "invoice-templates/canada-gst-hst-invoice.html": {
   "date": "2026-10-31",
@@ -600,8 +600,12 @@
   "hash": "5105c1c657ad1c13"
  },
  "invoice-templates/contractor-invoice.html": {
-  "date": "2026-10-31",
-  "hash": "0ae970efc65e1062"
+  "date": "2026-11-03",
+  "hash": "f7eb06451f83052a"
+ },
+ "invoice-templates/create-invoice-online.html": {
+  "date": "2026-11-03",
+  "hash": "9f76ed9f30ac1b32"
  },
  "invoice-templates/deposit-invoice.html": {
   "date": "2026-11-01",
@@ -624,8 +628,8 @@
   "hash": "76c3a4a32db91032"
  },
  "invoice-templates/freelance-invoice.html": {
-  "date": "2026-10-31",
-  "hash": "5a9938d29f28daf3"
+  "date": "2026-11-03",
+  "hash": "192fd094ea1a19f1"
  },
  "invoice-templates/freelance-writing.html": {
   "date": "2026-10-31",
@@ -648,8 +652,8 @@
   "hash": "8c3d3f2b2d1f55e7"
  },
  "invoice-templates/invoice-template-pdf.html": {
-  "date": "2026-10-31",
-  "hash": "e349397688350fbf"
+  "date": "2026-11-03",
+  "hash": "0a4f3e2748a96784"
  },
  "invoice-templates/ireland-vat-invoice.html": {
   "date": "2026-10-31",
@@ -706,6 +710,10 @@
  "invoice-templates/web-design.html": {
   "date": "2026-10-31",
   "hash": "f725afec97557f3e"
+ },
+ "invoice-templates/word.html": {
+  "date": "2026-11-03",
+  "hash": "9f169f224cbc3c5d"
  },
  "legal/dmca.html": {
   "date": "2026-10-23",
@@ -765,7 +773,7 @@
  },
  "roadmap/": {
   "date": "2026-11-03",
-  "hash": "0102a53d9efcdce7"
+  "hash": "0c60f0961e7471a9"
  },
  "search/": {
   "date": "2026-10-31",
@@ -781,11 +789,11 @@
  },
  "status/": {
   "date": "2026-11-03",
-  "hash": "9dc1fbbcd6e56232"
+  "hash": "65623ce7e5c083cd"
  },
  "templates/": {
-  "date": "2026-11-01",
-  "hash": "4296fab613efe138"
+  "date": "2026-11-03",
+  "hash": "b5e6df863161602a"
  },
  "templates/bill-of-sale-template.html": {
   "date": "2026-10-31",
@@ -1036,8 +1044,8 @@
   "hash": "314e22b01a689108"
  },
  "templates/invoice.html": {
-  "date": "2026-11-01",
-  "hash": "ee3db9f36ff0d072"
+  "date": "2026-11-03",
+  "hash": "b1051678f522a7fc"
  },
  "templates/job-description-template.html": {
   "date": "2026-10-31",
@@ -1300,8 +1308,8 @@
   "hash": "5f1ceae4c45aae02"
  },
  "templates/quote.html": {
-  "date": "2026-11-01",
-  "hash": "60efcf819827eb9b"
+  "date": "2026-11-03",
+  "hash": "868be8c94fabc802"
  },
  "templates/reference-letter-template.html": {
   "date": "2026-10-31",

@@ -8,6 +8,14 @@
   <updated>2026-11-03T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.95.0 — Keyword & title optimization pass: core invoice/quote template titles rebalanced to fit the 60-char limit with the Clausery suffix ("Free Invoice Template | Edit, Download (Word/PDF)" + "Free Quote Template | Editable Word/PDF Download"), over-long variant titles (blank, freelance, PDF, contractor) trimmed back to ≤60 with high-intent keywords preserved. Two new keyword landing pages: "Create an invoice online" (free invoice maker / create-invoice-online) and "Free Word invoice template" (Word .docx download), covering top-of-funnel searches for the action ("create invoice") and format ("invoice template word / .docx"). Description meta tags tightened with keyword-first phrasing.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-95-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-95-0</id>
+    <published>2026-11-03T00:00:00Z</published>
+    <updated>2026-11-03T00:00:00Z</updated>
+    <summary>Keyword &amp; title optimization pass: core invoice/quote template titles rebalanced to fit the 60-char limit with the Clausery suffix (&quot;Free Invoice Template | Edit, Download (Word/PDF)&quot; + &quot;Free Quote Template | Editable Word/PDF Download&quot;), over-long variant titles (blank, freelance, PDF, contractor) trimmed back to ≤60 with high-intent keywords preserved. Two new keyword landing pages: &quot;Create an invoice online&quot; (free invoice maker / create-invoice-online) and &quot;Free Word invoice template&quot; (Word .docx download), covering top-of-funnel searches for the action (&quot;create invoice&quot;) and format (&quot;invoice template word / .docx&quot;). Description meta tags tightened with keyword-first phrasing.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.94.0 — "Send to client" flow on desktop: after downloading an invoice/quote on desktop (no native share sheet), the Review card now shows an Email to client button and a post-download "Now send it" nudge that opens a pre-addressed mailto: with subject, amount and due date filled — the user attaches the downloaded file. Mark-as-sent toast also offers "Open email" as a one-click action, closing the share→sent loop for desktop users where the mobile share sheet does not exist.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-94-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-94-0</id>
