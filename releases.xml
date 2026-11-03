@@ -5,8 +5,16 @@
   <link rel="self" href="https://getclausery.github.io/releases.xml"/>
   <link rel="alternate" href="https://getclausery.github.io/changelog.html"/>
   <id>https://getclausery.github.io/changelog.html</id>
-  <updated>2026-11-02T00:00:00Z</updated>
+  <updated>2026-11-03T00:00:00Z</updated>
   <author><name>Clausery</name></author>
+  <entry>
+    <title>Clausery v2.94.0 — "Send to client" flow on desktop: after downloading an invoice/quote on desktop (no native share sheet), the Review card now shows an Email to client button and a post-download "Now send it" nudge that opens a pre-addressed mailto: with subject, amount and due date filled — the user attaches the downloaded file. Mark-as-sent toast also offers "Open email" as a one-click action, closing the share→sent loop for desktop users where the mobile share sheet does not exist.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-94-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-94-0</id>
+    <published>2026-11-03T00:00:00Z</published>
+    <updated>2026-11-03T00:00:00Z</updated>
+    <summary>&quot;Send to client&quot; flow on desktop: after downloading an invoice/quote on desktop (no native share sheet), the Review card now shows an Email to client button and a post-download &quot;Now send it&quot; nudge that opens a pre-addressed mailto: with subject, amount and due date filled — the user attaches the downloaded file. Mark-as-sent toast also offers &quot;Open email&quot; as a one-click action, closing the share→sent loop for desktop users where the mobile share sheet does not exist.</summary>
+  </entry>
   <entry>
     <title>Clausery v2.93.0 — Mobile zoom-out layout fix: when pinching to zoom out on a phone, cards/grids no longer render with blank halves or overflow. Added min-width:0 and overflow-wrap to flex/grid children in both the app and marketing site so content shrinks with the viewport instead of forcing horizontal overflow; collapsed cards grids to single-column below 800px to avoid over-narrow tiles at zoomed-out scales; buttons now wrap instead of forcing nowrap, and word-break/overflow-wrap applied to headings and paragraph text so long words do not blow out columns.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-93-0"/>
