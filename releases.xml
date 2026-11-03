@@ -8,6 +8,14 @@
   <updated>2026-11-03T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.98.0 — Two more invoice keyword hubs: "Basic invoice template" (basic-invoice) — minimal one-page invoice with only essential fields, targeting "basic invoice template", "simple free invoice", "basic invoice form" — and a generic "Free tax invoice template" (tax-invoice) targeting VAT/GST tax invoices across regimes (VAT invoice template, GST tax invoice, sales tax invoice), cross-linking to the six existing country-specific VAT/GST variants (UK, AU, NZ, CA, ZA, IE) from its related block so the generic page ranks for the broad head term while surfacing the jurisdiction-correct page.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-98-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-98-0</id>
+    <published>2026-11-03T00:00:00Z</published>
+    <updated>2026-11-03T00:00:00Z</updated>
+    <summary>Two more invoice keyword hubs: &quot;Basic invoice template&quot; (basic-invoice) — minimal one-page invoice with only essential fields, targeting &quot;basic invoice template&quot;, &quot;simple free invoice&quot;, &quot;basic invoice form&quot; — and a generic &quot;Free tax invoice template&quot; (tax-invoice) targeting VAT/GST tax invoices across regimes (VAT invoice template, GST tax invoice, sales tax invoice), cross-linking to the six existing country-specific VAT/GST variants (UK, AU, NZ, CA, ZA, IE) from its related block so the generic page ranks for the broad head term while surfacing the jurisdiction-correct page.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.97.0 — Two more invoice keyword hubs: "Small business invoice template" (small-business) targeting the SMB audience cluster ("invoice template for small business", "small business invoice", "free small business invoicing") and "Sample invoice template" (sample) targeting the reference/learning cluster ("sample invoice", "invoice example", "filled out invoice example") — a complete filled-in example showing what an invoice should look like, with "make an invoice from this sample" CTA.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-97-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-97-0</id>
