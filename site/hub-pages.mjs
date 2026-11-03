@@ -5,7 +5,7 @@ import { esc, faqLd, faqHtml, LASTMOD, LASTMOD_LONG, crumbsLd } from '../tools/p
 const HUBS = [
   {
     path: 'invoice-templates/blank-invoice.html', section: 'invoice-templates', sectionLabel: 'Invoice templates',
-    title: 'Blank Invoice Template | Fillable PDF/Word (Free, No Signup)',
+    title: 'Blank Invoice Template | Fillable PDF/Word (Free)',
     description: 'Free blank invoice template. Fill in online, download as printable PDF or editable Word, and send to clients. Calculates totals for you.',
     h1: 'Blank invoice template',
     lead: 'Start with an empty invoice: add your business details, your client, the line items and your payment terms. Fill it in online to have totals and tax calculated for you, then download the blank invoice as a printable PDF or an editable Word file.',
@@ -125,7 +125,7 @@ const HUBS = [
   },
   {
     path: 'invoice-templates/freelance-invoice.html', section: 'invoice-templates', sectionLabel: 'Invoice templates',
-    title: 'Freelance Invoice | Free Word/PDF (Hours & Projects)',
+    title: 'Freelance Invoice Template | Free Word/PDF Form',
     description: 'Free freelance invoice template for designers, writers, consultants and developers. Bill by the hour or project, download as PDF or Word.',
     h1: 'Freelance invoice template',
     lead: 'Bill freelance work clearly, whether you charge by the hour, by the project or a mix. Fill the invoice in online, get totals calculated, and download it as an editable Word file or printable PDF. Designed for freelancers and sole traders.',
@@ -166,7 +166,7 @@ const HUBS = [
   },
   {
     path: 'invoice-templates/invoice-template-pdf.html', section: 'invoice-templates', sectionLabel: 'Invoice templates',
-    title: 'Invoice Template PDF | Free Download (Print & Email)',
+    title: 'Invoice Template PDF | Free Download (Printable)',
     description: 'Free invoice template you can download and print as a PDF. Fill in online, calculate totals, save as PDF or Word. No sign-up.',
     h1: 'Invoice template PDF',
     lead: 'Create a PDF invoice you can email or print. Fill it in online - totals and tax are calculated as you type - then save it as a PDF or download an editable Word file. Free, with no sign-up.',
@@ -286,7 +286,7 @@ const HUBS = [
   },
   {
     path: 'invoice-templates/contractor-invoice.html', section: 'invoice-templates', sectionLabel: 'Invoice templates',
-    title: 'Contractor Invoice | Free Word/PDF (Labour & Materials)',
+    title: 'Contractor Invoice Template | Free Word/PDF Form',
     description: 'Free contractor invoice template. Bill for contract work, materials, hours and change orders. Download as Word or PDF, no sign-up.',
     h1: 'Contractor invoice template',
     lead: 'Invoice contract work clearly - whether you are a general contractor, electrician, plumber, landscaper or other trade. Show hours, materials, change orders and any retention, then download the invoice as a printable PDF or editable Word file.',
@@ -2196,6 +2196,88 @@ const HUBS = [
     faq: [['Is a VA an employee or contractor?', 'Most VAs are independent contractors running their own business; misclassifying can create tax liability.'], ['Do I need to give benefits?', 'No for independent contractors; employees get benefits. Treat VAs as contractors unless they fit employee criteria.'], ['What about password/account access?', 'Use password managers with limited access and revoke access immediately on termination.'], ['How many hours should I book?', 'Start with a block of hours per month; adjust as you learn the workload.'], ['What if I am not happy?', 'Include a short notice period (7-14 days) and pay for work done up to termination.']],
     cta: { label: 'Build your VA agreement', href: 'app/#/start/virtual-assistant-agreement' },
     download: { href: 'samples/virtual-assistant-agreement.docx', label: 'Download Word' }
+  },
+  {
+    path: 'invoice-templates/create-invoice-online.html', section: 'invoice-templates', sectionLabel: 'Invoice templates',
+    title: 'Create an Invoice Online | Free Invoice Maker',
+    description: 'Create an invoice online free: fill in your details, add line items, totals and VAT/GST calculate for you, then download as Word or PDF. No sign-up.',
+    h1: 'Create an invoice online — free invoice maker',
+    lead: 'Make a professional invoice right in your browser. Answer a few questions about who you are, who you are billing and what the charge is for; line totals, VAT or GST and the balance due calculate as you type. Then download the finished invoice as an editable Word file or a printable PDF. Nothing is uploaded and no account is needed.',
+    introParagraphs: [
+      'Creating an invoice online is faster than opening Word and typing one from a blank file every time. The template prompts you for every field an invoice should have (invoice number, dates, your details, the client, line items, totals, tax, payment terms), so you do not accidentally leave out the invoice number or the due date.',
+      'Your business details, logo and payment methods are saved in your browser so subsequent invoices start pre-filled; each new invoice suggests the next invoice number in your sequence automatically. For repeat clients you can also start a new invoice with the client details already filled in.',
+    ],
+    bullets: [
+      ['Invoice number and dates', 'A unique invoice number, the invoice date, and the due date (for example NET 30 or due on receipt). The next number in your sequence is suggested automatically.'],
+      ['You and your client', 'Your business name, address, email and an optional tax/VAT/GST number, plus the client\'s name and billing address. Saved locally so you never type them twice.'],
+      ['Line items', 'Description of what you are charging for, quantity, unit price and amount. Line totals calculate as you type; hours-based billing works by using hours as the quantity and your hourly rate as the unit price.'],
+      ['Totals, tax and discount', 'Subtotal, an optional percentage discount, one tax rate (VAT, GST, sales tax or none), and the grand total. Any amount already paid (a deposit, for example) is subtracted to show the balance due.'],
+      ['How to pay', 'Payment methods, bank details and any late-fee wording. A warning about fake change-of-bank-details emails is included by default.'],
+    ],
+    howTo: [
+      ['Click "Make a free invoice"', 'Click the CTA below to open the invoice maker in your browser. Your business details and logo are pre-filled if you have used Clausery before.'],
+      ['Fill in the client and invoice numbers', 'Pick a client (or add a new one), confirm today\'s date and the due date, and check the invoice number that was suggested for you.'],
+      ['Add the line items', 'Enter each item or task with a description, quantity and rate. Add a separate line when the rate or the tax rate changes.'],
+      ['Check totals and tax', 'Review subtotal, any discount, tax and total. If the client has paid a deposit, enter the amount in "Amount paid" to show the balance due.'],
+      ['Download and send', 'Download the invoice as an editable Word file if you want to tweak the layout, or print/save as a PDF to email straight to the client.'],
+    ],
+    related: [
+      ['Blank invoice template', 'invoice-templates/blank-invoice.html', 'Start with a completely empty invoice and fill in only the fields you need.'],
+      ['Editable invoice template', 'invoice-templates/editable-invoice.html', 'Every field is editable online before you download as Word or PDF.'],
+      ['Simple invoice template', 'invoice-templates/simple-invoice.html', 'A one-page invoice for small jobs and one-off sales.'],
+      ['Freelance invoice template', 'invoice-templates/freelance-invoice.html', 'For freelancers billing by the hour or the project.'],
+      ['Invoice due date calculator', 'free-tools/invoice-due-date.html', 'Work out the due date for NET 30, EOM and other common terms.'],
+      ['Invoice email templates', 'guides/invoice-email-template.html', 'What to write when you send an invoice, remind a client or acknowledge payment.'],
+    ],
+    faq: [
+      ['Do I need to sign up to create an invoice?', 'No. You can create and download an invoice without creating an account, giving an email address, or adding a credit card. Everything runs in your browser.'],
+      ['Does the invoice maker add up totals for me?', 'Yes. Line amounts, subtotal, discount, tax and grand total update as you type. The downloaded Word file keeps the figures as plain numbers you can edit further.'],
+      ['Is anything I type uploaded?', 'No. The invoice is assembled entirely in your browser from your answers and the template; no data leaves your device unless you choose to download it or share it.'],
+      ['Can I add my logo?', 'Yes. Upload a logo in the app and it is saved in your browser for all future invoices, appearing in the header of the finished Word or PDF file.'],
+      ['Can I make an invoice in Word instead of PDF?', 'Yes. Click "Download .docx" to get an editable Word file you can open in Microsoft Word, Google Docs or LibreOffice and edit further.'],
+    ],
+    cta: { label: 'Make a free invoice — no sign up', href: 'app/#/start/invoice' },
+  },
+  {
+    path: 'invoice-templates/word.html', section: 'invoice-templates', sectionLabel: 'Invoice templates',
+    title: 'Free Word Invoice Template | Download Free (docx)',
+    description: 'Free editable invoice template for Word (docx). Fill in online, totals and VAT/GST calculate for you, then download a .docx invoice for Microsoft Word.',
+    h1: 'Free Word invoice template',
+    lead: 'Download a free editable invoice template for Microsoft Word. Fill in your details online, have line totals, VAT/GST and the balance due calculated for you, and download a standard .docx file that opens cleanly in Word 2016, Word for Microsoft 365, Word for Mac and Google Docs. No sign-up required.',
+    introParagraphs: [
+      'A Word invoice template saves you rebuilding the same layout every time you bill. The .docx file Clausery generates keeps the formatting of a clean, professional invoice — header with your logo, date and invoice number, a bill-to block, a line-item table with borders, totals and tax, and a how-to-pay footer — while the figures come through as plain text you can edit in Word if you need to.',
+      'If you prefer not to type straight into the template, fill the form in on this page (totals calculate for you), then download the finished Word file. Your business details are saved in your browser so future invoices pre-fill automatically, and each new invoice suggests the next invoice number in your sequence.',
+    ],
+    bullets: [
+      ['Standard .docx', 'Downloads as a normal .docx file that opens in Microsoft Word, Google Docs, LibreOffice and Apple Pages without plugins or conversions.'],
+      ['Line-item table', 'Description, quantity, unit price and amount in a bordered table you can add rows to or reformat in Word.'],
+      ['Calculated totals', 'Subtotal, optional discount, tax and grand total worked out when you fill it in online; they download as plain numbers so you can edit them later.'],
+      ['Logo and branding', 'Upload your logo and choose an accent colour; both appear in the header of the downloaded Word file.'],
+      ['Payment terms and bank details', 'A pre-written "how to pay" block with bank details, payment methods and optional late-fee wording. Edit the wording in Word if you have specific terms.'],
+    ],
+    howTo: [
+      ['Open the template', 'Click the button below to start a new invoice pre-set for Word download.'],
+      ['Fill in your and the client details', 'Add the client, invoice number, issue date and due date. Your own business details are pre-filled from last time.'],
+      ['Add the line items', 'Enter each item with description, quantity and rate. Line totals and the overall total update as you go.'],
+      ['Add tax and discount', 'Set your tax rate (VAT, GST, sales tax or none) and any discount. If the client has paid a deposit, enter it as Amount paid.'],
+      ['Download as .docx', 'Click Download .docx. The file opens in Word; you can tweak the layout, add extra notes, then save or convert to PDF to email.'],
+    ],
+    related: [
+      ['Invoice template PDF', 'invoice-templates/invoice-template-pdf.html', 'Prefer a PDF invoice? Fill it in online and save or print as PDF.'],
+      ['Excel invoice template', 'invoice-templates/excel-invoice-template.html', 'For spreadsheet-based billing with formula-driven totals.'],
+      ['Google Docs invoice template', 'invoice-templates/google-docs-invoice.html', 'Edit in Google Docs and share a live link with your client.'],
+      ['Blank invoice template', 'invoice-templates/blank-invoice.html', 'A blank Word invoice with no pre-filled answers.'],
+      ['Editable invoice template', 'invoice-templates/editable-invoice.html', 'Edit every field online before downloading as Word or PDF.'],
+      ['How to write an invoice', 'guides/how-to-write-an-invoice.html', 'Checklist of what every invoice needs.'],
+    ],
+    faq: [
+      ['Do I need Microsoft Word to use this?', 'No. You fill the invoice in on this page in your browser. The file you download is a .docx that opens in Word, Google Docs, LibreOffice, Apple Pages and any other editor that reads Word files.'],
+      ['Can I edit the invoice after downloading?', 'Yes. The .docx is a standard Word document — change any text, adjust the table, add a note, then save or print. Figures come through as plain numbers, not formulae.'],
+      ['Does the Word invoice calculate totals?', 'Totals are calculated for you while you fill in the form online. Once downloaded the figures are plain numbers (Word does not run spreadsheet formulae), so edit them in Word if you change a line item.'],
+      ['Is the template really free?', 'Yes. You can download and use the Word invoice for free without signing up or giving a credit card. The Free plan adds a small "Made with Clausery" line; Pro removes it.'],
+      ['Can I add my logo?', 'Yes. Upload a logo before downloading and it appears in the header of the finished .docx file.'],
+    ],
+    cta: { label: 'Download a free Word invoice', href: 'app/#/start/invoice' },
   }
 ];
 
