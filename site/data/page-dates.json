@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-03",
-  "hash": "0767ac40e0fc3af0"
+  "hash": "67f72c1616d1c3b6"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-11-03",
-  "hash": "b677f99769e562bc"
+  "hash": "8a016d2662771cc0"
  },
  "clauses/": {
   "date": "2026-10-31",
@@ -579,6 +579,10 @@
   "date": "2026-10-31",
   "hash": "ecac92443063719e"
  },
+ "invoice-templates/basic-invoice.html": {
+  "date": "2026-11-03",
+  "hash": "637fe15e21f4d71a"
+ },
  "invoice-templates/blank-invoice.html": {
   "date": "2026-11-03",
   "hash": "3b3d8973c4939643"
@@ -711,6 +715,10 @@
   "date": "2026-10-31",
   "hash": "d2744231bcf22fe2"
  },
+ "invoice-templates/tax-invoice.html": {
+  "date": "2026-11-03",
+  "hash": "6bc718c0eab9427d"
+ },
  "invoice-templates/tutoring.html": {
   "date": "2026-10-31",
   "hash": "89e1ce76b573e423"
@@ -789,7 +797,7 @@
  },
  "roadmap/": {
   "date": "2026-11-03",
-  "hash": "8493dc2195462552"
+  "hash": "2960fd26a854d5a7"
  },
  "search/": {
   "date": "2026-10-31",
@@ -805,7 +813,7 @@
  },
  "status/": {
   "date": "2026-11-03",
-  "hash": "10531615c4fd7ac2"
+  "hash": "4d14b0f54af1e638"
  },
  "templates/": {
   "date": "2026-11-03",
