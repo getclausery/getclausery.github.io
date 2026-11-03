@@ -8,6 +8,14 @@
   <updated>2026-11-03T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.97.0 — Two more invoice keyword hubs: "Small business invoice template" (small-business) targeting the SMB audience cluster ("invoice template for small business", "small business invoice", "free small business invoicing") and "Sample invoice template" (sample) targeting the reference/learning cluster ("sample invoice", "invoice example", "filled out invoice example") — a complete filled-in example showing what an invoice should look like, with "make an invoice from this sample" CTA.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-97-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-97-0</id>
+    <published>2026-11-03T00:00:00Z</published>
+    <updated>2026-11-03T00:00:00Z</updated>
+    <summary>Two more invoice keyword hubs: &quot;Small business invoice template&quot; (small-business) targeting the SMB audience cluster (&quot;invoice template for small business&quot;, &quot;small business invoice&quot;, &quot;free small business invoicing&quot;) and &quot;Sample invoice template&quot; (sample) targeting the reference/learning cluster (&quot;sample invoice&quot;, &quot;invoice example&quot;, &quot;filled out invoice example&quot;) — a complete filled-in example showing what an invoice should look like, with &quot;make an invoice from this sample&quot; CTA.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.96.0 — Two more high-intent invoice keyword hubs: "Free invoice generator" (free-invoice-generator) and "Self-employed invoice template" (self-employed-invoice), targeting the tool-intent cluster ("invoice generator", "free invoice maker", "generate invoice online") and the audience cluster ("self employed invoice template", "sole trader invoice", "freelance invoice uk"). Printable invoice title trimmed to fit the 60-char brand-suffix limit; internal links from the new generator page into create-online / Word / Blank / Simple / Editable / due-date calculator and from the self-employed page into Freelance / Simple / Editable / Blank / invoice-generator / how-to guide.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-96-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-96-0</id>

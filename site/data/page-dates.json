@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-11-03",
-  "hash": "b9f9c2a47afff24f"
+  "hash": "b677f99769e562bc"
  },
  "clauses/": {
   "date": "2026-10-31",
@@ -691,6 +691,10 @@
   "date": "2026-10-31",
   "hash": "38bae4bf647f7ff0"
  },
+ "invoice-templates/sample.html": {
+  "date": "2026-11-03",
+  "hash": "c1efe398c9335da9"
+ },
  "invoice-templates/self-employed-invoice.html": {
   "date": "2026-11-03",
   "hash": "6d8750704a8bcfcd"
@@ -698,6 +702,10 @@
  "invoice-templates/simple-invoice.html": {
   "date": "2026-10-31",
   "hash": "4f178e644f2b08b6"
+ },
+ "invoice-templates/small-business.html": {
+  "date": "2026-11-03",
+  "hash": "28e90a446ce4c81b"
  },
  "invoice-templates/south-africa-tax-invoice.html": {
   "date": "2026-10-31",
