@@ -86,7 +86,8 @@ a.sr-only:focus-visible { position: fixed !important; top: .5rem; left: .5rem; w
   .app { grid-template-columns: 1fr; }
   .sidenav { position: fixed; bottom: 0; left: 0; right: 0; top: auto; height: auto; flex-direction: row; padding: .35rem; border-right: 0; border-top: 1px solid var(--border); z-index: 20; justify-content: space-around; }
   .sidenav a { flex-direction: column; gap: .15rem; font-size: .72rem; padding: .35rem .5rem; }
-  .sidenav .nav-foot, .sidenav .nav-label { display: none; }
+  .sidenav .nav-foot { display: none; }
+  .sidenav .nav-text { font-size: .7rem; line-height: 1.1; }
   .main { padding: 1rem 1rem 5rem; }
 }
 
@@ -318,13 +319,109 @@ html[data-copyguard] body { padding-top: 52px; }
 .nav-badge{margin-left:auto;background:var(--danger);color:#fff;font-size:.65rem;font-weight:700;padding:.05rem .35rem;border-radius:999px;min-width:1.1rem;text-align:center;line-height:1.3}@media(max-width:760px){.nav-badge{margin-left:0;font-size:.6rem;padding:0 .25rem;position:absolute;top:-.1rem;right:-.1rem}.sidenav a{position:relative}}
 .quickjump{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:200;display:flex;align-items:flex-start;justify-content:center;padding-top:15vh}.quickjump-panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:0 20px 50px rgba(0,0,0,.25);width:min(28rem,92vw);overflow:hidden}.quickjump-list{list-style:none;margin:0;padding:.35rem}.quickjump-list li{display:flex;align-items:center;gap:.6rem;padding:.45rem .75rem;border-radius:var(--radius-sm);cursor:pointer;font-weight:500}.quickjump-list li:hover,.quickjump-list li.sel{background:var(--accent-soft);color:var(--accent)}.kbd{display:inline-flex;align-items:center;justify-content:center;min-width:1.4rem;padding:.05rem .3rem;border:1px solid var(--border);border-radius:4px;font-size:.7rem;font-family:ui-monospace,monospace;background:var(--surface-2);color:var(--muted)}
 
-/* Mobile zoom-out fixes: when a user pinches out, prevent flex/grid children from overflowing or
-   rendering cards with blank halves. min-width:0 lets grid/flex items shrink below their content size. */
-.card, .main, .container, .interview, .stepper, .live-preview, .preview-wrap, .designer, .repeat-row, .row, .modal-body, .page-head { min-width: 0; }
-.card *, .row * { max-width: 100%; }
-.card img, .card table, .card pre, .card .table-wrap { max-width: 100%; }
-.btn { white-space: normal; text-align: center; }
+/* ------------------------------------------------------------ RESPONSIVE LAYER */
+/* Global flex/grid shrink so nothing overflows horizontally at any viewport. */
+.card, .main, .container, .interview, .stepper, .live-preview, .preview-wrap, .designer, .repeat-row, .row, .modal-body, .page-head, .toolbar, .tabs, .kv, .kv *, .table, .cards, .grid-2, .modal, .notice, .pill-list, .card-actions, .interview-nav, .repeat-row-head, .section-head, .live-preview-head, .modal-actions { min-width: 0; }
+img, svg, video, canvas, iframe, table, pre, .table-wrap, .repeat-group, input, select, textarea, button { max-width: 100%; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { overflow-x: hidden; }
+
+/* --- Small phones and narrow viewports (≤600px): tighter spacing, fluid type, full-width buttons --- */
+@media (max-width: 600px) {
+  :root { --radius: 9px; --radius-sm: 6px; }
+  h1 { font-size: clamp(1.35rem, 6.5vw, 1.6rem); }
+  h2 { font-size: 1.12rem; }
+  h3 { font-size: 1rem; }
+  .main { padding: .85rem .75rem calc(5rem + env(safe-area-inset-bottom, 0px)); }
+  .card { padding: .9rem .85rem; border-radius: var(--radius); }
+  .page-head { margin-bottom: 1rem; gap: .6rem; }
+  .page-head h1 { margin-bottom: .15rem; }
+  .toolbar { gap: .4rem; margin-bottom: .75rem; }
+  .btn { padding: .5rem .75rem; font-size: .92rem; }
+  .btn-lg { padding: .65rem 1rem; font-size: 1rem; }
+  .btn-sm { padding: .25rem .5rem; font-size: .8rem; }
+  /* Stack action rows so primary CTAs stretch and don't crowd */
+  .card-actions, .interview-nav, .toolbar, .modal-actions, .repeat-row-head { flex-wrap: wrap; }
+  .interview-nav .btn, .modal-actions .btn, .card-actions .btn { flex: 1 1 auto; min-width: 0; }
+  /* Tighter form fields */
+  .input, .select, .textarea { padding: .5rem .6rem; font-size: 16px; /* prevents iOS zoom on focus */ }
+  .field { margin-bottom: .85rem; }
+  .grid-2 { grid-template-columns: 1fr; gap: 0; }
+  /* Tables scroll horizontally within a wrapper so nothing blows out the page */
+  .table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .table th, .table td { padding: .45rem .5rem; font-size: .88rem; white-space: normal; }
+  .table td.actions { white-space: nowrap; }
+  /* Stepper fits better on narrow screens */
+  .stepper ol { gap: .15rem; padding: 0 .25rem; }
+  .stepper .step { padding: .45rem .5rem; font-size: .85rem; }
+  .stepper .num { width: 22px; height: 22px; font-size: .72rem; }
+  /* Toasts take the full width with breathing room above the bottom nav */
+  .toasts { left: .5rem; right: .5rem; bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px)); max-width: none; }
+  /* KV lists stack so label and value aren't cramped side-by-side */
+  .kv { grid-template-columns: 1fr; gap: .1rem .5rem; }
+  .kv dt { font-weight: 600; }
+  .kv dt::after { content: ""; }
+  .cards { gap: .75rem; }
+  /* Modals use the full viewport on phones */
+  .modal-overlay { padding: 0; align-items: flex-end; }
+  .modal { max-height: 92vh; border-radius: var(--radius) var(--radius) 0 0; max-width: 100%; }
+  .modal-body { padding: .25rem 1rem .75rem; }
+  .modal-head { padding: .85rem 1rem .4rem; }
+  .modal-actions { padding: .65rem 1rem calc(.65rem + env(safe-area-inset-bottom, 0px)); }
+  .notice { padding: .65rem .8rem; font-size: .9rem; }
+  .tabs { gap: 0; }
+  .tabs button { padding: .55rem .65rem; font-size: .88rem; }
+  /* History entries tighter */
+  .history-list li { padding: .5rem 0; font-size: .92rem; }
+  /* Dropzone padding for phones */
+  .dropzone { padding: 1.25rem 1rem; }
+  /* Pills wrap with less gap */
+  .pill-list { gap: .25rem; }
+  .badge { font-size: .7rem; padding: .05rem .45rem; }
+}
+
+/* --- Tablets / phablets (601–900px): 2-col grids come back, sidebars stay collapsed --- */
+@media (min-width: 601px) and (max-width: 900px) {
+  .main { padding: 1.1rem 1rem calc(4.5rem + env(safe-area-inset-bottom, 0px)); }
+  .card { padding: 1.1rem; }
+  .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cards { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: .85rem; }
+  .table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .toasts { bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px)); }
+}
+
+/* --- Mid-size desktops (901–1279px): 2-col interview with preview below, side-by-side stepper --- */
+@media (min-width: 901px) and (max-width: 1279px) {
+  .interview { gap: 1.25rem; }
+  .cards { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+}
+
+/* --- Large desktop (≥1280px): keep layouts breathing --- */
+@media (min-width: 1280px) {
+  .main { padding: 2rem; }
+}
+
+/* --- Very small watches / ≤360px: hero spacing tightens, labels shrink --- */
+@media (max-width: 360px) {
+  .main { padding: .65rem .55rem calc(4.75rem + env(safe-area-inset-bottom, 0px)); }
+  .card { padding: .75rem .7rem; }
+  .btn { padding: .45rem .6rem; font-size: .88rem; }
+  .topbar { padding: 0 .6rem; gap: .5rem; height: 52px; }
+  .sidenav { padding: .3rem .2rem; }
+  .sidenav a { padding: .3rem .35rem; font-size: .68rem; gap: .1rem; }
+  h1 { font-size: 1.3rem; }
+}
+
+/* --- Desktop (≥801px) bottom nav is hidden; topbar comfortable --- */
+@media (min-width: 801px) {
+  .main { padding-bottom: 1.5rem; }
+}
+
+/* --- Bottom tab-bar safe-area (iPhones with home indicator) --- */
 @media (max-width: 800px) {
+  .sidenav {
+    padding-bottom: calc(.35rem + env(safe-area-inset-bottom, 0px));
+  }
   .cards { grid-template-columns: 1fr; }
   .quickstart-strip { grid-template-columns: 1fr !important; }
   .card { padding: 1rem; }
@@ -332,4 +429,59 @@ html[data-copyguard] body { padding-top: 52px; }
   .interview .stack > .card, .paymentControls, .history-list { min-width: 0; overflow-x: auto; }
   h1, h2, h3 { word-break: break-word; overflow-wrap: anywhere; }
   .topbar .brand img { width: 22px; height: 22px; }
+  /* Prevent iOS form zoom: ensure inputs are ≥16px */
+  .input, .select, .textarea { font-size: 16px; }
+}
+
+/* --- Dark mode iOS overscroll matches the app chrome --- */
+@media (prefers-color-scheme: dark) {
+  html { background: #0f1419; }
+}
+/* --- Landscape phones: bottom nav compacts, main padding eases --- */
+@media (max-width: 900px) and (orientation: landscape) {
+  .sidenav a { flex-direction: row; gap: .4rem; font-size: .78rem; padding: .3rem .55rem; }
+  .sidenav .nav-label { display: inline; }
+  .main { padding-bottom: 3.5rem; }
+}
+/* --- Hover only on devices that support it (avoid sticky hover on touch) --- */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover { transform: translateY(-1px); }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary:hover { transform: translateY(-2px); }
+}
+@media (hover: none) {
+  .card:hover { box-shadow: var(--shadow); transform: none; }
+  .btn:hover, .btn-primary:hover { transform: none; }
+}
+/* --- Print still clean --- */
+@media print {
+  .sidenav, .toasts, .toast { display: none !important; }
+}
+
+/* Button text wrapping on small screens (already in site.css, mirrored here for app) */
+.btn { white-space: normal; text-align: center; }
+
+/* topbar: let the brand shrink, status ellipses */
+.topbar { min-width: 0; }
+.topbar .brand { min-width: 0; flex-shrink: 1; font-size: clamp(.95rem, 4vw, 1.05rem); }
+.topbar .brand span, .topbar .brand { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.topbar .status { min-width: 0; max-width: 60vw; flex-shrink: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .82rem; }
+@media (max-width: 380px) {
+  .topbar { gap: .5rem; padding: 0 .6rem; height: 52px; }
+  .topbar .brand { gap: .45rem; font-size: .95rem; }
+  .topbar .brand img, .topbar .brand svg { width: 22px; height: 22px; }
+  .topbar .status { font-size: .78rem; max-width: 50vw; }
+}
+/* Tables inside overflowing cards get breathing room for the wrapper and horizontal scroll */
+.card > .table { margin: 0; }
+/* CMI copyguard banner offset for mobile sticky elements */
+html[data-copyguard] { scroll-padding-top: 52px; }
+html[data-copyguard] .topbar { top: 52px; }
+@media (min-width: 801px) { html[data-copyguard] .sidenav { top: calc(56px + 52px); } }
+@media (max-width: 800px) { html[data-copyguard] .toasts { bottom: calc(4.75rem + 52px); } }
+/* Quickjump becomes a bottom sheet on phones */
+@media (max-width: 600px) {
+  .quickjump { align-items: flex-end; padding-top: 0; }
+  .quickjump-panel { width: 100%; border-radius: var(--radius) var(--radius) 0 0; max-height: 80vh; }
+  .kbd { font-size: .65rem; min-width: 1.2rem; padding: .05rem .25rem; }
 }
