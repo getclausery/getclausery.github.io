@@ -8,6 +8,14 @@
   <updated>2026-11-03T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.100.0 — Responsive UI pass: the app now adapts fluidly across phones (320px), phablets, tablets and desktop. Added a 600px small-phone breakpoint with fluid clamp-based typography, iOS 16px input prevention (no more form zoom), tighter card/field spacing, full-width primary CTAs, bottom-sheet modals, horizontal-scroll protection on tables/history/kv lists (so nothing forces a horizontal page scroll), safe-area-inset-bottom padding on the iPhone home-indicator tab bar, landscape-phone compact tab bar, hover media queries (no sticky :hover on touch), quick-jump command palette as a bottom sheet on phones, overflow-x hidden on body, and brand/status ellipses in the top bar at narrow widths.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-100-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-100-0</id>
+    <published>2026-11-03T00:00:00Z</published>
+    <updated>2026-11-03T00:00:00Z</updated>
+    <summary>Responsive UI pass: the app now adapts fluidly across phones (320px), phablets, tablets and desktop. Added a 600px small-phone breakpoint with fluid clamp-based typography, iOS 16px input prevention (no more form zoom), tighter card/field spacing, full-width primary CTAs, bottom-sheet modals, horizontal-scroll protection on tables/history/kv lists (so nothing forces a horizontal page scroll), safe-area-inset-bottom padding on the iPhone home-indicator tab bar, landscape-phone compact tab bar, hover media queries (no sticky :hover on touch), quick-jump command palette as a bottom sheet on phones, overflow-x hidden on body, and brand/status ellipses in the top bar at narrow widths.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.99.0 — Trade invoice title tag pass: all twelve trade-specific invoice pages (cleaning, contractor, consulting, freelance writing, graphic design, handyman, landscaping/lawn care, personal training, photography, tutoring, video production, web design) updated from the parenthetical "(free, Word)" format to a title structure that includes Word/PDF and "Free" or "Download" keywords, so trade-intent searchers ("cleaning invoice template", "contractor invoice template word", "photography invoice pdf") see the format keyword in the SERP title.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-99-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-99-0</id>

@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://getclausery.github.io/business-document-kit/</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/customers/</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/</loc><lastmod>2026-11-03</lastmod><priority>1.0</priority></url>
+  <url><loc>https://getclausery.github.io/</loc><lastmod>2026-11-04</lastmod><priority>1.0</priority></url>
   <url><loc>https://getclausery.github.io/nda-templates/</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/nda-templates/nda-form.html</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/nda-templates/non-disclosure-agreement.html</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
@@ -10,9 +10,9 @@
   <url><loc>https://getclausery.github.io/pricing/</loc><lastmod>2026-10-29</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/receipts/cash-receipt.html</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/receipts/donation-receipt.html</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/roadmap/</loc><lastmod>2026-11-03</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/roadmap/</loc><lastmod>2026-11-04</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/search/</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/self-hosting/</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
   <url><loc>https://getclausery.github.io/sitemap/</loc><lastmod>2026-10-24</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/status/</loc><lastmod>2026-11-03</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getclausery.github.io/status/</loc><lastmod>2026-11-04</lastmod><priority>0.8</priority></url>
 </urlset>
