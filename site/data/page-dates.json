@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-05",
-  "hash": "7949fd87a2320968"
+  "hash": "db6f186af79b7fba"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -720,8 +720,8 @@
   "hash": "6bc718c0eab9427d"
  },
  "invoice-templates/tutoring.html": {
-  "date": "2026-11-03",
-  "hash": "26a95e00d58fe6af"
+  "date": "2026-11-05",
+  "hash": "06090e63dc65da5f"
  },
  "invoice-templates/uk-vat-invoice.html": {
   "date": "2026-10-31",
@@ -797,7 +797,7 @@
  },
  "roadmap/": {
   "date": "2026-11-05",
-  "hash": "c42cc7f76f8c51c6"
+  "hash": "b1e2e90d5af0a81f"
  },
  "search/": {
   "date": "2026-10-31",
@@ -813,7 +813,7 @@
  },
  "status/": {
   "date": "2026-11-05",
-  "hash": "84af260a424504aa"
+  "hash": "aea18cb68ff10cd2"
  },
  "templates/": {
   "date": "2026-11-05",
@@ -912,8 +912,8 @@
   "hash": "358a22a20247edb2"
  },
  "templates/contract-termination-letter.html": {
-  "date": "2026-11-01",
-  "hash": "2d125c199d92940b"
+  "date": "2026-11-05",
+  "hash": "4aef07eb730fcd16"
  },
  "templates/contractor-nda-template.html": {
   "date": "2026-11-05",
@@ -1076,8 +1076,8 @@
   "hash": "cc1d08120208eb90"
  },
  "templates/job-description.html": {
-  "date": "2026-11-01",
-  "hash": "da570870dab0aa12"
+  "date": "2026-11-05",
+  "hash": "328d2b918b879c46"
  },
  "templates/landlord-reference-letter-template.html": {
   "date": "2026-11-05",
@@ -1460,8 +1460,8 @@
   "hash": "1acf2b45c2279d06"
  },
  "templates/severance-agreement.html": {
-  "date": "2026-11-01",
-  "hash": "79196d0ebd31e1b6"
+  "date": "2026-11-05",
+  "hash": "f39a8970c6ae966b"
  },
  "templates/social-media-management-contract-template.html": {
   "date": "2026-10-31",
@@ -1516,8 +1516,8 @@
   "hash": "674edd83d32dd35a"
  },
  "templates/video-production-contract.html": {
-  "date": "2026-11-01",
-  "hash": "0bec4d812246c15b"
+  "date": "2026-11-05",
+  "hash": "4666a2a2886f6f3c"
  },
  "templates/virtual-assistant-agreement-template.html": {
   "date": "2026-11-05",

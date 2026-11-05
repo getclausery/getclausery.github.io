@@ -128,7 +128,7 @@ export const TRADES = [
   }),
   T('tutoring', {
     name: 'Tutoring', title: 'Tutoring Invoice Template | Free Word/PDF',
-    description: 'Free tutoring invoice template for Word: sessions, exam prep packs and late cancellations, totals worked out..',
+    description: 'Free tutoring invoice template for Word/PDF: bill sessions, exam prep packs, materials and late cancellations, with totals calculated. Fill in online..',
     intro: 'Tutoring is billed by the session or as a package paid in advance. This template starts with sessions, an exam preparation pack and a late cancellation line.',
     who: 'Private tutors and small tutoring businesses billing parents or adult students.',
     rates: [50, 80, 25],
