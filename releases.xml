@@ -5,8 +5,16 @@
   <link rel="self" href="https://getclausery.github.io/releases.xml"/>
   <link rel="alternate" href="https://getclausery.github.io/changelog.html"/>
   <id>https://getclausery.github.io/changelog.html</id>
-  <updated>2026-11-03T00:00:00Z</updated>
+  <updated>2026-11-04T00:00:00Z</updated>
   <author><name>Clausery</name></author>
+  <entry>
+    <title>Clausery v2.101.0 — Meta-description bulk SEO pass: 42 template "what-to-include" hub pages had their descriptions expanded from 85–115 chars to 130–155 chars to fully use the 155-char SERP-snippet budget. Descriptions now lead with "Free X template for Word/PDF" (the keyword the user searched for), mention filling in online / editable / download / no sign-up, and call out the document's purpose (clauses, key terms, who it is for). Pages expanded span NDAs, contracts, HR letters, eviction/rent notices, invoices (Excel, Google Docs, quotation, estimate, proforma), promotions, warnings, references, loans and subcontractor agreements.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-101-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-101-0</id>
+    <published>2026-11-04T00:00:00Z</published>
+    <updated>2026-11-04T00:00:00Z</updated>
+    <summary>Meta-description bulk SEO pass: 42 template &quot;what-to-include&quot; hub pages had their descriptions expanded from 85–115 chars to 130–155 chars to fully use the 155-char SERP-snippet budget. Descriptions now lead with &quot;Free X template for Word/PDF&quot; (the keyword the user searched for), mention filling in online / editable / download / no sign-up, and call out the document's purpose (clauses, key terms, who it is for). Pages expanded span NDAs, contracts, HR letters, eviction/rent notices, invoices (Excel, Google Docs, quotation, estimate, proforma), promotions, warnings, references, loans and subcontractor agreements.</summary>
+  </entry>
   <entry>
     <title>Clausery v2.100.0 — Responsive UI pass: the app now adapts fluidly across phones (320px), phablets, tablets and desktop. Added a 600px small-phone breakpoint with fluid clamp-based typography, iOS 16px input prevention (no more form zoom), tighter card/field spacing, full-width primary CTAs, bottom-sheet modals, horizontal-scroll protection on tables/history/kv lists (so nothing forces a horizontal page scroll), safe-area-inset-bottom padding on the iPhone home-indicator tab bar, landscape-phone compact tab bar, hover media queries (no sticky :hover on touch), quick-jump command palette as a bottom sheet on phones, overflow-x hidden on body, and brand/status ellipses in the top bar at narrow widths.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-100-0"/>
