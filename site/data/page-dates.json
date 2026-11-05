@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-05",
-  "hash": "db6f186af79b7fba"
+  "hash": "6287a6d4b91e1a5f"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -572,8 +572,8 @@
   "hash": "4b7745a7c0118d16"
  },
  "invoice-templates/": {
-  "date": "2026-11-03",
-  "hash": "fd506111723ca35a"
+  "date": "2026-11-05",
+  "hash": "ea97d6f3cfeef3ab"
  },
  "invoice-templates/australia-tax-invoice.html": {
   "date": "2026-10-31",
@@ -797,7 +797,7 @@
  },
  "roadmap/": {
   "date": "2026-11-05",
-  "hash": "b1e2e90d5af0a81f"
+  "hash": "53e7b8bef7a47486"
  },
  "search/": {
   "date": "2026-10-31",
@@ -813,11 +813,11 @@
  },
  "status/": {
   "date": "2026-11-05",
-  "hash": "aea18cb68ff10cd2"
+  "hash": "33d0fbdd9b21d95d"
  },
  "templates/": {
   "date": "2026-11-05",
-  "hash": "01f40189b0a33361"
+  "hash": "ce3e53c07ce91d09"
  },
  "templates/bill-of-sale-template.html": {
   "date": "2026-11-05",
@@ -905,7 +905,7 @@
  },
  "templates/contract-template.html": {
   "date": "2026-11-05",
-  "hash": "d48f32fac2db87ff"
+  "hash": "897ab85ccd6d08d7"
  },
  "templates/contract-termination-letter-template.html": {
   "date": "2026-11-05",
