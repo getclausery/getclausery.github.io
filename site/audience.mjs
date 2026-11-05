@@ -94,7 +94,7 @@ export const GUIDES = [
   ...HIGH_INTENT_GUIDES,
   ...SERVICE_GUIDES,
   { slug: 'automate-word-templates', title: 'Automate Word Templates (No Portal Needed)',
-    description: 'Automate Word templates without uploading to a portal or cloud service: client-side, answers stay private.',
+    description: 'Automate Word templates without uploading anywhere: client-side only, answers stay in your browser, with conditionals, repeating rows and calculations.',
     body: (rel) => `
 <p class="lead">If you copy last month's letter and hunt for every name and date to change, this guide is for you. It takes about ten minutes for your first template.</p>
 <h2>1. Pick a document you draft often</h2>
@@ -134,7 +134,7 @@ export const GUIDES = [
 <p>Want to see a finished example first? Open one of the <a href="${rel}templates/">free templates</a>, or read the full <a href="${rel}docs/templates.html">template syntax</a>. If you get stuck on a conditional section, the <a href="${rel}guides/conditional-clauses-in-word.html">conditional clauses guide</a> has the patterns and the troubleshooting list.</p>`,
     faq: [['Do I need to change the formatting of my Word document?', 'No. Clausery keeps the styles, numbering, headers and letterhead you already use, because it fills the original .docx rather than recreating the page. Use Word styles consistently so the questionnaire can group the sections sensibly.'], ['Can I automate a scanned PDF?', 'Not directly. A scan is an image with no text structure. Convert it to Word with OCR first, check the result against the original, then add tags to the Word file.'], ['What happens if I delete a question in the designer?', 'The tag stays in the template and the question is regenerated the next time the file is scanned, unless you remove the tag from the Word file. Edit the master document, then upload it again.']] },
   { slug: 'conditional-clauses-in-word', title: 'Conditional Clauses in Word (Auto Add/Remove)',
-    description: 'Add if/then conditional text to Word templates so paragraphs appear only when they apply. Step-by-step guide.',
+    description: 'Add if/then conditional text to Word templates so paragraphs appear only when they apply — no VBA required. Works in Word, Google Docs and LibreOffice.',
     body: (rel) => `
 <p class="lead">Most contracts and letters have parts that only apply sometimes: a retainer, a guarantor, a bonus, a jurisdiction clause. Here is how to make Word documents include or drop those parts automatically.</p>
 <h2>Yes/no sections</h2>
@@ -173,7 +173,7 @@ GUARANTEE
 <p><a class="btn btn-primary" href="${rel}app/">Try it with your own document</a></p>`,
     faq: [['Can I use conditional clauses in a table row?', 'Yes, but the tags must be inside the same row: opening at the start of the first cell, closing at the end of the last. To repeat a row per item, use a list section rather than a yes/no section.'], ['What is the difference between a section and a computed section?', 'A section is controlled by a yes/no question the client answers. A computed section is controlled by a rule you write, such as an amount, a date or a choice, and the client does not see a separate yes/no question.'], ['Will the document leave a blank page when a section is removed?', 'Clausery removes the paragraphs inside the section, including the tag lines. If you see a gap, check that the opening and closing tags are each on their own line and are not inside a text box.']] },
   { slug: 'client-intake-without-a-portal', title: 'Client Intake Without a Portal (Private Forms)',
-    description: 'Collect client answers by email or link without sending them through a portal. Private encrypted intake forms.',
+    description: 'Collect client answers by email or encrypted link without a portal: private, end-to-end encrypted forms with Clausery; no client account needed.',
     body: (rel) => `
 <p class="lead">Client portals mean another login for the client and another system holding their data. Clausery takes a different route: the questionnaire travels as a file.</p>
 <h2>How it works</h2>
@@ -215,7 +215,7 @@ GUARANTEE
     faq: [['Is an emailed intake form secure?', 'It is as secure as the email account and device at each end. The form itself contains no client data until the client fills it in, blocks network access, and is returned as a file the firm imports. For highly sensitive matters, use encrypted email or your usual secure file transfer.'], ['Can clients fill in the form on a phone?', 'Yes. The form is a single HTML file that opens in a mobile browser and adjusts to the screen. Long forms are easier on a computer, so tell clients they can save progress and finish later.'], ['What happens to the answers after the document is generated?', 'They stay in the browser workspace until the draft is deleted, and can be exported as JSON. Nothing is uploaded to Clausery. Set a retention rule in your practice for the downloaded files as well.']] },
 
   { slug: 'mail-merge-vs-document-automation', title: 'Mail Merge vs Document Automation (Compared)',
-    description: 'Mail merge vs document automation: what each does well, when mail merge falls short, and how to choose.',
+    description: 'Mail merge vs document automation: what each does well, where merge falls short on conditionals and calculations, and when automation is worth it.',
     body: (rel) => `
 <p class="lead">Word's mail merge is free and already on your computer. For some documents it is all you need. For others it becomes a maze of copies and manual edits. Here is how to tell the difference.</p>
 <h2>What mail merge does well</h2>
@@ -236,7 +236,7 @@ GUARANTEE
 <p>Clausery uses tags you type straight into Word, so your mail merge template is already most of the way there. Replace merge fields with tags like <code>{client_name}</code>, wrap optional paragraphs in <code>{#has_retainer}…{/has_retainer}</code>, and drop the file into <a href="${rel}app/">the app</a>. It is free for up to three of your own templates and nothing is uploaded. The <a href="${rel}guides/automate-word-templates.html">step-by-step guide</a> walks through it.</p>`,
     faq: [["Is mail merge the same as document automation?", "No. Mail merge fills the same blanks from a list. Document automation also includes or removes whole clauses, repeats paragraphs and table rows, calculates totals and dates, and asks questions with validation and help text. Many documents need only the first; contracts and letters with optional wording usually need the second."], ["Can mail merge handle optional paragraphs?", "Word can do it with IF fields and merge rules, but the field codes are hard to read, easy to break and do not work well for repeated table rows. Document automation is clearer when the document has more than one or two conditions."], ["Can I use my existing spreadsheet of clients?", "Yes, on the Pro plan you can fill a template from spreadsheet rows and generate one document per row. For a handful of documents, the questionnaire is usually faster than preparing a sheet."]] },
   { slug: 'repeating-lists-and-tables-in-word', title: 'Repeating Table Rows in Word Templates',
-    description: 'Add repeating rows (for line items) to a Word template without VBA. Works in Word, Google Docs and LibreOffice.',
+    description: 'Add repeating rows to Word templates for line items, expenses or parties without VBA. Works in Word, Google Docs and LibreOffice; client-side only.',
     body: (rel) => `
 <p class="lead">Contracts and letters often list things: parties, attorneys, deliverables, beneficiaries, line items. The number changes every time. Here is how to make a Word template handle any number of them.</p>
 <h2>Repeat a paragraph or bullet</h2>
@@ -342,7 +342,7 @@ Thank you,
 <p class="small muted">This checklist is general information, not legal advice. Your professional rules and data protection obligations depend on your jurisdiction.</p>`,
     faq: [['Do we need a data processing agreement with every vendor?', 'If the vendor processes personal data on your behalf, data protection law usually requires a written contract covering instructions, confidentiality, sub-processors, security and breach notification. Check the local rules for your jurisdiction.'], ['Is a self-hosted tool automatically more private?', 'Not necessarily. Self-hosting moves the responsibility to you: patching, access control, backups and incident response become your job. It can be the right choice for a firm with the resources to run it, but it is a different risk, not the absence of risk.'], ['What should we do if a vendor cannot answer these questions?', 'Treat it as a finding, not a formality. Ask for the missing documents in writing and set a deadline. If the vendor still cannot explain where client data goes, do not put client data into the tool.']] },
   { slug: 'how-to-write-an-offer-letter', title: 'How to Write an Offer Letter (Free Template)',
-    description: 'Write a job offer letter covering role, pay, start date and contingencies. Free Word template and sample wording ready to send to candidates.',
+    description: 'How to write a job offer letter: role, start date, salary, benefits, contingencies and at-will statement. Free Word template ready to send.',
     body: (rel) => `
 <p class="lead">An offer letter turns a verbal "we'd love to have you" into something the candidate can accept. It should be short, clear and consistent with the contract and policies that follow it.</p>
 <h2>What to include</h2>
@@ -369,7 +369,7 @@ Thank you,
 <p>The free <a href="${rel}templates/offer-letter.html">offer letter template</a> already handles remote or office wording, optional bonus and equity, a benefits list and conditions. Open it in Clausery, answer the questions for each candidate and download a finished Word letter. Candidate details stay on your computer. For interns, use the <a href="${rel}templates/internship-offer-letter.html">internship offer letter</a>.</p>
 <p class="small muted">General information, not legal advice. Employment law varies by country and state.</p>` },
   { slug: 'how-to-write-a-payment-demand-letter', title: 'Demand Letter for Unpaid Invoices (Free)',
-    description: 'Free payment demand letter templates: friendly reminder through to final 7-day demand before collections. Editable Word, ready to send.',
+    description: 'How to write a payment demand letter for a past-due invoice: friendly reminder through to final demand — free Word templates at each stage.',
     body: (rel) => `
 <p class="lead">Most late invoices are paid after a clear, polite letter with a firm deadline. Here is how to write one that gets paid without damaging the relationship.</p>
 <p>Not at the demand stage yet? Start with a <a href="${rel}templates/payment-reminder-letter.html">payment reminder letter</a>, and see the full plan for <a href="${rel}guides/what-to-do-when-a-client-wont-pay.html">what to do when a client won't pay</a>.</p>
@@ -420,7 +420,7 @@ Thank you,
 <p>The free <a href="${rel}templates/statement-of-work.html">statement of work template</a> lists any number of deliverables with due dates, switches between fixed price and time and materials, and includes assumptions and acceptance. Answer the questions in Clausery and download a finished Word SOW. For the master terms, start with the <a href="${rel}templates/service-agreement.html">service agreement</a> or <a href="${rel}templates/consulting-agreement.html">consulting agreement</a>.</p>`,
     faq: [["Who writes the statement of work?", "Usually the supplier drafts it from the client brief, then both sides agree it before work starts. The client should check that the deliverables, assumptions and acceptance criteria match what was agreed commercially."], ["Is a statement of work a contract?", "It becomes one when both sides agree it and it sits under a master agreement or contains the essential terms. Many SOWs incorporate a service agreement by reference; if there is no master agreement, include payment, termination and liability terms in the SOW or a separate contract."], ["What happens when the scope changes?", "Use a written change request: what is changing, the effect on fee and timeline, and who approves it. A SOW with change control avoids the choice between doing unpaid work and damaging the relationship."]] },
   { slug: 'what-to-include-in-an-nda', title: 'What to Include in an NDA (9 Clauses)',
-    description: 'Nine clauses every NDA needs: parties, definition, exclusions, term and return of information. Clause-by-clause plain-English walkthrough.',
+    description: 'What to include in an NDA: parties, definition of confidential info, permitted disclosures, term, return of materials and governing law.',
     body: (rel) => `
 <p class="lead">A non-disclosure agreement is short, but each clause does a specific job. Here is what to check before you send or sign one.</p>
 <h2>Mutual or one-way?</h2>
@@ -448,7 +448,7 @@ Thank you,
 <h2>Send one in two minutes</h2>
 <p>All five <a href="${rel}nda-templates/">NDA templates</a> are free to download as Word files or fill in online. Clausery asks for the parties, purpose, term and governing law, includes the optional clauses you choose, and produces a finished document without uploading anything.</p>` },
   { slug: 'mutual-vs-one-way-nda', published: '2026-09-27', title: 'Mutual vs One-Way NDA: Which to Use',
-    description: 'Mutual vs one-way NDA: which to sign when only one side discloses information, and how to tell them apart.',
+    description: 'Mutual vs one-way NDA: which to sign when only one side discloses (one-way) vs both (mutual), the key clause differences, and when to pick each.',
     body: (rel) => `
 <p class="lead">The only question that matters is who will share confidential information. If just one side shares, a one-way NDA is enough. If both sides share, use a mutual NDA.</p>
 <h2>The short answer</h2>
@@ -477,7 +477,7 @@ Thank you,
 <h2>Get the right one</h2>
 <p>All five templates are free Word files, and you can fill any of them in online without uploading anything. <a href="${rel}nda-templates/">Compare the NDA templates</a>, or read <a href="${rel}guides/what-to-include-in-an-nda.html">what to include in an NDA</a> before you send one.</p>` },
   { slug: 'how-long-should-an-nda-last', published: '2026-09-27', title: 'How Long Should an NDA Last? (Examples)',
-    description: 'Typical NDA terms for different situations, what happens when it expires, and trade-secret survival.',
+    description: 'How long should an NDA last? 1–5 years for ordinary business info; trade secrets stay protected for as long as they remain secret. Examples by situation.',
     body: (rel) => `
 <p class="lead">Most NDAs protect ordinary business information for one to five years. Trade secrets are usually protected for as long as they stay secret. The right number depends on how long the information stays valuable.</p>
 <h2>Every NDA has two clocks</h2>
@@ -506,7 +506,7 @@ Thank you,
 <h2>Set it in the template</h2>
 <p>Each NDA template asks for the number of years as one of its questions. The <a href="${rel}templates/employee-nda.html">employee NDA</a> counts from the end of employment, the <a href="${rel}templates/contractor-nda.html">contractor NDA</a> from the end of the project, and the <a href="${rel}templates/mutual-nda.html">mutual</a> and <a href="${rel}templates/one-way-nda.html">one-way</a> NDAs from signing. <a href="${rel}nda-templates/">See all NDA templates</a>.</p>` },
   { slug: 'nda-vs-confidentiality-agreement', published: '2026-09-27', title: 'NDA vs Confidentiality Agreement: A Difference?',
-    description: 'Is an NDA the same as a confidentiality agreement? What a CDA/PIA covers and when the names matter.',
+    description: 'Is an NDA the same as a confidentiality agreement? Yes — CDA and PIA are other labels. What matters is the wording, not the name on the cover.',
     body: (rel) => `
 <p class="lead">There is no legal difference. "Non-disclosure agreement" and "confidentiality agreement" are two names for the same kind of contract. What matters is what the agreement says, not what it is called.</p>
 <h2>Why two names?</h2>
@@ -529,7 +529,7 @@ Thank you,
 <p>Whatever it is called, a confidentiality agreement needs clear parties, a narrow purpose, a definition of confidential information with the usual exclusions, a sensible length and a return-or-delete clause. The full list is in <a href="${rel}guides/what-to-include-in-an-nda.html">what to include in an NDA</a>.</p>`,
     faq: [["Is a confidentiality agreement the same as an NDA?", "In practice, yes. Both are contracts that protect confidential information. NDA is the common name in business and hiring; confidentiality agreement is often used for the same document in employment or supplier contracts. What matters is the wording, not the title."], ["Which one should I send first?", "If both sides will share information, use a mutual NDA. If only one side discloses, use a one-way NDA. An employee or contractor should sign the version that matches their role, plus any restrictive covenants your jurisdiction allows."], ["Can an NDA cover information shared before it is signed?", "Only if it says so. Add a clause that covers information exchanged in the discussions leading up to the agreement, or sign before the first detailed conversation. Without it, the earlier disclosure may not be protected."]] },
   { slug: 'how-to-write-an-employee-warning-letter', published: '2026-09-28', title: 'Employee Warning Letter (Free Template)',
-    description: 'Write a formal employee warning letter that documents issues, expectations and next steps. Free Word template and sample wording included.',
+    description: 'How to write an employee warning letter: describe the issue, expected improvement, support and consequences, with an acknowledgement signature.',
     body: (rel) => `
 <p class="lead">A warning letter puts a problem on record: what happened, what needs to change, and what happens if it does not. Written well, it gives the employee a fair chance to improve, and gives you a clear record if they do not.</p>
 <h2>Before you write it</h2>
@@ -572,7 +572,7 @@ Thank you,
 <p>The free <a href="${rel}templates/employee-warning-letter.html">employee warning letter template</a> covers everything above: first or final warning, a dated list of incidents, the standard not met, what must change, support, a review date, time on file, an optional appeal and an acknowledgement of receipt. Answer the questions and download a Word letter; employee details stay on your computer. If things do not improve, the <a href="${rel}templates/employment-termination-letter.html">termination letter</a> follows the same pattern. All the HR letters are on the <a href="${rel}for/hr-teams.html">free HR letter templates</a> page.</p>
 <p class="small muted">General information, not legal advice. Employment law varies by country and state; take advice before dismissing anyone.</p>` },
   { slug: 'are-liability-waivers-enforceable', published: '2026-09-28', title: 'Are Liability Waivers Enforceable? (What Works)',
-    description: 'When liability waivers hold up in court and when they get thrown out: negligence wording, assumption of risk.',
+    description: 'When liability waivers hold up in court and when they get thrown out: gross-negligence exceptions, state limits, and what makes a waiver enforceable.',
     body: (rel) => `
 <p class="lead">Often, yes, but not always and not for everything. A waiver is a contract in which a participant agrees, before an activity, not to sue for injuries caused by its ordinary risks and, where the law allows, by the organizer's ordinary negligence. Whether a court enforces one depends on where you are and how it is written.</p>
 <h2>What courts usually look for</h2>
@@ -641,7 +641,7 @@ Thank you,
 <p>The free <a href="${rel}templates/employment-termination-letter.html">termination letter template</a> covers the list above: the last day, worked notice or pay instead of notice, optional garden leave, an optional reason, final pay, optional severance, benefits, company property and an HR contact. Answer the questions and download a Word letter; employee details stay on your computer. The other HR letters are on the <a href="${rel}for/hr-teams.html">free HR letter templates</a> page.</p>
 <p class="small muted">General information, not legal advice. Employment law varies by country and state; take advice before dismissing anyone.</p>` },
   { slug: 'how-to-return-a-security-deposit', title: 'Security Deposit Return | Deadlines & Deductions', published: '2026-10-01',
-    description: 'When and how to return a security deposit, with itemised deductions, interest and deadlines by state. Free Word template included.',
+    description: 'How to return a security deposit after move-out: itemised deductions, timeline by state, forwarding address, with a free deposit-return letter template.',
     body: (rel) => `
 <p class="lead">Most deposit disputes come down to two things: the landlord missed the deadline, or kept money without a clear, itemized reason. Get both right and there is rarely an argument.</p>
 <h2>The deadline</h2>
@@ -673,7 +673,7 @@ Thank you,
 <p>The free <a href="${rel}templates/security-deposit-return-letter.html">security deposit return letter</a> lists the deposit, any interest, each deduction with its amount, the total deducted and the refund. Fill it in online or download the Word file. The other landlord forms, including the move-in checklist and the notice to vacate, are on the <a href="${rel}for/landlords.html">landlord and tenant page</a>.</p>
 <p class="small muted">General information, not legal advice. Deposit rules vary by state and city and change from time to time.</p>` },
   { slug: 'how-to-write-a-rent-increase-letter', title: 'Rent Increase Letter (2026): Notice & Wording', published: '2026-10-01',
-    description: 'Write a compliant rent increase letter with the right notice period, new rent and effective date. Free Word template for landlords.',
+    description: 'How to write a rent increase letter: proper notice period, new rent amount, effective date and what to do if a tenant disputes it. Free template.',
     body: (rel) => `
 <p class="lead">A rent increase letter tells a tenant the new rent and the date it starts. The wording is simple. What matters is that the increase is allowed, the notice is long enough, and the letter is delivered properly.</p>
 <h2>Can the rent go up yet?</h2>
@@ -709,7 +709,7 @@ Thank you,
 <p>The free <a href="${rel}templates/rent-increase-letter.html">rent increase letter template</a> sets out the current rent, the new rent, the start date and the notice given, with optional wording for a reason and a renewal offer. Fill it in online or download it as Word. All the landlord letters are on the <a href="${rel}for/landlords.html">landlord and tenant page</a>.</p>
 <p class="small muted">General information, not legal advice. Rent rules vary by state and city and change often.</p>` },
   { slug: 'what-to-include-in-a-roommate-agreement', title: 'Roommate Agreement (12 Clauses to Include)', published: '2026-10-01',
-    description: 'Twelve clauses every roommate agreement should cover: rent split, chores, guests, quiet hours, bills and security deposit. Free template.',
+    description: 'What to include in a roommate agreement: rent split, chores, guests, quiet hours, food, shared bills and moving-out terms. Free Word template.',
     body: (rel) => `
 <p class="lead">A roommate agreement is a short contract between the people who share a home. It sits alongside the lease with the landlord and settles the questions that cause most flatmate arguments: money, mess, guests and what happens when someone leaves.</p>
 <h2>What it does not change</h2>
@@ -740,7 +740,7 @@ Thank you,
 <p>The free <a href="${rel}templates/roommate-agreement.html">roommate agreement template</a> covers rent shares, the deposit, bills, quiet hours, guests, cleaning and moving out. Fill it in online in a few minutes or download the Word file. When someone leaves, the <a href="${rel}templates/sublease-agreement.html">sublease agreement</a> and <a href="${rel}templates/notice-to-vacate.html">notice to vacate</a> cover the next steps.</p>
 <p class="small muted">General information, not legal advice. Tenancy rules vary by state and country.</p>` },
   { slug: 'non-compete-vs-non-solicitation', title: 'Non-Compete vs Non-Solicitation (Explained)', published: '2026-10-01',
-    description: 'The difference between non-compete and non-solicitation clauses, which courts enforce, and when to use each. Plain-English guide.',
+    description: 'Non-compete vs non-solicitation: non-competes stop someone working for a competitor; non-solicits stop poaching customers or staff. Enforceability differs.',
     body: (rel) => `
 <p class="lead">A non-compete stops someone working for a competitor, or starting one. A non-solicitation agreement only stops them actively chasing your customers or staff. The second is narrower, which is exactly why courts and lawmakers treat it more kindly.</p>
 <div class="table-wrap" tabindex="0"><table class="compare"><thead><tr><th scope="col"></th><th scope="col">Non-compete</th><th scope="col">Non-solicitation</th></tr></thead><tbody>
@@ -771,7 +771,7 @@ Thank you,
 <p>The free <a href="${rel}templates/non-solicitation-agreement.html">non-solicitation agreement</a> follows those rules and says plainly that it is not a non-compete. Pair it with the <a href="${rel}templates/employee-nda.html">employee NDA</a>, or use the <a href="${rel}templates/employment-agreement.html">employment agreement</a>, which has an optional non-solicitation clause built in. For more on the clauses themselves, see the <a href="${rel}clauses/non-compete-clause.html">non-compete clause</a> and <a href="${rel}clauses/non-solicitation-clause.html">non-solicitation clause</a> pages.</p>
 <p class="small muted">General information, not legal advice. Restrictive covenant law varies by state and country and is changing quickly.</p>` },
   { slug: 'how-to-write-a-freelance-contract', title: 'Freelance Contract: 10 Clauses to Include',
-    description: 'Ten clauses every freelance contract needs to prevent scope creep and late payment. Free template and clause-by-clause examples.',
+    description: 'How to write a freelance contract: 10 key clauses — scope, pay, revisions, IP, kill fee, late fees, termination and liability. Free Word template.',
     body: (rel) => `
 <p class="lead">Most freelance disputes come down to one of three questions: what was included, when you get paid, and who owns the work. A short contract that answers them before you start saves weeks of awkward emails later.</p>
 <h2>The ten clauses</h2>
@@ -816,7 +816,7 @@ Thank you,
 <p class="small muted">General information, not legal advice.</p>`,
     faq: [["Is a kill fee enforceable?", "A kill fee is generally enforceable if it is a genuine estimate of the loss caused by cancellation, agreed in advance and clearly worded. A charge that is far above the actual loss, or that punishes rather than compensates, may be challenged as a penalty, and consumer rules can limit charges to individuals."], ["How should I word a kill fee in my contract?", "State when it applies, how it is calculated and when it is payable. For example: a percentage of the fee if the client cancels after work starts, plus payment for work completed. Add whether the deposit is credited against it."], ["Should I charge a kill fee or a deposit?", "They do different jobs. A deposit secures the booking and is usually credited against the final invoice; a kill fee compensates you if the project is cancelled. Many freelancers use both, with a non-refundable deposit and a cancellation fee that depends on how close to delivery the client cancels."]] },
   { slug: 'what-to-do-when-a-client-wont-pay', title: 'Client Won\'t Pay? 7 Steps to Get Paid',
-    description: 'Seven steps when a client will not pay: friendly reminder through to final demand and small claims. Free letter templates included.',
+    description: 'What to do when a client will not pay: reminder, formal demand, late fees, pausing work, small claims and debt collection. Free templates at each stage.',
     body: (rel) => `
 <p class="lead">Most late invoices are paid after a clear reminder. Most of the rest are paid once the client sees a date and a consequence. This plan takes you from a polite nudge to a formal demand, one step at a time, without damaging the relationship before you need to.</p>
 <h2>First, check the basics</h2>
@@ -963,7 +963,7 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <p>The free <a href="${rel}templates/partnership-agreement.html">partnership agreement template</a> covers all ten terms above as simple questions: any number of partners with their contributions and shares, drawings, a spending limit, a list of major decisions, buyout terms and optional mediation. Still deciding whether to go into business together? Start with a <a href="${rel}templates/memorandum-of-understanding.html">memorandum of understanding</a> and a <a href="${rel}templates/mutual-nda.html">mutual NDA</a>. If one partner lends the business money rather than contributing it, record it in a <a href="${rel}templates/loan-agreement.html">loan agreement</a>.</p>
 <p class="small muted">General information, not legal or tax advice. Partnership law differs between countries and states, and a lawyer can check the agreement against the rules where you trade.</p>` },
   { slug: 'how-to-write-a-bill-of-sale', title: 'How to Write a Bill of Sale (Free Template)',
-    description: 'Write a bill of sale for a car, boat, trailer or equipment: price, odometer, VIN, as-is wording and signatures. Free Word template.',
+    description: 'How to write a bill of sale for a car, furniture or equipment: parties, item, price, as-is clause, VIN/serial, signatures and DMV rules. Free template.',
     body: (rel) => `
 <p class="lead">A bill of sale is a signed record that one person sold something to another: what it was, the price, and the date ownership changed. It takes ten minutes to write and settles most arguments before they start.</p>
 <h2>When you need one</h2>
@@ -1008,7 +1008,7 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <p>The free <a href="${rel}templates/bill-of-sale.html">bill of sale template</a> asks for each detail above. Tick "vehicle" and it adds the year, make, model, VIN and odometer lines; choose full payment or a deposit and balance; and add a witness or notary block if you need one. If the buyer is paying over time, pair it with a <a href="${rel}templates/promissory-note.html">promissory note</a> for the balance.</p>
 <p class="small muted">General information, not legal advice. Rules for vehicles and boats differ between states and countries; check with the office that registers the item.</p>` },
   { slug: 'how-to-lend-money-to-family', title: 'Lending Money to Family? Get It in Writing',
-    description: 'How to lend money to family or friends without ruining the relationship: structure, interest, repayment schedule and a free promissory note.',
+    description: 'How to lend money to family without ruining the relationship: put it in writing, agree interest or none, set a repayment schedule and plan for default.',
     body: (rel) => `
 <p class="lead">Decide first whether it is a loan or a gift. If it is a loan, write down the amount, the repayment plan and what happens if a payment is missed, and both sign it. That one page protects the money and the relationship.</p>
 <h2>Loan or gift?</h2>
@@ -1088,7 +1088,7 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <p>The free <a href="${rel}templates/photo-release-form.html">photo and model release template</a> covers each point above as a question: commercial or limited use, a time limit, use of the person's name, restrictions, payment, and a guardian's consent for a model under 18. For the shoot itself, use the <a href="${rel}templates/photography-contract.html">photography contract</a> or the <a href="${rel}templates/video-production-contract.html">video production contract</a>.</p>
 <p class="small muted">General information, not legal advice. Image and privacy rights differ between countries and states.</p>` },
   { slug: 'how-to-write-a-notice-to-vacate', title: 'Notice to Vacate Letter (Free Template)',
-    description: 'Write a compliant notice to vacate letter from a tenant: move-out date, notice period and forwarding address. Free Word template.',
+    description: 'How to write a notice to vacate from landlord or tenant: required notice period, move-out date, inspection and deposit terms. Free Word template.',
     body: (rel) => `
 <p class="lead">A notice to vacate is a short letter from a tenant telling the landlord the date they will move out. Give it in writing, give at least the notice your lease and local law require, and keep proof that the landlord received it.</p>
 <p>It is not an eviction notice. A landlord who wants a tenant to leave usually has to serve a formal notice with wording and timing set by law, which this letter does not replace.</p>
@@ -1164,7 +1164,7 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <p>The free <a href="${rel}templates/residential-lease-agreement.html">residential lease agreement</a> covers each point in the list above, for a fixed term or month to month, and builds the lease in your browser without an account. Work out a first partial month with the <a href="${rel}free-tools/prorated-rent.html">prorated rent calculator</a>. To choose a tenant, start with the <a href="${rel}templates/rental-application.html">rental application</a>; to allow a pet under an existing lease, add a <a href="${rel}templates/pet-addendum.html">pet addendum</a>. Tenants considering a sublet should first read the <a href="${rel}guides/how-to-write-a-sublease-agreement.html">sublease agreement guide</a> about consent and the original lease, then adapt the <a href="${rel}templates/sublease-agreement.html">sublease agreement</a>, and there are more letters on the <a href="${rel}for/landlords.html">landlord and tenant page</a>.</p>
 <p class="small muted">General information, not legal advice. Landlord and tenant law differs between states and cities and changes often; check the current rules for the property.</p>` },
   { slug: 'how-to-write-an-invoice', title: 'How to Write an Invoice (2026): 7-Step Checklist', published: '2026-10-02',
-    description: 'Learn how to write an invoice in 7 steps: what to include, numbering, VAT/GST fields, payment terms and how to send it. Free template included.',
+    description: 'How to write an invoice in 7 steps: your details, client, number, date, line items, tax, totals and payment terms to get paid fast. Free template.',
     body: (rel) => `
 <p class="lead">An invoice is a request for payment for goods or services you have delivered. A clear, complete invoice gets paid faster, because the client's accounts team can approve it without coming back to you with questions.</p>
 <h2>What to include on an invoice</h2>
@@ -1211,7 +1211,7 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <p>The free <a href="${rel}templates/invoice.html">invoice template</a> asks for each item above, including line items, a discount, tax, any amount already paid and your bank details, and builds the invoice in your browser without an account. When the client pays, send a <a href="${rel}templates/payment-receipt.html">payment receipt</a>. Pricing a new job first? Start with the <a href="${rel}templates/quote.html">quote template</a>, and for repeat work a <a href="${rel}templates/retainer-agreement.html">retainer agreement</a> sets the monthly fee and payment terms once.</p>
 <p class="small muted">General information, not tax or legal advice. Invoicing and tax rules differ between countries and states; check the rules that apply to your business.</p>` },
   { slug: 'quote-vs-estimate-vs-invoice', title: 'Quote vs Estimate vs Invoice: What to Send', published: '2026-10-02',
-    description: 'The difference between a quote, estimate and invoice: which document to send at each job stage and when each becomes binding.',
+    description: 'Quote vs estimate vs invoice: a quote is fixed price, an estimate is an informed guess, an invoice asks for payment. When to send each.',
     body: (rel) => `
 <p class="lead">A quote offers a fixed price before the work starts. An estimate gives an approximate price that can change. An invoice asks for payment once the work is done. Using the right one, and labelling it clearly, avoids the most common argument in small business: what the price actually was.</p>
 <div class="table-wrap" tabindex="0"><table class="compare">
@@ -1248,7 +1248,7 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <p>Using the same reference numbers through the chain lets everyone match the documents without a phone call. If the invoice goes unpaid, a <a href="${rel}templates/payment-reminder-letter.html">payment reminder letter</a> is the next step.</p>
 <p class="small muted">General information, not legal advice. Contract and consumer protection rules differ between countries and states.</p>` },
   { slug: 'how-to-write-a-two-weeks-notice-letter', title: 'Two Weeks Notice Letter (Free Template)', published: '2026-10-02',
-    description: 'Write a polite two weeks notice letter in five minutes: professional wording you can email or print. Free Word template.',
+    description: 'How to write a two weeks notice letter: short, professional note stating your last day, thanking your employer and offering a handover. Free template.',
     body: (rel) => `
 <p class="lead">A two weeks notice letter tells your employer that you are resigning and when your last day will be. Keep it short and positive: it goes in your personnel file, and the people who read it may be your references later.</p>
 <h2>Do you have to give two weeks' notice?</h2>
@@ -1283,7 +1283,7 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <p>The free <a href="${rel}templates/two-weeks-notice-letter.html">two weeks notice letter</a> asks for each detail above and builds the letter in your browser, with nothing uploaded. If your contract requires longer notice, use the general <a href="${rel}templates/resignation-letter.html">resignation letter</a>, which lets you set any notice period. Managers can use the <a href="${rel}templates/reference-letter.html">reference letter</a> and the <a href="${rel}templates/employment-verification-letter.html">employment verification letter</a> for staff who have left, and there are more on the <a href="${rel}for/hr-teams.html">HR templates page</a>.</p>
 <p class="small muted">General information, not legal advice. Employment law differs between countries and states and changes over time; check the rules that apply to your job.</p>` },
   { slug: 'what-is-a-hold-harmless-agreement', title: 'Hold Harmless Agreement: Types & Examples', published: '2026-10-02',
-    description: 'What a hold harmless (indemnity) agreement does, one-way vs mutual forms, and what makes it enforceable. Free template.',
+    description: 'What is a hold harmless (indemnity) agreement: one party agrees to protect the other from specified claims or losses. Types, enforceability, free template.',
     body: (rel) => `
 <p class="lead">A hold harmless agreement is a promise by one party not to hold another responsible for certain losses, and usually to cover the cost of claims that other people bring. It moves the risk of an activity onto the party best placed to control it.</p>
 <h2>How it works: an example</h2>
@@ -1323,7 +1323,7 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <p class="small muted">General information, not legal advice. Whether a hold harmless agreement is enforceable depends on local law and the facts; have it reviewed for significant risks.</p>` },
   { slug: 'are-non-competes-enforceable', title: 'Are Non-Competes Enforceable? (2026 Rules)', published: '2026-10-03',
     sources: [['Federal Trade Commission: FTC files to accede to vacatur of Non-Compete Clause Rule (5 September 2025)', "https://www.ftc.gov/news-events/news/press-releases/2025/09/federal-trade-commission-files-accede-vacatur-non-compete-clause-rule"], ['Federal Trade Commission: FTC takes action to protect workers from noncompete agreements (4 September 2025)', "https://www.ftc.gov/news-events/news/press-releases/2025/09/ftc-takes-action-protect-workers-noncompete-agreements"], ['California Business and Professions Code § 16600.5', "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=16600.5"], ['Minnesota Statutes § 181.988: Covenants not to compete void', "https://www.revisor.mn.gov/statutes/cite/181.988"]],
-    description: 'Where non-competes are banned or limited in 2026, what courts look for, and how to write enforceable covenants.',
+    description: 'Where non-competes are banned or limited in 2026 (US FTC rule, UK, EU, California), what courts enforce, and how to write them to survive.',
     body: (rel) => `
 <p class="lead">A non-compete agreement stops a worker from joining or starting a competing business for a time after they leave. Whether one can be enforced depends mostly on the state where the worker works, and the trend is firmly towards fewer and narrower non-competes.</p>
 <h2>States that ban or limit non-competes</h2>
@@ -1356,7 +1356,7 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <p class="small muted">General information, not legal advice. Non-compete law differs between states and changes often; have an agreement reviewed for the place where the worker works.</p>` },
   { slug: 'how-to-write-a-gift-letter-for-a-mortgage', title: 'Mortgage Gift Letter (Free Template)', published: '2026-10-03',
     sources: [['Fannie Mae Selling Guide B3-4.3-04: Personal Gifts', "https://selling-guide.fanniemae.com/sel/b3-4.3-04/personal-gifts"], ['IRS: Tax inflation adjustments for tax year 2026 (annual gift exclusion and basic exclusion amount)', "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill"]],
-    description: 'Write a mortgage gift letter confirming a deposit gift is not a loan. Meets Fannie Mae / FHA requirements; free Word template.',
+    description: 'How to write a mortgage gift letter: what lenders require, proof of funds and bank statements, with a free Word template confirming no repayment.',
     body: (rel) => `
 <p class="lead">If someone gives you money towards a home purchase, your lender will usually ask for a gift letter: a signed statement from the giver that the money is a gift, not a loan. It protects the lender, because a hidden loan would add to your debts.</p>
 <h2>What the letter must say</h2>
@@ -1379,7 +1379,7 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <p class="small muted">General information, not financial, tax or legal advice. Lender requirements and tax limits change; check with your lender and a tax adviser.</p>` },
   { slug: 'what-to-include-in-a-severance-agreement', title: 'What to Include in a Severance Agreement', published: '2026-10-03',
     sources: [['29 U.S.C. § 626(f): Older Workers Benefit Protection Act waiver requirements', "https://www.law.cornell.edu/uscode/text/29/626"], ['U.S. EEOC: Understanding waivers of discrimination claims in employee severance agreements', "https://www.eeoc.gov/laws/guidance/qa-understanding-waivers-discrimination-claims-employee-severance-agreements"], ['California Civil Code § 1542 (release of unknown claims)', "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1542"], ['California Government Code § 12964.5 (separation agreement restrictions)', "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=GOV&sectionNum=12964.5"]],
-    description: 'Key clauses in a severance agreement: pay, benefits, non-disparagement, release of claims and revocation rights.',
+    description: 'What to include in a severance agreement: pay, benefits, non-disparagement, release of claims, non-compete and the OWBPA revocation period.',
     body: (rel) => `
 <p class="lead">A severance agreement pays a departing employee something they are not otherwise owed, in exchange for a release of legal claims. No US federal law requires severance, but when you offer it with a release, the release only holds if the agreement is done properly.</p>
 <h2>What to include</h2>
@@ -1412,7 +1412,7 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <p class="small muted">General information, not legal advice. Have any severance agreement reviewed by an employment lawyer before it is signed.</p>` },
   { slug: 'how-to-write-a-job-description', title: 'How to Write a Job Description (Free Template)', published: '2026-10-03',
     sources: [['42 U.S.C. § 12111(8): written job descriptions as evidence of essential functions (ADA)', "https://www.law.cornell.edu/uscode/text/42/12111"], ['29 CFR § 1625.4: help wanted notices and age preferences (ADEA)', "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XIV/part-1625/section-1625.4"], ['New York State Department of Labor: Pay transparency', "https://dol.ny.gov/pay-transparency"], ['California Labor Code § 432.3 (pay scale in job postings)', "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=LAB&sectionNum=432.3"]],
-    description: 'Write a job description that attracts the right candidates: responsibilities, requirements, pay range and reporting line. Free template.',
+    description: 'How to write a job description: responsibilities, requirements, reporting line, compensation range and benefits — with a free Word/JD template.',
     body: (rel) => `
 <p class="lead">A job description tells candidates what the job is, what it takes and what it offers. A clear one brings in better applications, and it is also the document you will come back to for the offer letter, performance reviews and, in a dispute, the essential functions of the role.</p>
 <h2>What to include</h2>
@@ -1442,7 +1442,7 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <p class="small muted">General information, not legal advice. Employment and pay transparency laws differ between states and cities.</p>` },
   { slug: 'how-to-write-a-performance-improvement-plan', title: 'Performance Improvement Plan (PIP) That Works', published: '2026-10-04',
     sources: [['SHRM: 8 steps for effective performance improvement plans', 'https://www.shrm.org/in/topics-tools/news/employee-relations/8-steps-for-effective-performance-improvement-plans']],
-    description: 'How to write a fair PIP with clear goals, support and a deadline. Avoid common mistakes; free Word template included.',
+    description: 'How to write a performance improvement plan (PIP): measurable goals, support offered, check-in schedule and outcomes. Free Word template.',
     body: (rel) => `
 <p class="lead">A performance improvement plan (PIP) tells an employee, in writing, what is not working, what good performance looks like, what help they will get and by when they need to improve. Done well, it gives a struggling employee a real chance. Done badly, it reads as a formality before a dismissal, and nobody improves.</p>
 <h2>When a PIP makes sense</h2>
@@ -1481,7 +1481,7 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <p class="small muted">General information, not legal advice. Employment law differs between countries and states.</p>` },
   { slug: 'what-is-a-credit-note', title: 'What is a credit note? When to issue one, what it must say', published: '2026-10-04',
     sources: [['HMRC VAT Traders Records Manual VATREC13040: conditions of a valid credit note', 'https://www.gov.uk/hmrc-internal-manuals/vat-trader-records/vatrec13040']],
-    description: 'What a credit note is, when to issue one instead of editing an invoice, what it must include, how it handles tax, and refund versus credit.',
+    description: 'What is a credit note (credit memo): issued to cancel or reduce an invoice for refunds, returns, overcharges or corrections. Free template.',
     body: (rel) => `
 <p class="lead">A credit note is a document a seller issues to reduce or cancel an invoice it has already sent. It is the clean way to fix an overcharge, record a return or give a discount after the fact, without changing or deleting the original invoice.</p>
 <h2>When to issue a credit note</h2>
@@ -1514,7 +1514,7 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <p>The free <a href="${rel}templates/credit-note.html">credit note template</a> links the credit to the original invoice and lists each credited item, optional tax and the total, and lets you choose a refund or a credit against another invoice. It sits alongside the <a href="${rel}templates/invoice.html">invoice</a>, <a href="${rel}templates/quote.html">quote</a> and <a href="${rel}templates/payment-receipt.html">payment receipt</a> templates.</p>
 <p class="small muted">General information, not tax advice. Invoicing and VAT rules differ between countries.</p>` },
   { slug: 'what-is-a-change-order', title: 'What is a change order? How to handle scope changes', published: '2026-10-04',
-    description: 'What a change order is, when freelancers, agencies and contractors need one, what it should include, and how it protects both sides when scope changes.',
+    description: 'What is a change order: document a scope change, its cost and schedule impact, and get both sides to sign before proceeding. Free template.',
     body: (rel) => `
 <p class="lead">A change order is a short written agreement that changes the scope, price or schedule of a contract that is already signed. It lets both sides agree extra or different work, and what it costs, before the work is done, so the final invoice holds no surprises.</p>
 <h2>When you need one</h2>
@@ -1545,7 +1545,7 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <p class="small muted">General information, not legal advice.</p>` },
   { slug: 'what-to-include-in-a-room-rental-agreement', title: 'Renting a room in your home: what the agreement should say', published: '2026-10-04',
     sources: [['42 U.S.C. § 3603(b)(2): Fair Housing Act exemption for owner-occupied buildings of up to four units', 'https://www.law.cornell.edu/uscode/text/42/3603']],
-    description: 'What to put in a room rental agreement when you rent out a room in your home: rent, deposit, utilities, shared spaces, house rules, guests and notice.',
+    description: 'What to include in a room rental agreement for a shared house: rent split, utilities, chores, guests, quiet hours and deposit. Free Word template.',
     body: (rel) => `
 <p class="lead">Renting out a spare room is different from letting a whole home. You share a kitchen, a bathroom and a front door with the person, so the agreement needs to cover living together as well as rent. A short written agreement settles most of the questions that cause arguments later.</p>
 <h2>Room rental agreement, lease or roommate agreement?</h2>
@@ -1573,7 +1573,7 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <p class="small muted">General information, not legal advice. Rental law differs between countries, states and cities.</p>` },
   { slug: 'how-to-write-a-remote-work-agreement', title: 'How to write a remote work agreement (free template)', published: '2026-10-04',
     sources: [['OSHA Directive CPL 02-00-125: Home-Based Worksites', 'https://www.osha.gov/enforcement/directives/cpl-02-00-125']],
-    description: 'What a remote or hybrid work agreement should cover: work location, hours, equipment, home office costs, security, safety, expenses and how it ends.',
+    description: 'How to write a remote work (work-from-home) agreement: hours, equipment, allowance, data security, expenses and termination. Free Word template.',
     body: (rel) => `
 <p class="lead">A remote work agreement sets out how an employee works away from the office: where, when, with what equipment and under which rules. It sits alongside the employment contract and changes how the work is done, not the job itself.</p>
 <h2>Fully remote, hybrid or occasional?</h2>
@@ -1601,7 +1601,7 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <p>The free <a href="${rel}templates/remote-work-agreement.html">remote work agreement template</a> covers each item above, with options for hybrid office days, core hours, a home office allowance and the notice to end the arrangement. Use the <a href="${rel}templates/expense-reimbursement-form.html">expense reimbursement form</a> for claims, and the <a href="${rel}templates/employee-nda.html">employee NDA</a> if the role handles confidential information.</p>
 <p class="small muted">General information, not legal advice. Employment, tax and safety rules differ between countries and states.</p>` },
   { slug: 'how-to-terminate-a-contract', title: 'How to Terminate a Contract (With Sample)', published: '2026-10-04',
-    description: 'How to end a service contract: notice period, termination for cause, final payment and a free termination letter.',
+    description: 'How to end a service contract cleanly: notice period, termination for cause vs convenience, final payment, transition, and a free termination letter template.',
     body: (rel) => `
 <p class="lead">Ending a contract is mostly about following the contract itself. Most business contracts say who may end them, for what reasons, with how much notice and how notice must be given. A termination letter that follows those rules ends the relationship cleanly. One that ignores them can itself be a breach.</p>
 <h2>Step 1: read the contract</h2>
@@ -1638,7 +1638,7 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <p class="small muted">General information, not legal advice. Contract law differs between countries and states.</p>` },
   { slug: 'how-does-consignment-work', title: 'Consignment: Commissions & Payouts Explained', published: '2026-10-04',
     sources: [['UCC § 9-102(a)(20): definition of consignment (Cornell LII)', 'https://www.law.cornell.edu/ucc/9/9-102']],
-    description: 'How consignment selling works: commission splits, payouts, unsold returns, insurance and what goes in the agreement.',
+    description: 'How consignment selling works: commission splits, payout timing, unsold returns, insurance and damage responsibility — plus a free consignment template.',
     body: (rel) => `
 <p class="lead">In a consignment, the owner of goods (the consignor) leaves them with a shop, gallery or reseller (the consignee), which sells them and keeps a commission. The consignor keeps ownership until each item sells, and is paid only when it does.</p>
 <h2>How it works, step by step</h2>
@@ -1707,7 +1707,7 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <h2>Free templates</h2>
 <p>The free <a href="${rel}templates/rent-payment-plan-agreement.html">rent payment plan agreement template</a> sets out the past-due amount, each instalment, an optional late-fee waiver and what happens if a payment is missed. Use the <a href="${rel}templates/rent-receipt.html">rent receipt</a> for each payment, and the <a href="${rel}templates/late-rent-notice.html">late rent notice</a> if rent falls behind again.</p>
 <p class="small muted">General information, not legal advice. Rental and eviction law differs between countries, states and cities.</p>` },  { slug: 'what-to-include-on-a-vat-invoice', title: 'What a VAT Invoice Must Include (UK)', published: '2026-10-06',
-    description: 'What HMRC requires on a full or simplified UK VAT invoice, and what changes for invoices under £250.',
+    description: 'What a UK VAT invoice must show: the seven HMRC details for full invoices, what simplified invoices can omit, and what goes wrong if you miss one.',
     sources: [['HMRC: Record keeping for VAT (VAT Notice 700/21), section 4: VAT invoices', 'https://www.gov.uk/guidance/record-keeping-for-vat-notice-70021'], ['HMRC: VAT guide (VAT Notice 700)', 'https://www.gov.uk/guidance/vat-guide-notice-700']],
     body: (rel) => `
 <p class="lead">If you are registered for VAT and sell standard-rated or reduced-rated goods or services to another VAT-registered business, you normally have to issue a VAT invoice within 30 days of the supply. HMRC sets out what it must show, and your customer needs a valid VAT invoice to reclaim the VAT you charged.</p>
@@ -1737,7 +1737,7 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <p>The free <a href="${rel}templates/invoice.html">invoice template</a> can show your VAT number and a separate date of supply, and works out the VAT from the rate you enter. It applies one VAT rate to the whole invoice, so it fits when every line is at the same rate; if you sell at more than one rate, put the rate in each line's description or issue separate invoices. The <a href="${rel}templates/credit-note.html">credit note template</a> reverses VAT the same way.</p>
 <p class="small muted">General information, not tax advice. Check HMRC's current guidance or an accountant for your situation.</p>` },
   { slug: 'gst-hst-invoice-requirements-canada', title: 'GST/HST Invoice Requirements (Canada)', published: '2026-10-06',
-    description: 'What the CRA requires on a Canadian GST/HST invoice, registration thresholds, and what to show for ITCs.',
+    description: 'Canadian GST/HST invoice requirements from the CRA: required details, registration thresholds, and what simplified receipts are allowed to show.',
     sources: [['Canada Revenue Agency: Input tax credits, information you need', 'https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/calculate-prepare-report/input-tax-credit.html'], ['Canada Revenue Agency: GST/HST rates by province', 'https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/charge-collect-which-rate/calculator.html'], ['Input Tax Credit Information (GST/HST) Regulations, SOR/91-45', 'https://laws.justice.gc.ca/eng/regulations/SOR-91-45/page-1.html']],
     body: (rel) => `
 <p class="lead">The Canada Revenue Agency does not prescribe an invoice layout. What it does set is the information a business customer needs to claim back the GST or HST you charged, as an input tax credit. That depends on the total, so a complete invoice is one that meets the highest threshold.</p>
@@ -1764,7 +1764,7 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <p>The free <a href="${rel}templates/invoice.html">invoice template</a> shows your GST/HST number, the customer's details, a description of each item and the payment terms, and works out the tax from the rate you enter, such as 13 for Ontario HST. For a refund or correction, use the <a href="${rel}templates/credit-note.html">credit note template</a>.</p>
 <p class="small muted">General information, not tax advice. Check the Canada Revenue Agency's current guidance or an accountant for your situation.</p>` },
   { slug: 'tax-invoice-requirements-australia', title: 'Tax Invoice Requirements (Australia: 7 Details)', published: '2026-10-06',
-    description: 'The seven details an Australian tax invoice must show for GST, including ABN and GST-inclusive pricing.',
+    description: 'Australian tax invoice requirements for GST: the seven ATO details including ABN and GST-inclusive price, when to issue one, and rules under $82.50.',
     sources: [['Australian Taxation Office: Tax invoices', 'https://www.ato.gov.au/businesses-and-organisations/gst-excise-and-indirect-taxes/gst/tax-invoices']],
     body: (rel) => `
 <p class="lead">If you are registered for GST in Australia, a business customer needs a tax invoice from you to claim the GST back. If a customer asks for one, you must provide it within 28 days, unless the sale was $82.50 or less including GST.</p>
@@ -1789,7 +1789,7 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <p class="small muted">General information, not tax advice. Check the ATO's current guidance or a registered tax agent for your situation.</p>`,
     faq: [["When must I issue a tax invoice in Australia?", "If you are registered for GST and the sale is taxable, you must provide a tax invoice within 28 days of the buyer asking for one. For sales under $1,000, the invoice can be a simplified tax invoice with fewer details."], ["What if my customer is not registered for GST?", "You still issue a tax invoice if you are registered and the supply is taxable. The customer cannot claim a GST credit unless they are registered, but your record-keeping and GST obligations do not change."], ["How long should I keep tax invoices?", "The ATO generally requires records to be kept for five years. Keep the invoice as issued, plus evidence of payment and any credit notes, in a form you can produce if asked."]] },
   { slug: 'what-bank-details-to-put-on-an-invoice', title: 'Bank Details on an Invoice (Stop Fraud Too)', published: '2026-10-06',
-    description: 'What bank details to put on an invoice (UK/US/EU/AU/CA) and how to warn clients about fake bank-detail emails.',
+    description: 'What bank details to put on an invoice in UK, US, EU, Australia and Canada — sort code, IBAN, routing, BSB — plus how to warn clients about payment fraud.',
     sources: [['FBI Internet Crime Complaint Center: 2025 Internet Crime Report', 'https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf'], ['Take Five to Stop Fraud (UK Finance): Invoice and mandate fraud', 'https://www.takefive-stopfraud.org.uk/protect-your-business/invoice-and-mandate/']],
     body: (rel) => `
 <p class="lead">An invoice that tells the client exactly how to pay gets paid sooner. Put the full details on every invoice, in the format your client's bank expects, and add one line that protects them from the most common invoice scam.</p>
@@ -1821,7 +1821,7 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
 <p class="small muted">General information. Check with your bank for the exact details it needs for incoming payments.</p>` },
 
   { slug: 'how-to-write-a-salary-increase-letter', title: 'Salary Increase Letter (Free Sample)', published: '2026-10-17',
-    description: 'Write a raise letter confirming new pay, effective date and title change. Free Word sample for employers and employees.',
+    description: 'How to write a salary increase letter (employer or request): amount, effective date, reasons and next steps. Free Word template.',
     body: (rel) => `
 <p class="lead">A salary increase letter confirms a decision that has already been made. It is not the place to negotiate. Done well, it tells the employee exactly what changes, from when, and what stays the same, so payroll and the employee's own records agree.</p>
 <h2>Settle the details before you write</h2>
@@ -1864,7 +1864,7 @@ Yours sincerely,
 <p class="small muted">General information, not legal advice. Pay review, consultation and discrimination rules differ by country and state.</p>`,
     faq: [['Does a salary increase letter need to be signed?', 'A signature is not usually what makes the change effective, but a signed or acknowledged copy is strong evidence that the employee was told the new terms. Many employers ask for acknowledgement and keep it with the approval record.'], ['Can an employer reduce a salary later?', 'In most places a reduction needs the employee\'s agreement or a contractual right, and may require consultation. A letter that says the salary is permanent can make a later reduction harder, so avoid promises you may need to revisit.'], ['Should the letter mention the reason for the increase?', 'A short factual reason helps payroll, auditors and the employee understand the decision. It should not contain subjective comments about performance that you would not put in a formal review.']] },
   { slug: 'how-to-write-a-reference-letter', title: 'How to Write a Reference Letter (Samples)', published: '2026-10-17',
-    description: 'Write an employment, landlord or character reference: what to confirm, what to leave out, and free sample wording.',
+    description: 'How to write a reference letter for employment, landlord or character cases: what facts to confirm, what to leave out, with a free Word template.',
     body: (rel) => `
 <p class="lead">A reference letter puts in writing what you already know about someone's work or tenancy. The best ones are specific, factual and short. They confirm the relationship, give one or two concrete examples, and say clearly whether you would work with the person again.</p>
 <h2>Reference or verification?</h2>
@@ -1909,7 +1909,7 @@ Yours sincerely,
 <p class="small muted">General information, not legal advice. Reference practices and privacy rules differ by country.</p>`,
     faq: [['Can an employer refuse to give a reference?', 'In many places an employer has no legal duty to provide one, although some sectors and contracts require it. Policies usually set out who may give a reference and what it may contain.'], ['Can I give a bad reference?', 'A reference must be accurate and not misleading. If you cannot say something positive, it is usually safer to confirm only dates and job title than to include criticism you cannot substantiate.'], ['Should a reference letter include salary?', 'Only if the person has agreed and your policy allows it. Verification letters for mortgages or visas sometimes need salary; otherwise dates and role are usually enough.']] },
   { slug: 'how-to-write-a-cease-and-desist-letter', title: 'Cease and Desist Letter (Free Templates)', published: '2026-10-17',
-    description: 'Free cease and desist letter templates for harassment, defamation, IP infringement and debt collection. Editable Word.',
+    description: 'How to write a cease and desist letter for harassment, debt collection, trademark or defamation: structure, tone and when to send vs hiring a lawyer.',
     body: (rel) => `
 <p class="lead">A cease and desist letter is a formal request to stop doing something: using your trade mark, publishing a statement you say is false, harassing someone, or contacting a client who has moved to you. It creates a record and often ends the problem without a court case. It is not a court order, and it does not force anyone to do anything.</p>
 <h2>When a letter is the right step</h2>
@@ -1960,7 +1960,7 @@ Yours faithfully,
 <p class="small muted">General information, not legal advice. Defamation, trade mark and harassment law differ by country and state; take advice before sending a letter about a serious dispute.</p>`,
     faq: [['Is a cease and desist letter legally binding?', 'No. It is a formal request, not a court order. It becomes evidence that the recipient was told about the conduct and had a chance to stop, which can matter if the dispute goes further.'], ['How long should the recipient have to respond?', 'Seven to fourteen days is common for a letter about ongoing conduct. Urgent cases may need a shorter deadline, but a deadline that is impossible to meet can look unreasonable.'], ['What if the letter is ignored?', 'Document the continued conduct and take legal advice on the next step. Options include a further letter, a platform takedown notice, settlement discussions or a court application, depending on the harm and the urgency.']] },
   { slug: 'how-to-write-meeting-minutes', title: 'How to write meeting minutes (with a template)', published: '2026-10-17',
-    description: 'What meeting minutes should record, the difference between minutes and notes, a simple structure, sample wording and what to leave out of the record.',
+    description: 'How to write meeting minutes: attendees, apologies, approvals, decisions and action items with owner and due date. Free Word template.',
     body: (rel) => `
 <p class="lead">Minutes are the official record of what a meeting decided, not a transcript of what everyone said. They protect the organisation when a decision is questioned later, and they tell people who missed the meeting what changed.</p>
 <h2>Minutes, notes or a recording?</h2>
@@ -2014,7 +2014,7 @@ Next meeting: 14 November 2026, 10:00, Meeting Room 2.</code></pre>
 <p class="small muted">General information, not legal advice. Company law and governance rules may require particular minutes or approval procedures.</p>`,
     faq: [['Do minutes need to be signed?', 'Many organisations have the chair sign the approved minutes, and some company rules require it. Check your constitution or governance policy; a signed copy is stronger evidence than an unsigned draft.'], ['Who should take the minutes?', 'Usually someone who is not chairing the meeting, so the chair can run the discussion. For boards, a company secretary or nominated minute-taker is common.'], ['Can minutes be changed after approval?', 'Correct factual errors promptly and record the correction. Do not rewrite history: if a decision changes later, record the new decision and the date it was made.']] },
   { slug: 'what-is-a-sales-commission-agreement', title: 'What is a sales commission agreement?', published: '2026-10-17',
-    description: 'How a sales commission agreement works: rates and tiers, when commission is earned, payment timing, clawbacks, draws and what happens when someone leaves.',
+    description: 'What is a sales commission agreement: tiered, gross-margin or residual structure, quotas, clawbacks and payment timing. Free Word template.',
     body: (rel) => `
 <p class="lead">A sales commission agreement sets out how variable pay is earned. It is the document that answers the questions people argue about at the end of a quarter: which deals count, when the commission is paid, and what happens if the customer cancels.</p>
 <h2>What it should cover</h2>
@@ -2049,7 +2049,7 @@ Next meeting: 14 November 2026, 10:00, Meeting Room 2.</code></pre>
 <p class="small muted">General information, not legal advice. Commission, holiday pay and termination rules differ by country and state.</p>`,
     faq: [['Is a sales commission agreement legally binding?', 'It is usually binding as part of the employment or contractor relationship, provided the terms are clear and lawful. A plan that can be changed at will may still be enforceable, but changing it without agreement can breach the wider contract.'], ['When should commission be paid?', 'The agreement should say: on signature, invoice, payment or delivery, and on which payroll date. Many businesses pay after the customer pays, which reduces clawbacks but delays the salesperson\'s pay.'], ['What happens to commission when an employee leaves?', 'It depends on the agreement and local law. Some plans pay commission on deals closed before the last day; others require the employee to be employed on the payment date. The termination clause should say which.']] },
   { slug: 'how-to-write-an-expense-reimbursement-form', title: 'Expense Reimbursement Form (Free Template)', published: '2026-10-17',
-    description: 'Free expense reimbursement form for employees: dates, categories, receipts and approvals. Editable Word/PDF.',
+    description: 'Free expense reimbursement form for Word: dates, categories, receipts, GL coding, manager approval and sign-off. Fill in online and download.',
     body: (rel) => `
 <p class="lead">An expense reimbursement form is a small document that prevents two common problems: employees waiting weeks to be paid back, and finance teams unable to explain what was spent. Clear fields and a receipt rule solve most of it.</p>
 <h2>What the form should ask for</h2>
