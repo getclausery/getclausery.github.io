@@ -759,7 +759,7 @@ const HUBS = [
   {
     path: 'templates/contract-template.html', section: 'templates', sectionLabel: 'Templates',
     title: 'Free Contract Templates (Word/PDF to Sign)',
-    description: 'Free contract templates in Word/PDF: NDAs, employment, freelance, consulting, leases, loan and service agreements. Pick a template, fill it in online, download a ready-to-sign .docx.',
+    description: 'Free contract templates in Word/PDF: NDAs, employment, freelance, consulting, leases, loans and service agreements. Fill in online and download a sign-ready .docx.',
     h1: 'Free contract templates',
     lead: 'A library of free editable Word contract templates for small business, freelancers, landlords and HR. Fill in each template online to get a document tailored to your answers, then download as Word or PDF to sign — no account, nothing uploaded.',
     introParagraphs: [

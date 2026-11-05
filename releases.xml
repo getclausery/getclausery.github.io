@@ -8,6 +8,14 @@
   <updated>2026-11-05T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.104.0 — Trimmed the contract-template hub description from 160 to 142 chars to stay within the 155-char SERP budget (the overlong version was being truncated mid-word by Google). All SEO pages now have both a title under 60 chars and a description in the 125–155 char window.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-104-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-104-0</id>
+    <published>2026-11-05T00:00:00Z</published>
+    <updated>2026-11-05T00:00:00Z</updated>
+    <summary>Trimmed the contract-template hub description from 160 to 142 chars to stay within the 155-char SERP budget (the overlong version was being truncated mid-word by Google). All SEO pages now have both a title under 60 chars and a description in the 125–155 char window.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.103.0 — Third meta-description pass: 5 remaining short primary template pages (severance agreement, video production contract, contract termination letter, job description, tutoring invoice) had their descriptions expanded to 136–152 chars. Across v2.101–v2.103, over 150 pages received full-length, keyword-led 130–155 char meta descriptions. Remaining pages under 115 chars are docs/faq.html (non-commercial help page) and legal pages (license) which are intentionally concise.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-103-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-103-0</id>
