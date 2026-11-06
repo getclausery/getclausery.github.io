@@ -795,7 +795,7 @@ Thank you,
 <p>The free <a href="${rel}for/freelancers.html">freelance contract templates</a> already contain these clauses for web design, graphic design, photography, social media management and writing. Answer the questions for each client, and optional terms such as a deposit or kill fee only appear when you switch them on.</p>
 <p class="small muted">General information, not legal advice. Contract rules differ between countries and states.</p>` },
   { slug: 'what-is-a-kill-fee', title: 'What Is a Kill Fee? (And How to Set One)',
-    description: 'Kill fees explained: why they matter for freelancers, typical percentages, and how to write them into your contract.',
+    description: 'Kill fees explained: why freelancers use them, typical percentages (25–100%), when they apply on cancellation, and how to write one into your contract.',
     body: (rel) => `
 <p class="lead">A kill fee is a payment the client makes if they cancel a project after you have started work. It compensates you for time you set aside and other work you turned down.</p>
 <h2>Kill fee or deposit?</h2>
