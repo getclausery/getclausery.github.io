@@ -1,7 +1,7 @@
 {
  "": {
-  "date": "2026-11-05",
-  "hash": "6287a6d4b91e1a5f"
+  "date": "2026-11-06",
+  "hash": "339aa815d56905b2"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -572,8 +572,8 @@
   "hash": "4b7745a7c0118d16"
  },
  "invoice-templates/": {
-  "date": "2026-11-05",
-  "hash": "ea97d6f3cfeef3ab"
+  "date": "2026-11-06",
+  "hash": "f62e451f8b804816"
  },
  "invoice-templates/australia-tax-invoice.html": {
   "date": "2026-10-31",
@@ -796,8 +796,8 @@
   "hash": "65fa328cc89af891"
  },
  "roadmap/": {
-  "date": "2026-11-05",
-  "hash": "53e7b8bef7a47486"
+  "date": "2026-11-06",
+  "hash": "5ef6a01297576c53"
  },
  "search/": {
   "date": "2026-10-31",
@@ -812,12 +812,12 @@
   "hash": "0000000000000001"
  },
  "status/": {
-  "date": "2026-11-05",
-  "hash": "33d0fbdd9b21d95d"
+  "date": "2026-11-06",
+  "hash": "21b17ba5ce1211e0"
  },
  "templates/": {
-  "date": "2026-11-05",
-  "hash": "ce3e53c07ce91d09"
+  "date": "2026-11-06",
+  "hash": "64a2e28f06337828"
  },
  "templates/bill-of-sale-template.html": {
   "date": "2026-11-05",
