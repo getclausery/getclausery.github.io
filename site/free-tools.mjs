@@ -71,14 +71,14 @@ const TOOL_FAQ = [
 // widget at about 520px wide and up, so a narrow column shows a scrollbar and a wide one some space below.
 export const TOOLS = [
   { slug: 'amount-in-words', name: 'Amount in words converter', desc: 'Write any amount in words for contracts, cheques and promissory notes, such as "One Thousand Two Hundred and Fifty Dollars and 50/100".', height: 540 },
-  { slug: 'deadline-calculator', name: 'Contract deadline calculator', desc: 'Add or subtract days, business days, weeks, months or years from a date, with month-end handling and your own holidays.', height: 570 },
+  { slug: 'deadline-calculator', name: 'Contract deadline calculator', desc: 'Free deadline calculator: add or subtract days, business days, weeks, months or years from a date, with month-end handling and your own holiday list.', height: 570 },
   { slug: 'invoice-due-date', name: 'Invoice due date calculator', desc: 'Find the due date for Net 30, Net 60, EOM, 15 MFI or 2/10 net 30 invoices, the days left to pay and what an early payment discount is worth.', height: 460 },
   { slug: 'late-payment-interest', name: 'Late payment interest calculator', desc: 'Work out interest on an overdue invoice at your contract rate, or UK statutory interest at 8% above base rate plus the fixed compensation sum.', height: 540 },
   { slug: 'loan-repayment', name: 'Loan repayment calculator', desc: 'Work out the payment on a loan repaid in equal instalments, the total interest and a full repayment schedule with dates, for weekly to yearly payments.', height: 500 },
   { slug: 'sales-commission', name: 'Sales commission calculator', desc: 'Work out commission at a flat rate or with higher tiers above a sales target, the effective rate, and what is still due after a draw.', height: 620 },
   { slug: 'prorated-rent', name: 'Prorated rent calculator', desc: 'Work out the rent for a partial month when a tenant moves in or out mid-month, by days in the month, a 365-day year or a 30-day month.', height: 560 },
-  { slug: 'freelance-rate', name: 'Freelance rate calculator', desc: 'Work back from the income you want to keep to the hourly and day rate you need to charge, after tax, costs and time off.', height: 580 },
-  { slug: 'template-checker', name: 'Word template tag checker', desc: 'Check a .docx template for broken {tags} and see the questionnaire it would produce. The file never leaves your computer.' },
+  { slug: 'freelance-rate', name: 'Freelance rate calculator', desc: 'Free freelance rate calculator: work back from the income you want to keep to the hourly and day rate you need to charge, after tax, costs and time off.', height: 580 },
+  { slug: 'template-checker', name: 'Word template tag checker', desc: 'Free Word template tag checker: upload a .docx to find broken {tags} and preview the questionnaire it would produce. The file never leaves your computer.' },
 ];
 const T = Object.fromEntries(TOOLS.map((t) => [t.slug, t]));
 

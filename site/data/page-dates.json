@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-06",
-  "hash": "6067ec28e58336c7"
+  "hash": "cd1d38d654a726d1"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -260,20 +260,20 @@
   "hash": "9c079ba559690881"
  },
  "free-tools/": {
-  "date": "2026-11-01",
-  "hash": "0ae46a73321edf27"
+  "date": "2026-11-06",
+  "hash": "7efe26b61e5deb97"
  },
  "free-tools/amount-in-words.html": {
   "date": "2026-10-24",
   "hash": "aef3c797dc170310"
  },
  "free-tools/deadline-calculator.html": {
-  "date": "2026-10-24",
-  "hash": "c02e5bcf3e008f99"
+  "date": "2026-11-06",
+  "hash": "d240816eb2db23b4"
  },
  "free-tools/freelance-rate.html": {
-  "date": "2026-10-31",
-  "hash": "fd4c47926533217a"
+  "date": "2026-11-06",
+  "hash": "903bb59de45d183f"
  },
  "free-tools/invoice-due-date.html": {
   "date": "2026-10-31",
@@ -296,12 +296,12 @@
   "hash": "a872a6349bc8b585"
  },
  "free-tools/template-checker.html": {
-  "date": "2026-10-31",
-  "hash": "0271591f0dd28cfa"
+  "date": "2026-11-06",
+  "hash": "35f34acf3b4cff89"
  },
  "guides/": {
-  "date": "2026-11-05",
-  "hash": "8f77ce632d14f1af"
+  "date": "2026-11-06",
+  "hash": "1b0264aafe0ceeab"
  },
  "guides/are-liability-waivers-enforceable.html": {
   "date": "2026-11-05",
@@ -520,8 +520,8 @@
   "hash": "d440bd7799b1f4da"
  },
  "guides/what-is-a-kill-fee.html": {
-  "date": "2026-10-31",
-  "hash": "bc2ea9d53e1e4b4c"
+  "date": "2026-11-06",
+  "hash": "91bf705b4ac8cb13"
  },
  "guides/what-is-a-sales-commission-agreement.html": {
   "date": "2026-11-05",
@@ -573,7 +573,7 @@
  },
  "invoice-templates/": {
   "date": "2026-11-06",
-  "hash": "f62e451f8b804816"
+  "hash": "676aa15c581cb5b3"
  },
  "invoice-templates/australia-tax-invoice.html": {
   "date": "2026-10-31",
@@ -624,8 +624,8 @@
   "hash": "d2622130b8d8bf03"
  },
  "invoice-templates/excel-invoice-template.html": {
-  "date": "2026-11-05",
-  "hash": "b482eccfaae11d68"
+  "date": "2026-11-06",
+  "hash": "0ba01286617bdba9"
  },
  "invoice-templates/final-invoice.html": {
   "date": "2026-10-09",
@@ -652,8 +652,8 @@
   "hash": "e5a99219158d027b"
  },
  "invoice-templates/handyman.html": {
-  "date": "2026-11-03",
-  "hash": "493860ca47b565ff"
+  "date": "2026-11-06",
+  "hash": "5082690be39acafa"
  },
  "invoice-templates/hourly-invoice.html": {
   "date": "2026-10-09",
@@ -797,7 +797,7 @@
  },
  "roadmap/": {
   "date": "2026-11-06",
-  "hash": "ce634448fb570e5b"
+  "hash": "77c800c9f9cad471"
  },
  "search/": {
   "date": "2026-10-31",
@@ -813,11 +813,11 @@
  },
  "status/": {
   "date": "2026-11-06",
-  "hash": "137e2d073f8ead23"
+  "hash": "18b2ed861aebd3e3"
  },
  "templates/": {
   "date": "2026-11-06",
-  "hash": "64a2e28f06337828"
+  "hash": "777ae88883134fc7"
  },
  "templates/bill-of-sale-template.html": {
   "date": "2026-11-05",
@@ -992,8 +992,8 @@
   "hash": "a2c673ded36179bb"
  },
  "templates/event-planning-contract.html": {
-  "date": "2026-11-01",
-  "hash": "c4b9a8a75348e697"
+  "date": "2026-11-06",
+  "hash": "f19d1e9cff50e718"
  },
  "templates/eviction-notice-template.html": {
   "date": "2026-11-05",
@@ -1532,8 +1532,8 @@
   "hash": "8906f4571477f0a5"
  },
  "templates/web-design-contract.html": {
-  "date": "2026-11-01",
-  "hash": "25d627d9047d453d"
+  "date": "2026-11-06",
+  "hash": "8223e6b671b9fdaa"
  },
  "why-clausery/": {
   "date": "2026-10-24",

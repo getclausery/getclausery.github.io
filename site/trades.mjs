@@ -29,7 +29,7 @@ export const TRADES = [
   }),
   T('handyman', {
     name: 'Handyman', title: 'Handyman Invoice Template | Free Word/PDF',
-    description: 'Free handyman invoice template for Word: labour hours, parts, call-out charge and disposal, totals calculated for you..',
+    description: 'Free handyman invoice template for Word/PDF: labour hours, parts, call-out charge and disposal, with totals calculated. Fill in online.',
     intro: 'Handyman jobs are small and quick, so the invoice should be too: hours, parts, a call-out charge if you have one, and the total. This template starts with exactly those lines.',
     who: 'Handymen and odd-job businesses billing homeowners, landlords and small offices.',
     rates: [60, 85, 45, 30],

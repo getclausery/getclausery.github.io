@@ -585,7 +585,7 @@ const HUBS = [
   {
     path: 'invoice-templates/excel-invoice-template.html', section: 'invoice-templates', sectionLabel: 'Invoice templates',
     title: 'Excel Invoice | Free Editable Spreadsheet',
-    description: 'Free Excel invoice template with auto-calculating totals, tax and balance due. Download as .xlsx or fill it in online first — no sign-up, nothing uploaded.',
+    description: 'Free Excel invoice template with auto-calculating totals, tax and balance due. Fill it in online first — no sign-up, nothing uploaded — or download the layout.',
     h1: 'Excel invoice template',
     lead: 'An invoice that adds line totals, subtotal, tax and balance due automatically. Fill it in online to get a Word or PDF invoice with all the maths done for you, or download the structure and rebuild it in Excel using the column layout described here.',
     introParagraphs: ['Excel is popular for invoices because cells do the arithmetic. Clausery does not currently produce a native .xlsx file, but the online invoice does everything an Excel invoice does - line totals, subtotal, one tax rate, optional discount, and any balance after part payment - and downloads as an editable Word file or print-ready PDF.','If you must work in Excel, this page shows the column layout and formulas to build a solid invoice spreadsheet, and lets you preview how a properly calculated invoice looks before you build your own.'],

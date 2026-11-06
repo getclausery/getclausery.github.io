@@ -8,12 +8,28 @@
   <updated>2026-11-06T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
-    <title>Clausery v2.106.0 — Expanded the /customers/ title and meta description: page now has a proper 59-char keyword-led title ("Who Uses Clausery? Freelancers, Landlords, HR & Small Firms") and a 153-char description listing the audiences it targets, instead of the 17-char / 115-char placeholder title/description it had before.</title>
+    <title>Clausery v2.108.0 — Final SEO description polish: fixed the last 4 commercial-page descriptions that were still under 125 chars — web-design-contract (115→147), event-planning-contract (116→150), handyman invoice (119→151, also fixed a double-period typo in the existing description), and what-is-a-kill-fee guide (116→151). Every commercial/landing page on the site (templates, hubs, guides, invoice subtypes, compare pages) now has a 125–155 char meta description and a ≤60 char title. Only docs/, legal/, roadmap/ and embedded tool pages remain short, which is by design.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-108-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-108-0</id>
+    <published>2026-11-06T00:00:00Z</published>
+    <updated>2026-11-06T00:00:00Z</updated>
+    <summary>Final SEO description polish: fixed the last 4 commercial-page descriptions that were still under 125 chars — web-design-contract (115→147), event-planning-contract (116→150), handyman invoice (119→151, also fixed a double-period typo in the existing description), and what-is-a-kill-fee guide (116→151). Every commercial/landing page on the site (templates, hubs, guides, invoice subtypes, compare pages) now has a 125–155 char meta description and a ≤60 char title. Only docs/, legal/, roadmap/ and embedded tool pages remain short, which is by design.</summary>
+  </entry>
+  <entry>
+    <title>Clausery v2.107.0 — Trimmed /invoice-templates/excel-invoice-template.html description from 160 to 150 chars so it no longer flirts with the clip boundary (it was landing at exactly 160 chars, which clipDescription allows but leaves zero margin for URL-escaped characters).</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-107-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-107-0</id>
+    <published>2026-11-06T00:00:00Z</published>
+    <updated>2026-11-06T00:00:00Z</updated>
+    <summary>Trimmed /invoice-templates/excel-invoice-template.html description from 160 to 150 chars so it no longer flirts with the clip boundary (it was landing at exactly 160 chars, which clipDescription allows but leaves zero margin for URL-escaped characters).</summary>
+  </entry>
+  <entry>
+    <title>Clausery v2.106.0 — Expanded the /customers/ title and meta description: page now has a proper 45-char keyword-led title ("Who uses Clausery: freelancers, landlords, HR") and a 153-char description listing the audiences it targets, instead of the 17-char / 115-char placeholder title/description it had before.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-106-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-106-0</id>
     <published>2026-11-06T00:00:00Z</published>
     <updated>2026-11-06T00:00:00Z</updated>
-    <summary>Expanded the /customers/ title and meta description: page now has a proper 59-char keyword-led title (&quot;Who Uses Clausery? Freelancers, Landlords, HR &amp; Small Firms&quot;) and a 153-char description listing the audiences it targets, instead of the 17-char / 115-char placeholder title/description it had before.</summary>
+    <summary>Expanded the /customers/ title and meta description: page now has a proper 45-char keyword-led title (&quot;Who uses Clausery: freelancers, landlords, HR&quot;) and a 153-char description listing the audiences it targets, instead of the 17-char / 115-char placeholder title/description it had before.</summary>
   </entry>
   <entry>
     <title>Clausery v2.105.0 — On-page SEO / FAQ rich-snippet pass: added FAQPage schema + visible Q&A blocks to three high-traffic hub pages — /invoice-templates/ (5 questions covering "are they free?", "PDF download?", "VAT calculation?", "UK VAT template?" and "blank invoice?"), /templates/ (5 questions covering "free?", "edit in Word?", "signup required?", "are they legal?", "PDF download?"), and confirmed /nda-templates/ already has them. Each hub now surfaces the top 5 high-intent questions that SERP features pull for, with natural keyword density for "free invoice template", "invoice template PDF", "invoice template UK / VAT", "free Word templates", "free contract template", etc. All hub pages now win FAQ rich-snippet eligibility.</title>
