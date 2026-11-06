@@ -3,7 +3,7 @@
 // in (#/start/invoice/<trade>), and the page explains what that trade in particular should put on an invoice, which
 // contract to sign before the work, and how that trade usually gets paid. Example prices are labelled as examples.
 import { readFileSync } from 'node:fs';
-import { esc, faqLd, collectionLd, LASTMOD, LASTMOD_LONG, longDate } from '../tools/partials.mjs';
+import { esc, faqLd, faqHtml, collectionLd, LASTMOD, LASTMOD_LONG, longDate } from '../tools/partials.mjs';
 import { PRESETS } from '../app/lib/presets.js';
 import { LIB } from './library.mjs';
 import { GUIDES } from './audience.mjs';
@@ -174,11 +174,17 @@ export const pages = [
   {
     path: 'invoice-templates/', title: 'Free Invoice Templates | Word/PDF (No Signup)',
     description: 'Free invoice templates you can fill in online and download as editable Word or PDF. Invoices, quotes and receipts - totals calculated, no signup.',
-    extraHead: collectionLd({ path: 'invoice-templates/', name: 'Free Word invoice templates: task, trade and country', description: 'Free Word invoice templates for deposits, hourly work and final balances, plus trade and country starters.', items: [...WORKFLOWS.map((w) => [w.name, `invoice-templates/${w.slug}.html`]), ...TRADES.map((t) => [t.title, `invoice-templates/${t.slug}.html`]), ...COUNTRIES.map((c) => [c.h1, `invoice-templates/${c.slug}.html`])] }),
+    extraHead: collectionLd({ path: 'invoice-templates/', name: 'Free Word invoice templates: task, trade and country', description: 'Free Word invoice templates for deposits, hourly work and final balances, plus trade and country starters.', items: [...WORKFLOWS.map((w) => [w.name, `invoice-templates/${w.slug}.html`]), ...TRADES.map((t) => [t.title, `invoice-templates/${t.slug}.html`]), ...COUNTRIES.map((c) => [c.h1, `invoice-templates/${c.slug}.html`])] }) + faqLd([
+      ['Are these invoice templates really free?', 'Yes. Every invoice template on this page is free to fill in online, download as an editable Word file or save as PDF, with no account, no sign-up and nothing uploaded. You can also download a sample .docx to adapt offline.'],
+      ['Can I download the invoice as a PDF?', 'Yes. Fill the invoice in online in your browser, then use Print \u2192 Save as PDF in any browser (or the built-in download-as-PDF button) to email a printable PDF invoice directly to your client.'],
+      ['Do the templates calculate VAT and totals?', 'Yes. Subtotals, VAT/GST (including UK, EU, Australia, Canada, New Zealand, South Africa and Ireland rates), discounts and grand totals calculate automatically as you type line items. Your next invoice remembers your business details and the next invoice number.'],
+      ['Is there a UK VAT invoice template?', 'Yes. Pick the UK VAT starter from the By country list below and it opens pre-set to 20% VAT with space for your VAT registration number, matching HMRC requirements for a full VAT invoice. Other country starters handle Australian GST, Canadian GST/HST, New Zealand GST, South African VAT and Irish VAT.'],
+      ['Is there a blank invoice template I can just fill in?', 'Yes. The Blank invoice starter is the simplest \u2014 open it, add line items, tax and your client details, then download the Word file or PDF. The Simple invoice is a one-page variant with no extra fields.'],
+    ]),
     body: (rel) => `<section class="section"><div class="wrap">
   <h1>Free Word invoice templates by task, trade and country</h1>
   <p class="lead">Pick your trade and the invoice opens with the lines that trade usually bills, ready for your prices. Pick your country and it opens with the right tax, rate and tax number. Totals and tax are worked out for you, your next invoice remembers your details and number, and you download an editable Word file. Free, no sign-up, nothing uploaded.</p>
-  <nav class="small hub-jump" aria-label="Jump to section"><strong>Jump to:</strong> <a href="#popular">Popular</a> · <a href="#by-task">By billing task</a> · <a href="#by-trade">By trade</a> · <a href="#by-country">By country</a> · <a href="#tax">Tax &amp; payment</a></nav>
+  <nav class="small hub-jump" aria-label="Jump to section"><strong>Jump to:</strong> <a href="#popular">Popular</a> · <a href="#by-task">By billing task</a> · <a href="#by-trade">By trade</a> · <a href="#by-country">By country</a> · <a href="#tax">Tax &amp; payment</a> · <a href="#faq">FAQ</a></nav>
   <h2 id="popular" style="margin-top:2rem">Popular invoice starters</h2>
   <div class="grid grid-3 hub-cards" style="margin-top:1rem">
     <a class="feature" href="${rel}invoice-templates/blank-invoice.html"><h3>Blank invoice</h3><p>Empty invoice you fill in online - line items, tax and totals calculated for you.</p></a>
@@ -214,6 +220,14 @@ export const pages = [
     <li><a href="${rel}guides/what-bank-details-to-put-on-an-invoice.html">${esc(guideTitle('what-bank-details-to-put-on-an-invoice'))}</a></li>
     <li><a href="${rel}guides/how-to-write-an-invoice.html">${esc(guideTitle('how-to-write-an-invoice'))}</a></li>
   </ul>
+  <h2 id="faq" style="margin-top:2.5rem">Common questions</h2>
+  ${faqHtml([
+    ['Are these invoice templates really free?', 'Yes. Every invoice template here is free to fill in online and download as an editable Word file or printable PDF, with no account, no sign-up and nothing uploaded. You can also download a sample .docx to adapt offline.'],
+    ['Can I download the invoice as a PDF?', 'Yes. Fill it in online in your browser, then use Print \u2192 Save as PDF (or the built-in PDF button) to email a printable PDF invoice to your client.'],
+    ['Do the templates calculate VAT and totals for me?', 'Yes. Subtotals, VAT/GST (UK, EU, Australia, Canada, New Zealand, South Africa, Ireland), discounts and totals calculate automatically as you type line items. Your next invoice remembers your business details and number.'],
+    ['Is there a UK VAT invoice template?', 'Yes \u2014 pick the UK VAT starter from the By country list and it opens pre-set to 20% VAT with your VAT registration number field, matching HMRC rules for a full VAT invoice. Other starters handle Australian GST, Canadian GST/HST and more.'],
+    ['Is there a blank invoice template I can just fill in?', 'Yes. The Blank invoice starter is the simplest \u2014 open it, add line items, tax and your client details, then download the Word file or PDF.'],
+  ])}
   <!--nav--><div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem;margin-top:0">Start an invoice now</h2><p>The app opens the invoice with your details, the next number and today's date already filled in. Choose a starter here or open the general invoice and change the lines.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/#/start/invoice">Open the invoice app</a> <a class="btn" href="${rel}templates/invoice.html">See the invoice template</a></p></div><!--/nav-->
 </div></section>`,
   },

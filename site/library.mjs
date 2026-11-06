@@ -711,7 +711,13 @@ export const pages = [
   {
     path: 'templates/', title: 'Free Word Templates | PDF & Docx (No Signup)',
     description: `${LIB.length} free Word templates you can fill in online and download as printable PDF or editable .docx — invoices, quotes, receipts, NDAs, contracts, employment letters, lease agreements and landlord forms. No account, no card, nothing uploaded.`,
-    extraHead: crumbsLd([['Home', ''], ['Templates', 'templates/']]) + collectionLd({ path: 'templates/', name: 'Free Word templates: invoices, business and contracts', description: `${LIB.length} free Word templates: invoices, quotes, receipts, business contracts, HR letters and landlord forms. Fill them in online or download the .docx.`, items: LIB.map((t) => [t.name, `templates/${t.slug}.html`]) }),
+    extraHead: crumbsLd([['Home', ''], ['Templates', 'templates/']]) + collectionLd({ path: 'templates/', name: 'Free Word templates: invoices, business and contracts', description: `${LIB.length} free Word templates: invoices, quotes, receipts, business contracts, HR letters and landlord forms. Fill them in online or download the .docx.`, items: LIB.map((t) => [t.name, `templates/${t.slug}.html`]) }) + faqLd([
+      ['Are these Word templates really free?', 'Yes. Every template on this page is free to fill in online and download as an editable Word .docx or printable PDF, with no account, no sign-up and nothing uploaded. You can also download a .zip of all 87 templates at once.'],
+      ['Can I edit the templates in Word?', 'Yes. Every template downloads as a standard .docx file you can edit in Microsoft Word, Google Docs, LibreOffice or Pages. Answers you fill in online are merged into the Word document so paragraphs, dates and signature blocks are already in place.'],
+      ['Do I need to sign up or give my email?', 'No. Clausery does not ask for an email address, password or credit card to download or fill in a template. Everything runs in your browser and documents save to your own device.'],
+      ['Are these templates legal / can I sign them?', 'The templates are standard, editor-reviewed drafts covering the clauses most small businesses and freelancers use. They are not legal advice \u2014 have them reviewed by a lawyer for your jurisdiction before signing if the stakes are high.'],
+      ['Can I save a template as PDF?', 'Yes. Fill it in online, then use your browser\u2019s Print \u2192 Save as PDF (or the built-in PDF button) to produce a printable PDF you can email to clients, tenants or new hires.'],
+    ]),
     body: (rel) => `
 <section class="section"><div class="wrap">
   <p class="eyebrow">Free template library</p>
@@ -746,6 +752,14 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-label
   </div>
   <p class="filter-empty" data-filter-empty hidden>No template matches that. Try a broader word, such as the kind of agreement or who it is for.</p>
   <p style="margin-top:2.5rem">Paying for <a href="${rel}compare/lawdepot-alternative.html">LawDepot</a>, <a href="${rel}compare/rocket-lawyer-alternative.html">Rocket Lawyer</a> or <a href="${rel}compare/eforms-alternative.html">eForms</a>? See <a href="${rel}compare/">how they compare with Clausery</a>, including prices and free trials.</p>
+  <h2 style="margin-top:2.5rem">Common questions</h2>
+  ${faqHtml([
+    ['Are these Word templates really free?', `Yes. Every template here is free to fill in online and download as an editable Word .docx or printable PDF, with no account, no sign-up and nothing uploaded. You can also download a .zip of all ${LIB.length} templates at once.`],
+    ['Can I edit the templates in Word?', 'Yes. Every template downloads as a standard .docx file you can edit in Microsoft Word, Google Docs, LibreOffice or Pages. Answers you fill in online are merged into the Word document so paragraphs, dates and signature blocks are already in place.'],
+    ['Do I need to sign up or give my email?', 'No. Clausery does not ask for an email address, password or credit card to download or fill in a template. Everything runs in your browser and documents save to your own device.'],
+    ['Are these templates legal / can I sign them?', 'The templates are standard, editor-reviewed drafts covering the clauses most small businesses and freelancers use. They are not legal advice \u2014 have them reviewed by a lawyer for your jurisdiction before signing if the stakes are high.'],
+    ['Can I save a filled-in template as PDF?', 'Yes. Fill it in online, then use your browser\u2019s Print \u2192 Save as PDF (or the built-in PDF button) to produce a printable PDF you can email to clients, tenants or new hires.'],
+  ])}
   <p class="small muted" style="margin-top:2rem">These are general samples, not legal advice. Have them reviewed for your jurisdiction before use.</p>
 </div></section>`,
   },

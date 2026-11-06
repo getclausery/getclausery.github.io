@@ -5,8 +5,16 @@
   <link rel="self" href="https://getclausery.github.io/releases.xml"/>
   <link rel="alternate" href="https://getclausery.github.io/changelog.html"/>
   <id>https://getclausery.github.io/changelog.html</id>
-  <updated>2026-11-05T00:00:00Z</updated>
+  <updated>2026-11-06T00:00:00Z</updated>
   <author><name>Clausery</name></author>
+  <entry>
+    <title>Clausery v2.105.0 — On-page SEO / FAQ rich-snippet pass: added FAQPage schema + visible Q&A blocks to three high-traffic hub pages — /invoice-templates/ (5 questions covering "are they free?", "PDF download?", "VAT calculation?", "UK VAT template?" and "blank invoice?"), /templates/ (5 questions covering "free?", "edit in Word?", "signup required?", "are they legal?", "PDF download?"), and confirmed /nda-templates/ already has them. Each hub now surfaces the top 5 high-intent questions that SERP features pull for, with natural keyword density for "free invoice template", "invoice template PDF", "invoice template UK / VAT", "free Word templates", "free contract template", etc. All hub pages now win FAQ rich-snippet eligibility.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-105-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-105-0</id>
+    <published>2026-11-06T00:00:00Z</published>
+    <updated>2026-11-06T00:00:00Z</updated>
+    <summary>On-page SEO / FAQ rich-snippet pass: added FAQPage schema + visible Q&amp;A blocks to three high-traffic hub pages — /invoice-templates/ (5 questions covering &quot;are they free?&quot;, &quot;PDF download?&quot;, &quot;VAT calculation?&quot;, &quot;UK VAT template?&quot; and &quot;blank invoice?&quot;), /templates/ (5 questions covering &quot;free?&quot;, &quot;edit in Word?&quot;, &quot;signup required?&quot;, &quot;are they legal?&quot;, &quot;PDF download?&quot;), and confirmed /nda-templates/ already has them. Each hub now surfaces the top 5 high-intent questions that SERP features pull for, with natural keyword density for &quot;free invoice template&quot;, &quot;invoice template PDF&quot;, &quot;invoice template UK / VAT&quot;, &quot;free Word templates&quot;, &quot;free contract template&quot;, etc. All hub pages now win FAQ rich-snippet eligibility.</summary>
+  </entry>
   <entry>
     <title>Clausery v2.104.0 — Trimmed the contract-template hub description from 160 to 142 chars to stay within the 155-char SERP budget (the overlong version was being truncated mid-word by Google). All SEO pages now have both a title under 60 chars and a description in the 125–155 char window.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-104-0"/>
