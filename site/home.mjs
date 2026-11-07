@@ -66,6 +66,14 @@ export const pages = [{
         <a class="btn btn-lg" href="#try-it">See it work in 10 seconds</a>
       </div>
       <p class="small" style="margin-top:.75rem;color:var(--muted)">Free forever · no credit card · no account · nothing uploaded</p>
+      <div style="margin-top:.9rem;display:flex;flex-wrap:wrap;gap:.35rem .75rem;font-size:.88rem">
+        <span style="color:#9fb4cb">Country starters:</span>
+        <a href="${rel}invoice-templates/us-invoice.html" style="color:#cfe0f3;font-weight:600">US invoice</a>
+        <a href="${rel}invoice-templates/uk-invoice.html" style="color:#cfe0f3;font-weight:600">UK invoice</a>
+        <a href="${rel}invoice-templates/uk-vat-invoice.html" style="color:#cfe0f3;font-weight:600">UK VAT</a>
+        <a href="${rel}invoice-templates/australia-tax-invoice.html" style="color:#cfe0f3;font-weight:600">Australia GST</a>
+        <a href="${rel}invoice-templates/canada-gst-hst-invoice.html" style="color:#cfe0f3;font-weight:600">Canada HST</a>
+      </div>
       <p class="small" style="margin-top:.5rem">Or start with a <a href="${rel}app/#/start/quote">quote</a> · <a href="${rel}app/#/start/receipt">receipt</a> · <a href="${rel}business-document-kit/">free 6-template business kit</a> · <a href="${rel}templates/invoice.html">what to put on an invoice</a></p>
       <div class="proof">
         <span>${ico(I.check)} No email, no password</span>
