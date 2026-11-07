@@ -8,6 +8,14 @@
   <updated>2026-11-07T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.117.0 — Added the same sticky bottom CTA to the /for/<audience>/ pages (freelancers, consultants, law firms, HR teams, landlords) and every /guides/ how-to article — the highest-intent educational pages that visitors often read end-to-end before converting. Every long-form content page on the site (285 editorial pages total) now shows a persistent primary CTA on mobile scroll and a floating pill on desktop. Also set og:image=invoice.png on all guide and audience pages for consistent article shares. Inline styles only; site.css still 44,959 B.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-117-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-117-0</id>
+    <published>2026-11-07T00:00:00Z</published>
+    <updated>2026-11-07T00:00:00Z</updated>
+    <summary>Added the same sticky bottom CTA to the /for/&lt;audience&gt;/ pages (freelancers, consultants, law firms, HR teams, landlords) and every /guides/ how-to article — the highest-intent educational pages that visitors often read end-to-end before converting. Every long-form content page on the site (285 editorial pages total) now shows a persistent primary CTA on mobile scroll and a floating pill on desktop. Also set og:image=invoice.png on all guide and audience pages for consistent article shares. Inline styles only; site.css still 44,959 B.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.116.0 — Extended the sticky "Start this invoice, free" CTA pattern to /why-clausery/ and every /compare/<competitor>/ page so visitors reading bottom-of-funnel social-proof and competitor pages always have a one-tap conversion point. Also added og:image metadata to country (8), trade (12) and hub/variant (~115) pages — invoice-themed hubs use the existing invoice.png og image, NDA hubs use business-sale-nda.png, contract hubs map to their closest matching LIB og image — lifting custom-og coverage from 87 pages to 222+. Inline styles only; site.css remains 44,959 B.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-116-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-116-0</id>
