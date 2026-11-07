@@ -8,6 +8,14 @@
   <updated>2026-11-07T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.110.0 — New US invoice template page at /invoice-templates/us-invoice.html — targets the highest-volume head term "free invoice template" (which is overwhelmingly US-intent) with a plain US-dollar, month/day/year invoice for freelancers, contractors and small businesses. Includes guidance on US-specific conventions: Net 30 payment terms, ACH/wire/PayPal/Zelle payment details, late fees (typically 1–1.5%/month if contracted), when sales tax does and does not apply, the lack of a federal invoice format, and EIN/SSN/W-9 privacy. Opens the app pre-set to USD and en-US date formatting. Sitemap grows from 379 to 380 pages.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-110-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-110-0</id>
+    <published>2026-11-07T00:00:00Z</published>
+    <updated>2026-11-07T00:00:00Z</updated>
+    <summary>New US invoice template page at /invoice-templates/us-invoice.html — targets the highest-volume head term &quot;free invoice template&quot; (which is overwhelmingly US-intent) with a plain US-dollar, month/day/year invoice for freelancers, contractors and small businesses. Includes guidance on US-specific conventions: Net 30 payment terms, ACH/wire/PayPal/Zelle payment details, late fees (typically 1–1.5%/month if contracted), when sales tax does and does not apply, the lack of a federal invoice format, and EIN/SSN/W-9 privacy. Opens the app pre-set to USD and en-US date formatting. Sitemap grows from 379 to 380 pages.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.109.0 — New UK non-VAT invoice template page at /invoice-templates/uk-invoice.html — targets the high-volume "free invoice template UK" search for sole traders, freelancers and small businesses not registered for VAT (turnover under £90k). The page sets the currency to pounds sterling, dates to day/month/year, includes UK-specific guidance on payment terms (Net 30, BACS), the Late Payment of Commercial Debts (Interest) Act 1998 interest/compensation wording, and explains when you don't need to show VAT. The existing /invoice-templates/uk-vat-invoice.html page still covers the VAT-registered case. This pairs with updated UK keyword usage on the invoice-templates hub.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-109-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-109-0</id>

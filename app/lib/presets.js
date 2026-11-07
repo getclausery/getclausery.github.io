@@ -52,6 +52,7 @@ export const TAX_PRESETS = {
   invoice: {
     'uk-vat-invoice': { name: 'UK VAT', currency: 'GBP', locale: 'en-GB', answers: { has_tax: true, tax_name: 'VAT', tax_rate: 20, has_tax_registration: true, tax_registration_label: 'VAT registration number' } },
     'uk-invoice': { name: 'UK invoice', currency: 'GBP', locale: 'en-GB', answers: { has_tax: false } },
+    'us-invoice': { name: 'US invoice', currency: 'USD', locale: 'en-US', answers: { has_tax: false } },
     'ireland-vat-invoice': { name: 'Irish VAT', currency: 'EUR', locale: 'en-IE', answers: { has_tax: true, tax_name: 'VAT', tax_rate: 23, has_tax_registration: true, tax_registration_label: 'VAT number', has_supply_date: true } },
     'australia-tax-invoice': { name: 'Australian GST', currency: 'AUD', locale: 'en-AU', answers: { has_tax: true, tax_name: 'GST', tax_rate: 10, has_tax_registration: true, tax_registration_label: 'ABN', is_tax_invoice: true } },
     'new-zealand-gst-invoice': { name: 'New Zealand GST', currency: 'NZD', locale: 'en-NZ', answers: { has_tax: true, tax_name: 'GST', tax_rate: 15, has_tax_registration: true, tax_registration_label: 'GST number' } },
