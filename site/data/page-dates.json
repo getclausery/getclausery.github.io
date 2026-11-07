@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-07",
-  "hash": "e5343c5959ee8e86"
+  "hash": "a4107f8a406a6f9b"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -28,8 +28,8 @@
   "hash": "4b35b128cc806073"
  },
  "about/": {
-  "date": "2026-10-25",
-  "hash": "2389cff84b961354"
+  "date": "2026-11-07",
+  "hash": "c6d27783fdbb536c"
  },
  "business-document-kit/": {
   "date": "2026-11-07",
@@ -140,8 +140,8 @@
   "hash": "af9cf27a73661e3e"
  },
  "compare/": {
-  "date": "2026-10-31",
-  "hash": "9421fbf2d853770a"
+  "date": "2026-11-07",
+  "hash": "021b454d2343a718"
  },
  "compare/bonsai-alternative.html": {
   "date": "2026-11-07",
@@ -188,8 +188,8 @@
   "hash": "5139ad4fa288f44d"
  },
  "contact/": {
-  "date": "2026-10-24",
-  "hash": "23e8395c511845cd"
+  "date": "2026-11-07",
+  "hash": "565970f8c7313619"
  },
  "customers/": {
   "date": "2026-11-07",
@@ -792,8 +792,8 @@
   "hash": "0a557d637e9427ba"
  },
  "pricing/": {
-  "date": "2026-10-29",
-  "hash": "a8abaadad3f1272c"
+  "date": "2026-11-07",
+  "hash": "2594e4693425abe6"
  },
  "receipts/cash-receipt.html": {
   "date": "2026-11-07",
@@ -805,7 +805,7 @@
  },
  "roadmap/": {
   "date": "2026-11-07",
-  "hash": "edf36bf3b504d327"
+  "hash": "834ff0772b78b1cd"
  },
  "search/": {
   "date": "2026-10-31",
@@ -821,7 +821,7 @@
  },
  "status/": {
   "date": "2026-11-07",
-  "hash": "b749faafd18593c2"
+  "hash": "9b706e60fa19a94e"
  },
  "templates/": {
   "date": "2026-11-07",
