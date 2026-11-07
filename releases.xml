@@ -8,6 +8,14 @@
   <updated>2026-11-07T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.113.0 — Added a country-starter quick-link row under the homepage hero CTA (US invoice, UK invoice, UK VAT, Australia GST, Canada HST) so country-specific visitors can jump to the right pre-set invoice in one click from the homepage rather than hunting through the /invoice-templates/ hub. Uses inline styles (no site.css bytes).</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-113-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-113-0</id>
+    <published>2026-11-07T00:00:00Z</published>
+    <updated>2026-11-07T00:00:00Z</updated>
+    <summary>Added a country-starter quick-link row under the homepage hero CTA (US invoice, UK invoice, UK VAT, Australia GST, Canada HST) so country-specific visitors can jump to the right pre-set invoice in one click from the homepage rather than hunting through the /invoice-templates/ hub. Uses inline styles (no site.css bytes).</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.112.0 — Homepage hero now shows a visible 4.8/5 star rating ("from 427 freelancers and small businesses") directly under the H1, matching the aggregateRating JSON-LD already present. Social proof above the fold raises CTR from SERPs and reduces bounce from visitors who judge tools by visible ratings. Rating uses the existing gold 5-star styling already used in the testimonial cards further down the hero.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-112-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-112-0</id>
