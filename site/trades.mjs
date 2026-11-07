@@ -178,7 +178,7 @@ export const pages = [
       ['Are these invoice templates really free?', 'Yes. Every invoice template on this page is free to fill in online, download as an editable Word file or save as PDF, with no account, no sign-up and nothing uploaded. You can also download a sample .docx to adapt offline.'],
       ['Can I download the invoice as a PDF?', 'Yes. Fill the invoice in online in your browser, then use Print \u2192 Save as PDF in any browser (or the built-in download-as-PDF button) to email a printable PDF invoice directly to your client.'],
       ['Do the templates calculate VAT and totals?', 'Yes. Subtotals, VAT/GST (including UK, EU, Australia, Canada, New Zealand, South Africa and Ireland rates), discounts and grand totals calculate automatically as you type line items. Your next invoice remembers your business details and the next invoice number.'],
-      ['Is there a UK VAT invoice template?', 'Yes. Pick the UK VAT starter from the By country list below and it opens pre-set to 20% VAT with space for your VAT registration number, matching HMRC requirements for a full VAT invoice. Other country starters handle Australian GST, Canadian GST/HST, New Zealand GST, South African VAT and Irish VAT.'],
+      ['Is there a UK or US invoice template?', 'Yes. For the US use the plain US invoice (dollars, month/day/year dates, no sales tax, Net 30 terms). For the UK use the UK non-VAT invoice (pounds, day/month/year, BACS) if you are not VAT-registered, or the UK VAT invoice (20% VAT, HMRC-compliant) if you are. Other country starters handle Australian GST, Canadian GST/HST, New Zealand GST, South African VAT and Irish VAT.'],
       ['Is there a blank invoice template I can just fill in?', 'Yes. The Blank invoice starter is the simplest \u2014 open it, add line items, tax and your client details, then download the Word file or PDF. The Simple invoice is a one-page variant with no extra fields.'],
     ]),
     body: (rel) => `<section class="section"><div class="wrap">
@@ -190,6 +190,8 @@ export const pages = [
     <a class="feature" href="${rel}invoice-templates/blank-invoice.html"><h3>Blank invoice</h3><p>Empty invoice you fill in online - line items, tax and totals calculated for you.</p></a>
     <a class="feature" href="${rel}invoice-templates/simple-invoice.html"><h3>Simple invoice</h3><p>One-page invoice with no extra fields - for small jobs and one-off sales.</p></a>
     <a class="feature" href="${rel}invoice-templates/invoice-template-pdf.html"><h3>Invoice template PDF</h3><p>Fill it in online and save as a printable PDF to email to clients.</p></a>
+    <a class="feature" href="${rel}invoice-templates/us-invoice.html"><h3>US invoice</h3><p>Dollars, month/day/year dates, Net 30 and ACH payment details — for US freelancers and small businesses.</p></a>
+    <a class="feature" href="${rel}invoice-templates/uk-invoice.html"><h3>UK invoice (non-VAT)</h3><p>Pounds, day/month/year dates and BACS details — for UK sole traders not registered for VAT.</p></a>
     <a class="feature" href="${rel}invoice-templates/freelance-invoice.html"><h3>Freelance invoice</h3><p>Hourly, project and expense lines for freelancers and sole traders.</p></a>
     <a class="feature" href="${rel}invoice-templates/contractor-invoice.html"><h3>Contractor invoice</h3><p>Labour, materials, change orders and retention for trade contractors.</p></a>
     <a class="feature" href="${rel}invoice-templates/proforma-invoice.html"><h3>Proforma invoice</h3><p>Pre-supply pricing document for customs or quoting before the job.</p></a>
