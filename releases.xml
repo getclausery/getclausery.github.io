@@ -8,6 +8,14 @@
   <updated>2026-11-07T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.130.1 — Mobile hotfix on top of v2.130.0: added flex-wrap:wrap to .find-form on phones so the "Find template" input and its submit button wrap to two lines instead of forcing a horizontal scrollbar on very narrow (≤340 px) viewports.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-130-1"/>
+    <id>https://getclausery.github.io/changelog.html#v2-130-1</id>
+    <published>2026-11-07T00:00:00Z</published>
+    <updated>2026-11-07T00:00:00Z</updated>
+    <summary>Mobile hotfix on top of v2.130.0: added flex-wrap:wrap to .find-form on phones so the &quot;Find template&quot; input and its submit button wrap to two lines instead of forcing a horizontal scrollbar on very narrow (≤340 px) viewports.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.130.0 — Second-round mobile/tablet hardening. On phones under 620 px: the hero action buttons now stack vertically full-width instead of sitting in a nowrap row that could overflow; any paragraph containing inline .btn buttons wraps with flex-wrap:wrap and 0.5rem gap (no more "Open Clausery" / "Free templates" overlapping or running off the right edge); the nav search pill is hidden (it is redundant with the always-visible ⌘K search and the menu button) so the brand + hamburger never push past the viewport on 360 px-class phones; h1 gets word-break:break-word so long category names wrap instead of overflowing; every table (including the unclassed docs/prose tables and <pre> blocks) is set to display:block/overflow-x:auto on mobile so wide tables scroll horizontally instead of blowing out the page width; code/anchor word-break added for long template tags and URLs; .prose/.docs-body tables get explicit overflow:auto; iframes/videos/embeds are max-width:100%. Dropped the unused .cta::before/::after and .section-ink::before radial-glow decorations (≈ 530 B) to stay within the 45,000 B stylesheet budget.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-130-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-130-0</id>
