@@ -8,6 +8,14 @@
   <updated>2026-11-07T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.122.0 — Added an "Other common layouts" quick-link row on the /invoice-templates/ hub linking to the long-tail keyword variant pages that were previously only reachable from search or inter-hub cross-links: basic invoice, tax invoice, self-employed invoice, sample invoice, printable invoice, Word invoice, create an invoice online, and small business invoice. Also cross-linked the cash receipt from the hub "Not listed?" block. These variants target high-volume mid-tail searches (e.g. "basic invoice template", "tax invoice template", "self employed invoice template") that rank on their own terms but were weakly connected from the main hub — a few direct internal links from the most authoritative page in that cluster distributes ranking authority better.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-122-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-122-0</id>
+    <published>2026-11-07T00:00:00Z</published>
+    <updated>2026-11-07T00:00:00Z</updated>
+    <summary>Added an &quot;Other common layouts&quot; quick-link row on the /invoice-templates/ hub linking to the long-tail keyword variant pages that were previously only reachable from search or inter-hub cross-links: basic invoice, tax invoice, self-employed invoice, sample invoice, printable invoice, Word invoice, create an invoice online, and small business invoice. Also cross-linked the cash receipt from the hub &quot;Not listed?&quot; block. These variants target high-volume mid-tail searches (e.g. &quot;basic invoice template&quot;, &quot;tax invoice template&quot;, &quot;self employed invoice template&quot;) that rank on their own terms but were weakly connected from the main hub — a few direct internal links from the most authoritative page in that cluster distributes ranking authority better.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.121.0 — Expanded 21 short meta descriptions on LIB template pages and their matching /templates/<slug>-template/ hubs from 120–128 decoded characters up to 135–155. Pages include cease-and-desist letter, cleaning services contract, coaching agreement, consignment agreement, engagement letter, graphic design contract, internship offer letter, lease renewal letter, non-solicitation agreement, payment demand letter, photography contract, promissory note, promotion letter, residential lease agreement, social media management contract, statement of work, subcontractor agreement, video production contract, payment plan agreement, freelance contract and consignment-agreement-template. Longer, more specific descriptions lift SERP CTR by giving searchers more reasons to click.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-121-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-121-0</id>
