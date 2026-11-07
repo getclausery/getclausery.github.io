@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-07",
-  "hash": "7e40e5c7cb87800f"
+  "hash": "816d3da7a985a474"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -44,100 +44,100 @@
   "hash": "53ed37abf264ee7d"
  },
  "clauses/amendment-clause.html": {
-  "date": "2026-10-31",
-  "hash": "6541266e4580206e"
+  "date": "2026-11-07",
+  "hash": "81a004def37bb0dd"
  },
  "clauses/assignment-clause.html": {
-  "date": "2026-10-31",
-  "hash": "bfb9b7fa9733d991"
+  "date": "2026-11-07",
+  "hash": "2cbe7e3e3795207b"
  },
  "clauses/at-will-employment-clause.html": {
-  "date": "2026-10-31",
-  "hash": "018c0bb0c9eaf4e4"
+  "date": "2026-11-07",
+  "hash": "fc0bba1f7428053d"
  },
  "clauses/confidentiality-clause.html": {
-  "date": "2026-10-31",
-  "hash": "6a4256eff754bd30"
+  "date": "2026-11-07",
+  "hash": "09995513a4898eb6"
  },
  "clauses/dispute-resolution-clause.html": {
-  "date": "2026-10-31",
-  "hash": "15889a070097f330"
+  "date": "2026-11-07",
+  "hash": "7e6e51eec2fd5a50"
  },
  "clauses/electronic-signature-clause.html": {
-  "date": "2026-10-31",
-  "hash": "9f67eb9f51334b39"
+  "date": "2026-11-07",
+  "hash": "84b1fa904b1c2bf2"
  },
  "clauses/entire-agreement-clause.html": {
-  "date": "2026-10-31",
-  "hash": "8af21ffa545249b8"
+  "date": "2026-11-07",
+  "hash": "d32fd53f1edd51e1"
  },
  "clauses/force-majeure-clause.html": {
-  "date": "2026-10-31",
-  "hash": "4d1fd7e39e1011b8"
+  "date": "2026-11-07",
+  "hash": "680fcfdc64397069"
  },
  "clauses/governing-law-clause.html": {
-  "date": "2026-10-31",
-  "hash": "0991f540b2280fcd"
+  "date": "2026-11-07",
+  "hash": "6782242052a83d7a"
  },
  "clauses/indemnification-clause.html": {
-  "date": "2026-10-31",
-  "hash": "9f95e8d3bd891085"
+  "date": "2026-11-07",
+  "hash": "c03bf9737999cb34"
  },
  "clauses/independent-contractor-clause.html": {
-  "date": "2026-10-31",
-  "hash": "fb9f1e4fc019f021"
+  "date": "2026-11-07",
+  "hash": "a945460bbc0220be"
  },
  "clauses/intellectual-property-clause.html": {
-  "date": "2026-10-31",
-  "hash": "368b90138f767e2d"
+  "date": "2026-11-07",
+  "hash": "3f13974efdf5b61f"
  },
  "clauses/late-payment-interest-clause.html": {
-  "date": "2026-10-31",
-  "hash": "dd4f3ce57593eed0"
+  "date": "2026-11-07",
+  "hash": "06b20eb9343a9eaf"
  },
  "clauses/limitation-of-liability-clause.html": {
-  "date": "2026-10-31",
-  "hash": "83224d59fcc7eb8b"
+  "date": "2026-11-07",
+  "hash": "d18cdcb03b7189ab"
  },
  "clauses/non-compete-clause.html": {
-  "date": "2026-10-31",
-  "hash": "65cbc40b94ad7e61"
+  "date": "2026-11-07",
+  "hash": "d31880f30b19c3a6"
  },
  "clauses/non-solicitation-clause.html": {
-  "date": "2026-10-31",
-  "hash": "2b79f3a08a9743a2"
+  "date": "2026-11-07",
+  "hash": "aa887618595c1476"
  },
  "clauses/notices-clause.html": {
-  "date": "2026-10-31",
-  "hash": "9252cf6eb41acffa"
+  "date": "2026-11-07",
+  "hash": "0553ea55db522f92"
  },
  "clauses/payment-terms-clause.html": {
-  "date": "2026-10-31",
-  "hash": "8d0c9e70d6318a0a"
+  "date": "2026-11-07",
+  "hash": "dd3e573c78a92fcd"
  },
  "clauses/severability-clause.html": {
-  "date": "2026-10-31",
-  "hash": "fe8a8f08e2ba038b"
+  "date": "2026-11-07",
+  "hash": "286b78c224603f0f"
  },
  "clauses/survival-clause.html": {
-  "date": "2026-10-31",
-  "hash": "5381d47f3e565844"
+  "date": "2026-11-07",
+  "hash": "947827f81fdb6d78"
  },
  "clauses/termination-for-cause-clause.html": {
-  "date": "2026-10-31",
-  "hash": "082f4a5384dad641"
+  "date": "2026-11-07",
+  "hash": "a5b264ef4096ed7e"
  },
  "clauses/termination-for-convenience-clause.html": {
-  "date": "2026-10-31",
-  "hash": "326318fd0dc6a18c"
+  "date": "2026-11-07",
+  "hash": "1a063d7fc3605578"
  },
  "clauses/waiver-clause.html": {
-  "date": "2026-10-31",
-  "hash": "4423c5ee166422ff"
+  "date": "2026-11-07",
+  "hash": "46c7146b268603cc"
  },
  "clauses/warranty-clause.html": {
-  "date": "2026-10-31",
-  "hash": "881e6a2808c53ac4"
+  "date": "2026-11-07",
+  "hash": "af9cf27a73661e3e"
  },
  "compare/": {
   "date": "2026-10-31",
@@ -236,8 +236,8 @@
   "hash": "a0e49c657020aa38"
  },
  "for/": {
-  "date": "2026-10-31",
-  "hash": "608b3a478d309fc6"
+  "date": "2026-11-07",
+  "hash": "1c8e88448276f3dd"
  },
  "for/consultants.html": {
   "date": "2026-11-07",
@@ -264,40 +264,40 @@
   "hash": "08fb2cc44386b173"
  },
  "free-tools/amount-in-words.html": {
-  "date": "2026-10-24",
-  "hash": "aef3c797dc170310"
+  "date": "2026-11-07",
+  "hash": "d0e4f3fcc9f99aae"
  },
  "free-tools/deadline-calculator.html": {
-  "date": "2026-11-06",
-  "hash": "d240816eb2db23b4"
+  "date": "2026-11-07",
+  "hash": "4a3f15a76536624a"
  },
  "free-tools/freelance-rate.html": {
-  "date": "2026-11-06",
-  "hash": "903bb59de45d183f"
+  "date": "2026-11-07",
+  "hash": "f875203abbb375ec"
  },
  "free-tools/invoice-due-date.html": {
-  "date": "2026-10-31",
-  "hash": "fb309c5ff669e2cb"
+  "date": "2026-11-07",
+  "hash": "8ec689f0c9301f6e"
  },
  "free-tools/late-payment-interest.html": {
-  "date": "2026-10-24",
-  "hash": "ccf78583eef12845"
+  "date": "2026-11-07",
+  "hash": "35ee87b05aecd6b4"
  },
  "free-tools/loan-repayment.html": {
-  "date": "2026-10-24",
-  "hash": "8a8601a203154155"
+  "date": "2026-11-07",
+  "hash": "6fe1fb53fb790f37"
  },
  "free-tools/prorated-rent.html": {
-  "date": "2026-10-31",
-  "hash": "023abf45bb4609b3"
+  "date": "2026-11-07",
+  "hash": "33f2123fd8f73201"
  },
  "free-tools/sales-commission.html": {
-  "date": "2026-10-31",
-  "hash": "a872a6349bc8b585"
+  "date": "2026-11-07",
+  "hash": "9ef4a8142739699f"
  },
  "free-tools/template-checker.html": {
-  "date": "2026-11-06",
-  "hash": "35f34acf3b4cff89"
+  "date": "2026-11-07",
+  "hash": "b6bbe4bbb6c1c28c"
  },
  "guides/": {
   "date": "2026-11-06",
@@ -805,7 +805,7 @@
  },
  "roadmap/": {
   "date": "2026-11-07",
-  "hash": "9f4c7c683c4514a5"
+  "hash": "91a833cda25e2cd6"
  },
  "search/": {
   "date": "2026-10-31",
@@ -821,7 +821,7 @@
  },
  "status/": {
   "date": "2026-11-07",
-  "hash": "ed4d50b5f5eeda87"
+  "hash": "6fc208abe3066b90"
  },
  "templates/": {
   "date": "2026-11-07",

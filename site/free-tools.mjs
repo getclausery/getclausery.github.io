@@ -25,6 +25,7 @@ const TOOL_CSS = `<style>
 .embed-tools { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; margin: .75rem 0 1rem; }
 .schedule-wrap { max-height: 22rem; overflow: auto; margin-top: .5rem; } .tool details summary { cursor: pointer; font-weight: 600; }
 .terms-table { width: 100%; border-collapse: collapse; font-size: .95rem; } .terms-table th, .terms-table td { text-align: left; padding: .55rem .5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+.p-cta-fixed{display:none}@media(max-width:760px){.p-cta-fixed{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.p-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.p-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.p-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}
 </style>`;
 const crumbs = (rel, name) => `<nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}free-tools/">Free tools</a> › ${name}</nav>`;
 const moreTools = (rel, slug) => `<!--nav--><p class="small" style="margin-top:2rem"><strong>More free tools:</strong> ${TOOLS.filter((t) => t.slug !== slug).map((t) => `<a href="${rel}free-tools/${t.slug}.html">${t.name}</a>`).join(' · ')}</p><!--/nav-->`;
@@ -275,7 +276,7 @@ ${WIDGET['amount-in-words']}
 ${embedSection('amount-in-words')}
 <h2 style="margin-top:2.5rem">Questions</h2>
 ${faqHtml(TOOL_FAQ[0])}
-${cta(rel, 'amount-in-words')}</div></section>` },
+${cta(rel, 'amount-in-words')}</div></section><div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>` },
 
   { path: 'free-tools/deadline-calculator.html', _toc: true, title: 'Contract deadline calculator (business days, months, years)', description: T['deadline-calculator'].desc,
     extraHead: faqLd(TOOL_FAQ[1]) + TOOL_CSS + toolLd(T['deadline-calculator'].name, T['deadline-calculator'].desc, 'free-tools/deadline-calculator.html') + `<script type="module" src="deadline-calculator.js"></script>`,
@@ -290,7 +291,7 @@ ${WIDGET['deadline-calculator']}
 ${embedSection('deadline-calculator')}
 <h2 style="margin-top:2.5rem">Questions</h2>
 ${faqHtml(TOOL_FAQ[1])}
-${cta(rel, 'deadline-calculator')}</div></section>` },
+${cta(rel, 'deadline-calculator')}</div></section><div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>` },
 
   { path: 'free-tools/invoice-due-date.html', _toc: true, title: 'Net 30 calculator: invoice due date for any payment terms', description: T['invoice-due-date'].desc,
     extraHead: faqLd(TOOL_FAQ[5]) + TOOL_CSS + toolLd(T['invoice-due-date'].name, T['invoice-due-date'].desc, 'free-tools/invoice-due-date.html') + `<script type="module" src="invoice-due-date.js"></script>`,
@@ -310,7 +311,7 @@ ${termsTable()}
 ${embedSection('invoice-due-date')}
 <h2 style="margin-top:2.5rem">Questions</h2>
 ${faqHtml(TOOL_FAQ[5])}
-${cta(rel, 'invoice-due-date')}</div></section>` },
+${cta(rel, 'invoice-due-date')}</div></section><div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>` },
 
   { path: 'free-tools/late-payment-interest.html', _toc: true, title: 'Late payment interest calculator (contract or UK statutory)', description: T['late-payment-interest'].desc,
     extraHead: faqLd(TOOL_FAQ[3]) + TOOL_CSS + toolLd(T['late-payment-interest'].name, T['late-payment-interest'].desc, 'free-tools/late-payment-interest.html') + `<script type="module" src="late-payment-interest.js"></script>`,
@@ -325,7 +326,7 @@ ${WIDGET['late-payment-interest']}
 ${embedSection('late-payment-interest')}
 <h2 style="margin-top:2.5rem">Questions</h2>
 ${faqHtml(TOOL_FAQ[3])}
-${cta(rel, 'late-payment-interest')}</div></section>` },
+${cta(rel, 'late-payment-interest')}</div></section><div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>` },
 
   { path: 'free-tools/freelance-rate.html', _toc: true, title: 'Freelance rate calculator: hourly and day rate', description: T['freelance-rate'].desc,
     extraHead: faqLd(TOOL_FAQ[4]) + TOOL_CSS + toolLd(T['freelance-rate'].name, T['freelance-rate'].desc, 'free-tools/freelance-rate.html') + `<script type="module" src="freelance-rate.js"></script>`,
@@ -339,7 +340,7 @@ ${WIDGET['freelance-rate']}
 ${embedSection('freelance-rate')}
 <h2 style="margin-top:2.5rem">Questions</h2>
 ${faqHtml(TOOL_FAQ[4])}
-${cta(rel, 'freelance-rate')}</div></section>` },
+${cta(rel, 'freelance-rate')}</div></section><div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>` },
 
   { path: 'free-tools/loan-repayment.html', _toc: true, title: 'Loan repayment calculator with amortization schedule', description: T['loan-repayment'].desc,
     extraHead: faqLd(TOOL_FAQ[6]) + TOOL_CSS + toolLd(T['loan-repayment'].name, T['loan-repayment'].desc, 'free-tools/loan-repayment.html') + `<script type="module" src="loan-repayment.js"></script>`,
@@ -353,7 +354,7 @@ ${WIDGET['loan-repayment']}
 ${embedSection('loan-repayment')}
 <h2 style="margin-top:2.5rem">Questions</h2>
 ${faqHtml(TOOL_FAQ[6])}
-${cta(rel, 'loan-repayment')}</div></section>` },
+${cta(rel, 'loan-repayment')}</div></section><div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>` },
   { path: 'free-tools/sales-commission.html', _toc: true, title: 'Sales commission calculator with tiers and draw', description: T['sales-commission'].desc,
     extraHead: faqLd(TOOL_FAQ[7]) + TOOL_CSS + toolLd(T['sales-commission'].name, T['sales-commission'].desc, 'free-tools/sales-commission.html') + `<script type="module" src="sales-commission.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Sales commission')}
@@ -366,7 +367,7 @@ ${WIDGET['sales-commission']}
 ${embedSection('sales-commission')}
 <h2 style="margin-top:2.5rem">Questions</h2>
 ${faqHtml(TOOL_FAQ[7])}
-${cta(rel, 'sales-commission')}</div></section>` },
+${cta(rel, 'sales-commission')}</div></section><div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>` },
   { path: 'free-tools/prorated-rent.html', _toc: true, title: 'Prorated rent calculator for move-in and move-out', description: T['prorated-rent'].desc,
     extraHead: faqLd(TOOL_FAQ[8]) + TOOL_CSS + toolLd(T['prorated-rent'].name, T['prorated-rent'].desc, 'free-tools/prorated-rent.html') + `<script type="module" src="prorated-rent.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Prorated rent')}
@@ -379,7 +380,7 @@ ${WIDGET['prorated-rent']}
 ${embedSection('prorated-rent')}
 <h2 style="margin-top:2.5rem">Questions</h2>
 ${faqHtml(TOOL_FAQ[8])}
-${cta(rel, 'prorated-rent')}</div></section>` },
+${cta(rel, 'prorated-rent')}</div></section><div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>` },
   { path: 'free-tools/template-checker.html', _toc: true, title: 'Word template tag checker', description: T['template-checker'].desc,
     extraHead: faqLd(TOOL_FAQ[2]) + TOOL_CSS + toolLd(T['template-checker'].name, T['template-checker'].desc, 'free-tools/template-checker.html') + `<script type="module" src="template-checker.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Template checker')}
@@ -394,7 +395,7 @@ ${cta(rel, 'prorated-rent')}</div></section>` },
 <p>New to tags? Read <a href="${rel}guides/automate-word-templates.html">how to automate a Word template</a> or the full <a href="${rel}docs/templates.html">template syntax</a>. For a ready-made starting point, the <a href="${rel}templates/independent-contractor-template.html">independent contractor agreement guide</a> walks through a complete template with optional clauses and repeating lists.</p>
 <h2 style="margin-top:2.5rem">Questions</h2>
 ${faqHtml(TOOL_FAQ[2])}
-${cta(rel, 'template-checker')}</div></section>` },
+${cta(rel, 'template-checker')}</div></section><div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/">Open Clausery, free <span class="arr">→</span></a></div>` },
   // Bare calculator pages for other sites' iframes: no site header or footer, not indexed, light theme unless ?theme=dark.
   ...TOOLS.filter((t) => t.height).map((t) => ({
     path: `free-tools/embed/${t.slug}.html`, layout: 'embed', noindex: true, title: `${t.name} (embed)`, description: t.desc,
