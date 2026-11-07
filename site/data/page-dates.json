@@ -573,7 +573,7 @@
  },
  "invoice-templates/": {
   "date": "2026-11-07",
-  "hash": "bd0c4b045ff8a6b9"
+  "hash": "4aa239f02587c8cf"
  },
  "invoice-templates/australia-tax-invoice.html": {
   "date": "2026-11-07",
@@ -825,7 +825,7 @@
  },
  "templates/": {
   "date": "2026-11-07",
-  "hash": "39fc932c74a2971b"
+  "hash": "00f5e9028e936074"
  },
  "templates/bill-of-sale-template.html": {
   "date": "2026-11-07",
