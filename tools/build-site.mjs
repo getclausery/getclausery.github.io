@@ -456,7 +456,7 @@ for (const p of pages) {
   kws.add('Word');
   const autoKeywords = [...kws].filter(Boolean).slice(0, 7).join(', ');
   let html = p.layout === 'embed' ? embedPage({ title: p.title, description: p.description, extraHead: p.extraHead, rel, body: p.body(rel) })
-    : (head({ title: seoTitle, description: p.description, path: p.path, extraHead: p.extraHead || '', pageLd, ogImage: p.ogImage, ogType: p.feed ? 'article' : 'website', published: p.published, modified, rel, noindex: Boolean(p.noindex), prev, next, keywords: p.keywords || autoKeywords }) + finalBody + footer(rel)).replace(/<pre>/g, '<pre tabindex="0">');
+    : (head({ title: seoTitle, description: p.description, path: p.path, extraHead: p.extraHead || '', pageLd, ogImage: p.ogImage, ogType: (p.feed || p.published) ? 'article' : 'website', published: p.published, modified, rel, noindex: Boolean(p.noindex), prev, next, keywords: p.keywords || autoKeywords }) + finalBody + footer(rel)).replace(/<pre>/g, '<pre tabindex="0">');
   // Visible Previous / Next navigation at the foot of any chained long-form page. Inserted at </main> so it sits
   // directly above the site footer (matching the <link rel=prev/next> already in <head>).
   if ((prev || next) && p.layout !== 'embed') {
