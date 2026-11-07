@@ -8,6 +8,14 @@
   <updated>2026-11-07T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.118.0 — Added sticky bottom CTA to the 25 contract-clause explanation pages (/clauses/<clause>.html) and the 9 free small-business calculator pages (/free-tools/<tool>.html). These are deep-reference pages that readers reach from Google mid-research and often close without converting; the persistent CTA gives them a one-tap "Open Clausery" or "Make an invoice" button after they finish reading. The clause CTA points to the app (contract drafting) and the tool CTA points to the invoice starter (matching invoicing tools like Net-30 due date and late-payment interest calculators). Sticky CTA coverage: 305 → 339 pages. Inline styles only.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-118-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-118-0</id>
+    <published>2026-11-07T00:00:00Z</published>
+    <updated>2026-11-07T00:00:00Z</updated>
+    <summary>Added sticky bottom CTA to the 25 contract-clause explanation pages (/clauses/&lt;clause&gt;.html) and the 9 free small-business calculator pages (/free-tools/&lt;tool&gt;.html). These are deep-reference pages that readers reach from Google mid-research and often close without converting; the persistent CTA gives them a one-tap &quot;Open Clausery&quot; or &quot;Make an invoice&quot; button after they finish reading. The clause CTA points to the app (contract drafting) and the tool CTA points to the invoice starter (matching invoicing tools like Net-30 due date and late-payment interest calculators). Sticky CTA coverage: 305 → 339 pages. Inline styles only.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.117.0 — Added the same sticky bottom CTA to the /for/<audience>/ pages (freelancers, consultants, law firms, HR teams, landlords) and every /guides/ how-to article — the highest-intent educational pages that visitors often read end-to-end before converting. Every long-form content page on the site (285 editorial pages total) now shows a persistent primary CTA on mobile scroll and a floating pill on desktop. Also set og:image=invoice.png on all guide and audience pages for consistent article shares. Inline styles only; site.css still 44,959 B.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-117-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-117-0</id>
