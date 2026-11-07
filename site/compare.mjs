@@ -165,6 +165,7 @@ for (const c of COMPETITORS) if (!COMPARISON_WORKFLOWS[c.slug]) throw new Error(
 for (const slug of Object.keys(COMPARISON_WORKFLOWS)) if (!COMPETITORS.some((c) => c.slug === slug)) throw new Error(`Unknown comparison evaluation: ${slug}`);
 
 const description = 'Compare local Word drafting with legal form services, document automation and client platforms. Practical workflow tests, clear limits and official vendor links.';
+const COMPARE_CTA_CSS = `<style>.p-cta-fixed{display:none}@media(max-width:760px){.p-cta-fixed{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.p-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.p-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.p-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`;
 export const pages = [
   {
     path: 'compare/', title: 'Compare document automation tools', description,
@@ -213,7 +214,7 @@ ${GROUPS.map(([g, label]) => `  <h2 style="margin-top:2rem">${esc(label)}</h2>
       // avoid SoftwareApplication for competitors because that would require a fabricated Offer price).
       // The page's <a rel="noopener" href="vendorUrl"> links already signal the sameAs relationship via the
       // "Official product and plan details" block.
-      extraHead: faqLd(faq),
+      extraHead: faqLd(faq) + COMPARE_CTA_CSS, published: '2026-10-31',
       body: (rel) => `<section class="section"><div class="wrap prose">
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}compare/">Compare</a> › ${esc(c.name)}</nav>
   <h1 style="margin-top:1rem">${esc(c.title)}</h1>
@@ -245,7 +246,9 @@ ${moveSteps(c, rel)}
   <h2 id="official-details" style="margin-top:2.5rem">Official product and plan details</h2>
   <p><a class="vendor-source" href="${esc(c.vendorUrl)}" rel="noopener">${esc(c.name)}'s official site</a> is the place to confirm current features, prices, billing terms and export rights. For this side of the comparison, see <a href="${rel}pricing/">Clausery pricing</a> and <a href="${rel}docs/">the product documentation</a>. A changed page date is not a claim that a vendor's prices were rechecked.</p>
   <!--nav--><p><a class="btn btn-primary btn-lg" href="${rel}app/">Try Clausery with a free template</a> <a class="btn" href="${rel}compare/">Browse all comparisons</a></p><!--/nav-->
-</div></section>`,
+</div></section>
+<div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>
+`,
     };
   }),
 ];

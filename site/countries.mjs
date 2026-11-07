@@ -150,7 +150,7 @@ const example = (c) => {
 const COUNTRY_CTA_CSS = `<style>.tpl-cta-fixed-c{display:none}@media(max-width:760px){.tpl-cta-fixed-c{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.tpl-cta-fixed-c a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.tpl-cta-fixed-c{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.tpl-cta-fixed-c a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`;
 const COUNTRY_PUBLISHED = { 'uk-vat-invoice':'2026-10-31', 'australia-tax-invoice':'2026-10-31', 'new-zealand-gst-invoice':'2026-10-31', 'canada-gst-hst-invoice':'2026-10-31', 'ireland-vat-invoice':'2026-10-31', 'south-africa-tax-invoice':'2026-10-31', 'uk-invoice':'2026-11-06', 'us-invoice':'2026-11-07' };
 export const pages = COUNTRIES.map((c) => ({
-  path: `invoice-templates/${c.slug}.html`, title: c.title, description: c.description, _toc: true, published: COUNTRY_PUBLISHED[c.slug] || '2026-10-31',
+  path: `invoice-templates/${c.slug}.html`, title: c.title, description: c.description, _toc: true, published: COUNTRY_PUBLISHED[c.slug] || '2026-10-31', ogImage: 'assets/og/invoice.png',
   extraHead: faqLd(c.faq) + COUNTRY_CTA_CSS,
   body: (rel) => `<section class="section"><div class="wrap prose">
   <p class="small"><a href="${rel}invoice-templates/">Invoice templates</a></p>

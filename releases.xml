@@ -8,6 +8,14 @@
   <updated>2026-11-07T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.116.0 — Extended the sticky "Start this invoice, free" CTA pattern to /why-clausery/ and every /compare/<competitor>/ page so visitors reading bottom-of-funnel social-proof and competitor pages always have a one-tap conversion point. Also added og:image metadata to country (8), trade (12) and hub/variant (~115) pages — invoice-themed hubs use the existing invoice.png og image, NDA hubs use business-sale-nda.png, contract hubs map to their closest matching LIB og image — lifting custom-og coverage from 87 pages to 222+. Inline styles only; site.css remains 44,959 B.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-116-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-116-0</id>
+    <published>2026-11-07T00:00:00Z</published>
+    <updated>2026-11-07T00:00:00Z</updated>
+    <summary>Extended the sticky &quot;Start this invoice, free&quot; CTA pattern to /why-clausery/ and every /compare/&lt;competitor&gt;/ page so visitors reading bottom-of-funnel social-proof and competitor pages always have a one-tap conversion point. Also added og:image metadata to country (8), trade (12) and hub/variant (~115) pages — invoice-themed hubs use the existing invoice.png og image, NDA hubs use business-sale-nda.png, contract hubs map to their closest matching LIB og image — lifting custom-og coverage from 87 pages to 222+. Inline styles only; site.css remains 44,959 B.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.115.0 — Switched country, trade and hub/template pages (135 pages total) from og:type=website to og:type=article with proper article:published_time and article:modified_time Open Graph tags and matching Article schema.org JSON-LD. Previously only guides (feed:true) emitted article metadata; now every long-form editorial page announces itself as an article so that social shares, Google News and article-focused rich-result parsers can pick up author/publisher/date signals. The core /templates/ (LIB) pages already did this correctly.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-115-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-115-0</id>
