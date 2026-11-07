@@ -9,6 +9,21 @@ import { GUIDES } from './audience.mjs';
 
 const C = (slug, o) => ({ slug, preset: TAX_PRESETS.invoice[slug], ...o });
 export const COUNTRIES = [
+  C('uk-invoice', {
+    country: 'UK', title: 'Free Invoice Template UK (Word/PDF, No VAT)',
+    h1: 'Free UK invoice template (non-VAT)', locale: 'en-GB', tax: '', taxNumber: '',
+    description: 'Free UK invoice template (non-VAT) for Word/PDF: pounds sterling, BACS payment details and late-payment wording. Fill in online and download, no sign-up.',
+    intro: 'A plain UK invoice for freelancers, sole traders and small businesses not registered for VAT: amounts in pounds, dates in day/month/year format, a unique invoice number, your bank details for BACS or Faster Payments, and optional late-payment wording referring to the Late Payment of Commercial Debts (Interest) Act 1998.',
+    lines: [['Web design', 12, 65], ['Hosting — 1 year', 1, 120], ['Domain renewal', 2, 15]],
+    facts: [['Currency', 'Pound sterling (£ / GBP)'], ['Date format', 'Day / month / year (e.g. 6 November 2026)'], ['VAT', 'Not shown — for non-VAT-registered businesses only'], ['Payment terms', 'Usually 30 days from the invoice date; BACS / Faster Payments / PayPal / Stripe common'], ['Late payment', 'You can claim statutory interest (Bank of England base rate + 8%) and the fixed compensation under the 1998 Act']],
+    must: ['A unique identification number (following on from your last invoice).', 'Your business/trading name and address (and company number if a limited company).', 'The customer\u2019s name and address.', 'A clear description of what you are charging for.', 'The date of the invoice, and the date the goods or services were supplied (if different).', 'For each line item: quantity, unit price (without VAT), and the total amount due in sterling.', 'The total amount owed and the currency (pounds).', 'When payment is due (payment terms) and how to pay (bank details / sort code and account number for BACS).'],
+    setup: ['No VAT — all lines show gross amounts in pounds.', 'Dates display in day/month/year order.', 'Amounts in pounds sterling; two decimal places by default.', 'Optional late-payment interest note (8% above Bank of England base rate, plus £40–£100 fixed compensation per the Late Payment Act).'],
+    limits: 'This template is for non-VAT-registered sole traders, partnerships and limited companies whose taxable turnover is under the £90,000 registration threshold. If you are registered for VAT, use the UK VAT invoice template instead. UK invoicing rules do not require a VAT number on a non-VAT invoice, but you must not add VAT or show any VAT registration number.',
+    notRegistered: 'You do not have to be VAT-registered to send a UK invoice. Just do not add a VAT line, a VAT rate or a VAT registration number. If your VAT-taxable turnover goes over £90,000 in a rolling 12-month period you must register and switch to VAT invoices.',
+    faq: [['Do I have to put my bank details on a UK invoice?', 'There is no legal requirement, but clients cannot pay by BACS without sort code and account number (or name on PayPal/Wise). In practice most UK freelancers put bank details on every invoice.'], ['What payment terms should I use?', 'Many UK small businesses use \'payment within 30 days of invoice date\' (Net 30). For new clients, ask for a deposit (commonly 25\u201350%) up front.'], ['Can I charge interest on late payment?', 'Yes. The Late Payment of Commercial Debts (Interest) Act 1998 lets you claim interest at 8% above the Bank of England base rate plus fixed compensation (£40 for debts under £1,000, £70 up to £10,000, £100 over that).'], ['Do I need to show VAT?', 'Only if you are VAT-registered. A non-VAT invoice must not show VAT, a VAT rate, or a VAT registration number.'], ['What is the difference from the VAT invoice template?', 'This template omits VAT, VAT rate, VAT number and the \'tax point\' (time of supply) lines. Use the UK VAT invoice template if you are registered for VAT.']],
+    guide: 'how-to-write-an-invoice',
+    sources: [['GOV.UK: Invoice payment terms', 'https://www.gov.uk/invoicing-and-taking-payment-from-clients/invoices-and-payments'], ['GOV.UK: Late payment commercial debts', 'https://www.gov.uk/late-commercial-payments-interest-debt-recovery'], ['GOV.UK: VAT registration thresholds', 'https://www.gov.uk/vat-registration/when-to-register']],
+  }),
   C('uk-vat-invoice', {
     country: 'UK', title: 'VAT invoice template (UK): free, Word, VAT worked out',
     h1: 'VAT invoice template (UK)', locale: 'en-GB', tax: 'VAT', taxNumber: 'VAT registration number',
@@ -20,6 +35,7 @@ export const COUNTRIES = [
     setup: ['VAT at 20%, worked out on the subtotal after any discount.', 'Your VAT registration number in your business details.', 'An optional date of supply, for when the tax point differs from the invoice date.', 'Amounts in pounds sterling (GBP).'],
     limits: 'The template applies one VAT rate to the whole invoice. If you sell at more than one rate, issue separate invoices or note each line\'s rate in its description.',
     notRegistered: 'If you are not registered for VAT, do not charge VAT or show a VAT number. Untick the tax option and the invoice is a normal invoice.',
+    notRegisteredLink: { href: 'invoice-templates/uk-invoice.html', label: 'plain UK (non-VAT) invoice template' },
     faq: [['Do I need to issue a VAT invoice to every customer?', 'You must issue one to VAT-registered business customers for standard-rated and reduced-rated sales. Consumers cannot reclaim VAT, so they only need one if they ask.'], ['Can I invoice in euros or dollars?', 'Yes, but the total VAT must also be shown in sterling, so your customer can put it on their VAT return.'], ['How do I correct a VAT invoice I have sent?', 'Do not edit it. Issue a credit note that cancels it, or the wrong part, and then a new invoice with a new number.']],
     guide: 'what-to-include-on-a-vat-invoice',
     sources: [['HMRC: Record keeping for VAT (VAT Notice 700/21), VAT invoices', 'https://www.gov.uk/guidance/record-keeping-for-vat-notice-70021'], ['GOV.UK: VAT registration thresholds', 'https://www.gov.uk/vat-registration/when-to-register']],
@@ -142,7 +158,7 @@ export const pages = COUNTRIES.map((c) => ({
   <h2 style="margin-top:2.5rem">How this template is set up</h2>
   <ul>${c.setup.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
   <p>${esc(c.limits)}</p>
-  <p><strong>Not registered?</strong> ${esc(c.notRegistered)}</p>
+  <p><strong>Not registered?</strong> ${esc(c.notRegistered)}${c.notRegisteredLink ? ` Use the <a href="${rel}${c.notRegisteredLink.href}">${esc(c.notRegisteredLink.label)}</a>.` : ''}</p>
 
   <h2 style="margin-top:2.5rem">Example</h2>
   ${example(c)}

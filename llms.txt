@@ -218,6 +218,7 @@ Key facts:
 
 ## Invoice templates by trade and country
 - [Free Invoice Templates | Word/PDF (No Signup)](https://getclausery.github.io/invoice-templates/): Free invoice templates you can fill in online and download as editable Word or PDF. Invoices, quotes and receipts - totals calculated, no signup.
+- [Free Invoice Template UK (Word/PDF, No VAT)](https://getclausery.github.io/invoice-templates/uk-invoice.html): Free UK invoice template (non-VAT) for Word/PDF: pounds sterling, BACS payment details and late-payment wording. Fill in online and download, no sign-up.
 - [VAT invoice template (UK): free, Word, VAT worked out](https://getclausery.github.io/invoice-templates/uk-vat-invoice.html): Free UK VAT invoice template for Word: your VAT number, 20% VAT worked out, the details HMRC asks for and a separate date of supply..
 - [VAT invoice template for Ireland (free, Word)](https://getclausery.github.io/invoice-templates/ireland-vat-invoice.html): Free Irish VAT invoice template for Word: your VAT number, 23% VAT worked out, the date of supply and the details Revenue lists.
 - [Tax invoice template Australia: free, Word, GST added](https://getclausery.github.io/invoice-templates/australia-tax-invoice.html): Free Australian tax invoice template (Word): "Tax invoice", ABN, 10% GST and buyer details for $1,000+ sales. No sign-up.
