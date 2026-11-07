@@ -147,9 +147,10 @@ const example = (c) => {
   </tbody></table></div>`;
 };
 
+const COUNTRY_CTA_CSS = `<style>.tpl-cta-fixed-c{display:none}@media(max-width:760px){.tpl-cta-fixed-c{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.tpl-cta-fixed-c a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.tpl-cta-fixed-c{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.tpl-cta-fixed-c a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`;
 export const pages = COUNTRIES.map((c) => ({
   path: `invoice-templates/${c.slug}.html`, title: c.title, description: c.description, _toc: true,
-  extraHead: faqLd(c.faq),
+  extraHead: faqLd(c.faq) + COUNTRY_CTA_CSS,
   body: (rel) => `<section class="section"><div class="wrap prose">
   <p class="small"><a href="${rel}invoice-templates/">Invoice templates</a></p>
   <h1>${esc(c.h1)}</h1>
@@ -192,5 +193,7 @@ export const pages = COUNTRIES.map((c) => ({
   <!--nav--><h2 style="margin-top:2.5rem">Invoice templates for other countries</h2>
   <ul class="link-cols">${COUNTRIES.filter((x) => x.slug !== c.slug).map((x) => `<li><a href="${rel}invoice-templates/${x.slug}.html">${esc(x.h1)}</a></li>`).join('')}</ul><!--/nav-->
   <p class="small muted" style="margin-top:2rem">Sources, checked October 2026: ${c.sources.map(([t, u]) => `<a href="${u}" rel="noopener">${esc(t)}</a>`).join('; ')}. General information, not tax advice; rates and thresholds change, so check the tax authority or an accountant for your situation.</p>
-</div></section>`,
+</div></section>
+<div class="tpl-cta-fixed-c"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice/${c.slug}">Start this invoice, free <span class="arr">→</span></a></div>
+`,
 }));
