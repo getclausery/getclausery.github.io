@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-07",
-  "hash": "00c633219d52be1b"
+  "hash": "bb665239a2341a0b"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -32,8 +32,8 @@
   "hash": "2389cff84b961354"
  },
  "business-document-kit/": {
-  "date": "2026-10-31",
-  "hash": "89f7f1a5d430fed1"
+  "date": "2026-11-07",
+  "hash": "dc8a30c0161175a0"
  },
  "changelog.html": {
   "date": "2026-11-04",
@@ -192,8 +192,8 @@
   "hash": "23e8395c511845cd"
  },
  "customers/": {
-  "date": "2026-11-06",
-  "hash": "55bba1cd36ef579c"
+  "date": "2026-11-07",
+  "hash": "b40d59bfb2e3b5d3"
  },
  "docs/": {
   "date": "2026-10-17",
@@ -573,7 +573,7 @@
  },
  "invoice-templates/": {
   "date": "2026-11-07",
-  "hash": "d081d4c492e0cf90"
+  "hash": "bd0c4b045ff8a6b9"
  },
  "invoice-templates/australia-tax-invoice.html": {
   "date": "2026-11-07",
@@ -805,7 +805,7 @@
  },
  "roadmap/": {
   "date": "2026-11-07",
-  "hash": "51824ea1873460bd"
+  "hash": "1bc3fc7d12422931"
  },
  "search/": {
   "date": "2026-10-31",
@@ -821,7 +821,7 @@
  },
  "status/": {
   "date": "2026-11-07",
-  "hash": "76fae3252da00bda"
+  "hash": "983720f0f0f9463d"
  },
  "templates/": {
   "date": "2026-11-07",
