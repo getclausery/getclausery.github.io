@@ -2139,7 +2139,8 @@ export const pages = [
 </div></section>`,
   },
   ...AUD.map((a) => ({
-    path: `for/${a.slug}.html`, title: a.title, description: a.description || a.intro.slice(0, 290), _toc: true, extraHead: faqLd(a.faq),
+    path: `for/${a.slug}.html`, title: a.title, description: a.description || a.intro.slice(0, 290), _toc: true, published: '2026-10-31', ogImage: 'assets/og/invoice.png',
+    extraHead: faqLd(a.faq) + `<style>.p-cta-fixed{display:none}@media(max-width:760px){.p-cta-fixed{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.p-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.p-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.p-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`,
     body: (rel) => `<section class="hero"><div class="wrap" style="display:block;max-width:52rem">
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}for/">Who it's for</a> › ${esc(a.name)}</nav>
   <p class="eyebrow" style="margin-top:1rem">For ${esc(lowerFirst(a.name))}</p>
@@ -2158,7 +2159,9 @@ export const pages = [
   <h2 style="margin-top:2.5rem">Further reading</h2>
   <ul>${a.related.map(([href, label]) => `<li><a href="${rel}${href}">${esc(label)}</a></li>`).join('')}</ul>
   <p style="margin-top:2rem"><a href="${rel}for/">Compare all the teams Clausery is built for →</a></p>
-</div></section>`,
+</div></section>
+<div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>
+`,
   })),
   { path: 'guides/', title: 'Invoice & Contract Guides | Free Word Templates', description: 'How-to guides for invoices, getting paid, contracts, NDAs, HR letters and landlord forms — each linked to a free editable Word template.',
     extraHead: collectionLd({ path: 'guides/', name: 'Invoice, payment and business document guides', description: 'Practical guides to invoices, getting paid, contracts, HR letters and landlord forms. Worked explanations linked to free editable Word templates.', items: GUIDES.map((g) => [g.title, `guides/${g.slug}.html`]) }),
@@ -2169,8 +2172,8 @@ ${GUIDE_TOPICS.map(([t, slugs]) => `  <h2 id="${topicId(t)}" style="margin-top:2
   <ul class="guide-list">${slugs.map((x) => GUIDE_BY[x]).map((g) => `<li><a href="${rel}guides/${g.slug}.html">${esc(g.title)}</a><div class="small muted">${esc(g.description)}</div></li>`).join('')}</ul>`).join('\n')}
 </div></section>` },
   ...GUIDES.map((g) => ({
-    path: `guides/${g.slug}.html`, title: g.title, description: g.description, feed: true, published: published(g),
-    extraHead: (g.faq ? faqLd(g.faq) : '') + crumbsLd([['Home', ''], ['Guides', 'guides/'], [g.title, `guides/${g.slug}.html`]]), _howTo: true, _sources: g.sources,
+    path: `guides/${g.slug}.html`, title: g.title, description: g.description, feed: true, published: published(g), ogImage: 'assets/og/invoice.png',
+    extraHead: (g.faq ? faqLd(g.faq) : '') + crumbsLd([['Home', ''], ['Guides', 'guides/'], [g.title, `guides/${g.slug}.html`]]) + `<style>.p-cta-fixed{display:none}@media(max-width:760px){.p-cta-fixed{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.p-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.p-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.p-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`, _howTo: true, _sources: g.sources,
     body: (rel) => {
       const [topic, slugs] = topicOf(g.slug);
       const tpls = TEMPLATES_FOR_GUIDE[g.slug] || [];
@@ -2184,7 +2187,8 @@ ${GUIDE_TOPICS.map(([t, slugs]) => `  <h2 id="${topicId(t)}" style="margin-top:2
 ${g.faq ? `<h2>Questions</h2>${faqHtml(g.faq)}` : ''}<!--nav-->${['how-to-write-an-invoice', 'what-to-do-when-a-client-wont-pay', 'what-bank-details-to-put-on-an-invoice'].includes(g.slug) ? `<p>Write the sending message or a polite follow-up with the <a href="${rel}guides/invoice-email-template.html">free invoice email generator and four email templates</a>.</p>` : ''}<h2>More on ${esc(lowerFirst(topic))}</h2>
 <ul>${slugs.filter((x) => x !== g.slug).map((x) => `<li><a href="${rel}guides/${x}.html">${esc(GUIDE_BY[x].title)}</a></li>`).join('')}</ul>
 <p><a href="${rel}guides/">Browse all guides by topic</a></p><!--/nav-->
-${helpfulWidget(`guides/${g.slug}.html`)}</div></section>`;
+${helpfulWidget(`guides/${g.slug}.html`)}</div></section>
+<div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>`;
     },
   })),
 ];
