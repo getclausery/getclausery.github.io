@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-07",
-  "hash": "bb665239a2341a0b"
+  "hash": "80b6011a5c25514d"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -805,7 +805,7 @@
  },
  "roadmap/": {
   "date": "2026-11-07",
-  "hash": "1bc3fc7d12422931"
+  "hash": "41399a0859087c08"
  },
  "search/": {
   "date": "2026-10-31",
@@ -821,11 +821,11 @@
  },
  "status/": {
   "date": "2026-11-07",
-  "hash": "983720f0f0f9463d"
+  "hash": "0a3585d9f6b63b76"
  },
  "templates/": {
   "date": "2026-11-07",
-  "hash": "fda8d47bc5dab524"
+  "hash": "39fc932c74a2971b"
  },
  "templates/bill-of-sale-template.html": {
   "date": "2026-11-07",
@@ -864,8 +864,8 @@
   "hash": "ed1785fd56735354"
  },
  "templates/cease-and-desist-letter.html": {
-  "date": "2026-11-01",
-  "hash": "40ac6ad34ec240d7"
+  "date": "2026-11-07",
+  "hash": "3113ed87be99f842"
  },
  "templates/cease-and-desist-template.html": {
   "date": "2026-11-07",
@@ -884,24 +884,24 @@
   "hash": "edd12656d09256e4"
  },
  "templates/cleaning-services-contract.html": {
-  "date": "2026-11-05",
-  "hash": "686ca08d2d036909"
+  "date": "2026-11-07",
+  "hash": "28578869f4ca00c0"
  },
  "templates/coaching-agreement-template.html": {
   "date": "2026-11-07",
   "hash": "ab2e91f1284a35b3"
  },
  "templates/coaching-agreement.html": {
-  "date": "2026-11-05",
-  "hash": "8e812f366308b63b"
+  "date": "2026-11-07",
+  "hash": "679dee8342295081"
  },
  "templates/consignment-agreement-template.html": {
   "date": "2026-11-07",
-  "hash": "4635be7d1afeadaa"
+  "hash": "ecbf88f4dbada7d3"
  },
  "templates/consignment-agreement.html": {
-  "date": "2026-11-01",
-  "hash": "e92d55cad07a66a0"
+  "date": "2026-11-07",
+  "hash": "95cb6557811a266e"
  },
  "templates/consulting-agreement-template.html": {
   "date": "2026-11-07",
@@ -984,8 +984,8 @@
   "hash": "b6c09970ccc5136e"
  },
  "templates/engagement-letter.html": {
-  "date": "2026-11-01",
-  "hash": "1c1dfb732b6bb58e"
+  "date": "2026-11-07",
+  "hash": "cb4e391edccd398d"
  },
  "templates/equipment-rental-agreement-template.html": {
   "date": "2026-11-07",
@@ -1017,7 +1017,7 @@
  },
  "templates/freelance-contract.html": {
   "date": "2026-11-07",
-  "hash": "b173c44da6b2d5ff"
+  "hash": "b6c9ea70ac3ce434"
  },
  "templates/freelance-writing-contract-template.html": {
   "date": "2026-11-07",
@@ -1048,8 +1048,8 @@
   "hash": "4415c14be616e0b6"
  },
  "templates/graphic-design-contract.html": {
-  "date": "2026-11-01",
-  "hash": "aefd3b6ede544955"
+  "date": "2026-11-07",
+  "hash": "a3ebc527f7c2ebc8"
  },
  "templates/hold-harmless-agreement-template.html": {
   "date": "2026-11-07",
@@ -1072,8 +1072,8 @@
   "hash": "d2a03e8ca6af0d49"
  },
  "templates/internship-offer-letter.html": {
-  "date": "2026-11-05",
-  "hash": "f612d13cce1cf899"
+  "date": "2026-11-07",
+  "hash": "c11c357d10204876"
  },
  "templates/invoice.html": {
   "date": "2026-11-07",
@@ -1108,8 +1108,8 @@
   "hash": "255411d032a5aa85"
  },
  "templates/lease-renewal-letter.html": {
-  "date": "2026-11-05",
-  "hash": "325ce24358e06a7b"
+  "date": "2026-11-07",
+  "hash": "e60893a3e799c502"
  },
  "templates/lease-termination-agreement-template.html": {
   "date": "2026-11-07",
@@ -1172,8 +1172,8 @@
   "hash": "0f50417278ec5c83"
  },
  "templates/mutual-nda.html": {
-  "date": "2026-11-01",
-  "hash": "8a53a5d9e51818a0"
+  "date": "2026-11-07",
+  "hash": "648a0248f1670bea"
  },
  "templates/nanny-contract-template.html": {
   "date": "2026-11-07",
@@ -1200,8 +1200,8 @@
   "hash": "401a1deb574cd531"
  },
  "templates/non-solicitation-agreement.html": {
-  "date": "2026-11-01",
-  "hash": "0df29510be5e3427"
+  "date": "2026-11-07",
+  "hash": "529061c2814e45e4"
  },
  "templates/notice-to-vacate-template.html": {
   "date": "2026-11-07",
@@ -1240,12 +1240,12 @@
   "hash": "7822b14afda839c9"
  },
  "templates/payment-demand-letter.html": {
-  "date": "2026-11-01",
-  "hash": "fe1f38d89977e11b"
+  "date": "2026-11-07",
+  "hash": "6749ba8b14fad6e3"
  },
  "templates/payment-plan-agreement.html": {
   "date": "2026-11-07",
-  "hash": "11a6f8acb9c6670e"
+  "hash": "dc4fab3f727aec85"
  },
  "templates/payment-receipt-template.html": {
   "date": "2026-11-07",
@@ -1308,24 +1308,24 @@
   "hash": "f68b6c2140087799"
  },
  "templates/photography-contract.html": {
-  "date": "2026-11-01",
-  "hash": "4b7d99c7c73b1f0b"
+  "date": "2026-11-07",
+  "hash": "b318d9c98f52c9a1"
  },
  "templates/promissory-note-template.html": {
   "date": "2026-11-07",
   "hash": "927d2f86210fe610"
  },
  "templates/promissory-note.html": {
-  "date": "2026-11-01",
-  "hash": "d1a031beaf4d9fd2"
+  "date": "2026-11-07",
+  "hash": "0c097114d4e36759"
  },
  "templates/promotion-letter-template.html": {
   "date": "2026-11-07",
   "hash": "e1a10ba8ebf8e640"
  },
  "templates/promotion-letter.html": {
-  "date": "2026-11-01",
-  "hash": "c35f44823c947280"
+  "date": "2026-11-07",
+  "hash": "f223c87a5e6081cb"
  },
  "templates/purchase-order-template.html": {
   "date": "2026-11-07",
@@ -1396,8 +1396,8 @@
   "hash": "c531342e5d467069"
  },
  "templates/residential-lease-agreement.html": {
-  "date": "2026-11-05",
-  "hash": "d0560c46f1f66794"
+  "date": "2026-11-07",
+  "hash": "ceb4b0f749b555d9"
  },
  "templates/resignation-letter-template.html": {
   "date": "2026-11-07",
@@ -1476,24 +1476,24 @@
   "hash": "a6388314a35b5390"
  },
  "templates/social-media-management-contract.html": {
-  "date": "2026-11-01",
-  "hash": "9a4202ea46a9cb5b"
+  "date": "2026-11-07",
+  "hash": "1a5602247489d949"
  },
  "templates/statement-of-work-template.html": {
   "date": "2026-11-07",
   "hash": "a34604b6b70f2899"
  },
  "templates/statement-of-work.html": {
-  "date": "2026-11-01",
-  "hash": "b1d0270862b2c296"
+  "date": "2026-11-07",
+  "hash": "d2bb9c04505f7bb4"
  },
  "templates/subcontractor-agreement-template.html": {
   "date": "2026-11-07",
   "hash": "fc1af378922030c5"
  },
  "templates/subcontractor-agreement.html": {
-  "date": "2026-11-01",
-  "hash": "570e3a6d06acae3a"
+  "date": "2026-11-07",
+  "hash": "5293807051ea6713"
  },
  "templates/sublease-agreement-template.html": {
   "date": "2026-11-07",
@@ -1524,8 +1524,8 @@
   "hash": "69f82511db4e5727"
  },
  "templates/video-production-contract.html": {
-  "date": "2026-11-05",
-  "hash": "4666a2a2886f6f3c"
+  "date": "2026-11-07",
+  "hash": "39d0ad8f18db8441"
  },
  "templates/virtual-assistant-agreement-template.html": {
   "date": "2026-11-07",
