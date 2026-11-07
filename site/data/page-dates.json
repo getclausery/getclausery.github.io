@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-07",
-  "hash": "5e49771648aa3d7b"
+  "hash": "1c37af19eeca96ca"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -144,48 +144,48 @@
   "hash": "9421fbf2d853770a"
  },
  "compare/bonsai-alternative.html": {
-  "date": "2026-10-31",
-  "hash": "627830809535a899"
+  "date": "2026-11-07",
+  "hash": "8fb93271a1eeacd9"
  },
  "compare/clio-draft-alternative.html": {
-  "date": "2026-10-31",
-  "hash": "e341826c98b7df4a"
+  "date": "2026-11-07",
+  "hash": "55c4441051bb98f8"
  },
  "compare/docassemble-alternative.html": {
-  "date": "2026-10-31",
-  "hash": "d470fb9534298eb5"
+  "date": "2026-11-07",
+  "hash": "a74d7630a8546d9a"
  },
  "compare/dubsado-alternative.html": {
-  "date": "2026-10-31",
-  "hash": "2aee6e871b221c5c"
+  "date": "2026-11-07",
+  "hash": "27c7c97fc551250a"
  },
  "compare/eforms-alternative.html": {
-  "date": "2026-10-31",
-  "hash": "2dbcbfc0aa46f75b"
+  "date": "2026-11-07",
+  "hash": "451a86787b7b6926"
  },
  "compare/gavel-alternative.html": {
-  "date": "2026-10-31",
-  "hash": "6b4e1cf4fabffd66"
+  "date": "2026-11-07",
+  "hash": "974c43dfd83bde52"
  },
  "compare/honeybook-alternative.html": {
-  "date": "2026-10-31",
-  "hash": "7a73cdca3f6d485e"
+  "date": "2026-11-07",
+  "hash": "a8398738743aab5b"
  },
  "compare/hotdocs-alternative.html": {
-  "date": "2026-10-31",
-  "hash": "ed7650bc89d511ad"
+  "date": "2026-11-07",
+  "hash": "0a66275e966d6cf7"
  },
  "compare/lawdepot-alternative.html": {
-  "date": "2026-10-31",
-  "hash": "0c2b68bb9ca16466"
+  "date": "2026-11-07",
+  "hash": "032a948bfbcb3659"
  },
  "compare/pandadoc-alternative.html": {
-  "date": "2026-10-31",
-  "hash": "1298b609156a3848"
+  "date": "2026-11-07",
+  "hash": "33d481c7c9027a6d"
  },
  "compare/rocket-lawyer-alternative.html": {
-  "date": "2026-10-31",
-  "hash": "a88b6ef85564f5a4"
+  "date": "2026-11-07",
+  "hash": "5139ad4fa288f44d"
  },
  "contact/": {
   "date": "2026-10-24",
@@ -805,7 +805,7 @@
  },
  "roadmap/": {
   "date": "2026-11-07",
-  "hash": "03e16096cbff0f3d"
+  "hash": "206d940ddab0094b"
  },
  "search/": {
   "date": "2026-10-31",
@@ -821,7 +821,7 @@
  },
  "status/": {
   "date": "2026-11-07",
-  "hash": "d2044675805aa03f"
+  "hash": "4aceb506abe1046e"
  },
  "templates/": {
   "date": "2026-11-07",
@@ -1544,7 +1544,7 @@
   "hash": "8223e6b671b9fdaa"
  },
  "why-clausery/": {
-  "date": "2026-10-24",
-  "hash": "4c1cf2f20986102e"
+  "date": "2026-11-07",
+  "hash": "e37b1e75b8c1d5be"
  }
 }

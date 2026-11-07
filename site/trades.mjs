@@ -234,7 +234,7 @@ export const pages = [
 </div></section>`,
   },
   ...TRADES.map((t) => ({
-    path: `invoice-templates/${t.slug}.html`, title: t.title, description: t.description, _toc: true, published: '2026-10-31',
+    path: `invoice-templates/${t.slug}.html`, title: t.title, description: t.description, _toc: true, published: '2026-10-31', ogImage: 'assets/og/invoice.png',
     extraHead: faqLd(t.faq) + `<style>.tpl-cta-fixed-t{display:none}@media(max-width:760px){.tpl-cta-fixed-t{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.tpl-cta-fixed-t a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.tpl-cta-fixed-t{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.tpl-cta-fixed-t a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`,
     body: (rel) => `<section class="section"><div class="wrap prose">
   <p class="small"><a href="${rel}invoice-templates/">Invoice templates by trade</a></p>

@@ -38,11 +38,13 @@ const FAQ = [
     'No. Clausery is software that fills in templates you can read and adapt. It is not a law firm, it does not give legal advice, and it does not collect payments. Have a document reviewed for your situation before you rely on it.'],
 ];
 
+const PAGE_CTA_CSS = `<style>.p-cta-fixed{display:none}@media(max-width:760px){.p-cta-fixed{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.p-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.p-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.p-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`;
 export const pages = [
   {
     path: 'why-clausery/', title: 'Why Clausery — no signup, no card, real Word files',
     description: 'See why Clausery is different from invoice apps and cloud document tools: editable Word output, no uploads, no account to start, a free tier that never expires, public source code and a money-back guarantee.',
-    extraHead: faqLd(FAQ) + crumbsLd([['Home', ''], ['Why Clausery', 'why-clausery/']]),
+    published: '2026-10-31',
+    extraHead: faqLd(FAQ) + crumbsLd([['Home', ''], ['Why Clausery', 'why-clausery/']]) + PAGE_CTA_CSS,
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Why Clausery</h1>
 <p class="lead">Most tools that make invoices, quotes and contracts want your documents, or your time, or both. Clausery does neither: it makes a Word file on your own computer, gives the whole library away for free, and publishes the code so you can check it.</p>
@@ -110,6 +112,8 @@ ${faqHtml(FAQ)}
 
 <p style="margin-top:2rem"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free</a> <a class="btn btn-lg" href="${rel}templates/">Browse ${LIB.length} free templates</a></p>
 <p class="small muted" style="margin-top:1rem">Clausery is software, not a law firm, and does not give legal advice. Features and prices are described on the <a href="${rel}pricing/">pricing page</a> and configured in one place, so the app and this site cannot disagree.</p>
-</div></section>`,
+</div></section>
+<div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>
+`,
   },
 ];
