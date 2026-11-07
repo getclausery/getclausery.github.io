@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-07",
-  "hash": "816d3da7a985a474"
+  "hash": "00c633219d52be1b"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -40,8 +40,8 @@
   "hash": "43ee7425ca525dd3"
  },
  "clauses/": {
-  "date": "2026-10-31",
-  "hash": "53ed37abf264ee7d"
+  "date": "2026-11-07",
+  "hash": "cbbc0847d50030fb"
  },
  "clauses/amendment-clause.html": {
   "date": "2026-11-07",
@@ -261,7 +261,7 @@
  },
  "free-tools/": {
   "date": "2026-11-07",
-  "hash": "08fb2cc44386b173"
+  "hash": "1a1b98dfb6569027"
  },
  "free-tools/amount-in-words.html": {
   "date": "2026-11-07",
@@ -352,8 +352,8 @@
   "hash": "6caf2f1a47c62502"
  },
  "guides/how-to-save-an-invoice-as-pdf.html": {
-  "date": "2026-10-24",
-  "hash": "a73de7c53ee473af"
+  "date": "2026-11-07",
+  "hash": "a1677898d0f0b54e"
  },
  "guides/how-to-set-up-a-rent-payment-plan.html": {
   "date": "2026-11-07",
@@ -396,8 +396,8 @@
   "hash": "7954997d6e3a7290"
  },
  "guides/how-to-write-a-payment-receipt.html": {
-  "date": "2026-10-24",
-  "hash": "001bc463f2d9d93f"
+  "date": "2026-11-07",
+  "hash": "c04dcdedb58b9373"
  },
  "guides/how-to-write-a-performance-improvement-plan.html": {
   "date": "2026-11-07",
@@ -468,8 +468,8 @@
   "hash": "e0d6409e99c0f782"
  },
  "guides/invoice-email-template.html": {
-  "date": "2026-10-31",
-  "hash": "6008b0fc949b469e"
+  "date": "2026-11-07",
+  "hash": "2897b83d6097d6fb"
  },
  "guides/is-an-mou-legally-binding.html": {
   "date": "2026-11-07",
@@ -612,8 +612,8 @@
   "hash": "a19077bc861381e6"
  },
  "invoice-templates/deposit-invoice.html": {
-  "date": "2026-11-01",
-  "hash": "71f8e4ba942161cb"
+  "date": "2026-11-07",
+  "hash": "cacff9717377e908"
  },
  "invoice-templates/editable-invoice.html": {
   "date": "2026-11-07",
@@ -628,8 +628,8 @@
   "hash": "c2edaf80f01342bb"
  },
  "invoice-templates/final-invoice.html": {
-  "date": "2026-10-09",
-  "hash": "76c3a4a32db91032"
+  "date": "2026-11-07",
+  "hash": "4b06d09c110cf058"
  },
  "invoice-templates/free-invoice-generator.html": {
   "date": "2026-11-07",
@@ -656,8 +656,8 @@
   "hash": "684bc53b7e21423c"
  },
  "invoice-templates/hourly-invoice.html": {
-  "date": "2026-10-09",
-  "hash": "8c3d3f2b2d1f55e7"
+  "date": "2026-11-07",
+  "hash": "4f2ce12575289387"
  },
  "invoice-templates/invoice-template-pdf.html": {
   "date": "2026-11-07",
@@ -805,7 +805,7 @@
  },
  "roadmap/": {
   "date": "2026-11-07",
-  "hash": "91a833cda25e2cd6"
+  "hash": "51824ea1873460bd"
  },
  "search/": {
   "date": "2026-10-31",
@@ -821,7 +821,7 @@
  },
  "status/": {
   "date": "2026-11-07",
-  "hash": "6fc208abe3066b90"
+  "hash": "76fae3252da00bda"
  },
  "templates/": {
   "date": "2026-11-07",
