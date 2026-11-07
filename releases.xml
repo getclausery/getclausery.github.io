@@ -8,6 +8,14 @@
   <updated>2026-11-07T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.111.0 — Added US invoice and UK (non-VAT) invoice cards to the Popular section of /invoice-templates/ hub so US and UK visitors land on the right country starter from the most-visited grid. Updated the hub FAQ to mention both US and UK non-VAT starters alongside the existing VAT country pages.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-111-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-111-0</id>
+    <published>2026-11-07T00:00:00Z</published>
+    <updated>2026-11-07T00:00:00Z</updated>
+    <summary>Added US invoice and UK (non-VAT) invoice cards to the Popular section of /invoice-templates/ hub so US and UK visitors land on the right country starter from the most-visited grid. Updated the hub FAQ to mention both US and UK non-VAT starters alongside the existing VAT country pages.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.110.0 — New US invoice template page at /invoice-templates/us-invoice.html — targets the highest-volume head term "free invoice template" (which is overwhelmingly US-intent) with a plain US-dollar, month/day/year invoice for freelancers, contractors and small businesses. Includes guidance on US-specific conventions: Net 30 payment terms, ACH/wire/PayPal/Zelle payment details, late fees (typically 1–1.5%/month if contracted), when sales tax does and does not apply, the lack of a federal invoice format, and EIN/SSN/W-9 privacy. Opens the app pre-set to USD and en-US date formatting. Sitemap grows from 379 to 380 pages.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-110-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-110-0</id>
