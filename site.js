@@ -58,6 +58,10 @@ for(const box of $$('[data-filter-for]')){
  }
  if(topBtn)topBtn.classList.toggle("show",s>600)
  t=false}
+ // On small screens where a sticky docked CTA is present, raise the floating scroll-cta / to-top
+ // buttons above it so they do not overlap the always-visible primary CTA.
+ const floatCtn=document.querySelector('.float-actions')
+ if(floatCtn){const hasDock=document.querySelector('[class*="cta-fixed"]');const narrow=window.matchMedia('(max-width:760px)').matches;if(hasDock&&narrow)floatCtn.style.bottom='calc(4.5rem + .75rem + env(safe-area-inset-bottom))'}
  if(bar||cta||topBtn){upd();window.addEventListener('scroll',()=>{if(!t){requestAnimationFrame(upd);t=true}},{passive:true})}
 })();
 (function(){
