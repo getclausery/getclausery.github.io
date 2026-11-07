@@ -3,7 +3,7 @@
 // in (#/start/invoice/<trade>), and the page explains what that trade in particular should put on an invoice, which
 // contract to sign before the work, and how that trade usually gets paid. Example prices are labelled as examples.
 import { readFileSync } from 'node:fs';
-import { esc, faqLd, faqHtml, collectionLd, LASTMOD, LASTMOD_LONG, longDate } from '../tools/partials.mjs';
+import { esc, faqLd, faqHtml, collectionLd, LASTMOD, LASTMOD_LONG, longDate, HUB_CTA_STYLE, hubCta } from '../tools/partials.mjs';
 import { PRESETS } from '../app/lib/presets.js';
 import { LIB } from './library.mjs';
 import { GUIDES } from './audience.mjs';
@@ -180,7 +180,7 @@ export const pages = [
       ['Do the templates calculate VAT and totals?', 'Yes. Subtotals, VAT/GST (including UK, EU, Australia, Canada, New Zealand, South Africa and Ireland rates), discounts and grand totals calculate automatically as you type line items. Your next invoice remembers your business details and the next invoice number.'],
       ['Is there a UK or US invoice template?', 'Yes. For the US use the plain US invoice (dollars, month/day/year dates, no sales tax, Net 30 terms). For the UK use the UK non-VAT invoice (pounds, day/month/year, BACS) if you are not VAT-registered, or the UK VAT invoice (20% VAT, HMRC-compliant) if you are. Other country starters handle Australian GST, Canadian GST/HST, New Zealand GST, South African VAT and Irish VAT.'],
       ['Is there a blank invoice template I can just fill in?', 'Yes. The Blank invoice starter is the simplest \u2014 open it, add line items, tax and your client details, then download the Word file or PDF. The Simple invoice is a one-page variant with no extra fields.'],
-    ]),
+    ]) + HUB_CTA_STYLE,
     body: (rel) => `<section class="section"><div class="wrap">
   <h1>Free Word invoice templates by task, trade and country</h1>
   <p class="lead">Pick your trade and the invoice opens with the lines that trade usually bills, ready for your prices. Pick your country and it opens with the right tax, rate and tax number. Totals and tax are worked out for you, your next invoice remembers your details and number, and you download an editable Word file. Free, no sign-up, nothing uploaded.</p>
@@ -233,7 +233,9 @@ export const pages = [
     ['Is there a blank invoice template I can just fill in?', 'Yes. The Blank invoice starter is the simplest \u2014 open it, add line items, tax and your client details, then download the Word file or PDF.'],
   ])}
   <!--nav--><div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem;margin-top:0">Start an invoice now</h2><p>The app opens the invoice with your details, the next number and today's date already filled in. Choose a starter here or open the general invoice and change the lines.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/#/start/invoice">Open the invoice app</a> <a class="btn" href="${rel}templates/invoice.html">See the invoice template</a></p></div><!--/nav-->
-</div></section>`,
+</div></section>
+${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}
+`,
   },
   ...TRADES.map((t) => ({
     path: `invoice-templates/${t.slug}.html`, title: t.title, description: t.description, _toc: true, published: '2026-10-31', ogImage: 'assets/og/invoice.png',

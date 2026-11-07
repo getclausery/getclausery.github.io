@@ -7,7 +7,7 @@ import { applySetup, setupFor } from '../app/lib/setups.js';
 import { PRESETS } from '../app/lib/presets.js';
 import { invoiceWordHelp, workflowLinks } from './invoice-workflows.mjs';
 import { paymentReceiptHelp, receiptHelpHead } from './payment-receipt.mjs';
-import { esc, crumbsLd, collectionLd, faqLd, faqHtml, lowerFirst, fitSnippet, picture, helpfulWidget, SITE, LASTMOD, LASTMOD_LONG, longDate, ico } from '../tools/partials.mjs';
+import { esc, crumbsLd, collectionLd, faqLd, faqHtml, lowerFirst, fitSnippet, picture, helpfulWidget, SITE, LASTMOD, LASTMOD_LONG, longDate, ico, HUB_CTA_STYLE, hubCta } from '../tools/partials.mjs';
 import { CLAUSES } from './data/clauses.mjs';
 import { previewHtml, PREVIEW_CSS, PREVIEW_SIZE } from '../tools/preview.mjs';
 
@@ -716,8 +716,8 @@ export const pages = [
       ['Can I edit the templates in Word?', 'Yes. Every template downloads as a standard .docx file you can edit in Microsoft Word, Google Docs, LibreOffice or Pages. Answers you fill in online are merged into the Word document so paragraphs, dates and signature blocks are already in place.'],
       ['Do I need to sign up or give my email?', 'No. Clausery does not ask for an email address, password or credit card to download or fill in a template. Everything runs in your browser and documents save to your own device.'],
       ['Are these templates legal / can I sign them?', 'The templates are standard, editor-reviewed drafts covering the clauses most small businesses and freelancers use. They are not legal advice \u2014 have them reviewed by a lawyer for your jurisdiction before signing if the stakes are high.'],
-      ['Can I save a template as PDF?', 'Yes. Fill it in online, then use your browser\u2019s Print \u2192 Save as PDF (or the built-in PDF button) to produce a printable PDF you can email to clients, tenants or new hires.'],
-    ]),
+      ['Can I save a filled-in template as PDF?', 'Yes. Fill it in online, then use your browser\u2019s Print \u2192 Save as PDF (or the built-in PDF button) to produce a printable PDF you can email to clients, tenants or new hires.'],
+    ]) + HUB_CTA_STYLE,
     body: (rel) => `
 <section class="section"><div class="wrap">
   <p class="eyebrow">Free template library</p>
@@ -761,7 +761,9 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-label
     ['Can I save a filled-in template as PDF?', 'Yes. Fill it in online, then use your browser\u2019s Print \u2192 Save as PDF (or the built-in PDF button) to produce a printable PDF you can email to clients, tenants or new hires.'],
   ])}
   <p class="small muted" style="margin-top:2rem">These are general samples, not legal advice. Have them reviewed for your jurisdiction before use.</p>
-</div></section>`,
+</div></section>
+${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}
+`,
   },
   ...LIB.map((t) => {
     const qs = questionsFor(t.file);

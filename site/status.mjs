@@ -1,14 +1,14 @@
 // Status page: verifiable SaaS operations info.
 // Clausery is a static site served by GitHub Pages — no application server to monitor —
 // so this page lists the components users depend on and where to verify each one.
-import { REPO_URL, crumbsLd } from '../tools/partials.mjs';
+import { REPO_URL, crumbsLd, HUB_CTA_STYLE, hubCta } from '../tools/partials.mjs';
 import { APP_VERSION, TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 
 export const pages = [
   {
     path: 'status/', title: 'Clausery status',
     description: 'Current status of Clausery: public site, GitHub source, latest release, and where to check if something appears to be down.',
-    extraHead: crumbsLd([['Home', ''], ['Status', 'status/']]),
+    extraHead: crumbsLd([['Home', ''], ['Status', 'status/']]) + HUB_CTA_STYLE,
     body: (rel) => `<section class="section"><div class="wrap prose" style="max-width:48rem">
 <h1>Status</h1>
 <p class="lead">Clausery is a static site served by GitHub Pages, with document generation running in your browser. There is no application server to go down, so the only things that can fail are the page hosting and the license check.</p>
@@ -49,12 +49,14 @@ export const pages = [
 </ol>
 
 <p class="small muted">There is no third-party status dashboard. This page and the public commit history are the source of truth: every release, every fix, and every open issue is visible at <a href="${REPO_URL}" rel="noopener">the repository</a>.</p>
-</div></section>`,
+</div></section>
+${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}
+`,
   },
   {
     path: 'roadmap/', title: 'Clausery roadmap',
     description: 'What has shipped recently and what is being worked on next for Clausery, with links to the changelog and GitHub issues.',
-    extraHead: crumbsLd([['Home', ''], ['Roadmap', 'roadmap/']]),
+    extraHead: crumbsLd([['Home', ''], ['Roadmap', 'roadmap/']]) + HUB_CTA_STYLE,
     body: (rel) => `<section class="section"><div class="wrap prose" style="max-width:48rem">
 <h1>Roadmap</h1>
 <p class="lead">What has shipped recently, what is being worked on now, and how to influence what comes next. Every shipped item is in the <a href="${rel}changelog.html">changelog</a>; everything else is tracked in public GitHub issues.</p>
@@ -83,6 +85,8 @@ export const pages = [
 </ul>
 
 <p class="small muted">There is no separate backlog tool. The changelog, this page and the GitHub issue tracker are the only places work is tracked.</p>
-</div></section>`,
+</div></section>
+${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}
+`,
   },
 ];
