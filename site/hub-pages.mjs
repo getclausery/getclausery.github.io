@@ -490,7 +490,7 @@ const HUBS = [
   {
     path: 'templates/freelance-contract.html', section: 'templates', sectionLabel: 'Templates',
     title: 'Freelance Contract | Free Agreement (Word/PDF)',
-    description: 'Free freelance contract template for designers, writers, developers and consultants. Download as Word or PDF, no sign-up.',
+    description: 'Free freelance contract template for designers, writers, developers and consultants. Covers scope, fee, IP, revisions and termination. Download as Word or PDF.',
     h1: 'Freelance contract template',
     lead: 'A simple freelance contract covering scope, fee, payment terms, IP, revisions, late fees, confidentiality and termination. Fill it in online and download it as an editable Word file or printable PDF, ready to sign.',
     introParagraphs: [
@@ -680,7 +680,7 @@ const HUBS = [
   {
     path: 'templates/payment-plan-agreement.html', section: 'templates', sectionLabel: 'Templates',
     title: 'Payment Plan Agreement | Free Word Template',
-    description: 'Free payment plan agreement for overdue invoices, rent or debt: instalment amount, schedule, late fees and default terms.',
+    description: 'Free payment plan agreement for overdue invoices, rent or debt: instalment amount, schedule, late fees and default terms. Editable Word, no sign-up.',
     h1: 'Payment plan agreement',
     lead: 'A written instalment plan for an overdue amount — invoices, rent, medical bills or personal debt. Set the total owed, regular payment amount, due dates, late fees and what happens if a payment is missed.',
     introParagraphs: [
@@ -2138,7 +2138,7 @@ const HUBS = [
     sectionLabel: 'Templates',
     title: 'Consignment Agreement | Free Word Template',
     h1: 'Free consignment agreement template (Word)',
-    description: 'Free consignment agreement: sell goods through a consignee/shop with pricing, commission, unsold goods and payment terms.',
+    description: 'Free consignment agreement: sell goods through a shop or gallery with pricing, commission, unsold returns and payment terms. Editable Word, no sign-up.',
     lead: 'An agreement between a consignor (owner of goods) and a consignee (shop/gallery/retailer) allowing the consignee to display and sell the consignor goods in exchange for a commission, with unsold goods returned after a set period.',
     introParagraphs: ['A consignment agreement lets you place your goods (art, clothing, crafts, antiques, second-hand goods) in a shop or gallery to sell without transferring ownership. The shop earns a commission when items sell; unsold items are returned to you after an agreed period.', 'It covers pricing, commission split, discount rules, duration, payment timing, insurance for loss/damage, and who is responsible for stolen or damaged goods.'],
     bullets: [['Consignor and consignee', 'Consignor name/address; consignee (shop/gallery) name/address; agreement date and store location.'], ['Goods and pricing', 'List (or attach a schedule) of items consigned, description, SKU, and retail price; who sets price and whether discounts are allowed.'], ['Commission and payment', 'Commission percentage to consignee (e.g. 40-60%), consignor share, how and when consignor gets paid (monthly, on sale), and any fees (setup, marketing, credit card processing).'], ['Duration and unsold goods', 'Consignment period (typically 30-90 days), what happens if items do not sell (returned to consignor, donated, discounted automatically), and pickup deadline for returns.'], ['Insurance, loss and other terms', 'Consignee responsibility for damage/theft while in store, insurance carried, exclusivity (if any) within area, marketing duties, and governing law.']],
