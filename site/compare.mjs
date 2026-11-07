@@ -168,8 +168,8 @@ const description = 'Compare local Word drafting with legal form services, docum
 const COMPARE_CTA_CSS = `<style>.p-cta-fixed{display:none}@media(max-width:760px){.p-cta-fixed{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.p-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.p-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.p-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`;
 export const pages = [
   {
-    path: 'compare/', title: 'Compare document automation tools', description,
-    extraHead: collectionLd({ path: 'compare/', name: 'Compare document automation tools', description, items: COMPETITORS.map((c) => [c.title, `compare/${c.slug}.html`]) }),
+    path: 'compare/', title: 'Compare document automation tools', description, published: '2026-10-31',
+    extraHead: collectionLd({ path: 'compare/', name: 'Compare document automation tools', description, items: COMPETITORS.map((c) => [c.title, `compare/${c.slug}.html`]) }) + `<style>.p-cta-fixed{display:none}@media(max-width:760px){.p-cta-fixed{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.p-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.p-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.p-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">
   <h1>Compare document automation tools</h1>
   <p class="lead">Choose the workflow before comparing subscriptions. Clausery assembles editable Word documents locally; it is not a hosted client portal, law firm, electronic-signature service or payment processor.</p>
@@ -199,7 +199,9 @@ ${GROUPS.map(([g, label]) => `  <h2 style="margin-top:2rem">${esc(label)}</h2>
   </ul>
   <p class="small muted"><a href="${rel}templates/">Browse the full library</a> — 87 free Word templates, every download page links to its what-to-include guide.</p>
   <!--nav--><div class="feature" style="margin-top:2rem"><h2 style="font-size:1.15rem;margin-top:0">Test one small document first</h2><p>Use fictional details, compare the downloaded Word output, then check every handoff that remains outside drafting. No account is required to try Clausery's library templates.</p><p><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free Word templates</a></p></div><!--/nav-->
-</div></section>`,
+</div></section>
+<div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>
+`,
   },
   ...COMPETITORS.map((c) => {
     const [rows, us] = c.group === 'freelance' ? [FREELANCE_ROWS, CLAUSERY_FREELANCE] : c.group === 'forms' ? [FORMS_ROWS, CLAUSERY_FORMS] : [ROWS, CLAUSERY];
