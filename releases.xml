@@ -5,8 +5,16 @@
   <link rel="self" href="https://getclausery.github.io/releases.xml"/>
   <link rel="alternate" href="https://getclausery.github.io/changelog.html"/>
   <id>https://getclausery.github.io/changelog.html</id>
-  <updated>2026-11-06T00:00:00Z</updated>
+  <updated>2026-11-07T00:00:00Z</updated>
   <author><name>Clausery</name></author>
+  <entry>
+    <title>Clausery v2.109.0 — New UK non-VAT invoice template page at /invoice-templates/uk-invoice.html — targets the high-volume "free invoice template UK" search for sole traders, freelancers and small businesses not registered for VAT (turnover under £90k). The page sets the currency to pounds sterling, dates to day/month/year, includes UK-specific guidance on payment terms (Net 30, BACS), the Late Payment of Commercial Debts (Interest) Act 1998 interest/compensation wording, and explains when you don't need to show VAT. The existing /invoice-templates/uk-vat-invoice.html page still covers the VAT-registered case. This pairs with updated UK keyword usage on the invoice-templates hub.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-109-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-109-0</id>
+    <published>2026-11-07T00:00:00Z</published>
+    <updated>2026-11-07T00:00:00Z</updated>
+    <summary>New UK non-VAT invoice template page at /invoice-templates/uk-invoice.html — targets the high-volume &quot;free invoice template UK&quot; search for sole traders, freelancers and small businesses not registered for VAT (turnover under £90k). The page sets the currency to pounds sterling, dates to day/month/year, includes UK-specific guidance on payment terms (Net 30, BACS), the Late Payment of Commercial Debts (Interest) Act 1998 interest/compensation wording, and explains when you don't need to show VAT. The existing /invoice-templates/uk-vat-invoice.html page still covers the VAT-registered case. This pairs with updated UK keyword usage on the invoice-templates hub.</summary>
+  </entry>
   <entry>
     <title>Clausery v2.108.0 — Final SEO description polish: fixed the last 4 commercial-page descriptions that were still under 125 chars — web-design-contract (115→147), event-planning-contract (116→150), handyman invoice (119→151, also fixed a double-period typo in the existing description), and what-is-a-kill-fee guide (116→151). Every commercial/landing page on the site (templates, hubs, guides, invoice subtypes, compare pages) now has a 125–155 char meta description and a ≤60 char title. Only docs/, legal/, roadmap/ and embedded tool pages remain short, which is by design.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-108-0"/>
