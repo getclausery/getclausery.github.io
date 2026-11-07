@@ -41,7 +41,7 @@
  },
  "clauses/": {
   "date": "2026-11-07",
-  "hash": "cbbc0847d50030fb"
+  "hash": "45ccf6609d1a5932"
  },
  "clauses/amendment-clause.html": {
   "date": "2026-11-07",
@@ -237,7 +237,7 @@
  },
  "for/": {
   "date": "2026-11-07",
-  "hash": "1c8e88448276f3dd"
+  "hash": "8d7248517149d8dd"
  },
  "for/consultants.html": {
   "date": "2026-11-07",
@@ -261,7 +261,7 @@
  },
  "free-tools/": {
   "date": "2026-11-07",
-  "hash": "1a1b98dfb6569027"
+  "hash": "6eb10f144271024e"
  },
  "free-tools/amount-in-words.html": {
   "date": "2026-11-07",
@@ -300,8 +300,8 @@
   "hash": "b6bbe4bbb6c1c28c"
  },
  "guides/": {
-  "date": "2026-11-06",
-  "hash": "1b0264aafe0ceeab"
+  "date": "2026-11-07",
+  "hash": "698c80c5e14e6077"
  },
  "guides/are-liability-waivers-enforceable.html": {
   "date": "2026-11-07",
@@ -573,7 +573,7 @@
  },
  "invoice-templates/": {
   "date": "2026-11-07",
-  "hash": "4aa239f02587c8cf"
+  "hash": "c046cbeb10adb275"
  },
  "invoice-templates/australia-tax-invoice.html": {
   "date": "2026-11-07",
@@ -772,8 +772,8 @@
   "hash": "43ed34bf980cd9e5"
  },
  "nda-templates/": {
-  "date": "2026-10-31",
-  "hash": "23f2dbbf7e2d593c"
+  "date": "2026-11-07",
+  "hash": "fd514fc4fcdf4835"
  },
  "nda-templates/nda-form.html": {
   "date": "2026-11-07",
@@ -788,8 +788,8 @@
   "hash": "f2313df9ee593e12"
  },
  "press/": {
-  "date": "2026-10-17",
-  "hash": "0a557d637e9427ba"
+  "date": "2026-11-07",
+  "hash": "a6e597797f4542ad"
  },
  "pricing/": {
   "date": "2026-11-07",
@@ -805,15 +805,15 @@
  },
  "roadmap/": {
   "date": "2026-11-07",
-  "hash": "0de72fe3da568de0"
+  "hash": "a486fb2d056f1fec"
  },
  "search/": {
   "date": "2026-10-31",
   "hash": "36f1ea5444d926ef"
  },
  "self-hosting/": {
-  "date": "2026-10-31",
-  "hash": "f8de10f4130f0580"
+  "date": "2026-11-07",
+  "hash": "bc031d864daa866c"
  },
  "sitemap/": {
   "date": "2026-10-24",
@@ -821,11 +821,11 @@
  },
  "status/": {
   "date": "2026-11-07",
-  "hash": "a415ce297abbcd4c"
+  "hash": "4adf0023a5900e76"
  },
  "templates/": {
   "date": "2026-11-07",
-  "hash": "00f5e9028e936074"
+  "hash": "ee410bc4589b7ecc"
  },
  "templates/bill-of-sale-template.html": {
   "date": "2026-11-07",

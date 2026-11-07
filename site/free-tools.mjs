@@ -2,7 +2,7 @@
 // Each runs entirely in the page from an external module (strict CSP friendly) and points to Clausery for the full job.
 // The calculators also have bare embed pages (free-tools/embed/) that other sites can put in an iframe, with a credit link.
 import { readFileSync } from 'node:fs';
-import { SITE, esc, faqLd, faqHtml, crumbsLd, collectionLd, longDate } from '../tools/partials.mjs';
+import { SITE, esc, faqLd, faqHtml, crumbsLd, collectionLd, longDate, HUB_CTA_STYLE, hubCta } from '../tools/partials.mjs';
 import { invoiceDue } from '../free-tools/invoice-due-date.js';
 import { formatDate } from '../app/lib/expr.js';
 const DATES = JSON.parse(readFileSync(new URL('./data/page-dates.json', import.meta.url), 'utf8'));
@@ -254,7 +254,7 @@ body.embed { background: transparent; }
 </style>`;
 export const pages = [
   { path: 'free-tools/', title: 'Free small-business calculators (Word, 2026)', description: 'Free tools for drafting and invoicing: amount in words, deadlines, invoice due dates, late payment interest, loans, commission, prorated rent and more.',
-    extraHead: collectionLd({ path: 'free-tools/', name: 'Free drafting tools', description: 'Free tools for drafting and invoicing: amount in words, deadlines, invoice due dates, late payment interest, loans, commission, prorated rent and more.', items: TOOLS.map((t) => [t.name, `free-tools/${t.slug}.html`]) }),
+    extraHead: collectionLd({ path: 'free-tools/', name: 'Free drafting tools', description: 'Free tools for drafting and invoicing: amount in words, deadlines, invoice due dates, late payment interest, loans, commission, prorated rent and more.', items: TOOLS.map((t) => [t.name, `free-tools/${t.slug}.html`]) }) + HUB_CTA_STYLE,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem"><h1>Free drafting tools</h1><p class="lead">Small tools for everyday drafting and invoicing. They run entirely in your browser; nothing you type is sent anywhere. The calculators can also be <a href="#embed">added to your own website</a> for free.</p>
 <nav class="small hub-jump" aria-label="Jump to section"><strong>Jump to:</strong> <a href="#calculators">Calculators</a> · <a href="#invoice-email">Invoice email generator</a> · <a href="#embed">Embed on your site</a></nav>
 <h2 id="calculators" style="margin-top:2rem">Calculators</h2>
@@ -262,8 +262,10 @@ export const pages = [
 <!--nav--><div class="feature" id="invoice-email" style="margin-top:1.5rem"><h2><a href="${rel}guides/invoice-email-template.html">Free invoice email generator</a></h2><p>Write the message to send with an invoice, a polite reminder, an overdue follow-up or a payment acknowledgement. Includes four examples to copy.</p></div><!--/nav-->
 <h2 id="embed" style="margin-top:3rem">Put a calculator on your website</h2>
 <p>Every calculator except the template checker can be embedded on another site with one line of code, free. Open a calculator and scroll to <strong>Add this calculator to your website</strong> to copy its code. The embedded calculators run in your visitors' browsers with no cookies or tracking, and carry a small credit link to Clausery.</p>
-<!--nav--><div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem;margin-top:0">From a calculation to a finished document</h2><p>Clausery takes the numbers you work out here and puts them into an editable Word invoice, quote, receipt or contract. Answer the questions; the totals and dates are calculated for you.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free templates</a></p></div><!--/nav--></div></section>` },
-
+<!--nav--><div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem;margin-top:0">From a calculation to a finished document</h2><p>Clausery takes the numbers you work out here and puts them into an editable Word invoice, quote, receipt or contract. Answer the questions; the totals and dates are calculated for you.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free templates</a></p></div><!--/nav--></div></section>
+${hubCta(rel, 'app/', 'Open Clausery, free')}
+`,
+  },
   { path: 'free-tools/amount-in-words.html', _toc: true, title: 'Amount in words converter for contracts and cheques', description: T['amount-in-words'].desc,
     extraHead: faqLd(TOOL_FAQ[0]) + TOOL_CSS + toolLd(T['amount-in-words'].name, T['amount-in-words'].desc, 'free-tools/amount-in-words.html') + `<script type="module" src="amount-in-words.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Amount in words')}

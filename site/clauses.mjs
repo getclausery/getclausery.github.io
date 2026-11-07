@@ -2,7 +2,7 @@
 // copyable sample wording, what to check, and the same clause with Clausery tags. Pages link to the free templates
 // that use each clause, and template pages link back (site/library.mjs).
 import { readFileSync } from 'node:fs';
-import { esc, crumbsLd, collectionLd, fitSnippet, LASTMOD, LASTMOD_LONG, longDate } from '../tools/partials.mjs';
+import { esc, crumbsLd, collectionLd, fitSnippet, LASTMOD, LASTMOD_LONG, longDate, HUB_CTA_STYLE, hubCta } from '../tools/partials.mjs';
 import { CLAUSES, GROUPS } from './data/clauses.mjs';
 import { LIB, HUB_FOR } from './library.mjs';
 
@@ -43,7 +43,7 @@ export const pages = [
   {
     path: 'clauses/', title: 'Contract clause library: sample wording explained',
     description: `Free sample wording for ${CLAUSES.length} common contract clauses, explained in plain English: indemnity, limitation of liability, force majeure, non-compete and more.`,
-    extraHead: crumbsLd([['Home', ''], ['Clause library', 'clauses/']]) + collectionLd({ path: 'clauses/', name: 'Contract clause library: sample wording explained', description: `Free sample wording for ${CLAUSES.length} common contract clauses, explained in plain English: indemnity, limitation of liability, force majeure, non-compete and more.`, items: CLAUSES.map((c) => [c.name, `clauses/${c.slug}.html`]) }),
+    extraHead: crumbsLd([['Home', ''], ['Clause library', 'clauses/']]) + collectionLd({ path: 'clauses/', name: 'Contract clause library: sample wording explained', description: `Free sample wording for ${CLAUSES.length} common contract clauses, explained in plain English: indemnity, limitation of liability, force majeure, non-compete and more.`, items: CLAUSES.map((c) => [c.name, `clauses/${c.slug}.html`]) }) + HUB_CTA_STYLE,
     body: (rel) => `
 <section class="section"><div class="wrap" style="max-width:60rem">
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › Clause library</nav>
@@ -61,7 +61,9 @@ export const pages = [
   </tbody></table></div>
   <!--nav--><div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem;margin-top:0">Put the clauses into a document</h2><p>Clausery turns your own Word template into a questionnaire and builds the finished contract in your browser. Every template in the library is free, and the <a href="${rel}templates/">free contract templates</a> already use many of these clauses.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free templates</a></p></div><!--/nav-->
   <p class="small muted" style="margin-top:2rem">This library is general information, not legal advice. Laws differ between countries and states; have wording reviewed for your situation before you rely on it.</p>
-</div></section>`,
+</div></section>
+${hubCta(rel, 'app/', 'Open Clausery, free')}
+`,
   },
   ...CLAUSES.map((c) => {
     const faq = [...c.faq, ['Can I use this sample wording as it is?', 'It is a general starting point. Contract law differs between countries and states, and the right wording depends on the deal, so have it reviewed before you rely on it.']];

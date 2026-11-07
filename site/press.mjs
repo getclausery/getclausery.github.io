@@ -1,11 +1,12 @@
 // Press kit: facts, boilerplate and assets for journalists, directories and bloggers.
 import { LIB } from './library.mjs';
-import { REPO_URL, CONTACT_EMAIL, ONLINE_KEYS, mailto } from '../tools/partials.mjs';
+import { REPO_URL, CONTACT_EMAIL, ONLINE_KEYS, mailto, HUB_CTA_STYLE, hubCta } from '../tools/partials.mjs';
 import { PRICES, TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 import { MARKETING_ASSETS } from './data/marketing-assets.mjs';
 export const pages = [{
   path: 'press/', title: 'Press kit',
   description: 'Clausery press kit: free Word invoices, quotes and receipts for small businesses, with product facts, pricing, reusable images and contact details.',
+  extraHead: HUB_CTA_STYLE,
   body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Press kit</h1>
 <p class="lead">Everything you need to write about or list Clausery. All text on this page may be quoted freely.</p>
@@ -43,5 +44,7 @@ export const pages = [{
 <ul><li><a href="${rel}business-document-kit/">Six free business Word templates in one kit</a></li><li><a href="${rel}templates/invoice.html">Free Word invoice template</a></li><li><a href="${rel}invoice-templates/">Invoice templates by trade, country and billing task</a></li><li><a href="${rel}templates/quote.html">Price quote template</a></li><li><a href="${rel}templates/payment-receipt.html">Payment receipt template</a></li></ul>
 <h2>Contact</h2>
 <p>Press, listings and partnerships: <a href="${mailto('Clausery press or partnership enquiry')}">${CONTACT_EMAIL}</a>, or use the <a href="${rel}contact/">contact page</a>. You may link to any resource page and embed the <a href="${rel}free-tools/">free calculators</a> without asking.</p>
-</div></section>`,
+</div></section>
+${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}
+`,
 }];

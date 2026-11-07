@@ -1,6 +1,6 @@
 // Pages for each buyer, and how-to guides that answer the searches those buyers make.
 import { readFileSync, existsSync } from 'node:fs';
-import { esc, faqLd, faqHtml, crumbsLd, collectionLd, helpfulWidget, lowerFirst, LASTMOD, LASTMOD_LONG, longDate } from '../tools/partials.mjs';
+import { esc, faqLd, faqHtml, crumbsLd, collectionLd, helpfulWidget, lowerFirst, LASTMOD, LASTMOD_LONG, longDate, HUB_CTA_STYLE, hubCta } from '../tools/partials.mjs';
 const DATES = JSON.parse(readFileSync(new URL('./data/page-dates.json', import.meta.url), 'utf8'));
 const shortMonth = (iso) => { const d = new Date(iso + 'T00:00:00Z'); return d.toLocaleDateString('en-GB', { month:'short', year:'numeric', timeZone:'UTC' }); };
 const cardUpdated = (path) => { const d = DATES[path]; if (!d) return ''; return `<span class="card-updated" title="Last updated ${longDate(d.date)}">Updated ${shortMonth(d.date)}</span>`; };
@@ -2115,7 +2115,7 @@ const topicId = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-
 
 export const pages = [
   { path: 'for/', title: 'Who Clausery is for: teams that draft the same documents', description: 'Which teams use Clausery for invoices, contracts and HR letters, what each gets from a guided questionnaire, and how to choose the right template.',
-    extraHead: collectionLd({ path: 'for/', name: 'Who Clausery is for', description: 'Which teams use Clausery for invoices, contracts and HR letters, what each gets from a guided questionnaire, and how to choose the right template.', items: AUD.map((a) => [a.name, `for/${a.slug}.html`]) }),
+    extraHead: collectionLd({ path: 'for/', name: 'Who Clausery is for', description: 'Which teams use Clausery for invoices, contracts and HR letters, what each gets from a guided questionnaire, and how to choose the right template.', items: AUD.map((a) => [a.name, `for/${a.slug}.html`]) }) + HUB_CTA_STYLE,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:60rem">
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › Who it's for</nav>
   <h1 style="margin-top:1rem">Who Clausery is for</h1>
@@ -2136,7 +2136,9 @@ export const pages = [
   <p>Start from the <a href="${rel}templates/">full template library</a> and use the search box, or browse <a href="${rel}invoice-templates/">invoice templates by trade and country</a>. Freelancers and small businesses often begin with an <a href="${rel}templates/invoice.html">invoice</a>, a <a href="${rel}templates/quote.html">quote</a> and a <a href="${rel}templates/payment-receipt.html">payment receipt</a>. Firms that draft contracts should look at the <a href="${rel}clauses/">clause library</a> and the <a href="${rel}compare/">honest comparisons</a>; teams that send HR letters can start with <a href="${rel}for/hr-teams.html">HR templates</a>.</p>
   <p class="small muted">Clausery is software, not a law firm, and does not give legal advice. Templates are general samples; have them reviewed for the jurisdiction you work in.</p>
   <!--nav--><p style="margin-top:2rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}pricing/">See pricing</a></p><!--/nav-->
-</div></section>`,
+</div></section>
+${hubCta(rel, 'app/', 'Open Clausery, free')}
+`,
   },
   ...AUD.map((a) => ({
     path: `for/${a.slug}.html`, title: a.title, description: a.description || a.intro.slice(0, 290), _toc: true, published: '2026-10-31', ogImage: 'assets/og/invoice.png',
@@ -2164,13 +2166,14 @@ export const pages = [
 `,
   })),
   { path: 'guides/', title: 'Invoice & Contract Guides | Free Word Templates', description: 'How-to guides for invoices, getting paid, contracts, NDAs, HR letters and landlord forms — each linked to a free editable Word template.',
-    extraHead: collectionLd({ path: 'guides/', name: 'Invoice, payment and business document guides', description: 'Practical guides to invoices, getting paid, contracts, HR letters and landlord forms. Worked explanations linked to free editable Word templates.', items: GUIDES.map((g) => [g.title, `guides/${g.slug}.html`]) }),
+    extraHead: collectionLd({ path: 'guides/', name: 'Invoice, payment and business document guides', description: 'Practical guides to invoices, getting paid, contracts, HR letters and landlord forms. Worked explanations linked to free editable Word templates.', items: GUIDES.map((g) => [g.title, `guides/${g.slug}.html`]) }) + HUB_CTA_STYLE,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem"><h1>Invoice, payment and business document guides</h1><p class="lead">Plain-English answers to the questions people ask before they use a template, each linked to a free Word template you can fill in online.</p>
   <!--nav--><p><strong>Start with billing:</strong> <a href="${rel}guides/how-to-write-an-invoice.html">how to write an invoice</a>, <a href="${rel}invoice-templates/deposit-invoice.html">request a deposit</a>, <a href="${rel}invoice-templates/hourly-invoice.html">bill hours</a>, or <a href="${rel}invoice-templates/final-invoice.html">show the final balance</a>. Write the message with the <a href="${rel}guides/invoice-email-template.html">free invoice email generator and four email templates</a>. Then <a href="${rel}guides/how-to-save-an-invoice-as-pdf.html">save an invoice as PDF from Word or the app</a>, and <a href="${rel}guides/how-to-write-a-payment-receipt.html">write a receipt when payment arrives</a>.</p><!--/nav-->
   <nav class="small" aria-label="Guide topics" style="margin-top:1.25rem">${GUIDE_TOPICS.map(([t]) => `<a href="#${topicId(t)}">${esc(t)}</a>`).join(' · ')}</nav>
 ${GUIDE_TOPICS.map(([t, slugs]) => `  <h2 id="${topicId(t)}" style="margin-top:2.5rem">${esc(t)}</h2>
   <ul class="guide-list">${slugs.map((x) => GUIDE_BY[x]).map((g) => `<li><a href="${rel}guides/${g.slug}.html">${esc(g.title)}</a><div class="small muted">${esc(g.description)}</div></li>`).join('')}</ul>`).join('\n')}
-</div></section>` },
+</div></section>
+${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}` },
   ...GUIDES.map((g) => ({
     path: `guides/${g.slug}.html`, title: g.title, description: g.description, feed: true, published: published(g), ogImage: 'assets/og/invoice.png',
     extraHead: (g.faq ? faqLd(g.faq) : '') + crumbsLd([['Home', ''], ['Guides', 'guides/'], [g.title, `guides/${g.slug}.html`]]) + `<style>.p-cta-fixed{display:none}@media(max-width:760px){.p-cta-fixed{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.p-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.p-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.p-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`, _howTo: true, _sources: g.sources,
