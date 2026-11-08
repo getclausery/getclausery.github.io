@@ -2162,7 +2162,7 @@ ${hubCta(rel, 'app/', 'Open Clausery, free')}
   <ul>${a.related.map(([href, label]) => `<li><a href="${rel}${href}">${esc(label)}</a></li>`).join('')}</ul>
   <p style="margin-top:2rem"><a href="${rel}for/">Compare all the teams Clausery is built for →</a></p>
 </div></section>
-<div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>
+<div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/${a.templates[0]}">Start with ${/^[aeiou]/i.test(NAMES[a.templates[0]]) ? 'an' : 'a'} ${esc(NAMES[a.templates[0]].toLowerCase())}, free <span class="arr">→</span></a></div>
 `,
   })),
   { path: 'guides/', title: 'Invoice & Contract Guides | Free Word Templates', description: 'How-to guides for invoices, getting paid, contracts, NDAs, HR letters and landlord forms — each linked to a free editable Word template.',

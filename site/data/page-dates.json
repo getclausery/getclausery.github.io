@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-08",
-  "hash": "2677a644e38834c4"
+  "hash": "5dcde80ffc76972f"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-11-08",
-  "hash": "85071accfae29c9c"
+  "hash": "2afb003a21844025"
  },
  "clauses/": {
   "date": "2026-11-07",
@@ -236,28 +236,28 @@
   "hash": "1ee3ed1bbb1f6f2c"
  },
  "for/": {
-  "date": "2026-11-07",
-  "hash": "8d7248517149d8dd"
+  "date": "2026-11-08",
+  "hash": "0b98a3fab721f1e9"
  },
  "for/consultants.html": {
-  "date": "2026-11-07",
-  "hash": "e5bfbd98c94a9116"
+  "date": "2026-11-08",
+  "hash": "f2dc9e4d2e503855"
  },
  "for/freelancers.html": {
-  "date": "2026-11-07",
-  "hash": "97e03953b3b97c88"
+  "date": "2026-11-08",
+  "hash": "4168397ebab220fa"
  },
  "for/hr-teams.html": {
-  "date": "2026-11-07",
-  "hash": "40b465b29aae5e0c"
+  "date": "2026-11-08",
+  "hash": "2ee36ff7f672a1cf"
  },
  "for/landlords.html": {
-  "date": "2026-11-07",
-  "hash": "baae7616b1d62b45"
+  "date": "2026-11-08",
+  "hash": "6b04f7b1c183c6ca"
  },
  "for/law-firms.html": {
-  "date": "2026-11-07",
-  "hash": "74939bc73932f3c8"
+  "date": "2026-11-08",
+  "hash": "543fdf973efe99b6"
  },
  "free-tools/": {
   "date": "2026-11-07",
@@ -352,8 +352,8 @@
   "hash": "6caf2f1a47c62502"
  },
  "guides/how-to-save-an-invoice-as-pdf.html": {
-  "date": "2026-11-07",
-  "hash": "a1677898d0f0b54e"
+  "date": "2026-11-08",
+  "hash": "44b0b88be8b4dff0"
  },
  "guides/how-to-set-up-a-rent-payment-plan.html": {
   "date": "2026-11-07",
@@ -396,8 +396,8 @@
   "hash": "7954997d6e3a7290"
  },
  "guides/how-to-write-a-payment-receipt.html": {
-  "date": "2026-11-07",
-  "hash": "c04dcdedb58b9373"
+  "date": "2026-11-08",
+  "hash": "1a7b92f35ed05d17"
  },
  "guides/how-to-write-a-performance-improvement-plan.html": {
   "date": "2026-11-07",
@@ -805,7 +805,7 @@
  },
  "roadmap/": {
   "date": "2026-11-08",
-  "hash": "293cfe5246009763"
+  "hash": "a632e2411c3a1dfa"
  },
  "search/": {
   "date": "2026-10-31",
@@ -821,7 +821,7 @@
  },
  "status/": {
   "date": "2026-11-08",
-  "hash": "a54c74ebbb29bdc7"
+  "hash": "97e39ec1d2d96234"
  },
  "templates/": {
   "date": "2026-11-07",
