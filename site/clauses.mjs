@@ -78,7 +78,7 @@ ${hubCta(rel, 'app/', 'Open Clausery, free')}
   <p class="eyebrow" style="margin-top:1rem">${esc(c.group)}</p>
   <h1>${esc(c.name)}: meaning and sample wording</h1>
   <p class="lead">${esc(c.what)}</p>
-
+  <p><a class="btn btn-primary" href="${rel}app/">Open Clausery free — no account</a> <a class="btn" href="${rel}templates/">See free templates</a></p>
   <p class="small muted guide-meta">Reviewed by <a href="${rel}about/#editors">Clausery editors</a> · <time datetime="${LASTMOD}">Updated ${LASTMOD_LONG}</time></p>
 
   <h2>When to use it</h2>

@@ -221,6 +221,7 @@ ${GROUPS.map(([g, label]) => `  <h2 style="margin-top:2rem">${esc(label)}</h2>
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}compare/">Compare</a> › ${esc(c.name)}</nav>
   <h1 style="margin-top:1rem">${esc(c.title)}</h1>
   <p class="lead">${esc(c.intro)}</p>
+  <p><a class="btn btn-primary" href="${rel}app/">Try Clausery free — no account</a> <a class="btn" href="${rel}pricing/">See pricing</a></p>
   <div class="table-wrap" tabindex="0" style="margin-top:2rem"><table class="compare"><thead><tr><th scope="col">Feature or decision</th><th scope="col">Clausery</th><th scope="col">${esc(c.name)}</th></tr></thead><tbody>
     ${rows.map((r, i) => `<tr><th scope="row">${esc(r)}</th><td>${esc(us[i])}</td><td>${esc(them[i])}</td></tr>`).join('')}
   </tbody></table></div>
