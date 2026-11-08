@@ -8,6 +8,14 @@
   <updated>2026-11-07T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.134.0 — Completed the article Open Graph metadata that v2.133 started. editorial pages marked ogType:'article' (guides, free-tool calculators, docs) now also emit article:section (derived from the URL path — Guides, Free tools, Docs) and article:tag (first six keywords from the page's keyword meta), which were missing from the initial article-type rollout. The article:section value is mapped through SECTION_NAMES already used for breadcrumbs so human-readable section names appear in Facebook/LinkedIn/Pinterest share cards instead of path slugs. After rebuild all ~80 article-type pages carry published_time, modified_time, section, tags, author and publisher consistently.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-134-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-134-0</id>
+    <published>2026-11-07T00:00:00Z</published>
+    <updated>2026-11-07T00:00:00Z</updated>
+    <summary>Completed the article Open Graph metadata that v2.133 started. editorial pages marked ogType:'article' (guides, free-tool calculators, docs) now also emit article:section (derived from the URL path — Guides, Free tools, Docs) and article:tag (first six keywords from the page's keyword meta), which were missing from the initial article-type rollout. The article:section value is mapped through SECTION_NAMES already used for breadcrumbs so human-readable section names appear in Facebook/LinkedIn/Pinterest share cards instead of path slugs. After rebuild all ~80 article-type pages carry published_time, modified_time, section, tags, author and publisher consistently.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.133.0 — Structured-data and Open Graph pass for editorial pages. The 9 free-tool calculators and 9 docs articles were still marked og:type=website with no article:published_time, which prevented them from appearing as articles in Facebook/LinkedIn share previews and left Google without a clear published date. Added published: '2026-11-07' and ogType: 'article' to every calculator page in site/free-tools.mjs, and extended the docs page() wrapper in site/docs.mjs to emit published: DOCS_PUBLISHED and ogType: 'article' for all docs pages. Hubs, legal pages, marketing landers and the home page correctly remain og:type=website. After rebuild, 19 editorial pages expose article meta with datePublished and article:published_time set consistently.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-133-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-133-0</id>
