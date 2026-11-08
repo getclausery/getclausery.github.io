@@ -7,8 +7,15 @@ import { LIB } from './library.mjs';
 // The page is built for the checkout setup in app/config.js, so crawlers and visitors without scripts see the right
 // buttons; pricing/checkout.js applies the same config at runtime for deployments that edit it without rebuilding.
 const CHECKOUT = Object.values(CHECKOUT_URLS).some(Boolean);
-const buy = (plan, name, cls) => CHECKOUT_URLS[plan] ? `<a class="${cls}" href="${CHECKOUT_URLS[plan]}" rel="noopener" data-checkout="${plan}">Get ${name}</a>`
-  : `<a class="${cls}" href="${keyRequestUrl(name)}" data-checkout="${plan}">Request a ${name} key</a>`;
+const buy = (plan, name, cls) => {
+  // Only prefix with "Get " when the label is a noun phrase (e.g. "Lifetime Pro"); skip it when the label
+  // already starts with a verb ("Start Pro monthly", "Pro yearly — best value") so we don't double up.
+  const verbStart = /^(start|try|get|buy|request|choose|go|open)\b/i.test(name);
+  const label = verbStart ? name : `Get ${name}`;
+  return CHECKOUT_URLS[plan]
+    ? `<a class="${cls}" href="${CHECKOUT_URLS[plan]}" rel="noopener" data-checkout="${plan}">${label}</a>`
+    : `<a class="${cls}" href="${keyRequestUrl(name)}" data-checkout="${plan}">Request a ${name} key</a>`;
+};
 // The one-time Pro purchase is offered only once its checkout link exists (see CHECKOUT_URLS in app/config.js).
 const LIFETIME = !!CHECKOUT_URLS.lifetime;
 
@@ -119,7 +126,7 @@ export const pages = [{
           <li>Priority support</li>
         </ul>
         ${buy('pro', 'Start Pro monthly', 'btn btn-primary btn-lg')}
-        <div style="margin-top:.6rem">${buy('proYearly', 'Pro yearly — best value', 'btn')}</div>
+        <div style="margin-top:.6rem">${buy('proYearly', 'Start Pro yearly — best value', 'btn')}</div>
         <a class="trial-link" href="${rel}app/#/trial">or try Pro free for ${TRIAL_DAYS} days — no card, nothing renews</a>
         <p class="small refund-note"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>${REFUND_DAYS}-day money-back guarantee, no forms.</p>
       </div>
