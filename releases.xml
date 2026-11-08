@@ -8,6 +8,14 @@
   <updated>2026-11-07T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.136.0 — Cleaned up the auto-generated meta keywords tag. The previous autoKeywords logic took the title, removed a small stop-word list, and appended the remainder as a second keyword, which produced garbage tags like 'how write invoice : 7' on pages whose subtitles started with a number (e.g. 'How to Write an Invoice (2026): 7-Step Checklist'). Rewrote the logic in tools/build-site.mjs: strip the brand suffix, parentheticals like (2026) or (Word/PDF), any '| Edit, Download' secondary pipe-clause, and take the pre-colon label as the primary keyphrase when the colon separates a short title from its subtitle. Keywords tags now read cleanly (e.g. 'how to write an invoice, guide, free, Word') and produce sensible article:tag values for OG share cards.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-136-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-136-0</id>
+    <published>2026-11-07T00:00:00Z</published>
+    <updated>2026-11-07T00:00:00Z</updated>
+    <summary>Cleaned up the auto-generated meta keywords tag. The previous autoKeywords logic took the title, removed a small stop-word list, and appended the remainder as a second keyword, which produced garbage tags like 'how write invoice : 7' on pages whose subtitles started with a number (e.g. 'How to Write an Invoice (2026): 7-Step Checklist'). Rewrote the logic in tools/build-site.mjs: strip the brand suffix, parentheticals like (2026) or (Word/PDF), any '| Edit, Download' secondary pipe-clause, and take the pre-colon label as the primary keyphrase when the colon separates a short title from its subtitle. Keywords tags now read cleanly (e.g. 'how to write an invoice, guide, free, Word') and produce sensible article:tag values for OG share cards.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.135.0 — Added Article JSON-LD to docs pages. v2.133–v2.134 flipped all editorial pages to og:type=article and added article:section/article:tag meta, but the docs pages and a handful of deep-hub landers (business-document-kit, compare index, why-clausery) were not getting an Article schema node in JSON-LD because that block only ran for pages flagged _howTo or _toc (guides, clauses, templates). Widened the body-prep pass in tools/build-site.mjs to run whenever p.published is set, so every page that declares a published date now emits Article JSON-LD consistent with its og:type=article, including headline, datePublished, dateModified, lastReviewed, reviewedBy, image, author and publisher. Hubs, legal and marketing landers without a published date are unaffected.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-135-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-135-0</id>
