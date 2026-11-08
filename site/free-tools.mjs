@@ -382,7 +382,7 @@ ${WIDGET['prorated-rent']}
 ${embedSection('prorated-rent')}
 <h2 style="margin-top:2.5rem">Questions</h2>
 ${faqHtml(TOOL_FAQ[8])}
-${cta(rel, 'prorated-rent')}</div></section><div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>` },
+${cta(rel, 'prorated-rent')}</div></section><div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/residential-lease-agreement">Start with a residential lease agreement, free <span class="arr">→</span></a></div>` },
   { path: 'free-tools/template-checker.html', _toc: true, title: 'Word template tag checker', description: T['template-checker'].desc, published: '2026-11-07', ogType: 'article',
     extraHead: faqLd(TOOL_FAQ[2]) + TOOL_CSS + toolLd(T['template-checker'].name, T['template-checker'].desc, 'free-tools/template-checker.html') + `<script type="module" src="template-checker.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Template checker')}
