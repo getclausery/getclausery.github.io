@@ -8,6 +8,14 @@
   <updated>2026-11-07T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.133.0 — Structured-data and Open Graph pass for editorial pages. The 9 free-tool calculators and 9 docs articles were still marked og:type=website with no article:published_time, which prevented them from appearing as articles in Facebook/LinkedIn share previews and left Google without a clear published date. Added published: '2026-11-07' and ogType: 'article' to every calculator page in site/free-tools.mjs, and extended the docs page() wrapper in site/docs.mjs to emit published: DOCS_PUBLISHED and ogType: 'article' for all docs pages. Hubs, legal pages, marketing landers and the home page correctly remain og:type=website. After rebuild, 19 editorial pages expose article meta with datePublished and article:published_time set consistently.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-133-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-133-0</id>
+    <published>2026-11-07T00:00:00Z</published>
+    <updated>2026-11-07T00:00:00Z</updated>
+    <summary>Structured-data and Open Graph pass for editorial pages. The 9 free-tool calculators and 9 docs articles were still marked og:type=website with no article:published_time, which prevented them from appearing as articles in Facebook/LinkedIn share previews and left Google without a clear published date. Added published: '2026-11-07' and ogType: 'article' to every calculator page in site/free-tools.mjs, and extended the docs page() wrapper in site/docs.mjs to emit published: DOCS_PUBLISHED and ogType: 'article' for all docs pages. Hubs, legal pages, marketing landers and the home page correctly remain og:type=website. After rebuild, 19 editorial pages expose article meta with datePublished and article:published_time set consistently.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.132.0 — Tightened meta-description clipping from 160 to 153 characters. The clipDescription() helper in tools/partials.mjs was configured with max:160 and a sentence-cut threshold of 130, which let 23 pages (invoice starters, NDA templates, contract letters and one guide) end up at 156-160 decoded characters — Google truncates at ~155 and appends an ellipsis mid-word for anything over. Lowered the hard max to 153, the sentence-cut threshold to 120, and fitSnippet() to 153 to match. After the rebuild, 0 pages exceed 155 decoded characters and 0 content pages are under 120.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-132-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-132-0</id>
