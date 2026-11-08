@@ -68,7 +68,7 @@
 <link rel="preconnect" href="https://static.cloudflareinsights.com" crossorigin>
 <link rel="dns-prefetch" href="https://static.cloudflareinsights.com">
 <link rel="preload" href="./assets/icon.svg" as="image" type="image/svg+xml">
-<link rel="preload" href="./site.css" as="style">
+<link rel="preload" href="./site.css" as="style" fetchpriority="high">
 <link rel="stylesheet" href="./site.css">
 <meta property="og:logo" content="https://getclausery.github.io/assets/icon-512.png">
 <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
@@ -113,6 +113,10 @@
 <section class="section"><div class="wrap prose">
 <nav class="small muted" aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><ol class="bdcrums"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="./"><span itemprop="name">Home</span></a><meta itemprop="position" content="1"></li> <span aria-hidden="true">›</span> <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name" aria-current="page">Changelog</span><meta itemprop="position" content="2"></li></ol></nav><h1>Changelog <a href="./releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1><button type="button" class="page-print-btn page-share-btn" onclick="(function(s,b){if(navigator.share){navigator.share({title:document.title,url:location.href}).catch(()=>{})}else{navigator.clipboard.writeText(location.href);b.textContent='Link copied';setTimeout(()=>b.textContent='Share',1500)}})(this,this)" title="Share this page or copy link" aria-label="Share">Share</button><button type="button" class="page-print-btn" onclick="window.print()" title="Print or save as PDF" aria-label="Print">Print/PDF</button>
 <p><a class="btn btn-primary" href="./app/">Open Clausery, free</a> <a class="btn" href="./templates/">Free templates</a></p>
+<h2 id="v2-152-0">2.152.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
+<ul>
+  <li><strong>Critical-CSS preload priority.</strong> Added <code>fetchpriority="high"</code> to the <code>site.css</code> preload hint so browsers deprioritize images and other resources in favour of the render-blocking stylesheet on slow networks. Tiny change but matches the LCP recommendation for single-file stylesheets under 45 KB.</li>
+</ul>
 <h2 id="v2-151-0">2.151.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
 <ul>
   <li><strong>Head-tag cleanup.</strong> Removed a duplicate block of <code>hreflang</code> link tags (en, en-GB, x-default) that were emitted twice on every page because the same set was concatenated both on the canonical line and later after the Atom feed links — invalid HTML with three duplicate <code>rel="alternate"</code> links. Also removed a duplicate <code>apple-touch-icon</code> link (sizes 192×192 was listed twice, with and without the sizes attribute). Deleted a redundant mobile <code>table{width:100%;display:block;overflow-x:auto}</code> rule that was already declared in the base stylesheet, saving 61 bytes of CSS (site.css now 44,358 B, 642 B headroom).</li>
