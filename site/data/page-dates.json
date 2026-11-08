@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-08",
-  "hash": "cd1bb3835b659dd8"
+  "hash": "51ff62811dd0cd53"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-11-08",
-  "hash": "827be297a006c1e0"
+  "hash": "26e8dcc358e7e1cd"
  },
  "clauses/": {
   "date": "2026-11-08",
@@ -265,15 +265,15 @@
  },
  "free-tools/amount-in-words.html": {
   "date": "2026-11-08",
-  "hash": "cfdf76d6e7c91024"
+  "hash": "e6de216767213923"
  },
  "free-tools/deadline-calculator.html": {
   "date": "2026-11-08",
-  "hash": "30c36550f42410e0"
+  "hash": "e8eb4c3c41e94dd2"
  },
  "free-tools/freelance-rate.html": {
   "date": "2026-11-08",
-  "hash": "c820a72119d36740"
+  "hash": "6069af9518f51669"
  },
  "free-tools/invoice-due-date.html": {
   "date": "2026-11-08",
@@ -285,15 +285,15 @@
  },
  "free-tools/loan-repayment.html": {
   "date": "2026-11-08",
-  "hash": "8c2ab9609cec4385"
+  "hash": "327abb093326b69c"
  },
  "free-tools/prorated-rent.html": {
   "date": "2026-11-08",
-  "hash": "787c8a7c630ac55c"
+  "hash": "41e49f1eabde3459"
  },
  "free-tools/sales-commission.html": {
   "date": "2026-11-08",
-  "hash": "318d08e51f0a799d"
+  "hash": "ce067ec0d84204ef"
  },
  "free-tools/template-checker.html": {
   "date": "2026-11-08",
@@ -809,7 +809,7 @@
  },
  "roadmap/": {
   "date": "2026-11-08",
-  "hash": "dfeee92f7dfd5ed1"
+  "hash": "300a802d7d004b0e"
  },
  "search/": {
   "date": "2026-10-31",
@@ -825,7 +825,7 @@
  },
  "status/": {
   "date": "2026-11-08",
-  "hash": "679c24fd08594f33"
+  "hash": "fe4f60ec5271d4d5"
  },
  "templates/": {
   "date": "2026-11-07",
