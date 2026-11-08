@@ -8,6 +8,14 @@
   <updated>2026-11-08T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.144.0 — Added above-the-fold inline CTAs to /compare/* alternative pages and /clauses/* reference pages. Comparison pages (Bonsai, PandaDoc, Rocket Lawyer, etc.) and clause reference pages (25 clauses) previously led visitors straight into a feature table or clause sample with no inline action above the fold — the only CTA was the floating sticky button. Each now shows an inline 'Try Clausery free — no account' primary button immediately after the lead paragraph.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-144-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-144-0</id>
+    <published>2026-11-08T00:00:00Z</published>
+    <updated>2026-11-08T00:00:00Z</updated>
+    <summary>Added above-the-fold inline CTAs to /compare/* alternative pages and /clauses/* reference pages. Comparison pages (Bonsai, PandaDoc, Rocket Lawyer, etc.) and clause reference pages (25 clauses) previously led visitors straight into a feature table or clause sample with no inline action above the fold — the only CTA was the floating sticky button. Each now shows an inline 'Try Clausery free — no account' primary button immediately after the lead paragraph.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.143.0 — Added an above-the-fold primary CTA to every guide page. Previously the only call-to-action on /guides/* was the floating sticky button (mobile bottom bar / desktop corner FAB), so a visitor who scrolled past the lead on desktop saw no direct path into the product. Each guide now renders an inline 'Start with a <template> — free' primary button (plus a secondary 'See the Word template' link) immediately after the lead paragraph, deep-linked to that guide's mapped template. Uses existing .prose/.btn styles so site.css does not grow.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-143-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-143-0</id>
