@@ -200,7 +200,7 @@ ${GROUPS.map(([g, label]) => `  <h2 style="margin-top:2rem">${esc(label)}</h2>
   <p class="small muted"><a href="${rel}templates/">Browse the full library</a> — 87 free Word templates, every download page links to its what-to-include guide.</p>
   <!--nav--><div class="feature" style="margin-top:2rem"><h2 style="font-size:1.15rem;margin-top:0">Test one small document first</h2><p>Use fictional details, compare the downloaded Word output, then check every handoff that remains outside drafting. No account is required to try Clausery's library templates.</p><p><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free Word templates</a></p></div><!--/nav-->
 </div></section>
-<div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>
+<div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/">Try Clausery free <span class="arr">→</span></a></div>
 `,
   },
   ...COMPETITORS.map((c) => {
@@ -249,7 +249,7 @@ ${moveSteps(c, rel)}
   <p><a class="vendor-source" href="${esc(c.vendorUrl)}" rel="noopener">${esc(c.name)}'s official site</a> is the place to confirm current features, prices, billing terms and export rights. For this side of the comparison, see <a href="${rel}pricing/">Clausery pricing</a> and <a href="${rel}docs/">the product documentation</a>. A changed page date is not a claim that a vendor's prices were rechecked.</p>
   <!--nav--><p><a class="btn btn-primary btn-lg" href="${rel}app/">Try Clausery with a free template</a> <a class="btn" href="${rel}compare/">Browse all comparisons</a></p><!--/nav-->
 </div></section>
-<div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>
+<div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/">Try Clausery free <span class="arr">→</span></a></div>
 `,
     };
   }),

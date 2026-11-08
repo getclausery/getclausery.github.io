@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-08",
-  "hash": "5dcde80ffc76972f"
+  "hash": "a35a0c9a4361ff09"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-11-08",
-  "hash": "2afb003a21844025"
+  "hash": "ef79193183c03878"
  },
  "clauses/": {
   "date": "2026-11-07",
@@ -140,52 +140,52 @@
   "hash": "af9cf27a73661e3e"
  },
  "compare/": {
-  "date": "2026-11-07",
-  "hash": "021b454d2343a718"
+  "date": "2026-11-08",
+  "hash": "3d0ab8b42a74ca4a"
  },
  "compare/bonsai-alternative.html": {
-  "date": "2026-11-07",
-  "hash": "8fb93271a1eeacd9"
+  "date": "2026-11-08",
+  "hash": "35a9a519dc4012df"
  },
  "compare/clio-draft-alternative.html": {
-  "date": "2026-11-07",
-  "hash": "55c4441051bb98f8"
+  "date": "2026-11-08",
+  "hash": "86093c7f13b792b4"
  },
  "compare/docassemble-alternative.html": {
-  "date": "2026-11-07",
-  "hash": "a74d7630a8546d9a"
+  "date": "2026-11-08",
+  "hash": "de4a71d9b244c336"
  },
  "compare/dubsado-alternative.html": {
-  "date": "2026-11-07",
-  "hash": "27c7c97fc551250a"
+  "date": "2026-11-08",
+  "hash": "b5c0f5fa312189e4"
  },
  "compare/eforms-alternative.html": {
-  "date": "2026-11-07",
-  "hash": "451a86787b7b6926"
+  "date": "2026-11-08",
+  "hash": "922f648147e6a242"
  },
  "compare/gavel-alternative.html": {
-  "date": "2026-11-07",
-  "hash": "974c43dfd83bde52"
+  "date": "2026-11-08",
+  "hash": "ee4fb220bf9588ae"
  },
  "compare/honeybook-alternative.html": {
-  "date": "2026-11-07",
-  "hash": "a8398738743aab5b"
+  "date": "2026-11-08",
+  "hash": "11ea90e0c718c176"
  },
  "compare/hotdocs-alternative.html": {
-  "date": "2026-11-07",
-  "hash": "0a66275e966d6cf7"
+  "date": "2026-11-08",
+  "hash": "7c6a2bf34cf3e0ba"
  },
  "compare/lawdepot-alternative.html": {
-  "date": "2026-11-07",
-  "hash": "032a948bfbcb3659"
+  "date": "2026-11-08",
+  "hash": "eb4be6020f03873a"
  },
  "compare/pandadoc-alternative.html": {
-  "date": "2026-11-07",
-  "hash": "33d481c7c9027a6d"
+  "date": "2026-11-08",
+  "hash": "8c20f9a92c61a040"
  },
  "compare/rocket-lawyer-alternative.html": {
-  "date": "2026-11-07",
-  "hash": "5139ad4fa288f44d"
+  "date": "2026-11-08",
+  "hash": "fb34f50e3a813622"
  },
  "contact/": {
   "date": "2026-11-07",
@@ -260,8 +260,8 @@
   "hash": "543fdf973efe99b6"
  },
  "free-tools/": {
-  "date": "2026-11-07",
-  "hash": "6eb10f144271024e"
+  "date": "2026-11-08",
+  "hash": "23fd85d7bd7eae6f"
  },
  "free-tools/amount-in-words.html": {
   "date": "2026-11-07",
@@ -288,8 +288,8 @@
   "hash": "6fe1fb53fb790f37"
  },
  "free-tools/prorated-rent.html": {
-  "date": "2026-11-07",
-  "hash": "33f2123fd8f73201"
+  "date": "2026-11-08",
+  "hash": "7d2498c7347a4e8b"
  },
  "free-tools/sales-commission.html": {
   "date": "2026-11-07",
@@ -304,272 +304,272 @@
   "hash": "698c80c5e14e6077"
  },
  "guides/are-liability-waivers-enforceable.html": {
-  "date": "2026-11-07",
-  "hash": "f4079d15f2703a08"
+  "date": "2026-11-08",
+  "hash": "a3e07fccba204ae9"
  },
  "guides/are-non-competes-enforceable.html": {
-  "date": "2026-11-07",
-  "hash": "4d518cc847df387d"
+  "date": "2026-11-08",
+  "hash": "f4b78c6cc13f8785"
  },
  "guides/automate-word-templates.html": {
-  "date": "2026-11-07",
-  "hash": "f1982230559a37b0"
+  "date": "2026-11-08",
+  "hash": "2cbeba60168dfd12"
  },
  "guides/client-intake-without-a-portal.html": {
-  "date": "2026-11-07",
-  "hash": "85c5a1677a162732"
+  "date": "2026-11-08",
+  "hash": "3a3aec9a9ccbd618"
  },
  "guides/conditional-clauses-in-word.html": {
-  "date": "2026-11-07",
-  "hash": "eabc88969c516636"
+  "date": "2026-11-08",
+  "hash": "fbfed6b5e46ce684"
  },
  "guides/confidentiality-checklist-document-software.html": {
-  "date": "2026-11-07",
-  "hash": "35819e70ea6da441"
+  "date": "2026-11-08",
+  "hash": "27014a08e7888892"
  },
  "guides/do-i-need-a-model-release.html": {
-  "date": "2026-11-07",
-  "hash": "de529bf8e1a03f2e"
+  "date": "2026-11-08",
+  "hash": "67d4d5b86b980f06"
  },
  "guides/gst-hst-invoice-requirements-canada.html": {
-  "date": "2026-11-07",
-  "hash": "2a4d1f5472a7dc62"
+  "date": "2026-11-08",
+  "hash": "34a0363023bdf871"
  },
  "guides/how-does-consignment-work.html": {
-  "date": "2026-11-07",
-  "hash": "a9467bb5bd5f00bf"
+  "date": "2026-11-08",
+  "hash": "92bea0bccecfcb6b"
  },
  "guides/how-long-should-an-nda-last.html": {
-  "date": "2026-11-07",
-  "hash": "5e5fa74f7549cf30"
+  "date": "2026-11-08",
+  "hash": "dc17d73569ac259e"
  },
  "guides/how-to-lend-money-to-family.html": {
-  "date": "2026-11-07",
-  "hash": "c44c1a3ca4ae6ef0"
+  "date": "2026-11-08",
+  "hash": "db655cee573ee9e2"
  },
  "guides/how-to-return-a-security-deposit.html": {
-  "date": "2026-11-07",
-  "hash": "6caf2f1a47c62502"
+  "date": "2026-11-08",
+  "hash": "34e26885ec2b7b2f"
  },
  "guides/how-to-save-an-invoice-as-pdf.html": {
   "date": "2026-11-08",
   "hash": "44b0b88be8b4dff0"
  },
  "guides/how-to-set-up-a-rent-payment-plan.html": {
-  "date": "2026-11-07",
-  "hash": "869a2cd90d71b6f9"
+  "date": "2026-11-08",
+  "hash": "1c9d5008c6938fa8"
  },
  "guides/how-to-terminate-a-contract.html": {
-  "date": "2026-11-07",
-  "hash": "08549b627febeefa"
+  "date": "2026-11-08",
+  "hash": "8d3ecd1407c4ff0b"
  },
  "guides/how-to-write-a-bill-of-sale.html": {
-  "date": "2026-11-07",
-  "hash": "bcb19b70718b28ca"
+  "date": "2026-11-08",
+  "hash": "5a1c99b6695ed24e"
  },
  "guides/how-to-write-a-cease-and-desist-letter.html": {
-  "date": "2026-11-07",
-  "hash": "1665afa900e29867"
+  "date": "2026-11-08",
+  "hash": "60352637b9d34baa"
  },
  "guides/how-to-write-a-cleaning-services-contract.html": {
-  "date": "2026-11-07",
-  "hash": "f69423527db888e9"
+  "date": "2026-11-08",
+  "hash": "59ff42c76b37725c"
  },
  "guides/how-to-write-a-freelance-contract.html": {
-  "date": "2026-11-07",
-  "hash": "0bee70e7e85c83cb"
+  "date": "2026-11-08",
+  "hash": "a4ec0a000bd9b740"
  },
  "guides/how-to-write-a-gift-letter-for-a-mortgage.html": {
-  "date": "2026-11-07",
-  "hash": "3317cd754011c2f4"
+  "date": "2026-11-08",
+  "hash": "03f9c60e6fb49e39"
  },
  "guides/how-to-write-a-job-description.html": {
-  "date": "2026-11-07",
-  "hash": "7fde438bb60fa69e"
+  "date": "2026-11-08",
+  "hash": "98ca69e7f29fc4ee"
  },
  "guides/how-to-write-a-notice-to-vacate.html": {
-  "date": "2026-11-07",
-  "hash": "b245a61782811bac"
+  "date": "2026-11-08",
+  "hash": "1039182b15ab991c"
  },
  "guides/how-to-write-a-payment-demand-letter.html": {
-  "date": "2026-11-07",
-  "hash": "7954997d6e3a7290"
+  "date": "2026-11-08",
+  "hash": "e50514e6d37cbc25"
  },
  "guides/how-to-write-a-payment-receipt.html": {
   "date": "2026-11-08",
   "hash": "1a7b92f35ed05d17"
  },
  "guides/how-to-write-a-performance-improvement-plan.html": {
-  "date": "2026-11-07",
-  "hash": "c572a724fe451883"
+  "date": "2026-11-08",
+  "hash": "c796ad493e090f84"
  },
  "guides/how-to-write-a-photography-contract.html": {
-  "date": "2026-11-07",
-  "hash": "d5c8071605a2e2e0"
+  "date": "2026-11-08",
+  "hash": "e56fb60b42b3f18d"
  },
  "guides/how-to-write-a-promissory-note.html": {
-  "date": "2026-11-07",
-  "hash": "bfa3ce0930b5ff7a"
+  "date": "2026-11-08",
+  "hash": "6a41bcbce28b39c2"
  },
  "guides/how-to-write-a-purchase-order.html": {
-  "date": "2026-11-07",
-  "hash": "cd77ee31c13cf652"
+  "date": "2026-11-08",
+  "hash": "4132a98209e578bc"
  },
  "guides/how-to-write-a-reference-letter.html": {
-  "date": "2026-11-07",
-  "hash": "44dcfb91d442e017"
+  "date": "2026-11-08",
+  "hash": "67bad8e0a34d9548"
  },
  "guides/how-to-write-a-remote-work-agreement.html": {
-  "date": "2026-11-07",
-  "hash": "e3d2e7eb288c1667"
+  "date": "2026-11-08",
+  "hash": "00e5445bd86c616f"
  },
  "guides/how-to-write-a-rent-increase-letter.html": {
-  "date": "2026-11-07",
-  "hash": "e23ef45f1df77069"
+  "date": "2026-11-08",
+  "hash": "d68c827a1d7724a4"
  },
  "guides/how-to-write-a-salary-increase-letter.html": {
-  "date": "2026-11-07",
-  "hash": "b88592542a66ec9c"
+  "date": "2026-11-08",
+  "hash": "4270f455060aa6cd"
  },
  "guides/how-to-write-a-sublease-agreement.html": {
-  "date": "2026-11-07",
-  "hash": "26339a9c6a437af8"
+  "date": "2026-11-08",
+  "hash": "70f152a852b5baa3"
  },
  "guides/how-to-write-a-termination-letter.html": {
-  "date": "2026-11-07",
-  "hash": "43ba50899cfb38bf"
+  "date": "2026-11-08",
+  "hash": "e9ad711f3478da43"
  },
  "guides/how-to-write-a-two-weeks-notice-letter.html": {
-  "date": "2026-11-07",
-  "hash": "9c7f8a9c4fcd978d"
+  "date": "2026-11-08",
+  "hash": "6750fc85f4ee9e89"
  },
  "guides/how-to-write-an-employee-warning-letter.html": {
-  "date": "2026-11-07",
-  "hash": "9352e840924f498a"
+  "date": "2026-11-08",
+  "hash": "69ffe8aa4ec65f5f"
  },
  "guides/how-to-write-an-expense-reimbursement-form.html": {
-  "date": "2026-11-07",
-  "hash": "f7028d57f0418889"
+  "date": "2026-11-08",
+  "hash": "c4b3cc75b21e54b5"
  },
  "guides/how-to-write-an-independent-contractor-agreement.html": {
-  "date": "2026-11-07",
-  "hash": "661756191f1420b9"
+  "date": "2026-11-08",
+  "hash": "16dc2a26e2100a0c"
  },
  "guides/how-to-write-an-invoice.html": {
-  "date": "2026-11-07",
-  "hash": "bfae65a71601fe6e"
+  "date": "2026-11-08",
+  "hash": "73f9f7b81e8a749e"
  },
  "guides/how-to-write-an-offer-letter.html": {
-  "date": "2026-11-07",
-  "hash": "d002242428864ee5"
+  "date": "2026-11-08",
+  "hash": "1803a918b146593e"
  },
  "guides/how-to-write-meeting-minutes.html": {
-  "date": "2026-11-07",
-  "hash": "e0d6409e99c0f782"
+  "date": "2026-11-08",
+  "hash": "61119ac0cbcc17a8"
  },
  "guides/invoice-email-template.html": {
   "date": "2026-11-07",
   "hash": "2897b83d6097d6fb"
  },
  "guides/is-an-mou-legally-binding.html": {
-  "date": "2026-11-07",
-  "hash": "197bba96f4abec85"
+  "date": "2026-11-08",
+  "hash": "77898ec3fa8b4996"
  },
  "guides/mail-merge-vs-document-automation.html": {
-  "date": "2026-11-07",
-  "hash": "98bb0a4c0b5d2f7a"
+  "date": "2026-11-08",
+  "hash": "6c56be0dc521dc0f"
  },
  "guides/mutual-vs-one-way-nda.html": {
-  "date": "2026-11-07",
-  "hash": "f3a632b248ae74c8"
+  "date": "2026-11-08",
+  "hash": "069d19bd5b499bf9"
  },
  "guides/nda-vs-confidentiality-agreement.html": {
-  "date": "2026-11-07",
-  "hash": "f54d582804228167"
+  "date": "2026-11-08",
+  "hash": "b4e218f488ea3634"
  },
  "guides/non-compete-vs-non-solicitation.html": {
-  "date": "2026-11-07",
-  "hash": "991aa155653fe4f8"
+  "date": "2026-11-08",
+  "hash": "d2a017056eb71ea6"
  },
  "guides/quote-vs-estimate-vs-invoice.html": {
-  "date": "2026-11-07",
-  "hash": "326c2f3c32b8cd2c"
+  "date": "2026-11-08",
+  "hash": "8b43b2ce9c4c1c10"
  },
  "guides/repeating-lists-and-tables-in-word.html": {
-  "date": "2026-11-07",
-  "hash": "4e05aec55d00cd38"
+  "date": "2026-11-08",
+  "hash": "c61611c54f9e2374"
  },
  "guides/tax-invoice-requirements-australia.html": {
-  "date": "2026-11-07",
-  "hash": "67eb5c89df92068a"
+  "date": "2026-11-08",
+  "hash": "84561fb0c484cd4d"
  },
  "guides/what-bank-details-to-put-on-an-invoice.html": {
   "date": "2026-11-07",
   "hash": "6b0f9f6a989aa44d"
  },
  "guides/what-is-a-change-order.html": {
-  "date": "2026-11-07",
-  "hash": "7be88aa9dcb21a37"
+  "date": "2026-11-08",
+  "hash": "b9ee611e19da69b7"
  },
  "guides/what-is-a-credit-note.html": {
-  "date": "2026-11-07",
-  "hash": "22560e8db0881e10"
+  "date": "2026-11-08",
+  "hash": "e2266a07b9e3da39"
  },
  "guides/what-is-a-hold-harmless-agreement.html": {
-  "date": "2026-11-07",
-  "hash": "968e8544f3c753e3"
+  "date": "2026-11-08",
+  "hash": "ed0031593c7de5ce"
  },
  "guides/what-is-a-kill-fee.html": {
-  "date": "2026-11-07",
-  "hash": "0292c0e18c60521c"
+  "date": "2026-11-08",
+  "hash": "cb092bde73326eda"
  },
  "guides/what-is-a-sales-commission-agreement.html": {
-  "date": "2026-11-07",
-  "hash": "ba8ed8b2139dbf6d"
+  "date": "2026-11-08",
+  "hash": "2ca82eb7ed3c3e70"
  },
  "guides/what-to-do-when-a-client-wont-pay.html": {
-  "date": "2026-11-07",
-  "hash": "7d20dc8f0eb28d96"
+  "date": "2026-11-08",
+  "hash": "1e583d95348a022f"
  },
  "guides/what-to-include-in-a-lease-agreement.html": {
-  "date": "2026-11-07",
-  "hash": "3f1bed70e9059294"
+  "date": "2026-11-08",
+  "hash": "517ed923daa99516"
  },
  "guides/what-to-include-in-a-partnership-agreement.html": {
-  "date": "2026-11-07",
-  "hash": "b14ba8815bb538dd"
+  "date": "2026-11-08",
+  "hash": "aab15db0a282a463"
  },
  "guides/what-to-include-in-a-room-rental-agreement.html": {
-  "date": "2026-11-07",
-  "hash": "e1f7191ebb514875"
+  "date": "2026-11-08",
+  "hash": "fb32d64fd7aa74a3"
  },
  "guides/what-to-include-in-a-roommate-agreement.html": {
-  "date": "2026-11-07",
-  "hash": "0217b096a698d52f"
+  "date": "2026-11-08",
+  "hash": "a8d94f95e2566b1b"
  },
  "guides/what-to-include-in-a-severance-agreement.html": {
-  "date": "2026-11-07",
-  "hash": "a1f857f8eda28aaf"
+  "date": "2026-11-08",
+  "hash": "ee681ade9b01687f"
  },
  "guides/what-to-include-in-a-statement-of-work.html": {
-  "date": "2026-11-07",
-  "hash": "06754ed158b0b17b"
+  "date": "2026-11-08",
+  "hash": "8cf0fde67e81241d"
  },
  "guides/what-to-include-in-a-tutoring-agreement.html": {
-  "date": "2026-11-07",
-  "hash": "5a35a1252473302e"
+  "date": "2026-11-08",
+  "hash": "87d7e52b77bead50"
  },
  "guides/what-to-include-in-an-equipment-rental-agreement.html": {
-  "date": "2026-11-07",
-  "hash": "fe4527e80babbb89"
+  "date": "2026-11-08",
+  "hash": "3ace8768a0d08e68"
  },
  "guides/what-to-include-in-an-nda.html": {
-  "date": "2026-11-07",
-  "hash": "44884dac3c1e1612"
+  "date": "2026-11-08",
+  "hash": "d95364af310a43de"
  },
  "guides/what-to-include-on-a-vat-invoice.html": {
-  "date": "2026-11-07",
-  "hash": "5a61f23fa6efba6a"
+  "date": "2026-11-08",
+  "hash": "8cf8d0b107eda2bd"
  },
  "invoice-templates/": {
   "date": "2026-11-07",
@@ -805,7 +805,7 @@
  },
  "roadmap/": {
   "date": "2026-11-08",
-  "hash": "a632e2411c3a1dfa"
+  "hash": "e1cf9b9ecd48a8a1"
  },
  "search/": {
   "date": "2026-10-31",
@@ -821,7 +821,7 @@
  },
  "status/": {
   "date": "2026-11-08",
-  "hash": "97e39ec1d2d96234"
+  "hash": "8c5cbf7c54071aa7"
  },
  "templates/": {
   "date": "2026-11-07",

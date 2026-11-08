@@ -8,6 +8,14 @@
   <updated>2026-11-08T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.140.0 — Context-aware sticky CTAs rolled out to guides, compare pages and the prorated-rent calculator. Sticky CTAs on 60 guide pages now deep-link to each guide's primary Word template ('Start with a mutual NDA, free' on the NDA guide, 'Start with an offer letter, free' on the offer letter guide, etc.) instead of showing the generic 'Make an invoice, free' on pages about NDAs, contracts, HR letters and landlord forms. The TEMPLATES_FOR_GUIDE map in site/audience.mjs was extended from 13 to 56 entries with keyword and slug-matching rules. Sticky CTAs on the /compare/* alternative pages now say 'Try Clausery free' (linking to /app/) rather than 'Make an invoice, free' since comparison visitors evaluate the whole product, not just invoices.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-140-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-140-0</id>
+    <published>2026-11-08T00:00:00Z</published>
+    <updated>2026-11-08T00:00:00Z</updated>
+    <summary>Context-aware sticky CTAs rolled out to guides, compare pages and the prorated-rent calculator. Sticky CTAs on 60 guide pages now deep-link to each guide's primary Word template ('Start with a mutual NDA, free' on the NDA guide, 'Start with an offer letter, free' on the offer letter guide, etc.) instead of showing the generic 'Make an invoice, free' on pages about NDAs, contracts, HR letters and landlord forms. The TEMPLATES_FOR_GUIDE map in site/audience.mjs was extended from 13 to 56 entries with keyword and slug-matching rules. Sticky CTAs on the /compare/* alternative pages now say 'Try Clausery free' (linking to /app/) rather than 'Make an invoice, free' since comparison visitors evaluate the whole product, not just invoices.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.139.0 — CRO and structured-data fixes. Removed the verbose identity notice from the homepage hero (the distinction with clausery.ai stays in the FAQ and footer), updated the release-pill to describe current changes, and deep-linked audience-page sticky CTAs (For HR teams, For landlords, etc.) to each page's lead template instead of the generic invoice flow. Fixed two JSON-LD injection bugs where sticky-CTA CSS was being concatenated inside the Article schema @context on guides/how-to-save-an-invoice-as-pdf and inside the breadcrumb list on guides/how-to-write-a-payment-receipt; both pages now emit clean, valid structured data. Dropped the unused .notice-name CSS rule from site.css (saved ~525 bytes — back to 579 B of headroom).</title>
     <link href="https://getclausery.github.io/changelog.html#v2-139-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-139-0</id>
