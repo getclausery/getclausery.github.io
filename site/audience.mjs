@@ -2241,8 +2241,15 @@ ${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}` },
       const tplBlock = tpls.length ? `
 <h2>Download a starter template</h2>
 <ul>${tpls.map((s) => `<li><a href="${rel}templates/${s}.html">${esc(NAMES[s])}</a>${HUB_FOR_LIB[s] && HUB_FOR_LIB[s] !== s ? ` — <a href="${rel}templates/${HUB_FOR_LIB[s]}.html" class="small muted">what to include</a>` : ''}</li>`).join('')}</ul>` : '';
+      const leadCta = tpls[0]
+        ? `<p><a class="btn btn-primary" href="${rel}app/#/start/${tpls[0]}">Start with ${/^[aeiou]/i.test(NAMES[tpls[0]]) ? 'an' : 'a'} ${esc((NAMES[tpls[0]][0].toLowerCase() + NAMES[tpls[0]].slice(1)))} — free</a> <a class="btn" href="${rel}templates/${tpls[0]}.html">See the Word template</a></p>`
+        : '';
+      // Inject leadCta right after the first <p class="lead">...</p> if present; otherwise after the first paragraph.
+      let body = g.body(rel);
+      body = body.replace('</p>\n<h2>', `</p>${leadCta}\n<h2>`);
+      if (!leadCta || body === g.body(rel)) body = g.body(rel) + leadCta;
       return `<section class="section"><div class="wrap prose"><nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}guides/">Guides</a></nav><h1 style="margin-top:1rem">${esc(g.title)}</h1>
-<p class="small muted guide-meta">Published <time datetime="${published(g)}">${longDate(published(g))}</time><!--upd--> · Updated <time datetime="${LASTMOD}">${LASTMOD_LONG}</time><!--/upd--> · Reviewed by <a href="${rel}about/#editors">Clausery editors</a> · <a href="${rel}guides/#${topicId(topic)}">${esc(topic)}</a></p>${g.body(rel)}${g.sources ? `
+<p class="small muted guide-meta">Published <time datetime="${published(g)}">${longDate(published(g))}</time><!--upd--> · Updated <time datetime="${LASTMOD}">${LASTMOD_LONG}</time><!--/upd--> · Reviewed by <a href="${rel}about/#editors">Clausery editors</a> · <a href="${rel}guides/#${topicId(topic)}">${esc(topic)}</a></p>${body}${g.sources ? `
 <h2>Sources</h2>
 <ul class="sources">${g.sources.map(([label, url]) => `<li><a href="${esc(url)}" rel="noopener">${esc(label)}</a></li>`).join('')}</ul>` : ''}${tplBlock}
 ${g.faq ? `<h2>Questions</h2>${faqHtml(g.faq)}` : ''}<!--nav-->${['how-to-write-an-invoice', 'what-to-do-when-a-client-wont-pay', 'what-bank-details-to-put-on-an-invoice'].includes(g.slug) ? `<p>Write the sending message or a polite follow-up with the <a href="${rel}guides/invoice-email-template.html">free invoice email generator and four email templates</a>.</p>` : ''}<h2>More on ${esc(lowerFirst(topic))}</h2>
