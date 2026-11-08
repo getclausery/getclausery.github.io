@@ -440,22 +440,37 @@ for (const p of pages) {
   }
   // Build a short auto-generated keywords tag from title + hub (top-level path segment) + "free Word template".
   const seoTitle = SEO_TITLES[p.path] || p.title;
-  const hubMap = { templates: 'free Word template', guides: 'guide', clauses: 'contract clause', compare: 'alternative', 'free-tools': 'calculator', 'invoice-templates': 'invoice template', for: 'for small business', 'nda-templates': 'NDA', docs: 'docs' };
+  const hubMap = { templates: 'free Word template', guides: 'guide', clauses: 'contract clause', compare: 'alternative', 'free-tools': 'calculator', 'invoice-templates': 'invoice template', for: 'for small business', 'nda-templates': 'NDA', docs: 'docs', receipts: 'receipt template', 'business-document-kit': 'template pack', pricing: 'pricing', about: 'about', press: 'press', why: 'why Clausery', contact: 'contact', customers: 'customers', roadmap: 'roadmap', status: 'status', 'self-hosting': 'self-host' };
   const seg = p.path.split('/')[0];
   const hubK = hubMap[seg] || '';
   const kws = new Set();
-  const clean = (s) => s.replace(/[·\-–—].*$/, '').replace(/\(.*?\)/g, '').replace(/[?]/g, '').trim();
-  // Split on colon (subtitle separator) and use the part before the colon as the primary phrase.
-  const beforeColon = clean(seoTitle).split(':')[0].trim();
-  if (beforeColon && beforeColon.length > 2 && beforeColon.length < 60) kws.add(beforeColon.toLowerCase());
-  // Add 2–4 word phrases from the title (lower-cased) skipping stop words / year / brand.
-  const stop = /\b(free|template|word|clausery|download|online|2026|guide|the|a|an|for|with|and|or|of|in|on|to|from|your|you|it|that|this|is|are|be|by|as|at)\b/gi;
-  const phrase = clean(seoTitle).toLowerCase().replace(stop, ' ').replace(/\s+/g, ' ').trim();
-  if (phrase && phrase.length > 2 && phrase !== beforeColon.toLowerCase() && phrase.length < 60) kws.add(phrase);
+  // Derive a clean primary keyphrase for the meta keywords tag: strip trailing brand suffix
+  // ("· Clausery", "— Clausery", "| Clausery", etc), parentheticals like (2026)/(Word/PDF),
+  // any subtitle after " — " / " : " / " | ", then use what remains as the primary phrase.
+  let stripped = seoTitle;
+  const brandMatch = stripped.match(/^(.*?)\s*[·\-–—|]\s*Clausery\s*$/);
+  if (brandMatch) stripped = brandMatch[1];
+  stripped = stripped
+    .replace(/\(.*?\)/g, '')
+    .replace(/[?]/g, '')
+    .replace(/\b\d{4}\b/g, '')
+    // Strip a trailing subtitle introduced by an em/en dash or pipe (" — 6 Word Templates", " | Edit, Download").
+    .replace(/\s+[–—|]\s+[^–—|]*$/, '')
+    // Drop post-colon subtitles (": 7-Step Checklist", ": What to Send", ": hourly and day rate") so only
+    // the topic label remains. Titles without a colon keep their full cleaned text.
+    .replace(/:\s*[^:]*$/, '')
+    // Drop trailing "N steps / N-Step / N key ways / N things / N tips" trailer (e.g. "Client Won't Pay? 7 Steps to Get Paid").
+    .replace(/\s+\d+[\s-]*(?:steps?|key\s+\w+|ways|things|tips)\b[\s\S]*$/i, ' ')
+    // Drop leading numeric-step prefixes like "7-Step" if they somehow survive.
+    .replace(/^\s*\d+[\s-]+(?:step|key|ways|things|tips)\b/gi, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const primary = stripped;
+  if (primary && primary.length > 2 && primary.length < 60) kws.add(primary.toLowerCase());
   if (hubK) kws.add(hubK);
   kws.add('free');
   kws.add('Word');
-  const autoKeywords = [...kws].filter(Boolean).slice(0, 7).join(', ');
+  const autoKeywords = [...kws].filter(Boolean).slice(0, 5).join(', ');
   let html = p.layout === 'embed' ? embedPage({ title: p.title, description: p.description, extraHead: p.extraHead, rel, body: p.body(rel) })
     : (head({ title: seoTitle, description: p.description, path: p.path, extraHead: p.extraHead || '', pageLd, ogImage: p.ogImage, ogType: (p.feed || p.published) ? 'article' : 'website', published: p.published, modified, rel, noindex: Boolean(p.noindex), prev, next, keywords: p.keywords || autoKeywords }) + finalBody + footer(rel)).replace(/<pre>/g, '<pre tabindex="0">');
   // Visible Previous / Next navigation at the foot of any chained long-form page. Inserted at </main> so it sits
