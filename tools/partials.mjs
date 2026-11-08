@@ -60,19 +60,19 @@ export const LICENSE_CHECK = ONLINE_KEYS
 export const LASTMOD = '@@LASTMOD@@';
 export const LASTMOD_LONG = '@@LASTMOD_LONG@@';
 export const longDate = (d) => new Date(d + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
-// Search results show about 155-160 characters of a description; cut longer ones at a sentence, else a word.
-// A sentence cut must keep at least 130 characters: stopping at a short first sentence drops the selling point
+// Search results show about 150-155 characters of a description; cut longer ones at a sentence, else a word.
+// A sentence cut must keep at least 120 characters: stopping at a short first sentence drops the selling point
 // (the second sentence usually says what Clausery offers) and leaves a snippet Google is more likely to rewrite.
-export function clipDescription(d, max = 160) {
+export function clipDescription(d, max = 153) {
   if (d.length <= max) return d;
   const cut = d.slice(0, max + 1);
   const stop = cut.lastIndexOf('. ');
-  if (stop >= 130) return cut.slice(0, stop + 1);
+  if (stop >= 120) return cut.slice(0, stop + 1);
   return cut.slice(0, cut.lastIndexOf(' ', max - 1)).replace(/[,;:]$/, '') + '…';
 }
 /** A description that fits a search snippet whole: the lead, then as many whole sentences of `text` as fit, then the
     tail if it still fits. If not even one sentence fits, lead and tail alone (or a word-boundary cut) are used. */
-export function fitSnippet(text, { lead = '', tail = '', max = 158 } = {}) {
+export function fitSnippet(text, { lead = '', tail = '', max = 153 } = {}) {
   const join = (...xs) => xs.filter(Boolean).join(' ');
   let out = lead;
   for (const sentence of String(text).match(/[^.!?]+[.!?]+(?=\s|$)|[^.!?]+$/g) || []) {

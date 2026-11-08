@@ -57,7 +57,7 @@ and {party_b_name} ("{party_b_short}").</code></pre>
   <li><a href="${rel}docs/teams.html">Teams &amp; template packs</a>: share an approved template library with colleagues.</li>
 </ul>`),
 
-page('docs/templates.html', 'Template syntax', 'Tags, conditional sections, repeating groups, table rows, line breaks and built-in values in Clausery Word templates.', (rel) => `
+page('docs/templates.html', 'Template syntax', 'How to tag a Word template for Clausery: simple placeholders, conditional sections, repeating lists, table rows, line breaks, calculations and built-in values like today\'s date and the next invoice number.', (rel) => `
 <h1>Template syntax</h1>
 <p class="lead">Clausery templates are ordinary .docx files with tags. Formatting is yours: whatever style a tag has in Word, the answer inherits.</p>
 <h2>Tags</h2>
@@ -347,7 +347,7 @@ Cache-Control: no-cache   (for HTML; long max-age for vendor/ and assets/)</code
 <h2>GitHub Pages</h2>
 <p>The public instance runs on GitHub Pages straight from the repository, with a CI workflow that lints, unit-tests and end-to-end tests every change. Forking the repository and enabling Pages gives you an identical setup in minutes.</p>`),
 
-page('docs/faq.html', 'FAQ', 'Frequently asked questions about Clausery: compatibility, formatting, limits, browsers, offline use and licensing.', (rel) => `
+page('docs/faq.html', 'FAQ', 'Frequently asked questions about Clausery: browser support, saving documents as PDF, template limits, spreadsheet bulk generation, e-signatures, offline use, the free trial and Pro licensing.', (rel) => `
 <h1>Frequently asked questions</h1>
 <h2>Common questions</h2>
 <div class="faq">${DOCS_FAQ.map(([q, a]) => `<details><summary>${q}</summary><p>${a(rel)}</p></details>`).join('')}</div>

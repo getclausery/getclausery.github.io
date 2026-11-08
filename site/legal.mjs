@@ -82,7 +82,7 @@ page('legal/dpa.html', 'Data processing statement', 'For procurement and complia
 <h2>Contact</h2>
 <p>See the <a href="${rel}contact/">contact page</a>. For a signed attestation, say so in a question and we will arrange a private channel.</p>`),
 
-page('legal/license.html', 'Open-source license (AGPLv3) and commercial licensing', 'Clausery is open source under the GNU AGPLv3, with commercial licenses available for white-label use.', (rel) => `
+page('legal/license.html', 'Open-source license (AGPLv3) and commercial licensing', 'Clausery is open source under the GNU AGPLv3 with a Clausery-Trademark-Exception. Run, modify and redistribute the code under those terms; commercial and white-label licenses are available for teams that want to rebrand or host a modified copy publicly.', (rel) => `
 <h1>Open source, not open season</h1>
 <p class="lead">Clausery is free software — free to use, read, modify and self-host — but the Clausery name and logos are trademarks, and anyone offering a modified version over a network has to publish their changes. Here is how that works.</p>
 

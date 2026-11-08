@@ -55,7 +55,7 @@ ${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}
   },
   {
     path: 'roadmap/', title: 'Clausery roadmap',
-    description: 'What has shipped recently and what is being worked on next for Clausery, with links to the changelog and GitHub issues.',
+    description: 'Clausery roadmap: what has shipped recently, what is being worked on now, and how to suggest or upvote the next feature. Every release is listed in the changelog; open work lives in public GitHub issues.',
     extraHead: crumbsLd([['Home', ''], ['Roadmap', 'roadmap/']]) + HUB_CTA_STYLE,
     body: (rel) => `<section class="section"><div class="wrap prose" style="max-width:48rem">
 <h1>Roadmap</h1>
