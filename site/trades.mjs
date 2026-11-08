@@ -172,7 +172,7 @@ const example = (t) => {
 
 export const pages = [
   {
-    path: 'invoice-templates/', title: 'Free Invoice Templates | Word/PDF (No Signup)',
+    path: 'invoice-templates/', ogImage: 'assets/og/invoice.png', title: 'Free Invoice Templates | Word/PDF (No Signup)',
     description: 'Free invoice templates you can fill in online and download as editable Word or PDF. Invoices, quotes and receipts - totals calculated, no signup.',
     extraHead: collectionLd({ path: 'invoice-templates/', name: 'Free Word invoice templates: task, trade and country', description: 'Free Word invoice templates for deposits, hourly work and final balances, plus trade and country starters.', items: [...WORKFLOWS.map((w) => [w.name, `invoice-templates/${w.slug}.html`]), ...TRADES.map((t) => [t.title, `invoice-templates/${t.slug}.html`]), ...COUNTRIES.map((c) => [c.h1, `invoice-templates/${c.slug}.html`])] }) + faqLd([
       ['Are these invoice templates really free?', 'Yes. Every invoice template on this page is free to fill in online, download as an editable Word file or save as PDF, with no account, no sign-up and nothing uploaded. You can also download a sample .docx to adapt offline.'],

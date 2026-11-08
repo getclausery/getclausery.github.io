@@ -2587,8 +2587,11 @@ const resolveOg = (candidates, fallback = 'assets/og.png') => {
   return fallback;
 };
 const hubOgImage = (p) => {
+  if (p === 'for/' || p.startsWith('for/')) return 'assets/og/for.png';
+  if (p === 'templates/' || p === 'invoice-templates/' || p === 'nda-templates/') return 'assets/og/marketing.png';
   if (p.startsWith('invoice-templates/') || p.startsWith('receipts/')) return 'assets/og/invoice.png';
   if (p.startsWith('nda-templates/')) return 'assets/og/business-sale-nda.png';
+  if (p.startsWith('made-with/')) return 'assets/og/marketing.png';
   if (p.startsWith('templates/')) {
     const slug = p.replace('templates/','').replace('.html','');
     const map = {
@@ -2602,6 +2605,15 @@ const hubOgImage = (p) => {
       'contract-termination-letter': 'contract-termination-letter',
       'employment-termination-letter': 'employment-termination-letter',
       'promissory-note-template': 'promissory-note', 'bill-of-sale': 'bill-of-sale',
+      'cease-and-desist-template': 'cease-and-desist-letter',
+      'contract-template': 'independent-contractor-agreement',
+      'employment-verification-template': 'employment-verification-letter',
+      'eviction-notice-template': 'notice-to-vacate',
+      'non-disclosure-agreement-template': 'business-sale-nda',
+      'payment-plan-agreement': 'rent-payment-plan-agreement',
+      'salary-increase-template': 'salary-increase-letter',
+      'two-weeks-notice-template': 'two-weeks-notice-letter',
+      'rent-payment-plan-agreement-template': 'rent-payment-plan-agreement',
     };
     const base = map[slug] || slug;
     const trySlug = (s) => `assets/og/${s}.png`;

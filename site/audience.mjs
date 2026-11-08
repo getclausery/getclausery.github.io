@@ -2173,7 +2173,7 @@ const published = (g) => g.published || '2026-09-26';
 const topicId = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 export const pages = [
-  { path: 'for/', title: 'Who Clausery is for: teams that draft the same documents', description: 'Which teams use Clausery for invoices, contracts and HR letters, what each gets from a guided questionnaire, and how to choose the right template.',
+  { path: 'for/', ogImage: 'assets/og/for.png', title: 'Who Clausery is for: teams that draft the same documents', description: 'Which teams use Clausery for invoices, contracts and HR letters, what each gets from a guided questionnaire, and how to choose the right template.',
     extraHead: collectionLd({ path: 'for/', name: 'Who Clausery is for', description: 'Which teams use Clausery for invoices, contracts and HR letters, what each gets from a guided questionnaire, and how to choose the right template.', items: AUD.map((a) => [a.name, `for/${a.slug}.html`]) }) + HUB_CTA_STYLE,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:60rem">
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › Who it's for</nav>
@@ -2200,7 +2200,7 @@ ${hubCta(rel, 'app/', 'Open Clausery, free')}
 `,
   },
   ...AUD.map((a) => ({
-    path: `for/${a.slug}.html`, title: a.title, description: a.description || a.intro.slice(0, 290), _toc: true, published: '2026-10-31', ogImage: 'assets/og/invoice.png',
+    path: `for/${a.slug}.html`, title: a.title, description: a.description || a.intro.slice(0, 290), _toc: true, published: '2026-10-31', ogImage: 'assets/og/for.png',
     extraHead: faqLd(a.faq) + `<style>.p-cta-fixed{display:none}@media(max-width:760px){.p-cta-fixed{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.p-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.p-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.p-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`,
     body: (rel) => `<section class="hero"><div class="wrap" style="display:block;max-width:52rem">
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}for/">Who it's for</a> › ${esc(a.name)}</nav>
@@ -2224,7 +2224,7 @@ ${hubCta(rel, 'app/', 'Open Clausery, free')}
 <div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/${a.templates[0]}">Start with ${/^[aeiou]/i.test(NAMES[a.templates[0]]) ? 'an' : 'a'} ${esc(NAMES[a.templates[0]].toLowerCase())}, free <span class="arr">→</span></a></div>
 `,
   })),
-  { path: 'guides/', title: 'Invoice & Contract Guides | Free Word Templates', description: 'How-to guides for invoices, getting paid, contracts, NDAs, HR letters and landlord forms — each linked to a free editable Word template.',
+  { path: 'guides/', title: 'Invoice & Contract Guides | Free Word Templates', ogImage: 'assets/og/guides.png', description: 'How-to guides for invoices, getting paid, contracts, NDAs, HR letters and landlord forms — each linked to a free editable Word template.',
     extraHead: collectionLd({ path: 'guides/', name: 'Invoice, payment and business document guides', description: 'Practical guides to invoices, getting paid, contracts, HR letters and landlord forms. Worked explanations linked to free editable Word templates.', items: GUIDES.map((g) => [g.title, `guides/${g.slug}.html`]) }) + HUB_CTA_STYLE,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem"><h1>Invoice, payment and business document guides</h1><p class="lead">Plain-English answers to the questions people ask before they use a template, each linked to a free Word template you can fill in online.</p>
   <!--nav--><p><strong>Start with billing:</strong> <a href="${rel}guides/how-to-write-an-invoice.html">how to write an invoice</a>, <a href="${rel}invoice-templates/deposit-invoice.html">request a deposit</a>, <a href="${rel}invoice-templates/hourly-invoice.html">bill hours</a>, or <a href="${rel}invoice-templates/final-invoice.html">show the final balance</a>. Write the message with the <a href="${rel}guides/invoice-email-template.html">free invoice email generator and four email templates</a>. Then <a href="${rel}guides/how-to-save-an-invoice-as-pdf.html">save an invoice as PDF from Word or the app</a>, and <a href="${rel}guides/how-to-write-a-payment-receipt.html">write a receipt when payment arrives</a>.</p><!--/nav-->

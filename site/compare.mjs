@@ -168,7 +168,7 @@ const description = 'Compare local Word drafting with legal form services, docum
 const COMPARE_CTA_CSS = `<style>.p-cta-fixed{display:none}@media(max-width:760px){.p-cta-fixed{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.p-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.p-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.p-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`;
 export const pages = [
   {
-    path: 'compare/', title: 'Compare document automation tools', description, published: '2026-10-31',
+    path: 'compare/', title: 'Compare document automation tools', ogImage: 'assets/og/compare.png', description, published: '2026-10-31',
     extraHead: collectionLd({ path: 'compare/', name: 'Compare document automation tools', description, items: COMPETITORS.map((c) => [c.title, `compare/${c.slug}.html`]) }) + `<style>.p-cta-fixed{display:none}@media(max-width:760px){.p-cta-fixed{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.p-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.p-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.p-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">
   <h1>Compare document automation tools</h1>
@@ -210,7 +210,7 @@ ${GROUPS.map(([g, label]) => `  <h2 style="margin-top:2rem">${esc(label)}</h2>
     const workflow = COMPARISON_WORKFLOWS[c.slug];
     const faq = compareFaq(c);
     return {
-      path: `compare/${c.slug}.html`, title: c.title, description: c.description, _toc: true,
+      path: `compare/${c.slug}.html`, title: c.title, description: c.description, _toc: true, ogImage: 'assets/og/compare.png',
       // WebPage schema for the comparison itself (search understands the page is about an alternative to
       // Clausery without us asserting any competitor prices/ratings we cannot verify — we intentionally
       // avoid SoftwareApplication for competitors because that would require a fabricated Offer price).

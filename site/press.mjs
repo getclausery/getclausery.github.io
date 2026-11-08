@@ -4,7 +4,7 @@ import { REPO_URL, CONTACT_EMAIL, ONLINE_KEYS, mailto, HUB_CTA_STYLE, hubCta } f
 import { PRICES, TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 import { MARKETING_ASSETS } from './data/marketing-assets.mjs';
 export const pages = [{
-  path: 'press/', title: 'Press kit',
+  path: 'press/', ogImage: 'assets/og/company.png', title: 'Press kit',
   description: 'Clausery press kit: free Word invoices, quotes and receipts for small businesses, with product facts, pricing, reusable images and contact details.',
   extraHead: HUB_CTA_STYLE,
   body: (rel) => `<section class="section"><div class="wrap prose">

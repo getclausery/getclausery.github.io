@@ -24,7 +24,7 @@ const FAQ = [
 ];
 
 export const pages = [{
-  path: 'nda-templates/', title: 'Free NDA Templates | Sign-Ready Word/PDF (5 Forms)',
+  path: 'nda-templates/', ogImage: 'assets/og/business-sale-nda.png', title: 'Free NDA Templates | Sign-Ready Word/PDF (5 Forms)',
   description: '5 free NDA templates: mutual, one-way, employee, contractor and business sale. Fill in online and download a sign-ready Word or PDF.',
   extraHead: faqLd(FAQ) + crumbsLd([['Home', ''], ['Templates', 'templates/'], ['NDA templates', 'nda-templates/']]) + HUB_CTA_STYLE,
   body: (rel) => `

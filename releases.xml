@@ -8,6 +8,14 @@
   <updated>2026-11-08T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.147.0 — Added section-specific Open Graph share cards. 90+ content pages (clause reference, comparisons, free-tool calculators, docs, legal, pricing, changelog, company pages and template hubs) previously fell back to the generic homepage og:image, so social shares on LinkedIn/Facebook/Pinterest showed the same "Invoices, quotes and receipts in Word" card regardless of page topic. Added 11 new section cards (clauses, compare, guides, free-tools, legal, docs, company, marketing, pricing, changelog, for/audiences) matching the visual style of the existing per-template cards, and extended hubOgImage() to map 9 more template hub pages to their nearest relevant template card. Only the homepage, search and sitemap still use the generic image.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-147-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-147-0</id>
+    <published>2026-11-08T00:00:00Z</published>
+    <updated>2026-11-08T00:00:00Z</updated>
+    <summary>Added section-specific Open Graph share cards. 90+ content pages (clause reference, comparisons, free-tool calculators, docs, legal, pricing, changelog, company pages and template hubs) previously fell back to the generic homepage og:image, so social shares on LinkedIn/Facebook/Pinterest showed the same &quot;Invoices, quotes and receipts in Word&quot; card regardless of page topic. Added 11 new section cards (clauses, compare, guides, free-tools, legal, docs, company, marketing, pricing, changelog, for/audiences) matching the visual style of the existing per-template cards, and extended hubOgImage() to map 9 more template hub pages to their nearest relevant template card. Only the homepage, search and sitemap still use the generic image.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.146.0 — Contextualized the sticky mobile/tablet CTA on free-tool pages. Previously every calculator except prorated rent said 'Make an invoice, free' — even on the freelance rate, loan repayment and sales commission pages where that was off-topic. Each calculator now links to its most relevant document (freelance rate → contractor agreement, loan repayment → promissory note, commission → sales commission agreement, rent → lease, invoice tools → invoice, generic tools → app root).</title>
     <link href="https://getclausery.github.io/changelog.html#v2-146-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-146-0</id>

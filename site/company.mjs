@@ -61,7 +61,7 @@ export const pages = [
     body: (rel) => `<p>Redirecting to the <a href="${rel}legal/dmca.html">DMCA and takedowns page</a>.</p>` },
 
   {
-    path: 'about/', title: 'About Clausery (open-source invoice tool — not clausery.ai)',
+    path: 'about/', ogImage: 'assets/og/company.png', title: 'About Clausery (open-source invoice tool — not clausery.ai)',
     description: 'About Clausery, the independent open-source business making free Word invoices, quote and receipt generator for freelancers and small businesses. Not affiliated with Clausery.ai.',
     extraHead: ld({ '@graph': [ { '@type': 'AboutPage', '@id': `${SITE}about/#webpage`, name: 'About Clausery', url: `${SITE}about/`, description: 'Independent open-source business: free Word invoices, quotes and receipts for freelancers and small businesses. Not affiliated with Clausery.ai (separate enterprise compliance software).', mainEntity: { '@id': `${SITE}#organization` }, reviewedBy: { '@id': `${SITE}about/#editors` } }, ORG, EDITOR ] }) + `<style>.p-cta-fixed{display:none}@media(max-width:760px){.p-cta-fixed{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.p-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.p-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.p-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`,
     body: (rel) => `<section class="section"><div class="wrap prose">
@@ -111,7 +111,7 @@ export const pages = [
 `,
   },
   {
-    path: 'contact/', title: 'Contact Clausery',
+    path: 'contact/', ogImage: 'assets/og/company.png', title: 'Contact Clausery',
     description: 'Contact Clausery: ask a question, get billing help or a refund, suggest a template, report a problem, or report a security issue privately.',
     extraHead: ld({ '@type': 'ContactPage', name: 'Contact Clausery', url: `${SITE}contact/`, about: ORG }) + `<style>.p-cta-fixed{display:none}@media(max-width:760px){.p-cta-fixed{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.p-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.p-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.p-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">

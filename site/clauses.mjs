@@ -42,6 +42,7 @@ const COPY_CSS = `<style>
 export const pages = [
   {
     path: 'clauses/', title: 'Contract clause library: sample wording explained',
+    ogImage: 'assets/og/clauses.png',
     description: `Free sample wording for ${CLAUSES.length} common contract clauses, explained in plain English: indemnity, limitation of liability, force majeure, non-compete and more.`,
     extraHead: crumbsLd([['Home', ''], ['Clause library', 'clauses/']]) + collectionLd({ path: 'clauses/', name: 'Contract clause library: sample wording explained', description: `Free sample wording for ${CLAUSES.length} common contract clauses, explained in plain English: indemnity, limitation of liability, force majeure, non-compete and more.`, items: CLAUSES.map((c) => [c.name, `clauses/${c.slug}.html`]) }) + HUB_CTA_STYLE,
     body: (rel) => `
@@ -70,6 +71,7 @@ ${hubCta(rel, 'app/', 'Open Clausery, free')}
     const related = CLAUSES.filter((x) => x.group === c.group && x.slug !== c.slug);
     return {
       path: `clauses/${c.slug}.html`, title: `${c.name}: meaning and sample wording`.length <= 60 ? `${c.name}: meaning and sample wording` : `${c.name}: sample wording`, feed: true, published: PUBLISHED, _toc: true,
+      ogImage: 'assets/og/clauses.png',
       description: c.description || fitSnippet(c.what, { tail: `Free sample ${c.name.toLowerCase()} wording, and what to check.` }),
       extraHead: COPY_CSS + faqLd(faq) + crumbsLd([['Home', ''], ['Clause library', 'clauses/'], [c.name, `clauses/${c.slug}.html`]]) + `<style>.p-cta-fixed{display:none}@media(max-width:760px){.p-cta-fixed{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.p-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.p-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.p-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`,
       body: (rel) => `
