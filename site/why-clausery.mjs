@@ -48,6 +48,7 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Why Clausery</h1>
 <p class="lead">Most tools that make invoices, quotes and contracts want your documents, or your time, or both. Clausery does neither: it makes a Word file on your own computer, gives the whole library away for free, and publishes the code so you can check it.</p>
+<p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
 
 <h2>The difference in one line</h2>
 <div class="table-wrap" tabindex="0"><table class="compare">

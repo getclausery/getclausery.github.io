@@ -10,6 +10,7 @@ export const pages = [{
   body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Press kit</h1>
 <p class="lead">Everything you need to write about or list Clausery. All text on this page may be quoted freely.</p>
+<p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
 <h2>In one sentence</h2>
 <p>Clausery helps small businesses and freelancers make invoices, quotes and receipts in editable Word files, with calculated totals and document contents kept on their device.</p>
 <h2>Short description</h2>

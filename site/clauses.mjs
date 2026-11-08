@@ -50,8 +50,8 @@ export const pages = [
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › Clause library</nav>
   <p class="eyebrow" style="margin-top:1rem">Free clause library</p>
   <h1>Contract clauses, explained in plain English</h1>
-  <p class="lead">What each clause does, sample wording you can copy, the points worth negotiating, and how to make the variable parts fill themselves in. ${CLAUSES.length} clauses, free, with no sign-up.</p>
-  <nav class="small hub-jump" aria-label="Jump to section"><strong>Jump to:</strong> ${GROUPS.map((g,i)=>{const id='clause-group-'+i;return `<a href="#${id}">${esc(g)}</a>`}).join(' · ')} · <a href="#by-document">By document</a></nav>
+  <p class="lead">What each clause does, sample wording you can copy, the points worth negotiating, and how to make the variable parts fill themselves in. ${CLAUSES.length} clauses, free, with no sign-up.<p><a class="btn btn-primary" href="${rel}app/">Open Clausery free — no account</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+  <nav aria-label="Jump to section"><strong>Jump to:</strong> ${GROUPS.map((g,i)=>{const id='clause-group-'+i;return `<a href="#${id}">${esc(g)}</a>`}).join(' · ')} · <a href="#by-document">By document</a></nav>
   ${GROUPS.map((g,i) => {const id='clause-group-'+i;return `<h2 id="${id}" style="margin-top:2.5rem">${esc(g)}</h2>
   <div class="grid grid-3">${CLAUSES.filter((c) => c.group === g).map((c) => `<a class="feature" href="${rel}clauses/${c.slug}.html">${cardUpdated(`clauses/${c.slug}.html`)}<h3>${esc(c.name)}</h3><p class="small">${esc(c.what.split('. ')[0].replace(/\.$/, ''))}.</p></a>`).join('')}</div>`;}).join('')}
 

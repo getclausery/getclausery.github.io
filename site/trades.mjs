@@ -183,8 +183,8 @@ export const pages = [
     ]) + HUB_CTA_STYLE,
     body: (rel) => `<section class="section"><div class="wrap">
   <h1>Free Word invoice templates by task, trade and country</h1>
-  <p class="lead">Pick your trade and the invoice opens with the lines that trade usually bills, ready for your prices. Pick your country and it opens with the right tax, rate and tax number. Totals and tax are worked out for you, your next invoice remembers your details and number, and you download an editable Word file. Free, no sign-up, nothing uploaded.</p>
-  <nav class="small hub-jump" aria-label="Jump to section"><strong>Jump to:</strong> <a href="#popular">Popular</a> · <a href="#by-task">By billing task</a> · <a href="#by-trade">By trade</a> · <a href="#by-country">By country</a> · <a href="#tax">Tax &amp; payment</a> · <a href="#faq">FAQ</a></nav>
+  <p class="lead">Pick your trade and the invoice opens with the lines that trade usually bills, ready for your prices. Pick your country and it opens with the right tax, rate and tax number. Totals and tax are worked out for you, your next invoice remembers your details and number, and you download an editable Word file. Free, no sign-up, nothing uploaded.<p><a class="btn btn-primary" href="${rel}app/">Open Clausery free — no account</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+  <nav aria-label="Jump to section"><strong>Jump to:</strong> <a href="#popular">Popular</a> · <a href="#by-task">By billing task</a> · <a href="#by-trade">By trade</a> · <a href="#by-country">By country</a> · <a href="#tax">Tax &amp; payment</a> · <a href="#faq">FAQ</a></nav>
   <h2 id="popular" style="margin-top:2rem">Popular invoice starters</h2>
   <div class="grid grid-3 hub-cards" style="margin-top:1rem">
     <a class="feature" href="${rel}invoice-templates/blank-invoice.html"><h3>Blank invoice</h3><p>Empty invoice you fill in online - line items, tax and totals calculated for you.</p></a>
