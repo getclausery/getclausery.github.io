@@ -8,6 +8,14 @@
   <updated>2026-11-07T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.132.0 — Tightened meta-description clipping from 160 to 153 characters. The clipDescription() helper in tools/partials.mjs was configured with max:160 and a sentence-cut threshold of 130, which let 23 pages (invoice starters, NDA templates, contract letters and one guide) end up at 156-160 decoded characters — Google truncates at ~155 and appends an ellipsis mid-word for anything over. Lowered the hard max to 153, the sentence-cut threshold to 120, and fitSnippet() to 153 to match. After the rebuild, 0 pages exceed 155 decoded characters and 0 content pages are under 120.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-132-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-132-0</id>
+    <published>2026-11-07T00:00:00Z</published>
+    <updated>2026-11-07T00:00:00Z</updated>
+    <summary>Tightened meta-description clipping from 160 to 153 characters. The clipDescription() helper in tools/partials.mjs was configured with max:160 and a sentence-cut threshold of 130, which let 23 pages (invoice starters, NDA templates, contract letters and one guide) end up at 156-160 decoded characters — Google truncates at ~155 and appends an ellipsis mid-word for anything over. Lowered the hard max to 153, the sentence-cut threshold to 120, and fitSnippet() to 153 to match. After the rebuild, 0 pages exceed 155 decoded characters and 0 content pages are under 120.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.131.0 — Mobile touch-target and readability pass. Buttons on phones now meet the WCAG 44 px minimum touch-target size (hero CTAs and inline .btn pairs: min-height:48 px / 44 px with 44 px on scroll-cta/to-top/menu-btn/find-input); .find-form wraps on narrow screens; the menu button has a 44×44 hit area; .quickstart-card padded up on tablets (0.9rem) and phones (0.85rem); line-height on body and prose paragraphs bumped to 1.55 for easier reading on high-DPI phone screens; removed the primary-button 1px gradient-shine pseudo-element (purely decorative, 369 B) to stay inside the 45,000 B site.css cap. Also added -webkit-text-size-adjust:100% (then removed for budget — body font-size:15px is already > iOS Safari's 16 px autoscale threshold so no zoom-in), and tightened a few redundant properties.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-131-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-131-0</id>

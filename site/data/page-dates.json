@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-08",
-  "hash": "ebbf7d8db432fd5c"
+  "hash": "49a6ea4b9df8658d"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -204,8 +204,8 @@
   "hash": "f8feb978d7e2773b"
  },
  "docs/faq.html": {
-  "date": "2026-11-07",
-  "hash": "bc940dcca36ac0a0"
+  "date": "2026-11-08",
+  "hash": "d0a1e20347ddf59c"
  },
  "docs/intake.html": {
   "date": "2026-11-07",
@@ -232,8 +232,8 @@
   "hash": "e82d34309f0c60aa"
  },
  "docs/templates.html": {
-  "date": "2026-11-07",
-  "hash": "b8e918c0ede9a005"
+  "date": "2026-11-08",
+  "hash": "1ee3ed1bbb1f6f2c"
  },
  "for/": {
   "date": "2026-11-07",
@@ -756,8 +756,8 @@
   "hash": "e3e9f7289d2c4c1f"
  },
  "legal/license.html": {
-  "date": "2026-11-07",
-  "hash": "73ddec331cee87d7"
+  "date": "2026-11-08",
+  "hash": "f4228b8c813d1137"
  },
  "legal/privacy.html": {
   "date": "2026-11-07",
@@ -805,7 +805,7 @@
  },
  "roadmap/": {
   "date": "2026-11-08",
-  "hash": "7269b3018b51b717"
+  "hash": "24451a8be301d853"
  },
  "search/": {
   "date": "2026-10-31",
@@ -821,7 +821,7 @@
  },
  "status/": {
   "date": "2026-11-08",
-  "hash": "26e365f75ef6b012"
+  "hash": "f813c406458e312d"
  },
  "templates/": {
   "date": "2026-11-07",
