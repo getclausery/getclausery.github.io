@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-11-08",
-  "hash": "ef79193183c03878"
+  "hash": "883af9a0ee9a85f8"
  },
  "clauses/": {
   "date": "2026-11-07",
@@ -747,25 +747,29 @@
   "date": "2026-11-07",
   "hash": "06158590a22d3c3e"
  },
+ "legal/": {
+  "date": "2026-11-08",
+  "hash": "3cb0eb0832c4d0fd"
+ },
  "legal/dmca.html": {
-  "date": "2026-11-07",
-  "hash": "055abcee71a5b37a"
+  "date": "2026-11-08",
+  "hash": "982b4fea5d265208"
  },
  "legal/dpa.html": {
-  "date": "2026-11-07",
-  "hash": "e3e9f7289d2c4c1f"
+  "date": "2026-11-08",
+  "hash": "d35cb05ac9c8f92f"
  },
  "legal/license.html": {
   "date": "2026-11-08",
-  "hash": "f4228b8c813d1137"
+  "hash": "0a9e560f8a777235"
  },
  "legal/privacy.html": {
-  "date": "2026-11-07",
-  "hash": "617657096a8b7da1"
+  "date": "2026-11-08",
+  "hash": "408258b25bb36782"
  },
  "legal/terms.html": {
-  "date": "2026-11-07",
-  "hash": "2e66d4cce6ab121c"
+  "date": "2026-11-08",
+  "hash": "2299046e186a7f4c"
  },
  "made-with/": {
   "date": "2026-10-24",
