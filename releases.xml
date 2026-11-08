@@ -8,6 +8,14 @@
   <updated>2026-11-08T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.149.0 — Added sticky CTA to the changelog page, which previously had no floating action button despite being one of the longest pages on the site. The changelog is now at parity with other long-form pages: an inline CTA above the fold (added in v2.148) plus the standard mobile bottom bar and desktop FAB linking to the app.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-149-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-149-0</id>
+    <published>2026-11-08T00:00:00Z</published>
+    <updated>2026-11-08T00:00:00Z</updated>
+    <summary>Added sticky CTA to the changelog page, which previously had no floating action button despite being one of the longest pages on the site. The changelog is now at parity with other long-form pages: an inline CTA above the fold (added in v2.148) plus the standard mobile bottom bar and desktop FAB linking to the app.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.148.0 — Added above-the-fold inline CTAs to docs, legal, company and hub-index pages. All 10 docs pages and 5 legal pages now show an inline primary CTA between the lead paragraph and the first section; company/about pages (about, contact, why-clausery, customers, press, status, roadmap, changelog) get a matching inline CTA; and all 7 remaining section-hub index pages (clauses, compare, for, free-tools, guides, invoice-templates, nda-templates, templates) get an inline 'Open Clausery free — no account' button in the hero. 379 of 380 indexable pages now carry a primary CTA above the fold (only sitemap is excepted, as it is a navigation-only utility).</title>
     <link href="https://getclausery.github.io/changelog.html#v2-148-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-148-0</id>
