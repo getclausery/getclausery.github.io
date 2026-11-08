@@ -50,8 +50,7 @@ export const pages = [{
   <div class="wrap">
     <div>
       <div class="eyebrow">${ico(I.calc)} Free · No account · No card · Editable Word</div>
-      <div class="release-pill"><a href="${rel}changelog.html#v${APP_VERSION.replace(/\./g,'-')}"><strong>New:</strong> v${APP_VERSION}</a> — <a href="${rel}app/#/drafts">track sent/paid invoices</a>, <a href="${rel}self-hosting/">self-host / Enterprise</a>, and sharper identity (not clausery.ai).</div>
-      <div class="notice-name">${ico(I.info,14)} Not clausery.ai — we're the independent open-source Word invoice generator; compliance software is over at <a href="https://www.clausery.ai/" rel="noopener">clausery.ai</a>.</div>
+      <div class="release-pill"><a href="${rel}changelog.html#v${APP_VERSION.replace(/\./g,'-')}"><strong>New:</strong> v${APP_VERSION}</a> — fixed share-card images, expanded image sitemap, and ongoing CRO polish. <a href="${rel}changelog.html">See what changed</a>.</div>
       <h1>Free invoice template — make a professional invoice online in 60 seconds.</h1>
       <p class="hero-rating" style="margin:.5rem 0 .25rem;display:inline-flex;align-items:center;gap:.45rem;font-size:.88rem"><span aria-hidden="true" style="color:#f59e0b;letter-spacing:.04em;font-size:1rem">★★★★★</span><strong>4.8/5</strong><span style="color:#9fb4cb">from 427 freelancers and small businesses</span></p>
       <p class="lead">Answer a few questions and download a printable PDF or editable <strong>Word .docx</strong> invoice. Totals, VAT, GST or sales tax, discounts, and the next invoice number are worked out automatically. Also make <a href="${rel}templates/quote.html">quotes</a>, <a href="${rel}templates/purchase-order.html">purchase orders</a>, <a href="${rel}templates/credit-note.html">credit notes</a> and <a href="${rel}templates/payment-receipt.html">receipts</a> — everything runs in your browser; nothing is uploaded.</p>
