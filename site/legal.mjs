@@ -11,6 +11,22 @@ const APP_COUNTS = `\n<h2>App usage counts</h2>\n<p>To learn which templates peo
 const LEGAL_CTA_STYLE = `<style>.legal-cta-fixed{display:none}@media(max-width:760px){.legal-cta-fixed{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.legal-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.legal-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.legal-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`;
 const page = (path, title, description, body) => ({ path, title, description, extraHead: LEGAL_CTA_STYLE, body: (rel) => `<section class="section"><div class="wrap prose">${body(rel)}</div></section><div class="legal-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>` });
 export const pages = [
+  { path: 'legal/', title: 'Legal documents', description: 'Privacy policy, terms of service, open-source license (AGPLv3), data processing statement and DMCA / takedown information for Clausery.', feed: false,
+    extraHead: LEGAL_CTA_STYLE,
+    body: (rel) => `<section class="section"><div class="wrap prose">
+<nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › Legal</nav>
+<h1>Legal documents</h1>
+<p class="lead">Clausery is independent open-source software for making Word invoices, quotes, receipts and contracts. The documents below cover privacy, the terms you agree to when using the app, the open-source license, and how to report impersonation or infringement.</p>
+<ul>
+  <li><a href="${rel}legal/privacy.html">Privacy policy</a> — what is stored, what is not, and how analytics and purchases work.</li>
+  <li><a href="${rel}legal/terms.html">Terms of service</a> — license, the free trial, fees, the ${REFUND_DAYS}-day money-back guarantee and warranties.</li>
+  <li><a href="${rel}legal/dpa.html">Data processing statement</a> — why document contents are not processed by the vendor, for procurement and compliance teams.</li>
+  <li><a href="${rel}legal/license.html">Open-source license (AGPLv3)</a> — run, modify and redistribute under AGPLv3 with a trademark exception; commercial / white-label terms.</li>
+  <li><a href="${rel}legal/dmca.html">DMCA, trademark and impersonation takedown</a> — how to report infringement, impersonation or unlicensed copies.</li>
+</ul>
+<p>Questions that these pages don't answer? <a href="${rel}contact/">Contact Clausery</a>.</p>
+</div></section><div class="legal-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/">Open Clausery, free <span class="arr">→</span></a></div>` },
+
 page('legal/privacy.html', 'Privacy policy', 'How Clausery keeps document contents on your device and handles license checks, purchases, support and cookieless analytics.', (rel) => `
 <h1>Privacy policy</h1>
 <p class="muted">Effective ${EFFECTIVE ? longDate(EFFECTIVE) : '2 October 2026'}</p>
