@@ -209,7 +209,7 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://static.cloudflareinsights.com" crossorigin>
 <link rel="dns-prefetch" href="https://static.cloudflareinsights.com">
 <link rel="preload" href="${rel}assets/icon.svg" as="image" type="image/svg+xml">
-<link rel="preload" href="${rel}site.css" as="style">
+<link rel="preload" href="${rel}site.css" as="style" fetchpriority="high">
 <link rel="stylesheet" href="${rel}site.css">
 <meta property="og:logo" content="${SITE}assets/icon-512.png">
 <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
