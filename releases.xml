@@ -8,6 +8,14 @@
   <updated>2026-11-08T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.146.0 — Contextualized the sticky mobile/tablet CTA on free-tool pages. Previously every calculator except prorated rent said 'Make an invoice, free' — even on the freelance rate, loan repayment and sales commission pages where that was off-topic. Each calculator now links to its most relevant document (freelance rate → contractor agreement, loan repayment → promissory note, commission → sales commission agreement, rent → lease, invoice tools → invoice, generic tools → app root).</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-146-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-146-0</id>
+    <published>2026-11-08T00:00:00Z</published>
+    <updated>2026-11-08T00:00:00Z</updated>
+    <summary>Contextualized the sticky mobile/tablet CTA on free-tool pages. Previously every calculator except prorated rent said 'Make an invoice, free' — even on the freelance rate, loan repayment and sales commission pages where that was off-topic. Each calculator now links to its most relevant document (freelance rate → contractor agreement, loan repayment → promissory note, commission → sales commission agreement, rent → lease, invoice tools → invoice, generic tools → app root).</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.145.0 — Completed the above-the-fold inline CTA rollout: added CTAs to the 9 free-tool pages (calculators and template checker) and the remaining three guide pages whose lead paragraph was followed by a table instead of an h2. Each free-tool page now shows 'Open Clausery free — no account' between the lead and the calculator; guide pages without a mapped template fall back to the same generic CTA so no guide is left without an inline action. With v2.143–v2.145, 348 of 380 indexable pages carry a primary CTA in the hero; the remaining pages are utility indexes, docs, changelog, legal and contact.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-145-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-145-0</id>
