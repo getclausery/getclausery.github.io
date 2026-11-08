@@ -190,7 +190,6 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" sizes="any" href="${rel}assets/icon.svg" type="image/svg+xml">
 <link rel="icon" sizes="16x16 32x32 48x48" href="${rel}favicon.ico" type="image/x-icon">
 <link rel="apple-touch-icon" sizes="192x192" href="${rel}assets/icon-192.png">
-<link rel="apple-touch-icon" href="${rel}assets/icon-192.png">
 <link rel="mask-icon" href="${rel}assets/icon.svg" color="#0d9488">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -207,9 +206,6 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <link rel="sitemap" type="application/xml" title="Sitemap" href="${rel}sitemap_index.xml">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="${rel}feed.xml">
 <link rel="alternate" type="application/atom+xml" title="Clausery releases" href="${rel}releases.xml">
-<link rel="alternate" hreflang="en-GB" href="${url}">
-<link rel="alternate" hreflang="en" href="${url}">
-<link rel="alternate" hreflang="x-default" href="${url}">
 <link rel="preconnect" href="https://static.cloudflareinsights.com" crossorigin>
 <link rel="dns-prefetch" href="https://static.cloudflareinsights.com">
 <link rel="preload" href="${rel}assets/icon.svg" as="image" type="image/svg+xml">
