@@ -1,4 +1,5 @@
 // Hub / variant pages that target high-intent long-tail keywords and link back into the template pages.
+import { existsSync } from 'node:fs';
 import { esc, faqLd, faqHtml, LASTMOD, LASTMOD_LONG, crumbsLd } from '../tools/partials.mjs';
 
 // Each hub: path, title (<60 chars), description (<160), eyebrow, h1, lead intro, sections, faq.
@@ -2581,12 +2582,15 @@ ${faqHtml(h.faq)}
 
 
 const HUB_CTA_CSS = `<style>.tpl-cta-fixed-h{display:none}@media(max-width:760px){.tpl-cta-fixed-h{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.tpl-cta-fixed-h a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.tpl-cta-fixed-h{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.tpl-cta-fixed-h a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`;
+const resolveOg = (candidates, fallback = 'assets/og.png') => {
+  for (const c of candidates) if (c && existsSync(c)) return c;
+  return fallback;
+};
 const hubOgImage = (p) => {
   if (p.startsWith('invoice-templates/') || p.startsWith('receipts/')) return 'assets/og/invoice.png';
   if (p.startsWith('nda-templates/')) return 'assets/og/business-sale-nda.png';
   if (p.startsWith('templates/')) {
     const slug = p.replace('templates/','').replace('.html','');
-    // Map common hub variants to their closest existing lib og image
     const map = {
       'freelance-contract': 'independent-contractor-agreement',
       'independent-contractor-template': 'independent-contractor-agreement',
@@ -2599,10 +2603,16 @@ const hubOgImage = (p) => {
       'employment-termination-letter': 'employment-termination-letter',
       'promissory-note-template': 'promissory-note', 'bill-of-sale': 'bill-of-sale',
     };
-    const pick = map[slug] || slug;
-    // Fall back to invoice.png if no exact og exists (we'll trust the builder's default if ogImage doesn't resolve)
-    return `assets/og/${pick}.png`;
+    const base = map[slug] || slug;
+    const trySlug = (s) => `assets/og/${s}.png`;
+    const variants = [trySlug(slug), trySlug(base)];
+    for (const suffix of ['-template', '-letter', '-agreement', '-contract', '-form']) {
+      if (slug.endsWith(suffix)) variants.push(trySlug(slug.slice(0, -suffix.length)));
+      if (base.endsWith(suffix)) variants.push(trySlug(base.slice(0, -suffix.length)));
+    }
+    return resolveOg(variants, 'assets/og.png');
   }
+  if (p === 'business-document-kit/') return 'assets/marketing/business-kit-social.png';
   return 'assets/og.png';
 };
 export const pages = HUBS.map((h) => ({

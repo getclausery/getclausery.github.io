@@ -28,14 +28,30 @@ const SECTIONS = ['templates', 'invoice-templates', 'guides', 'clauses', 'free-t
 const COMPANY = (p) => p.startsWith('about/') || p.startsWith('contact/') || p.startsWith('press/') || p.startsWith('legal/') || p.startsWith('why-clausery/') || p === 'changelog.html';
 const sectionOf = (p) => COMPANY(p) ? 'company' : SECTIONS.find((s) => p.startsWith(s + '/')) || 'pages';
 // Template pages carry their preview image in an image sitemap entry: image search can then send people to the page
-// with the download, the questions and the full wording, not to a bare JPEG.
+// with the download, the questions and the full wording, not to a bare JPEG. Additionally every page whose OG image
+// is non-generic (i.e. not the shared og.png) gets that OG image listed in the image sitemap so share previews and
+// Google image search can discover it.
 const TEMPLATE_BY_PATH = Object.fromEntries(LIB.map((t) => [`templates/${t.slug}.html`, t]));
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' }[c]));
+const ogImageByPath = {};
+for (const f of indexable) {
+  try {
+    const html = readFileSync(f, 'utf8');
+    const m = html.match(/<meta property="og:image" content="https:\/\/getclausery\.github\.io\/([^"]+)"/);
+    if (m && m[1] !== 'assets/og.png') ogImageByPath[f.replace(/index\.html$/, '')] = m[1];
+  } catch { /* ignore read errors */ }
+}
+const imageTag = (loc, title, caption) => `<image:image><image:loc>${base}${loc}</image:loc>${title ? `<image:title>${esc(title)}</image:title>` : ''}${caption ? `<image:caption>${esc(caption)}</image:caption>` : ''}</image:image>`;
 const imageEntry = (path) => {
+  const parts = [];
   const t = TEMPLATE_BY_PATH[path];
-  if (!t) return '';
-  const loc = `${base}assets/previews/${t.slug}.webp`;
-  return `<image:image><image:loc>${loc}</image:loc><image:title>${esc(`${t.name} template for Word`)}</image:title><image:caption>${esc(t.description || t.intro)}</image:caption></image:image>`;
+  if (t) parts.push(imageTag(`assets/previews/${t.slug}.webp`, `${t.name} template for Word`, t.description || t.intro));
+  const og = ogImageByPath[path];
+  if (og && !(t && og === `assets/og/${t.slug}.png`)) {
+    const title = path.replace(/\/$/, '').split('/').pop().replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+    parts.push(imageTag(og, title));
+  }
+  return parts.join('');
 };
 const entry = (f) => {
   const p = f.replace(/index\.html$/, '');
@@ -48,7 +64,11 @@ const urlset = (files, images = false) => `<?xml version="1.0" encoding="UTF-8"?
 writeFileSync('sitemap.xml', urlset(indexable, true));
 mkdirSync('sitemaps', { recursive: true });
 const names = ['pages', ...SECTIONS];
-for (const name of names) writeFileSync(`sitemaps/${name}.xml`, urlset(indexable.filter((f) => sectionOf(f.replace(/index\.html$/, '')) === name), name === 'templates'));
+const anyImage = (files) => files.some((f) => imageEntry(f.replace(/index\.html$/, '')));
+for (const name of names) {
+  const sectionFiles = indexable.filter((f) => sectionOf(f.replace(/index\.html$/, '')) === name);
+  writeFileSync(`sitemaps/${name}.xml`, urlset(sectionFiles, anyImage(sectionFiles)));
+}
 // Each section sitemap's lastmod is its newest page, so crawlers can skip sections where nothing changed.
 const newest = (name) => indexable.filter((f) => sectionOf(f.replace(/index\.html$/, '')) === name).map((f) => lastmod[`${base}${f.replace(/index\.html$/, '')}`]).filter(Boolean).sort().at(-1);
 writeFileSync('sitemap_index.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${names.map((n) => `  <sitemap><loc>${base}sitemaps/${n}.xml</loc>${newest(n) ? `<lastmod>${newest(n)}</lastmod>` : ''}</sitemap>`).join('\n')}\n</sitemapindex>\n`);
