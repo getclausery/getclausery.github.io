@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://getclausery.github.io/compare/bonsai-alternative.html</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/compare/clio-draft-alternative.html</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/compare/docassemble-alternative.html</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/compare/dubsado-alternative.html</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/compare/eforms-alternative.html</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/compare/gavel-alternative.html</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/compare/honeybook-alternative.html</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/compare/hotdocs-alternative.html</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/compare/</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/compare/lawdepot-alternative.html</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/compare/pandadoc-alternative.html</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/compare/rocket-lawyer-alternative.html</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url><loc>https://getclausery.github.io/compare/bonsai-alternative.html</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>Bonsai Alternative.Html</image:title></image:image></url>
+  <url><loc>https://getclausery.github.io/compare/clio-draft-alternative.html</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>Clio Draft Alternative.Html</image:title></image:image></url>
+  <url><loc>https://getclausery.github.io/compare/docassemble-alternative.html</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>Docassemble Alternative.Html</image:title></image:image></url>
+  <url><loc>https://getclausery.github.io/compare/dubsado-alternative.html</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>Dubsado Alternative.Html</image:title></image:image></url>
+  <url><loc>https://getclausery.github.io/compare/eforms-alternative.html</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>Eforms Alternative.Html</image:title></image:image></url>
+  <url><loc>https://getclausery.github.io/compare/gavel-alternative.html</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>Gavel Alternative.Html</image:title></image:image></url>
+  <url><loc>https://getclausery.github.io/compare/honeybook-alternative.html</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>Honeybook Alternative.Html</image:title></image:image></url>
+  <url><loc>https://getclausery.github.io/compare/hotdocs-alternative.html</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>Hotdocs Alternative.Html</image:title></image:image></url>
+  <url><loc>https://getclausery.github.io/compare/</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>Compare</image:title></image:image></url>
+  <url><loc>https://getclausery.github.io/compare/lawdepot-alternative.html</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>Lawdepot Alternative.Html</image:title></image:image></url>
+  <url><loc>https://getclausery.github.io/compare/pandadoc-alternative.html</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>Pandadoc Alternative.Html</image:title></image:image></url>
+  <url><loc>https://getclausery.github.io/compare/rocket-lawyer-alternative.html</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>Rocket Lawyer Alternative.Html</image:title></image:image></url>
 </urlset>

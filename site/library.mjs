@@ -709,7 +709,7 @@ const hubTitle = (s) => {
 
 export const pages = [
   {
-    path: 'templates/', title: 'Free Word Templates | PDF & Docx (No Signup)',
+    path: 'templates/', ogImage: 'assets/og/marketing.png', title: 'Free Word Templates | PDF & Docx (No Signup)',
     description: `${LIB.length} free Word templates you can fill in online and download as printable PDF or editable .docx — invoices, quotes, receipts, NDAs, contracts, employment letters, lease agreements and landlord forms. No account, no card, nothing uploaded.`,
     extraHead: crumbsLd([['Home', ''], ['Templates', 'templates/']]) + collectionLd({ path: 'templates/', name: 'Free Word templates: invoices, business and contracts', description: `${LIB.length} free Word templates: invoices, quotes, receipts, business contracts, HR letters and landlord forms. Fill them in online or download the .docx.`, items: LIB.map((t) => [t.name, `templates/${t.slug}.html`]) }) + faqLd([
       ['Are these Word templates really free?', 'Yes. Every template on this page is free to fill in online and download as an editable Word .docx or printable PDF, with no account, no sign-up and nothing uploaded. You can also download a .zip of all 87 templates at once.'],

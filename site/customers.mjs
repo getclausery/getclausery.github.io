@@ -57,7 +57,7 @@ const FAQ = [
 ];
 
 export const pages = [{
-  path: 'customers/', title: 'Who uses Clausery: freelancers, landlords, HR',
+  path: 'customers/', ogImage: 'assets/og/company.png', title: 'Who uses Clausery: freelancers, landlords, HR',
   description: `Who uses Clausery? Freelancers, consultants, agencies, landlords, HR teams, service businesses, trades and small law firms — anyone drafting the same Word documents regularly.`,
   extraHead: faqLd(FAQ) + crumbsLd([['Home', ''], ['Customers', 'customers/']]) + `<style>.p-cta-fixed{display:none}@media(max-width:760px){.p-cta-fixed{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.p-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.p-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.p-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`,
   body: (rel) => `<section class="section">

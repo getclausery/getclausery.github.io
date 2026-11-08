@@ -272,7 +272,7 @@ body.embed { background: transparent; }
 .embed-credit { font-size: .82rem; margin: .5rem 0 0; }
 </style>`;
 export const pages = [
-  { path: 'free-tools/', title: 'Free small-business calculators (Word, 2026)', description: 'Free tools for drafting and invoicing: amount in words, deadlines, invoice due dates, late payment interest, loans, commission, prorated rent and more.',
+  { path: 'free-tools/', title: 'Free small-business calculators (Word, 2026)', ogImage: 'assets/og/free-tools.png', description: 'Free tools for drafting and invoicing: amount in words, deadlines, invoice due dates, late payment interest, loans, commission, prorated rent and more.',
     extraHead: collectionLd({ path: 'free-tools/', name: 'Free drafting tools', description: 'Free tools for drafting and invoicing: amount in words, deadlines, invoice due dates, late payment interest, loans, commission, prorated rent and more.', items: TOOLS.map((t) => [t.name, `free-tools/${t.slug}.html`]) }) + HUB_CTA_STYLE,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem"><h1>Free drafting tools</h1><p class="lead">Small tools for everyday drafting and invoicing. They run entirely in your browser; nothing you type is sent anywhere. The calculators can also be <a href="#embed">added to your own website</a> for free.</p>
 <nav class="small hub-jump" aria-label="Jump to section"><strong>Jump to:</strong> <a href="#calculators">Calculators</a> · <a href="#invoice-email">Invoice email generator</a> · <a href="#embed">Embed on your site</a></nav>
@@ -285,7 +285,7 @@ export const pages = [
 ${hubCta(rel, 'app/', 'Open Clausery, free')}
 `,
   },
-  { path: 'free-tools/amount-in-words.html', _toc: true, title: 'Amount in words converter for contracts and cheques', description: T['amount-in-words'].desc, published: '2026-11-07', ogType: 'article',
+  { path: 'free-tools/amount-in-words.html', _toc: true, title: 'Amount in words converter for contracts and cheques', description: T['amount-in-words'].desc, published: '2026-11-07', ogType: 'article', ogImage: 'assets/og/free-tools.png',
     extraHead: faqLd(TOOL_FAQ[0]) + TOOL_CSS + toolLd(T['amount-in-words'].name, T['amount-in-words'].desc, 'free-tools/amount-in-words.html') + `<script type="module" src="amount-in-words.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Amount in words')}
 <h1 style="margin-top:1rem">Amount in words converter</h1>
@@ -300,7 +300,7 @@ ${embedSection('amount-in-words')}
 ${faqHtml(TOOL_FAQ[0])}
 ${cta(rel, 'amount-in-words')}</div></section>${stickyCta('amount-in-words', rel)}` },
 
-  { path: 'free-tools/deadline-calculator.html', _toc: true, title: 'Contract deadline calculator (business days, months, years)', description: T['deadline-calculator'].desc, published: '2026-11-07', ogType: 'article',
+  { path: 'free-tools/deadline-calculator.html', _toc: true, title: 'Contract deadline calculator (business days, months, years)', description: T['deadline-calculator'].desc, published: '2026-11-07', ogType: 'article', ogImage: 'assets/og/free-tools.png',
     extraHead: faqLd(TOOL_FAQ[1]) + TOOL_CSS + toolLd(T['deadline-calculator'].name, T['deadline-calculator'].desc, 'free-tools/deadline-calculator.html') + `<script type="module" src="deadline-calculator.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Deadline calculator')}
 <h1 style="margin-top:1rem">Contract deadline calculator</h1>
@@ -316,7 +316,7 @@ ${embedSection('deadline-calculator')}
 ${faqHtml(TOOL_FAQ[1])}
 ${cta(rel, 'deadline-calculator')}</div></section>${stickyCta('deadline-calculator', rel)}` },
 
-  { path: 'free-tools/invoice-due-date.html', _toc: true, title: 'Net 30 calculator: invoice due date for any payment terms', description: T['invoice-due-date'].desc, published: '2026-11-07', ogType: 'article',
+  { path: 'free-tools/invoice-due-date.html', _toc: true, title: 'Net 30 calculator: invoice due date for any payment terms', description: T['invoice-due-date'].desc, published: '2026-11-07', ogType: 'article', ogImage: 'assets/og/free-tools.png',
     extraHead: faqLd(TOOL_FAQ[5]) + TOOL_CSS + toolLd(T['invoice-due-date'].name, T['invoice-due-date'].desc, 'free-tools/invoice-due-date.html') + `<script type="module" src="invoice-due-date.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Invoice due date')}
 <h1 style="margin-top:1rem">Invoice due date calculator</h1>
@@ -337,7 +337,7 @@ ${embedSection('invoice-due-date')}
 ${faqHtml(TOOL_FAQ[5])}
 ${cta(rel, 'invoice-due-date')}</div></section>${stickyCta('invoice-due-date', rel)}` },
 
-  { path: 'free-tools/late-payment-interest.html', _toc: true, title: 'Late payment interest calculator (contract or UK statutory)', description: T['late-payment-interest'].desc, published: '2026-11-07', ogType: 'article',
+  { path: 'free-tools/late-payment-interest.html', _toc: true, title: 'Late payment interest calculator (contract or UK statutory)', description: T['late-payment-interest'].desc, published: '2026-11-07', ogType: 'article', ogImage: 'assets/og/free-tools.png',
     extraHead: faqLd(TOOL_FAQ[3]) + TOOL_CSS + toolLd(T['late-payment-interest'].name, T['late-payment-interest'].desc, 'free-tools/late-payment-interest.html') + `<script type="module" src="late-payment-interest.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Late payment interest')}
 <h1 style="margin-top:1rem">Late payment interest calculator</h1>
@@ -353,7 +353,7 @@ ${embedSection('late-payment-interest')}
 ${faqHtml(TOOL_FAQ[3])}
 ${cta(rel, 'late-payment-interest')}</div></section>${stickyCta('late-payment-interest', rel)}` },
 
-  { path: 'free-tools/freelance-rate.html', _toc: true, title: 'Freelance rate calculator: hourly and day rate', description: T['freelance-rate'].desc, published: '2026-11-07', ogType: 'article',
+  { path: 'free-tools/freelance-rate.html', _toc: true, title: 'Freelance rate calculator: hourly and day rate', description: T['freelance-rate'].desc, published: '2026-11-07', ogType: 'article', ogImage: 'assets/og/free-tools.png',
     extraHead: faqLd(TOOL_FAQ[4]) + TOOL_CSS + toolLd(T['freelance-rate'].name, T['freelance-rate'].desc, 'free-tools/freelance-rate.html') + `<script type="module" src="freelance-rate.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Freelance rate')}
 <h1 style="margin-top:1rem">Freelance rate calculator</h1>
@@ -368,7 +368,7 @@ ${embedSection('freelance-rate')}
 ${faqHtml(TOOL_FAQ[4])}
 ${cta(rel, 'freelance-rate')}</div></section>${stickyCta('freelance-rate', rel)}` },
 
-  { path: 'free-tools/loan-repayment.html', _toc: true, title: 'Loan repayment calculator with amortization schedule', description: T['loan-repayment'].desc, published: '2026-11-07', ogType: 'article',
+  { path: 'free-tools/loan-repayment.html', _toc: true, title: 'Loan repayment calculator with amortization schedule', description: T['loan-repayment'].desc, published: '2026-11-07', ogType: 'article', ogImage: 'assets/og/free-tools.png',
     extraHead: faqLd(TOOL_FAQ[6]) + TOOL_CSS + toolLd(T['loan-repayment'].name, T['loan-repayment'].desc, 'free-tools/loan-repayment.html') + `<script type="module" src="loan-repayment.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Loan repayment')}
 <h1 style="margin-top:1rem">Loan repayment calculator</h1>
@@ -382,7 +382,7 @@ ${embedSection('loan-repayment')}
 <h2 style="margin-top:2.5rem">Questions</h2>
 ${faqHtml(TOOL_FAQ[6])}
 ${cta(rel, 'loan-repayment')}</div></section>${stickyCta('loan-repayment', rel)}` },
-  { path: 'free-tools/sales-commission.html', _toc: true, title: 'Sales commission calculator with tiers and draw', description: T['sales-commission'].desc, published: '2026-11-07', ogType: 'article',
+  { path: 'free-tools/sales-commission.html', _toc: true, title: 'Sales commission calculator with tiers and draw', description: T['sales-commission'].desc, published: '2026-11-07', ogType: 'article', ogImage: 'assets/og/free-tools.png',
     extraHead: faqLd(TOOL_FAQ[7]) + TOOL_CSS + toolLd(T['sales-commission'].name, T['sales-commission'].desc, 'free-tools/sales-commission.html') + `<script type="module" src="sales-commission.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Sales commission')}
 <h1 style="margin-top:1rem">Sales commission calculator</h1>
@@ -396,7 +396,7 @@ ${embedSection('sales-commission')}
 <h2 style="margin-top:2.5rem">Questions</h2>
 ${faqHtml(TOOL_FAQ[7])}
 ${cta(rel, 'sales-commission')}</div></section>${stickyCta('sales-commission', rel)}` },
-  { path: 'free-tools/prorated-rent.html', _toc: true, title: 'Prorated rent calculator for move-in and move-out', description: T['prorated-rent'].desc, published: '2026-11-07', ogType: 'article',
+  { path: 'free-tools/prorated-rent.html', _toc: true, title: 'Prorated rent calculator for move-in and move-out', description: T['prorated-rent'].desc, published: '2026-11-07', ogType: 'article', ogImage: 'assets/og/free-tools.png',
     extraHead: faqLd(TOOL_FAQ[8]) + TOOL_CSS + toolLd(T['prorated-rent'].name, T['prorated-rent'].desc, 'free-tools/prorated-rent.html') + `<script type="module" src="prorated-rent.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Prorated rent')}
 <h1 style="margin-top:1rem">Prorated rent calculator</h1>
@@ -410,7 +410,7 @@ ${embedSection('prorated-rent')}
 <h2 style="margin-top:2.5rem">Questions</h2>
 ${faqHtml(TOOL_FAQ[8])}
 ${cta(rel, 'prorated-rent')}</div></section>${stickyCta('prorated-rent', rel)}` },
-  { path: 'free-tools/template-checker.html', _toc: true, title: 'Word template tag checker', description: T['template-checker'].desc, published: '2026-11-07', ogType: 'article',
+  { path: 'free-tools/template-checker.html', _toc: true, title: 'Word template tag checker', description: T['template-checker'].desc, published: '2026-11-07', ogType: 'article', ogImage: 'assets/og/free-tools.png',
     extraHead: faqLd(TOOL_FAQ[2]) + TOOL_CSS + toolLd(T['template-checker'].name, T['template-checker'].desc, 'free-tools/template-checker.html') + `<script type="module" src="template-checker.js"></script>`,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Template checker')}
 <h1 style="margin-top:1rem">Word template tag checker</h1>

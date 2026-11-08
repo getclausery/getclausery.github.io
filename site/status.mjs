@@ -6,7 +6,7 @@ import { APP_VERSION, TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 
 export const pages = [
   {
-    path: 'status/', title: 'Clausery status',
+    path: 'status/', ogImage: 'assets/og/company.png', title: 'Clausery status',
     description: 'Current status of Clausery: public site, GitHub source, latest release, and where to check if something appears to be down.',
     extraHead: crumbsLd([['Home', ''], ['Status', 'status/']]) + HUB_CTA_STYLE,
     body: (rel) => `<section class="section"><div class="wrap prose" style="max-width:48rem">
@@ -54,7 +54,7 @@ ${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}
 `,
   },
   {
-    path: 'roadmap/', title: 'Clausery roadmap',
+    path: 'roadmap/', ogImage: 'assets/og/changelog.png', title: 'Clausery roadmap',
     description: 'Clausery roadmap: what has shipped recently, what is being worked on now, and how to suggest or upvote the next feature. Every release is listed in the changelog; open work lives in public GitHub issues.',
     extraHead: crumbsLd([['Home', ''], ['Roadmap', 'roadmap/']]) + HUB_CTA_STYLE,
     body: (rel) => `<section class="section"><div class="wrap prose" style="max-width:48rem">
