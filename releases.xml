@@ -8,6 +8,14 @@
   <updated>2026-11-07T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.135.0 — Added Article JSON-LD to docs pages. v2.133–v2.134 flipped all editorial pages to og:type=article and added article:section/article:tag meta, but the docs pages and a handful of deep-hub landers (business-document-kit, compare index, why-clausery) were not getting an Article schema node in JSON-LD because that block only ran for pages flagged _howTo or _toc (guides, clauses, templates). Widened the body-prep pass in tools/build-site.mjs to run whenever p.published is set, so every page that declares a published date now emits Article JSON-LD consistent with its og:type=article, including headline, datePublished, dateModified, lastReviewed, reviewedBy, image, author and publisher. Hubs, legal and marketing landers without a published date are unaffected.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-135-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-135-0</id>
+    <published>2026-11-07T00:00:00Z</published>
+    <updated>2026-11-07T00:00:00Z</updated>
+    <summary>Added Article JSON-LD to docs pages. v2.133–v2.134 flipped all editorial pages to og:type=article and added article:section/article:tag meta, but the docs pages and a handful of deep-hub landers (business-document-kit, compare index, why-clausery) were not getting an Article schema node in JSON-LD because that block only ran for pages flagged _howTo or _toc (guides, clauses, templates). Widened the body-prep pass in tools/build-site.mjs to run whenever p.published is set, so every page that declares a published date now emits Article JSON-LD consistent with its og:type=article, including headline, datePublished, dateModified, lastReviewed, reviewedBy, image, author and publisher. Hubs, legal and marketing landers without a published date are unaffected.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.134.0 — Completed the article Open Graph metadata that v2.133 started. editorial pages marked ogType:'article' (guides, free-tool calculators, docs) now also emit article:section (derived from the URL path — Guides, Free tools, Docs) and article:tag (first six keywords from the page's keyword meta), which were missing from the initial article-type rollout. The article:section value is mapped through SECTION_NAMES already used for breadcrumbs so human-readable section names appear in Facebook/LinkedIn/Pinterest share cards instead of path slugs. After rebuild all ~80 article-type pages carry published_time, modified_time, section, tags, author and publisher consistently.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-134-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-134-0</id>

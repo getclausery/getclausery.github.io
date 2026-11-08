@@ -124,17 +124,18 @@ for (const p of pages) {
   // hash (and therefore page-dates.json) claim that the editorial content changed.
   const hasPageNode = /"@type":"(CollectionPage|SearchResultsPage|AboutPage|ContactPage|WebSite)"/.test(p.extraHead || '');
   const skipPageLd = p.layout === 'embed' || p.noindex || p.path === '' || p.path === '404.html' || hasPageNode;
-  // For pages flagged _howTo or _toc (guides, clauses, templates), render body first: add h2 slug ids,
-  // server-rendered TOC, HowTo/Article/FAQ JSON-LD as appropriate.
+  // For any page that declares a published date, or is flagged _howTo/_toc (guides, clauses, templates),
+  // render the body first so we can add slug ids, TOC, Article JSON-LD, HowTo and FAQ blocks as needed.
   let renderedBody = null;
-  const needsBodyPrep = (p._howTo || p._toc) && p.layout !== 'embed';
-  if (needsBodyPrep) {
+  let headings = [];
+  const prepBody = (p.published || p._howTo || p._toc) && p.layout !== 'embed';
+  if (prepBody) {
     renderedBody = p.body(rel);
     // Assign stable slug ids to every <h2>, collect sections for a server-rendered TOC.
     const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
     const seen = new Set();
     const tocSkip = /^(sources|questions|common questions|more on |free templates|related|ready to)/i;
-    const headings = [];
+    headings = [];
     let hIdx = 0;
     renderedBody = renderedBody.replace(/<h2([\s\S]*?)>([\s\S]*?)<\/h2>/g, (m, attrs, inner) => {
       if (/\sid=/.test(attrs)) {
@@ -163,7 +164,7 @@ for (const p of pages) {
       const tocLd = { '@context': 'https://schema.org', '@type': 'TableOfContents', '@id': `${SITE}${p.path}#toc`, url: `${SITE}${p.path}#toc`, name: 'On this page', mainEntityOfPage: { '@id': `${SITE}${p.path}#webpage` }, about: { '@id': `${SITE}${p.path}#article` }, itemListElement: headings.map((h, idx) => ({ '@type': 'ListItem', position: idx + 1, name: h.text, url: `${SITE}${p.path}#${h.id}` })) };
       p.extraHead = (p.extraHead || '') + `<script type="application/ld+json">${JSON.stringify(tocLd)}</script>`;
     }
-    // Article schema on any long-form page with a published date (guides, clauses, templates and the deep-dive hubs).
+    // Article schema on any long-form page with a published date (guides, clauses, templates, docs and the deep-dive hubs).
     if (p.published) {
     // Derive about/mentions topics from h2 headings (visible DOM sections → schema.org Thing entities),
     // so search engines can connect the article to topical entities without us hard-coding a taxonomy.
