@@ -8,6 +8,14 @@
   <updated>2026-11-08T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.143.0 — Added an above-the-fold primary CTA to every guide page. Previously the only call-to-action on /guides/* was the floating sticky button (mobile bottom bar / desktop corner FAB), so a visitor who scrolled past the lead on desktop saw no direct path into the product. Each guide now renders an inline 'Start with a <template> — free' primary button (plus a secondary 'See the Word template' link) immediately after the lead paragraph, deep-linked to that guide's mapped template. Uses existing .prose/.btn styles so site.css does not grow.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-143-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-143-0</id>
+    <published>2026-11-08T00:00:00Z</published>
+    <updated>2026-11-08T00:00:00Z</updated>
+    <summary>Added an above-the-fold primary CTA to every guide page. Previously the only call-to-action on /guides/* was the floating sticky button (mobile bottom bar / desktop corner FAB), so a visitor who scrolled past the lead on desktop saw no direct path into the product. Each guide now renders an inline 'Start with a &lt;template&gt; — free' primary button (plus a secondary 'See the Word template' link) immediately after the lead paragraph, deep-linked to that guide's mapped template. Uses existing .prose/.btn styles so site.css does not grow.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.142.0 — Fixed a CTA mismatch on legal pages and removed two duplicates. The sticky CTA on /legal/privacy, /legal/terms, /legal/dpa, /legal/license and /legal/dmca previously read 'Make an invoice, free' — a poor match for visitors reading privacy policy or terms — so it now says 'Open Clausery, free' matching the /legal/ hub and other product pages.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-142-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-142-0</id>
