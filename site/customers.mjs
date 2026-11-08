@@ -66,6 +66,7 @@ export const pages = [{
       <div class="eyebrow">Customers & use cases</div>
       <h1>Who uses Clausery</h1>
       <p class="lead" style="margin:0 auto">People and small businesses who send the same kinds of Word documents again and again, and do not want to upload client details to a document server.</p>
+      <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
       <p class="small muted" style="margin-top:.5rem">Every scenario below links to a real page with templates and guidance — no invented quotes.</p>
     </div>
 

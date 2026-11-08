@@ -173,6 +173,7 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">
   <h1>Compare document automation tools</h1>
   <p class="lead">Choose the workflow before comparing subscriptions. Clausery assembles editable Word documents locally; it is not a hosted client portal, law firm, electronic-signature service or payment processor.</p>
+<p><a class="btn btn-primary" href="${rel}app/">Try Clausery free — no account</a> <a class="btn" href="${rel}pricing/">See pricing</a></p>
   <h2>What are you trying to replace?</h2>
   <ul>
     <li><strong>Local drafting:</strong> reusable Word wording, questions, optional clauses and calculated billing documents.</li>

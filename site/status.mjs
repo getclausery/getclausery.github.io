@@ -12,6 +12,7 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose" style="max-width:48rem">
 <h1>Status</h1>
 <p class="lead">Clausery is a static site served by GitHub Pages, with document generation running in your browser. There is no application server to go down, so the only things that can fail are the page hosting and the license check.</p>
+<p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
 
 <div class="grid grid-2" style="margin-top:2rem">
   <div class="feature" style="border-left:4px solid var(--ok);padding-left:1rem">
@@ -60,6 +61,7 @@ ${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}
     body: (rel) => `<section class="section"><div class="wrap prose" style="max-width:48rem">
 <h1>Roadmap</h1>
 <p class="lead">What has shipped recently, what is being worked on now, and how to influence what comes next. Every shipped item is in the <a href="${rel}changelog.html">changelog</a>; everything else is tracked in public GitHub issues.</p>
+<p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
 
 <h2>Recently shipped</h2>
 <ul>

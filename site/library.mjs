@@ -723,6 +723,7 @@ export const pages = [
   <p class="eyebrow">Free template library</p>
   <h1>Free Word templates for invoices, business and contracts</h1>
   <p class="lead">${LIB.length} free templates, each with its full wording on its page. Download any template as a normal Word file, or fill it in right here: answer a few questions and get a finished .docx. Everything happens in your browser, so client and employee details never leave your computer.</p>
+<p><a class="btn btn-primary" href="${rel}app/">Open Clausery free — no account</a> <a class="btn" href="${rel}templates/">Browse templates</a></p>
   <div class="quickstart" style="margin:1.5rem 0 1rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem">
     <a class="quickstart-card" href="${rel}app/#/start/invoice"><span class="qs-ico" style="background:#d8efe9;color:#0f766e"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M8 12h8M8 16h5"/></svg></span><span><b>Make an invoice</b><small>Line items · tax · totals done</small></span><span class="qs-arrow">→</span></a>
     <a class="quickstart-card" href="${rel}app/#/start/quote"><span class="qs-ico" style="background:#fef3c7;color:#b45309">${ico('M13 2L4 14h7l-1 8 9-12h-7z')}</span><span><b>Send a quote</b><small>Converts to invoice when accepted</small></span><span class="qs-arrow">→</span></a>

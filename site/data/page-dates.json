@@ -28,8 +28,8 @@
   "hash": "4b35b128cc806073"
  },
  "about/": {
-  "date": "2026-11-07",
-  "hash": "c6d27783fdbb536c"
+  "date": "2026-11-08",
+  "hash": "c05da30bed26cf47"
  },
  "business-document-kit/": {
   "date": "2026-11-07",
@@ -37,11 +37,11 @@
  },
  "changelog.html": {
   "date": "2026-11-08",
-  "hash": "e5437c3ce5c81331"
+  "hash": "2edd2ef084538a07"
  },
  "clauses/": {
   "date": "2026-11-08",
-  "hash": "7d8745927510df1f"
+  "hash": "fb92153e1fd5699e"
  },
  "clauses/amendment-clause.html": {
   "date": "2026-11-08",
@@ -141,7 +141,7 @@
  },
  "compare/": {
   "date": "2026-11-08",
-  "hash": "3d0ab8b42a74ca4a"
+  "hash": "e26276766fa6744c"
  },
  "compare/bonsai-alternative.html": {
   "date": "2026-11-08",
@@ -188,56 +188,56 @@
   "hash": "6ea43705546f2dc6"
  },
  "contact/": {
-  "date": "2026-11-07",
-  "hash": "565970f8c7313619"
+  "date": "2026-11-08",
+  "hash": "38f645d073d5b51f"
  },
  "customers/": {
-  "date": "2026-11-07",
-  "hash": "b40d59bfb2e3b5d3"
+  "date": "2026-11-08",
+  "hash": "72615692c40a0710"
  },
  "docs/": {
-  "date": "2026-11-07",
-  "hash": "3afa755585923a46"
+  "date": "2026-11-08",
+  "hash": "5353dbcb662f1ba3"
  },
  "docs/backups.html": {
-  "date": "2026-11-07",
-  "hash": "f8feb978d7e2773b"
+  "date": "2026-11-08",
+  "hash": "6ec209da9acc3e0a"
  },
  "docs/faq.html": {
   "date": "2026-11-08",
-  "hash": "d0a1e20347ddf59c"
+  "hash": "a624006583df007e"
  },
  "docs/intake.html": {
-  "date": "2026-11-07",
-  "hash": "4c6cee1f5ea8995d"
+  "date": "2026-11-08",
+  "hash": "8506c779d41da2cc"
  },
  "docs/logic.html": {
-  "date": "2026-11-07",
-  "hash": "d60c9471732f55ff"
+  "date": "2026-11-08",
+  "hash": "19892fe3973df1ec"
  },
  "docs/questionnaire.html": {
-  "date": "2026-11-07",
-  "hash": "1c0eabc03e5ff7c5"
+  "date": "2026-11-08",
+  "hash": "2f2f4fedbd19f20a"
  },
  "docs/security.html": {
-  "date": "2026-11-07",
-  "hash": "fd2780b28dc01a70"
+  "date": "2026-11-08",
+  "hash": "fdffca9df5a63006"
  },
  "docs/self-hosting.html": {
-  "date": "2026-11-07",
-  "hash": "62461f91de1bd67d"
+  "date": "2026-11-08",
+  "hash": "cca5574c5bfd0ae2"
  },
  "docs/teams.html": {
-  "date": "2026-11-07",
-  "hash": "e82d34309f0c60aa"
+  "date": "2026-11-08",
+  "hash": "ba7a7c2fc94f66a4"
  },
  "docs/templates.html": {
   "date": "2026-11-08",
-  "hash": "1ee3ed1bbb1f6f2c"
+  "hash": "92a4cdb671bc5524"
  },
  "for/": {
   "date": "2026-11-08",
-  "hash": "0b98a3fab721f1e9"
+  "hash": "277659983e0f404e"
  },
  "for/consultants.html": {
   "date": "2026-11-08",
@@ -261,7 +261,7 @@
  },
  "free-tools/": {
   "date": "2026-11-08",
-  "hash": "40e66300721f90b3"
+  "hash": "c3ecc6d246afaa7d"
  },
  "free-tools/amount-in-words.html": {
   "date": "2026-11-08",
@@ -300,8 +300,8 @@
   "hash": "bb17addd4c2fd7cb"
  },
  "guides/": {
-  "date": "2026-11-07",
-  "hash": "698c80c5e14e6077"
+  "date": "2026-11-08",
+  "hash": "71125c440f173718"
  },
  "guides/are-liability-waivers-enforceable.html": {
   "date": "2026-11-08",
@@ -572,8 +572,8 @@
   "hash": "887591f77b73639b"
  },
  "invoice-templates/": {
-  "date": "2026-11-07",
-  "hash": "c046cbeb10adb275"
+  "date": "2026-11-08",
+  "hash": "a93e873045a54aa3"
  },
  "invoice-templates/australia-tax-invoice.html": {
   "date": "2026-11-07",
@@ -753,31 +753,31 @@
  },
  "legal/dmca.html": {
   "date": "2026-11-08",
-  "hash": "84ac406587ee1310"
+  "hash": "ae1242132c02a172"
  },
  "legal/dpa.html": {
   "date": "2026-11-08",
-  "hash": "37057e676aa01903"
+  "hash": "2efc4252f885ca70"
  },
  "legal/license.html": {
   "date": "2026-11-08",
-  "hash": "f13ad3a873203cd8"
+  "hash": "e8401a8d72da6852"
  },
  "legal/privacy.html": {
   "date": "2026-11-08",
-  "hash": "b976bde42d267854"
+  "hash": "d81ed89bf95f285b"
  },
  "legal/terms.html": {
   "date": "2026-11-08",
-  "hash": "599f08249f00129a"
+  "hash": "e9d1f96e1dbd3f25"
  },
  "made-with/": {
-  "date": "2026-10-24",
-  "hash": "43ed34bf980cd9e5"
+  "date": "2026-11-08",
+  "hash": "f66e1e9eca3f31be"
  },
  "nda-templates/": {
-  "date": "2026-11-07",
-  "hash": "fd514fc4fcdf4835"
+  "date": "2026-11-08",
+  "hash": "88a97e5d8a43ae46"
  },
  "nda-templates/nda-form.html": {
   "date": "2026-11-07",
@@ -792,8 +792,8 @@
   "hash": "f2313df9ee593e12"
  },
  "press/": {
-  "date": "2026-11-07",
-  "hash": "a6e597797f4542ad"
+  "date": "2026-11-08",
+  "hash": "8bd06a8e88e6068a"
  },
  "pricing/": {
   "date": "2026-11-08",
@@ -809,7 +809,7 @@
  },
  "roadmap/": {
   "date": "2026-11-08",
-  "hash": "0105230c407eb731"
+  "hash": "f1236a9b843d6f2c"
  },
  "search/": {
   "date": "2026-10-31",
@@ -825,11 +825,11 @@
  },
  "status/": {
   "date": "2026-11-08",
-  "hash": "e71e78d1f1fcdde9"
+  "hash": "43d58072ecf35e40"
  },
  "templates/": {
-  "date": "2026-11-07",
-  "hash": "ee410bc4589b7ecc"
+  "date": "2026-11-08",
+  "hash": "804d76e0ee3f090d"
  },
  "templates/bill-of-sale-template.html": {
   "date": "2026-11-07",
@@ -1548,7 +1548,7 @@
   "hash": "8223e6b671b9fdaa"
  },
  "why-clausery/": {
-  "date": "2026-11-07",
-  "hash": "e37b1e75b8c1d5be"
+  "date": "2026-11-08",
+  "hash": "addc85778e9d6b78"
  }
 }

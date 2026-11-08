@@ -23,7 +23,20 @@ const DOCS_FAQ = [
 ];
 const DOCS_CTA_STYLE = `<style>.docs-cta-fixed{display:none}@media(max-width:760px){.docs-cta-fixed{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.docs-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.docs-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.docs-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`;
 const DOCS_PUBLISHED = '2026-11-07';
-const page = (path, title, description, body, extraHead = '') => ({ path, title, description, published: DOCS_PUBLISHED, ogType: 'article', ogImage: 'assets/og/docs.png', extraHead: extraHead + DOCS_CTA_STYLE, body: (rel) => `<div class="wrap docs">${docsNav(rel, path)}<article class="docs-body">${body(rel)}<p class="docs-cta" style="margin-top:2.5rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Browse free templates</a></p></article></div><div class="docs-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/">Open Clausery, free <span class="arr">→</span></a></div>` });
+const _DOCS_LEAD_CTA = (rel) => `<p style="margin-top:0"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Browse free templates</a></p>`;
+const _DOCS_FOOTER_CTA = (rel) => `<p class="docs-cta" style="margin-top:2.5rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Browse free templates</a></p>`;
+const page = (path, title, description, body, extraHead = '') => ({ path, title, description, published: DOCS_PUBLISHED, ogType: 'article', ogImage: 'assets/og/docs.png', extraHead: extraHead + DOCS_CTA_STYLE, body: (rel) => {
+      let b = body(rel);
+      const cta = _DOCS_LEAD_CTA(rel);
+      // Inject lead CTA after the first paragraph that closes right before an <h2> (the lead paragraph).
+      // Pages without a lead paragraph (FAQ, Backups) get the CTA immediately after </h1>.
+      if (/<\/p>\s*<h2/.test(b)) {
+        b = b.replace(/<\/p>\s*<h2/, `</p>${cta}<h2`);
+      } else {
+        b = b.replace('</h1>', `</h1>${cta}`);
+      }
+      return `<div class="wrap docs">${docsNav(rel, path)}<article class="docs-body">${b}${_DOCS_FOOTER_CTA(rel)}</article></div><div class="docs-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/">Open Clausery, free <span class="arr">→</span></a></div>`;
+    } });
 
 export const pages = [
 page('docs/', 'Getting started', 'Install nothing, sign up for nothing: tag a Word template, drop it into Clausery, answer the questions, download the document.', (rel) => `
@@ -247,6 +260,7 @@ page('docs/teams.html', 'Clausery template packs: share approved Word templates'
 
 page('docs/backups.html', 'Clausery backups: export, restore and move your data', 'Back up Clausery data, choose Merge or Replace when restoring, move to a new browser and protect unencrypted JSON exports. Includes a recovery checklist.', (rel) => `
 <h1>Backups &amp; data</h1>
+<p class="lead">Back up your workspace before clearing site data, switching browsers or moving to a new computer — and test the restore.</p>
 <h2>Where data lives</h2>
 <p>Everything is in your browser's IndexedDB for this site: templates (with the .docx bytes), drafts and settings. Different browsers and profiles on the same computer have separate workspaces.</p>
 <h2>Backups</h2>
@@ -350,6 +364,7 @@ Cache-Control: no-cache   (for HTML; long max-age for vendor/ and assets/)</code
 
 page('docs/faq.html', 'FAQ', 'Frequently asked questions about Clausery: browser support, saving documents as PDF, template limits, spreadsheet bulk generation, e-signatures, offline use, the free trial and Pro licensing.', (rel) => `
 <h1>Frequently asked questions</h1>
+<p class="lead">Short answers to the questions people ask before they start using Clausery.</p>
 <h2>Common questions</h2>
 <div class="faq">${DOCS_FAQ.map(([q, a]) => `<details><summary>${q}</summary><p>${a(rel)}</p></details>`).join('')}</div>
 <h2>More help</h2>

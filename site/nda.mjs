@@ -32,6 +32,7 @@ export const pages = [{
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}templates/">Templates</a> › NDA templates</nav>
   <h1 style="margin-top:1rem">Free NDA templates for Word</h1>
   <p class="lead">Five free non-disclosure agreement templates, also called confidentiality agreements, one for each common situation. Pick the one that matches who is sharing information, then download the Word file or fill it in online in a few minutes. There is no account, no trial and no card, and nothing you type is uploaded.</p>
+<p><a class="btn btn-primary" href="${rel}app/">Open Clausery free — no account</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
 
   <h2 style="margin-top:2.5rem">Which NDA do you need?</h2>
   <div class="table-wrap" tabindex="0"><table class="compare"><thead><tr><th scope="col">Your situation</th><th scope="col">Template</th><th scope="col">Get it</th></tr></thead><tbody>

@@ -67,6 +67,7 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>About Clausery</h1>
 <p class="lead">Clausery makes the documents people draft every week faster to produce, without asking them to upload anything. Your templates, answers and finished documents stay on your own computer.</p>
+<p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
 <div class="notice notice-warn" style="margin:1rem 0 1.5rem"><strong>Important — same name, different company.</strong> This site is an <strong>independent open-source business</strong> (getclausery.github.io). It is <strong>not affiliated</strong> with <a href="https://www.clausery.ai/" rel="noopener">clausery.ai</a>, a separate company that sells enterprise compliance-management software (ISO 27001, DORA, GDPR, NIS2 policy and audit workflows). The two products share the word "Clausery" but have different owners, teams, code, pricing, roadmaps and customers. This page describes the free Word-templates / invoice tool only. If you were looking for compliance-policy software, go to clausery.ai.</div>
 <h2>Why it exists</h2>
 <p>Small businesses and freelancers repeatedly prepare quotes, invoices and receipts. Re-entering business details, checking totals and updating a Word document take attention away from the job itself. Clausery brings those steps together: answer the questions, check the amounts and download an editable document.</p>
@@ -117,6 +118,7 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">
 <h1>Contact Clausery</h1>
 <p class="lead">Email <a href="${mailto('')}">${CONTACT_EMAIL}</a>. A person reads every message, and no account is needed. The buttons below start an email with the right subject line:</p>
+<p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
 <div class="grid grid-2" style="margin-top:1.5rem">
 ${CHANNELS.map(([h, p, href, cta]) => `  <div class="feature"><h2 style="font-size:1.15rem;margin-top:0">${h}</h2><p>${p}</p><p style="margin-top:1rem"><a class="btn" href="${href.replace(/&/g, '&amp;')}">${cta}</a></p></div>`).join('\n')}
   <div class="feature"><h2 style="font-size:1.15rem;margin-top:0">Report a security issue</h2><p>Report vulnerabilities privately with GitHub's private reporting. Please do not open a public issue for them.</p><p style="margin-top:1rem"><a class="btn" href="${REPO_URL}/security/advisories/new" rel="noopener">Report privately</a></p></div>
@@ -144,6 +146,7 @@ ${CHANNELS.map(([h, p, href, cta]) => `  <div class="feature"><h2 style="font-si
 <div class="eyebrow">Made with Clausery</div>
 <h1>The document you received was made with Clausery</h1>
 <p class="lead">Clausery is free, open-source software that makes invoices, quotes, receipts and contracts as editable Word files. Totals, tax and numbering are worked out automatically — and the sender's document contents never leave their browser. <strong>This is not clausery.ai</strong> (the separate enterprise compliance company); it is an independent document-generation tool used by the business that sent you the file.</p>
+<p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
 <div class="proof" style="margin:1rem auto 1.5rem;justify-content:center">
   <span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg> Private by design</span>
   <span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg> Free, no signup</span>
