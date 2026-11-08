@@ -8,6 +8,14 @@
   <updated>2026-11-08T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.151.0 — Head-tag cleanup: removed duplicate hreflang link tags (en/en-GB/x-default were emitted twice, producing invalid HTML) and a duplicate apple-touch-icon link. Removed a redundant table-overflow rule from the mobile CSS block that was already declared in the base stylesheet, saving 61 bytes of CSS (site.css now 44,358 B, 642 B headroom).</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-151-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-151-0</id>
+    <published>2026-11-08T00:00:00Z</published>
+    <updated>2026-11-08T00:00:00Z</updated>
+    <summary>Head-tag cleanup: removed duplicate hreflang link tags (en/en-GB/x-default were emitted twice, producing invalid HTML) and a duplicate apple-touch-icon link. Removed a redundant table-overflow rule from the mobile CSS block that was already declared in the base stylesheet, saving 61 bytes of CSS (site.css now 44,358 B, 642 B headroom).</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.150.0 — Updated the homepage release-pill copy to reflect current changes (inline CTAs rolled out across every content page, contextual share cards, refined mobile experience).</title>
     <link href="https://getclausery.github.io/changelog.html#v2-150-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-150-0</id>
