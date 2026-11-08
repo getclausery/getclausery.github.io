@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-08",
-  "hash": "5f15c2ceef9ff9fe"
+  "hash": "cd1bb3835b659dd8"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -37,11 +37,11 @@
  },
  "changelog.html": {
   "date": "2026-11-08",
-  "hash": "5b12a97689189e64"
+  "hash": "827be297a006c1e0"
  },
  "clauses/": {
-  "date": "2026-11-07",
-  "hash": "45ccf6609d1a5932"
+  "date": "2026-11-08",
+  "hash": "7d8745927510df1f"
  },
  "clauses/amendment-clause.html": {
   "date": "2026-11-08",
@@ -261,43 +261,43 @@
  },
  "free-tools/": {
   "date": "2026-11-08",
-  "hash": "23fd85d7bd7eae6f"
+  "hash": "40e66300721f90b3"
  },
  "free-tools/amount-in-words.html": {
-  "date": "2026-11-07",
-  "hash": "d0e4f3fcc9f99aae"
+  "date": "2026-11-08",
+  "hash": "cfdf76d6e7c91024"
  },
  "free-tools/deadline-calculator.html": {
-  "date": "2026-11-07",
-  "hash": "4a3f15a76536624a"
+  "date": "2026-11-08",
+  "hash": "30c36550f42410e0"
  },
  "free-tools/freelance-rate.html": {
-  "date": "2026-11-07",
-  "hash": "f875203abbb375ec"
+  "date": "2026-11-08",
+  "hash": "c820a72119d36740"
  },
  "free-tools/invoice-due-date.html": {
-  "date": "2026-11-07",
-  "hash": "8ec689f0c9301f6e"
+  "date": "2026-11-08",
+  "hash": "0944afc560f55b60"
  },
  "free-tools/late-payment-interest.html": {
-  "date": "2026-11-07",
-  "hash": "35ee87b05aecd6b4"
+  "date": "2026-11-08",
+  "hash": "dd4933f221356093"
  },
  "free-tools/loan-repayment.html": {
-  "date": "2026-11-07",
-  "hash": "6fe1fb53fb790f37"
+  "date": "2026-11-08",
+  "hash": "8c2ab9609cec4385"
  },
  "free-tools/prorated-rent.html": {
   "date": "2026-11-08",
-  "hash": "7d2498c7347a4e8b"
+  "hash": "787c8a7c630ac55c"
  },
  "free-tools/sales-commission.html": {
-  "date": "2026-11-07",
-  "hash": "9ef4a8142739699f"
+  "date": "2026-11-08",
+  "hash": "318d08e51f0a799d"
  },
  "free-tools/template-checker.html": {
-  "date": "2026-11-07",
-  "hash": "b6bbe4bbb6c1c28c"
+  "date": "2026-11-08",
+  "hash": "bb17addd4c2fd7cb"
  },
  "guides/": {
   "date": "2026-11-07",
@@ -489,11 +489,11 @@
  },
  "guides/non-compete-vs-non-solicitation.html": {
   "date": "2026-11-08",
-  "hash": "e31ed5620de8490d"
+  "hash": "b63c9de3b365aa93"
  },
  "guides/quote-vs-estimate-vs-invoice.html": {
   "date": "2026-11-08",
-  "hash": "4572645e61ecaed7"
+  "hash": "92b1522ad53fe26f"
  },
  "guides/repeating-lists-and-tables-in-word.html": {
   "date": "2026-11-08",
@@ -504,8 +504,8 @@
   "hash": "86f83976c1c73d76"
  },
  "guides/what-bank-details-to-put-on-an-invoice.html": {
-  "date": "2026-11-07",
-  "hash": "6b0f9f6a989aa44d"
+  "date": "2026-11-08",
+  "hash": "9d6dbcd584fd87a9"
  },
  "guides/what-is-a-change-order.html": {
   "date": "2026-11-08",
@@ -809,7 +809,7 @@
  },
  "roadmap/": {
   "date": "2026-11-08",
-  "hash": "10dbbb14a9c76c1b"
+  "hash": "dfeee92f7dfd5ed1"
  },
  "search/": {
   "date": "2026-10-31",
@@ -825,7 +825,7 @@
  },
  "status/": {
   "date": "2026-11-08",
-  "hash": "8a41c83d3990efe9"
+  "hash": "679c24fd08594f33"
  },
  "templates/": {
   "date": "2026-11-07",

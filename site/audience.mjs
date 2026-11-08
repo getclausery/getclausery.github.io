@@ -146,6 +146,7 @@ const TEMPLATES_FOR_GUIDE = {
   'automate-word-templates': ['independent-contractor-agreement'],
   'how-to-write-an-invoice': ['invoice'],
   'invoice-email-template': ['invoice'],
+  'what-bank-details-to-put-on-an-invoice': ['invoice'],
 };
 
 export const GUIDES = [
@@ -801,7 +802,7 @@ Thank you,
     description: 'Non-compete vs non-solicitation: non-competes stop someone working for a competitor; non-solicits stop poaching customers or staff. Enforceability differs.',
     body: (rel) => `
 <p class="lead">A non-compete stops someone working for a competitor, or starting one. A non-solicitation agreement only stops them actively chasing your customers or staff. The second is narrower, which is exactly why courts and lawmakers treat it more kindly.</p>
-<div class="table-wrap" tabindex="0"><table class="compare"><thead><tr><th scope="col"></th><th scope="col">Non-compete</th><th scope="col">Non-solicitation</th></tr></thead><tbody>
+<p><a class="btn btn-primary" href="${rel}app/">Open Clausery free — no account</a> <a class="btn" href="${rel}templates/">Free templates</a></p><div class="table-wrap" tabindex="0"><table class="compare"><thead><tr><th scope="col"></th><th scope="col">Non-compete</th><th scope="col">Non-solicitation</th></tr></thead><tbody>
   <tr><td>What it stops</td><td>Working for a competitor, or starting a competing business, in an area</td><td>Asking your customers to move their business, or your staff to leave</td></tr>
   <tr><td>What it allows</td><td>Work outside the restricted field or area</td><td>Working anywhere, including for a competitor, and serving customers who come unprompted</td></tr>
   <tr><td>Typical length</td><td>6 to 12 months for employees; longer on the sale of a business</td><td>6 to 24 months</td></tr>
@@ -1272,7 +1273,7 @@ Invoice [number] for [amount] is now [number] days overdue, despite my reminders
     description: 'Quote vs estimate vs invoice: a quote is fixed price, an estimate is an informed guess, an invoice asks for payment. When to send each.',
     body: (rel) => `
 <p class="lead">A quote offers a fixed price before the work starts. An estimate gives an approximate price that can change. An invoice asks for payment once the work is done. Using the right one, and labelling it clearly, avoids the most common argument in small business: what the price actually was.</p>
-<div class="table-wrap" tabindex="0"><table class="compare">
+<p><a class="btn btn-primary" href="${rel}app/">Open Clausery free — no account</a> <a class="btn" href="${rel}templates/">Free templates</a></p><div class="table-wrap" tabindex="0"><table class="compare">
   <thead><tr><th scope="col">Document</th><th scope="col">Sent by</th><th scope="col">When</th><th scope="col">What it does</th></tr></thead>
   <tbody>
     <tr><td>Estimate</td><td>Seller</td><td>Before the work</td><td>Gives a best guess at the price, which can change</td></tr>
@@ -2243,7 +2244,7 @@ ${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}` },
 <ul>${tpls.map((s) => `<li><a href="${rel}templates/${s}.html">${esc(NAMES[s])}</a>${HUB_FOR_LIB[s] && HUB_FOR_LIB[s] !== s ? ` — <a href="${rel}templates/${HUB_FOR_LIB[s]}.html" class="small muted">what to include</a>` : ''}</li>`).join('')}</ul>` : '';
       const leadCta = tpls[0]
         ? `<p><a class="btn btn-primary" href="${rel}app/#/start/${tpls[0]}">Start with ${/^[aeiou]/i.test(NAMES[tpls[0]]) ? 'an' : 'a'} ${esc((NAMES[tpls[0]][0].toLowerCase() + NAMES[tpls[0]].slice(1)))} — free</a> <a class="btn" href="${rel}templates/${tpls[0]}.html">See the Word template</a></p>`
-        : '';
+        : `<p><a class="btn btn-primary" href="${rel}app/">Open Clausery free — no account</a> <a class="btn" href="${rel}templates/">Free templates</a></p>`;
       // Inject leadCta right after the first <p class="lead">...</p> if present; otherwise after the first paragraph.
       let body = g.body(rel);
       body = body.replace('</p>\n<h2>', `</p>${leadCta}\n<h2>`);

@@ -29,6 +29,7 @@ const TOOL_CSS = `<style>
 </style>`;
 const crumbs = (rel, name) => `<nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}free-tools/">Free tools</a> › ${name}</nav>`;
 const moreTools = (rel, slug) => `<!--nav--><p class="small" style="margin-top:2rem"><strong>More free tools:</strong> ${TOOLS.filter((t) => t.slug !== slug).map((t) => `<a href="${rel}free-tools/${t.slug}.html">${t.name}</a>`).join(' · ')}</p><!--/nav-->`;
+const leadCta = (rel) => `<p><a class="btn btn-primary" href="${rel}app/">Open Clausery free — no account</a> <a class="btn" href="${rel}templates/">Free templates</a></p>`;
 const cta = (rel, slug) => moreTools(rel, slug) + `<!--nav--><div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem">Draft the whole document, not just one line</h2><p>Clausery turns your Word templates into questionnaires and builds the finished document in your browser, with amounts in words, dates and totals calculated for you. Every library template is free.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free templates</a></p></div><!--/nav-->`;
 const appLd = (name, desc, url) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebApplication', name, description: desc, url: SITE + url, applicationCategory: 'BusinessApplication', operatingSystem: 'Any (web browser)', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } })}</script>`;
 const toolLd = (name, desc, url) => appLd(name, desc, url) + crumbsLd([['Home', ''], ['Free tools', 'free-tools/'], [name, url]]);
@@ -271,6 +272,7 @@ ${hubCta(rel, 'app/', 'Open Clausery, free')}
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Amount in words')}
 <h1 style="margin-top:1rem">Amount in words converter</h1>
 <p class="lead">Contracts, promissory notes and cheques often state an amount twice, in words and in figures, so a typo in one is caught by the other. Type an amount to get the wording.</p>
+${leadCta(rel)}
 ${WIDGET['amount-in-words']}
 <h2>How amounts are usually written</h2>
 <ul><li>In contracts, the amount in words normally comes first, followed by the figure in brackets: <em>Five Thousand Dollars ($5,000)</em>.</li><li>On cheques, cents are written as a fraction: <em>Five Thousand and 00/100</em>.</li><li>Many agreements say which one wins if they differ; words usually do.</li></ul>
@@ -285,6 +287,7 @@ ${cta(rel, 'amount-in-words')}</div></section><div class="p-cta-fixed"><a class=
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Deadline calculator')}
 <h1 style="margin-top:1rem">Contract deadline calculator</h1>
 <p class="lead">Work out notice periods, payment due dates, renewal dates and response deadlines. Month arithmetic stops at month end, so January 31 plus one month is the last day of February.</p>
+${leadCta(rel)}
 ${WIDGET['deadline-calculator']}
 <h2>Things to check</h2>
 <ul><li><strong>Is the start day counted?</strong> This calculator counts from the day after the start date, which is the usual rule, but some contracts and courts say otherwise.</li><li><strong>Weekends and holidays.</strong> Many rules move a deadline that falls on a non-business day to the next business day.</li><li><strong>Time zones and cut-off times.</strong> "By 5pm" or "close of business" matters for filings and notices.</li></ul>
@@ -300,6 +303,7 @@ ${cta(rel, 'deadline-calculator')}</div></section><div class="p-cta-fixed"><a cl
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Invoice due date')}
 <h1 style="margin-top:1rem">Invoice due date calculator</h1>
 <p class="lead">Pick the payment terms on the invoice, such as net 30, net 30 EOM or 2/10 net 30, to see the exact due date, how many days are left, and what paying early is worth.</p>
+${leadCta(rel)}
 ${WIDGET['invoice-due-date']}
 <p class="small muted">Choose <strong>Other terms</strong> to type terms as they appear on the invoice, for example <em>net 21</em>, <em>3/15 net 45</em> or <em>10th prox</em>.</p>
 <h2>Payment terms explained</h2>
@@ -320,6 +324,7 @@ ${cta(rel, 'invoice-due-date')}</div></section><div class="p-cta-fixed"><a class
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Late payment interest')}
 <h1 style="margin-top:1rem">Late payment interest calculator</h1>
 <p class="lead">Find out how much interest you can add to an overdue invoice, at the rate in your contract or at the UK statutory rate for business debts.</p>
+${leadCta(rel)}
 ${WIDGET['late-payment-interest']}
 <p class="small muted">For UK statutory interest, use the base rate in force on the day the debt became overdue (check the Bank of England website). This is general information, not legal advice.</p>
 <h2>Asking for payment</h2>
@@ -335,6 +340,7 @@ ${cta(rel, 'late-payment-interest')}</div></section><div class="p-cta-fixed"><a 
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Freelance rate')}
 <h1 style="margin-top:1rem">Freelance rate calculator</h1>
 <p class="lead">Start from what you want to take home and work back to the hourly and day rate that gets you there, after tax, business costs and time off.</p>
+${leadCta(rel)}
 ${WIDGET['freelance-rate']}
 <p class="small muted">The tax rate is a single estimate; real tax depends on your country, income and deductions.</p>
 <h2>Put the rate in writing</h2>
@@ -349,6 +355,7 @@ ${cta(rel, 'freelance-rate')}</div></section><div class="p-cta-fixed"><a class="
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Loan repayment')}
 <h1 style="margin-top:1rem">Loan repayment calculator</h1>
 <p class="lead">Lending to family, a friend or a business? Enter the amount, the interest rate and the number of payments to see the payment, the total interest, and a full schedule you can attach to the loan agreement.</p>
+${leadCta(rel)}
 ${WIDGET['loan-repayment']}
 <p class="small muted">Interest is charged each period at the yearly rate divided by the number of payments a year. Enter 0% for an interest-free loan. A calculation aid, not financial or tax advice.</p>
 <h2>Put the loan in writing</h2>
@@ -362,6 +369,7 @@ ${cta(rel, 'loan-repayment')}</div></section><div class="p-cta-fixed"><a class="
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Sales commission')}
 <h1 style="margin-top:1rem">Sales commission calculator</h1>
 <p class="lead">Enter the sales and the commission rate to see what is owed. Add up to two higher tiers for sales above a target, choose whether the higher rate covers only the extra sales or all of them, and subtract any draw already paid.</p>
+${leadCta(rel)}
 ${WIDGET['sales-commission']}
 <p class="small muted">Commission is worked out on the sales figure you enter. If your plan pays on net sales, enter the amount after discounts, returns and taxes. A calculation aid, not financial or tax advice.</p>
 <h2>Put the commission plan in writing</h2>
@@ -375,6 +383,7 @@ ${cta(rel, 'sales-commission')}</div></section><div class="p-cta-fixed"><a class
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Prorated rent')}
 <h1 style="margin-top:1rem">Prorated rent calculator</h1>
 <p class="lead">Moving in or out partway through a month? Enter the monthly rent and the date to see the rent for the days the tenant actually lives there, with the daily rate and a comparison of the three common methods.</p>
+${leadCta(rel)}
 ${WIDGET['prorated-rent']}
 <p class="small muted">The move-in or move-out day counts as a day of the tenancy. Amounts are rounded to the cent and never exceed a full month's rent. A calculation aid, not legal or tax advice.</p>
 <h2>Write it into the lease</h2>
@@ -388,6 +397,7 @@ ${cta(rel, 'prorated-rent')}</div></section><div class="p-cta-fixed"><a class="b
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Template checker')}
 <h1 style="margin-top:1rem">Word template tag checker</h1>
 <p class="lead">Check a Word template before you use it: unclosed tags, mismatched sections and invalid names are reported with a plain-English fix, and you see the exact questionnaire it would produce. The file is read in your browser and never uploaded.</p>
+<p><a class="btn btn-primary" href="${rel}app/">Open Clausery free — no account</a> <a class="btn" href="${rel}docs/templates.html">Template syntax docs</a></p>
 <div class="tool">
   <div id="drop"><p><strong>Drop a .docx file here</strong> or choose one</p><label for="file" class="sr-only">Word template</label><input id="file" type="file" accept=".docx"></div>
   <div id="report" aria-live="polite" hidden style="margin-top:1.5rem"></div>
