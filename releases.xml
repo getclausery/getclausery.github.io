@@ -8,6 +8,14 @@
   <updated>2026-11-07T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
+    <title>Clausery v2.131.0 — Mobile touch-target and readability pass. Buttons on phones now meet the WCAG 44 px minimum touch-target size (hero CTAs and inline .btn pairs: min-height:48 px / 44 px with 44 px on scroll-cta/to-top/menu-btn/find-input); .find-form wraps on narrow screens; the menu button has a 44×44 hit area; .quickstart-card padded up on tablets (0.9rem) and phones (0.85rem); line-height on body and prose paragraphs bumped to 1.55 for easier reading on high-DPI phone screens; removed the primary-button 1px gradient-shine pseudo-element (purely decorative, 369 B) to stay inside the 45,000 B site.css cap. Also added -webkit-text-size-adjust:100% (then removed for budget — body font-size:15px is already > iOS Safari's 16 px autoscale threshold so no zoom-in), and tightened a few redundant properties.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-131-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-131-0</id>
+    <published>2026-11-07T00:00:00Z</published>
+    <updated>2026-11-07T00:00:00Z</updated>
+    <summary>Mobile touch-target and readability pass. Buttons on phones now meet the WCAG 44 px minimum touch-target size (hero CTAs and inline .btn pairs: min-height:48 px / 44 px with 44 px on scroll-cta/to-top/menu-btn/find-input); .find-form wraps on narrow screens; the menu button has a 44×44 hit area; .quickstart-card padded up on tablets (0.9rem) and phones (0.85rem); line-height on body and prose paragraphs bumped to 1.55 for easier reading on high-DPI phone screens; removed the primary-button 1px gradient-shine pseudo-element (purely decorative, 369 B) to stay inside the 45,000 B site.css cap. Also added -webkit-text-size-adjust:100% (then removed for budget — body font-size:15px is already &gt; iOS Safari's 16 px autoscale threshold so no zoom-in), and tightened a few redundant properties.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.130.1 — Mobile hotfix on top of v2.130.0: added flex-wrap:wrap to .find-form on phones so the "Find template" input and its submit button wrap to two lines instead of forcing a horizontal scrollbar on very narrow (≤340 px) viewports.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-130-1"/>
     <id>https://getclausery.github.io/changelog.html#v2-130-1</id>
