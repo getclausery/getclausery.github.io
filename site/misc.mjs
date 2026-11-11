@@ -243,6 +243,10 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-154-0">2.154.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
+<ul>
+  <li><strong>Pricing-page social proof.</strong> Added a visible "★★★★★ 4.8/5 from 427 freelancers and small businesses" rating line directly under the pricing H1, matching the rating shown on the homepage and the <code>AggregateRating</code> JSON-LD that has been on the site since v2.90. Pricing is the highest-intent conversion page on the site; surfacing the existing star rating above the fold reinforces the rating before a visitor scrolls to the plan cards, rather than only showing it in search-result snippets.</li>
+</ul>
 <h2 id="v2-153-0">2.153.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
 <ul>
   <li><strong>Pricing-page above-the-fold CTA.</strong> Added a prominent "Start 14-day free Pro trial" and "Open the free app" button pair directly under the pricing hero trust badges, before the billing-period toggle and plan cards. Previously the first action a visitor could click was the plan card itself nearly two screens down; now a primary conversion CTA is visible without scrolling on both mobile and desktop.</li>
