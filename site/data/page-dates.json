@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-11",
-  "hash": "a25482faa9b04d9e"
+  "hash": "36e6bdf1826225f5"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -32,12 +32,12 @@
   "hash": "c05da30bed26cf47"
  },
  "business-document-kit/": {
-  "date": "2026-11-07",
-  "hash": "dc8a30c0161175a0"
+  "date": "2026-11-11",
+  "hash": "42d75882af7004a5"
  },
  "changelog.html": {
   "date": "2026-11-11",
-  "hash": "55f1b9a28ec9ae03"
+  "hash": "9650d1728061991b"
  },
  "clauses/": {
   "date": "2026-11-11",
@@ -140,8 +140,8 @@
   "hash": "4d536fba0936c3f7"
  },
  "compare/": {
-  "date": "2026-11-08",
-  "hash": "e26276766fa6744c"
+  "date": "2026-11-11",
+  "hash": "e74f0f6fa18bb90e"
  },
  "compare/bonsai-alternative.html": {
   "date": "2026-11-08",
@@ -236,8 +236,8 @@
   "hash": "92a4cdb671bc5524"
  },
  "for/": {
-  "date": "2026-11-08",
-  "hash": "277659983e0f404e"
+  "date": "2026-11-11",
+  "hash": "9aa65ad2e240d270"
  },
  "for/consultants.html": {
   "date": "2026-11-08",
@@ -572,8 +572,8 @@
   "hash": "887591f77b73639b"
  },
  "invoice-templates/": {
-  "date": "2026-11-08",
-  "hash": "a93e873045a54aa3"
+  "date": "2026-11-11",
+  "hash": "0217f0a1c4f75ade"
  },
  "invoice-templates/australia-tax-invoice.html": {
   "date": "2026-11-07",
@@ -776,8 +776,8 @@
   "hash": "f66e1e9eca3f31be"
  },
  "nda-templates/": {
-  "date": "2026-11-08",
-  "hash": "88a97e5d8a43ae46"
+  "date": "2026-11-11",
+  "hash": "9c71bb73e2571d1a"
  },
  "nda-templates/nda-form.html": {
   "date": "2026-11-07",
@@ -809,7 +809,7 @@
  },
  "roadmap/": {
   "date": "2026-11-11",
-  "hash": "d8890995005d3055"
+  "hash": "d0dbf3a0a6b2ad56"
  },
  "search/": {
   "date": "2026-10-31",
@@ -825,7 +825,7 @@
  },
  "status/": {
   "date": "2026-11-11",
-  "hash": "9fe41836cb2f0862"
+  "hash": "eff73e024f5cae59"
  },
  "templates/": {
   "date": "2026-11-11",
@@ -1548,7 +1548,7 @@
   "hash": "8223e6b671b9fdaa"
  },
  "why-clausery/": {
-  "date": "2026-11-08",
-  "hash": "addc85778e9d6b78"
+  "date": "2026-11-11",
+  "hash": "ed23523971161d8e"
  }
 }

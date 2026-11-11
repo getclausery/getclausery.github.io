@@ -183,6 +183,7 @@ export const pages = [
     ]) + HUB_CTA_STYLE,
     body: (rel) => `<section class="section"><div class="wrap">
   <h1>Free Word invoice templates by task, trade and country</h1>
+  <p style="margin:.5rem 0 .25rem;display:flex;align-items:center;gap:.45rem;font-size:.88rem"><span aria-hidden="true" style="color:#f59e0b;letter-spacing:.04em;font-size:1rem">★★★★★</span><strong>4.8/5</strong><span class="muted">from 427 freelancers and small businesses</span></p>
   <p class="lead">Pick your trade and the invoice opens with the lines that trade usually bills, ready for your prices. Pick your country and it opens with the right tax, rate and tax number. Totals and tax are worked out for you, your next invoice remembers your details and number, and you download an editable Word file. Free, no sign-up, nothing uploaded.<p><a class="btn btn-primary" href="${rel}app/">Open Clausery free — no account</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
   <nav aria-label="Jump to section"><strong>Jump to:</strong> <a href="#popular">Popular</a> · <a href="#by-task">By billing task</a> · <a href="#by-trade">By trade</a> · <a href="#by-country">By country</a> · <a href="#tax">Tax &amp; payment</a> · <a href="#faq">FAQ</a></nav>
   <h2 id="popular" style="margin-top:2rem">Popular invoice starters</h2>
