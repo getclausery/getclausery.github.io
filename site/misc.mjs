@@ -243,6 +243,11 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-153-0">2.153.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
+<ul>
+  <li><strong>Pricing-page above-the-fold CTA.</strong> Added a prominent "Start 14-day free Pro trial" and "Open the free app" button pair directly under the pricing hero trust badges, before the billing-period toggle and plan cards. Previously the first action a visitor could click was the plan card itself nearly two screens down; now a primary conversion CTA is visible without scrolling on both mobile and desktop.</li>
+  <li><strong>Homepage Open Graph share card.</strong> Switched the homepage from the generic site share card to the dedicated <code>assets/og/home.png</code> ("Invoices, quotes and receipts in Word — calculated totals, everything stays on your device") that has been in the repository but unused, so links shared to Slack, Twitter, LinkedIn, iMessage and other scrapers show the homepage-specific headline instead of the generic brand card.</li>
+</ul>
 <h2 id="v2-152-0">2.152.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
 <ul>
   <li><strong>Critical-CSS preload priority.</strong> Added <code>fetchpriority="high"</code> to the <code>site.css</code> preload hint so browsers deprioritize images and other resources in favour of the render-blocking stylesheet on slow networks. Tiny change but matches the LCP recommendation for single-file stylesheets under 45 KB.</li>
