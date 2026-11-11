@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-11",
-  "hash": "1a2b5ec93066b4ed"
+  "hash": "a25482faa9b04d9e"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -37,11 +37,11 @@
  },
  "changelog.html": {
   "date": "2026-11-11",
-  "hash": "20accc9e827bfd7b"
+  "hash": "55f1b9a28ec9ae03"
  },
  "clauses/": {
-  "date": "2026-11-08",
-  "hash": "fb92153e1fd5699e"
+  "date": "2026-11-11",
+  "hash": "096f6e496cfa4eed"
  },
  "clauses/amendment-clause.html": {
   "date": "2026-11-08",
@@ -260,8 +260,8 @@
   "hash": "543fdf973efe99b6"
  },
  "free-tools/": {
-  "date": "2026-11-08",
-  "hash": "c3ecc6d246afaa7d"
+  "date": "2026-11-11",
+  "hash": "a6bef4cff3ab9f49"
  },
  "free-tools/amount-in-words.html": {
   "date": "2026-11-08",
@@ -300,8 +300,8 @@
   "hash": "bb17addd4c2fd7cb"
  },
  "guides/": {
-  "date": "2026-11-08",
-  "hash": "71125c440f173718"
+  "date": "2026-11-11",
+  "hash": "d747afc54edc9389"
  },
  "guides/are-liability-waivers-enforceable.html": {
   "date": "2026-11-08",
@@ -809,7 +809,7 @@
  },
  "roadmap/": {
   "date": "2026-11-11",
-  "hash": "6c9333e17dfab26d"
+  "hash": "d8890995005d3055"
  },
  "search/": {
   "date": "2026-10-31",
@@ -825,11 +825,11 @@
  },
  "status/": {
   "date": "2026-11-11",
-  "hash": "cbb7d56b61a3d834"
+  "hash": "9fe41836cb2f0862"
  },
  "templates/": {
-  "date": "2026-11-08",
-  "hash": "804d76e0ee3f090d"
+  "date": "2026-11-11",
+  "hash": "739a0701f651575b"
  },
  "templates/bill-of-sale-template.html": {
   "date": "2026-11-07",
