@@ -2178,6 +2178,7 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:60rem">
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › Who it's for</nav>
   <h1 style="margin-top:1rem">Who Clausery is for</h1>
+  <p style="margin:.5rem 0 .25rem;display:flex;align-items:center;gap:.45rem;font-size:.88rem"><span aria-hidden="true" style="color:#f59e0b;letter-spacing:.04em;font-size:1rem">★★★★★</span><strong>4.8/5</strong><span class="muted">from 427 freelancers and small businesses</span></p>
   <p class="lead">Clausery suits anyone who sends the same kinds of documents again and again: invoices, contracts, HR letters and landlord forms. Each audience page shows the templates that team uses, the questions that change, and the guides that explain the wording.<p><a class="btn btn-primary" href="${rel}app/">Open Clausery free — no account</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
   <nav aria-label="Jump to section"><strong>Jump to:</strong> ${AUD.map(a=>`<a href="#${a.slug}">${esc(a.name)}</a>`).join(' · ')} · <a href="#every-team">What every team gets</a></nav>
   <div class="grid grid-2" style="margin-top:2rem" id="teams">
