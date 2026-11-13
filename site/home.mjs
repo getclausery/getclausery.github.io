@@ -51,7 +51,7 @@ export const pages = [{
   <div class="wrap">
     <div>
       <div class="eyebrow">${ico(I.calc)} Free · No account · No card · Editable Word</div>
-      <div class="release-pill"><a href="${rel}changelog.html#v${APP_VERSION.replace(/\./g,'-')}"><strong>New:</strong> v${APP_VERSION}</a> — CSS cleanups: 30+ duplicate inline styles removed. <a href="${rel}changelog.html">See what changed</a>.</div>
+      <div class="release-pill"><a href="${rel}changelog.html#v${APP_VERSION.replace(/\./g,'-')}"><strong>New:</strong> v${APP_VERSION}</a> — enterkeyhint on numeric inputs; scroll-behavior saved. <a href="${rel}changelog.html">See what changed</a>.</div>
       <h1>Free invoice template — make a professional invoice online in 60 seconds.</h1>
       <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><strong>4.8/5</strong><span class="muted">from 427 freelancers and small businesses</span></p>
       <p class="lead">Answer a few questions and download a printable PDF or editable <strong>Word .docx</strong> invoice. Totals, VAT, GST or sales tax, discounts, and the next invoice number are worked out automatically. Also make <a href="${rel}templates/quote.html">quotes</a>, <a href="${rel}templates/purchase-order.html">purchase orders</a>, <a href="${rel}templates/credit-note.html">credit notes</a> and <a href="${rel}templates/payment-receipt.html">receipts</a> — everything runs in your browser; nothing is uploaded.</p>
@@ -103,15 +103,15 @@ export const pages = [{
           <p class="demo-hint">Type in the three fields — the invoice updates. Nothing is sent anywhere.</p>
           <label>
             <span>Hourly rate ($)</span>
-            <input type="number" id="demo-rate" value="85" min="0" step="1" inputmode="decimal">
+            <input type="number" id="demo-rate" value="85" min="0" step="1" inputmode="decimal" enterkeyhint="done">
           </label>
           <label>
             <span>Hours</span>
-            <input type="number" id="demo-hours" value="12" min="0" step="0.25" inputmode="decimal">
+            <input type="number" id="demo-hours" value="12" min="0" step="0.25" inputmode="decimal" enterkeyhint="done">
           </label>
           <label>
             <span>Sales tax (%)</span>
-            <input type="number" id="demo-tax" value="0" min="0" step="0.1" inputmode="decimal">
+            <input type="number" id="demo-tax" value="0" min="0" step="0.1" inputmode="decimal" enterkeyhint="done">
           </label>
           <a class="demo-cta demo-cta-sm" href="${rel}app/#/start/invoice">Make my real invoice <span class="demo-arr">→</span></a>
           <p class="demo-foot">Downloads as an editable Word file · add your logo, your client, more line items</p>
