@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-13",
-  "hash": "789834a2b25c2002"
+  "hash": "0d2528a2b6ae60ba"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-11-13",
-  "hash": "a4440ef3675b413a"
+  "hash": "b3267f3b8f80b735"
  },
  "clauses/": {
   "date": "2026-11-13",
@@ -593,15 +593,15 @@
  },
  "invoice-templates/cleaning.html": {
   "date": "2026-11-13",
-  "hash": "76adea65c109055f"
+  "hash": "89c0f80eb904512f"
  },
  "invoice-templates/construction-contractor.html": {
   "date": "2026-11-13",
-  "hash": "66cc37ca9649b53b"
+  "hash": "a9d322f997a64eca"
  },
  "invoice-templates/consulting.html": {
   "date": "2026-11-13",
-  "hash": "93ee410caaeb3c2f"
+  "hash": "48f487886018ab39"
  },
  "invoice-templates/contractor-invoice.html": {
   "date": "2026-11-13",
@@ -641,7 +641,7 @@
  },
  "invoice-templates/freelance-writing.html": {
   "date": "2026-11-13",
-  "hash": "3adf42fec4c09773"
+  "hash": "a8c226eaf71eac0a"
  },
  "invoice-templates/google-docs-invoice.html": {
   "date": "2026-11-13",
@@ -649,11 +649,11 @@
  },
  "invoice-templates/graphic-design.html": {
   "date": "2026-11-13",
-  "hash": "0de441a4dd93e4f7"
+  "hash": "4ee133a98d4cdddb"
  },
  "invoice-templates/handyman.html": {
   "date": "2026-11-13",
-  "hash": "0be4d6c0d33b49cb"
+  "hash": "9997dfaf125720f3"
  },
  "invoice-templates/hourly-invoice.html": {
   "date": "2026-11-13",
@@ -669,7 +669,7 @@
  },
  "invoice-templates/landscaping.html": {
   "date": "2026-11-13",
-  "hash": "b93f864ac3e23122"
+  "hash": "5814dc1156932785"
  },
  "invoice-templates/new-zealand-gst-invoice.html": {
   "date": "2026-11-13",
@@ -677,11 +677,11 @@
  },
  "invoice-templates/personal-training.html": {
   "date": "2026-11-13",
-  "hash": "f7945171109da9ec"
+  "hash": "85facb63b2d6df42"
  },
  "invoice-templates/photography.html": {
   "date": "2026-11-13",
-  "hash": "21b723289494c257"
+  "hash": "db0454af8dd4a481"
  },
  "invoice-templates/printable-invoice.html": {
   "date": "2026-11-13",
@@ -721,7 +721,7 @@
  },
  "invoice-templates/tutoring.html": {
   "date": "2026-11-13",
-  "hash": "6fe3894e2bbdc7ba"
+  "hash": "bfbc9eaac864292d"
  },
  "invoice-templates/uk-invoice.html": {
   "date": "2026-11-13",
@@ -737,11 +737,11 @@
  },
  "invoice-templates/videography.html": {
   "date": "2026-11-13",
-  "hash": "751b47b0d7f4081f"
+  "hash": "65c21a23c11a8467"
  },
  "invoice-templates/web-design.html": {
   "date": "2026-11-13",
-  "hash": "738d8e6ee0364885"
+  "hash": "43558d4cf40c2355"
  },
  "invoice-templates/word.html": {
   "date": "2026-11-13",
@@ -797,7 +797,7 @@
  },
  "pricing/": {
   "date": "2026-11-13",
-  "hash": "5d80e142a9170a5d"
+  "hash": "90ed84e54e86dc32"
  },
  "receipts/cash-receipt.html": {
   "date": "2026-11-13",

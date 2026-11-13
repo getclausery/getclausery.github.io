@@ -165,7 +165,6 @@ for (const c of COMPETITORS) if (!COMPARISON_WORKFLOWS[c.slug]) throw new Error(
 for (const slug of Object.keys(COMPARISON_WORKFLOWS)) if (!COMPETITORS.some((c) => c.slug === slug)) throw new Error(`Unknown comparison evaluation: ${slug}`);
 
 const description = 'Compare local Word drafting with legal form services, document automation and client platforms. Practical workflow tests, clear limits and official vendor links.';
-const COMPARE_CTA_CSS = ``;
 export const pages = [
   {
     path: 'compare/', title: 'Compare document automation tools', ogImage: 'assets/og/compare.png', description, published: '2026-10-31',
@@ -218,7 +217,7 @@ ${GROUPS.map(([g, label]) => `  <h2 style="margin-top:2rem">${esc(label)}</h2>
       // avoid SoftwareApplication for competitors because that would require a fabricated Offer price).
       // The page's <a rel="noopener" href="vendorUrl"> links already signal the sameAs relationship via the
       // "Official product and plan details" block.
-      extraHead: faqLd(faq) + COMPARE_CTA_CSS, published: '2026-10-31',
+      extraHead: faqLd(faq), published: '2026-10-31',
       body: (rel) => `<section class="section"><div class="wrap prose">
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}compare/">Compare</a> › ${esc(c.name)}</nav>
   <h1 style="margin-top:1rem">${esc(c.title)}</h1>

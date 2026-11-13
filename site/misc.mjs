@@ -243,6 +243,10 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-165-0">2.165.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
+<ul>
+  <li><strong>Dead-code cleanup.</strong> Removed the now-empty <code>*_CTA_CSS</code>/<code>*_CTA_STYLE</code> constants and the empty <code>HUB_CTA_STYLE</code> export left over from v2.162's sticky-CTA consolidation (COMPARE_CTA_CSS, COUNTRY_CTA_CSS, DOCS_CTA_STYLE, LEGAL_CTA_STYLE, WF_CTA_CSS, HUB_CTA_CSS, HUB_CTA_STYLE) along with their imports and concatenation in <code>extraHead</code>. Also removed two empty <code>&lt;style&gt;&lt;/style&gt;</code> tags left on the pricing and trades pages.</li>
+</ul>
 <h2 id="v2-164-0">2.164.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
 <ul>
   <li><strong>Mobile keyboard hints.</strong> Added <code>enterkeyhint="done"</code> to all numeric calculator inputs on the homepage demo, free-tool calculators (hourly-rate, loan, late-payment, rent-proration, etc.) and the deposit-invoice calculator, so iOS/Android show a blue "Done" button on the numeric keypad instead of a return key that does nothing. Also removed a redundant <code>html{scroll-behavior:auto}</code> override in the <code>prefers-reduced-motion</code> media query (the site never sets smooth scroll, so the override was dead code).</li>

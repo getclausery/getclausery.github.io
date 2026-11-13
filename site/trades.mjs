@@ -3,7 +3,7 @@
 // in (#/start/invoice/<trade>), and the page explains what that trade in particular should put on an invoice, which
 // contract to sign before the work, and how that trade usually gets paid. Example prices are labelled as examples.
 import { readFileSync } from 'node:fs';
-import { esc, faqLd, faqHtml, collectionLd, LASTMOD, LASTMOD_LONG, longDate, HUB_CTA_STYLE, hubCta } from '../tools/partials.mjs';
+import { esc, faqLd, faqHtml, collectionLd, LASTMOD, LASTMOD_LONG, longDate, hubCta } from '../tools/partials.mjs';
 import { PRESETS } from '../app/lib/presets.js';
 import { LIB } from './library.mjs';
 import { GUIDES } from './audience.mjs';
@@ -180,7 +180,7 @@ export const pages = [
       ['Do the templates calculate VAT and totals?', 'Yes. Subtotals, VAT/GST (including UK, EU, Australia, Canada, New Zealand, South Africa and Ireland rates), discounts and grand totals calculate automatically as you type line items. Your next invoice remembers your business details and the next invoice number.'],
       ['Is there a UK or US invoice template?', 'Yes. For the US use the plain US invoice (dollars, month/day/year dates, no sales tax, Net 30 terms). For the UK use the UK non-VAT invoice (pounds, day/month/year, BACS) if you are not VAT-registered, or the UK VAT invoice (20% VAT, HMRC-compliant) if you are. Other country starters handle Australian GST, Canadian GST/HST, New Zealand GST, South African VAT and Irish VAT.'],
       ['Is there a blank invoice template I can just fill in?', 'Yes. The Blank invoice starter is the simplest \u2014 open it, add line items, tax and your client details, then download the Word file or PDF. The Simple invoice is a one-page variant with no extra fields.'],
-    ]) + HUB_CTA_STYLE,
+    ]),
     body: (rel) => `<section class="section"><div class="wrap">
   <h1>Free Word invoice templates by task, trade and country</h1>
   <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><strong>4.8/5</strong><span class="muted">from 427 freelancers and small businesses</span></p>
@@ -240,7 +240,7 @@ ${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}
   },
   ...TRADES.map((t) => ({
     path: `invoice-templates/${t.slug}.html`, title: t.title, description: t.description, _toc: true, published: '2026-10-31', ogImage: 'assets/og/invoice.png',
-    extraHead: faqLd(t.faq) + `<style></style>`,
+    extraHead: faqLd(t.faq),
     body: (rel) => `<section class="section"><div class="wrap prose">
   <p class="small"><a href="${rel}invoice-templates/">Invoice templates by trade</a></p>
   <h1>${esc(t.title.replace(/ \(free, Word\)| \(Word\)/, ''))}</h1>

@@ -2,7 +2,7 @@
 // The existing docs page is technical ("how to deploy"); this page sells the commercial license,
 // explains white-label / intranet use cases, answers the common enterprise buyer questions, and
 // links into the technical guide and contact.
-import { esc, faqLd, crumbsLd, SITE, REPO_URL, mailto, HUB_CTA_STYLE, hubCta } from '../tools/partials.mjs';
+import { esc, faqLd, crumbsLd, SITE, REPO_URL, mailto, hubCta } from '../tools/partials.mjs';
 import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 
 const ico = (d) => `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;
@@ -36,7 +36,7 @@ const FAQ = [
 export const pages = [{
   path: 'self-hosting/', ogImage: 'assets/og/docs.png', title: 'Self-host Clausery on your domain or intranet',
   description: 'Self-host or white-label Clausery: deploy the open-source generator to your domain or intranet. Optional commercial licensing for rebranding.',
-  extraHead: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Product', name: 'Clausery self-hosted / Enterprise', description: 'Commercial self-hosted and white-label license for Clausery: editable Word document generation deployed on your own domain or intranet.', brand: { '@type': 'Brand', name: 'Clausery' }, url: `${SITE}self-hosting/`, category: 'Business Software', offers: { '@type': 'Offer', priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: `${SITE}contact/`, description: 'Custom-quoted Enterprise licenses; AGPL self-hosting is free.' } })}</script>` + faqLd(FAQ) + crumbsLd([['Home', ''], ['Self-hosting', 'self-hosting/']]) + HUB_CTA_STYLE,
+  extraHead: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Product', name: 'Clausery self-hosted / Enterprise', description: 'Commercial self-hosted and white-label license for Clausery: editable Word document generation deployed on your own domain or intranet.', brand: { '@type': 'Brand', name: 'Clausery' }, url: `${SITE}self-hosting/`, category: 'Business Software', offers: { '@type': 'Offer', priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: `${SITE}contact/`, description: 'Custom-quoted Enterprise licenses; AGPL self-hosting is free.' } })}</script>` + faqLd(FAQ) + crumbsLd([['Home', ''], ['Self-hosting', 'self-hosting/']]),
   body: (rel) => `<section class="section">
   <div class="wrap">
     <div style="text-align:center;max-width:48rem;margin:0 auto 2.5rem">
