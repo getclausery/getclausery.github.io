@@ -15,7 +15,7 @@ export const pages = [{
   path: 'business-document-kit/', ogImage: 'assets/og/marketing.png', title: 'Free business document kit — 6 Word templates (no email)',
   description: 'Download a free 6-template Word kit for small businesses: quote, scope of work, invoice, payment receipt, purchase order and credit note.',
   ogImage: 'assets/marketing/business-kit-social.png', published: '2026-10-31',
-  extraHead: faqLd(FAQ) + crumbsLd([['Home', ''], ['Free business document kit', 'business-document-kit/']]) + `<style>.p-cta-fixed{display:none}@media(max-width:760px){.p-cta-fixed{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.p-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.p-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.p-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`,
+  extraHead: faqLd(FAQ) + crumbsLd([['Home', ''], ['Free business document kit', 'business-document-kit/']]) + ``,
   body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Six free Word templates for your next business job</h1>
 <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><strong>4.8/5</strong><span class="muted">from 427 freelancers and small businesses</span></p>
@@ -34,6 +34,6 @@ export const pages = [{
 <h2>Questions</h2><div class="faq">${FAQ.map(([q,a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>
 <p style="margin-top:2rem"><a class="btn btn-primary" href="${rel}samples/clausery-small-business-kit.zip" download>Get all six templates</a> · <a href="${rel}templates/">Explore the full free library</a></p>
 </div></section>
-<div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>
+<div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>
 `,
 }];

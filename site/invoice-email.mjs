@@ -30,7 +30,7 @@ const CSS = `<style>
 .email-sample{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;padding:1.1rem;border:1px solid var(--border);border-radius:8px;background:var(--surface)}
 #email-status{min-height:1.6em}.email-tool [hidden]{display:none!important}
 @media(max-width:540px){.email-tool{padding:1rem}.email-tool .email-row{grid-template-columns:1fr}}
-.p-cta-fixed{display:none}@media(max-width:760px){.p-cta-fixed{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.p-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.p-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.p-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`;
+</style>`;
 
 export const pages = [{
   path: PATH, title: TITLE, description: DESCRIPTION, feed: true, published: '2026-10-09', ogImage: 'assets/og/invoice.png',
@@ -68,5 +68,5 @@ ${EXAMPLES.map(([id, heading, subject, body]) => `<h3 id="${id}">${esc(heading)}
 <h2 id="questions">Invoice email questions</h2><div class="faq">${FAQ.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>
 <h2>Sources</h2><p class="small muted">These practical sources are from Australia. They support the invoicing and follow-up workflow; local invoicing and recovery rules vary.</p><ul class="sources">${SOURCES.map(([label, url]) => `<li><a href="${esc(url)}" rel="noopener">${esc(label)}</a></li>`).join('')}</ul>
 <!--nav--><h2>Prepare the document before writing the email</h2><p><a href="${rel}templates/invoice.html">Free editable Word invoice</a> · <a href="${rel}business-document-kit/">Six-template small business document kit</a> · <a href="${rel}guides/how-to-write-an-invoice.html">What to include in an invoice</a></p><p>The library templates and this email generator are free. If you want to turn your own branded Word templates into repeatable questionnaires, <a href="${rel}pricing/">see Clausery Pro and Team</a>.</p><!--/nav-->
-</div></section><div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>`,
+</div></section><div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>`,
 }];

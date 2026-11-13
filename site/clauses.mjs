@@ -74,7 +74,7 @@ ${hubCta(rel, 'app/', 'Open Clausery, free')}
       path: `clauses/${c.slug}.html`, title: `${c.name}: meaning and sample wording`.length <= 60 ? `${c.name}: meaning and sample wording` : `${c.name}: sample wording`, feed: true, published: PUBLISHED, _toc: true,
       ogImage: 'assets/og/clauses.png',
       description: c.description || fitSnippet(c.what, { tail: `Free sample ${c.name.toLowerCase()} wording, and what to check.` }),
-      extraHead: COPY_CSS + faqLd(faq) + crumbsLd([['Home', ''], ['Clause library', 'clauses/'], [c.name, `clauses/${c.slug}.html`]]) + `<style>.p-cta-fixed{display:none}@media(max-width:760px){.p-cta-fixed{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.p-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.p-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.p-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`,
+      extraHead: COPY_CSS + faqLd(faq) + crumbsLd([['Home', ''], ['Clause library', 'clauses/'], [c.name, `clauses/${c.slug}.html`]]) + ``,
       body: (rel) => `
 <section class="section"><div class="wrap prose">
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}clauses/">Clause library</a> › ${esc(c.name)}</nav>
@@ -112,7 +112,7 @@ ${related.length ? `
   <!--nav--><div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem;margin-top:0">Stop editing contracts by hand</h2><p>Clausery turns your Word templates into short questionnaires and builds the finished document in your browser. Nothing is uploaded, and every library template is free.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free templates</a></p></div><!--/nav-->
   <p class="small muted" style="margin-top:2rem">This page is general information, not legal advice. Laws differ between countries and states; have wording reviewed for your situation before you rely on it.</p>
 </div></section>
-<div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/">Open Clausery, free <span class="arr">→</span></a></div>
+<div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}app/">Open Clausery, free <span class="arr">→</span></a></div>
 `,
     };
   }),

@@ -773,7 +773,7 @@ ${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}
     return {
       path: `templates/${t.slug}.html`, title: t.title, ogImage: `assets/og/${t.slug}.png`, _toc: true, published: TPL_PUBLISHED,
       description: t.description || fitSnippet(t.intro, { lead: `Free ${lowerFirst(t.name)} template for Word.`, tail: 'Fill it in online or download the .docx, free.' }),
-      extraHead: docLd(t) + faqLd(faq) + crumbsLd([['Home', ''], ['Templates', 'templates/'], [t.name, `templates/${t.slug}.html`]]) + PREVIEW_CSS + THUMB_CSS + (t.slug === 'payment-receipt' ? receiptHelpHead : '') + `<style>.tpl-cta-fixed{display:none}@media(max-width:760px){.tpl-cta-fixed{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.tpl-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}}body{padding-bottom:4.5rem}@media(min-width:761px){.tpl-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.tpl-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`,
+      extraHead: docLd(t) + faqLd(faq) + crumbsLd([['Home', ''], ['Templates', 'templates/'], [t.name, `templates/${t.slug}.html`]]) + PREVIEW_CSS + THUMB_CSS + (t.slug === 'payment-receipt' ? receiptHelpHead : '') + ``,
       body: (rel) => `
 <section class="section tpl-hero"><div class="wrap">
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}templates/">Templates</a> › ${esc(t.name)}</nav>
@@ -835,7 +835,7 @@ ${['quote', 'payment-receipt', 'credit-note'].includes(t.slug) ? `<!--nav--><p s
   <p><a href="${rel}templates/">Browse all ${LIB.length} free templates by category</a></p><!--/nav-->
   <p class="small muted" style="margin-top:2rem">This template is a general sample and not legal advice. Laws vary by jurisdiction; have it reviewed before use.</p>
   ${helpfulWidget(`templates/${t.slug}.html`)}
-  <div class="tpl-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/${t.slug}">Fill it in — free <span class="arr">→</span></a></div>
+  <div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/${t.slug}">Fill it in — free <span class="arr">→</span></a></div>
 </div></section>`,
     };
   }),

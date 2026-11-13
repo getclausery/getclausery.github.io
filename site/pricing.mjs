@@ -59,7 +59,7 @@ const MATRIX = [
 ];
 
 export const pages = [{
-  path: 'pricing/', ogImage: 'assets/og/pricing.png', title: `Pricing · Free forever · Pro $${PRICES.pro}/month (no card required)`, extraHead: plansLd + faqLd(FAQ) + crumbsLd([['Home', ''], ['Pricing', 'pricing/']]) + `<style>.pricing-cta-fixed{display:none}@media(max-width:760px){.pricing-cta-fixed{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.pricing-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.pricing-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.pricing-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`,
+  path: 'pricing/', ogImage: 'assets/og/pricing.png', title: `Pricing · Free forever · Pro $${PRICES.pro}/month (no card required)`, extraHead: plansLd + faqLd(FAQ) + crumbsLd([['Home', ''], ['Pricing', 'pricing/']]) + `<style></style>`,
   description: `Free forever: ${LIB.length} Word templates, three of your own, unlimited documents. Pro is $${PRICES.pro}/user/month for unlimited templates, calculations, encryption and bulk-from-spreadsheet. ${TRIAL_DAYS}-day free trial (no card), ${REFUND_DAYS}-day refund.`,
   body: (rel) => `
 <section class="section">
@@ -245,5 +245,5 @@ body.billing-yearly .plan .price small{display:none}
 @media (max-width:600px){.billing-toggle{font-size:.9rem}.trust-logos{font-size:.74rem;gap:.4rem .9rem}}
 </style>
 <script src="${rel}pricing/billing-toggle.js" defer></script>
-<div class="pricing-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/trial">Start ${TRIAL_DAYS}-day free trial <span class="arr">→</span></a></div>`,
+<div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}app/#/trial">Start ${TRIAL_DAYS}-day free trial <span class="arr">→</span></a></div>`,
 }];

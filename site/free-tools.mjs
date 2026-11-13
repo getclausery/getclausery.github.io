@@ -25,7 +25,7 @@ const TOOL_CSS = `<style>
 .embed-tools { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; margin: .75rem 0 1rem; }
 .schedule-wrap { max-height: 22rem; overflow: auto; margin-top: .5rem; } .tool details summary { cursor: pointer; font-weight: 600; }
 .terms-table { width: 100%; border-collapse: collapse; font-size: .95rem; } .terms-table th, .terms-table td { text-align: left; padding: .55rem .5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
-.p-cta-fixed{display:none}@media(max-width:760px){.p-cta-fixed{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.p-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.p-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.p-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}
+
 </style>`;
 const crumbs = (rel, name) => `<nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}free-tools/">Free tools</a> › ${name}</nav>`;
 const moreTools = (rel, slug) => `<!--nav--><p class="small" style="margin-top:2rem"><strong>More free tools:</strong> ${TOOLS.filter((t) => t.slug !== slug).map((t) => `<a href="${rel}free-tools/${t.slug}.html">${t.name}</a>`).join(' · ')}</p><!--/nav-->`;
@@ -87,7 +87,7 @@ const STICKY = {
 const stickyCta = (slug, rel) => {
   const c = STICKY[slug] || STICKY['amount-in-words'];
   const href = c.href.replace(/\$\{rel\}/g, rel);
-  return `<div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${href}">${c.label} <span class="arr">→</span></a></div>`;
+  return `<div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${href}">${c.label} <span class="arr">→</span></a></div>`;
 };
 export const TOOLS = [
   { slug: 'amount-in-words', name: 'Amount in words converter', desc: 'Write any amount in words for contracts, cheques and promissory notes, such as "One Thousand Two Hundred and Fifty Dollars and 50/100".', height: 540 },

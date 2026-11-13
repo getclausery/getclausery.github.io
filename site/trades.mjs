@@ -240,7 +240,7 @@ ${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}
   },
   ...TRADES.map((t) => ({
     path: `invoice-templates/${t.slug}.html`, title: t.title, description: t.description, _toc: true, published: '2026-10-31', ogImage: 'assets/og/invoice.png',
-    extraHead: faqLd(t.faq) + `<style>.tpl-cta-fixed-t{display:none}@media(max-width:760px){.tpl-cta-fixed-t{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.tpl-cta-fixed-t a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.tpl-cta-fixed-t{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.tpl-cta-fixed-t a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`,
+    extraHead: faqLd(t.faq) + `<style></style>`,
     body: (rel) => `<section class="section"><div class="wrap prose">
   <p class="small"><a href="${rel}invoice-templates/">Invoice templates by trade</a></p>
   <h1>${esc(t.title.replace(/ \(free, Word\)| \(Word\)/, ''))}</h1>
@@ -274,7 +274,7 @@ ${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}
   <ul class="link-cols">${TRADES.filter((x) => x.slug !== t.slug).map((x) => `<li><a href="${rel}invoice-templates/${x.slug}.html">${esc(x.title.replace(/ \(free, Word\)| \(Word\)/, ''))}</a></li>`).join('')}</ul><!--/nav-->
   <p class="small muted" style="margin-top:2rem">General information, not legal or tax advice. Rules on what an invoice must show vary by country and trade; check yours.</p>
 </div></section>
-<div class="tpl-cta-fixed-t"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice/${t.slug}">Start this invoice, free <span class="arr">→</span></a></div>
+<div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice/${t.slug}">Start this invoice, free <span class="arr">→</span></a></div>
 `,
   })),
 ];
