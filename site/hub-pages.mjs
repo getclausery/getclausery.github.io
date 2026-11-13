@@ -2560,7 +2560,7 @@ function hubBody(h, rel) {
 <nav class="small muted" aria-label="Breadcrumb">${crumbs.slice(0,-1).map(([l,href])=>`<a href="${rel}${href}">${esc(l)}</a> › `).join('')}${esc(h.h1)}</nav>
 <h1>${esc(h.h1)}</h1>
 <p class="lead">${esc(h.lead)}</p>
-<div class="actions" style="display:flex;gap:.75rem;flex-wrap:wrap;margin:1.5rem 0">
+<div class="actions">
 <a class="btn btn-primary btn-lg" href="${rel}${h.cta.href}">${esc(h.cta.label)} <span class="arr">→</span></a>
 <a class="btn btn-lg" href="${rel}${(h.download||{href:'samples/invoice.docx'}).href}" download>${esc((h.download||{label:'Download Word'}).label)}</a>
 </div>

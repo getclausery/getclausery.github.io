@@ -61,7 +61,7 @@ export const pages = [
   <div class="table-wrap" tabindex="0"><table class="compare"><thead><tr><th scope="col">Document</th><th scope="col">Clauses to expect</th></tr></thead><tbody>
     ${BY_DOC.map(([doc, hub, list]) => `<tr><th scope="row"><a href="${rel}templates/${hub}.html">${esc(doc)}</a></th><td>${list.map((s) => `<a href="${rel}clauses/${s}.html">${esc(short(BY_SLUG[s]))}</a>`).join(', ')} <span class="small muted">· <a href="${rel}templates/${hub}.html">what to include</a></span></td></tr>`).join('')}
   </tbody></table></div>
-  <!--nav--><div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem;margin-top:0">Put the clauses into a document</h2><p>Clausery turns your own Word template into a questionnaire and builds the finished contract in your browser. Every template in the library is free, and the <a href="${rel}templates/">free contract templates</a> already use many of these clauses.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free templates</a></p></div><!--/nav-->
+  <!--nav--><div class="feature" style="margin-top:2.5rem"><h2>Put the clauses into a document</h2><p>Clausery turns your own Word template into a questionnaire and builds the finished contract in your browser. Every template in the library is free, and the <a href="${rel}templates/">free contract templates</a> already use many of these clauses.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free templates</a></p></div><!--/nav-->
   <p class="small muted" style="margin-top:2rem">This library is general information, not legal advice. Laws differ between countries and states; have wording reviewed for your situation before you rely on it.</p>
 </div></section>
 ${hubCta(rel, 'app/', 'Open Clausery, free')}
@@ -109,7 +109,7 @@ ${related.length ? `
   <h2>Related clauses</h2>
   <ul>${related.map((x) => `<li><a href="${rel}clauses/${x.slug}.html">${esc(x.name)}</a></li>`).join('')}</ul>` : ''}
 
-  <!--nav--><div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem;margin-top:0">Stop editing contracts by hand</h2><p>Clausery turns your Word templates into short questionnaires and builds the finished document in your browser. Nothing is uploaded, and every library template is free.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free templates</a></p></div><!--/nav-->
+  <!--nav--><div class="feature" style="margin-top:2.5rem"><h2>Stop editing contracts by hand</h2><p>Clausery turns your Word templates into short questionnaires and builds the finished document in your browser. Nothing is uploaded, and every library template is free.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free templates</a></p></div><!--/nav-->
   <p class="small muted" style="margin-top:2rem">This page is general information, not legal advice. Laws differ between countries and states; have wording reviewed for your situation before you rely on it.</p>
 </div></section>
 <div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}app/">Open Clausery, free <span class="arr">→</span></a></div>

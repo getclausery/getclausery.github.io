@@ -2211,7 +2211,7 @@ ${hubCta(rel, 'app/', 'Open Clausery, free')}
   <div class="actions"><a class="btn btn-primary btn-lg" href="${rel}app/">Open Clausery, free</a><a class="btn btn-lg" href="${rel}templates/">Browse free templates</a></div>
 </div></section>
 <section class="section section-alt"><div class="wrap"><div class="grid grid-2">
-  ${a.points.map(([h, p]) => `<div class="feature"><h2 style="font-size:1.15rem">${esc(h)}</h2><p>${esc(p)}</p></div>`).join('')}
+  ${a.points.map(([h, p]) => `<div class="feature"><h2>${esc(h)}</h2><p>${esc(p)}</p></div>`).join('')}
 </div></div></section>
 <section class="section"><div class="wrap" style="max-width:52rem">
   <h2>Start from a free template</h2>

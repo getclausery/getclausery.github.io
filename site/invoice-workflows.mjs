@@ -103,7 +103,7 @@ export const pages = WORKFLOWS.map((w) => ({
 <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}invoice-templates/">Invoice templates</a> › ${esc(w.name)}</nav>
 <h1>${esc(w.title)}</h1>
 <p class="lead">${esc(w.intro)}</p>
-<div class="actions" style="display:flex;gap:.75rem;flex-wrap:wrap;margin:1.5rem 0"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice/${w.slug}">Start this invoice, free</a><a class="btn btn-lg" href="${rel}samples/invoice.docx" download>Download the base Word template</a></div>
+<div class="actions"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice/${w.slug}">Start this invoice, free</a><a class="btn btn-lg" href="${rel}samples/invoice.docx" download>Download the base Word template</a></div>
 <p class="small muted">No sign-up. Editable .docx or print to PDF. Your answers stay in your browser. Updated <time datetime="${LASTMOD}">${LASTMOD_LONG}</time>.</p>
 <p class="small">The online starter sets up this billing workflow. The base Word download uses the general invoice wording and tags; customize it by hand or use the starter to get a completed document.</p>
 <nav class="small" aria-label="On this page"><a href="#when">When to use it</a> · <a href="#example">Worked example</a> · <a href="#steps">How to fill it in</a> · <a href="#checks">Before sending</a> · <a href="#questions">Questions</a></nav>

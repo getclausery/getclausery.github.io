@@ -233,7 +233,7 @@ export const pages = [
     ['Is there a UK VAT invoice template?', 'Yes \u2014 pick the UK VAT starter from the By country list and it opens pre-set to 20% VAT with your VAT registration number field, matching HMRC rules for a full VAT invoice. Other starters handle Australian GST, Canadian GST/HST and more.'],
     ['Is there a blank invoice template I can just fill in?', 'Yes. The Blank invoice starter is the simplest \u2014 open it, add line items, tax and your client details, then download the Word file or PDF.'],
   ])}
-  <!--nav--><div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem;margin-top:0">Start an invoice now</h2><p>The app opens the invoice with your details, the next number and today's date already filled in. Choose a starter here or open the general invoice and change the lines.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/#/start/invoice">Open the invoice app</a> <a class="btn" href="${rel}templates/invoice.html">See the invoice template</a></p></div><!--/nav-->
+  <!--nav--><div class="feature" style="margin-top:2.5rem"><h2>Start an invoice now</h2><p>The app opens the invoice with your details, the next number and today's date already filled in. Choose a starter here or open the general invoice and change the lines.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/#/start/invoice">Open the invoice app</a> <a class="btn" href="${rel}templates/invoice.html">See the invoice template</a></p></div><!--/nav-->
 </div></section>
 ${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}
 `,
@@ -245,7 +245,7 @@ ${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}
   <p class="small"><a href="${rel}invoice-templates/">Invoice templates by trade</a></p>
   <h1>${esc(t.title.replace(/ \(free, Word\)| \(Word\)/, ''))}</h1>
   <p class="lead">${esc(t.intro)}</p>
-  <div class="actions" style="display:flex;gap:.75rem;flex-wrap:wrap;margin:1.5rem 0">
+  <div class="actions">
     <a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice/${t.slug}">Start this invoice, free</a>
     <a class="btn btn-lg" href="${rel}samples/invoice.docx" download>Download the Word template</a>
   </div>

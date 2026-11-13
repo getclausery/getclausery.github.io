@@ -156,7 +156,7 @@ export const pages = COUNTRIES.map((c) => ({
   <p class="small"><a href="${rel}invoice-templates/">Invoice templates</a></p>
   <h1>${esc(c.h1)}</h1>
   <p class="lead">${esc(c.intro)}</p>
-  <div class="actions" style="display:flex;gap:.75rem;flex-wrap:wrap;margin:1.5rem 0">
+  <div class="actions">
     <a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice/${c.slug}">Start this invoice, free</a>
     <a class="btn btn-lg" href="${rel}samples/invoice.docx" download>Download the Word template</a>
   </div>
