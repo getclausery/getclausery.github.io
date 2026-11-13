@@ -28,9 +28,13 @@ const _DOCS_FOOTER_CTA = (rel) => `<p class="docs-cta" style="margin-top:2.5rem"
 const page = (path, title, description, body, extraHead = '') => ({ path, title, description, published: DOCS_PUBLISHED, ogType: 'article', ogImage: 'assets/og/docs.png', extraHead: extraHead + DOCS_CTA_STYLE, body: (rel) => {
       let b = body(rel);
       const cta = _DOCS_LEAD_CTA(rel);
-      // Inject lead CTA after the first paragraph that closes right before an <h2> (the lead paragraph).
-      // Pages without a lead paragraph (FAQ, Backups) get the CTA immediately after </h1>.
-      if (/<\/p>\s*<h2/.test(b)) {
+      // Inject lead CTA after the lead <p class="lead">, or the first <p> before <h2>. The build step
+      // injects share/print buttons and the "Reviewed by" byline between </h1> and <p class="lead">, so
+      // we match the closing of that first paragraph rather than </h1> directly.
+      const leadRe = /(<p class="lead">[\s\S]*?<\/p>)/;
+      if (leadRe.test(b)) {
+        b = b.replace(leadRe, `$1${cta}`);
+      } else if (/<\/p>\s*<h2/.test(b)) {
         b = b.replace(/<\/p>\s*<h2/, `</p>${cta}<h2`);
       } else {
         b = b.replace('</h1>', `</h1>${cta}`);
