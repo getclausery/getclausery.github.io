@@ -152,7 +152,7 @@ const WIDGET = {
   'deadline-calculator': `<div class="tool">
   <div class="row">
     <div><label for="start">Start date</label><input id="start" type="date"></div>
-    <div><label for="amount">Number</label><input id="amount" type="number" inputmode="numeric" min="0" step="1" value="30"></div>
+    <div><label for="amount">Number</label><input id="amount" type="number" enterkeyhint="done" inputmode="numeric" min="0" step="1" value="30" enterkeyhint="done"></div>
     <div><label for="unit">Unit</label><select id="unit"><option value="days">Calendar days</option><option value="business">Business days (Mon–Fri)</option><option value="weeks">Weeks</option><option value="months">Months</option><option value="years">Years</option></select></div>
     <div><label for="direction">Direction</label><select id="direction"><option value="after">After the start date</option><option value="before">Before the start date</option></select></div>
   </div>
@@ -186,9 +186,9 @@ const WIDGET = {
     <div><label for="currency">Currency</label><select id="currency"><option value="USD">US dollars</option><option value="GBP">Pounds sterling</option><option value="EUR">Euros</option><option value="CAD">Canadian dollars</option><option value="AUD">Australian dollars</option></select></div>
   </div>
   <div class="row">
-    <div><label for="off">Weeks off per year</label><input id="off" type="number" inputmode="numeric" min="0" max="51" value="6"></div>
-    <div><label for="hpw">Billable hours per week</label><input id="hpw" type="number" inputmode="numeric" min="1" max="80" value="25"></div>
-    <div><label for="hpd">Hours in a working day</label><input id="hpd" type="number" inputmode="numeric" min="1" max="16" value="8"></div>
+    <div><label for="off">Weeks off per year</label><input id="off" type="number" enterkeyhint="done" inputmode="numeric" min="0" max="51" value="6" enterkeyhint="done"></div>
+    <div><label for="hpw">Billable hours per week</label><input id="hpw" type="number" enterkeyhint="done" inputmode="numeric" min="1" max="80" value="25" enterkeyhint="done"></div>
+    <div><label for="hpd">Hours in a working day</label><input id="hpd" type="number" enterkeyhint="done" inputmode="numeric" min="1" max="16" value="8" enterkeyhint="done"></div>
   </div>
   <p id="error" class="err" role="alert" hidden></p>
   <div class="out" id="result" aria-live="polite"></div>
@@ -239,7 +239,7 @@ const WIDGET = {
     <div><label for="rate">Interest rate (% a year)</label><input id="rate" inputmode="decimal" value="5" autocomplete="off"></div>
   </div>
   <div class="row">
-    <div><label for="payments">Number of payments</label><input id="payments" type="number" inputmode="numeric" min="1" max="1200" step="1" value="24"></div>
+    <div><label for="payments">Number of payments</label><input id="payments" type="number" enterkeyhint="done" inputmode="numeric" min="1" max="1200" step="1" value="24" enterkeyhint="done"></div>
     <div><label for="frequency">Paid</label><select id="frequency"><option value="weekly">Weekly</option><option value="fortnightly">Every two weeks</option><option value="monthly" selected>Monthly</option><option value="quarterly">Quarterly</option><option value="yearly">Yearly</option></select></div>
     <div><label for="first">First payment date (optional)</label><input id="first" type="date"></div>
   </div>
