@@ -1,8 +1,8 @@
 {
  "origin": "https://getclausery.github.io/",
  "version": "2.164.0",
- "commit": "8fe9f99551368bd5454d770298b9c574da65ddf5",
- "generatedAt": "2026-11-13T18:47:53.543Z",
+ "commit": "b62e6ad290656d92a39bbb9ab4a18ca7780c9925",
+ "generatedAt": "2026-11-13T18:48:37.132Z",
  "license": "AGPL-3.0-or-later WITH Clausery-Trademark-Exception",
  "files": {
   "/index.html": "sha256-4QG//0tcKXI7RlRxsopAi2iPhodqCHoZPbQVJcitYOc=",
@@ -61,7 +61,7 @@
   "/vendor/docs.js": "sha256-zc1Q8rTWAXN4Yt1FRV6fBW1CLHK37bUJH/R2lbhL6m8=",
   "/vendor/intake-runtime.js": "sha256-rxHdRxm+MrIK/cPY7ugWGFcy6vomo+Mprj/yY5CHsV4=",
   "/vendor/purchase-runtime-2.164.0.js": "sha256-ZwU2z/j9XIbzD99THdO7S5RdB8mAhE+V6KPhJl1dnB8=",
-  "/site.css": "sha256-t9Bhbj3j2oaAkqXlOqimxvUuft0hrYtJWDzD4QuGetY=",
+  "/site.css": "sha256-Vbth8KruLCTSbQK8TTCKnlE4dH05HWAhgCOjrAmetNM=",
   "/site.js": "sha256-rCzXeevkdrqcNUjQdMOoOhHzOpMkqPsTDKN4/SCcnac=",
   "/sw.js": "sha256-P342JqBqyCre+S+I8s06Bh/aOGmg74ODphQHLuN6oIA=",
   "/assets/icon-maskable.svg": "sha256-XyQCxTrWpTVytg6JNU8AGdwLTwbqEQ1e7kAJ1pLhlKM=",
@@ -587,6 +587,6 @@
   "/go/index.html": "sha256-E3X3QgiLu6gz+N/puAXjvwd1fLhqu+CVEKjQl+LBsAI=",
   "/made-with/index.html": "sha256-SKv6PQVJ/DOTdk6G6qsEit5rp7Zbq8H1VCNwCbJ3H18=",
   "/.well-known/security.txt": "sha256-9hmk4JwgbchCCB94CXOhYtZPeLjEgGYe3tWi8wXZdMs=",
-  "/.well-known/attestation.json": "sha256-pJkaA/WAzYKuOQz0N0MxcpjLHjVABdoxRcUg9Z/xwGA="
+  "/.well-known/attestation.json": "sha256-UJ25qMk18MptTMrBRlGze9iR4lqvcfaBNwPzcQI26rk="
  }
 }
