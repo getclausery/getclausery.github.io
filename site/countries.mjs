@@ -147,11 +147,10 @@ const example = (c) => {
   </tbody></table></div>`;
 };
 
-const COUNTRY_CTA_CSS = ``;
 const COUNTRY_PUBLISHED = { 'uk-vat-invoice':'2026-10-31', 'australia-tax-invoice':'2026-10-31', 'new-zealand-gst-invoice':'2026-10-31', 'canada-gst-hst-invoice':'2026-10-31', 'ireland-vat-invoice':'2026-10-31', 'south-africa-tax-invoice':'2026-10-31', 'uk-invoice':'2026-11-06', 'us-invoice':'2026-11-07' };
 export const pages = COUNTRIES.map((c) => ({
   path: `invoice-templates/${c.slug}.html`, title: c.title, description: c.description, _toc: true, published: COUNTRY_PUBLISHED[c.slug] || '2026-10-31', ogImage: 'assets/og/invoice.png',
-  extraHead: faqLd(c.faq) + COUNTRY_CTA_CSS,
+  extraHead: faqLd(c.faq),
   body: (rel) => `<section class="section"><div class="wrap prose">
   <p class="small"><a href="${rel}invoice-templates/">Invoice templates</a></p>
   <h1>${esc(c.h1)}</h1>

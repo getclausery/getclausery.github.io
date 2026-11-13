@@ -1,12 +1,12 @@
 // Press kit: facts, boilerplate and assets for journalists, directories and bloggers.
 import { LIB } from './library.mjs';
-import { REPO_URL, CONTACT_EMAIL, ONLINE_KEYS, mailto, HUB_CTA_STYLE, hubCta } from '../tools/partials.mjs';
+import { REPO_URL, CONTACT_EMAIL, ONLINE_KEYS, mailto, hubCta } from '../tools/partials.mjs';
 import { PRICES, TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 import { MARKETING_ASSETS } from './data/marketing-assets.mjs';
 export const pages = [{
   path: 'press/', ogImage: 'assets/og/company.png', title: 'Press kit',
   description: 'Clausery press kit: free Word invoices, quotes and receipts for small businesses, with product facts, pricing, reusable images and contact details.',
-  extraHead: HUB_CTA_STYLE,
+  extraHead: '',
   body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Press kit</h1>
 <p class="lead">Everything you need to write about or list Clausery. All text on this page may be quoted freely.</p>

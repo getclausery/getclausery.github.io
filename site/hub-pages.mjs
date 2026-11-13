@@ -2581,7 +2581,6 @@ ${faqHtml(h.faq)}
 }
 
 
-const HUB_CTA_CSS = ``;
 const resolveOg = (candidates, fallback = 'assets/og.png') => {
   for (const c of candidates) if (c && existsSync(c)) return c;
   return fallback;
@@ -2629,6 +2628,6 @@ const hubOgImage = (p) => {
 };
 export const pages = HUBS.map((h) => ({
   path: h.path, title: h.title, description: h.description, _toc: true, published: '2026-10-31', ogImage: hubOgImage(h.path),
-  extraHead: faqLd(h.faq) + crumbsLd(h.section ? [['Home', ''], [h.sectionLabel, h.section + '/'], [h.h1, h.path]] : [['Home', ''], [h.h1, h.path]]) + HUB_CTA_CSS,
+  extraHead: faqLd(h.faq) + crumbsLd(h.section ? [['Home', ''], [h.sectionLabel, h.section + '/'], [h.h1, h.path]] : [['Home', ''], [h.h1, h.path]]),
   body: (rel) => hubBody(h, rel),
 }));

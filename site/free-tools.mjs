@@ -2,7 +2,7 @@
 // Each runs entirely in the page from an external module (strict CSP friendly) and points to Clausery for the full job.
 // The calculators also have bare embed pages (free-tools/embed/) that other sites can put in an iframe, with a credit link.
 import { readFileSync } from 'node:fs';
-import { SITE, esc, faqLd, faqHtml, crumbsLd, collectionLd, longDate, HUB_CTA_STYLE, hubCta } from '../tools/partials.mjs';
+import { SITE, esc, faqLd, faqHtml, crumbsLd, collectionLd, longDate, hubCta } from '../tools/partials.mjs';
 import { invoiceDue } from '../free-tools/invoice-due-date.js';
 import { formatDate } from '../app/lib/expr.js';
 const DATES = JSON.parse(readFileSync(new URL('./data/page-dates.json', import.meta.url), 'utf8'));
@@ -273,7 +273,7 @@ body.embed { background: transparent; }
 </style>`;
 export const pages = [
   { path: 'free-tools/', title: 'Free small-business calculators (Word, 2026)', ogImage: 'assets/og/free-tools.png', description: 'Free tools for drafting and invoicing: amount in words, deadlines, invoice due dates, late payment interest, loans, commission, prorated rent and more.',
-    extraHead: collectionLd({ path: 'free-tools/', name: 'Free drafting tools', description: 'Free tools for drafting and invoicing: amount in words, deadlines, invoice due dates, late payment interest, loans, commission, prorated rent and more.', items: TOOLS.map((t) => [t.name, `free-tools/${t.slug}.html`]) }) + HUB_CTA_STYLE,
+    extraHead: collectionLd({ path: 'free-tools/', name: 'Free drafting tools', description: 'Free tools for drafting and invoicing: amount in words, deadlines, invoice due dates, late payment interest, loans, commission, prorated rent and more.', items: TOOLS.map((t) => [t.name, `free-tools/${t.slug}.html`]) }),
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem"><h1>Free drafting tools</h1><p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><strong>4.8/5</strong><span class="muted">from 427 freelancers and small businesses</span></p><p class="lead">Small tools for everyday drafting and invoicing. They run entirely in your browser; nothing you type is sent anywhere. The calculators can also be <a href="#embed">added to your own website</a> for free.<p><a class="btn btn-primary" href="${rel}app/">Open Clausery free — no account</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
 <nav aria-label="Jump to section"><strong>Jump to:</strong> <a href="#calculators">Calculators</a> · <a href="#invoice-email">Invoice email generator</a> · <a href="#embed">Embed on your site</a></nav>
 <h2 id="calculators" style="margin-top:2rem">Calculators</h2>

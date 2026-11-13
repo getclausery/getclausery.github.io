@@ -1,5 +1,5 @@
 // The NDA hub: one page that helps people pick the right NDA template, aimed at "free NDA template" searches.
-import { esc, faqLd, faqHtml, crumbsLd, HUB_CTA_STYLE, hubCta } from '../tools/partials.mjs';
+import { esc, faqLd, faqHtml, crumbsLd, hubCta } from '../tools/partials.mjs';
 import { LIB, NDA_SLUGS } from './library.mjs';
 
 const T = Object.fromEntries(LIB.filter((t) => NDA_SLUGS.includes(t.slug)).map((t) => [t.slug, t]));
@@ -26,7 +26,7 @@ const FAQ = [
 export const pages = [{
   path: 'nda-templates/', ogImage: 'assets/og/business-sale-nda.png', title: 'Free NDA Templates | Sign-Ready Word/PDF (5 Forms)',
   description: '5 free NDA templates: mutual, one-way, employee, contractor and business sale. Fill in online and download a sign-ready Word or PDF.',
-  extraHead: faqLd(FAQ) + crumbsLd([['Home', ''], ['Templates', 'templates/'], ['NDA templates', 'nda-templates/']]) + HUB_CTA_STYLE,
+  extraHead: faqLd(FAQ) + crumbsLd([['Home', ''], ['Templates', 'templates/'], ['NDA templates', 'nda-templates/']]),
   body: (rel) => `
 <section class="section"><div class="wrap" style="max-width:56rem">
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}templates/">Templates</a> › NDA templates</nav>

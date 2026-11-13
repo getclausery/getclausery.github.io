@@ -90,10 +90,9 @@ const calculator = (rel) => `<h2 id="deposit-calculator-heading">Work out your d
 <noscript><p>Without JavaScript: deposit = agreed amount × percentage ÷ 100. Remaining balance = agreed amount − deposit.</p></noscript></div>
 <script type="module" src="${rel}invoice-templates/deposit-calculator.js"></script>`;
 
-const WF_CTA_CSS = ``;
 export const pages = WORKFLOWS.map((w) => ({
   path: `invoice-templates/${w.slug}.html`, title: w.title, description: w.description, _toc: true, published: '2026-10-31', ogImage: 'assets/og/invoice.png',
-  extraHead: faqLd(w.faq) + WF_CTA_CSS + (w.slug === 'deposit-invoice' ? `<style>
+  extraHead: faqLd(w.faq) + (w.slug === 'deposit-invoice' ? `<style>
 .invoice-calculator { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:1.5rem; margin:1.5rem 0; }
 .invoice-calculator label { display:block; font-weight:600; margin-bottom:.5rem; }
 .invoice-calculator input, .invoice-calculator select { width:100%; min-height:44px; padding:.55rem .65rem; border:1px solid var(--border-strong); border-radius:var(--radius-sm); background:var(--bg); color:var(--text); font:inherit; }

@@ -21,11 +21,10 @@ const DOCS_FAQ = [
   ['What if Clausery disappears?', (rel) => `Your copy keeps working: it is cached in your browser and can be self-hosted from the repository. Your templates are your .docx files; your data exports are plain JSON.`],
   [ONLINE_KEYS ? 'How do I activate a paid plan?' : 'How do I get a license key?', (rel) => `See <a href="${rel}pricing/">Pricing</a>. ${ONLINE_KEYS ? 'Choose a plan and pay, then select Open Clausery after payment or in your receipt email. The plan activates automatically and opens the app. No separate account or key to copy. Use the receipt button on another device too, and keep that access link private.' : 'Keys are delivered by email and entered once per device.'}`],
 ];
-const DOCS_CTA_STYLE = ``;
 const DOCS_PUBLISHED = '2026-11-07';
 const _DOCS_LEAD_CTA = (rel) => `<p style="margin-top:0"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Browse free templates</a></p>`;
 const _DOCS_FOOTER_CTA = (rel) => `<p class="docs-cta" style="margin-top:2.5rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Browse free templates</a></p>`;
-const page = (path, title, description, body, extraHead = '') => ({ path, title, description, published: DOCS_PUBLISHED, ogType: 'article', ogImage: 'assets/og/docs.png', extraHead: extraHead + DOCS_CTA_STYLE, body: (rel) => {
+const page = (path, title, description, body, extraHead = '') => ({ path, title, description, published: DOCS_PUBLISHED, ogType: 'article', ogImage: 'assets/og/docs.png', extraHead: extraHead, body: (rel) => {
       let b = body(rel);
       const cta = _DOCS_LEAD_CTA(rel);
       // Inject lead CTA after the lead <p class="lead">, or the first <p> before <h2>. The build step

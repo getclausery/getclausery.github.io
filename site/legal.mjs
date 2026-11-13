@@ -8,9 +8,8 @@ const POLICY_UPDATES = ['2026-10-15'];
 const EFFECTIVE = [ANALYTICS_ON && ANALYTICS_SINCE, ONLINE_KEYS && CHECKOUT_SINCE, USAGE_ON && USAGE_SINCE, ...POLICY_UPDATES].filter(Boolean).sort().pop();
 /* What the app itself counts once USAGE_COUNTER is set in app/config.js (app/lib/usage.js). */
 const APP_COUNTS = `\n<h2>App usage counts</h2>\n<p>To learn which templates people use, the app tells <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a> when it is opened, when a draft is started and when a document is downloaded, printed, shared or made from a spreadsheet, and, to learn whether the paid plans make sense, when the upgrade dialog is shown (with the feature asked for), a checkout button is selected, or the free trial starts or ends. Each count is the event and, for a template from our library, which one (for example "document-download/invoice"); a template of your own is counted only as "own". Your answers, file names, template contents and documents are never part of it. GoatCounter uses no cookies or local storage and does not store IP addresses, under <a href="https://www.goatcounter.com/help/privacy" rel="noopener">its privacy policy</a>. Copies of Clausery hosted anywhere else, including your own, never send these counts.</p>`;
-const LEGAL_CTA_STYLE = ``;
 const LEGAL_LEAD_CTA = (rel) => `<p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>`;
-const page = (path, title, description, body) => ({ path, title, description, ogImage: 'assets/og/legal.png', extraHead: LEGAL_CTA_STYLE, body: (rel) => {
+const page = (path, title, description, body) => ({ path, title, description, ogImage: 'assets/og/legal.png', extraHead: '', body: (rel) => {
       let b = body(rel);
       const cta = LEGAL_LEAD_CTA(rel);
       // Inject after the first closing </p> that sits before <h2> (legal pages have an effective-date <p> before h2).
@@ -23,7 +22,7 @@ const page = (path, title, description, body) => ({ path, title, description, og
     } });
 export const pages = [
   { path: 'legal/', title: 'Legal documents', ogImage: 'assets/og/legal.png', description: 'Privacy policy, terms of service, open-source license (AGPLv3), data processing statement and DMCA / takedown information for Clausery.', feed: false,
-    extraHead: LEGAL_CTA_STYLE,
+    extraHead: '',
     body: (rel) => `<section class="section"><div class="wrap prose">
 <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › Legal</nav>
 <h1>Legal documents</h1>

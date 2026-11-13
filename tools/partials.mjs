@@ -385,6 +385,4 @@ export function docsNav(rel, path) {
 }
 
 // Shared sticky-call-to-action markup for hub / section-index pages.
-// Use: extraHead: ... + HUB_CTA_STYLE; and append hubCta(rel, href, label) at end of body.
-export const HUB_CTA_STYLE = ``;
 export const hubCta = (rel, href, label) => `<div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}${href}">${label} <span class="arr">→</span></a></div>`;

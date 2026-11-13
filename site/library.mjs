@@ -7,7 +7,7 @@ import { applySetup, setupFor } from '../app/lib/setups.js';
 import { PRESETS } from '../app/lib/presets.js';
 import { invoiceWordHelp, workflowLinks } from './invoice-workflows.mjs';
 import { paymentReceiptHelp, receiptHelpHead } from './payment-receipt.mjs';
-import { esc, crumbsLd, collectionLd, faqLd, faqHtml, lowerFirst, fitSnippet, picture, helpfulWidget, SITE, LASTMOD, LASTMOD_LONG, longDate, ico, HUB_CTA_STYLE, hubCta } from '../tools/partials.mjs';
+import { esc, crumbsLd, collectionLd, faqLd, faqHtml, lowerFirst, fitSnippet, picture, helpfulWidget, SITE, LASTMOD, LASTMOD_LONG, longDate, ico, hubCta } from '../tools/partials.mjs';
 import { CLAUSES } from './data/clauses.mjs';
 import { previewHtml, PREVIEW_CSS, PREVIEW_SIZE } from '../tools/preview.mjs';
 
@@ -717,7 +717,7 @@ export const pages = [
       ['Do I need to sign up or give my email?', 'No. Clausery does not ask for an email address, password or credit card to download or fill in a template. Everything runs in your browser and documents save to your own device.'],
       ['Are these templates legal / can I sign them?', 'The templates are standard, editor-reviewed drafts covering the clauses most small businesses and freelancers use. They are not legal advice \u2014 have them reviewed by a lawyer for your jurisdiction before signing if the stakes are high.'],
       ['Can I save a filled-in template as PDF?', 'Yes. Fill it in online, then use your browser\u2019s Print \u2192 Save as PDF (or the built-in PDF button) to produce a printable PDF you can email to clients, tenants or new hires.'],
-    ]) + HUB_CTA_STYLE,
+    ]),
     body: (rel) => `
 <section class="section"><div class="wrap">
   <p class="eyebrow">Free template library</p>
