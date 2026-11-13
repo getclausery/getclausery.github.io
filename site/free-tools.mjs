@@ -186,9 +186,9 @@ const WIDGET = {
     <div><label for="currency">Currency</label><select id="currency"><option value="USD">US dollars</option><option value="GBP">Pounds sterling</option><option value="EUR">Euros</option><option value="CAD">Canadian dollars</option><option value="AUD">Australian dollars</option></select></div>
   </div>
   <div class="row">
-    <div><label for="off">Weeks off per year</label><input id="off" type="number" min="0" max="51" value="6"></div>
-    <div><label for="hpw">Billable hours per week</label><input id="hpw" type="number" min="1" max="80" value="25"></div>
-    <div><label for="hpd">Hours in a working day</label><input id="hpd" type="number" min="1" max="16" value="8"></div>
+    <div><label for="off">Weeks off per year</label><input id="off" type="number" inputmode="numeric" min="0" max="51" value="6"></div>
+    <div><label for="hpw">Billable hours per week</label><input id="hpw" type="number" inputmode="numeric" min="1" max="80" value="25"></div>
+    <div><label for="hpd">Hours in a working day</label><input id="hpd" type="number" inputmode="numeric" min="1" max="16" value="8"></div>
   </div>
   <p id="error" class="err" role="alert" hidden></p>
   <div class="out" id="result" aria-live="polite"></div>

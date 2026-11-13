@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-13",
-  "hash": "7d6cd7a12cf19088"
+  "hash": "3d3ef47346ddb832"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-11-13",
-  "hash": "4b1554a003bb7b97"
+  "hash": "c0137832658adb9e"
  },
  "clauses/": {
   "date": "2026-11-11",
@@ -260,8 +260,8 @@
   "hash": "543fdf973efe99b6"
  },
  "free-tools/": {
-  "date": "2026-11-11",
-  "hash": "a6bef4cff3ab9f49"
+  "date": "2026-11-13",
+  "hash": "b71b4be2cf6cb460"
  },
  "free-tools/amount-in-words.html": {
   "date": "2026-11-08",
@@ -272,8 +272,8 @@
   "hash": "8bee8e922286fbb6"
  },
  "free-tools/freelance-rate.html": {
-  "date": "2026-11-08",
-  "hash": "6069af9518f51669"
+  "date": "2026-11-13",
+  "hash": "d430d6355d2b39c4"
  },
  "free-tools/invoice-due-date.html": {
   "date": "2026-11-08",
@@ -572,8 +572,8 @@
   "hash": "887591f77b73639b"
  },
  "invoice-templates/": {
-  "date": "2026-11-11",
-  "hash": "0217f0a1c4f75ade"
+  "date": "2026-11-13",
+  "hash": "10b43c13b26f08a2"
  },
  "invoice-templates/australia-tax-invoice.html": {
   "date": "2026-11-07",
@@ -809,7 +809,7 @@
  },
  "roadmap/": {
   "date": "2026-11-13",
-  "hash": "17a68d62e07d322a"
+  "hash": "645cb6b2ef6e5ce4"
  },
  "search/": {
   "date": "2026-10-31",
@@ -825,7 +825,7 @@
  },
  "status/": {
   "date": "2026-11-13",
-  "hash": "091e2823ada35fec"
+  "hash": "f15878e2cd5fbfac"
  },
  "templates/": {
   "date": "2026-11-11",
