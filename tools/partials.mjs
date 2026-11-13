@@ -261,7 +261,7 @@ export function header(rel, path, crumbItems = []) {
   const I = { menu:'M4 6h16M4 12h16M4 18h16', search:'M11 4a7 7 0 100 14 7 7 0 000-14zm10 16l-4-4' };
   return `<header class="site-header" role="banner">
   <div class="wrap">
-    <a class="brand" href="${rel}"><img src="${rel}assets/icon.svg" alt="" role="presentation" width="28" height="28" decoding="async"> Clausery</a>
+    <a class="brand" href="${rel}"${path === '' ? ' aria-current="page"' : ''}><img src="${rel}assets/icon.svg" alt="" role="presentation" width="28" height="28" decoding="async"> Clausery</a>
     <button class="nav-search" id="nav-search" type="button" aria-label="Search or jump to… (⌘K)">
       ${ico(I.search,16)}<span>Search or jump to…</span><kbd>⌘K</kbd>
     </button>
