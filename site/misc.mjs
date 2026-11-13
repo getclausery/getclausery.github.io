@@ -243,6 +243,11 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-158-0">2.158.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
+<ul>
+  <li><strong>Removed mobile tap highlight.</strong> Added <code>-webkit-tap-highlight-color: transparent</code> to the body stylesheet (alongside the existing <code>touch-action: manipulation</code> rule that already removed the 300 ms tap delay). Removes the grey/blue flash that iOS Safari and older Android browsers paint over tapped buttons, links and cards, making tap feedback feel instant and match the existing button hover/active styles.</li>
+  <li><strong>Freelance-rate numeric keyboards.</strong> Added <code>inputmode="numeric"</code> to the three remaining whole-count inputs on the freelance-rate calculator (weeks off per year, billable hours per week, hours per working day) that were still showing the full QWERTY keyboard on mobile.</li>
+</ul>
 <h2 id="v2-157-0">2.157.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
 <ul>
   <li><strong>Mobile numeric keyboards.</strong> Added <code>inputmode="decimal"</code> to the deposit-invoice project-amount and deposit-percentage fields, and <code>inputmode="numeric"</code> to the deadline-calculator day-count and loan-repayment payment-count fields. iOS and Android now surface the numeric keypad (with decimal separator) instead of the full QWERTY keyboard for money, percent and whole-count fields, reducing keystrokes on the highest-intent mobile drafting paths.</li>

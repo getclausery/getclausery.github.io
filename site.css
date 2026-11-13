@@ -33,7 +33,7 @@ color-scheme:dark;
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}h1,h2,h3,[id]{scroll-margin-top:calc(var(--header-h) + .5rem)}
-body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 var(--font);-webkit-font-smoothing:antialiased;overflow-x:hidden;touch-action:manipulation}input,select,textarea{font-size:max(16px,1rem)}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 var(--font);-webkit-font-smoothing:antialiased;overflow-x:hidden;touch-action:manipulation;-webkit-tap-highlight-color:transparent}input,select,textarea{font-size:max(16px,1rem)}
 
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:
 radial-gradient(900 500 at 85% -10%,color-mix(in srgb,var(--accent) 10%,transparent),transparent 60%),
