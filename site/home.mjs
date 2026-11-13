@@ -51,7 +51,7 @@ export const pages = [{
   <div class="wrap">
     <div>
       <div class="eyebrow">${ico(I.calc)} Free · No account · No card · Editable Word</div>
-      <div class="release-pill"><a href="${rel}changelog.html#v${APP_VERSION.replace(/\./g,'-')}"><strong>New:</strong> v${APP_VERSION}</a> — sticky-CTA CSS consolidated across 376 pages. <a href="${rel}changelog.html">See what changed</a>.</div>
+      <div class="release-pill"><a href="${rel}changelog.html#v${APP_VERSION.replace(/\./g,'-')}"><strong>New:</strong> v${APP_VERSION}</a> — CSS cleanups: 30+ duplicate inline styles removed. <a href="${rel}changelog.html">See what changed</a>.</div>
       <h1>Free invoice template — make a professional invoice online in 60 seconds.</h1>
       <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><strong>4.8/5</strong><span class="muted">from 427 freelancers and small businesses</span></p>
       <p class="lead">Answer a few questions and download a printable PDF or editable <strong>Word .docx</strong> invoice. Totals, VAT, GST or sales tax, discounts, and the next invoice number are worked out automatically. Also make <a href="${rel}templates/quote.html">quotes</a>, <a href="${rel}templates/purchase-order.html">purchase orders</a>, <a href="${rel}templates/credit-note.html">credit notes</a> and <a href="${rel}templates/payment-receipt.html">receipts</a> — everything runs in your browser; nothing is uploaded.</p>
@@ -91,9 +91,9 @@ export const pages = [{
         <span>No ads, no tracking cookies</span>
       </div>
       <div class="reviews" style="margin-top:1rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.5rem;font-size:.82rem;color:#cfe0f3" aria-label="What users say">
-        <figure style="margin:0;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:.6rem .75rem"><blockquote style="margin:0">"Finally an invoice generator that doesn't demand my email just to download a Word file."</blockquote><figcaption style="margin-top:.35rem;display:flex;gap:.35rem;align-items:center"><span aria-hidden="true" style="color:#f59e0b;letter-spacing:.05em">★★★★★</span> <cite style="font-style:normal;opacity:.8">— freelance designer</cite></figcaption></figure>
-        <figure style="margin:0;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:.6rem .75rem"><blockquote style="margin:0">"Saved me an hour this month retyping invoices. The 'new invoice for this client' button is genius."</blockquote><figcaption style="margin-top:.35rem;display:flex;gap:.35rem;align-items:center"><span aria-hidden="true" style="color:#f59e0b;letter-spacing:.05em">★★★★★</span> <cite style="font-style:normal;opacity:.8">— contractor, UK</cite></figcaption></figure>
-        <figure style="margin:0;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:.6rem .75rem"><blockquote style="margin:0">"Does exactly what it says on the tin — and nothing is uploaded. Refreshing."</blockquote><figcaption style="margin-top:.35rem;display:flex;gap:.35rem;align-items:center"><span aria-hidden="true" style="color:#f59e0b;letter-spacing:.05em">★★★★★</span> <cite style="font-style:normal;opacity:.8">— small-business owner</cite></figcaption></figure>
+        <figure style="margin:0;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:.6rem .75rem"><blockquote style="margin:0">"Finally an invoice generator that doesn't demand my email just to download a Word file."</blockquote><figcaption style="margin-top:.35rem;display:flex;gap:.35rem;align-items:center"><span class="stars" aria-hidden="true">★★★★★</span> <cite style="font-style:normal;opacity:.8">— freelance designer</cite></figcaption></figure>
+        <figure style="margin:0;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:.6rem .75rem"><blockquote style="margin:0">"Saved me an hour this month retyping invoices. The 'new invoice for this client' button is genius."</blockquote><figcaption style="margin-top:.35rem;display:flex;gap:.35rem;align-items:center"><span class="stars" aria-hidden="true">★★★★★</span> <cite style="font-style:normal;opacity:.8">— contractor, UK</cite></figcaption></figure>
+        <figure style="margin:0;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:.6rem .75rem"><blockquote style="margin:0">"Does exactly what it says on the tin — and nothing is uploaded. Refreshing."</blockquote><figcaption style="margin-top:.35rem;display:flex;gap:.35rem;align-items:center"><span class="stars" aria-hidden="true">★★★★★</span> <cite style="font-style:normal;opacity:.8">— small-business owner</cite></figcaption></figure>
       </div>
     </div>
     <figure class="shot" id="try-it" style="margin:0">
@@ -261,10 +261,10 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
       <button class="btn btn-primary" type="submit">Search</button>
     </form>
     <div class="grid grid-4">
-      <a class="feature" style="text-decoration:none;color:inherit" href="${rel}nda-templates/"><h3>NDA templates</h3><p>Mutual, one-way, employee, contractor and business sale.</p></a>
-      <a class="feature" style="text-decoration:none;color:inherit" href="${rel}for/landlords.html"><h3>Landlord forms</h3><p>Lease, notice to vacate, rent receipt, late rent notice.</p></a>
-      <a class="feature" style="text-decoration:none;color:inherit" href="${rel}for/hr-teams.html"><h3>HR letter templates</h3><p>Offer, contract, warning, promotion and more.</p></a>
-      <a class="feature" style="text-decoration:none;color:inherit" href="${rel}for/freelancers.html"><h3>Freelance contracts</h3><p>Contractor, retainer, design, writing and SOW.</p></a>
+      <a class="feature" href="${rel}nda-templates/"><h3>NDA templates</h3><p>Mutual, one-way, employee, contractor and business sale.</p></a>
+      <a class="feature" href="${rel}for/landlords.html"><h3>Landlord forms</h3><p>Lease, notice to vacate, rent receipt, late rent notice.</p></a>
+      <a class="feature" href="${rel}for/hr-teams.html"><h3>HR letter templates</h3><p>Offer, contract, warning, promotion and more.</p></a>
+      <a class="feature" href="${rel}for/freelancers.html"><h3>Freelance contracts</h3><p>Contractor, retainer, design, writing and SOW.</p></a>
     </div>
     <h3 style="margin-top:2rem">Most-used templates</h3>
     ${linkList(pick(LIB, POPULAR_TEMPLATES, 'template').map((t) => [`${rel}templates/${t.slug}.html`, `${t.name} template`]))}

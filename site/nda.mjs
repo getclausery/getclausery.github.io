@@ -41,7 +41,7 @@ export const pages = [{
   </tbody></table></div>
 
   <div class="grid grid-3" style="margin-top:2rem">
-    ${NDA_SLUGS.map((s) => `<a class="feature" style="text-decoration:none;color:inherit" href="${rel}templates/${s}.html"><span class="badge">NDA</span><h3 style="font-size:1.15rem;margin-top:.75rem">${esc(T[s].name)}</h3><p>${esc(T[s].intro)}</p></a>`).join('')}
+    ${NDA_SLUGS.map((s) => `<a class="feature" href="${rel}templates/${s}.html"><span class="badge">NDA</span><h3 style="font-size:1.15rem;margin-top:.75rem">${esc(T[s].name)}</h3><p>${esc(T[s].intro)}</p></a>`).join('')}
   </div>
 
   <h2 style="margin-top:2.5rem">What every NDA should include</h2>

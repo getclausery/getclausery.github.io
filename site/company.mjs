@@ -120,9 +120,9 @@ export const pages = [
 <p class="lead">Email <a href="${mailto('')}">${CONTACT_EMAIL}</a>. A person reads every message, and no account is needed. The buttons below start an email with the right subject line:</p>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
 <div class="grid grid-2" style="margin-top:1.5rem">
-${CHANNELS.map(([h, p, href, cta]) => `  <div class="feature"><h2 style="font-size:1.15rem;margin-top:0">${h}</h2><p>${p}</p><p style="margin-top:1rem"><a class="btn" href="${href.replace(/&/g, '&amp;')}">${cta}</a></p></div>`).join('\n')}
-  <div class="feature"><h2 style="font-size:1.15rem;margin-top:0">Report a security issue</h2><p>Report vulnerabilities privately with GitHub's private reporting. Please do not open a public issue for them.</p><p style="margin-top:1rem"><a class="btn" href="${REPO_URL}/security/advisories/new" rel="noopener">Report privately</a></p></div>
-  <div class="feature"><h2 style="font-size:1.15rem;margin-top:0">Press and listings</h2><p>Product facts, short and long descriptions, screenshots and the logo, free to use.</p><p style="margin-top:1rem"><a class="btn" href="${rel}press/">Open the press kit</a></p></div>
+${CHANNELS.map(([h, p, href, cta]) => `  <div class="feature"><h2>${h}</h2><p>${p}</p><p style="margin-top:1rem"><a class="btn" href="${href.replace(/&/g, '&amp;')}">${cta}</a></p></div>`).join('\n')}
+  <div class="feature"><h2>Report a security issue</h2><p>Report vulnerabilities privately with GitHub's private reporting. Please do not open a public issue for them.</p><p style="margin-top:1rem"><a class="btn" href="${REPO_URL}/security/advisories/new" rel="noopener">Report privately</a></p></div>
+  <div class="feature"><h2>Press and listings</h2><p>Product facts, short and long descriptions, screenshots and the logo, free to use.</p><p style="margin-top:1rem"><a class="btn" href="${rel}press/">Open the press kit</a></p></div>
 </div>
 <h2 style="margin-top:2.5rem">Before you write</h2>
 <ul>
@@ -165,9 +165,9 @@ ${CHANNELS.map(([h, p, href, cta]) => `  <div class="feature"><h2 style="font-si
   <details><summary>Does this track me?</summary><p>No. The document is just a Word file; there are no pixels, beacons or hidden trackers added by Clausery. The link to this page is a plain text hyperlink at the bottom of free-plan documents.</p></details>
 </div>
 <div class="grid grid-3" style="margin-top:2.5rem">
-  <div class="feature"><h2 style="font-size:1.15rem;margin-top:0">Free, with no account</h2><p>Every one of the ${LIB.length} library templates can be filled in at no cost, with unlimited documents and no sign-up.</p></div>
-  <div class="feature"><h2 style="font-size:1.15rem;margin-top:0">The maths done for you</h2><p>Line items, discounts, tax and balances are calculated automatically, and the next invoice continues the sender's numbering.</p></div>
-  <div class="feature"><h2 style="font-size:1.15rem;margin-top:0">Private by design</h2><p>Everything runs in the sender's browser. Client details and document contents are never uploaded to a server.</p></div>
+  <div class="feature"><h2>Free, with no account</h2><p>Every one of the ${LIB.length} library templates can be filled in at no cost, with unlimited documents and no sign-up.</p></div>
+  <div class="feature"><h2>The maths done for you</h2><p>Line items, discounts, tax and balances are calculated automatically, and the next invoice continues the sender's numbering.</p></div>
+  <div class="feature"><h2>Private by design</h2><p>Everything runs in the sender's browser. Client details and document contents are never uploaded to a server.</p></div>
 </div>
 <p class="small muted" style="text-align:center;margin-top:1.5rem"><a href="${rel}">Home</a> · <a href="${rel}pricing/">Pricing</a> · <a href="${rel}customers/">Who uses it</a> · <a href="${rel}about/">About</a> · <a href="${rel}docs/security.html">Security</a></p>
 <p class="small muted" style="text-align:center;margin-top:.5rem">A separate company also uses the name Clausery for an <a href="https://www.clausery.ai/" rel="noopener">enterprise compliance-policy platform</a> (ISO 27001/DORA/GDPR). Same name, different product.</p>
