@@ -2202,7 +2202,7 @@ ${hubCta(rel, 'app/', 'Open Clausery, free')}
   },
   ...AUD.map((a) => ({
     path: `for/${a.slug}.html`, title: a.title, description: a.description || a.intro.slice(0, 290), _toc: true, published: '2026-10-31', ogImage: 'assets/og/for.png',
-    extraHead: faqLd(a.faq) + `<style>.p-cta-fixed{display:none}@media(max-width:760px){.p-cta-fixed{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.p-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.p-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.p-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`,
+    extraHead: faqLd(a.faq) + ``,
     body: (rel) => `<section class="hero"><div class="wrap" style="display:block;max-width:52rem">
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}for/">Who it's for</a> › ${esc(a.name)}</nav>
   <p class="eyebrow" style="margin-top:1rem">For ${esc(lowerFirst(a.name))}</p>
@@ -2222,7 +2222,7 @@ ${hubCta(rel, 'app/', 'Open Clausery, free')}
   <ul>${a.related.map(([href, label]) => `<li><a href="${rel}${href}">${esc(label)}</a></li>`).join('')}</ul>
   <p style="margin-top:2rem"><a href="${rel}for/">Compare all the teams Clausery is built for →</a></p>
 </div></section>
-<div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/${a.templates[0]}">Start with ${/^[aeiou]/i.test(NAMES[a.templates[0]]) ? 'an' : 'a'} ${esc(NAMES[a.templates[0]].toLowerCase())}, free <span class="arr">→</span></a></div>
+<div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/${a.templates[0]}">Start with ${/^[aeiou]/i.test(NAMES[a.templates[0]]) ? 'an' : 'a'} ${esc(NAMES[a.templates[0]].toLowerCase())}, free <span class="arr">→</span></a></div>
 `,
   })),
   { path: 'guides/', title: 'Invoice & Contract Guides | Free Word Templates', ogImage: 'assets/og/guides.png', description: 'How-to guides for invoices, getting paid, contracts, NDAs, HR letters and landlord forms — each linked to a free editable Word template.',
@@ -2237,7 +2237,7 @@ ${GUIDE_TOPICS.map(([t, slugs]) => `  <h2 id="${topicId(t)}" style="margin-top:2
 ${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}` },
   ...GUIDES.map((g) => ({
     path: `guides/${g.slug}.html`, title: g.title, description: g.description, feed: true, published: published(g), ogImage: 'assets/og/invoice.png',
-    extraHead: (g.faq ? faqLd(g.faq) : '') + crumbsLd([['Home', ''], ['Guides', 'guides/'], [g.title, `guides/${g.slug}.html`]]) + `<style>.p-cta-fixed{display:none}@media(max-width:760px){.p-cta-fixed{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.p-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.p-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.p-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`, _howTo: true, _sources: g.sources,
+    extraHead: (g.faq ? faqLd(g.faq) : '') + crumbsLd([['Home', ''], ['Guides', 'guides/'], [g.title, `guides/${g.slug}.html`]]) + ``, _howTo: true, _sources: g.sources,
     body: (rel) => {
       const [topic, slugs] = topicOf(g.slug);
       const tpls = TEMPLATES_FOR_GUIDE[g.slug] || [];
@@ -2259,7 +2259,7 @@ ${g.faq ? `<h2>Questions</h2>${faqHtml(g.faq)}` : ''}<!--nav-->${['how-to-write-
 <ul>${slugs.filter((x) => x !== g.slug).map((x) => `<li><a href="${rel}guides/${x}.html">${esc(GUIDE_BY[x].title)}</a></li>`).join('')}</ul>
 <p><a href="${rel}guides/">Browse all guides by topic</a></p><!--/nav-->
 ${helpfulWidget(`guides/${g.slug}.html`)}</div></section>
-<div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/${tpls[0] || 'invoice'}">${tpls[0] ? `Start with ${/^[aeiou]/i.test(NAMES[tpls[0]]) ? 'an' : 'a'} ${esc((NAMES[tpls[0]][0].toLowerCase() + NAMES[tpls[0]].slice(1)))}` : 'Make an invoice'}, free <span class="arr">→</span></a></div>`;
+<div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/${tpls[0] || 'invoice'}">${tpls[0] ? `Start with ${/^[aeiou]/i.test(NAMES[tpls[0]]) ? 'an' : 'a'} ${esc((NAMES[tpls[0]][0].toLowerCase() + NAMES[tpls[0]].slice(1)))}` : 'Make an invoice'}, free <span class="arr">→</span></a></div>`;
     },
   })),
 ];

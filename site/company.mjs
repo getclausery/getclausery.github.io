@@ -63,7 +63,7 @@ export const pages = [
   {
     path: 'about/', ogImage: 'assets/og/company.png', title: 'About Clausery (open-source invoice tool — not clausery.ai)',
     description: 'About Clausery, the independent open-source business making free Word invoices, quote and receipt generator for freelancers and small businesses. Not affiliated with Clausery.ai.',
-    extraHead: ld({ '@graph': [ { '@type': 'AboutPage', '@id': `${SITE}about/#webpage`, name: 'About Clausery', url: `${SITE}about/`, description: 'Independent open-source business: free Word invoices, quotes and receipts for freelancers and small businesses. Not affiliated with Clausery.ai (separate enterprise compliance software).', mainEntity: { '@id': `${SITE}#organization` }, reviewedBy: { '@id': `${SITE}about/#editors` } }, ORG, EDITOR ] }) + `<style>.p-cta-fixed{display:none}@media(max-width:760px){.p-cta-fixed{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.p-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.p-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.p-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`,
+    extraHead: ld({ '@graph': [ { '@type': 'AboutPage', '@id': `${SITE}about/#webpage`, name: 'About Clausery', url: `${SITE}about/`, description: 'Independent open-source business: free Word invoices, quotes and receipts for freelancers and small businesses. Not affiliated with Clausery.ai (separate enterprise compliance software).', mainEntity: { '@id': `${SITE}#organization` }, reviewedBy: { '@id': `${SITE}about/#editors` } }, ORG, EDITOR ] }) + ``,
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>About Clausery</h1>
 <p class="lead">Clausery makes the documents people draft every week faster to produce, without asking them to upload anything. Your templates, answers and finished documents stay on your own computer.</p>
@@ -108,13 +108,13 @@ export const pages = [
 <h2>Get in touch</h2>
 <p>Questions, template requests, key requests and bug reports all go through the <a href="${rel}contact/">contact page</a>. For current availability see the <a href="${rel}status/">status page</a>, and for what is being worked on see the <a href="${rel}roadmap/">roadmap</a>. Writers and directories will find facts, descriptions and images in the <a href="${rel}press/">press kit</a>.</p>
 </div></section>
-<div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>
+<div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>
 `,
   },
   {
     path: 'contact/', ogImage: 'assets/og/company.png', title: 'Contact Clausery',
     description: 'Contact Clausery: ask a question, get billing help or a refund, suggest a template, report a problem, or report a security issue privately.',
-    extraHead: ld({ '@type': 'ContactPage', name: 'Contact Clausery', url: `${SITE}contact/`, about: ORG }) + `<style>.p-cta-fixed{display:none}@media(max-width:760px){.p-cta-fixed{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.p-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.p-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.p-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`,
+    extraHead: ld({ '@type': 'ContactPage', name: 'Contact Clausery', url: `${SITE}contact/`, about: ORG }) + ``,
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">
 <h1>Contact Clausery</h1>
 <p class="lead">Email <a href="${mailto('')}">${CONTACT_EMAIL}</a>. A person reads every message, and no account is needed. The buttons below start an email with the right subject line:</p>
@@ -132,7 +132,7 @@ ${CHANNELS.map(([h, p, href, cta]) => `  <div class="feature"><h2 style="font-si
 </ul>
 <p class="small muted" style="margin-top:2rem">Clausery is software, not a law firm, and cannot advise on your legal situation. The code and public issues are on <a href="${REPO_URL}" rel="noopener">GitHub</a>.</p>
 </div></section>
-<div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>
+<div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>
 `,
   },
   {

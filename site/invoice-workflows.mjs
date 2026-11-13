@@ -90,7 +90,7 @@ const calculator = (rel) => `<h2 id="deposit-calculator-heading">Work out your d
 <noscript><p>Without JavaScript: deposit = agreed amount × percentage ÷ 100. Remaining balance = agreed amount − deposit.</p></noscript></div>
 <script type="module" src="${rel}invoice-templates/deposit-calculator.js"></script>`;
 
-const WF_CTA_CSS = `<style>.p-cta-fixed{display:none}@media(max-width:760px){.p-cta-fixed{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom));z-index:20;gap:.5rem;padding-bottom:env(safe-area-inset-bottom)}.p-cta-fixed a{flex:1;text-align:center;justify-content:center;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:.85rem 1rem}body{padding-bottom:4.5rem}}@media(min-width:761px){.p-cta-fixed{display:flex;position:fixed;right:1.25rem;bottom:1.25rem;z-index:20}.p-cta-fixed a{border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}}</style>`;
+const WF_CTA_CSS = ``;
 export const pages = WORKFLOWS.map((w) => ({
   path: `invoice-templates/${w.slug}.html`, title: w.title, description: w.description, _toc: true, published: '2026-10-31', ogImage: 'assets/og/invoice.png',
   extraHead: faqLd(w.faq) + WF_CTA_CSS + (w.slug === 'deposit-invoice' ? `<style>
@@ -118,6 +118,6 @@ ${w.slug === 'deposit-invoice' ? calculator(rel) : ''}
 <p>Send the finished invoice with a <a href="${rel}guides/invoice-email-template.html">short invoice email or payment reminder</a>.</p>
 <h2>Choose another billing workflow</h2><p>${WORKFLOWS.filter((x) => x.slug !== w.slug).map((x) => `<a href="${rel}invoice-templates/${x.slug}.html">${esc(x.title)}</a>`).join(' · ')}</p><p><a href="${rel}invoice-templates/">Browse invoice templates by billing task, trade and country</a>.</p><!--/nav-->
 </div></section>
-<div class="p-cta-fixed"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice/${w.slug}">Start this invoice, free <span class="arr">→</span></a></div>
+<div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice/${w.slug}">Start this invoice, free <span class="arr">→</span></a></div>
 `,
 }));
