@@ -152,7 +152,7 @@ const WIDGET = {
   'deadline-calculator': `<div class="tool">
   <div class="row">
     <div><label for="start">Start date</label><input id="start" type="date"></div>
-    <div><label for="amount">Number</label><input id="amount" type="number" min="0" step="1" value="30"></div>
+    <div><label for="amount">Number</label><input id="amount" type="number" inputmode="numeric" min="0" step="1" value="30"></div>
     <div><label for="unit">Unit</label><select id="unit"><option value="days">Calendar days</option><option value="business">Business days (Mon–Fri)</option><option value="weeks">Weeks</option><option value="months">Months</option><option value="years">Years</option></select></div>
     <div><label for="direction">Direction</label><select id="direction"><option value="after">After the start date</option><option value="before">Before the start date</option></select></div>
   </div>
@@ -239,7 +239,7 @@ const WIDGET = {
     <div><label for="rate">Interest rate (% a year)</label><input id="rate" inputmode="decimal" value="5" autocomplete="off"></div>
   </div>
   <div class="row">
-    <div><label for="payments">Number of payments</label><input id="payments" type="number" min="1" max="1200" step="1" value="24"></div>
+    <div><label for="payments">Number of payments</label><input id="payments" type="number" inputmode="numeric" min="1" max="1200" step="1" value="24"></div>
     <div><label for="frequency">Paid</label><select id="frequency"><option value="weekly">Weekly</option><option value="fortnightly">Every two weeks</option><option value="monthly" selected>Monthly</option><option value="quarterly">Quarterly</option><option value="yearly">Yearly</option></select></div>
     <div><label for="first">First payment date (optional)</label><input id="first" type="date"></div>
   </div>

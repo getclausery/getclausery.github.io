@@ -81,8 +81,8 @@ export const invoiceWordHelp = (rel) => `<h2 id="make-invoice-in-word" style="ma
 const calculator = (rel) => `<h2 id="deposit-calculator-heading">Work out your deposit and remaining balance</h2>
 <p>Enter the agreed amount you want to split. Use the deposit result as the unit price in your deposit invoice. This calculator does not transfer the amount to the app or decide tax treatment.</p>
 <div class="invoice-calculator"><form id="deposit-calculator" aria-labelledby="deposit-calculator-heading" class="grid grid-3" style="gap:1rem">
-  <div><label for="deposit-amount">Agreed project amount</label><input id="deposit-amount" name="amount" type="number" min="0" max="1000000000000" step="0.01" value="2000" required></div>
-  <div><label for="deposit-percentage">Deposit (%)</label><input id="deposit-percentage" name="percentage" type="number" min="0" max="100" step="0.01" value="30" required></div>
+  <div><label for="deposit-amount">Agreed project amount</label><input id="deposit-amount" name="amount" type="number" inputmode="decimal" min="0" max="1000000000000" step="0.01" value="2000" required></div>
+  <div><label for="deposit-percentage">Deposit (%)</label><input id="deposit-percentage" name="percentage" type="number" inputmode="decimal" min="0" max="100" step="0.01" value="30" required></div>
   <div><label for="deposit-currency">Currency</label><select id="deposit-currency" name="currency"><option value="USD">US dollars</option><option value="GBP">British pounds</option><option value="EUR">Euros</option><option value="CAD">Canadian dollars</option><option value="AUD">Australian dollars</option><option value="NZD">New Zealand dollars</option><option value="ZAR">South African rand</option></select></div>
 </form>
 <p id="deposit-result" role="status" aria-live="polite"><strong>$600.00 deposit · $1,400.00 remaining</strong></p>
