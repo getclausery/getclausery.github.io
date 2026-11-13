@@ -66,7 +66,7 @@ export const pages = [{
   <div class="wrap">
     <div style="text-align:center;max-width:44rem;margin:0 auto 2.5rem">
       <h1>Simple pricing. No per-document fees.</h1>
-      <p style="margin:.5rem auto .25rem;display:flex;justify-content:center;align-items:center;gap:.45rem;font-size:.88rem"><span aria-hidden="true" style="color:#f59e0b;letter-spacing:.04em;font-size:1rem">★★★★★</span><strong>4.8/5</strong><span style="color:var(--muted)">from 427 freelancers and small businesses</span></p>
+      <p class="rating" style="justify-content:center"><span class="stars" aria-hidden="true">★★★★★</span><strong>4.8/5</strong><span class="muted">from 427 freelancers and small businesses</span></p>
       <p class="lead" style="margin:0 auto">${ONLINE_KEYS ? 'Choose a plan, pay securely, then select Open Clausery. Your plan activates automatically. No separate account or key to copy; your documents stay on your device.' : 'Every plan runs entirely in your browser. A license is a signed key that unlocks features offline; it never checks in with a server.'}</p>
       <ul class="assurances">
         <li>${TRIAL_DAYS}-day free Pro trial: no card, nothing renews</li>

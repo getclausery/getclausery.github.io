@@ -47,7 +47,7 @@ export const pages = [
     extraHead: faqLd(FAQ) + crumbsLd([['Home', ''], ['Why Clausery', 'why-clausery/']]) + PAGE_CTA_CSS,
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Why Clausery</h1>
-<p style="margin:.5rem 0 .25rem;display:flex;align-items:center;gap:.45rem;font-size:.88rem"><span aria-hidden="true" style="color:#f59e0b;letter-spacing:.04em;font-size:1rem">★★★★★</span><strong>4.8/5</strong><span class="muted">from 427 freelancers and small businesses</span></p>
+<p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><strong>4.8/5</strong><span class="muted">from 427 freelancers and small businesses</span></p>
 <p class="lead">Most tools that make invoices, quotes and contracts want your documents, or your time, or both. Clausery does neither: it makes a Word file on your own computer, gives the whole library away for free, and publishes the code so you can check it.</p>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
 

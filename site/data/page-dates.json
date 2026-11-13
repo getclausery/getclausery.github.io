@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-13",
-  "hash": "4467d770c7b3fd14"
+  "hash": "a5cc7ac67a4803bd"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -32,16 +32,16 @@
   "hash": "c05da30bed26cf47"
  },
  "business-document-kit/": {
-  "date": "2026-11-11",
-  "hash": "42d75882af7004a5"
+  "date": "2026-11-13",
+  "hash": "5739134ebb152f95"
  },
  "changelog.html": {
   "date": "2026-11-13",
-  "hash": "e3bd1f4d901de107"
+  "hash": "2a4a77dcdaab690b"
  },
  "clauses/": {
-  "date": "2026-11-11",
-  "hash": "096f6e496cfa4eed"
+  "date": "2026-11-13",
+  "hash": "9b8dc4e5885ce1e4"
  },
  "clauses/amendment-clause.html": {
   "date": "2026-11-08",
@@ -140,8 +140,8 @@
   "hash": "4d536fba0936c3f7"
  },
  "compare/": {
-  "date": "2026-11-11",
-  "hash": "e74f0f6fa18bb90e"
+  "date": "2026-11-13",
+  "hash": "53fcb4cca64f7eb3"
  },
  "compare/bonsai-alternative.html": {
   "date": "2026-11-08",
@@ -236,8 +236,8 @@
   "hash": "94b4718ae8b8cda8"
  },
  "for/": {
-  "date": "2026-11-11",
-  "hash": "9aa65ad2e240d270"
+  "date": "2026-11-13",
+  "hash": "492c1c3ebaf5cac6"
  },
  "for/consultants.html": {
   "date": "2026-11-08",
@@ -261,7 +261,7 @@
  },
  "free-tools/": {
   "date": "2026-11-13",
-  "hash": "f89fe920816299f2"
+  "hash": "f7360769c1a83568"
  },
  "free-tools/amount-in-words.html": {
   "date": "2026-11-08",
@@ -300,8 +300,8 @@
   "hash": "bb17addd4c2fd7cb"
  },
  "guides/": {
-  "date": "2026-11-11",
-  "hash": "d747afc54edc9389"
+  "date": "2026-11-13",
+  "hash": "2678dca2db4b4ceb"
  },
  "guides/are-liability-waivers-enforceable.html": {
   "date": "2026-11-08",
@@ -573,7 +573,7 @@
  },
  "invoice-templates/": {
   "date": "2026-11-13",
-  "hash": "10b43c13b26f08a2"
+  "hash": "572a82218a455acc"
  },
  "invoice-templates/australia-tax-invoice.html": {
   "date": "2026-11-07",
@@ -776,8 +776,8 @@
   "hash": "f66e1e9eca3f31be"
  },
  "nda-templates/": {
-  "date": "2026-11-11",
-  "hash": "9c71bb73e2571d1a"
+  "date": "2026-11-13",
+  "hash": "50584a5b02c99b09"
  },
  "nda-templates/nda-form.html": {
   "date": "2026-11-07",
@@ -796,8 +796,8 @@
   "hash": "8bd06a8e88e6068a"
  },
  "pricing/": {
-  "date": "2026-11-11",
-  "hash": "f5161fd938918ca5"
+  "date": "2026-11-13",
+  "hash": "3c53318c821c6ede"
  },
  "receipts/cash-receipt.html": {
   "date": "2026-11-07",
@@ -809,7 +809,7 @@
  },
  "roadmap/": {
   "date": "2026-11-13",
-  "hash": "54adfd7ee8d291a8"
+  "hash": "3e22d8f0c596135b"
  },
  "search/": {
   "date": "2026-10-31",
@@ -825,11 +825,11 @@
  },
  "status/": {
   "date": "2026-11-13",
-  "hash": "e37cbcd33ffaa677"
+  "hash": "b40b513489f158d0"
  },
  "templates/": {
-  "date": "2026-11-11",
-  "hash": "739a0701f651575b"
+  "date": "2026-11-13",
+  "hash": "db8ca081c8bbea14"
  },
  "templates/bill-of-sale-template.html": {
   "date": "2026-11-07",
@@ -1548,7 +1548,7 @@
   "hash": "8223e6b671b9fdaa"
  },
  "why-clausery/": {
-  "date": "2026-11-11",
-  "hash": "ed23523971161d8e"
+  "date": "2026-11-13",
+  "hash": "685131a1e35ffc3d"
  }
 }

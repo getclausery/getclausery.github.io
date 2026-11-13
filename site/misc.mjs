@@ -243,6 +243,10 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-161-0">2.161.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
+<ul>
+  <li><strong>Star-rating CSS consolidated.</strong> Extracted the 11 duplicate inline <code>&lt;p style="margin:.5rem 0 .25rem;display:flex;align-items:center;gap:.45rem;font-size:.88rem"&gt;</code> patterns across the home, NDA, pricing, compare, clauses, library, trades, free-tools, audience, business-kit and why-clausery pages into a single <code>.rating</code> class in site.css, with a child <code>.stars</code> rule for the gold star glyph. Shaved roughly 1 KB of repetitive HTML off the hero sections. Also removed the dead <code>.bdcrums</code> typo class that was never referenced anywhere.</li>
+</ul>
 <h2 id="v2-160-0">2.160.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
 <ul>
   <li><strong>Brand link aria-current on the homepage.</strong> Added <code>aria-current="page"</code> to the header brand/logo link when rendered on the root path, so screen readers announce "Clausery, current page" instead of treating it as a regular internal link. The existing section-nav links already carried <code>aria-current="page"</code> via the <code>cur()</code> helper; the brand was the last same-page link in the header missing it.</li>
