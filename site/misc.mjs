@@ -243,6 +243,10 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-157-0">2.157.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
+<ul>
+  <li><strong>Mobile numeric keyboards.</strong> Added <code>inputmode="decimal"</code> to the deposit-invoice project-amount and deposit-percentage fields, and <code>inputmode="numeric"</code> to the deadline-calculator day-count and loan-repayment payment-count fields. iOS and Android now surface the numeric keypad (with decimal separator) instead of the full QWERTY keyboard for money, percent and whole-count fields, reducing keystrokes on the highest-intent mobile drafting paths.</li>
+</ul>
 <h2 id="v2-156-0">2.156.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
 <ul>
   <li><strong>Star ratings rolled out to remaining public hubs.</strong> Extended the "★★★★★ 4.8/5 from 427 freelancers and small businesses" social-proof line (v2.112 home, v2.154 pricing, v2.155 top four hubs) to the remaining marketing-intent hub pages: invoice templates by task/trade/country (<code>/invoice-templates/</code>), NDA templates (<code>/nda-templates/</code>), audience index (<code>/for/</code>), competitor comparison (<code>/compare/</code>), Why Clausery, and the business-document kit landing page. Every major organic entry page (12 hubs plus homepage and pricing) now shows the existing AggregateRating visually above the fold instead of only in SERP snippets.</li>
