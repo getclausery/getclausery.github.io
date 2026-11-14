@@ -67,10 +67,10 @@ export const pages = [{
       <h1>Who uses Clausery</h1>
       <p class="lead" style="margin:0 auto">People and small businesses who send the same kinds of Word documents again and again, and do not want to upload client details to a document server.</p>
       <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
-      <p class="small muted" style="margin-top:.5rem">Every scenario below links to a real page with templates and guidance — no invented quotes.</p>
+      <p class="small muted mt-5">Every scenario below links to a real page with templates and guidance — no invented quotes.</p>
     </div>
 
-    <div class="grid grid-3" style="margin-top:2rem">
+    <div class="grid grid-3 mt-2">
 ${SEGMENTS.map((s) => {
         return `      <div class="feature customer-card">
         <div class="ico" style="color:var(--accent)">${ico(s.icon)}</div>
@@ -81,7 +81,7 @@ ${SEGMENTS.map((s) => {
 ${s.do.map((d) => `          <li>${esc(d)}</li>`).join('\n')}
         </ul>
         <p class="small" style="margin-top:auto"><strong>Popular templates:</strong> ${s.tpls.slice(0, 4).map((slug) => { const t = tpl(slug); return t ? `<a href="${rel}templates/${slug}.html">${esc(t.name)}</a>` : ''; }).filter(Boolean).join(' · ')}${s.tpls.length > 4 ? `, <a href="${rel}templates/">more</a>` : ''}</p>
-        <p style="margin-top:.75rem"><a class="btn btn-sm" href="${rel}${s.cta.page}">${esc(s.cta.label)}</a></p>
+        <p class="mt-75"><a class="btn btn-sm" href="${rel}${s.cta.page}">${esc(s.cta.label)}</a></p>
       </div>`; }).join('\n')}
     </div>
 
@@ -101,14 +101,14 @@ ${s.do.map((d) => `          <li>${esc(d)}</li>`).join('\n')}
     <div class="feature" style="margin-top:2rem;padding:2rem;text-align:center">
       <h2>Want to see a use case added?</h2>
       <p class="lead" style="margin:0 auto;max-width:40rem">If you prepare the same kind of document every week and it is not listed here, tell us which one. The most-requested templates and workflows are built first.</p>
-      <p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}contact/">Request a template or workflow</a></p>
+      <p class="mt-1"><a class="btn btn-primary" href="${rel}contact/">Request a template or workflow</a></p>
     </div>
   </div>
 </section>
 
 <section class="section section-alt">
-  <div class="wrap" style="max-width:48rem">
-    <h2 style="text-align:center">Common questions</h2>
+  <div class="wrap mw-48">
+    <h2 class="ta-c">Common questions</h2>
     <div class="faq">
       ${FAQ.map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join('\n      ')}
     </div>
@@ -126,7 +126,7 @@ ${s.do.map((d) => `          <li>${esc(d)}</li>`).join('\n')}
     <h2>Start with the document you send most.</h2>
     <p class="lead" style="margin:0 auto">Browse ${LIB.length} free Word templates or start an invoice in 60 seconds — no signup, no card.</p>
     <div class="actions"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make my free invoice <span class="arr">→</span></a><a class="btn btn-lg" href="${rel}templates/">Browse all templates</a></div>
-    <p class="small muted" style="margin-top:1rem">Source code is public at <a href="${REPO_URL}" rel="noopener">GitHub</a>. Read <a href="${rel}about/">about Clausery</a> or <a href="${rel}pricing/">see pricing</a>.</p>
+    <p class="small muted mt-1">Source code is public at <a href="${REPO_URL}" rel="noopener">GitHub</a>. Read <a href="${rel}about/">about Clausery</a> or <a href="${rel}pricing/">see pricing</a>.</p>
   </div>
 </section>
 <div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make my free invoice <span class="arr">→</span></a></div>

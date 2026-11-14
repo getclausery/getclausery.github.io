@@ -23,7 +23,7 @@ const DOCS_FAQ = [
 ];
 const DOCS_PUBLISHED = '2026-11-07';
 const _DOCS_LEAD_CTA = (rel) => `<p style="margin-top:0"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Browse free templates</a></p>`;
-const _DOCS_FOOTER_CTA = (rel) => `<p class="docs-cta" style="margin-top:2.5rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Browse free templates</a></p>`;
+const _DOCS_FOOTER_CTA = (rel) => `<p class="docs-cta mt-25"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Browse free templates</a></p>`;
 const page = (path, title, description, body, extraHead = '') => ({ path, title, description, published: DOCS_PUBLISHED, ogType: 'article', ogImage: 'assets/og/docs.png', extraHead: extraHead, body: (rel) => {
       let b = body(rel);
       const cta = _DOCS_LEAD_CTA(rel);

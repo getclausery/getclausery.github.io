@@ -738,13 +738,13 @@ export const pages = [
     <p class="small muted" role="status" aria-live="polite" data-filter-count></p>
   </div>
   <p style="margin-top:1.25rem"><a class="btn" href="${rel}samples/${PACK_FILE}" download>Download all ${LIB.length} templates</a> <span class="small muted">One .zip file (${packSize()}), in a folder per category.</span></p>
-  <p style="margin-top:1rem">Billing a client? <a href="${rel}invoice-templates/">Choose an invoice by billing task, trade or country</a>, or start with a <a href="${rel}templates/quote.html">price quote</a> and confirm payment with a <a href="${rel}templates/payment-receipt.html">receipt</a>. Looking for an NDA? <a href="${rel}nda-templates/">Compare the ${NDA_SLUGS.length} NDA templates</a>.</p>
+  <p class="mt-1">Billing a client? <a href="${rel}invoice-templates/">Choose an invoice by billing task, trade or country</a>, or start with a <a href="${rel}templates/quote.html">price quote</a> and confirm payment with a <a href="${rel}templates/payment-receipt.html">receipt</a>. Looking for an NDA? <a href="${rel}nda-templates/">Compare the ${NDA_SLUGS.length} NDA templates</a>.</p>
   <p>Or start from the team you are in: <a href="${rel}for/law-firms.html">law firms</a>, <a href="${rel}for/hr-teams.html">HR teams</a>, <a href="${rel}for/freelancers.html">freelancers</a>, <a href="${rel}for/consultants.html">consultants</a> and <a href="${rel}for/landlords.html">landlords</a>. Each page lists the templates that team uses most. <a href="${rel}for/">Compare all the teams →</a></p>
   <p class="small muted">Every template below has a free what-to-include guide explaining the clauses, how to fill it in step by step, and common questions — look for the "what to include" link on each download page.</p>
   <nav class="small hub-jump" aria-label="Template categories"><strong>Browse:</strong> ${CATEGORY_ORDER.map(([c, label]) => `<a href="#${catId(c)}">${label}</a>`).join(' · ')} · <a href="#tpl-groups">All ${LIB.length}</a></nav>
   <div id="tpl-groups">
-${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-labelledby="${catId(c)}"><h2 id="${catId(c)}" style="margin-top:2.5rem">${label}</h2>
-  <div class="grid grid-3" style="margin-top:1rem">
+${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-labelledby="${catId(c)}"><h2 id="${catId(c)}" class="mt-25">${label}</h2>
+  <div class="grid grid-3 mt-1">
     ${LIB.filter((t) => t.category === c).map((t) => {
       const raw = t.intro || '';
       const short = raw.length > 70 ? raw.slice(0, 68).replace(/\s+\S*$/, '') + '…' : raw;
@@ -753,8 +753,8 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-label
   </div></section>`).join('\n')}
   </div>
   <p class="filter-empty" data-filter-empty hidden>No template matches that. Try a broader word, such as the kind of agreement or who it is for.</p>
-  <p style="margin-top:2.5rem">Paying for <a href="${rel}compare/lawdepot-alternative.html">LawDepot</a>, <a href="${rel}compare/rocket-lawyer-alternative.html">Rocket Lawyer</a> or <a href="${rel}compare/eforms-alternative.html">eForms</a>? See <a href="${rel}compare/">how they compare with Clausery</a>, including prices and free trials.</p>
-  <h2 style="margin-top:2.5rem">Common questions</h2>
+  <p class="mt-25">Paying for <a href="${rel}compare/lawdepot-alternative.html">LawDepot</a>, <a href="${rel}compare/rocket-lawyer-alternative.html">Rocket Lawyer</a> or <a href="${rel}compare/eforms-alternative.html">eForms</a>? See <a href="${rel}compare/">how they compare with Clausery</a>, including prices and free trials.</p>
+  <h2 class="mt-25">Common questions</h2>
   ${faqHtml([
     ['Are these Word templates really free?', `Yes. Every template here is free to fill in online and download as an editable Word .docx or printable PDF, with no account, no sign-up and nothing uploaded. You can also download a .zip of all ${LIB.length} templates at once.`],
     ['Can I edit the templates in Word?', 'Yes. Every template downloads as a standard .docx file you can edit in Microsoft Word, Google Docs, LibreOffice or Pages. Answers you fill in online are merged into the Word document so paragraphs, dates and signature blocks are already in place.'],
@@ -762,7 +762,7 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-label
     ['Are these templates legal / can I sign them?', 'The templates are standard, editor-reviewed drafts covering the clauses most small businesses and freelancers use. They are not legal advice \u2014 have them reviewed by a lawyer for your jurisdiction before signing if the stakes are high.'],
     ['Can I save a filled-in template as PDF?', 'Yes. Fill it in online, then use your browser\u2019s Print \u2192 Save as PDF (or the built-in PDF button) to produce a printable PDF you can email to clients, tenants or new hires.'],
   ])}
-  <p class="small muted" style="margin-top:2rem">These are general samples, not legal advice. Have them reviewed for your jurisdiction before use.</p>
+  <p class="small muted mt-2">These are general samples, not legal advice. Have them reviewed for your jurisdiction before use.</p>
 </div></section>
 ${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}
 `,
@@ -779,7 +779,7 @@ ${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}templates/">Templates</a> › ${esc(t.name)}</nav>
   <div class="tpl-hero-grid">
     <div>
-      <span class="eyebrow" style="margin-top:.5rem">${esc(t.category)} template · Word</span>
+      <span class="eyebrow mt-5">${esc(t.category)} template · Word</span>
       <h1>Free ${esc(t.name)} template <span class="tpl-h1-sub">— editable Word &amp; PDF</span></h1>
       <p class="lead">${esc(t.intro)}</p>
       <div class="actions" style="display:flex;gap:.75rem;flex-wrap:wrap;margin:1.1rem 0 .5rem">
@@ -793,7 +793,7 @@ ${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}
     <a class="tpl-thumb tpl-thumb-hero" href="#full-text">${picture({ src: `${rel}assets/previews/${t.slug}.jpg`, webp: `${rel}assets/previews/${t.slug}.webp`, width: PREVIEW_SIZE.width, height: PREVIEW_SIZE.height, loading: 'eager', fetchpriority: 'high', alt: `First page of the free ${lowerFirst(t.name)} template for Word` })}</a>
   </div>
 </div></section>
-<section class="section"><div class="wrap" style="max-width:52rem">
+<section class="section"><div class="wrap mw-52">
   ${calculatedFor(t.slug).length ? `<p class="small"><strong>Does the maths for you:</strong> fill it in online and the ${esc(andList(calculatedFor(t.slug).map(lowerFirst)))} ${calculatedFor(t.slug).length > 1 ? 'are' : 'is'} calculated as you type.</p>
   ` : ''}${reuseFor(t.slug) ? `<p class="small"><strong>Remembers you:</strong> ${esc(reuseFor(t.slug))}</p>
   ` : ''}<p class="small muted">Free, with unlimited documents and no sign-up. Your answers stay in your browser. <strong>Who it is for:</strong> ${esc(t.who)}</p>
@@ -807,12 +807,12 @@ ${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}
     </div>
   </div>${t.slug === 'invoice' ? '\n\n  ' + invoiceWordHelp(rel) : ''}${t.slug === 'payment-receipt' ? '\n\n  ' + paymentReceiptHelp(rel) : ''}
 
-  <h2 style="margin-top:2.5rem" id="full-text">Read the full template</h2>
+  <h2 class="mt-25" id="full-text">Read the full template</h2>
   <p class="small muted">This is the complete wording. <span class="tpl-ph">[Labels]</span> are filled in from your answers, and <span class="tpl-opt">highlighted text</span> only appears when it applies; hover over it to see when.</p>
   <div class="clause-tools" style="margin-bottom:.75rem"><button class="btn copy-btn" type="button" data-copy="tpl-doc-text">Copy the whole template text</button><span class="small muted copy-status" role="status"></span> <span class="small muted" style="margin-left:.5rem">(<a href="${rel}samples/${t.file}" download>download Word</a> if you need the file itself)</span></div>
   <div class="tpl-doc" id="tpl-doc-text" tabindex="0" role="region" aria-label="Full text of the ${esc(t.name)} template">${previewHtml(t.file)}</div>
 
-  <h2 style="margin-top:2.5rem">The questions you answer</h2>
+  <h2 class="mt-25">The questions you answer</h2>
   <p>Clausery turns the template into a short questionnaire. Optional parts only appear when they apply${calculatedFor(t.slug).length ? ', and anything marked <em>Calculated for you</em> is worked out from your other answers' : ''}.</p>
   <div class="table-wrap" tabindex="0"><table class="compare"><thead><tr><th scope="col">Question</th><th scope="col">Type</th><th scope="col">Asked when</th></tr></thead><tbody>
     ${qs.map((q) => `<tr><td>${esc(q.label)}${q.children.length ? `<div class="small muted">For each item: ${esc(q.children.join(', '))}</div>` : ''}</td><td>${esc(q.kind)}</td><td class="small">${q.whenText ? esc(q.whenText) : q.when ? `<code>${esc(q.when)}</code>` : 'Always'}</td></tr>`).join('')}
@@ -820,20 +820,20 @@ ${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}
 
   <p>Prefer to start from your own wording? Download the Word file, edit it, keep the <code>{tags}</code>, and upload it to Clausery. See the <a href="${rel}docs/templates.html">template syntax</a>.</p>
 
-  <h2 style="margin-top:2.5rem">Questions</h2>
+  <h2 class="mt-25">Questions</h2>
   ${faqHtml(faq)}
 
-${['quote', 'payment-receipt', 'credit-note'].includes(t.slug) ? `<!--nav--><p style="margin-top:2rem"><strong>Invoice workflows:</strong> ${workflowLinks(rel)}. Match the invoice to the stage of the job and record actual payments separately.</p><!--/nav-->` : ''}${CLAUSES.some((c) => c.templates.includes(t.slug)) ? `  <h2 style="margin-top:2.5rem">Clauses in this template, explained</h2>
+${['quote', 'payment-receipt', 'credit-note'].includes(t.slug) ? `<!--nav--><p class="mt-2"><strong>Invoice workflows:</strong> ${workflowLinks(rel)}. Match the invoice to the stage of the job and record actual payments separately.</p><!--/nav-->` : ''}${CLAUSES.some((c) => c.templates.includes(t.slug)) ? `  <h2 class="mt-25">Clauses in this template, explained</h2>
   <ul>${CLAUSES.filter((c) => c.templates.includes(t.slug)).map((c) => `<li><a href="${rel}clauses/${c.slug}.html">${esc(c.name)}</a></li>`).join('')}</ul>
-` : ''}${PRESETS[t.slug] ? `  <p style="margin-top:2rem"><strong>By trade:</strong> start with the lines your trade usually bills: ${Object.entries(PRESETS[t.slug]).map(([slug, p]) => `<a href="${rel}invoice-templates/${slug}.html">${esc(p.name)}</a>`).join(' · ')} · <a href="${rel}invoice-templates/">all trades</a></p>${t.slug === 'invoice' ? `\n  <p><strong>By country:</strong> set up for your VAT or GST: ${COUNTRIES.map((c) => `<a href="${rel}invoice-templates/${c.slug}.html">${esc(c.country)}</a>`).join(' · ')}</p>` : ''}
-` : ''}${HUB_FOR[t.slug] && HUB_FOR[t.slug] !== t.slug ? `  <p style="margin-top:2rem"><strong>${hubTitle(t.slug)}:</strong> <a href="${rel}templates/${HUB_FOR[t.slug]}.html">${esc(t.name)} template guide</a> — clauses, step-by-step how-to and FAQ.</p>
+` : ''}${PRESETS[t.slug] ? `  <p class="mt-2"><strong>By trade:</strong> start with the lines your trade usually bills: ${Object.entries(PRESETS[t.slug]).map(([slug, p]) => `<a href="${rel}invoice-templates/${slug}.html">${esc(p.name)}</a>`).join(' · ')} · <a href="${rel}invoice-templates/">all trades</a></p>${t.slug === 'invoice' ? `\n  <p><strong>By country:</strong> set up for your VAT or GST: ${COUNTRIES.map((c) => `<a href="${rel}invoice-templates/${c.slug}.html">${esc(c.country)}</a>`).join(' · ')}</p>` : ''}
+` : ''}${HUB_FOR[t.slug] && HUB_FOR[t.slug] !== t.slug ? `  <p class="mt-2"><strong>${hubTitle(t.slug)}:</strong> <a href="${rel}templates/${HUB_FOR[t.slug]}.html">${esc(t.name)} template guide</a> — clauses, step-by-step how-to and FAQ.</p>
 ` : ''}${GUIDE_FOR[t.slug] ? `  <p><strong>Guide:</strong> <a href="${rel}guides/${GUIDE_FOR[t.slug]}.html">${esc(GUIDE[GUIDE_FOR[t.slug]].title)}</a></p>
 ` : ''}${NDA_SLUGS.includes(t.slug) ? `  <p><strong>All NDA templates:</strong> <a href="${rel}nda-templates/">which NDA do you need?</a></p>
 ` : ''}${TOOL_FOR[t.slug] ? `  <p><strong>Free tool:</strong> <a href="${rel}free-tools/${TOOL_FOR[t.slug][0]}.html">${esc(TOOL_FOR[t.slug][1])}</a></p>
-` : ''}<!--nav-->${['invoice', 'payment-reminder-letter', 'payment-receipt'].includes(t.slug) ? `<p>Ready to write the message? Use the <a href="${rel}guides/invoice-email-template.html">invoice email generator with sending, reminder and payment acknowledgement templates</a>.</p>` : ''}  <h2 style="margin-top:2.5rem">Related templates</h2>
+` : ''}<!--nav-->${['invoice', 'payment-reminder-letter', 'payment-receipt'].includes(t.slug) ? `<p>Ready to write the message? Use the <a href="${rel}guides/invoice-email-template.html">invoice email generator with sending, reminder and payment acknowledgement templates</a>.</p>` : ''}  <h2 class="mt-25">Related templates</h2>
   <div class="grid grid-3 related-cards">${related(t).map((x) => `<a class="feature" href="${rel}templates/${x.slug}.html"><h3>${esc(x.name)}</h3><p>${esc(cardLine(x))}</p></a>`).join('')}</div>
   <p><a href="${rel}templates/">Browse all ${LIB.length} free templates by category</a></p><!--/nav-->
-  <p class="small muted" style="margin-top:2rem">This template is a general sample and not legal advice. Laws vary by jurisdiction; have it reviewed before use.</p>
+  <p class="small muted mt-2">This template is a general sample and not legal advice. Laws vary by jurisdiction; have it reviewed before use.</p>
   ${helpfulWidget(`templates/${t.slug}.html`)}
   <div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/${t.slug}">Fill it in — free <span class="arr">→</span></a></div>
 </div></section>`,

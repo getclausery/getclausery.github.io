@@ -9,12 +9,12 @@ export const pages = [
     path: 'status/', ogImage: 'assets/og/company.png', title: 'Clausery status',
     description: 'Current status of Clausery: public site, GitHub source, latest release, and where to check if something appears to be down.',
     extraHead: crumbsLd([['Home', ''], ['Status', 'status/']]),
-    body: (rel) => `<section class="section"><div class="wrap prose" style="max-width:48rem">
+    body: (rel) => `<section class="section"><div class="wrap prose mw-48">
 <h1>Status</h1>
 <p class="lead">Clausery is a static site served by GitHub Pages, with document generation running in your browser. There is no application server to go down, so the only things that can fail are the page hosting and the license check.</p>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
 
-<div class="grid grid-2" style="margin-top:2rem">
+<div class="grid grid-2 mt-2">
   <div class="feature" style="border-left:4px solid var(--ok);padding-left:1rem">
     <h2 style="margin-top:0;font-size:1.1rem">Public website</h2>
     <p style="margin:.25rem 0"><strong style="color:var(--ok)">Operational</strong></p>
@@ -37,7 +37,7 @@ export const pages = [
   </div>
 </div>
 
-<h2 style="margin-top:2.5rem">Current release</h2>
+<h2 class="mt-25">Current release</h2>
 <p>You are running <strong>v${APP_VERSION}</strong> (shown in the app at Settings → About). The service worker caches this version for offline use; reload twice to pick up a new release.</p>
 <p><a href="${rel}changelog.html">See the changelog →</a> · <a href="${rel}roadmap/">Roadmap</a></p>
 
@@ -58,7 +58,7 @@ ${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}
     path: 'roadmap/', ogImage: 'assets/og/changelog.png', title: 'Clausery roadmap',
     description: 'Clausery roadmap: what has shipped recently, what is being worked on now, and how to suggest or upvote the next feature. Every release is listed in the changelog; open work lives in public GitHub issues.',
     extraHead: crumbsLd([['Home', ''], ['Roadmap', 'roadmap/']]),
-    body: (rel) => `<section class="section"><div class="wrap prose" style="max-width:48rem">
+    body: (rel) => `<section class="section"><div class="wrap prose mw-48">
 <h1>Roadmap</h1>
 <p class="lead">What has shipped recently, what is being worked on now, and how to influence what comes next. Every shipped item is in the <a href="${rel}changelog.html">changelog</a>; everything else is tracked in public GitHub issues.</p>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>

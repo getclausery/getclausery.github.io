@@ -28,9 +28,9 @@ const TOOL_CSS = `<style>
 
 </style>`;
 const crumbs = (rel, name) => `<nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}free-tools/">Free tools</a> › ${name}</nav>`;
-const moreTools = (rel, slug) => `<!--nav--><p class="small" style="margin-top:2rem"><strong>More free tools:</strong> ${TOOLS.filter((t) => t.slug !== slug).map((t) => `<a href="${rel}free-tools/${t.slug}.html">${t.name}</a>`).join(' · ')}</p><!--/nav-->`;
+const moreTools = (rel, slug) => `<!--nav--><p class="small mt-2"><strong>More free tools:</strong> ${TOOLS.filter((t) => t.slug !== slug).map((t) => `<a href="${rel}free-tools/${t.slug}.html">${t.name}</a>`).join(' · ')}</p><!--/nav-->`;
 const leadCta = (rel) => `<p><a class="btn btn-primary" href="${rel}app/">Open Clausery free — no account</a> <a class="btn" href="${rel}templates/">Free templates</a></p>`;
-const cta = (rel, slug) => moreTools(rel, slug) + `<!--nav--><div class="feature" style="margin-top:2.5rem"><h2 style="font-size:1.15rem">Draft the whole document, not just one line</h2><p>Clausery turns your Word templates into questionnaires and builds the finished document in your browser, with amounts in words, dates and totals calculated for you. Every library template is free.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free templates</a></p></div><!--/nav-->`;
+const cta = (rel, slug) => moreTools(rel, slug) + `<!--nav--><div class="feature mt-25"><h2 style="font-size:1.15rem">Draft the whole document, not just one line</h2><p>Clausery turns your Word templates into questionnaires and builds the finished document in your browser, with amounts in words, dates and totals calculated for you. Every library template is free.</p><p class="mt-1"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free templates</a></p></div><!--/nav-->`;
 const appLd = (name, desc, url) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebApplication', name, description: desc, url: SITE + url, applicationCategory: 'BusinessApplication', operatingSystem: 'Any (web browser)', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } })}</script>`;
 const toolLd = (name, desc, url) => appLd(name, desc, url) + crumbsLd([['Home', ''], ['Free tools', 'free-tools/'], [name, url]]);
 
@@ -115,7 +115,7 @@ const INVOICE_WIDGET = `<div class="tool">
   <label class="check"><input id="weekends" type="checkbox"> Move a due date that falls on a weekend to the Monday</label>
   <p id="error" class="err" role="alert" hidden></p>
   <div class="out" id="result" aria-live="polite"></div>
-  <p class="small muted" id="result-note" style="margin-top:.5rem"></p>
+  <p class="small muted mt-5" id="result-note"></p>
   <p class="small" id="result-discount"></p>
 </div>`;
 // The payment terms table on the calculator page is worked out with the same code as the calculator.
@@ -159,8 +159,8 @@ const WIDGET = {
   <label for="holidays">Holidays to skip for business days (optional, one date per line or comma-separated, YYYY-MM-DD)</label>
   <textarea id="holidays" rows="2" placeholder="2026-12-25, 2027-01-01"></textarea>
   <p id="error" class="err" role="alert" hidden></p>
-  <div class="out" id="result" aria-live="polite" style="margin-top:1rem"></div>
-  <p class="small muted" id="result-note" style="margin-top:.5rem"></p>
+  <div class="out mt-1" id="result" aria-live="polite"></div>
+  <p class="small muted mt-5" id="result-note"></p>
 </div>`,
   'late-payment-interest': `<div class="tool">
   <div class="row">
@@ -176,7 +176,7 @@ const WIDGET = {
   </div>
   <p id="error" class="err" role="alert" hidden></p>
   <div class="out" id="result" aria-live="polite"></div>
-  <p class="small muted" id="result-note" style="margin-top:.5rem"></p>
+  <p class="small muted mt-5" id="result-note"></p>
 </div>`,
   'freelance-rate': `<div class="tool">
   <div class="row">
@@ -192,7 +192,7 @@ const WIDGET = {
   </div>
   <p id="error" class="err" role="alert" hidden></p>
   <div class="out" id="result" aria-live="polite"></div>
-  <p class="small muted" id="result-note" style="margin-top:.5rem"></p>
+  <p class="small muted mt-5" id="result-note"></p>
 </div>`,
   'invoice-due-date': INVOICE_WIDGET,
   'prorated-rent': `<div class="tool">
@@ -207,7 +207,7 @@ const WIDGET = {
   </div>
   <p id="error" class="err" role="alert" hidden></p>
   <div class="out" id="result" aria-live="polite"></div>
-  <p class="small muted" id="result-note" style="margin-top:.5rem"></p>
+  <p class="small muted mt-5" id="result-note"></p>
   <details id="compare-box"><summary>Compare the three methods</summary><div class="schedule-wrap" tabindex="0"><table id="compare" class="terms-table"><thead><tr><th scope="col">Method</th><th scope="col">Daily rate</th><th scope="col">Prorated rent</th></tr></thead><tbody></tbody></table></div></details>
 </div>`,
   'sales-commission': `<div class="tool">
@@ -228,8 +228,8 @@ const WIDGET = {
   </div>
   <p id="error" class="err" role="alert" hidden></p>
   <div class="out" id="result" aria-live="polite"></div>
-  <p class="small muted" id="result-note" style="margin-top:.5rem"></p>
-  <p id="result-draw" style="margin-top:.5rem"></p>
+  <p class="small muted mt-5" id="result-note"></p>
+  <p id="result-draw" class="mt-5"></p>
   <details id="breakdown-box"><summary>Commission by sales band</summary><div class="schedule-wrap" tabindex="0"><table id="breakdown" class="terms-table"><thead><tr><th scope="col">Sales band</th><th scope="col">Rate</th><th scope="col">Sales in band</th><th scope="col">Commission</th></tr></thead><tbody></tbody></table></div></details>
 </div>`,
   'loan-repayment': `<div class="tool">
@@ -245,7 +245,7 @@ const WIDGET = {
   </div>
   <p id="error" class="err" role="alert" hidden></p>
   <div class="out" id="result" aria-live="polite"></div>
-  <p class="small muted" id="result-note" style="margin-top:.5rem"></p>
+  <p class="small muted mt-5" id="result-note"></p>
   <details id="schedule-box"><summary>Repayment schedule</summary><div class="schedule-wrap" tabindex="0"><table id="schedule" class="terms-table"><thead><tr><th scope="col">#</th><th scope="col" id="date-col" hidden>Date</th><th scope="col">Payment</th><th scope="col">Interest</th><th scope="col">Principal</th><th scope="col">Balance</th></tr></thead><tbody></tbody></table></div></details>
 </div>`,
 };
@@ -257,7 +257,7 @@ const ORIGIN = new URL(SITE).origin;
 const embedCode = (t) => `<iframe src="${SITE}free-tools/embed/${t.slug}.html" title="${t.name}" width="100%" height="${t.height}" style="border:0;max-width:760px" loading="lazy" allow="clipboard-write"></iframe>
 <p style="font-size:13px;margin:4px 0 16px">${t.name} by <a href="${SITE}free-tools/${t.slug}.html">Clausery</a></p>
 <script>window.addEventListener('message',function(e){if(e.origin!=='${ORIGIN}'||!e.data||!e.data.clauseryHeight)return;var f=document.getElementsByTagName('iframe');for(var i=0;i<f.length;i++)if(f[i].contentWindow===e.source)f[i].style.height=e.data.clauseryHeight+'px';});</script>`;
-const embedSection = (slug) => `<h2 style="margin-top:2.5rem">Add this calculator to your website</h2>
+const embedSection = (slug) => `<h2 class="mt-25">Add this calculator to your website</h2>
 <p>Free for blogs, accountants, law firms, trade associations and anyone who helps small businesses. Paste the code where you want the calculator to appear. It runs in your visitors' browsers, with no cookies, no tracking, and nothing they type sent anywhere.</p>
 <label for="embed-code">Embed code</label>
 <textarea id="embed-code" class="embed-code" rows="6" readonly>${esc(embedCode(T[slug]))}</textarea>
@@ -274,21 +274,21 @@ body.embed { background: transparent; }
 export const pages = [
   { path: 'free-tools/', title: 'Free small-business calculators (Word, 2026)', ogImage: 'assets/og/free-tools.png', description: 'Free tools for drafting and invoicing: amount in words, deadlines, invoice due dates, late payment interest, loans, commission, prorated rent and more.',
     extraHead: collectionLd({ path: 'free-tools/', name: 'Free drafting tools', description: 'Free tools for drafting and invoicing: amount in words, deadlines, invoice due dates, late payment interest, loans, commission, prorated rent and more.', items: TOOLS.map((t) => [t.name, `free-tools/${t.slug}.html`]) }),
-    body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem"><h1>Free drafting tools</h1><p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><strong>4.8/5</strong><span class="muted">from 427 freelancers and small businesses</span></p><p class="lead">Small tools for everyday drafting and invoicing. They run entirely in your browser; nothing you type is sent anywhere. The calculators can also be <a href="#embed">added to your own website</a> for free.<p><a class="btn btn-primary" href="${rel}app/">Open Clausery free — no account</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+    body: (rel) => `<section class="section"><div class="wrap mw-52"><h1>Free drafting tools</h1><p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><strong>4.8/5</strong><span class="muted">from 427 freelancers and small businesses</span></p><p class="lead">Small tools for everyday drafting and invoicing. They run entirely in your browser; nothing you type is sent anywhere. The calculators can also be <a href="#embed">added to your own website</a> for free.<p><a class="btn btn-primary" href="${rel}app/">Open Clausery free — no account</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
 <nav aria-label="Jump to section"><strong>Jump to:</strong> <a href="#calculators">Calculators</a> · <a href="#invoice-email">Invoice email generator</a> · <a href="#embed">Embed on your site</a></nav>
-<h2 id="calculators" style="margin-top:2rem">Calculators</h2>
-<div class="grid grid-3 hub-cards" style="margin-top:1rem">${TOOLS.map((t) => `<a class="feature" href="${rel}free-tools/${t.slug}.html">${cardUpdated(`free-tools/${t.slug}.html`)}<h2 style="font-size:1.1rem">${t.name}</h2><p>${t.desc}</p></a>`).join('')}</div>
-<!--nav--><div class="feature" id="invoice-email" style="margin-top:1.5rem"><h2><a href="${rel}guides/invoice-email-template.html">Free invoice email generator</a></h2><p>Write the message to send with an invoice, a polite reminder, an overdue follow-up or a payment acknowledgement. Includes four examples to copy.</p></div><!--/nav-->
+<h2 id="calculators" class="mt-2">Calculators</h2>
+<div class="grid grid-3 hub-cards mt-1">${TOOLS.map((t) => `<a class="feature" href="${rel}free-tools/${t.slug}.html">${cardUpdated(`free-tools/${t.slug}.html`)}<h2 style="font-size:1.1rem">${t.name}</h2><p>${t.desc}</p></a>`).join('')}</div>
+<!--nav--><div class="feature mt-15" id="invoice-email"><h2><a href="${rel}guides/invoice-email-template.html">Free invoice email generator</a></h2><p>Write the message to send with an invoice, a polite reminder, an overdue follow-up or a payment acknowledgement. Includes four examples to copy.</p></div><!--/nav-->
 <h2 id="embed" style="margin-top:3rem">Put a calculator on your website</h2>
 <p>Every calculator except the template checker can be embedded on another site with one line of code, free. Open a calculator and scroll to <strong>Add this calculator to your website</strong> to copy its code. The embedded calculators run in your visitors' browsers with no cookies or tracking, and carry a small credit link to Clausery.</p>
-<!--nav--><div class="feature" style="margin-top:2.5rem"><h2>From a calculation to a finished document</h2><p>Clausery takes the numbers you work out here and puts them into an editable Word invoice, quote, receipt or contract. Answer the questions; the totals and dates are calculated for you.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free templates</a></p></div><!--/nav--></div></section>
+<!--nav--><div class="feature mt-25"><h2>From a calculation to a finished document</h2><p>Clausery takes the numbers you work out here and puts them into an editable Word invoice, quote, receipt or contract. Answer the questions; the totals and dates are calculated for you.</p><p class="mt-1"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free templates</a></p></div><!--/nav--></div></section>
 ${hubCta(rel, 'app/', 'Open Clausery, free')}
 `,
   },
   { path: 'free-tools/amount-in-words.html', _toc: true, title: 'Amount in words converter for contracts and cheques', description: T['amount-in-words'].desc, published: '2026-11-07', ogType: 'article', ogImage: 'assets/og/free-tools.png',
     extraHead: faqLd(TOOL_FAQ[0]) + TOOL_CSS + toolLd(T['amount-in-words'].name, T['amount-in-words'].desc, 'free-tools/amount-in-words.html') + `<script type="module" src="amount-in-words.js"></script>`,
-    body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Amount in words')}
-<h1 style="margin-top:1rem">Amount in words converter</h1>
+    body: (rel) => `<section class="section"><div class="wrap mw-52">${crumbs(rel, 'Amount in words')}
+<h1 class="mt-1">Amount in words converter</h1>
 <p class="lead">Contracts, promissory notes and cheques often state an amount twice, in words and in figures, so a typo in one is caught by the other. Type an amount to get the wording.</p>
 ${leadCta(rel)}
 ${WIDGET['amount-in-words']}
@@ -296,14 +296,14 @@ ${WIDGET['amount-in-words']}
 <ul><li>In contracts, the amount in words normally comes first, followed by the figure in brackets: <em>Five Thousand Dollars ($5,000)</em>.</li><li>On cheques, cents are written as a fraction: <em>Five Thousand and 00/100</em>.</li><li>Many agreements say which one wins if they differ; words usually do.</li></ul>
 <p>In Clausery templates, the <code>words()</code> function does this automatically, for example <code>words(fee)</code>. See <a href="${rel}docs/logic.html">logic and calculations</a>.</p>
 ${embedSection('amount-in-words')}
-<h2 style="margin-top:2.5rem">Questions</h2>
+<h2 class="mt-25">Questions</h2>
 ${faqHtml(TOOL_FAQ[0])}
 ${cta(rel, 'amount-in-words')}</div></section>${stickyCta('amount-in-words', rel)}` },
 
   { path: 'free-tools/deadline-calculator.html', _toc: true, title: 'Contract deadline calculator (business days, months, years)', description: T['deadline-calculator'].desc, published: '2026-11-07', ogType: 'article', ogImage: 'assets/og/free-tools.png',
     extraHead: faqLd(TOOL_FAQ[1]) + TOOL_CSS + toolLd(T['deadline-calculator'].name, T['deadline-calculator'].desc, 'free-tools/deadline-calculator.html') + `<script type="module" src="deadline-calculator.js"></script>`,
-    body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Deadline calculator')}
-<h1 style="margin-top:1rem">Contract deadline calculator</h1>
+    body: (rel) => `<section class="section"><div class="wrap mw-52">${crumbs(rel, 'Deadline calculator')}
+<h1 class="mt-1">Contract deadline calculator</h1>
 <p class="lead">Work out notice periods, payment due dates, renewal dates and response deadlines. Month arithmetic stops at month end, so January 31 plus one month is the last day of February.</p>
 ${leadCta(rel)}
 ${WIDGET['deadline-calculator']}
@@ -312,14 +312,14 @@ ${WIDGET['deadline-calculator']}
 <p class="small muted">A calculation aid, not legal advice. Court and statutory deadlines follow their own rules.</p>
 <p>Clausery templates can calculate these dates for you with <code>add_days</code>, <code>add_months</code> and <code>add_years</code>.</p>
 ${embedSection('deadline-calculator')}
-<h2 style="margin-top:2.5rem">Questions</h2>
+<h2 class="mt-25">Questions</h2>
 ${faqHtml(TOOL_FAQ[1])}
 ${cta(rel, 'deadline-calculator')}</div></section>${stickyCta('deadline-calculator', rel)}` },
 
   { path: 'free-tools/invoice-due-date.html', _toc: true, title: 'Net 30 calculator: invoice due date for any payment terms', description: T['invoice-due-date'].desc, published: '2026-11-07', ogType: 'article', ogImage: 'assets/og/free-tools.png',
     extraHead: faqLd(TOOL_FAQ[5]) + TOOL_CSS + toolLd(T['invoice-due-date'].name, T['invoice-due-date'].desc, 'free-tools/invoice-due-date.html') + `<script type="module" src="invoice-due-date.js"></script>`,
-    body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Invoice due date')}
-<h1 style="margin-top:1rem">Invoice due date calculator</h1>
+    body: (rel) => `<section class="section"><div class="wrap mw-52">${crumbs(rel, 'Invoice due date')}
+<h1 class="mt-1">Invoice due date calculator</h1>
 <p class="lead">Pick the payment terms on the invoice, such as net 30, net 30 EOM or 2/10 net 30, to see the exact due date, how many days are left, and what paying early is worth.</p>
 ${leadCta(rel)}
 ${WIDGET['invoice-due-date']}
@@ -327,20 +327,20 @@ ${WIDGET['invoice-due-date']}
 <h2>Payment terms explained</h2>
 <p>Terms count calendar days from the invoice date unless they say otherwise. The last column shows each one for an invoice dated ${formatDate(EXAMPLE_DATE, 'long', 'en-US')}, before any weekend adjustment.</p>
 ${termsTable()}
-<h2 style="margin-top:2rem">Choosing terms for your own invoices</h2>
+<h2 class="mt-2">Choosing terms for your own invoices</h2>
 <ul><li><strong>Shorter terms get paid sooner.</strong> Net 14 is common for freelancers and small jobs; net 30 is the usual default between businesses.</li><li><strong>Put the terms in the contract, not just the invoice.</strong> A customer who agreed to net 14 in writing is harder to stretch to net 60. See the <a href="${rel}clauses/payment-terms-clause.html">payment terms clause</a> for sample wording.</li><li><strong>Say what happens when payment is late.</strong> A <a href="${rel}clauses/late-payment-interest-clause.html">late payment interest clause</a> gives you a right to interest and to pause work.</li><li><strong>Offer a discount only if cash matters more than margin.</strong> 2/10 net 30 gets many customers paying in 10 days, but it costs you 2% of every invoice they pay early.</li></ul>
 <h2>When the due date has passed</h2>
 <p>Send a polite reminder the day after, then a firmer one a week later. The free <a href="${rel}templates/payment-reminder-letter.html">payment reminder letter</a> <span class="small muted">(<a href="${rel}templates/payment-reminder-letter-template.html">what to include</a>)</span> and <a href="${rel}templates/payment-demand-letter.html">payment demand letter</a> <span class="small muted">(<a href="${rel}templates/payment-demand-letter-template.html">what to include</a>)</span> are ready to fill in, the <a href="${rel}free-tools/late-payment-interest.html">late payment interest calculator</a> shows what you can add, and the guide <a href="${rel}guides/what-to-do-when-a-client-wont-pay.html">what to do when a client won't pay</a> covers the steps after that.</p>
 <p class="small muted">A calculation aid, not legal or tax advice. Your contract decides when payment is due.</p>
 ${embedSection('invoice-due-date')}
-<h2 style="margin-top:2.5rem">Questions</h2>
+<h2 class="mt-25">Questions</h2>
 ${faqHtml(TOOL_FAQ[5])}
 ${cta(rel, 'invoice-due-date')}</div></section>${stickyCta('invoice-due-date', rel)}` },
 
   { path: 'free-tools/late-payment-interest.html', _toc: true, title: 'Late payment interest calculator (contract or UK statutory)', description: T['late-payment-interest'].desc, published: '2026-11-07', ogType: 'article', ogImage: 'assets/og/free-tools.png',
     extraHead: faqLd(TOOL_FAQ[3]) + TOOL_CSS + toolLd(T['late-payment-interest'].name, T['late-payment-interest'].desc, 'free-tools/late-payment-interest.html') + `<script type="module" src="late-payment-interest.js"></script>`,
-    body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Late payment interest')}
-<h1 style="margin-top:1rem">Late payment interest calculator</h1>
+    body: (rel) => `<section class="section"><div class="wrap mw-52">${crumbs(rel, 'Late payment interest')}
+<h1 class="mt-1">Late payment interest calculator</h1>
 <p class="lead">Find out how much interest you can add to an overdue invoice, at the rate in your contract or at the UK statutory rate for business debts.</p>
 ${leadCta(rel)}
 ${WIDGET['late-payment-interest']}
@@ -349,14 +349,14 @@ ${WIDGET['late-payment-interest']}
 <p>Not sure when the invoice fell due? The <a href="${rel}free-tools/invoice-due-date.html">invoice due date calculator</a> works it out from terms such as net 30 or 15 MFI.</p>
 <p>Send a clear written reminder or demand before adding interest. The free <a href="${rel}templates/payment-reminder-letter.html">payment reminder letter</a> has an optional late fee line, the <a href="${rel}templates/payment-demand-letter.html">payment demand letter</a> has an optional interest paragraph, and the <a href="${rel}clauses/late-payment-interest-clause.html">late payment interest clause</a> shows how to put a rate in your next contract.</p>
 ${embedSection('late-payment-interest')}
-<h2 style="margin-top:2.5rem">Questions</h2>
+<h2 class="mt-25">Questions</h2>
 ${faqHtml(TOOL_FAQ[3])}
 ${cta(rel, 'late-payment-interest')}</div></section>${stickyCta('late-payment-interest', rel)}` },
 
   { path: 'free-tools/freelance-rate.html', _toc: true, title: 'Freelance rate calculator: hourly and day rate', description: T['freelance-rate'].desc, published: '2026-11-07', ogType: 'article', ogImage: 'assets/og/free-tools.png',
     extraHead: faqLd(TOOL_FAQ[4]) + TOOL_CSS + toolLd(T['freelance-rate'].name, T['freelance-rate'].desc, 'free-tools/freelance-rate.html') + `<script type="module" src="freelance-rate.js"></script>`,
-    body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Freelance rate')}
-<h1 style="margin-top:1rem">Freelance rate calculator</h1>
+    body: (rel) => `<section class="section"><div class="wrap mw-52">${crumbs(rel, 'Freelance rate')}
+<h1 class="mt-1">Freelance rate calculator</h1>
 <p class="lead">Start from what you want to take home and work back to the hourly and day rate that gets you there, after tax, business costs and time off.</p>
 ${leadCta(rel)}
 ${WIDGET['freelance-rate']}
@@ -364,14 +364,14 @@ ${WIDGET['freelance-rate']}
 <h2>Put the rate in writing</h2>
 <p>Once you know your rate, put it in the contract with the revisions and extras it covers. The free <a href="${rel}templates/freelance-contract.html">freelance contract template</a> sets out the rate, payment schedule, revisions, kill fee and IP terms, and the <a href="${rel}templates/web-design-contract-template.html">web design</a>, <a href="${rel}templates/consulting-agreement-template.html">consulting</a> and <a href="${rel}templates/virtual-assistant-agreement-template.html">virtual assistant</a> guides list clauses specific to each trade. See also the <a href="${rel}clauses/payment-terms-clause.html">payment terms clause</a> for sample wording.</p>
 ${embedSection('freelance-rate')}
-<h2 style="margin-top:2.5rem">Questions</h2>
+<h2 class="mt-25">Questions</h2>
 ${faqHtml(TOOL_FAQ[4])}
 ${cta(rel, 'freelance-rate')}</div></section>${stickyCta('freelance-rate', rel)}` },
 
   { path: 'free-tools/loan-repayment.html', _toc: true, title: 'Loan repayment calculator with amortization schedule', description: T['loan-repayment'].desc, published: '2026-11-07', ogType: 'article', ogImage: 'assets/og/free-tools.png',
     extraHead: faqLd(TOOL_FAQ[6]) + TOOL_CSS + toolLd(T['loan-repayment'].name, T['loan-repayment'].desc, 'free-tools/loan-repayment.html') + `<script type="module" src="loan-repayment.js"></script>`,
-    body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Loan repayment')}
-<h1 style="margin-top:1rem">Loan repayment calculator</h1>
+    body: (rel) => `<section class="section"><div class="wrap mw-52">${crumbs(rel, 'Loan repayment')}
+<h1 class="mt-1">Loan repayment calculator</h1>
 <p class="lead">Lending to family, a friend or a business? Enter the amount, the interest rate and the number of payments to see the payment, the total interest, and a full schedule you can attach to the loan agreement.</p>
 ${leadCta(rel)}
 ${WIDGET['loan-repayment']}
@@ -379,13 +379,13 @@ ${WIDGET['loan-repayment']}
 <h2>Put the loan in writing</h2>
 <p>Write the payment, the number of payments and the first and last payment dates into a signed agreement. The free <a href="${rel}templates/loan-agreement.html">loan agreement template</a> covers interest, instalments, a late fee, collateral and a guarantor; for a simple loan, a <a href="${rel}templates/promissory-note.html">promissory note</a> is enough. If you charge interest, check the legal maximum where the borrower lives, and for large family loans check the tax rules on interest-free lending.</p>
 ${embedSection('loan-repayment')}
-<h2 style="margin-top:2.5rem">Questions</h2>
+<h2 class="mt-25">Questions</h2>
 ${faqHtml(TOOL_FAQ[6])}
 ${cta(rel, 'loan-repayment')}</div></section>${stickyCta('loan-repayment', rel)}` },
   { path: 'free-tools/sales-commission.html', _toc: true, title: 'Sales commission calculator with tiers and draw', description: T['sales-commission'].desc, published: '2026-11-07', ogType: 'article', ogImage: 'assets/og/free-tools.png',
     extraHead: faqLd(TOOL_FAQ[7]) + TOOL_CSS + toolLd(T['sales-commission'].name, T['sales-commission'].desc, 'free-tools/sales-commission.html') + `<script type="module" src="sales-commission.js"></script>`,
-    body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Sales commission')}
-<h1 style="margin-top:1rem">Sales commission calculator</h1>
+    body: (rel) => `<section class="section"><div class="wrap mw-52">${crumbs(rel, 'Sales commission')}
+<h1 class="mt-1">Sales commission calculator</h1>
 <p class="lead">Enter the sales and the commission rate to see what is owed. Add up to two higher tiers for sales above a target, choose whether the higher rate covers only the extra sales or all of them, and subtract any draw already paid.</p>
 ${leadCta(rel)}
 ${WIDGET['sales-commission']}
@@ -393,13 +393,13 @@ ${WIDGET['sales-commission']}
 <h2>Put the commission plan in writing</h2>
 <p>A written plan avoids the most common commission disputes: what the rate applies to, when commission is earned, what happens on refunds, and what is paid after someone leaves. The free <a href="${rel}templates/sales-commission-agreement.html">sales commission agreement template</a> <span class="small muted">(<a href="${rel}templates/sales-commission-agreement-template.html">what to include</a>)</span> covers each of these, with an optional accelerator above a threshold and a recoverable or non-recoverable draw. Some places require commission plans for employees to be in writing, including California.</p>
 ${embedSection('sales-commission')}
-<h2 style="margin-top:2.5rem">Questions</h2>
+<h2 class="mt-25">Questions</h2>
 ${faqHtml(TOOL_FAQ[7])}
 ${cta(rel, 'sales-commission')}</div></section>${stickyCta('sales-commission', rel)}` },
   { path: 'free-tools/prorated-rent.html', _toc: true, title: 'Prorated rent calculator for move-in and move-out', description: T['prorated-rent'].desc, published: '2026-11-07', ogType: 'article', ogImage: 'assets/og/free-tools.png',
     extraHead: faqLd(TOOL_FAQ[8]) + TOOL_CSS + toolLd(T['prorated-rent'].name, T['prorated-rent'].desc, 'free-tools/prorated-rent.html') + `<script type="module" src="prorated-rent.js"></script>`,
-    body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Prorated rent')}
-<h1 style="margin-top:1rem">Prorated rent calculator</h1>
+    body: (rel) => `<section class="section"><div class="wrap mw-52">${crumbs(rel, 'Prorated rent')}
+<h1 class="mt-1">Prorated rent calculator</h1>
 <p class="lead">Moving in or out partway through a month? Enter the monthly rent and the date to see the rent for the days the tenant actually lives there, with the daily rate and a comparison of the three common methods.</p>
 ${leadCta(rel)}
 ${WIDGET['prorated-rent']}
@@ -407,23 +407,23 @@ ${WIDGET['prorated-rent']}
 <h2>Write it into the lease</h2>
 <p>Put the prorated amount, the date it is due and the method in writing, so the first and last payments are not a surprise. The free <a href="${rel}templates/residential-lease-agreement.html">residential lease agreement</a> <span class="small muted">(<a href="${rel}templates/residential-lease-agreement-template.html">what to include</a>)</span> has an optional paragraph for a prorated first month, and a <a href="${rel}templates/sublease-agreement.html">sublease agreement</a> <span class="small muted">(<a href="${rel}templates/sublease-agreement-template.html">what to include</a>)</span> works for a room or a whole home for a few months. When a tenant leaves mid-month, the <a href="${rel}templates/security-deposit-return-letter.html">security deposit return letter</a> <span class="small muted">(<a href="${rel}templates/security-deposit-return-letter-template.html">what to include</a>)</span> lists any rent still owed with the other deductions. More letters are on the <a href="${rel}for/landlords.html">landlord and tenant page</a>.</p>
 ${embedSection('prorated-rent')}
-<h2 style="margin-top:2.5rem">Questions</h2>
+<h2 class="mt-25">Questions</h2>
 ${faqHtml(TOOL_FAQ[8])}
 ${cta(rel, 'prorated-rent')}</div></section>${stickyCta('prorated-rent', rel)}` },
   { path: 'free-tools/template-checker.html', _toc: true, title: 'Word template tag checker', description: T['template-checker'].desc, published: '2026-11-07', ogType: 'article', ogImage: 'assets/og/free-tools.png',
     extraHead: faqLd(TOOL_FAQ[2]) + TOOL_CSS + toolLd(T['template-checker'].name, T['template-checker'].desc, 'free-tools/template-checker.html') + `<script type="module" src="template-checker.js"></script>`,
-    body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">${crumbs(rel, 'Template checker')}
-<h1 style="margin-top:1rem">Word template tag checker</h1>
+    body: (rel) => `<section class="section"><div class="wrap mw-52">${crumbs(rel, 'Template checker')}
+<h1 class="mt-1">Word template tag checker</h1>
 <p class="lead">Check a Word template before you use it: unclosed tags, mismatched sections and invalid names are reported with a plain-English fix, and you see the exact questionnaire it would produce. The file is read in your browser and never uploaded.</p>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery free — no account</a> <a class="btn" href="${rel}docs/templates.html">Template syntax docs</a></p>
 <div class="tool">
   <div id="drop"><p><strong>Drop a .docx file here</strong> or choose one</p><label for="file" class="sr-only">Word template</label><input id="file" type="file" accept=".docx"></div>
-  <div id="report" aria-live="polite" hidden style="margin-top:1.5rem"></div>
+  <div id="report" aria-live="polite" hidden class="mt-15"></div>
 </div>
 <h2>What it checks</h2>
 <ul><li>Tags that are opened but not closed, such as <code>{client_name</code></li><li>Sections that do not match, such as <code>{#has_retainer}</code> closed by <code>{/retainer}</code></li><li>Tag names with spaces, hyphens or dots</li><li>Tags in the body, headers, footers, footnotes and endnotes</li></ul>
 <p>New to tags? Read <a href="${rel}guides/automate-word-templates.html">how to automate a Word template</a> or the full <a href="${rel}docs/templates.html">template syntax</a>. For a ready-made starting point, the <a href="${rel}templates/independent-contractor-template.html">independent contractor agreement guide</a> walks through a complete template with optional clauses and repeating lists.</p>
-<h2 style="margin-top:2.5rem">Questions</h2>
+<h2 class="mt-25">Questions</h2>
 ${faqHtml(TOOL_FAQ[2])}
 ${cta(rel, 'template-checker')}</div></section>${stickyCta('template-checker', rel)}` },
   // Bare calculator pages for other sites' iframes: no site header or footer, not indexed, light theme unless ?theme=dark.

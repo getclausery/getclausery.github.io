@@ -193,7 +193,7 @@ for (const p of pages) {
       p.extraHead += faqLd(generic);
       const inj = `<h2>Common questions</h2>\n<div class="faq">${generic.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>`;
       if (renderedBody.includes('data-helpful=')) {
-        renderedBody = renderedBody.replace(/<p class="helpful"/, inj + '\n<p class="helpful"');
+        renderedBody = renderedBody.replace(/<p class="helpful helpful"/, inj + '\n<p');
       } else {
         renderedBody = renderedBody.replace(/(<\/div><\/section>)\s*$/, inj + '\n$1');
       }
@@ -377,7 +377,7 @@ for (const p of pages) {
   const hubFaq = HUB_FAQS[p.path];
   let finalBody = body;
   if (hubFaq && !/class="faq"/.test(finalBody)) {
-    const faqHtml = `<div class="faq" style="margin-top:2.5rem"><h2 style="font-size:1.15rem">Common questions</h2>${hubFaq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>`;
+    const faqHtml = `<div class="faq mt-25"><h2 style="font-size:1.15rem">Common questions</h2>${hubFaq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>`;
     p.extraHead = (p.extraHead || '') + faqLd(hubFaq);
     // Insert FAQ at the best available anchor, in priority order:
     //  1) before the <!--nav--> CTA marker
@@ -643,7 +643,7 @@ console.log(`wrote search-index.json (${Buffer.byteLength(searchJson)} bytes, ${
     return `<h2 id="${id}">${escHtml(label)} <span class="small muted">(${list.length})</span></h2><ul class="sitemap-list">${list.map(linkHtml).join('')}</ul>`;
   }).join('');
   const total = indexable.length;
-  const body = `<section class="section"><div class="wrap prose" style="max-width:56rem"><nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › Sitemap</nav><h1 style="margin-top:1rem">Sitemap (site map)</h1><p class="lead">A site map of every public page on Clausery — for people who prefer to browse and for crawlers. ${total} pages, all free, all in your browser.</p><p><strong>Quick links:</strong> ${GROUPS.map(([l])=>`<a href="#${l.toLowerCase().replace(/[^a-z]+/g,'-')}">${escHtml(l)}</a>`).join(' · ')}</p>${groupHtml}<p style="margin-top:2rem" class="small muted">There is also an <a href="${rel}sitemap_index.xml">XML sitemap</a> for crawlers, and an <a href="${rel}llms.txt">llms.txt</a> index for AI crawlers.</p></div></section>`;
+  const body = `<section class="section"><div class="wrap prose" style="max-width:56rem"><nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › Sitemap</nav><h1 class="mt-1">Sitemap (site map)</h1><p class="lead">A site map of every public page on Clausery — for people who prefer to browse and for crawlers. ${total} pages, all free, all in your browser.</p><p><strong>Quick links:</strong> ${GROUPS.map(([l])=>`<a href="#${l.toLowerCase().replace(/[^a-z]+/g,'-')}">${escHtml(l)}</a>`).join(' · ')}</p>${groupHtml}<p class="mt-2 small muted">There is also an <a href="${rel}sitemap_index.xml">XML sitemap</a> for crawlers, and an <a href="${rel}llms.txt">llms.txt</a> index for AI crawlers.</p></div></section>`;
   const listItems = indexable.map((p,i)=>({'@type':'ListItem',position:i+1,name:SEO_TITLES[p.path]||p.title,url:`${SITE}${p.path.replace(/\/index\.html$/,'/')}`}));
   const extraHead = `<script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'CollectionPage','@id':`${SITE}sitemap/#webpage`,url:`${SITE}sitemap/`,name:'Sitemap — every page on Clausery',description:`${total} public pages on Clausery: invoices, templates, guides, calculators and docs, all free Word files you can edit in the browser.`,inLanguage:'en-GB',isPartOf:{'@id':`${SITE}#website`},mainEntity:{'@type':'ItemList',numberOfItems:listItems.length,itemListElement:listItems}})}</script>`;
   mkdirSync('sitemap',{recursive:true});

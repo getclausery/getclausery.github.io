@@ -48,12 +48,12 @@ export const pages = [
     body: (rel) => `
 <section class="section"><div class="wrap" style="max-width:60rem">
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › Clause library</nav>
-  <p class="eyebrow" style="margin-top:1rem">Free clause library</p>
+  <p class="eyebrow mt-1">Free clause library</p>
   <h1>Contract clauses, explained in plain English</h1>
   <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><strong>4.8/5</strong><span class="muted">from 427 freelancers and small businesses</span></p>
   <p class="lead">What each clause does, sample wording you can copy, the points worth negotiating, and how to make the variable parts fill themselves in. ${CLAUSES.length} clauses, free, with no sign-up.<p><a class="btn btn-primary" href="${rel}app/">Open Clausery free — no account</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
   <nav aria-label="Jump to section"><strong>Jump to:</strong> ${GROUPS.map((g,i)=>{const id='clause-group-'+i;return `<a href="#${id}">${esc(g)}</a>`}).join(' · ')} · <a href="#by-document">By document</a></nav>
-  ${GROUPS.map((g,i) => {const id='clause-group-'+i;return `<h2 id="${id}" style="margin-top:2.5rem">${esc(g)}</h2>
+  ${GROUPS.map((g,i) => {const id='clause-group-'+i;return `<h2 id="${id}" class="mt-25">${esc(g)}</h2>
   <div class="grid grid-3">${CLAUSES.filter((c) => c.group === g).map((c) => `<a class="feature" href="${rel}clauses/${c.slug}.html">${cardUpdated(`clauses/${c.slug}.html`)}<h3>${esc(c.name)}</h3><p class="small">${esc(c.what.split('. ')[0].replace(/\.$/, ''))}.</p></a>`).join('')}</div>`;}).join('')}
 
   <h2 id="by-document" style="margin-top:3rem">Which clauses does my document need?</h2>
@@ -61,8 +61,8 @@ export const pages = [
   <div class="table-wrap" tabindex="0"><table class="compare"><thead><tr><th scope="col">Document</th><th scope="col">Clauses to expect</th></tr></thead><tbody>
     ${BY_DOC.map(([doc, hub, list]) => `<tr><th scope="row"><a href="${rel}templates/${hub}.html">${esc(doc)}</a></th><td>${list.map((s) => `<a href="${rel}clauses/${s}.html">${esc(short(BY_SLUG[s]))}</a>`).join(', ')} <span class="small muted">· <a href="${rel}templates/${hub}.html">what to include</a></span></td></tr>`).join('')}
   </tbody></table></div>
-  <!--nav--><div class="feature" style="margin-top:2.5rem"><h2>Put the clauses into a document</h2><p>Clausery turns your own Word template into a questionnaire and builds the finished contract in your browser. Every template in the library is free, and the <a href="${rel}templates/">free contract templates</a> already use many of these clauses.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free templates</a></p></div><!--/nav-->
-  <p class="small muted" style="margin-top:2rem">This library is general information, not legal advice. Laws differ between countries and states; have wording reviewed for your situation before you rely on it.</p>
+  <!--nav--><div class="feature mt-25"><h2>Put the clauses into a document</h2><p>Clausery turns your own Word template into a questionnaire and builds the finished contract in your browser. Every template in the library is free, and the <a href="${rel}templates/">free contract templates</a> already use many of these clauses.</p><p class="mt-1"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free templates</a></p></div><!--/nav-->
+  <p class="small muted mt-2">This library is general information, not legal advice. Laws differ between countries and states; have wording reviewed for your situation before you rely on it.</p>
 </div></section>
 ${hubCta(rel, 'app/', 'Open Clausery, free')}
 `,
@@ -78,7 +78,7 @@ ${hubCta(rel, 'app/', 'Open Clausery, free')}
       body: (rel) => `
 <section class="section"><div class="wrap prose">
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}clauses/">Clause library</a> › ${esc(c.name)}</nav>
-  <p class="eyebrow" style="margin-top:1rem">${esc(c.group)}</p>
+  <p class="eyebrow mt-1">${esc(c.group)}</p>
   <h1>${esc(c.name)}: meaning and sample wording</h1>
   <p class="lead">${esc(c.what)}</p>
   <p><a class="btn btn-primary" href="${rel}app/">Open Clausery free — no account</a> <a class="btn" href="${rel}templates/">See free templates</a></p>
@@ -109,8 +109,8 @@ ${related.length ? `
   <h2>Related clauses</h2>
   <ul>${related.map((x) => `<li><a href="${rel}clauses/${x.slug}.html">${esc(x.name)}</a></li>`).join('')}</ul>` : ''}
 
-  <!--nav--><div class="feature" style="margin-top:2.5rem"><h2>Stop editing contracts by hand</h2><p>Clausery turns your Word templates into short questionnaires and builds the finished document in your browser. Nothing is uploaded, and every library template is free.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free templates</a></p></div><!--/nav-->
-  <p class="small muted" style="margin-top:2rem">This page is general information, not legal advice. Laws differ between countries and states; have wording reviewed for your situation before you rely on it.</p>
+  <!--nav--><div class="feature mt-25"><h2>Stop editing contracts by hand</h2><p>Clausery turns your Word templates into short questionnaires and builds the finished document in your browser. Nothing is uploaded, and every library template is free.</p><p class="mt-1"><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free templates</a></p></div><!--/nav-->
+  <p class="small muted mt-2">This page is general information, not legal advice. Laws differ between countries and states; have wording reviewed for your situation before you rely on it.</p>
 </div></section>
 <div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}app/">Open Clausery, free <span class="arr">→</span></a></div>
 `,

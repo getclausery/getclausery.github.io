@@ -51,7 +51,7 @@ export const pages = [{
   <div class="wrap">
     <div>
       <div class="eyebrow">${ico(I.calc)} Free · No account · No card · Editable Word</div>
-      <div class="release-pill"><a href="${rel}changelog.html#v${APP_VERSION.replace(/\./g,'-')}"><strong>New:</strong> v${APP_VERSION}</a> — .hero-starters + .testimonial classes deduplicate home inline CSS. <a href="${rel}changelog.html">See what changed</a>.</div>
+      <div class="release-pill"><a href="${rel}changelog.html#v${APP_VERSION.replace(/\./g,'-')}"><strong>New:</strong> v${APP_VERSION}</a> — margin-top + max-width utility classes replace 204 inline styles. <a href="${rel}changelog.html">See what changed</a>.</div>
       <h1>Free invoice template — make a professional invoice online in 60 seconds.</h1>
       <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><strong>4.8/5</strong><span class="muted">from 427 freelancers and small businesses</span></p>
       <p class="lead">Answer a few questions and download a printable PDF or editable <strong>Word .docx</strong> invoice. Totals, VAT, GST or sales tax, discounts, and the next invoice number are worked out automatically. Also make <a href="${rel}templates/quote.html">quotes</a>, <a href="${rel}templates/purchase-order.html">purchase orders</a>, <a href="${rel}templates/credit-note.html">credit notes</a> and <a href="${rel}templates/payment-receipt.html">receipts</a> — everything runs in your browser; nothing is uploaded.</p>
@@ -74,7 +74,7 @@ export const pages = [{
         <a href="${rel}invoice-templates/australia-tax-invoice.html">Australia GST</a>
         <a href="${rel}invoice-templates/canada-gst-hst-invoice.html">Canada HST</a>
       </div>
-      <p class="small" style="margin-top:.5rem">Or start with a <a href="${rel}app/#/start/quote">quote</a> · <a href="${rel}app/#/start/receipt">receipt</a> · <a href="${rel}business-document-kit/">free 6-template business kit</a> · <a href="${rel}templates/invoice.html">what to put on an invoice</a></p>
+      <p class="small mt-5">Or start with a <a href="${rel}app/#/start/quote">quote</a> · <a href="${rel}app/#/start/receipt">receipt</a> · <a href="${rel}business-document-kit/">free 6-template business kit</a> · <a href="${rel}templates/invoice.html">what to put on an invoice</a></p>
       <div class="proof">
         <span>${ico(I.check)} No email, no password</span>
         <span>${ico(I.check)} Downloads as a normal Word file</span>
@@ -218,7 +218,7 @@ export const pages = [{
   <div class="wrap">
     <h2>Proof, not adjectives</h2>
     <p class="lead">Every claim on this site points at something you can open: the code, the release notes, the security write-up and the pricing configuration. Six checks, none of them a customer quote.</p>
-    <div class="grid grid-3" style="margin-top:2rem">
+    <div class="grid grid-3 mt-2">
       <div class="feature"><h3>The code is public</h3><p>The app, the document engine and this website are published on <a href="https://github.com/getclausery" rel="noopener">GitHub</a>, so you can read what actually runs when you press a button.</p></div>
       <div class="feature"><h3>Every release is logged</h3><p>Each version is listed in the <a href="${rel}changelog.html">changelog</a> with what changed, including the ones that fixed something.</p></div>
       <div class="feature"><h3>No account, no card</h3><p>All ${LIB.length} templates are free with no sign-up and no time limit. Pro is $${PRICES.pro} per user per month when you want more.</p></div>
@@ -226,8 +226,8 @@ export const pages = [{
       <div class="feature"><h3>See what leaves your browser</h3><p>The <a href="${rel}docs/security.html">security overview</a> lists every request the app makes, and the <a href="${rel}legal/privacy.html">privacy policy</a> lists every data flow.</p></div>
       <div class="feature"><h3>Run it yourself</h3><p><a href="${rel}self-hosting/">Self-host or white-label</a> Clausery on your own domain or intranet. The <a href="${rel}docs/self-hosting.html">technical guide</a> gets a local copy running in under a minute; commercial licenses cover rebranding and firm-wide rollout.</p></div>
     </div>
-    <p style="margin-top:1.5rem"><a href="${rel}why-clausery/">Why Clausery: the differences, a decision guide and the proof in one page →</a></p>
-    <p style="margin-top:.5rem"><strong>Who uses it:</strong> <a href="${rel}customers/">freelancers, consultants, landlords, HR teams, trades and small firms</a>.</p>
+    <p class="mt-15"><a href="${rel}why-clausery/">Why Clausery: the differences, a decision guide and the proof in one page →</a></p>
+    <p class="mt-5"><strong>Who uses it:</strong> <a href="${rel}customers/">freelancers, consultants, landlords, HR teams, trades and small firms</a>.</p>
   </div>
 </section>
 
@@ -242,7 +242,7 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
     <p><strong>By country (VAT and GST set up for you):</strong> ${COUNTRIES.map((c) => `<a href="${rel}invoice-templates/${c.slug}.html">${esc(c.country)}</a>`).join(' · ')}</p>
     <!--nav--><p><strong>By billing task:</strong> ${workflowLinks(rel)}. Worked examples and a starter for each stage of the job.</p><!--/nav-->
     <p><a class="btn" href="${rel}business-document-kit/">Get the free six-template business kit</a> <span class="small muted">Quote, scope, invoice, receipt, purchase order and credit note. No email signup.</span></p>
-    <div class="grid grid-3" style="margin-top:2rem">
+    <div class="grid grid-3 mt-2">
       <div class="feature"><div class="ico">${ico(I.calc)}</div><h3>Adds itself up</h3><p>Line amounts, discount, VAT, GST or sales tax, total and balance due update as you type. No formula to break.</p></div>
       <div class="feature"><div class="ico">${ico(I.check)}</div><h3>Remembers your details</h3><p>Your next invoice starts with your business details, bank details, tax rate and the next number filled in. Only the client and the items are new.</p></div>
       <div class="feature"><div class="ico">${ico(I.clock)}</div><h3>Tracks who has paid</h3><p>Mark invoices sent or paid straight from the draft; overdue ones float to the top of your Drafts list with a red badge and a one-click reminder email. Everything stays on your device.</p></div>
@@ -266,9 +266,9 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
       <a class="feature" href="${rel}for/hr-teams.html"><h3>HR letter templates</h3><p>Offer, contract, warning, promotion and more.</p></a>
       <a class="feature" href="${rel}for/freelancers.html"><h3>Freelance contracts</h3><p>Contractor, retainer, design, writing and SOW.</p></a>
     </div>
-    <h3 style="margin-top:2rem">Most-used templates</h3>
+    <h3 class="mt-2">Most-used templates</h3>
     ${linkList(pick(LIB, POPULAR_TEMPLATES, 'template').map((t) => [`${rel}templates/${t.slug}.html`, `${t.name} template`]))}
-    <div class="grid grid-2" style="margin-top:1.5rem">
+    <div class="grid grid-2 mt-15">
       <div><h3>Guides</h3>${linkList(pick(GUIDES, POPULAR_GUIDES, 'guide').map((g) => [`${rel}guides/${g.slug}.html`, g.title]))}</div>
       <div><h3>Free calculators</h3>${linkList(TOOLS.map((t) => [`${rel}free-tools/${t.slug}.html`, t.name]))}</div>
     </div>
@@ -296,7 +296,7 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
       <li><h3>Answer the questions</h3><p>Plain questions, one section at a time, with the document updating beside them. Amounts, tax and totals are worked out for you, and everything saves as you type.</p></li>
       <li><h3>Download it</h3><p>Get a normal Word file in your own name, ready to send, or print it to PDF. Change an answer later and make it again in a second.</p></li>
     </ol>
-    <p style="margin-top:1.5rem">Already have your own invoice or contract in Word? Put tags like <code>{client_name}</code> where the details change and Clausery turns it into the same kind of questionnaire, keeping your formatting. <a href="${rel}docs/templates.html">How to tag a template →</a></p>
+    <p class="mt-15">Already have your own invoice or contract in Word? Put tags like <code>{client_name}</code> where the details change and Clausery turns it into the same kind of questionnaire, keeping your formatting. <a href="${rel}docs/templates.html">How to tag a template →</a></p>
   </div>
 </section>
 
@@ -330,9 +330,9 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
       </tbody>
     </table>
     </div>
-    <p class="small muted" style="margin-top:.75rem">Product features vary. See <a href="${rel}pricing/">Clausery's current plans</a> and confirm the features you need before choosing a tool.</p>
-    <p style="margin-top:1rem"><strong>Side-by-side comparisons:</strong> ${COMPETITORS.map((c) => `<a href="${rel}compare/${c.slug}.html">${esc(c.name)} alternative</a>`).join(' · ')} · <a href="${rel}compare/">all comparisons</a></p>
-    <p style="margin-top:.75rem">Not sure which kind of tool you need? <a href="${rel}why-clausery/">Why Clausery</a> starts from the job rather than the product: one table of differences, a decision guide that names the right alternative for each kind of work, and the proof you can check yourself.</p>
+    <p class="small muted mt-75">Product features vary. See <a href="${rel}pricing/">Clausery's current plans</a> and confirm the features you need before choosing a tool.</p>
+    <p class="mt-1"><strong>Side-by-side comparisons:</strong> ${COMPETITORS.map((c) => `<a href="${rel}compare/${c.slug}.html">${esc(c.name)} alternative</a>`).join(' · ')} · <a href="${rel}compare/">all comparisons</a></p>
+    <p class="mt-75">Not sure which kind of tool you need? <a href="${rel}why-clausery/">Why Clausery</a> starts from the job rather than the product: one table of differences, a decision guide that names the right alternative for each kind of work, and the proof you can check yourself.</p>
   </div>
 </section>
 
@@ -382,7 +382,7 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
 </section>
 
 <section class="section section-alt" id="faq">
-  <div class="wrap" style="max-width:48rem">
+  <div class="wrap mw-48">
     <h2>Common questions</h2>
     <h3 style="font-size:1.15rem;margin:-.25rem 0 .5rem">Is Clausery really free — and do I need an account?</h3>
     <p class="small" style="margin:-.25rem 0 .75rem;color:var(--muted)">No account, no card. Every library template is free forever; you only pay for Pro if you want the &quot;Made with Clausery&quot; line left out, unlimited templates of your own, spreadsheet batch mode and encrypted backups. <a href="${rel}pricing/">See Pro →</a></p>
@@ -405,7 +405,7 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
     <h2>Your next invoice is one minute away.</h2>
     <p class="lead" style="margin:0 auto">No signup, no card. Fill in the boxes, download a Word file, done. Pro is only for people who want to automate their own templates — and it's free to try for ${TRIAL_DAYS} days.</p>
     <div class="actions"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make a free invoice — no sign up <span class="arr">→</span></a><a class="btn btn-lg" href="${rel}pricing/">See Pro ($${PRICES.pro}/mo)</a></div>
-    <p class="small muted" style="margin-top:1.5rem">Read <a href="${rel}about/">about Clausery</a>, see the <a href="${rel}why-clausery/">differences from other tools</a>, or browse <a href="${rel}templates/">all ${LIB.length} free templates</a>.</p>
+    <p class="small muted mt-15">Read <a href="${rel}about/">about Clausery</a>, see the <a href="${rel}why-clausery/">differences from other tools</a>, or browse <a href="${rel}templates/">all ${LIB.length} free templates</a>.</p>
   </div>
 </section>`,
 }];

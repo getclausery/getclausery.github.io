@@ -151,7 +151,7 @@ const compareFaq = (c) => [
 ];
 
 const moveSteps = (c, rel) => `<section aria-labelledby="migration-checklist">
-  <h2 id="migration-checklist" style="margin-top:2.5rem">Before moving a ${c.group === 'forms' ? 'document' : 'template'} from ${esc(c.name)}</h2>
+  <h2 id="migration-checklist" class="mt-25">Before moving a ${c.group === 'forms' ? 'document' : 'template'} from ${esc(c.name)}</h2>
   <ol>
     <li>Keep existing signed records and any external audit evidence. Work from an authorised editable Word master, not the only copy of a signed document.</li>
     <li>Replace changing facts with <code>{tags}</code> and check them with the <a href="${rel}free-tools/template-checker.html">Word template checker</a>. There is no automatic importer for ${esc(c.name)}'s rules or workflow.</li>
@@ -169,7 +169,7 @@ export const pages = [
   {
     path: 'compare/', title: 'Compare document automation tools', ogImage: 'assets/og/compare.png', description, published: '2026-10-31',
     extraHead: collectionLd({ path: 'compare/', name: 'Compare document automation tools', description, items: COMPETITORS.map((c) => [c.title, `compare/${c.slug}.html`]) }) + ``,
-    body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">
+    body: (rel) => `<section class="section"><div class="wrap mw-52">
   <h1>Compare document automation tools</h1>
   <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><strong>4.8/5</strong><span class="muted">from 427 freelancers and small businesses</span></p>
   <p class="lead">Choose the workflow before comparing subscriptions. Clausery assembles editable Word documents locally; it is not a hosted client portal, law firm, electronic-signature service or payment processor.</p>
@@ -181,15 +181,15 @@ export const pages = [
     <li><strong>Legal expertise or prescribed forms:</strong> a general template does not replace professional advice or required local wording.</li>
   </ul>
   <p><strong>Not sure which category you need?</strong> <a href="${rel}why-clausery/">Why Clausery</a> starts from the job rather than the product: one table of differences, a decision guide that names the right alternative for each kind of work, and the proof you can check yourself, including the source code, the changelog and the security overview.</p>
-${GROUPS.map(([g, label]) => `  <h2 style="margin-top:2rem">${esc(label)}</h2>
+${GROUPS.map(([g, label]) => `  <h2 class="mt-2">${esc(label)}</h2>
   <ul>${COMPETITORS.filter((c) => c.group === g).map((c) => `<li><a href="${rel}compare/${c.slug}.html">Clausery vs ${esc(c.name)}</a>: ${esc(c.bestFor)}</li>`).join('')}</ul>`).join('\n')}
-  <h2 style="margin-top:2.5rem">Compare the scope and current plan terms</h2>
+  <h2 class="mt-25">Compare the scope and current plan terms</h2>
   <div class="table-wrap" tabindex="0"><table class="compare"><thead><tr><th scope="col">Tool</th><th scope="col">Decision to test</th><th scope="col">Price or plan check</th></tr></thead><tbody>
     <tr><th scope="row">Clausery</th><td>Local Word assembly and editable billing documents</td><td>${esc(OUR_PRICE)}. <a href="${rel}pricing/">See the plan details</a>.</td></tr>
     ${COMPETITORS.map((c) => `<tr><th scope="row"><a href="${rel}compare/${c.slug}.html">${esc(c.name)}</a></th><td>${esc(c.bestFor)}</td><td>${esc(c.planCheck)} <a href="${esc(c.vendorUrl)}" rel="noopener">Official ${esc(c.name)} site</a></td></tr>`).join('')}
   </tbody></table></div>
   <p class="small muted">No current competitor price quote is reproduced here. Confirm plans, limits, export rights and renewal terms directly with the provider. Clausery prices shown above come from the same configuration as the app and pricing page.</p>
-  <h2 style="margin-top:2.5rem">Start with a guide to what belongs in each document</h2>
+  <h2 class="mt-25">Start with a guide to what belongs in each document</h2>
   <p>Before you compare tools, decide what wording the document itself needs. Each hub below walks through the clauses, step-by-step how-to and FAQ for one common template:</p>
   <ul>
     <li><a href="${rel}templates/invoice.html">Invoice template</a> — <a href="${rel}templates/invoice.html" class="small muted">what to include</a></li>
@@ -199,7 +199,7 @@ ${GROUPS.map(([g, label]) => `  <h2 style="margin-top:2rem">${esc(label)}</h2>
     <li><a href="${rel}templates/residential-lease-agreement.html">Residential lease agreement</a> — <a href="${rel}templates/residential-lease-agreement-template.html" class="small muted">what to include</a></li>
   </ul>
   <p class="small muted"><a href="${rel}templates/">Browse the full library</a> — 87 free Word templates, every download page links to its what-to-include guide.</p>
-  <!--nav--><div class="feature" style="margin-top:2rem"><h2>Test one small document first</h2><p>Use fictional details, compare the downloaded Word output, then check every handoff that remains outside drafting. No account is required to try Clausery's library templates.</p><p><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free Word templates</a></p></div><!--/nav-->
+  <!--nav--><div class="feature mt-2"><h2>Test one small document first</h2><p>Use fictional details, compare the downloaded Word output, then check every handoff that remains outside drafting. No account is required to try Clausery's library templates.</p><p><a class="btn btn-primary" href="${rel}app/">Open Clausery</a> <a class="btn" href="${rel}templates/">Free Word templates</a></p></div><!--/nav-->
 </div></section>
 <div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}app/">Try Clausery free <span class="arr">→</span></a></div>
 `,
@@ -220,22 +220,22 @@ ${GROUPS.map(([g, label]) => `  <h2 style="margin-top:2rem">${esc(label)}</h2>
       extraHead: faqLd(faq), published: '2026-10-31',
       body: (rel) => `<section class="section"><div class="wrap prose">
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}compare/">Compare</a> › ${esc(c.name)}</nav>
-  <h1 style="margin-top:1rem">${esc(c.title)}</h1>
+  <h1 class="mt-1">${esc(c.title)}</h1>
   <p class="lead">${esc(c.intro)}</p>
   <p><a class="btn btn-primary" href="${rel}app/">Try Clausery free — no account</a> <a class="btn" href="${rel}pricing/">See pricing</a></p>
-  <div class="table-wrap" tabindex="0" style="margin-top:2rem"><table class="compare"><thead><tr><th scope="col">Feature or decision</th><th scope="col">Clausery</th><th scope="col">${esc(c.name)}</th></tr></thead><tbody>
+  <div class="table-wrap mt-2" tabindex="0"><table class="compare"><thead><tr><th scope="col">Feature or decision</th><th scope="col">Clausery</th><th scope="col">${esc(c.name)}</th></tr></thead><tbody>
     ${rows.map((r, i) => `<tr><th scope="row">${esc(r)}</th><td>${esc(us[i])}</td><td>${esc(them[i])}</td></tr>`).join('')}
   </tbody></table></div>
   <p class="small muted">Vendor features depend on the selected plan and deployment. Confirm them using the official link below; this page does not claim a new pricing or plan verification.</p>
   <section class="comparison-workflow" aria-labelledby="workflow-fit"><h2 id="workflow-fit">${esc(workflow.heading)}</h2>${workflow.body(rel)}</section>
-  <div class="grid grid-2" style="margin-top:2rem">
+  <div class="grid grid-2 mt-2">
     <div class="feature"><h2 style="font-size:1.15rem">Choose ${esc(c.name)} if</h2><ul>${c.chooseThem.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>
     <div class="feature"><h2 style="font-size:1.15rem">Choose Clausery if</h2><ul>${c.chooseUs.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>
   </div>
 ${moveSteps(c, rel)}
   <h2>What stays outside Clausery</h2>
   <p>Clausery prepares Word documents, including contracts, invoices, quotes and receipts. It does not collect signatures or payments, provide legal advice, maintain a hosted client portal or synchronise a CRM. Keep the systems needed for those tasks.</p>
-  <h2 style="margin-top:2.5rem">Free templates to start with</h2>
+  <h2 class="mt-25">Free templates to start with</h2>
   <p>Every library template is a free Word download with a guide to what belongs in it:</p>
   <ul>
     <li><a href="${rel}templates/invoice.html">Invoice template</a> — <a href="${rel}templates/invoice.html" class="small muted">what to include</a></li>
@@ -245,9 +245,9 @@ ${moveSteps(c, rel)}
     <li><a href="${rel}templates/residential-lease-agreement.html">Residential lease agreement</a> — <a href="${rel}templates/residential-lease-agreement-template.html" class="small muted">what to include</a></li>
   </ul>
   <p class="small muted"><a href="${rel}templates/">Browse the full template library</a> — 87 free Word templates covering invoices, contracts, NDAs, HR letters and landlord forms.</p>
-  <h2 style="margin-top:2.5rem">Questions</h2>
+  <h2 class="mt-25">Questions</h2>
   ${faqHtml(faq)}
-  <h2 id="official-details" style="margin-top:2.5rem">Official product and plan details</h2>
+  <h2 id="official-details" class="mt-25">Official product and plan details</h2>
   <p><a class="vendor-source" href="${esc(c.vendorUrl)}" rel="noopener">${esc(c.name)}'s official site</a> is the place to confirm current features, prices, billing terms and export rights. For this side of the comparison, see <a href="${rel}pricing/">Clausery pricing</a> and <a href="${rel}docs/">the product documentation</a>. A changed page date is not a claim that a vendor's prices were rechecked.</p>
   <!--nav--><p><a class="btn btn-primary btn-lg" href="${rel}app/">Try Clausery with a free template</a> <a class="btn" href="${rel}compare/">Browse all comparisons</a></p><!--/nav-->
 </div></section>

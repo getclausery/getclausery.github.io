@@ -32,7 +32,7 @@ export const pages = [{
 <h2>Before you send a document</h2><ul><li>Check the business and client names, reference number, dates and payment details.</li><li>Use the scope, rates, deadlines and deposit terms actually agreed with the client.</li><li>Check totals, discounts and any tax settings that apply to your business.</li><li>Record payments as received only after the money has arrived.</li><li>Keep the editable document and a record of the final version you sent.</li></ul>
 <p class="small muted">These are general document samples. You remain responsible for their content and for requirements that apply to your business and location.</p>
 <h2>Questions</h2><div class="faq">${FAQ.map(([q,a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>
-<p style="margin-top:2rem"><a class="btn btn-primary" href="${rel}samples/clausery-small-business-kit.zip" download>Get all six templates</a> · <a href="${rel}templates/">Explore the full free library</a></p>
+<p class="mt-2"><a class="btn btn-primary" href="${rel}samples/clausery-small-business-kit.zip" download>Get all six templates</a> · <a href="${rel}templates/">Explore the full free library</a></p>
 </div></section>
 <div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>
 `,
