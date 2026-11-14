@@ -2575,7 +2575,7 @@ ${intro}
 <h2 id="questions">Questions</h2>
 ${faqHtml(h.faq)}
 <p><a href="${rel}${h.section ? h.section + '/' : 'templates/'}">Browse all ${h.section ? esc(h.sectionLabel.toLowerCase()) : 'free templates'} →</a></p>
-<p class="small muted" style="margin-top:2rem">These are general templates, not legal or tax advice. Have anything unusual reviewed for your jurisdiction.</p>
+<p class="small muted mt-2">These are general templates, not legal or tax advice. Have anything unusual reviewed for your jurisdiction.</p>
 </div></section>
 <div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}${h.cta.href}">${esc(h.cta.label)} <span class="arr">→</span></a></div>`;
 }

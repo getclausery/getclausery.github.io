@@ -112,8 +112,8 @@ ${decisions(rel).map(([need, answer]) => `<tr><th scope="row">${esc(need)}</th><
 <h2>Questions</h2>
 ${faqHtml(FAQ)}
 
-<p style="margin-top:2rem"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free</a> <a class="btn btn-lg" href="${rel}templates/">Browse ${LIB.length} free templates</a></p>
-<p class="small muted" style="margin-top:1rem">Clausery is software, not a law firm, and does not give legal advice. Features and prices are described on the <a href="${rel}pricing/">pricing page</a> and configured in one place, so the app and this site cannot disagree.</p>
+<p class="mt-2"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free</a> <a class="btn btn-lg" href="${rel}templates/">Browse ${LIB.length} free templates</a></p>
+<p class="small muted mt-1">Clausery is software, not a law firm, and does not give legal advice. Features and prices are described on the <a href="${rel}pricing/">pricing page</a> and configured in one place, so the app and this site cannot disagree.</p>
 </div></section>
 <div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>
 `,

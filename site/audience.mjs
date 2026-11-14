@@ -2177,14 +2177,14 @@ export const pages = [
     extraHead: collectionLd({ path: 'for/', name: 'Who Clausery is for', description: 'Which teams use Clausery for invoices, contracts and HR letters, what each gets from a guided questionnaire, and how to choose the right template.', items: AUD.map((a) => [a.name, `for/${a.slug}.html`]) }),
     body: (rel) => `<section class="section"><div class="wrap" style="max-width:60rem">
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › Who it's for</nav>
-  <h1 style="margin-top:1rem">Who Clausery is for</h1>
+  <h1 class="mt-1">Who Clausery is for</h1>
   <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><strong>4.8/5</strong><span class="muted">from 427 freelancers and small businesses</span></p>
   <p class="lead">Clausery suits anyone who sends the same kinds of documents again and again: invoices, contracts, HR letters and landlord forms. Each audience page shows the templates that team uses, the questions that change, and the guides that explain the wording.<p><a class="btn btn-primary" href="${rel}app/">Open Clausery free — no account</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
   <nav aria-label="Jump to section"><strong>Jump to:</strong> ${AUD.map(a=>`<a href="#${a.slug}">${esc(a.name)}</a>`).join(' · ')} · <a href="#every-team">What every team gets</a></nav>
-  <div class="grid grid-2" style="margin-top:2rem" id="teams">
+  <div class="grid grid-2 mt-2" id="teams">
     ${AUD.map((a) => `<a class="feature" id="${a.slug}" href="${rel}for/${a.slug}.html">${cardUpdated(`for/${a.slug}.html`)}<h2 style="font-size:1.2rem">${esc(a.name)}</h2><p>${esc(a.intro.split('. ').slice(0, 2).join('. '))}.</p><p class="small muted">${a.templates.length} templates · ${a.related.length} related guides</p></a>`).join('\n    ')}
   </div>
-  <h2 id="every-team" style="margin-top:2.5rem">What every team gets</h2>
+  <h2 id="every-team" class="mt-25">What every team gets</h2>
   <ul>
     <li><strong>The same approved wording.</strong> A template is set up once; everyone else answers plain-language questions and downloads the finished Word file.</li>
     <li><strong>Nothing uploaded.</strong> Names, salaries, client details and the document itself stay in the browser, which keeps vendor reviews and records of processing simpler.</li>
@@ -2192,10 +2192,10 @@ export const pages = [
     <li><strong>Editable output.</strong> The result is an ordinary .docx that keeps the template's styles, numbering and letterhead, so it can still be edited or printed to PDF.</li>
     <li><strong>No per-document charge for library templates.</strong> Every template can be downloaded or filled in free, with no account and no document limit.</li>
   </ul>
-  <h2 style="margin-top:2.5rem">Not sure which page fits?</h2>
+  <h2 class="mt-25">Not sure which page fits?</h2>
   <p>Start from the <a href="${rel}templates/">full template library</a> and use the search box, or browse <a href="${rel}invoice-templates/">invoice templates by trade and country</a>. Freelancers and small businesses often begin with an <a href="${rel}templates/invoice.html">invoice</a>, a <a href="${rel}templates/quote.html">quote</a> and a <a href="${rel}templates/payment-receipt.html">payment receipt</a>. Firms that draft contracts should look at the <a href="${rel}clauses/">clause library</a> and the <a href="${rel}compare/">honest comparisons</a>; teams that send HR letters can start with <a href="${rel}for/hr-teams.html">HR templates</a>.</p>
   <p class="small muted">Clausery is software, not a law firm, and does not give legal advice. Templates are general samples; have them reviewed for the jurisdiction you work in.</p>
-  <!--nav--><p style="margin-top:2rem"><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}pricing/">See pricing</a></p><!--/nav-->
+  <!--nav--><p class="mt-2"><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}pricing/">See pricing</a></p><!--/nav-->
 </div></section>
 ${hubCta(rel, 'app/', 'Open Clausery, free')}
 `,
@@ -2205,7 +2205,7 @@ ${hubCta(rel, 'app/', 'Open Clausery, free')}
     extraHead: faqLd(a.faq) + ``,
     body: (rel) => `<section class="hero"><div class="wrap" style="display:block;max-width:52rem">
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}for/">Who it's for</a> › ${esc(a.name)}</nav>
-  <p class="eyebrow" style="margin-top:1rem">For ${esc(lowerFirst(a.name))}</p>
+  <p class="eyebrow mt-1">For ${esc(lowerFirst(a.name))}</p>
   <h1>${esc(a.title)}</h1>
   <p class="lead">${esc(a.intro)}</p>
   <div class="actions"><a class="btn btn-primary btn-lg" href="${rel}app/">Open Clausery, free</a><a class="btn btn-lg" href="${rel}templates/">Browse free templates</a></div>
@@ -2213,25 +2213,25 @@ ${hubCta(rel, 'app/', 'Open Clausery, free')}
 <section class="section section-alt"><div class="wrap"><div class="grid grid-2">
   ${a.points.map(([h, p]) => `<div class="feature"><h2>${esc(h)}</h2><p>${esc(p)}</p></div>`).join('')}
 </div></div></section>
-<section class="section"><div class="wrap" style="max-width:52rem">
+<section class="section"><div class="wrap mw-52">
   <h2>Start from a free template</h2>
   <ul>${a.templates.map((s) => `<li><a href="${rel}templates/${s}.html">${esc(NAMES[s])}</a>${HUB_FOR_LIB[s] ? ` — <a href="${rel}templates/${HUB_FOR_LIB[s]}.html" class="small muted">what to include</a>` : ''}</li>`).join('')}</ul>
-  <h2 style="margin-top:2.5rem">Questions</h2>
+  <h2 class="mt-25">Questions</h2>
   ${faqHtml(a.faq)}
-  <h2 style="margin-top:2.5rem">Further reading</h2>
+  <h2 class="mt-25">Further reading</h2>
   <ul>${a.related.map(([href, label]) => `<li><a href="${rel}${href}">${esc(label)}</a></li>`).join('')}</ul>
-  <p style="margin-top:2rem"><a href="${rel}for/">Compare all the teams Clausery is built for →</a></p>
+  <p class="mt-2"><a href="${rel}for/">Compare all the teams Clausery is built for →</a></p>
 </div></section>
 <div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/${a.templates[0]}">Start with ${/^[aeiou]/i.test(NAMES[a.templates[0]]) ? 'an' : 'a'} ${esc(NAMES[a.templates[0]].toLowerCase())}, free <span class="arr">→</span></a></div>
 `,
   })),
   { path: 'guides/', title: 'Invoice & Contract Guides | Free Word Templates', ogImage: 'assets/og/guides.png', description: 'How-to guides for invoices, getting paid, contracts, NDAs, HR letters and landlord forms — each linked to a free editable Word template.',
     extraHead: collectionLd({ path: 'guides/', name: 'Invoice, payment and business document guides', description: 'Practical guides to invoices, getting paid, contracts, HR letters and landlord forms. Worked explanations linked to free editable Word templates.', items: GUIDES.map((g) => [g.title, `guides/${g.slug}.html`]) }),
-    body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem"><h1>Invoice, payment and business document guides</h1><p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><strong>4.8/5</strong><span class="muted">from 427 freelancers and small businesses</span></p><p class="lead">Plain-English answers to the questions people ask before they use a template, each linked to a free Word template you can fill in online.</p>
+    body: (rel) => `<section class="section"><div class="wrap mw-52"><h1>Invoice, payment and business document guides</h1><p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><strong>4.8/5</strong><span class="muted">from 427 freelancers and small businesses</span></p><p class="lead">Plain-English answers to the questions people ask before they use a template, each linked to a free Word template you can fill in online.</p>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery free — no account</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
   <!--nav--><p><strong>Start with billing:</strong> <a href="${rel}guides/how-to-write-an-invoice.html">how to write an invoice</a>, <a href="${rel}invoice-templates/deposit-invoice.html">request a deposit</a>, <a href="${rel}invoice-templates/hourly-invoice.html">bill hours</a>, or <a href="${rel}invoice-templates/final-invoice.html">show the final balance</a>. Write the message with the <a href="${rel}guides/invoice-email-template.html">free invoice email generator and four email templates</a>. Then <a href="${rel}guides/how-to-save-an-invoice-as-pdf.html">save an invoice as PDF from Word or the app</a>, and <a href="${rel}guides/how-to-write-a-payment-receipt.html">write a receipt when payment arrives</a>.</p><!--/nav-->
   <nav class="small" aria-label="Guide topics" style="margin-top:1.25rem">${GUIDE_TOPICS.map(([t]) => `<a href="#${topicId(t)}">${esc(t)}</a>`).join(' · ')}</nav>
-${GUIDE_TOPICS.map(([t, slugs]) => `  <h2 id="${topicId(t)}" style="margin-top:2.5rem">${esc(t)}</h2>
+${GUIDE_TOPICS.map(([t, slugs]) => `  <h2 id="${topicId(t)}" class="mt-25">${esc(t)}</h2>
   <ul class="guide-list">${slugs.map((x) => GUIDE_BY[x]).map((g) => `<li><a href="${rel}guides/${g.slug}.html">${esc(g.title)}</a><div class="small muted">${esc(g.description)}</div></li>`).join('')}</ul>`).join('\n')}
 </div></section>
 ${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}` },
@@ -2251,7 +2251,7 @@ ${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}` },
       let body = g.body(rel);
       body = body.replace('</p>\n<h2>', `</p>${leadCta}\n<h2>`);
       if (!leadCta || body === g.body(rel)) body = g.body(rel) + leadCta;
-      return `<section class="section"><div class="wrap prose"><nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}guides/">Guides</a></nav><h1 style="margin-top:1rem">${esc(g.title)}</h1>
+      return `<section class="section"><div class="wrap prose"><nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}guides/">Guides</a></nav><h1 class="mt-1">${esc(g.title)}</h1>
 <p class="small muted guide-meta">Published <time datetime="${published(g)}">${longDate(published(g))}</time><!--upd--> · Updated <time datetime="${LASTMOD}">${LASTMOD_LONG}</time><!--/upd--> · Reviewed by <a href="${rel}about/#editors">Clausery editors</a> · <a href="${rel}guides/#${topicId(topic)}">${esc(topic)}</a></p>${body}${g.sources ? `
 <h2>Sources</h2>
 <ul class="sources">${g.sources.map(([label, url]) => `<li><a href="${esc(url)}" rel="noopener">${esc(label)}</a></li>`).join('')}</ul>` : ''}${tplBlock}

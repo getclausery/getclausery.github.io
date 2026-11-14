@@ -30,21 +30,21 @@ export const pages = [{
   body: (rel) => `
 <section class="section"><div class="wrap" style="max-width:56rem">
   <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}templates/">Templates</a> › NDA templates</nav>
-  <h1 style="margin-top:1rem">Free NDA templates for Word</h1>
+  <h1 class="mt-1">Free NDA templates for Word</h1>
   <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><strong>4.8/5</strong><span class="muted">from 427 freelancers and small businesses</span></p>
   <p class="lead">Five free non-disclosure agreement templates, also called confidentiality agreements, one for each common situation. Pick the one that matches who is sharing information, then download the Word file or fill it in online in a few minutes. There is no account, no trial and no card, and nothing you type is uploaded.</p>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery free — no account</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
 
-  <h2 style="margin-top:2.5rem">Which NDA do you need?</h2>
+  <h2 class="mt-25">Which NDA do you need?</h2>
   <div class="table-wrap" tabindex="0"><table class="compare"><thead><tr><th scope="col">Your situation</th><th scope="col">Template</th><th scope="col">Get it</th></tr></thead><tbody>
     ${CHOOSE.map(([when, s]) => `<tr><td>${esc(when)}</td><td><a href="${rel}templates/${s}.html">${esc(T[s].name)}</a></td><td class="small"><a href="${rel}app/#/start/${s}">Fill it in</a> · <a href="${rel}samples/${T[s].file}" download>Word file</a></td></tr>`).join('')}
   </tbody></table></div>
 
-  <div class="grid grid-3" style="margin-top:2rem">
+  <div class="grid grid-3 mt-2">
     ${NDA_SLUGS.map((s) => `<a class="feature" href="${rel}templates/${s}.html"><span class="badge">NDA</span><h3 style="font-size:1.15rem;margin-top:.75rem">${esc(T[s].name)}</h3><p>${esc(T[s].intro)}</p></a>`).join('')}
   </div>
 
-  <h2 style="margin-top:2.5rem">What every NDA should include</h2>
+  <h2 class="mt-25">What every NDA should include</h2>
   <ul>
     <li><strong>The right parties</strong>, with full legal names, so the company that shares the information is the one protected.</li>
     <li><strong>A narrow purpose</strong>, such as "evaluating a possible partnership", which limits what the information can be used for.</li>
@@ -55,7 +55,7 @@ export const pages = [{
   </ul>
   <p>The full checklist is in <a href="${rel}guides/what-to-include-in-an-nda.html">what to include in an NDA</a>. For choosing between the two main types, read <a href="${rel}guides/mutual-vs-one-way-nda.html">mutual vs one-way NDA</a>, and for picking a term, <a href="${rel}guides/how-long-should-an-nda-last.html">how long an NDA should last</a>.</p>
 
-  <h2 style="margin-top:2.5rem">What these templates do differently</h2>
+  <h2 class="mt-25">What these templates do differently</h2>
   <ul>
     <li><strong>They ask, you answer.</strong> Clausery turns each template into a short questionnaire, so names, dates and terms land in the right places and optional clauses appear only when you want them.</li>
     <li><strong>The employee and contractor versions carry the notices US law expects</strong>, including the Defend Trade Secrets Act whistleblower notice and a plain statement that the NDA does not stop anyone reporting wrongdoing.</li>
@@ -64,10 +64,10 @@ export const pages = [{
   </ul>
   <p>If you only need one standard mutual NDA for a software deal, Common Paper's free mutual NDA is also widely used and worth a look. Clausery covers more situations and fills in the details for you.</p>
 
-  <h2 style="margin-top:2.5rem">Questions</h2>
+  <h2 class="mt-25">Questions</h2>
   ${faqHtml(FAQ)}
 
-  <h2 style="margin-top:2.5rem">Related</h2>
+  <h2 class="mt-25">Related</h2>
   <ul>
     <li><a href="${rel}nda-templates/simple-nda.html">Simple NDA template</a>, a short plain-English version for first conversations</li>
     <li><a href="${rel}nda-templates/nda-form.html">NDA form</a>, a printable fill-in version of the mutual NDA</li>
@@ -79,7 +79,7 @@ export const pages = [{
     <li><a href="${rel}templates/independent-contractor-agreement.html">Independent contractor agreement</a>, for the work itself alongside a contractor NDA</li>
     <li><a href="${rel}templates/">All ${LIB.length} free templates</a></li>
   </ul>
-  <p class="small muted" style="margin-top:2rem">These templates are general samples, not legal advice. Laws differ between countries and states; have an NDA reviewed for your situation before you rely on it.</p>
+  <p class="small muted mt-2">These templates are general samples, not legal advice. Laws differ between countries and states; have an NDA reviewed for your situation before you rely on it.</p>
 </div></section>
 ${hubCta(rel, 'app/', 'Open Clausery, free')}
 `,

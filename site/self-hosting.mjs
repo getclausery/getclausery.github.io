@@ -43,8 +43,8 @@ export const pages = [{
       <div class="eyebrow">Self-hosting & white-label</div>
       <h1>Run Clausery on your own domain or intranet</h1>
       <p class="lead" style="margin:0 auto">Clausery is plain static files, so you can serve it from any web server behind your firewall. The AGPL covers internal use for free; an Enterprise license adds rebranding, firm-wide rollouts and a commercial agreement.</p>
-      <div class="actions" style="margin-top:1.5rem"><a class="btn btn-primary btn-lg" href="${rel}contact/">Request a quote</a><a class="btn btn-lg" href="${rel}docs/self-hosting.html">Technical self-hosting guide</a></div>
-      <p class="small muted" style="margin-top:.75rem">Or <a href="${REPO_URL}" rel="noopener">clone the repository</a> and run it locally in under a minute.</p>
+      <div class="actions mt-15"><a class="btn btn-primary btn-lg" href="${rel}contact/">Request a quote</a><a class="btn btn-lg" href="${rel}docs/self-hosting.html">Technical self-hosting guide</a></div>
+      <p class="small muted mt-75">Or <a href="${REPO_URL}" rel="noopener">clone the repository</a> and run it locally in under a minute.</p>
     </div>
 
     <div class="grid grid-3">
@@ -74,7 +74,7 @@ ${USE_CASES.map((u) => `      <div class="feature">
           <li><strong>Forking the repository</strong> for your own use, as long as modified versions served to third parties share their source.</li>
           <li><strong>Personal, freelance or small-business use</strong> of the public site or your own hosted copy.</li>
         </ul>
-        <p style="margin-top:1rem"><strong>Still not sure?</strong> <a href="${rel}legal/license.html">Read the AGPL license</a> or <a href="${mailto('Self-hosting question')}">email to ask</a> — we will tell you when you do and do not need a commercial license.</p>
+        <p class="mt-1"><strong>Still not sure?</strong> <a href="${rel}legal/license.html">Read the AGPL license</a> or <a href="${mailto('Self-hosting question')}">email to ask</a> — we will tell you when you do and do not need a commercial license.</p>
       </div>
     </div>
 
@@ -86,14 +86,14 @@ ${USE_CASES.map((u) => `      <div class="feature">
         <li><strong>Email us</strong> with the URL you plan to deploy to, how many users, and whether you need branding removed. We reply with pricing (or confirm that the AGPL covers your use case for free).</li>
         <li><strong>Deploy</strong> to your host of choice behind whatever VPN or SSO your organisation uses.</li>
       </ol>
-      <p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}contact/">Request a quote</a> <a class="btn" href="${rel}docs/self-hosting.html">Technical guide</a></p>
+      <p class="mt-1"><a class="btn btn-primary" href="${rel}contact/">Request a quote</a> <a class="btn" href="${rel}docs/self-hosting.html">Technical guide</a></p>
     </div>
   </div>
 </section>
 
 <section class="section section-alt">
-  <div class="wrap" style="max-width:48rem">
-    <h2 style="text-align:center">Self-hosting questions</h2>
+  <div class="wrap mw-48">
+    <h2 class="ta-c">Self-hosting questions</h2>
     <div class="faq">
       ${FAQ.map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join('\n      ')}
     </div>
@@ -106,7 +106,7 @@ ${USE_CASES.map((u) => `      <div class="feature">
     <h2>Ready to run Clausery on your own infrastructure?</h2>
     <p class="lead" style="margin:0 auto">Clone the repository and try it locally in under a minute, or email to discuss a commercial license for rebranding or firm-wide rollout.</p>
     <div class="actions"><a class="btn btn-primary btn-lg" href="${rel}contact/">Request a quote</a><a class="btn btn-lg" href="${REPO_URL}" rel="noopener">Source on GitHub</a></div>
-    <p class="small muted" style="margin-top:1rem">Public site · <a href="${rel}pricing/">Pricing</a> · <a href="${rel}customers/">Customers</a> · <a href="${rel}docs/security.html">Security</a> · ${REFUND_DAYS}-day money-back guarantee on paid plans.</p>
+    <p class="small muted mt-1">Public site · <a href="${rel}pricing/">Pricing</a> · <a href="${rel}customers/">Customers</a> · <a href="${rel}docs/security.html">Security</a> · ${REFUND_DAYS}-day money-back guarantee on paid plans.</p>
   </div>
 </section>
 ${hubCta(rel, 'app/', 'Open Clausery, free')}

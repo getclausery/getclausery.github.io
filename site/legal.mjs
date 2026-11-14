@@ -149,7 +149,7 @@ page('legal/license.html', 'Open-source license (AGPLv3) and commercial licensin
 <h2>Why AGPL instead of MIT or BSD?</h2>
 <p>Clausery is a client-side product that competes with paid SaaS tools. A permissive license (MIT, BSD, Apache) would allow competitors to take the code, rebrand it, close the improvements and sell it as their own — which has happened to many MIT-licensed developer tools. The AGPL keeps the code free and keeps improvements free while still allowing commercial use through a paid dual-license, which is the model used by other developer-focused open-source companies (Ghost, Grafana Labs' AGPL components, Element/Matrix, Plausible, Mastodon, GitLab CE). It is the OSI-approved license that matches how Clausery is actually used: over the network.</p>
 
-<p class="small muted" style="margin-top:2rem">The software is provided "as is" without warranty, as described in <a href="${rel}legal/terms.html">the terms of service</a>.</p>`),
+<p class="small muted mt-2">The software is provided "as is" without warranty, as described in <a href="${rel}legal/terms.html">the terms of service</a>.</p>`),
 
 page('legal/dmca.html', 'DMCA, trademark and impersonation takedown', 'How to report copyright infringement, trademark infringement, impersonation or unlicensed Clausery copies, and what information to send.', (rel) => `
 <h1>DMCA, trademark and impersonation takedown</h1>

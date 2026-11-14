@@ -141,9 +141,9 @@ const example = (c) => {
   const rate = c.preset.answers.tax_rate, tax = Math.round(sub * rate) / 100;
   return `<div class="table-wrap" tabindex="0"><table class="compare"><caption class="small muted" style="caption-side:bottom;text-align:left;padding-top:.5rem">Example prices for illustration only. You enter your own lines and prices; the ${esc(c.preset.answers.tax_name)} and totals are worked out.</caption><thead><tr><th scope="col">Description</th><th scope="col">Qty</th><th scope="col">Unit price</th><th scope="col">Amount</th></tr></thead><tbody>
     ${rows.map(([d, q, r, a]) => `<tr><td>${esc(d)}</td><td>${q}</td><td>${fmt(r)}</td><td>${fmt(a)}</td></tr>`).join('')}
-    <tr><th scope="row" colspan="3" style="text-align:right">Subtotal</th><td>${fmt(sub)}</td></tr>
-    <tr><th scope="row" colspan="3" style="text-align:right">${esc(c.preset.answers.tax_name)} at ${rate}%</th><td>${fmt(tax)}</td></tr>
-    <tr><th scope="row" colspan="3" style="text-align:right">Total</th><td><strong>${fmt(sub + tax)}</strong></td></tr>
+    <tr><th scope="row" colspan="3" class="ta-r">Subtotal</th><td>${fmt(sub)}</td></tr>
+    <tr><th scope="row" colspan="3" class="ta-r">${esc(c.preset.answers.tax_name)} at ${rate}%</th><td>${fmt(tax)}</td></tr>
+    <tr><th scope="row" colspan="3" class="ta-r">Total</th><td><strong>${fmt(sub + tax)}</strong></td></tr>
   </tbody></table></div>`;
 };
 
@@ -162,27 +162,27 @@ export const pages = COUNTRIES.map((c) => ({
   <p class="small">Fill it in online and download an editable Word file. Your next invoice starts with your business details, the next number and today's date.</p>
   <p class="small muted">No sign-up. Your answers stay in your browser. Updated <time datetime="${LASTMOD}">${LASTMOD_LONG}</time></p>
 
-  <h2 style="margin-top:2.5rem">${esc(c.country)} at a glance</h2>
+  <h2 class="mt-25">${esc(c.country)} at a glance</h2>
   <div class="table-wrap" tabindex="0"><table class="compare"><tbody>
     ${c.facts.map(([k, v]) => `<tr><th scope="row">${esc(k)}</th><td>${esc(v)}</td></tr>`).join('\n    ')}
   </tbody></table></div>
 
-  <h2 style="margin-top:2.5rem">What the invoice must show</h2>
+  <h2 class="mt-25">What the invoice must show</h2>
   <ul>${c.must.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
   ${c.guide ? `<p>More detail: <a href="${rel}guides/${c.guide}.html">${esc(guideTitle(c.guide))}</a>.</p>` : ''}
 
-  <h2 style="margin-top:2.5rem">How this template is set up</h2>
+  <h2 class="mt-25">How this template is set up</h2>
   <ul>${c.setup.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
   <p>${esc(c.limits)}</p>
   <p><strong>Not registered?</strong> ${esc(c.notRegistered)}${c.notRegisteredLink ? ` Use the <a href="${rel}${c.notRegisteredLink.href}">${esc(c.notRegisteredLink.label)}</a>.` : ''}</p>
 
-  <h2 style="margin-top:2.5rem">Example</h2>
+  <h2 class="mt-25">Example</h2>
   ${example(c)}
 
-  <h2 style="margin-top:2.5rem">Questions</h2>
+  <h2 class="mt-25">Questions</h2>
   <div class="faq">${c.faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>
 
-  <h2 style="margin-top:2.5rem">Related</h2>
+  <h2 class="mt-25">Related</h2>
   <ul>
     <li><a href="${rel}templates/invoice.html">What to put on an invoice</a> — the full list of details, how to number and date it, and step-by-step how-to.</li>
     <li><a href="${rel}templates/credit-note.html">Credit note template</a>, to correct or cancel an invoice you have sent.</li>
@@ -190,9 +190,9 @@ export const pages = COUNTRIES.map((c) => ({
     <li><a href="${rel}invoice-templates/">Invoice templates by trade</a>, which start with the lines your trade usually bills.</li>
   </ul>
 
-  <!--nav--><h2 style="margin-top:2.5rem">Invoice templates for other countries</h2>
+  <!--nav--><h2 class="mt-25">Invoice templates for other countries</h2>
   <ul class="link-cols">${COUNTRIES.filter((x) => x.slug !== c.slug).map((x) => `<li><a href="${rel}invoice-templates/${x.slug}.html">${esc(x.h1)}</a></li>`).join('')}</ul><!--/nav-->
-  <p class="small muted" style="margin-top:2rem">Sources, checked October 2026: ${c.sources.map(([t, u]) => `<a href="${u}" rel="noopener">${esc(t)}</a>`).join('; ')}. General information, not tax advice; rates and thresholds change, so check the tax authority or an accountant for your situation.</p>
+  <p class="small muted mt-2">Sources, checked October 2026: ${c.sources.map(([t, u]) => `<a href="${u}" rel="noopener">${esc(t)}</a>`).join('; ')}. General information, not tax advice; rates and thresholds change, so check the tax authority or an accountant for your situation.</p>
 </div></section>
 <div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice/${c.slug}">Start this invoice, free <span class="arr">→</span></a></div>
 `,

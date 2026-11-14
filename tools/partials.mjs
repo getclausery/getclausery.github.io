@@ -319,7 +319,7 @@ export function footer(rel) {
     <h2 class="sr-only">Site navigation</h2>
     <div class="brand-col">
       <a class="brand" href="${rel}"><img src="${rel}assets/icon.svg" alt="" role="presentation" width="28" height="28" decoding="async"> Clausery</a>
-      <p style="margin-top:.75rem">Make invoices, quotes and receipts in Word with the maths done for you. Your documents stay in your browser — no account required.</p>
+      <p class="mt-75">Make invoices, quotes and receipts in Word with the maths done for you. Your documents stay in your browser — no account required.</p>
       <div class="footer-social">
         <a href="${REPO_URL}" rel="noopener" aria-label="Source on GitHub">${ico(I.github)}</a>
         <a href="${rel}releases.xml" aria-label="Releases Atom feed">${ico(I.rss)}</a>

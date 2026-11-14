@@ -115,22 +115,22 @@ export const pages = [
     path: 'contact/', ogImage: 'assets/og/company.png', title: 'Contact Clausery',
     description: 'Contact Clausery: ask a question, get billing help or a refund, suggest a template, report a problem, or report a security issue privately.',
     extraHead: ld({ '@type': 'ContactPage', name: 'Contact Clausery', url: `${SITE}contact/`, about: ORG }) + ``,
-    body: (rel) => `<section class="section"><div class="wrap" style="max-width:52rem">
+    body: (rel) => `<section class="section"><div class="wrap mw-52">
 <h1>Contact Clausery</h1>
 <p class="lead">Email <a href="${mailto('')}">${CONTACT_EMAIL}</a>. A person reads every message, and no account is needed. The buttons below start an email with the right subject line:</p>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
-<div class="grid grid-2" style="margin-top:1.5rem">
-${CHANNELS.map(([h, p, href, cta]) => `  <div class="feature"><h2>${h}</h2><p>${p}</p><p style="margin-top:1rem"><a class="btn" href="${href.replace(/&/g, '&amp;')}">${cta}</a></p></div>`).join('\n')}
-  <div class="feature"><h2>Report a security issue</h2><p>Report vulnerabilities privately with GitHub's private reporting. Please do not open a public issue for them.</p><p style="margin-top:1rem"><a class="btn" href="${REPO_URL}/security/advisories/new" rel="noopener">Report privately</a></p></div>
-  <div class="feature"><h2>Press and listings</h2><p>Product facts, short and long descriptions, screenshots and the logo, free to use.</p><p style="margin-top:1rem"><a class="btn" href="${rel}press/">Open the press kit</a></p></div>
+<div class="grid grid-2 mt-15">
+${CHANNELS.map(([h, p, href, cta]) => `  <div class="feature"><h2>${h}</h2><p>${p}</p><p class="mt-1"><a class="btn" href="${href.replace(/&/g, '&amp;')}">${cta}</a></p></div>`).join('\n')}
+  <div class="feature"><h2>Report a security issue</h2><p>Report vulnerabilities privately with GitHub's private reporting. Please do not open a public issue for them.</p><p class="mt-1"><a class="btn" href="${REPO_URL}/security/advisories/new" rel="noopener">Report privately</a></p></div>
+  <div class="feature"><h2>Press and listings</h2><p>Product facts, short and long descriptions, screenshots and the logo, free to use.</p><p class="mt-1"><a class="btn" href="${rel}press/">Open the press kit</a></p></div>
 </div>
-<h2 style="margin-top:2.5rem">Before you write</h2>
+<h2 class="mt-25">Before you write</h2>
 <ul>
   <li><strong>Leave out client details and confidential documents.</strong> We never need them to help, and Clausery is built so they never leave your computer.</li>
   <li><strong>If the buttons do not open your email app,</strong> copy the address: ${CONTACT_EMAIL}.</li>
   <li><strong>Many answers are already written:</strong> see the <a href="${rel}docs/faq.html">FAQ</a>, the <a href="${rel}docs/">documentation</a> and the <a href="${rel}pricing/#faq">pricing questions</a>.</li>
 </ul>
-<p class="small muted" style="margin-top:2rem">Clausery is software, not a law firm, and cannot advise on your legal situation. The code and public issues are on <a href="${REPO_URL}" rel="noopener">GitHub</a>.</p>
+<p class="small muted mt-2">Clausery is software, not a law firm, and cannot advise on your legal situation. The code and public issues are on <a href="${REPO_URL}" rel="noopener">GitHub</a>.</p>
 </div></section>
 <div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>
 `,
@@ -158,13 +158,13 @@ ${CHANNELS.map(([h, p, href, cta]) => `  <div class="feature"><h2>${h}</h2><p>${
 </div>
 </div></section>
 <section class="section section-alt"><div class="wrap">
-<h2 style="text-align:center">Three things receivers often ask</h2>
+<h2 class="ta-c">Three things receivers often ask</h2>
 <div class="faq" style="max-width:46rem;margin:1.5rem auto 0">
   <details open><summary>Is this a scam? Is it safe to pay?</summary><p>Clausery is document-generation software, not a payment service. The document was sent to you by the business named on it; amounts, due dates, bank details and payment terms are set by them. Verify the sender (reply to an email you already trust, or call the number on file) and pay using your usual channels. Clausery does not handle payments.</p></details>
   <details><summary>Can I edit the document?</summary><p>Yes — the file is a normal .docx you can open in Word, Google Docs, LibreOffice or Pages, edit, save, or print to PDF. Nothing is locked.</p></details>
   <details><summary>Does this track me?</summary><p>No. The document is just a Word file; there are no pixels, beacons or hidden trackers added by Clausery. The link to this page is a plain text hyperlink at the bottom of free-plan documents.</p></details>
 </div>
-<div class="grid grid-3" style="margin-top:2.5rem">
+<div class="grid grid-3 mt-25">
   <div class="feature"><h2>Free, with no account</h2><p>Every one of the ${LIB.length} library templates can be filled in at no cost, with unlimited documents and no sign-up.</p></div>
   <div class="feature"><h2>The maths done for you</h2><p>Line items, discounts, tax and balances are calculated automatically, and the next invoice continues the sender's numbering.</p></div>
   <div class="feature"><h2>Private by design</h2><p>Everything runs in the sender's browser. Client details and document contents are never uploaded to a server.</p></div>

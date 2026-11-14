@@ -166,7 +166,7 @@ const example = (t) => {
   const total = rows.reduce((s, r) => s + r[3], 0);
   return `<div class="table-wrap" tabindex="0"><table class="compare"><caption class="small muted" style="caption-side:bottom;text-align:left;padding-top:.5rem">Example prices for illustration only. In Clausery the lines start with their quantities and you enter your own prices; tax and totals are added for you.</caption><thead><tr><th scope="col">Description</th><th scope="col">Qty</th><th scope="col">Unit price</th><th scope="col">Amount</th></tr></thead><tbody>
     ${rows.map(([d, q, r, a]) => `<tr><td>${esc(d)}</td><td>${q}</td><td>${money(r)}</td><td>${money(a)}</td></tr>`).join('')}
-    <tr><th scope="row" colspan="3" style="text-align:right">Subtotal</th><td><strong>${money(total)}</strong></td></tr>
+    <tr><th scope="row" colspan="3" class="ta-r">Subtotal</th><td><strong>${money(total)}</strong></td></tr>
   </tbody></table></div>`;
 };
 
@@ -186,8 +186,8 @@ export const pages = [
   <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><strong>4.8/5</strong><span class="muted">from 427 freelancers and small businesses</span></p>
   <p class="lead">Pick your trade and the invoice opens with the lines that trade usually bills, ready for your prices. Pick your country and it opens with the right tax, rate and tax number. Totals and tax are worked out for you, your next invoice remembers your details and number, and you download an editable Word file. Free, no sign-up, nothing uploaded.<p><a class="btn btn-primary" href="${rel}app/">Open Clausery free — no account</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
   <nav aria-label="Jump to section"><strong>Jump to:</strong> <a href="#popular">Popular</a> · <a href="#by-task">By billing task</a> · <a href="#by-trade">By trade</a> · <a href="#by-country">By country</a> · <a href="#tax">Tax &amp; payment</a> · <a href="#faq">FAQ</a></nav>
-  <h2 id="popular" style="margin-top:2rem">Popular invoice starters</h2>
-  <div class="grid grid-3 hub-cards" style="margin-top:1rem">
+  <h2 id="popular" class="mt-2">Popular invoice starters</h2>
+  <div class="grid grid-3 hub-cards mt-1">
     <a class="feature" href="${rel}invoice-templates/blank-invoice.html"><h3>Blank invoice</h3><p>Empty invoice you fill in online - line items, tax and totals calculated for you.</p></a>
     <a class="feature" href="${rel}invoice-templates/simple-invoice.html"><h3>Simple invoice</h3><p>One-page invoice with no extra fields - for small jobs and one-off sales.</p></a>
     <a class="feature" href="${rel}invoice-templates/invoice-template-pdf.html"><h3>Invoice template PDF</h3><p>Fill it in online and save as a printable PDF to email to clients.</p></a>
@@ -202,22 +202,22 @@ export const pages = [
     <a class="feature" href="${rel}invoice-templates/google-docs-invoice.html"><h3>Google Docs invoice</h3><p>Edit the invoice in Google Drive and share a link or PDF.</p></a>
     <a class="feature" href="${rel}invoice-templates/excel-invoice-template.html"><h3>Excel invoice</h3><p>Auto-calculated totals layout you can also rebuild in Excel.</p></a>
   </div>
-  <h2 id="by-task" style="margin-top:2rem">By billing task</h2>
+  <h2 id="by-task" class="mt-2">By billing task</h2>
   <p>Request an upfront deposit, bill hours, or reconcile the final balance. Each page has a worked example and an app starter for that task.</p>
-  <div class="grid grid-3 hub-cards" style="margin-top:1rem">${WORKFLOWS.map((w) => `<a class="feature" href="${rel}invoice-templates/${w.slug}.html">${cardUpdated(`invoice-templates/${w.slug}.html`)}<h3>${esc(w.name)}</h3><p>${esc(w.description)}</p></a>`).join('')}</div>
-  <h2 id="by-trade" style="margin-top:2rem">By trade</h2>
-  <div class="grid grid-3 hub-cards" style="margin-top:1.5rem">
+  <div class="grid grid-3 hub-cards mt-1">${WORKFLOWS.map((w) => `<a class="feature" href="${rel}invoice-templates/${w.slug}.html">${cardUpdated(`invoice-templates/${w.slug}.html`)}<h3>${esc(w.name)}</h3><p>${esc(w.description)}</p></a>`).join('')}</div>
+  <h2 id="by-trade" class="mt-2">By trade</h2>
+  <div class="grid grid-3 hub-cards mt-15">
     ${TRADES.map((t) => `<a class="feature" href="${rel}invoice-templates/${t.slug}.html">${cardUpdated(`invoice-templates/${t.slug}.html`)}<h3>${esc(t.title.replace(/ \(free, Word\)| template \(Word\)/, '').replace(/ template$/, ''))}</h3><p>${esc(t.preset.lines.slice(0, 3).map(([d]) => d.replace(/ \(.*\)$/, '')).join(', '))}</p></a>`).join('\n    ')}
   </div>
-  <h2 id="by-country" style="margin-top:2.5rem">By country: VAT, GST and HST</h2>
-  <div class="grid grid-3 hub-cards" style="margin-top:1rem">
+  <h2 id="by-country" class="mt-25">By country: VAT, GST and HST</h2>
+  <div class="grid grid-3 hub-cards mt-1">
     ${COUNTRIES.map((c) => `<a class="feature" href="${rel}invoice-templates/${c.slug}.html">${cardUpdated(`invoice-templates/${c.slug}.html`)}<h3>${esc(c.h1.replace(/ template( for)?/, ''))}</h3><p>${esc(c.preset.answers.tax_name)} at ${c.preset.answers.tax_rate}%, your ${esc(c.preset.answers.tax_registration_label)}, amounts in ${esc(c.preset.currency)}</p></a>`).join('\n    ')}
   </div>
-  <h2 id="more" style="margin-top:2.5rem">Other common layouts</h2>
+  <h2 id="more" class="mt-25">Other common layouts</h2>
   <p style="font-size:.95rem">More specific starters for the searches people actually run: <a href="${rel}invoice-templates/basic-invoice.html">basic invoice</a> · <a href="${rel}invoice-templates/tax-invoice.html">tax invoice</a> (for GST/VAT-registered businesses outside the country-specific starters) · <a href="${rel}invoice-templates/self-employed-invoice.html">self-employed invoice</a> (sole traders) · <a href="${rel}invoice-templates/sample.html">sample invoice</a> to look at before filling yours in · <a href="${rel}invoice-templates/printable-invoice.html">printable invoice</a> · <a href="${rel}invoice-templates/word.html">Word invoice</a> · <a href="${rel}invoice-templates/create-invoice-online.html">create an invoice online</a> · <a href="${rel}invoice-templates/small-business.html">small business invoice</a>.</p>
-  <h2 id="not-listed" style="margin-top:2.5rem">Not listed?</h2>
+  <h2 id="not-listed" class="mt-25">Not listed?</h2>
   <p>Start from the general <a href="${rel}templates/invoice.html">invoice template</a> and add your own lines. For quotes before the work, use the <a href="${rel}templates/quote.html">price quote template</a>; for a supplier order, the <a href="${rel}templates/purchase-order.html">purchase order</a>; for a refund or correction, the <a href="${rel}templates/credit-note.html">credit note</a>; for cash payments the <a href="${rel}receipts/cash-receipt.html">cash receipt</a>; for other payments received the <a href="${rel}templates/payment-receipt.html">payment receipt</a>; and for rent, the <a href="${rel}templates/rent-receipt.html">rent receipt</a>.</p>
-  <h2 id="tax" style="margin-top:2.5rem">Tax and payment details</h2>
+  <h2 id="tax" class="mt-25">Tax and payment details</h2>
   <ul>
     <li><a href="${rel}guides/what-to-include-on-a-vat-invoice.html">${esc(guideTitle('what-to-include-on-a-vat-invoice'))}</a></li>
     <li><a href="${rel}guides/gst-hst-invoice-requirements-canada.html">${esc(guideTitle('gst-hst-invoice-requirements-canada'))}</a></li>
@@ -225,7 +225,7 @@ export const pages = [
     <li><a href="${rel}guides/what-bank-details-to-put-on-an-invoice.html">${esc(guideTitle('what-bank-details-to-put-on-an-invoice'))}</a></li>
     <li><a href="${rel}guides/how-to-write-an-invoice.html">${esc(guideTitle('how-to-write-an-invoice'))}</a></li>
   </ul>
-  <h2 id="faq" style="margin-top:2.5rem">Common questions</h2>
+  <h2 id="faq" class="mt-25">Common questions</h2>
   ${faqHtml([
     ['Are these invoice templates really free?', 'Yes. Every invoice template here is free to fill in online and download as an editable Word file or printable PDF, with no account, no sign-up and nothing uploaded. You can also download a sample .docx to adapt offline.'],
     ['Can I download the invoice as a PDF?', 'Yes. Fill it in online in your browser, then use Print \u2192 Save as PDF (or the built-in PDF button) to email a printable PDF invoice to your client.'],
@@ -233,7 +233,7 @@ export const pages = [
     ['Is there a UK VAT invoice template?', 'Yes \u2014 pick the UK VAT starter from the By country list and it opens pre-set to 20% VAT with your VAT registration number field, matching HMRC rules for a full VAT invoice. Other starters handle Australian GST, Canadian GST/HST and more.'],
     ['Is there a blank invoice template I can just fill in?', 'Yes. The Blank invoice starter is the simplest \u2014 open it, add line items, tax and your client details, then download the Word file or PDF.'],
   ])}
-  <!--nav--><div class="feature" style="margin-top:2.5rem"><h2>Start an invoice now</h2><p>The app opens the invoice with your details, the next number and today's date already filled in. Choose a starter here or open the general invoice and change the lines.</p><p style="margin-top:1rem"><a class="btn btn-primary" href="${rel}app/#/start/invoice">Open the invoice app</a> <a class="btn" href="${rel}templates/invoice.html">See the invoice template</a></p></div><!--/nav-->
+  <!--nav--><div class="feature mt-25"><h2>Start an invoice now</h2><p>The app opens the invoice with your details, the next number and today's date already filled in. Choose a starter here or open the general invoice and change the lines.</p><p class="mt-1"><a class="btn btn-primary" href="${rel}app/#/start/invoice">Open the invoice app</a> <a class="btn" href="${rel}templates/invoice.html">See the invoice template</a></p></div><!--/nav-->
 </div></section>
 ${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}
 `,
@@ -252,27 +252,27 @@ ${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}
   <p class="small">Opens with the lines below already in. Add your prices; the subtotal, tax and total are calculated, and your next invoice starts with your business details and the next number.</p>
   <p class="small muted">No sign-up. Your answers stay in your browser. <strong>Who it is for:</strong> ${esc(t.who)} · Updated <time datetime="${LASTMOD}">${LASTMOD_LONG}</time></p>
 
-  <h2 style="margin-top:2.5rem">Example: a ${esc(t.name.toLowerCase())} invoice</h2>
+  <h2 class="mt-25">Example: a ${esc(t.name.toLowerCase())} invoice</h2>
   ${example(t)}
 
-  <h2 style="margin-top:2.5rem">What to put on a ${esc(t.name.toLowerCase())} invoice</h2>
+  <h2 class="mt-25">What to put on a ${esc(t.name.toLowerCase())} invoice</h2>
   <p>Every invoice needs your details, the client's, an invoice number, the date, what you charged and when payment is due (see <a href="${rel}guides/how-to-write-an-invoice.html">how to write an invoice</a>). For ${esc(t.name.toLowerCase())} work, also:</p>
   <ul>${t.include.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
 
-  <h2 style="margin-top:2.5rem">Getting paid</h2>
+  <h2 class="mt-25">Getting paid</h2>
   <ul>${t.paid.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
 
-  <h2 style="margin-top:2.5rem">Before the work: the paperwork</h2>
+  <h2 class="mt-25">Before the work: the paperwork</h2>
   <p>An invoice is easier to get paid when it points back to something the client signed. Use the free <a href="${rel}templates/${t.contract}.html">${esc(libName(t.contract).toLowerCase())}</a> to agree the price, scope and payment terms first${t.also.length ? `, and ${t.also.map((s) => `the <a href="${rel}templates/${s}.html">${esc(libName(s).toLowerCase())}</a>`).join(' or ')} when you need ${t.also.length > 1 ? 'them' : 'it'}` : ''}.</p>
   ${t.guide ? `<p><strong>Guide:</strong> <a href="${rel}guides/${t.guide}.html">${esc(guideTitle(t.guide))}</a></p>` : ''}${t.tool ? `<p><strong>Free tool:</strong> <a href="${rel}free-tools/${t.tool}.html">${esc(toolName(t.tool))}</a>, to work out what to charge.</p>` : ''}
   <p><strong>What to put on every invoice:</strong> <a href="${rel}templates/invoice.html">invoice template guide</a> — the full list of details, clauses and step-by-step how-to.</p>
 
-  <h2 style="margin-top:2.5rem">Questions</h2>
+  <h2 class="mt-25">Questions</h2>
   <div class="faq">${t.faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>
 
-  <!--nav--><h2 style="margin-top:2.5rem">Invoice templates for other trades</h2>
+  <!--nav--><h2 class="mt-25">Invoice templates for other trades</h2>
   <ul class="link-cols">${TRADES.filter((x) => x.slug !== t.slug).map((x) => `<li><a href="${rel}invoice-templates/${x.slug}.html">${esc(x.title.replace(/ \(free, Word\)| \(Word\)/, ''))}</a></li>`).join('')}</ul><!--/nav-->
-  <p class="small muted" style="margin-top:2rem">General information, not legal or tax advice. Rules on what an invoice must show vary by country and trade; check yours.</p>
+  <p class="small muted mt-2">General information, not legal or tax advice. Rules on what an invoice must show vary by country and trade; check yours.</p>
 </div></section>
 <div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice/${t.slug}">Start this invoice, free <span class="arr">→</span></a></div>
 `,

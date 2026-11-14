@@ -162,14 +162,14 @@ export const pages = [{
         <p class="small muted" style="text-align:center;margin:.6rem 0 0"><a href="${rel}contact/">Request a quote</a> · reply within 1 business day.</p>
       </div>
     </div>
-    <h2 style="margin-top:2.5rem">Compare the plans side by side</h2>
+    <h2 class="mt-25">Compare the plans side by side</h2>
     <p class="lead" style="margin-bottom:1.5rem">The table is generated from the same plan configuration the app uses, so it cannot drift from the plan cards above.</p>
     <div class="table-wrap" tabindex="0"><table class="compare">
     <thead><tr><th scope="col">&nbsp;</th><th scope="col">Free</th><th scope="col">Pro</th><th scope="col">Team</th><th scope="col">Enterprise</th></tr></thead>
     <tbody>
 ${MATRIX.map(([label, ...cells]) => `<tr><th scope="row">${label}</th>${cells.map((c) => `<td>${c}</td>`).join('')}</tr>`).join('\n')}
     </tbody></table></div>
-    <p class="small muted" style="margin-top:.75rem">Licenses are per named user. Team covers five seats; extra seats are $${PRICES.teamSeat} per user per month by request. Prices are in USD, excluding VAT/sales tax where applicable.</p>
+    <p class="small muted mt-75">Licenses are per named user. Team covers five seats; extra seats are $${PRICES.teamSeat} per user per month by request. Prices are in USD, excluding VAT/sales tax where applicable.</p>
 ${LIFETIME ? `    <div class="feature lifetime" id="lifetime">
       <div><h3>Prefer to pay once? Lifetime Pro, $${PRICES.lifetime}</h3>
       <p>Every Pro feature for one named user, for as long as Clausery is offered, including updates. One payment and nothing to renew.</p></div>
@@ -180,7 +180,7 @@ ${LIFETIME ? `    <div class="feature lifetime" id="lifetime">
 </section>
 
 <section class="section section-alt" id="buy">
-  <div class="wrap" style="max-width:48rem">
+  <div class="wrap mw-48">
     <h2>How buying works</h2>
     <ol${CHECKOUT ? '' : ' hidden'} data-when-checkout>
       <li><strong>Choose a plan and pay</strong> through our secure hosted checkout${ONLINE_KEYS ? ' (Lemon Squeezy).' : '. You receive a license key by email within minutes.'}</li>
@@ -202,7 +202,7 @@ ${LIFETIME ? `    <div class="feature lifetime" id="lifetime">
 </section>
 
 <section class="section" id="compare">
-  <div class="wrap" style="max-width:52rem">
+  <div class="wrap mw-52">
     <h2>Choose a plan for the work you actually do</h2>
     <p class="muted">Start with Free for library invoices, quotes and receipts. Upgrade when your own document workflow needs the additional features.</p>
     <div class="table-wrap">
@@ -222,7 +222,7 @@ ${LIFETIME ? `    <div class="feature lifetime" id="lifetime">
 </section>
 
 <section class="section section-alt" id="faq">
-  <div class="wrap" style="max-width:48rem">
+  <div class="wrap mw-48">
     <h2>Pricing questions</h2>
     <div class="faq">
       ${FAQ.map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join('\n      ')}
