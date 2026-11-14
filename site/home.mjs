@@ -51,7 +51,7 @@ export const pages = [{
   <div class="wrap">
     <div>
       <div class="eyebrow">${ico(I.calc)} Free · No account · No card · Editable Word</div>
-      <div class="release-pill"><a href="${rel}changelog.html#v${APP_VERSION.replace(/\./g,'-')}"><strong>New:</strong> v${APP_VERSION}</a> — removed redundant justify-content from sticky-cta a. <a href="${rel}changelog.html">See what changed</a>.</div>
+      <div class="release-pill"><a href="${rel}changelog.html#v${APP_VERSION.replace(/\./g,'-')}"><strong>New:</strong> v${APP_VERSION}</a> — .hero-starters + .testimonial classes deduplicate home inline CSS. <a href="${rel}changelog.html">See what changed</a>.</div>
       <h1>Free invoice template — make a professional invoice online in 60 seconds.</h1>
       <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><strong>4.8/5</strong><span class="muted">from 427 freelancers and small businesses</span></p>
       <p class="lead">Answer a few questions and download a printable PDF or editable <strong>Word .docx</strong> invoice. Totals, VAT, GST or sales tax, discounts, and the next invoice number are worked out automatically. Also make <a href="${rel}templates/quote.html">quotes</a>, <a href="${rel}templates/purchase-order.html">purchase orders</a>, <a href="${rel}templates/credit-note.html">credit notes</a> and <a href="${rel}templates/payment-receipt.html">receipts</a> — everything runs in your browser; nothing is uploaded.</p>
@@ -66,13 +66,13 @@ export const pages = [{
         <a class="btn btn-lg" href="#try-it">See it work in 10 seconds</a>
       </div>
       <p class="small" style="margin-top:.75rem;color:var(--muted)">Free forever · no credit card · no account · nothing uploaded</p>
-      <div style="margin-top:.9rem;display:flex;flex-wrap:wrap;gap:.35rem .75rem;font-size:.88rem">
-        <span style="color:#9fb4cb">Country starters:</span>
-        <a href="${rel}invoice-templates/us-invoice.html" style="color:#cfe0f3;font-weight:600">US invoice</a>
-        <a href="${rel}invoice-templates/uk-invoice.html" style="color:#cfe0f3;font-weight:600">UK invoice</a>
-        <a href="${rel}invoice-templates/uk-vat-invoice.html" style="color:#cfe0f3;font-weight:600">UK VAT</a>
-        <a href="${rel}invoice-templates/australia-tax-invoice.html" style="color:#cfe0f3;font-weight:600">Australia GST</a>
-        <a href="${rel}invoice-templates/canada-gst-hst-invoice.html" style="color:#cfe0f3;font-weight:600">Canada HST</a>
+      <div class="hero-starters">
+        <span>Country starters:</span>
+        <a href="${rel}invoice-templates/us-invoice.html">US invoice</a>
+        <a href="${rel}invoice-templates/uk-invoice.html">UK invoice</a>
+        <a href="${rel}invoice-templates/uk-vat-invoice.html">UK VAT</a>
+        <a href="${rel}invoice-templates/australia-tax-invoice.html">Australia GST</a>
+        <a href="${rel}invoice-templates/canada-gst-hst-invoice.html">Canada HST</a>
       </div>
       <p class="small" style="margin-top:.5rem">Or start with a <a href="${rel}app/#/start/quote">quote</a> · <a href="${rel}app/#/start/receipt">receipt</a> · <a href="${rel}business-document-kit/">free 6-template business kit</a> · <a href="${rel}templates/invoice.html">what to put on an invoice</a></p>
       <div class="proof">
@@ -91,9 +91,9 @@ export const pages = [{
         <span>No ads, no tracking cookies</span>
       </div>
       <div class="reviews" style="margin-top:1rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.5rem;font-size:.82rem;color:#cfe0f3" aria-label="What users say">
-        <figure style="margin:0;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:.6rem .75rem"><blockquote style="margin:0">"Finally an invoice generator that doesn't demand my email just to download a Word file."</blockquote><figcaption style="margin-top:.35rem;display:flex;gap:.35rem;align-items:center"><span class="stars" aria-hidden="true">★★★★★</span> <cite style="font-style:normal;opacity:.8">— freelance designer</cite></figcaption></figure>
-        <figure style="margin:0;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:.6rem .75rem"><blockquote style="margin:0">"Saved me an hour this month retyping invoices. The 'new invoice for this client' button is genius."</blockquote><figcaption style="margin-top:.35rem;display:flex;gap:.35rem;align-items:center"><span class="stars" aria-hidden="true">★★★★★</span> <cite style="font-style:normal;opacity:.8">— contractor, UK</cite></figcaption></figure>
-        <figure style="margin:0;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:.6rem .75rem"><blockquote style="margin:0">"Does exactly what it says on the tin — and nothing is uploaded. Refreshing."</blockquote><figcaption style="margin-top:.35rem;display:flex;gap:.35rem;align-items:center"><span class="stars" aria-hidden="true">★★★★★</span> <cite style="font-style:normal;opacity:.8">— small-business owner</cite></figcaption></figure>
+        <figure class="testimonial"><blockquote>"Finally an invoice generator that doesn't demand my email just to download a Word file."</blockquote><figcaption><span class="stars" aria-hidden="true">★★★★★</span> <cite>— freelance designer</cite></figcaption></figure>
+        <figure class="testimonial"><blockquote>"Saved me an hour this month retyping invoices. The 'new invoice for this client' button is genius."</blockquote><figcaption><span class="stars" aria-hidden="true">★★★★★</span> <cite>— contractor, UK</cite></figcaption></figure>
+        <figure class="testimonial"><blockquote>"Does exactly what it says on the tin — and nothing is uploaded. Refreshing."</blockquote><figcaption><span class="stars" aria-hidden="true">★★★★★</span> <cite>— small-business owner</cite></figcaption></figure>
       </div>
     </div>
     <figure class="shot" id="try-it" style="margin:0">
