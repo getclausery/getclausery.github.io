@@ -243,6 +243,10 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-171-0">2.171.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
+<ul>
+  <li><strong>Copy and helpful-vote buttons to 44 px.</strong> The code-block copy button (<code>.copy-btn</code>) and "Was this helpful?" feedback buttons (<code>.helpful-btn</code>) had ~33–37 px hit areas. Moved <code>.copy-btn</code> padding/min-height to the base rule and bumped <code>.helpful-btn</code> to .65rem/.9rem padding with <code>min-height:44px</code>.</li>
+</ul>
 <h2 id="v2-170-0">2.170.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
 <ul>
   <li><strong>FAQ tap targets to 44 px; welcome bar simplified.</strong> Bumped <code>.faq summary</code> vertical padding from .85rem to 1rem and added <code>min-height:44px</code> so each expandable question meets the WCAG 2.5.5 touch-target size on phones. Also replaced the welcome-bar's <code>linear-gradient</code> between the accent and amber tint with a single color-mixed background (saves ~130 bytes of CSS; the gradient was barely perceptible on either theme).</li>
