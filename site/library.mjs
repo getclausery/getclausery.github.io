@@ -734,7 +734,7 @@ export const pages = [
   <style>.quickstart-card{display:flex;align-items:center;gap:.75rem;padding:.85rem 1rem;background:var(--surface);border:1.5px solid var(--border);border-radius:14px;text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s,border-color .15s;font-weight:600}.quickstart-card:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:var(--shadow)}.quickstart-card b{display:block;font-size:.98rem}.quickstart-card small{display:block;font-weight:400;color:var(--muted);font-size:.78rem;margin-top:.1rem}.quickstart-card .qs-ico{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;flex:none}.quickstart-card .qs-arrow{margin-left:auto;color:var(--muted);font-size:1.1rem;transition:transform .15s,color .15s}.quickstart-card:hover .qs-arrow{transform:translateX(3px);color:var(--accent)}@media (max-width:600px){.quickstart-card{padding:.75rem .85rem}.quickstart-card .qs-ico{width:36px;height:36px}}</style>
   <div class="filter" data-filter-for="tpl-groups" hidden>
     <label for="tpl-q">Find a template</label>
-    <input id="tpl-q" type="search" placeholder="Try lease, NDA, invoice, freelance…" autocomplete="off" spellcheck="false">
+    <input id="tpl-q" type="search" placeholder="Try lease, NDA, invoice, freelance…" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search">
     <p class="small muted" role="status" aria-live="polite" data-filter-count></p>
   </div>
   <p style="margin-top:1.25rem"><a class="btn" href="${rel}samples/${PACK_FILE}" download>Download all ${LIB.length} templates</a> <span class="small muted">One .zip file (${packSize()}), in a folder per category.</span></p>
