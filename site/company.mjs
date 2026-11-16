@@ -106,7 +106,7 @@ export const pages = [
 <h2>What Clausery is not</h2>
 <p>Clausery is software, not a law firm, and it does not give legal advice. The templates are general samples written in plain English; laws differ between countries and states, so have a document reviewed for your situation before you rely on it.</p>
 <h2>Get in touch</h2>
-<p>Questions, template requests, key requests and bug reports all go through the <a href="${rel}contact/">contact page</a>. For current availability see the <a href="${rel}status/">status page</a>, and for what is being worked on see the <a href="${rel}roadmap/">roadmap</a>. Writers and directories will find facts, descriptions and images in the <a href="${rel}press/">press kit</a>.</p>
+<p>Questions, template requests, key requests and bug reports all go through the <a href="${rel}contact/">contact page</a>. For current availability see the <a href="${rel}status/">status page</a>, for what is being worked on see the <a href="${rel}roadmap/">roadmap</a>, for a list of every page see the <a href="${rel}sitemap/">human sitemap</a>, and writers and directories will find facts, descriptions and images in the <a href="${rel}press/">press kit</a>.</p>
 </div></section>
 <div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make an invoice, free <span class="arr">→</span></a></div>
 `,
