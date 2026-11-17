@@ -98,7 +98,7 @@ export async function render(ctx, { id }) {
   const onChange = (answers, path, ev) => { evaluation = ev; draft.status = 'draft'; draft.sentAt = null; draft.paidAt = null; justDownloaded = false; justStartedTrial = false; renderStepper(); persist(); schedulePreview(); };
 
   const heading = h('h1.sr-only', draft.title || template.name);
-  const titleInput = h('input.input', { value: draft.title || '', placeholder: 'Draft name (optional)', 'aria-label': 'Draft name', oninput: (e) => { draft.title = e.target.value; setTitle(draft.title || template.name); heading.textContent = draft.title || template.name; persist(); } });
+  const titleInput = h('input.input', { value: draft.title || '', placeholder: 'Draft name (optional)', 'aria-label': 'Draft name', autocapitalize: 'off', spellcheck: false, enterkeyhint: 'done', autocomplete: 'off', oninput: (e) => { draft.title = e.target.value; setTitle(draft.title || template.name); heading.textContent = draft.title || template.name; persist(); } });
   const stepperEl = h('nav.stepper', { 'aria-label': 'Sections' });
   const bodyEl = h('div');
   const noticeEl = h('div');

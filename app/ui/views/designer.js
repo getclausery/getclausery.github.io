@@ -29,9 +29,9 @@ export async function render(ctx, { id }) {
   const heading = h('h1.sr-only', t.name);
 
   // ---------------------------------------------------------------- header
-  const nameInput = h('input.input', { value: t.name, 'aria-label': 'Template name', oninput: (e) => { t.name = e.target.value; heading.textContent = t.name; markDirty(); } });
+  const nameInput = h('input.input', { value: t.name, 'aria-label': 'Template name', autocapitalize: 'off', spellcheck: false, enterkeyhint: 'next', autocomplete: 'off', oninput: (e) => { t.name = e.target.value; heading.textContent = t.name; markDirty(); } });
   const catSelect = h('select.select', { 'aria-label': 'Category', onchange: (e) => { t.category = e.target.value; markDirty(); } }, CATEGORIES.map((c) => h('option', { value: c, selected: c === t.category }, c)));
-  const descInput = h('input.input', { value: t.description, placeholder: 'Short description shown on the template card', 'aria-label': 'Description', oninput: (e) => { t.description = e.target.value; markDirty(); } });
+  const descInput = h('input.input', { value: t.description, placeholder: 'Short description shown on the template card', 'aria-label': 'Description', autocapitalize: 'off', spellcheck: false, enterkeyhint: 'done', autocomplete: 'off', oninput: (e) => { t.description = e.target.value; markDirty(); } });
   const saveBtn = h('button.btn.btn-primary', { type: 'button', disabled: !pending, onclick: save }, icon('check', 16), 'Save');
 
   async function save() {
@@ -136,7 +136,7 @@ export async function render(ctx, { id }) {
 
   async function editSection(s) {
     let title, desc;
-    const m = modal({ title: 'Edit section', body: h('div.stack', h('label.field', h('span.field-label', 'Title'), title = h('input.input', { value: s.title, autofocus: true })), h('label.field', h('span.field-label', 'Introduction (optional)'), desc = h('textarea.textarea', { rows: 3 }, s.description || ''))),
+    const m = modal({ title: 'Edit section', body: h('div.stack', h('label.field', h('span.field-label', 'Title'), title = h('input.input', { value: s.title, autofocus: true, autocapitalize: 'off', spellcheck: false, enterkeyhint: 'next', autocomplete: 'off' })), h('label.field', h('span.field-label', 'Introduction (optional)'), desc = h('textarea.textarea', { rows: 3, spellcheck: false, enterkeyhint: 'done' }, s.description || ''))),
       actions: [
         t.sections.length > 1 ? { label: 'Delete section', class: 'btn-danger', onClick: async () => { const target = t.sections.find((x) => x !== s); for (const f of t.fields) if (f.sectionId === s.id) f.sectionId = target.id; t.sections.splice(t.sections.indexOf(s), 1); markDirty(); refresh(); } } : null,
         { label: 'Cancel' }, { label: 'Save', primary: true, onClick: () => { s.title = title.value.trim() || s.title; s.description = desc.value; markDirty(); refresh(); } },
@@ -195,9 +195,9 @@ export async function render(ctx, { id }) {
     const { field: f, parent } = selected;
     const upd = () => { markDirty(); renderList(); };
     const row = (label, control, help) => h('label.field', h('span.field-label', label), control, help ? h('span.field-help', help) : null);
-    const text = (prop, ph, cb) => h('input.input', { value: f[prop] ?? '', placeholder: ph || '', oninput: (e) => { f[prop] = e.target.value; if (cb) cb(); upd(); } });
-    const num = (prop) => h('input.input', { type: 'number', value: f[prop] ?? '', oninput: (e) => { f[prop] = e.target.value === '' ? null : Number(e.target.value); upd(); } });
-    const exprInput = (prop, ph) => { const err = h('span.field-error', { role: 'alert', hidden: true }); const inp = h('input.input.mono', { value: f[prop] || '', placeholder: ph, spellcheck: false, oninput: (e) => { f[prop] = e.target.value; const m = e.target.value.trim() ? checkExpression(e.target.value) : null; err.textContent = m || ''; err.hidden = !m; upd(); } }); return h('div', inp, err); };
+    const text = (prop, ph, cb) => h('input.input', { value: f[prop] ?? '', placeholder: ph || '', autocapitalize: 'off', spellcheck: false, enterkeyhint: 'next', autocomplete: 'off', oninput: (e) => { f[prop] = e.target.value; if (cb) cb(); upd(); } });
+    const num = (prop) => h('input.input', { type: 'number', inputmode: 'decimal', value: f[prop] ?? '', enterkeyhint: 'next', spellcheck: false, autocomplete: 'off', oninput: (e) => { f[prop] = e.target.value === '' ? null : Number(e.target.value); upd(); } });
+    const exprInput = (prop, ph) => { const err = h('span.field-error', { role: 'alert', hidden: true }); const inp = h('input.input.mono', { value: f[prop] || '', placeholder: ph, autocapitalize: 'off', spellcheck: false, enterkeyhint: 'next', autocomplete: 'off', oninput: (e) => { f[prop] = e.target.value; const m = e.target.value.trim() ? checkExpression(e.target.value) : null; err.textContent = m || ''; err.hidden = !m; upd(); } }); return h('div', inp, err); };
     const typeOptions = Object.entries(FIELD_TYPES).filter(([k]) => (parent ? k !== 'repeat' : true) && (k !== 'computed' || f.type === 'computed' || ctx.plan.can('computed')));
     const keysHint = 'Available names: ' + (parent ? parent.children.map((c) => c.key).concat(t.fields.filter((x) => x.type !== 'repeat').map((x) => x.key)) : t.fields.map((x) => x.key)).filter((k) => k !== f.key).join(', ');
 
@@ -210,7 +210,7 @@ export async function render(ctx, { id }) {
       f.type !== 'checkbox' && f.type !== 'computed' && f.type !== 'repeat' ? h('label.check', h('input', { type: 'checkbox', checked: !!f.required, onchange: (e) => { f.required = e.target.checked; upd(); } }), h('span', 'Required')) : null,
       row('Help text', text('help', 'Shown under the question'), null),
       !['checkbox', 'computed', 'repeat', 'date', 'select', 'radio'].includes(f.type) ? row('Placeholder', text('placeholder')) : null,
-      ['text', 'textarea', 'number', 'money', 'email', 'phone', 'date'].includes(f.type) ? row('Default answer', f.type === 'date' ? h('input.input', { type: 'date', value: f.default || '', oninput: (e) => { f.default = e.target.value || null; upd(); } }) : h('input.input', { value: f.default ?? '', oninput: (e) => { f.default = e.target.value === '' ? null : (['number', 'money'].includes(f.type) ? Number(e.target.value) : e.target.value); upd(); } })) : null,
+      ['text', 'textarea', 'number', 'money', 'email', 'phone', 'date'].includes(f.type) ? row('Default answer', f.type === 'date' ? h('input.input', { type: 'date', value: f.default || '', enterkeyhint: 'done', oninput: (e) => { f.default = e.target.value || null; upd(); } }) : h('input.input', { value: f.default ?? '', autocapitalize: 'off', spellcheck: false, enterkeyhint: 'done', autocomplete: 'off', oninput: (e) => { f.default = e.target.value === '' ? null : (['number', 'money'].includes(f.type) ? Number(e.target.value) : e.target.value); upd(); } })) : null,
       f.type === 'checkbox' ? row('Default', h('select.select', { onchange: (e) => { f.default = e.target.value === 'true'; upd(); } }, h('option', { value: 'false', selected: !f.default }, 'No'), h('option', { value: 'true', selected: !!f.default }, 'Yes'))) : null,
       (f.type === 'select' || f.type === 'radio') ? row('Options (one per line, "value | Label" to store a different value)', h('textarea.textarea', { rows: 5, oninput: (e) => { f.options = e.target.value.split('\n').map((l) => l.trim()).filter(Boolean).map((l) => { const [v, lab] = l.split('|').map((x) => x.trim()); return { value: v, label: lab || v }; }); upd(); } }, (f.options || []).map((o) => o.value === o.label || !o.label ? o.value : `${o.value} | ${o.label}`).join('\n'))) : null,
       f.type === 'date' ? row('Format in document', h('select.select', { onchange: (e) => { f.format = e.target.value; upd(); } }, h('option', { value: '', selected: !f.format }, 'Workspace default'), Object.entries(DATE_FORMATS).map(([k, ex]) => h('option', { value: k, selected: k === f.format }, `${k} · ${ex}`)))) : null,

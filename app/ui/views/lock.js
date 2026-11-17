@@ -16,7 +16,7 @@ export async function render(ctx, { onUnlocked }) {
     } catch (ex) { err.textContent = ex.message; err.hidden = false; }
     finally { busy = false; btn.disabled = false; btn.textContent = 'Unlock'; }
   } },
-    h('label.field', h('span.field-label', 'Passphrase'), input = h('input.input', { type: 'password', autocomplete: 'current-password', autofocus: true, 'aria-describedby': 'lock-err' }), err = h('span.field-error', { id: 'lock-err', role: 'alert', hidden: true })),
+    h('label.field', h('span.field-label', 'Passphrase'), input = h('input.input', { type: 'password', autocomplete: 'current-password', autocapitalize: 'off', enterkeyhint: 'done', spellcheck: false, autofocus: true, 'aria-describedby': 'lock-err' }), err = h('span.field-error', { id: 'lock-err', role: 'alert', hidden: true })),
     h('button.btn.btn-primary.btn-lg', { type: 'submit', style: { width: '100%' } }, icon('unlock'), 'Unlock'),
   );
   setChildren(ctx.main, h('div.lock', h('div.card.stack',

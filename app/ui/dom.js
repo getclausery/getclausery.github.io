@@ -129,7 +129,7 @@ export function promptDialog({ title, label, value = '', placeholder = '', type 
   const m = modal({
     title,
     body: h('form.stack', { onsubmit: (e) => { e.preventDefault(); m.close(input.value); } },
-      h('label.field', h('span.field-label', label), input = h('input.input', { type, value, placeholder, autofocus: true }), help ? h('span.field-help', help) : null)),
+      h('label.field', h('span.field-label', label), input = h('input.input', { type, value, placeholder, autofocus: true, autocapitalize: 'off', spellcheck: false, enterkeyhint: 'done', autocomplete: 'off' }), help ? h('span.field-help', help) : null)),
     actions: [{ label: 'Cancel', value: null }, { label: confirmLabel, primary: true, onClick: () => input.value }],
   });
   return m.closed;
