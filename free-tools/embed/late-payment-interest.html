@@ -63,8 +63,8 @@ body.embed { background: transparent; }
   </div>
   <div class="row">
     <div><label for="basis">Interest basis</label><select id="basis"><option value="year">Contract rate per year</option><option value="month">Contract rate per month</option><option value="uk">UK statutory (business debts)</option></select></div>
-    <div id="rate-row"><label for="rate">Rate (%)</label><input id="rate" inputmode="decimal" value="10" spellcheck="false"></div>
-    <div id="base-row" hidden><label for="base">Bank of England base rate (%)</label><input id="base" inputmode="decimal" value="" spellcheck="false"></div>
+    <div id="rate-row"><label for="rate">Rate (%)</label><input id="rate" inputmode="decimal" value="10" spellcheck="false" autocomplete="off"></div>
+    <div id="base-row" hidden><label for="base">Bank of England base rate (%)</label><input id="base" inputmode="decimal" value="" spellcheck="false" autocomplete="off"></div>
   </div>
   <p id="error" class="err" role="alert" hidden></p>
   <div class="out" id="result" aria-live="polite"></div>

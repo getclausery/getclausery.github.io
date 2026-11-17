@@ -171,8 +171,8 @@ const WIDGET = {
   </div>
   <div class="row">
     <div><label for="basis">Interest basis</label><select id="basis"><option value="year">Contract rate per year</option><option value="month">Contract rate per month</option><option value="uk">UK statutory (business debts)</option></select></div>
-    <div id="rate-row"><label for="rate">Rate (%)</label><input id="rate" inputmode="decimal" value="10" spellcheck="false"></div>
-    <div id="base-row" hidden><label for="base">Bank of England base rate (%)</label><input id="base" inputmode="decimal" value="" spellcheck="false"></div>
+    <div id="rate-row"><label for="rate">Rate (%)</label><input id="rate" inputmode="decimal" value="10" spellcheck="false" autocomplete="off"></div>
+    <div id="base-row" hidden><label for="base">Bank of England base rate (%)</label><input id="base" inputmode="decimal" value="" spellcheck="false" autocomplete="off"></div>
   </div>
   <p id="error" class="err" role="alert" hidden></p>
   <div class="out" id="result" aria-live="polite"></div>
@@ -180,9 +180,9 @@ const WIDGET = {
 </div>`,
   'freelance-rate': `<div class="tool">
   <div class="row">
-    <div><label for="income">Income you want to keep per year</label><input id="income" inputmode="decimal" value="60000" spellcheck="false"></div>
-    <div><label for="expenses">Business costs per year</label><input id="expenses" inputmode="decimal" value="6000" spellcheck="false"></div>
-    <div><label for="tax">Estimated tax rate (%)</label><input id="tax" inputmode="decimal" value="25" spellcheck="false"></div>
+    <div><label for="income">Income you want to keep per year</label><input id="income" inputmode="decimal" value="60000" spellcheck="false" autocomplete="off"></div>
+    <div><label for="expenses">Business costs per year</label><input id="expenses" inputmode="decimal" value="6000" spellcheck="false" autocomplete="off"></div>
+    <div><label for="tax">Estimated tax rate (%)</label><input id="tax" inputmode="decimal" value="25" spellcheck="false" autocomplete="off"></div>
     <div><label for="currency">Currency</label><select id="currency"><option value="USD">US dollars</option><option value="GBP">Pounds sterling</option><option value="EUR">Euros</option><option value="CAD">Canadian dollars</option><option value="AUD">Australian dollars</option></select></div>
   </div>
   <div class="row">
