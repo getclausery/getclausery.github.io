@@ -243,6 +243,10 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-177-0">2.177.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
+<ul>
+  <li><strong>Free-tool enterkeyhints completed.</strong> Added <code>enterkeyhint="done"</code> to the 22 remaining numeric/decimal inputs across the free tools and payment-receipt generator that didn't already declare it (deadline, late-payment, amount-in-words, prorated-rent, sales-commission, loan-repayment, invoice-due-date, and the three receipt amount fields), so iOS/Android show the blue <kbd>Done</kbd> button to dismiss the keyboard instead of Return. Date inputs and checkboxes were left at their defaults.</li>
+</ul>
 <h2 id="v2-176-0">2.176.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
 <ul>
   <li><strong>Changelog housekeeping.</strong> Condensed the three v2.65.0–v2.67.0 entries (31 October 2026, hub cross-link rollout) into one summary line to recover ~630 bytes of changelog build headroom, which had dropped under 100 B.</li>
@@ -550,7 +554,7 @@ export const pages = [
 
 <h2 id="v2-83-0">2.83.0 <span class="small muted">— 1 November 2026</span></h2>
 <ul>
-  <li><strong>"New invoice for this client" one-click shortcut.</strong> After you mark an invoice <em>sent</em> or <em>paid</em>, the Invoice status card now shows a button — "New invoice for [Client-first-name]" — that starts a new invoice draft pre-filled with that client's details (client name, address, project reference, purchase-order number) on top of the usual auto-filled bits (your business details, next invoice number, today's date). Line items, totals and per-invoice dates/numbers start blank so you just type the new amount. Turns the most common repeat-invoice workflow — same client, new job — from "duplicate draft → clear line items → increment number → update date" into a single click.</li>
+  <li><strong>"New invoice for this client" shortcut.</strong> After marking an invoice <em>sent</em> or <em>paid</em>, the status card shows a button that starts a new draft pre-filled with that client's details (name, address, project, PO) plus the usual auto-filled bits (your details, next number, today's date), turning repeat invoices into one click.</li>
 </ul>
 
 <h2 id="v2-81-0">2.81.0–2.82.0 <span class="small muted">— 1 November 2026</span></h2>
