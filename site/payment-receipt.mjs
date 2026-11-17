@@ -20,9 +20,9 @@ export const receiptHelpHead = `<style>.receipt-calculator{padding:1.25rem;borde
 const balanceCalculator = (rel) => `<h2 id="receipt-balance">Partial-payment balance calculator</h2>
 <p>Use the final invoice amount, including any tax and agreed adjustments already calculated. Add only payments actually received. All three amounts must use the same currency; this tool does not calculate tax or convert currencies.</p>
 <form id="receipt-calculator" class="receipt-calculator" aria-label="Payment receipt balance calculator">
-<div class="receipt-fields"><label for="receipt-total">Final invoice amount<input id="receipt-total" type="number" inputmode="decimal" min="0.01" max="1000000000000" step="0.01" value="1000" required></label>
-<label for="receipt-previous">Payments received before this one<input id="receipt-previous" type="number" inputmode="decimal" min="0" max="1000000000000" step="0.01" value="200" required></label>
-<label for="receipt-current">Payment received now<input id="receipt-current" type="number" inputmode="decimal" min="0.01" max="1000000000000" step="0.01" value="300" required></label>
+<div class="receipt-fields"><label for="receipt-total">Final invoice amount<input id="receipt-total" type="number" inputmode="decimal" min="0.01" max="1000000000000" step="0.01" value="1000" required spellcheck="false"></label>
+<label for="receipt-previous">Payments received before this one<input id="receipt-previous" type="number" inputmode="decimal" min="0" max="1000000000000" step="0.01" value="200" required spellcheck="false"></label>
+<label for="receipt-current">Payment received now<input id="receipt-current" type="number" inputmode="decimal" min="0.01" max="1000000000000" step="0.01" value="300" required spellcheck="false"></label>
 <label for="receipt-currency">Currency<select id="receipt-currency"><option value="USD">USD — US dollars</option><option value="GBP">GBP — British pounds</option><option value="EUR">EUR — euros</option><option value="CAD">CAD — Canadian dollars</option><option value="AUD">AUD — Australian dollars</option><option value="NZD">NZD — New Zealand dollars</option><option value="ZAR">ZAR — South African rand</option></select></label></div>
 <p id="receipt-result" class="receipt-output" role="status" aria-live="polite" aria-atomic="true">Enable JavaScript to calculate the remaining balance.</p>
 <p class="small muted">Calculates on your device. The calculator does not save or send these amounts, collect payments or fill in the receipt questionnaire.</p>

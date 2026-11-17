@@ -109,7 +109,7 @@ const INVOICE_WIDGET = `<div class="tool">
     <div><label for="invoice">Invoice date</label><input id="invoice" type="date"></div>
     <div><label for="terms">Payment terms</label><select id="terms">${TERMS.map(([v, l]) => `<option value="${v}"${v === 'net 30' ? ' selected' : ''}>${l}</option>`).join('')}<option value="other">Other terms…</option></select></div>
     <div id="custom-row" hidden><label for="custom">Terms as written</label><input id="custom" value="3/15 net 45" autocomplete="off"></div>
-    <div><label for="amount">Invoice amount (optional)</label><input id="amount" inputmode="decimal" value="4800" autocomplete="off"></div>
+    <div><label for="amount">Invoice amount (optional)</label><input id="amount" inputmode="decimal" value="4800" autocomplete="off" spellcheck="false"></div>
     <div><label for="currency">Currency</label><select id="currency"><option value="USD">US dollars</option><option value="GBP">Pounds sterling</option><option value="EUR">Euros</option><option value="CAD">Canadian dollars</option><option value="AUD">Australian dollars</option></select></div>
   </div>
   <label class="check"><input id="weekends" type="checkbox"> Move a due date that falls on a weekend to the Monday</label>
@@ -140,7 +140,7 @@ const termsTable = () => `<div style="overflow-x:auto"><table class="terms-table
 const WIDGET = {
   'amount-in-words': `<div class="tool">
   <div class="row">
-    <div><label for="amount">Amount</label><input id="amount" inputmode="decimal" value="1250.50" autocomplete="off"></div>
+    <div><label for="amount">Amount</label><input id="amount" inputmode="decimal" value="1250.50" autocomplete="off" spellcheck="false"></div>
     <div><label for="currency">Currency</label><select id="currency"><option value="USD">US dollars</option><option value="EUR">Euros</option><option value="GBP">Pounds sterling</option><option value="CAD">Canadian dollars</option><option value="AUD">Australian dollars</option><option value="INR">Rupees</option><option value="ZAR">Rand</option><option value="NONE">No currency</option></select></div>
     <div><label for="style">Style</label><select id="style"><option value="legal">Contract (and fifty cents)</option><option value="cheque">Cheque (and 50/100)</option><option value="plain">Plain number</option></select></div>
     <div><label for="caps">Capitals</label><select id="caps"><option value="title">Title Case</option><option value="upper">UPPER CASE</option><option value="lower">lower case</option></select></div>
@@ -152,7 +152,7 @@ const WIDGET = {
   'deadline-calculator': `<div class="tool">
   <div class="row">
     <div><label for="start">Start date</label><input id="start" type="date"></div>
-    <div><label for="amount">Number</label><input id="amount" type="number" enterkeyhint="done" inputmode="numeric" min="0" step="1" value="30" enterkeyhint="done"></div>
+    <div><label for="amount">Number</label><input id="amount" type="number" enterkeyhint="done" inputmode="numeric" min="0" step="1" value="30" spellcheck="false"></div>
     <div><label for="unit">Unit</label><select id="unit"><option value="days">Calendar days</option><option value="business">Business days (Mon–Fri)</option><option value="weeks">Weeks</option><option value="months">Months</option><option value="years">Years</option></select></div>
     <div><label for="direction">Direction</label><select id="direction"><option value="after">After the start date</option><option value="before">Before the start date</option></select></div>
   </div>
@@ -164,15 +164,15 @@ const WIDGET = {
 </div>`,
   'late-payment-interest': `<div class="tool">
   <div class="row">
-    <div><label for="amount">Amount owed</label><input id="amount" inputmode="decimal" value="4800" autocomplete="off"></div>
+    <div><label for="amount">Amount owed</label><input id="amount" inputmode="decimal" value="4800" autocomplete="off" spellcheck="false"></div>
     <div><label for="currency">Currency</label><select id="currency"><option value="USD">US dollars</option><option value="GBP">Pounds sterling</option><option value="EUR">Euros</option><option value="CAD">Canadian dollars</option><option value="AUD">Australian dollars</option></select></div>
     <div><label for="due">Payment was due</label><input id="due" type="date"></div>
     <div><label for="paid">Paid, or today</label><input id="paid" type="date"></div>
   </div>
   <div class="row">
     <div><label for="basis">Interest basis</label><select id="basis"><option value="year">Contract rate per year</option><option value="month">Contract rate per month</option><option value="uk">UK statutory (business debts)</option></select></div>
-    <div id="rate-row"><label for="rate">Rate (%)</label><input id="rate" inputmode="decimal" value="10"></div>
-    <div id="base-row" hidden><label for="base">Bank of England base rate (%)</label><input id="base" inputmode="decimal" value=""></div>
+    <div id="rate-row"><label for="rate">Rate (%)</label><input id="rate" inputmode="decimal" value="10" spellcheck="false"></div>
+    <div id="base-row" hidden><label for="base">Bank of England base rate (%)</label><input id="base" inputmode="decimal" value="" spellcheck="false"></div>
   </div>
   <p id="error" class="err" role="alert" hidden></p>
   <div class="out" id="result" aria-live="polite"></div>
@@ -180,15 +180,15 @@ const WIDGET = {
 </div>`,
   'freelance-rate': `<div class="tool">
   <div class="row">
-    <div><label for="income">Income you want to keep per year</label><input id="income" inputmode="decimal" value="60000"></div>
-    <div><label for="expenses">Business costs per year</label><input id="expenses" inputmode="decimal" value="6000"></div>
-    <div><label for="tax">Estimated tax rate (%)</label><input id="tax" inputmode="decimal" value="25"></div>
+    <div><label for="income">Income you want to keep per year</label><input id="income" inputmode="decimal" value="60000" spellcheck="false"></div>
+    <div><label for="expenses">Business costs per year</label><input id="expenses" inputmode="decimal" value="6000" spellcheck="false"></div>
+    <div><label for="tax">Estimated tax rate (%)</label><input id="tax" inputmode="decimal" value="25" spellcheck="false"></div>
     <div><label for="currency">Currency</label><select id="currency"><option value="USD">US dollars</option><option value="GBP">Pounds sterling</option><option value="EUR">Euros</option><option value="CAD">Canadian dollars</option><option value="AUD">Australian dollars</option></select></div>
   </div>
   <div class="row">
-    <div><label for="off">Weeks off per year</label><input id="off" type="number" enterkeyhint="done" inputmode="numeric" min="0" max="51" value="6" enterkeyhint="done"></div>
-    <div><label for="hpw">Billable hours per week</label><input id="hpw" type="number" enterkeyhint="done" inputmode="numeric" min="1" max="80" value="25" enterkeyhint="done"></div>
-    <div><label for="hpd">Hours in a working day</label><input id="hpd" type="number" enterkeyhint="done" inputmode="numeric" min="1" max="16" value="8" enterkeyhint="done"></div>
+    <div><label for="off">Weeks off per year</label><input id="off" type="number" enterkeyhint="done" inputmode="numeric" min="0" max="51" value="6" spellcheck="false"></div>
+    <div><label for="hpw">Billable hours per week</label><input id="hpw" type="number" enterkeyhint="done" inputmode="numeric" min="1" max="80" value="25" spellcheck="false"></div>
+    <div><label for="hpd">Hours in a working day</label><input id="hpd" type="number" enterkeyhint="done" inputmode="numeric" min="1" max="16" value="8" spellcheck="false"></div>
   </div>
   <p id="error" class="err" role="alert" hidden></p>
   <div class="out" id="result" aria-live="polite"></div>
@@ -197,7 +197,7 @@ const WIDGET = {
   'invoice-due-date': INVOICE_WIDGET,
   'prorated-rent': `<div class="tool">
   <div class="row">
-    <div><label for="rent">Monthly rent</label><input id="rent" inputmode="decimal" value="1500" autocomplete="off"></div>
+    <div><label for="rent">Monthly rent</label><input id="rent" inputmode="decimal" value="1500" autocomplete="off" spellcheck="false"></div>
     <div><label for="currency">Currency</label><select id="currency"><option value="USD">US dollars</option><option value="GBP">Pounds sterling</option><option value="EUR">Euros</option><option value="CAD">Canadian dollars</option><option value="AUD">Australian dollars</option></select></div>
     <div><label for="direction">The tenant is</label><select id="direction"><option value="in">Moving in</option><option value="out">Moving out</option></select></div>
   </div>
@@ -212,19 +212,19 @@ const WIDGET = {
 </div>`,
   'sales-commission': `<div class="tool">
   <div class="row">
-    <div><label for="sales">Sales</label><input id="sales" inputmode="decimal" value="80000" autocomplete="off"></div>
+    <div><label for="sales">Sales</label><input id="sales" inputmode="decimal" value="80000" autocomplete="off" spellcheck="false"></div>
     <div><label for="currency">Currency</label><select id="currency"><option value="USD">US dollars</option><option value="GBP">Pounds sterling</option><option value="EUR">Euros</option><option value="CAD">Canadian dollars</option><option value="AUD">Australian dollars</option><option value="INR">Rupees</option></select></div>
-    <div><label for="rate">Commission rate (%)</label><input id="rate" inputmode="decimal" value="5" autocomplete="off"></div>
+    <div><label for="rate">Commission rate (%)</label><input id="rate" inputmode="decimal" value="5" autocomplete="off" spellcheck="false"></div>
   </div>
   <div class="row">
-    <div><label for="t1-above">Tier 1: sales above (optional)</label><input id="t1-above" inputmode="decimal" value="50000" autocomplete="off"></div>
-    <div><label for="t1-rate">Tier 1 rate (%)</label><input id="t1-rate" inputmode="decimal" value="8" autocomplete="off"></div>
+    <div><label for="t1-above">Tier 1: sales above (optional)</label><input id="t1-above" inputmode="decimal" value="50000" autocomplete="off" spellcheck="false"></div>
+    <div><label for="t1-rate">Tier 1 rate (%)</label><input id="t1-rate" inputmode="decimal" value="8" autocomplete="off" spellcheck="false"></div>
     <div><label for="method">Higher rates apply to</label><select id="method"><option value="marginal">Only the sales above each level</option><option value="whole">All sales, once a level is reached</option></select></div>
   </div>
   <div class="row">
-    <div><label for="t2-above">Tier 2: sales above (optional)</label><input id="t2-above" inputmode="decimal" autocomplete="off"></div>
-    <div><label for="t2-rate">Tier 2 rate (%)</label><input id="t2-rate" inputmode="decimal" autocomplete="off"></div>
-    <div><label for="draw">Draw already paid (optional)</label><input id="draw" inputmode="decimal" autocomplete="off"></div>
+    <div><label for="t2-above">Tier 2: sales above (optional)</label><input id="t2-above" inputmode="decimal" autocomplete="off" spellcheck="false"></div>
+    <div><label for="t2-rate">Tier 2 rate (%)</label><input id="t2-rate" inputmode="decimal" autocomplete="off" spellcheck="false"></div>
+    <div><label for="draw">Draw already paid (optional)</label><input id="draw" inputmode="decimal" autocomplete="off" spellcheck="false"></div>
   </div>
   <p id="error" class="err" role="alert" hidden></p>
   <div class="out" id="result" aria-live="polite"></div>
@@ -234,12 +234,12 @@ const WIDGET = {
 </div>`,
   'loan-repayment': `<div class="tool">
   <div class="row">
-    <div><label for="amount">Loan amount</label><input id="amount" inputmode="decimal" value="12000" autocomplete="off"></div>
+    <div><label for="amount">Loan amount</label><input id="amount" inputmode="decimal" value="12000" autocomplete="off" spellcheck="false"></div>
     <div><label for="currency">Currency</label><select id="currency"><option value="USD">US dollars</option><option value="GBP">Pounds sterling</option><option value="EUR">Euros</option><option value="CAD">Canadian dollars</option><option value="AUD">Australian dollars</option><option value="INR">Rupees</option></select></div>
-    <div><label for="rate">Interest rate (% a year)</label><input id="rate" inputmode="decimal" value="5" autocomplete="off"></div>
+    <div><label for="rate">Interest rate (% a year)</label><input id="rate" inputmode="decimal" value="5" autocomplete="off" spellcheck="false"></div>
   </div>
   <div class="row">
-    <div><label for="payments">Number of payments</label><input id="payments" type="number" enterkeyhint="done" inputmode="numeric" min="1" max="1200" step="1" value="24" enterkeyhint="done"></div>
+    <div><label for="payments">Number of payments</label><input id="payments" type="number" enterkeyhint="done" inputmode="numeric" min="1" max="1200" step="1" value="24" spellcheck="false"></div>
     <div><label for="frequency">Paid</label><select id="frequency"><option value="weekly">Weekly</option><option value="fortnightly">Every two weeks</option><option value="monthly" selected>Monthly</option><option value="quarterly">Quarterly</option><option value="yearly">Yearly</option></select></div>
     <div><label for="first">First payment date (optional)</label><input id="first" type="date"></div>
   </div>

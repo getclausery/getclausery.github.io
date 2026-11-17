@@ -56,15 +56,15 @@ body.embed { background: transparent; }
 <div class="embed-wrap"><h1>Late payment interest calculator</h1>
 <div class="tool">
   <div class="row">
-    <div><label for="amount">Amount owed</label><input id="amount" inputmode="decimal" value="4800" autocomplete="off"></div>
+    <div><label for="amount">Amount owed</label><input id="amount" inputmode="decimal" value="4800" autocomplete="off" spellcheck="false"></div>
     <div><label for="currency">Currency</label><select id="currency"><option value="USD">US dollars</option><option value="GBP">Pounds sterling</option><option value="EUR">Euros</option><option value="CAD">Canadian dollars</option><option value="AUD">Australian dollars</option></select></div>
     <div><label for="due">Payment was due</label><input id="due" type="date"></div>
     <div><label for="paid">Paid, or today</label><input id="paid" type="date"></div>
   </div>
   <div class="row">
     <div><label for="basis">Interest basis</label><select id="basis"><option value="year">Contract rate per year</option><option value="month">Contract rate per month</option><option value="uk">UK statutory (business debts)</option></select></div>
-    <div id="rate-row"><label for="rate">Rate (%)</label><input id="rate" inputmode="decimal" value="10"></div>
-    <div id="base-row" hidden><label for="base">Bank of England base rate (%)</label><input id="base" inputmode="decimal" value=""></div>
+    <div id="rate-row"><label for="rate">Rate (%)</label><input id="rate" inputmode="decimal" value="10" spellcheck="false"></div>
+    <div id="base-row" hidden><label for="base">Bank of England base rate (%)</label><input id="base" inputmode="decimal" value="" spellcheck="false"></div>
   </div>
   <p id="error" class="err" role="alert" hidden></p>
   <div class="out" id="result" aria-live="polite"></div>
