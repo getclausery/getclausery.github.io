@@ -243,6 +243,10 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-173-0">2.173.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
+<ul>
+  <li><strong>Invoice-email generator keyboard hints.</strong> Added <code>enterkeyhint="next"</code>, <code>spellcheck="false"</code> and appropriate <code>autocomplete="off"</code> attributes to the invoice-email generator inputs (client name, sender, invoice number, project, amount, due date, payment instructions) so iOS/Android show <kbd>Next</kbd> instead of Return to step through fields, and <kbd>Send</kbd> on the payment-instructions textarea. The read-only generated message body also gets <code>spellcheck="false"</code> so copied/injected text isn't red-underlined.</li>
+</ul>
 <h2 id="v2-172-0">2.172.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
 <ul>
   <li><strong>Search input keyboard hints.</strong> Added <code>autocapitalize="off"</code>, <code>spellcheck="false"</code> and <code>enterkeyhint="search"</code> to the three site-wide search inputs (homepage template finder, /templates/ filter, /search/ page) so iOS/Android show the correct "Search" return key, don't auto-capitalise, and don't red-underline queries. The cmdk palette already had these.</li>
