@@ -243,6 +243,10 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-178-0">2.178.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
+<ul>
+  <li><strong>Holidays textarea keyboard hints.</strong> The "Additional holidays" textarea on the deadline calculator now has <code>spellcheck="false"</code> and <code>enterkeyhint="done"</code> so date lists (e.g. <code>2026-12-25, 2027-01-01</code>) aren't red-underlined and the Done key dismisses the keyboard.</li>
+</ul>
 <h2 id="v2-177-0">2.177.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
 <ul>
   <li><strong>Free-tool enterkeyhints completed.</strong> Added <code>enterkeyhint="done"</code> to the 22 remaining numeric/decimal inputs across the free tools and payment-receipt generator that didn't already declare it (deadline, late-payment, amount-in-words, prorated-rent, sales-commission, loan-repayment, invoice-due-date, and the three receipt amount fields), so iOS/Android show the blue <kbd>Done</kbd> button to dismiss the keyboard instead of Return. Date inputs and checkboxes were left at their defaults.</li>
@@ -559,12 +563,12 @@ export const pages = [
 
 <h2 id="v2-81-0">2.81.0–2.82.0 <span class="small muted">— 1 November 2026</span></h2>
 <ul>
-  <li><strong>SEO and in-app conversion polish.</strong> Footer heading hierarchy fixes (H4→H3, added screen-reader H2), decorative logo images marked <code>role="presentation"</code>, removed the "Reviewed by editors" byline from the landing page, added an FAQ H3 above the pricing question, added friction-reducer nudges to Section 1 (your business) and Section 2 (bill to), personalised the trial-ended modal and drafts-list banner with document count, added a "$19/month, cancel anytime" micro-line under trial CTAs, and fixed the two remaining decorative brand logos in the app shell.</li>
+  <li><strong>SEO and in-app conversion polish.</strong> Footer heading hierarchy fixes, decorative logos marked <code>role="presentation"</code>, friction-reducer nudges added to the first two questionnaire sections, trial-ended modal and drafts banner personalised with document count, "$19/month, cancel anytime" micro-line under trial CTAs, and two remaining decorative app-shell logos fixed.</li>
 </ul>
 
 <h2 id="v2-75-0">2.75.0–2.80.0 <span class="small muted">— 1 November 2026</span></h2>
 <ul>
-  <li><strong>In-app conversion nudges.</strong> A post-download "win moment" notice offers the free Pro trial right after a document downloads; trial activation immediately surfaces a one-click unbranded re-download; returning users get a usage-count pitch after three library documents; a "Send it" share hint appears on share-capable devices; trial-expiring warning shows 3 days before end; first-run friction reduced (Next no longer blocks on unanswered fields; Review &amp; download shortcut on Items step).</li>
+  <li><strong>In-app conversion nudges.</strong> Post-download "win moment" notice offers the free Pro trial; trial activation surfaces a one-click unbranded re-download; returning users get a usage-count pitch after three library documents; "Send it" share hint on share-capable devices; trial-expiring warning at 3 days; first-run friction reduced (Next no longer blocks on unanswered fields, Review &amp; download shortcut on Items step).</li>
 </ul>
 <h2 id="v2-68-0">2.68.0–2.74.0 <span class="small muted">— 31 October–1 November 2026</span></h2>
 <ul>
@@ -572,7 +576,7 @@ export const pages = [
 </ul>
 <h2 id="v2-65-0">2.65.0–2.67.0 <span class="small muted">— 31 October 2026</span></h2>
 <ul><li><strong>Internal link graph completed.</strong> Every free-template sample page, audience page, competitor-compare page, compare index, and templates index links to its matching what-to-include hub, completing 87/87 planned cross-links.</li></ul>
-<p class="small muted">Versions 2.48.0–2.64.0 added the 90 what-to-include hubs in batches of five (landlord/tenant, HR, legal, business, creative services, personal services), plus internal cross-linking through guides, clause pages, free-tools pages and invoice subpages. Full changelog is in <a href="https://github.com/getclausery/getclausery.github.io/commits/main">git history</a>.</p>
+<p class="small muted">Versions 2.48.0–2.64.0 added the 90 what-to-include hubs in batches of five plus cross-linking through guides, clause pages, free-tools and invoice subpages. Full changelog is in <a href="https://github.com/getclausery/getclausery.github.io/commits/main">git history</a>.</p>
 <h2 id="v1-x" style="font-size:1.1rem">Earlier releases</h2>
 <p class="small muted">Versions 1.0.0–1.96.0 (24 September–25 October 2026) covered the public launch, the clause library, 17 launch templates, freelancer and small-business hubs, the free-tool calculators, competitor comparisons, site search, OpenSearch, PWA manifest + maskable icons, favicon fallbacks, the /go/ social link-in-bio page, the clausery.ai name-disambiguation sweep, breadcrumb/FAQ/Article JSON-LD across all long-form pages, dual light/dark theme colours, dual-theme security hardening (CSP, Permissions-Policy, Referrer-Policy, X-Frame-Options, X-Content-Type-Options, security.txt, rel=license, rel=sitemap autodiscovery), the offline-service-worker fallback page, visible "Reviewed by editors" bylines, and auto-generated meta keywords/primaryImageOfPage schema. Full history is in the <a href="https://github.com/getclausery/getclausery.github.io/commits/main">Git commit log</a>.</p>
 </div></section><div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}app/">Open Clausery, free <span class="arr">→</span></a></div>`,
