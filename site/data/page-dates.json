@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-17",
-  "hash": "76e977528c5d2cd7"
+  "hash": "8ba30b6170548b37"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-11-17",
-  "hash": "1d6c456c02de8ec2"
+  "hash": "67548a62ad2c339e"
  },
  "clauses/": {
   "date": "2026-11-14",
@@ -260,40 +260,40 @@
   "hash": "da371b70f534323f"
  },
  "free-tools/": {
-  "date": "2026-11-14",
-  "hash": "2b5522e2b24e4267"
+  "date": "2026-11-17",
+  "hash": "1788af71625a6124"
  },
  "free-tools/amount-in-words.html": {
-  "date": "2026-11-14",
-  "hash": "6a879592c447e79b"
+  "date": "2026-11-17",
+  "hash": "255b5cb7cda87b0c"
  },
  "free-tools/deadline-calculator.html": {
-  "date": "2026-11-14",
-  "hash": "6511f7a107524389"
+  "date": "2026-11-17",
+  "hash": "b3926208bc718826"
  },
  "free-tools/freelance-rate.html": {
-  "date": "2026-11-14",
-  "hash": "de0e28927a06693d"
+  "date": "2026-11-17",
+  "hash": "da06c183a277c0e3"
  },
  "free-tools/invoice-due-date.html": {
-  "date": "2026-11-14",
-  "hash": "bc6d5a5d390f6789"
+  "date": "2026-11-17",
+  "hash": "46411785dfeebd1f"
  },
  "free-tools/late-payment-interest.html": {
-  "date": "2026-11-14",
-  "hash": "d8400714ba768269"
+  "date": "2026-11-17",
+  "hash": "a24852b795822ebb"
  },
  "free-tools/loan-repayment.html": {
-  "date": "2026-11-14",
-  "hash": "e34d72a11678d42d"
+  "date": "2026-11-17",
+  "hash": "19500760db62f9fc"
  },
  "free-tools/prorated-rent.html": {
-  "date": "2026-11-14",
-  "hash": "d1cbef425956cfca"
+  "date": "2026-11-17",
+  "hash": "e9740d11aec178e4"
  },
  "free-tools/sales-commission.html": {
-  "date": "2026-11-14",
-  "hash": "be462e1bb9a46881"
+  "date": "2026-11-17",
+  "hash": "76e1e0d302944341"
  },
  "free-tools/template-checker.html": {
   "date": "2026-11-14",
@@ -396,8 +396,8 @@
   "hash": "f0f342050d478477"
  },
  "guides/how-to-write-a-payment-receipt.html": {
-  "date": "2026-11-13",
-  "hash": "aaf0fcf76f5cf0a2"
+  "date": "2026-11-17",
+  "hash": "ca4dfd1f2cfa0351"
  },
  "guides/how-to-write-a-performance-improvement-plan.html": {
   "date": "2026-11-14",
@@ -469,7 +469,7 @@
  },
  "guides/invoice-email-template.html": {
   "date": "2026-11-17",
-  "hash": "5f51a124c7ae297d"
+  "hash": "4cc947e827cc9715"
  },
  "guides/is-an-mou-legally-binding.html": {
   "date": "2026-11-14",
@@ -572,8 +572,8 @@
   "hash": "dfad6005531b11cf"
  },
  "invoice-templates/": {
-  "date": "2026-11-14",
-  "hash": "aa7616901bdeb557"
+  "date": "2026-11-17",
+  "hash": "bad1c7e73b3e66cd"
  },
  "invoice-templates/australia-tax-invoice.html": {
   "date": "2026-11-14",
@@ -612,8 +612,8 @@
   "hash": "da7da05d4b42b550"
  },
  "invoice-templates/deposit-invoice.html": {
-  "date": "2026-11-13",
-  "hash": "c3b45e37f1cce1e7"
+  "date": "2026-11-17",
+  "hash": "0d3aaa7e4f017b03"
  },
  "invoice-templates/editable-invoice.html": {
   "date": "2026-11-14",
@@ -809,7 +809,7 @@
  },
  "roadmap/": {
   "date": "2026-11-17",
-  "hash": "907c3971492c4bc9"
+  "hash": "3e659859783444d2"
  },
  "search/": {
   "date": "2026-11-16",
@@ -825,11 +825,11 @@
  },
  "status/": {
   "date": "2026-11-17",
-  "hash": "8e02679de0c50120"
+  "hash": "0fbc2ba6ece49d33"
  },
  "templates/": {
-  "date": "2026-11-16",
-  "hash": "1f72f969362bf9ca"
+  "date": "2026-11-17",
+  "hash": "95716a05e4340006"
  },
  "templates/bill-of-sale-template.html": {
   "date": "2026-11-14",
@@ -1256,8 +1256,8 @@
   "hash": "9322011d9e3d7ce8"
  },
  "templates/payment-receipt.html": {
-  "date": "2026-11-14",
-  "hash": "c31a25f59dd9fdac"
+  "date": "2026-11-17",
+  "hash": "656751203d7b9e2d"
  },
  "templates/payment-reminder-letter-template.html": {
   "date": "2026-11-14",
