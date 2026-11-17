@@ -243,6 +243,10 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-175-0">2.175.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
+<ul>
+  <li><strong>Freelance-rate calculator: autocomplete disabled on numeric fields.</strong> Added <code>autocomplete="off"</code> to the five numeric inputs on the freelance-rate calculator (target income, expenses, tax rate, statutory rate, Bank of England base rate) so browsers don't offer to autofill them with saved addresses or credit-card numbers, and don't obscure the live result. The other free calculators already had <code>autocomplete="off"</code>.</li>
+</ul>
 <h2 id="v2-174-0">2.174.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
 <ul>
   <li><strong>Free-tool inputs: spellcheck off, duplicate enterkeyhints removed.</strong> Added <code>spellcheck="false"</code> to all numeric/decimal inputs across the free calculator tools (late-payment interest, freelance-rate, prorated-rent, sales-commission, loan-repayment calculators) so numbers aren't red-underlined. Also removed five duplicated <code>enterkeyhint="done"</code> attributes that had been applied twice to type="number" inputs in the freelance-rate and deadline-calculator tools.</li>

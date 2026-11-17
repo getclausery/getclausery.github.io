@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-17",
-  "hash": "8ba30b6170548b37"
+  "hash": "3aa27edd163aff98"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-11-17",
-  "hash": "67548a62ad2c339e"
+  "hash": "02867a665f12a430"
  },
  "clauses/": {
   "date": "2026-11-14",
@@ -273,7 +273,7 @@
  },
  "free-tools/freelance-rate.html": {
   "date": "2026-11-17",
-  "hash": "da06c183a277c0e3"
+  "hash": "faa1d1e22726f74e"
  },
  "free-tools/invoice-due-date.html": {
   "date": "2026-11-17",
@@ -281,7 +281,7 @@
  },
  "free-tools/late-payment-interest.html": {
   "date": "2026-11-17",
-  "hash": "a24852b795822ebb"
+  "hash": "54554cbbea1eda98"
  },
  "free-tools/loan-repayment.html": {
   "date": "2026-11-17",
