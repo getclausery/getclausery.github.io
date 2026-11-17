@@ -35,16 +35,16 @@ export function renderForm({ template, answers, settings = {}, sectionId = null,
     let input;
     const val = get();
     switch (field.type) {
-      case 'textarea': input = h('textarea.textarea', { ...common, placeholder: field.placeholder || '', rows: 4, oninput: (e) => { set(e.target.value); changed(path); } }, val ?? ''); break;
-      case 'number': input = h('input.input', { ...common, type: 'number', inputmode: 'decimal', step: field.decimals ? (1 / 10 ** field.decimals).toString() : 'any', min: field.min ?? null, max: field.max ?? null, placeholder: field.placeholder || '', value: val === '' || val == null ? '' : val, oninput: (e) => { set(e.target.value); changed(path); } }); break;
+      case 'textarea': input = h('textarea.textarea', { ...common, placeholder: field.placeholder || '', rows: 4, spellcheck: 'false', enterkeyhint: 'next', oninput: (e) => { set(e.target.value); changed(path); } }, val ?? ''); break;
+      case 'number': input = h('input.input', { ...common, type: 'number', inputmode: 'decimal', enterkeyhint: 'next', spellcheck: 'false', autocomplete: 'off', step: field.decimals ? (1 / 10 ** field.decimals).toString() : 'any', min: field.min ?? null, max: field.max ?? null, placeholder: field.placeholder || '', value: val === '' || val == null ? '' : val, oninput: (e) => { set(e.target.value); changed(path); } }); break;
       case 'money': {
         const cur = field.currency || settings.currency || 'USD';
-        input = h('input.input', { ...common, type: 'number', inputmode: 'decimal', step: (1 / 10 ** (field.decimals ?? 2)).toString(), min: field.min ?? null, max: field.max ?? null, placeholder: field.placeholder || '0.00', value: val === '' || val == null ? '' : val, oninput: (e) => { set(e.target.value); changed(path); } });
+        input = h('input.input', { ...common, type: 'number', inputmode: 'decimal', enterkeyhint: 'next', spellcheck: 'false', autocomplete: 'off', step: (1 / 10 ** (field.decimals ?? 2)).toString(), min: field.min ?? null, max: field.max ?? null, placeholder: field.placeholder || '0.00', value: val === '' || val == null ? '' : val, oninput: (e) => { set(e.target.value); changed(path); } });
         return { input, el: h('div.input-money', h('span.prefix', { 'aria-hidden': 'true' }, CURRENCY_SYMBOLS[cur] || cur), input) };
       }
-      case 'date': input = h('input.input', { ...common, type: 'date', value: val || '', oninput: (e) => { set(e.target.value); changed(path); } }); break;
-      case 'email': input = h('input.input', { ...common, type: 'email', autocomplete: 'off', placeholder: field.placeholder || 'name@example.com', value: val ?? '', oninput: (e) => { set(e.target.value); changed(path); } }); break;
-      case 'phone': input = h('input.input', { ...common, type: 'tel', autocomplete: 'off', placeholder: field.placeholder || '', value: val ?? '', oninput: (e) => { set(e.target.value); changed(path); } }); break;
+      case 'date': input = h('input.input', { ...common, type: 'date', enterkeyhint: 'next', value: val || '', oninput: (e) => { set(e.target.value); changed(path); } }); break;
+      case 'email': input = h('input.input', { ...common, type: 'email', inputmode: 'email', autocapitalize: 'off', enterkeyhint: 'next', autocomplete: 'off', placeholder: field.placeholder || 'name@example.com', value: val ?? '', oninput: (e) => { set(e.target.value); changed(path); } }); break;
+      case 'phone': input = h('input.input', { ...common, type: 'tel', inputmode: 'tel', enterkeyhint: 'next', autocomplete: 'off', placeholder: field.placeholder || '', value: val ?? '', oninput: (e) => { set(e.target.value); changed(path); } }); break;
       case 'select': input = h('select.select', { ...common, onchange: (e) => { set(e.target.value); changed(path); } }, h('option', { value: '' }, field.placeholder || 'Choose…'), (field.options || []).map((o) => h('option', { value: o.value, selected: o.value === val }, o.label || o.value))); break;
       case 'radio': {
         const group = h('div.radios', { role: 'radiogroup', 'aria-labelledby': id + '_label', 'aria-describedby': common['aria-describedby'] }, (field.options || []).map((o, i) => h('label.check', h('input', { type: 'radio', name: path, value: o.value, id: i === 0 ? id : null, checked: o.value === val, onchange: () => { set(o.value); changed(path); } }), h('span', o.label || o.value))));
@@ -59,7 +59,7 @@ export function renderForm({ template, answers, settings = {}, sectionId = null,
         const box = h('div.computed-value', { id, role: 'status', 'aria-live': 'polite', 'aria-labelledby': id + '_label' });
         return { input: box, el: box, computed: true, labelledBy: true };
       }
-      default: input = h('input.input', { ...common, type: 'text', autocomplete: 'off', placeholder: field.placeholder || '', maxlength: field.maxLength || null, value: val ?? '', oninput: (e) => { set(e.target.value); changed(path); } });
+      default: input = h('input.input', { ...common, type: 'text', autocapitalize: 'off', enterkeyhint: 'next', spellcheck: 'false', autocomplete: 'off', placeholder: field.placeholder || '', maxlength: field.maxLength || null, value: val ?? '', oninput: (e) => { set(e.target.value); changed(path); } });
     }
     return { input, el: input };
   }

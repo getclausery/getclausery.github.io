@@ -247,7 +247,7 @@ export async function render(ctx) {
       h('button.btn.btn-ghost.btn-sm', { type: 'button', 'aria-label': `Customise the ${s.name} template`, onclick: () => loadSample(ctx, s) }, 'Customise')));
   const allGrid = h('div.cards#all-samples', SAMPLES.map((s) => sampleCard(s, false)));
   const noMatch = h('p.muted', { hidden: true }, 'No template matches. Try another word, or upload your own Word file below.');
-  const filter = h('input.input', { type: 'search', placeholder: 'Find a template: lease, NDA, receipt…', 'aria-label': 'Find a template', autocomplete: 'off', style: { maxWidth: '26rem', marginBottom: '1rem' },
+  const filter = h('input.input', { type: 'search', placeholder: 'Find a template: lease, NDA, receipt…', 'aria-label': 'Find a template', autocomplete: 'off', autocapitalize: 'off', spellcheck: false, enterkeyhint: 'search', style: { maxWidth: '26rem', marginBottom: '1rem' },
     oninput: (e) => { const q = e.target.value.trim().toLowerCase(); let shown = 0; for (const el of allGrid.children) { el.hidden = Boolean(q) && !el.dataset.text.includes(q); if (!el.hidden) shown++; } noMatch.hidden = shown > 0; } });
 
   setChildren(ctx.main, h('div.container',

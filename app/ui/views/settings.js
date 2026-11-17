@@ -21,7 +21,7 @@ export async function render(ctx) {
   // ---- firm profile
   const profile = section('profile', 'Firm profile', 'Defaults used when formatting answers into documents.',
     h('div.grid-2',
-      row('Firm or company name', h('input.input', { value: s.firmName || '', oninput: (e) => ctx.saveSettings({ firmName: e.target.value }) }), 'Available to templates as {_firm_name}.'),
+      row('Firm or company name', h('input.input', { value: s.firmName || '', autocapitalize: 'off', spellcheck: false, enterkeyhint: 'next', autocomplete: 'organization', oninput: (e) => ctx.saveSettings({ firmName: e.target.value }) }), 'Available to templates as {_firm_name}.'),
       row('Locale for dates and numbers', h('select.select', { onchange: (e) => ctx.saveSettings({ locale: e.target.value }) }, [['', 'Browser default'], ['en-US', 'English (US)'], ['en-GB', 'English (UK)'], ['en-CA', 'English (Canada)'], ['en-AU', 'English (Australia)'], ['en-IE', 'English (Ireland)'], ['en-NZ', 'English (New Zealand)'], ['de-DE', 'Deutsch'], ['fr-FR', 'Français'], ['es-ES', 'Español'], ['nl-NL', 'Nederlands'], ['it-IT', 'Italiano'], ['pt-BR', 'Português (Brasil)'], ['sv-SE', 'Svenska']].map(([v, l]) => h('option', { value: v, selected: v === (s.locale || '') }, l)))),
       row('Default currency', h('select.select', { onchange: (e) => ctx.saveSettings({ currency: e.target.value }) }, CURRENCIES.map((c) => h('option', { value: c, selected: c === s.currency }, c)))),
       row('Default date format', h('select.select', { onchange: (e) => ctx.saveSettings({ dateFormat: e.target.value }) }, Object.entries(DATE_FORMATS).map(([k, ex]) => h('option', { value: k, selected: k === s.dateFormat }, `${k} · ${ex}`))))));
@@ -33,7 +33,7 @@ export async function render(ctx) {
   // ---- license
   const svc = ctx.licenseService || {};
   const online = ctx.plan.payload && ctx.plan.payload.source === 'online';
-  const keyInput = h('textarea.textarea#license-key', { rows: 3, placeholder: 'Paste the license key from your receipt email', spellcheck: false, 'aria-label': 'License key' });
+  const keyInput = h('textarea.textarea#license-key', { rows: 3, placeholder: 'Paste the license key from your receipt email', spellcheck: false, autocapitalize: 'off', enterkeyhint: 'done', 'aria-label': 'License key' });
   const checkedOn = (iso) => { const d = new Date(iso); return Number.isFinite(d.getTime()) ? d.toLocaleDateString(s.locale || undefined, { day: 'numeric', month: 'long', year: 'numeric' }) : 'never'; };
   const trial = ctx.trial.state();
   const licensed = !!ctx.plan.payload && !ctx.plan.isTrial;
@@ -65,8 +65,8 @@ export async function render(ctx) {
     let p1, p2, err;
     const m = modal({ title, body: h('form.stack', { onsubmit: (e) => { e.preventDefault(); m.body.closest('.modal').querySelector('.modal-actions .btn-primary').click(); } },
       h('p.small.muted', 'Choose a long passphrase you will remember. There is no reset: it never leaves this browser.'),
-      row('Passphrase', p1 = h('input.input', { type: 'password', autocomplete: 'new-password', minlength: 8, autofocus: true })),
-      confirm ? row('Repeat passphrase', p2 = h('input.input', { type: 'password', autocomplete: 'new-password' })) : null, err = h('span.field-error', { role: 'alert', hidden: true })),
+      row('Passphrase', p1 = h('input.input', { type: 'password', autocomplete: 'new-password', autocapitalize: 'off', spellcheck: false, enterkeyhint: 'next', minlength: 8, autofocus: true })),
+      confirm ? row('Repeat passphrase', p2 = h('input.input', { type: 'password', autocomplete: 'new-password', autocapitalize: 'off', spellcheck: false, enterkeyhint: 'done' })) : null, err = h('span.field-error', { role: 'alert', hidden: true })),
       actions: [{ label: 'Cancel', value: null }, { label: 'Continue', primary: true, onClick: () => { if (p1.value.length < 8) { err.textContent = 'Use at least 8 characters.'; err.hidden = false; return false; } if (confirm && p1.value !== p2.value) { err.textContent = 'The passphrases do not match.'; err.hidden = false; return false; } return p1.value; } }] });
     return m.closed;
   }
