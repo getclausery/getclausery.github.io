@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-17",
-  "hash": "850a245971ad6645"
+  "hash": "67529fa184352bda"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-11-17",
-  "hash": "dbc314611b3c35cd"
+  "hash": "c565ba112e8099bc"
  },
  "clauses/": {
   "date": "2026-11-14",
@@ -265,7 +265,7 @@
  },
  "free-tools/amount-in-words.html": {
   "date": "2026-11-17",
-  "hash": "255b5cb7cda87b0c"
+  "hash": "278ce59be38d7e4e"
  },
  "free-tools/deadline-calculator.html": {
   "date": "2026-11-17",
@@ -273,27 +273,27 @@
  },
  "free-tools/freelance-rate.html": {
   "date": "2026-11-17",
-  "hash": "faa1d1e22726f74e"
+  "hash": "6d9578cb201d409e"
  },
  "free-tools/invoice-due-date.html": {
   "date": "2026-11-17",
-  "hash": "46411785dfeebd1f"
+  "hash": "00b47c54514555de"
  },
  "free-tools/late-payment-interest.html": {
   "date": "2026-11-17",
-  "hash": "54554cbbea1eda98"
+  "hash": "3d0c0ee4423f1c7c"
  },
  "free-tools/loan-repayment.html": {
   "date": "2026-11-17",
-  "hash": "19500760db62f9fc"
+  "hash": "666811495e5cdb96"
  },
  "free-tools/prorated-rent.html": {
   "date": "2026-11-17",
-  "hash": "e9740d11aec178e4"
+  "hash": "e6a6f5a4439769bb"
  },
  "free-tools/sales-commission.html": {
   "date": "2026-11-17",
-  "hash": "76e1e0d302944341"
+  "hash": "568be95f1cf9142a"
  },
  "free-tools/template-checker.html": {
   "date": "2026-11-14",
@@ -397,7 +397,7 @@
  },
  "guides/how-to-write-a-payment-receipt.html": {
   "date": "2026-11-17",
-  "hash": "ca4dfd1f2cfa0351"
+  "hash": "45a25e068a5711b2"
  },
  "guides/how-to-write-a-performance-improvement-plan.html": {
   "date": "2026-11-14",
@@ -809,7 +809,7 @@
  },
  "roadmap/": {
   "date": "2026-11-17",
-  "hash": "2bbf42c6ee96c0b7"
+  "hash": "904b590e585dd466"
  },
  "search/": {
   "date": "2026-11-16",
@@ -825,7 +825,7 @@
  },
  "status/": {
   "date": "2026-11-17",
-  "hash": "3a14e4ea284d5fa2"
+  "hash": "7a647feb68cf43b3"
  },
  "templates/": {
   "date": "2026-11-17",
@@ -1257,7 +1257,7 @@
  },
  "templates/payment-receipt.html": {
   "date": "2026-11-17",
-  "hash": "656751203d7b9e2d"
+  "hash": "c4a31d8b4cf63a2d"
  },
  "templates/payment-reminder-letter-template.html": {
   "date": "2026-11-14",
