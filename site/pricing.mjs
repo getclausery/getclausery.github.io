@@ -242,7 +242,7 @@ body.billing-yearly .price-yr{display:inline}
 body.billing-yearly .plan .price small{display:none}
 .trust-logos{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1.25rem;margin-top:1.2rem;font-size:.8rem;color:var(--muted)}
 .trust-logos span{display:inline-flex;align-items:center;gap:.35rem}
-@media (max-width:600px){.billing-toggle{font-size:.9rem}.trust-logos{font-size:.74rem;gap:.4rem .9rem}}
+@media (max-width:600px){.billing-toggle{font-size:.9rem}.billing-toggle button{min-height:44px;padding:.65rem 1rem}.trust-logos{font-size:.74rem;gap:.4rem .9rem}}
 </style>
 <script src="${rel}pricing/billing-toggle.js" defer></script>
 <div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}app/#/trial">Start ${TRIAL_DAYS}-day free trial <span class="arr">→</span></a></div>`,
