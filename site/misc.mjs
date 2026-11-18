@@ -243,6 +243,10 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-186-0">2.186.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
+<ul>
+  <li><strong>App button sizes on phones.</strong> App <code>@media (max-width:600px)</code>: default <code>.btn</code> gets <code>min-height:44px</code>, <code>.btn-sm</code> (repeat-row move/delete icons, secondary actions) raised from ~28 px to <code>min-height:44px</code>, and icon-only <code>.btn-icon.btn-sm</code> raised from ~24 px to 44 px. Desktop sizes unchanged.</li>
+</ul>
 <h2 id="v2-185-0">2.185.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
   <li><strong>Page-print button touch target.</strong> The print/share buttons on guide/template/clause pages become <code>inline-flex</code> with <code>min-height:44px</code> under the existing mobile media query, meeting WCAG 2.5.5. Trimmed two redundant declarations from <code>.page-print-btn</code> (<code>transition:all .15s</code> and <code>font-family:inherit</code>, both already inherited or replaced) to stay inside the 45 KB site.css cap with headroom.</li>
@@ -582,14 +586,9 @@ export const pages = [
   <li><strong>Overdue-invoice reminder banner.</strong> Past-due sent invoices now show an orange overdue notice at the top of Review with a one-click "Send a reminder email" button.</li>
 </ul>
 
-<h2 id="v2-83-0">2.83.0 <span class="small muted">— 1 November 2026</span></h2>
+<span id="v2-83-0" aria-hidden="true"></span><span id="v2-82-0" aria-hidden="true"></span><h2 id="v2-81-0">2.81.0–2.83.0 <span class="small muted">— 1 November 2026</span></h2>
 <ul>
-  <li><strong>"New invoice for this client" shortcut.</strong> After marking an invoice <em>sent</em> or <em>paid</em>, the status card shows a button that starts a new draft pre-filled with that client's details (name, address, project, PO) plus the usual auto-filled bits (your details, next number, today's date), turning repeat invoices into one click.</li>
-</ul>
-
-<h2 id="v2-81-0">2.81.0–2.82.0 <span class="small muted">— 1 November 2026</span></h2>
-<ul>
-  <li><strong>SEO and in-app conversion polish.</strong> Footer heading hierarchy fixes, decorative logos marked <code>role="presentation"</code>, friction-reducer nudges added to the first two questionnaire sections, trial-ended modal and drafts banner personalised with document count, "$19/month, cancel anytime" micro-line under trial CTAs, and two remaining decorative app-shell logos fixed.</li>
+  <li><strong>In-app polish.</strong> "New invoice for this client" shortcut after marking sent/paid; footer heading hierarchy fixes; decorative logos marked <code>role="presentation"</code>; friction nudges on Sections 1–2; trial-ended modal and drafts banner personalised with document count; "$19/month, cancel anytime" micro-line under trial CTAs.</li>
 </ul>
 
 <h2 id="v2-75-0">2.75.0–2.80.0 <span class="small muted">— 1 November 2026</span></h2>

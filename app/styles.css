@@ -101,7 +101,7 @@ a.sr-only:focus-visible { position: fixed !important; top: .5rem; left: .5rem; w
 .btn-danger { background: var(--danger); border-color: var(--danger); color: var(--on-danger); } .btn-danger:hover { filter: brightness(.9); background: var(--danger); }
 .btn-ghost { background: transparent; border-color: transparent; } .btn-ghost:hover { background: var(--surface-2); }
 .btn-sm { padding: .3rem .6rem; font-size: .85rem; } .btn-lg { padding: .7rem 1.2rem; font-size: 1.05rem; }
-.btn-icon { padding: .4rem; min-width: 44px; min-height: 44px; } .btn-icon.btn-sm { padding: .25rem; }
+.btn-icon { padding: .4rem; min-width: 44px; min-height: 44px; } .btn-icon.btn-sm { padding: .4rem; min-width: 44px; min-height: 44px; }
 .btn .icon { flex: none; }
 .input, .select, .textarea { width: 100%; padding: .55rem .7rem; min-height: 44px; border: 1.5px solid var(--border-strong); border-radius: 8px; background: var(--surface); color: var(--text); font: inherit; font-size: .95rem; transition: border-color .15s, box-shadow .15s; }
 .input:focus, .select:focus, .textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
@@ -337,9 +337,9 @@ body { overflow-x: hidden; }
   .page-head { margin-bottom: 1rem; gap: .6rem; }
   .page-head h1 { margin-bottom: .15rem; }
   .toolbar { gap: .4rem; margin-bottom: .75rem; }
-  .btn { padding: .5rem .75rem; font-size: .92rem; }
-  .btn-lg { padding: .65rem 1rem; font-size: 1rem; }
-  .btn-sm { padding: .25rem .5rem; font-size: .8rem; }
+  .btn { padding: .5rem .75rem; font-size: .92rem; min-height: 44px; }
+  .btn-lg { padding: .65rem 1rem; font-size: 1rem; min-height: 48px; }
+  .btn-sm { padding: .5rem .75rem; font-size: .85rem; min-height: 44px; }
   /* Stack action rows so primary CTAs stretch and don't crowd */
   .card-actions, .interview-nav, .toolbar, .modal-actions, .repeat-row-head { flex-wrap: wrap; }
   .interview-nav .btn, .modal-actions .btn, .card-actions .btn { flex: 1 1 auto; min-width: 0; }
