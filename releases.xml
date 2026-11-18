@@ -5,8 +5,16 @@
   <link rel="self" href="https://getclausery.github.io/releases.xml"/>
   <link rel="alternate" href="https://getclausery.github.io/changelog.html"/>
   <id>https://getclausery.github.io/changelog.html</id>
-  <updated>2026-11-08T00:00:00Z</updated>
+  <updated>2026-11-18T00:00:00Z</updated>
   <author><name>Clausery</name></author>
+  <entry>
+    <title>Clausery v2.222.0 — Head-tag cleanup (removed duplicated author/generator/referrer/theme-color meta tags), richer Organization and WebSite schema (alternateName, foundingDate, contactPoint, logo, SiteNavigationElement hasPart).</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-222-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-222-0</id>
+    <published>2026-11-18T00:00:00Z</published>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <summary>Head-tag cleanup (removed duplicated author/generator/referrer/theme-color meta tags), richer Organization and WebSite schema (alternateName, foundingDate, contactPoint, logo, SiteNavigationElement hasPart).</summary>
+  </entry>
   <entry>
     <title>Clausery v2.152.0 — Added fetchpriority=high to the site.css preload hint to help browsers prioritize the critical stylesheet on slow networks.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-152-0"/>

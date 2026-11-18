@@ -114,6 +114,46 @@ function relatedFor(p, limit = 6) {
   return scored;
 }
 pages.filter(p => /^guides\/[^/]+\.html$/.test(p.path) && !p.noindex).forEach((p, i, arr) => { /* handled by chainIdx now */ });
+// Site-wide schema graph nodes (declared once, reused on every indexable page). Each is conditionally emitted per
+// page: a page that already defines a node of the same type in extraHead (e.g. the about page's Organization)
+// wins, so we don't duplicate entities.
+const editorNode = { '@context': 'https://schema.org', '@type': 'Person', '@id': `${SITE}about/#editors`, name: 'Clausery editors', url: `${SITE}about/#editors`, description: 'The editorial team that writes and reviews every guide, clause explanation, template default and calculator on Clausery — practising small-business owners, freelance contract drafters and bookkeepers who use the tool themselves.', worksFor: { '@id': `${SITE}#organization` }, knowsAbout: ['Small-business invoicing','Freelance contracts','UK VAT invoices','Australian GST tax invoices','South African tax invoices','Canadian GST/HST','New Zealand GST','Word document automation','Contract clauses','Bookkeeping for freelancers'], sameAs: ['https://github.com/getclausery/getclausery.github.io/graphs/contributors'] };
+const appNode = { '@context': 'https://schema.org', '@type': ['WebApplication','SoftwareApplication'], '@id': `${SITE}#app`, name: 'Clausery', url: `${SITE}app/`, applicationCategory: 'BusinessApplication', applicationSubCategory: 'Word document generator', operatingSystem: 'Any (web browser)', isAccessibleForFree: true, aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.8', bestRating: '5', worstRating: '1', ratingCount: '427', reviewCount: '427' }, offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '0', highPrice: String(PRICES.proYearly), offerCount: 3, availability: 'https://schema.org/InStock', url: `${SITE}pricing/` }, publisher: { '@id': `${SITE}#organization` }, creator: { '@id': `${SITE}#organization` }, softwareVersion: '2.36.0', license: `${SITE}legal/license.html`, description: 'Free Word invoice, quote, receipt, contract and NDA generator. Build editable .docx documents in your browser — nothing is uploaded.' };
+const srcNode = { '@context': 'https://schema.org', '@type': 'SoftwareSourceCode', '@id': `${SITE}#source`, name: 'Clausery source', codeRepository: 'https://github.com/getclausery/getclausery.github.io', programmingLanguage: 'JavaScript', license: `${SITE}legal/license.html`, isAccessibleForFree: true, provider: { '@id': `${SITE}#organization` }, targetProduct: { '@id': `${SITE}#app` } };
+const wsNode = { '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE}#website`, url: SITE, name: 'Clausery', alternateName: ['getclausery', 'Clausery open source', 'Clausery invoice generator'], inLanguage: 'en-GB', publisher: { '@id': `${SITE}#organization` }, copyrightYear: YEAR, copyrightHolder: { '@id': `${SITE}#organization` }, copyrightNotice: `© ${YEAR} Clausery. Open source under AGPLv3.`, logo: { '@id': `${SITE}#logo` }, potentialAction: { '@type': 'SearchAction', target: { '@type': 'EntryPoint', urlTemplate: `${SITE}search/?q={search_term_string}` }, 'query-input': 'required name=search_term_string' } };
+const orgNode = { '@context': 'https://schema.org', '@type': 'Organization', '@id': `${SITE}#organization`, name: 'Clausery', url: SITE, logo: { '@id': `${SITE}#logo`, '@type': 'ImageObject', url: `${SITE}assets/icon-512.png`, contentUrl: `${SITE}assets/icon-512.png`, width: 512, height: 512, encodingFormat: 'image/png' }, image: `${SITE}assets/icon-512.png`, sameAs: ['https://github.com/getclausery/getclausery.github.io', 'https://github.com/getclausery', 'https://www.npmjs.com/package/clausery'], contactPoint: [{ '@type': 'ContactPoint', contactType: 'customer support', email: 'getclausery@gmail.com', availableLanguage: ['en-GB'], contactOption: 'TollFree', areaServed: 'Worldwide' }], foundingDate: '2025' };
+const navNode = { '@context': 'https://schema.org', '@type': 'SiteNavigationElement', '@id': `${SITE}#sitenav`, name: 'Main navigation', mainEntityOfPage: { '@id': `${SITE}#website` }, hasPart: [ { '@type':'SiteNavigationElement', name:'Templates', url:`${SITE}templates/` }, { '@type':'SiteNavigationElement', name:'Invoice templates', url:`${SITE}invoice-templates/` }, { '@type':'SiteNavigationElement', name:'Guides', url:`${SITE}guides/` }, { '@type':'SiteNavigationElement', name:'Pricing', url:`${SITE}pricing/` }, { '@type':'SiteNavigationElement', name:'Docs', url:`${SITE}docs/` }, { '@type':'SiteNavigationElement', name:'Start an invoice', url:`${SITE}app/#/start/invoice` } ] };
+// Build siteLd for pages whose extraHead doesn't already DEFINE (not merely reference) a node with the given @id.
+// Parse each <script type="application/ld+json"> block in extraHead and walk the graph looking for any node that
+// has both @type and @id equal to the target. Objects that only carry {"@id":"..."} (isPartOf, publisher references,
+// mainEntityOfPage) are not definitions.
+function hasDef(extraHead, id) {
+  const re = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/g;
+  let m;
+  while ((m = re.exec(extraHead || ''))) {
+    try {
+      const walk = (n) => {
+        if (!n || typeof n !== 'object') return false;
+        if (Array.isArray(n)) return n.some(walk);
+        if (n['@type'] && n['@id'] === id) return true;
+        return Object.keys(n).some((k) => k !== '@context' && walk(n[k]));
+      };
+      if (walk(JSON.parse(m[1]))) return true;
+    } catch {}
+  }
+  return false;
+}
+function buildSiteLd(extraHead = '', skipAll = false) {
+  if (skipAll) return '';
+  const blocks = [];
+  if (!hasDef(extraHead, `${SITE}#website`)) blocks.push(wsNode);
+  if (!hasDef(extraHead, `${SITE}#organization`)) blocks.push(orgNode);
+  if (!hasDef(extraHead, `${SITE}#sitenav`)) blocks.push(navNode);
+  if (!hasDef(extraHead, `${SITE}about/#editors`)) blocks.push(editorNode);
+  if (!hasDef(extraHead, `${SITE}#app`)) blocks.push(appNode);
+  if (!hasDef(extraHead, `${SITE}#source`)) blocks.push(srcNode);
+  return blocks.map((n) => `<script type="application/ld+json">${JSON.stringify(n)}</script>`).join('');
+}
 for (const p of pages) {
   // GitHub Pages serves 404.html for a miss at any depth, so its links must be root-relative, not relative to its file.
   const rel = p.path === '404.html' ? '/' : p.path.split('/').filter(Boolean).length - (p.path.endsWith('/') || p.path === '' ? 0 : 1) > 0 ? '../'.repeat(p.path.split('/').filter(Boolean).length - (p.path.endsWith('/') || p.path === '' ? 0 : 1)) : './';
@@ -130,6 +170,7 @@ for (const p of pages) {
   // This page-level node is deliberately passed separately from extraHead: adding metadata must not make the content
   // hash (and therefore page-dates.json) claim that the editorial content changed.
   const hasPageNode = /"@type":"(CollectionPage|SearchResultsPage|AboutPage|ContactPage|WebSite)"/.test(p.extraHead || '');
+  const skipSiteLd = p.layout === 'embed' || p.noindex || p.path === '404.html' || p.path === '';
   const skipPageLd = p.layout === 'embed' || p.noindex || p.path === '' || p.path === '404.html' || hasPageNode;
   // For any page that declares a published date, or is flagged _howTo/_toc (guides, clauses, templates),
   // render the body first so we can add slug ids, TOC, Article JSON-LD, HowTo and FAQ blocks as needed.
@@ -181,7 +222,7 @@ for (const p of pages) {
     const articleImage = p.ogImage
       ? { '@type': 'ImageObject', url: `${SITE}${p.ogImage}`, width: 1200, height: 630, ...(p.ogImage !== 'assets/og.png' ? { caption: stripTags(p.title) } : {}) }
       : { '@type': 'ImageObject', url: `${SITE}assets/og.png`, width: 1200, height: 630 };
-    const articleLd = `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', '@id': `${SITE}${p.path}#article`, isPartOf: { '@id': `${SITE}${p.path}#webpage` }, headline: p.title, description: p.description, datePublished: p.published, dateModified: modified, ...(modified ? { lastReviewed: modified, reviewedBy: { '@id': `${SITE}about/#editors`, name: 'Clausery editors' } } : {}), inLanguage: 'en-GB', image: [articleImage], mainEntityOfPage: `${SITE}${p.path}`, ...(p.ogImage && p.ogImage !== 'assets/og.png' ? { thumbnailUrl: `${SITE}${p.ogImage}` } : {}), ...(p._sources ? { citation: p._sources.map(([, u]) => u) } : {}), ...(topics.length ? { about: topics } : {}), ...(headings.length >= 3 ? { articleSection: headings.map((h) => h.text) } : {}), author: { '@id': `${SITE}about/#editors`, name: 'Clausery editors' }, publisher: { '@id': `${SITE}#organization`, name: 'Clausery' } })}</script>`;
+    const articleLd = `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', '@id': `${SITE}${p.path}#article`, isPartOf: { '@id': `${SITE}${p.path}#webpage` }, headline: p.title, description: p.description, datePublished: p.published, dateModified: modified, ...(modified ? { lastReviewed: modified, reviewedBy: { '@id': `${SITE}about/#editors`, name: 'Clausery editors' } } : {}), inLanguage: 'en-GB', image: [articleImage], mainEntityOfPage: `${SITE}${p.path}`, ...(p.ogImage && p.ogImage !== 'assets/og.png' ? { thumbnailUrl: `${SITE}${p.ogImage}` } : {}), ...(p._sources ? { citation: p._sources.map(([, u]) => u) } : {}), ...(topics.length ? { about: topics } : {}), ...(headings.length >= 3 ? { articleSection: headings.map((h) => h.text) } : {}), author: { '@id': `${SITE}about/#editors`, name: 'Clausery editors' }, publisher: { '@id': `${SITE}#organization` } })}</script>`;
     p.extraHead = articleLd + (p.extraHead || '');
     if (p._howTo) {
     const hasSteps = /<h2[^>]*>(What to include|How to|Steps to|Steps|What goes|What to write|How you can|How)/i.test(renderedBody) && /<ol>\s*<li><strong>/.test(renderedBody);
@@ -227,17 +268,7 @@ for (const p of pages) {
       } catch { return _m; }
     });
   }
-  const editorNode = { '@context': 'https://schema.org', '@type': 'Person', '@id': `${SITE}about/#editors`, name: 'Clausery editors', url: `${SITE}about/#editors`, description: 'The editorial team that writes and reviews every guide, clause explanation, template default and calculator on Clausery — practising small-business owners, freelance contract drafters and bookkeepers who use the tool themselves.', worksFor: { '@id': `${SITE}#organization` }, knowsAbout: ['Small-business invoicing','Freelance contracts','UK VAT invoices','Australian GST tax invoices','South African tax invoices','Canadian GST/HST','New Zealand GST','Word document automation','Contract clauses','Bookkeeping for freelancers'], sameAs: ['https://github.com/getclausery/getclausery.github.io/graphs/contributors'] };
-  // The Clausery product is a WebApplication / SoftwareApplication that generates Word .docx documents in the browser.
-  // Emitting this once on every page lets Google connect the pages to the software product, which can trigger
-  // "software" rich-result classification and associates keywords (invoice generator, NDA maker, etc.) with the
-  // application entity. It also carries isAccessibleForFree=true and operatingSystem=Any, two signals that help
-  // "free" / "no download" / "in browser" intent queries.
-  const appNode = { '@context': 'https://schema.org', '@type': ['WebApplication','SoftwareApplication'], '@id': `${SITE}#app`, name: 'Clausery', url: `${SITE}app/`, applicationCategory: 'BusinessApplication', applicationSubCategory: 'Word document generator', operatingSystem: 'Any (web browser)', isAccessibleForFree: true, aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.8', bestRating: '5', worstRating: '1', ratingCount: '427', reviewCount: '427' }, offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '0', highPrice: String(PRICES.proYearly), offerCount: 3, availability: 'https://schema.org/InStock', url: `${SITE}pricing/` }, publisher: { '@id': `${SITE}#organization` }, creator: { '@id': `${SITE}#organization` }, softwareVersion: '2.36.0', license: `${SITE}legal/license.html`, description: 'Free Word invoice, quote, receipt, contract and NDA generator. Build editable .docx documents in your browser — nothing is uploaded.' };
-  // The source code repository (SoftwareSourceCode) gives the software entity a verifiable codebase pointer
-  // and ties the Organization sameAs GitHub link into the schema graph. Emitted once per page so references
-  // from codeRepository / targetProduct resolve consistently.
-  const srcNode = { '@context': 'https://schema.org', '@type': 'SoftwareSourceCode', '@id': `${SITE}#source`, name: 'Clausery source', codeRepository: 'https://github.com/getclausery/getclausery.github.io', programmingLanguage: 'JavaScript', license: `${SITE}legal/license.html`, isAccessibleForFree: true, provider: { '@id': `${SITE}#organization` }, targetProduct: { '@id': `${SITE}#app` } };
+
   // Post-process any hand-written WebPage node in extraHead (e.g. AboutPage) to add dateModified/lastReviewed
   // so E-E-A-T freshness signals apply consistently across hubs that define their own page-level schema.
   if (p.extraHead && hasPageNode && modified) {
@@ -264,13 +295,17 @@ for (const p of pages) {
       } catch (_e) { return open + body + close; }
     });
   }
-  const pageLd = skipPageLd ? '' : `<script type="application/ld+json">${JSON.stringify({
+  // Page-specific WebPage/ItemPage node — skipped when the page provides its own page-level schema in extraHead
+  // (CollectionPage / AboutPage / ContactPage / SearchResultsPage / WebSite) or when on embed/noindex/404/home.
+  const pageNodeLd = skipPageLd ? '' : `<script type="application/ld+json">${JSON.stringify({
     '@context': 'https://schema.org', '@type': /^templates\/[^/]+\.html$/.test(p.path) ? 'ItemPage' : 'WebPage', '@id': `${SITE}${p.path}#webpage`, url: `${SITE}${p.path}`,
     name: SEO_TITLES[p.path] || p.title, description: p.description, inLanguage: 'en-GB', isPartOf: { '@id': `${SITE}#website` }, publisher: { '@id': `${SITE}#organization` },
     ...(p.published ? { datePublished: p.published } : {}), ...(modified ? { dateModified: modified, lastReviewed: modified, reviewedBy: { '@id': `${SITE}about/#editors` } } : {}),
     ...(p.ogImage && p.ogImage !== 'assets/og.png' ? { primaryImageOfPage: { '@type': 'ImageObject', url: `${SITE}${p.ogImage}`, width: 1200, height: 630 } } : {}),
     mentions: { '@id': `${SITE}#app` },
-  })}</script><script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE}#website`, url: SITE, name: 'Clausery', inLanguage: 'en-GB', publisher: { '@id': `${SITE}#organization` }, copyrightYear: YEAR, copyrightHolder: { '@id': `${SITE}#organization` }, copyrightNotice: `© ${YEAR} Clausery. Open source under AGPLv3.`, potentialAction: { '@type': 'SearchAction', target: { '@type': 'EntryPoint', urlTemplate: `${SITE}search/?q={search_term_string}` }, 'query-input': 'required name=search_term_string' } })}</script><script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', '@id': `${SITE}#organization`, name: 'Clausery', url: SITE, logo: { '@id': `${SITE}#logo`, '@type': 'ImageObject', url: `${SITE}assets/icon-512.png`, contentUrl: `${SITE}assets/icon-512.png`, width: 512, height: 512, encodingFormat: 'image/png' }, sameAs: ['https://github.com/getclausery/getclausery.github.io', 'https://github.com/getclausery', 'https://www.npmjs.com/package/clausery'], contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', email: 'getclausery@gmail.com', availableLanguage: ['en-GB'] } })}</script><script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'SiteNavigationElement', '@id': `${SITE}#sitenav`, name: 'Main navigation', mainEntityOfPage: { '@id': `${SITE}#website` } })}</script><script type="application/ld+json">${JSON.stringify(editorNode)}</script><script type="application/ld+json">${JSON.stringify(appNode)}</script><script type="application/ld+json">${JSON.stringify(srcNode)}</script>`;
+  })}</script>`;
+  const siteLd = buildSiteLd(p.extraHead || '', skipSiteLd);
+  const pageLd = pageNodeLd + siteLd;
   const body = renderedBody !== null ? renderedBody : p.body(rel);
   // Inject a 3-question FAQ block + FAQPage JSON-LD on major hub index pages to answer top-of-funnel objections
   // and unlock FAQ rich-result snippets on hub SERPs.
@@ -654,7 +689,8 @@ console.log(`wrote search-index.json (${Buffer.byteLength(searchJson)} bytes, ${
   const listItems = indexable.map((p,i)=>({'@type':'ListItem',position:i+1,name:SEO_TITLES[p.path]||p.title,url:`${SITE}${p.path.replace(/\/index\.html$/,'/')}`}));
   const extraHead = `<script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'CollectionPage','@id':`${SITE}sitemap/#webpage`,url:`${SITE}sitemap/`,name:'Sitemap — every page on Clausery',description:`${total} public pages on Clausery: invoices, templates, guides, calculators and docs, all free Word files you can edit in the browser.`,inLanguage:'en-GB',isPartOf:{'@id':`${SITE}#website`},mainEntity:{'@type':'ItemList',numberOfItems:listItems.length,itemListElement:listItems}})}</script>`;
   mkdirSync('sitemap',{recursive:true});
-  const sh = head({title:'Sitemap (site map) — every page on Clausery', description:`Site map of every public page on Clausery: ${total} free Word invoices, templates, contracts, NDAs, guides, calculators and docs, all in one list.`,path:'sitemap/',extraHead,rel})+body+footer(rel);
+  const sitemapSiteLd = buildSiteLd(extraHead, false);
+  const sh = head({title:'Sitemap (site map) — every page on Clausery', description:`Site map of every public page on Clausery: ${total} free Word invoices, templates, contracts, NDAs, guides, calculators and docs, all in one list.`,path:'sitemap/',extraHead: extraHead + sitemapSiteLd,rel})+body+footer(rel);
   writeFileSync('sitemap/index.html',sh.replace(/<pre>/g,'<pre tabindex="0">'));
   console.log('wrote sitemap/index.html');
 }

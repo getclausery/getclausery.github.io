@@ -155,7 +155,7 @@ export function head({ title, description, path, extraHead = '', pageLd = '', og
 <title>${esc(full)}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="${esc(description)}">
-<meta name="author" content="Clausery"><meta name="generator" content="Clausery (https://getclausery.github.io/)"><meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="author" content="Clausery"><meta name="generator" content="Clausery (https://getclausery.github.io/) — AGPL-3.0-or-later open source"><meta name="referrer" content="strict-origin-when-cross-origin">
 ${keywords ? `<meta name="keywords" content="${esc(keywords)}">` : ''}
 ${robots}${prev ? `<link rel="prev" href="${SITE}${prev}">` : ''}${next ? `<link rel="next" href="${SITE}${next}">` : ''}<link rel="canonical" href="${url}"><link rel="author" href="${rel}about/"><link rel="alternate" hreflang="en" href="${url}"><link rel="alternate" hreflang="en-GB" href="${url}"><link rel="alternate" hreflang="x-default" href="${url}">
 <meta property="og:type" content="${ogType}">
@@ -178,9 +178,6 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <meta name="thumbnail" content="${image}">
 <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0f1419" media="(prefers-color-scheme: dark)">
-<meta name="referrer" content="strict-origin-when-cross-origin">
-<meta name="author" content="Clausery">
-<meta name="generator" content="Clausery ${SITE} — AGPL-3.0-or-later open source">
 <meta name="original-source" content="${url}">
 <meta name="color-scheme" content="light dark">
 <meta name="format-detection" content="telephone=no">
@@ -197,7 +194,6 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <meta name="application-name" content="Clausery">
 <meta name="msapplication-TileColor" content="#0d9488">
 <meta name="msapplication-config" content="${rel}browserconfig.xml">
-<meta name="theme-color" content="#f6f4ef">
 <link rel="manifest" href="${rel}app/manifest.webmanifest">
 <link rel="search" type="application/opensearchdescription+xml" title="Clausery templates" href="${rel}opensearch.xml">
 <link type="text/plain" rel="author" href="${rel}humans.txt">
