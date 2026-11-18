@@ -243,6 +243,10 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-185-0">2.185.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
+<ul>
+  <li><strong>Page-print button touch target.</strong> The print/share buttons on guide/template/clause pages become <code>inline-flex</code> with <code>min-height:44px</code> under the existing mobile media query, meeting WCAG 2.5.5. Trimmed two redundant declarations from <code>.page-print-btn</code> (<code>transition:all .15s</code> and <code>font-family:inherit</code>, both already inherited or replaced) to stay inside the 45 KB site.css cap with headroom.</li>
+</ul>
 <h2 id="v2-184-0">2.184.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
   <li><strong>Prev/next nav touch targets.</strong> The <em>Previous / Next</em> links at the bottom of guide, template and hub pages now declare <code>min-height:44px</code> and are laid out with <code>inline-flex</code> centering so their padded area meets WCAG 2.5.5. The CSS lives in the inline <code>&lt;style&gt;</code> block emitted by <code>tools/build-site.mjs</code> alongside the prev/next nav, so it doesn't consume site.css budget. Padding and desktop layout are unchanged.</li>
@@ -575,7 +579,7 @@ export const pages = [
 
 <h2 id="v2-84-0">2.84.0 <span class="small muted">— 1 November 2026</span></h2>
 <ul>
-  <li><strong>Overdue-invoice reminder banner.</strong> When you open a sent invoice that is past its due date, the Review card now shows an orange <code>.notice-warn</code> at the top saying how many days overdue it is (e.g. "This invoice is 7 days overdue — sent 15 Oct, due 25 Oct") with a one-click "Send a reminder email" button (same mailto: reminder as the existing button in the Invoice status card, now surfaced at the top of the page). Catches users at the moment they return to an overdue draft — the highest-intent moment for sending a follow-up — instead of requiring them to notice the small status-card button.</li>
+  <li><strong>Overdue-invoice reminder banner.</strong> Past-due sent invoices now show an orange overdue notice at the top of Review with a one-click "Send a reminder email" button.</li>
 </ul>
 
 <h2 id="v2-83-0">2.83.0 <span class="small muted">— 1 November 2026</span></h2>
