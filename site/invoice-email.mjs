@@ -24,7 +24,7 @@ const EXAMPLES = [
 const CSS = `<style>
 .email-tool{border:1px solid var(--border);border-radius:12px;padding:1.4rem;margin:1.5rem 0;background:var(--surface)}
 .email-tool .email-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1rem 0}
-.email-tool label{display:block;font-weight:600;margin-bottom:.3rem}.email-tool input,.email-tool select,.email-tool textarea{width:100%;min-width:0;padding:.7rem;border:1px solid var(--border);border-radius:6px;font:inherit;background:var(--bg);color:var(--text)}
+.email-tool label{display:block;font-weight:600;margin-bottom:.3rem}.email-tool input,.email-tool select,.email-tool textarea{width:100%;min-width:0;min-height:44px;padding:.7rem;border:1px solid var(--border);border-radius:6px;font:inherit;background:var(--bg);color:var(--text)}
 .email-tool textarea{resize:vertical}.email-tool .actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}.email-tool [aria-invalid=true]{border:2px solid var(--accent)}
 .email-tool fieldset{border:0;padding:0;margin:0;min-width:0}
 .email-sample{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;padding:1.1rem;border:1px solid var(--border);border-radius:8px;background:var(--surface)}

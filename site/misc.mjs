@@ -243,6 +243,10 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-182-0">2.182.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
+<ul>
+  <li><strong>Free-tool and generator inputs get 44px touch targets.</strong> Added <code>min-height:44px</code> to all text, number, select and textarea inputs inside the free-calculator <code>.tool</code> block, the invoice-email generator, and the payment-receipt generator. The invoice deposit calculator already had this from v2.179; the marketing site's filter inputs and nav menu button already met 44px. (These rules live in per-tool inline <code>&lt;style&gt;</code> blocks and the app stylesheet, not in <code>site.css</code>, so they don't consume the 45 KB site.css budget.)</li>
+</ul>
 <h2 id="v2-181-0">2.181.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
   <li><strong>Breadcrumb and icon-button touch targets.</strong> Mobile breadcrumb links now meet WCAG 2.5.5 with <code>min-height:44px</code> and slightly larger padding under a <code>@media (max-width:760px)</code> block (desktop breadcrumb padding is unchanged so the header stays compact). In-app <code>.btn-icon</code> buttons are <code>min-width:44px</code>/<code>min-height:44px</code> (previously <code>.4rem</code> padding ≈ 28px target). Also tightened the print stylesheet (~150 B saved by removing redundant <code>@page</code>, unused <code>.badge</code> print reset, and the empty-content <code>::after</code> rule for same-site anchors) and removed a now-redundant <code>text-decoration:none</code> on <code>.h-anchor</code> to stay inside the 45 KB site.css cap.</li>
@@ -515,7 +519,7 @@ export const pages = [
 
 <h2 id="v2-92-0">2.92.0 <span class="small muted">— 2 November 2026</span></h2>
 <ul>
-  <li><strong>"Mark as sent?" after sharing.</strong> On mobile (any device with <code>navigator.share</code> for files), after a successful Share the Review card toasts <em>"Shared. Mark it as sent?"</em> with a one-click <em>Mark sent</em> action. Share → mark-sent is the natural workflow once the file reaches the client; previously the user had to scroll up to the Invoice status card and click Mark as sent manually, so state often got left as "Downloaded" instead of "Sent" (meaning the outstanding-inbox badge and overdue tracking missed invoices).</li>
+  <li><strong>"Mark as sent?" after sharing.</strong> After a successful mobile Share, the Review card toasts <em>"Shared. Mark it as sent?"</em> with a one-click action so invoices don't get stuck in "Downloaded" state (which breaks outstanding-inbox badges and overdue tracking).</li>
 </ul>
 
 <h2 id="v2-91-0">2.91.0 <span class="small muted">— 2 November 2026</span></h2>
@@ -534,7 +538,7 @@ export const pages = [
 
 <h2 id="v2-89-0">2.89.0 <span class="small muted">— 2 November 2026</span></h2>
 <ul>
-  <li><strong>Drafts filter tabs.</strong> The drafts list now has <em>Outstanding</em> / <em>Overdue</em> / <em>Paid</em> / <em>All</em> tab buttons with live counts, so users can jump straight to invoices awaiting payment without scanning the full table. The quick-jump palette's <strong>O</strong> (outstanding) entry deep-links to <code>/drafts?filter=outstanding</code>, giving overdue collections a one-keystroke path from anywhere in the app.</li>
+  <li><strong>Drafts filter tabs.</strong> Outstanding/Overdue/Paid/All tabs with live counts on the drafts list; quick-jump palette <strong>O</strong> deep-links to <code>/drafts?filter=outstanding</code> for one-keystroke collections access.</li>
 </ul>
 
 <h2 id="v2-88-0">2.88.0 <span class="small muted">— 2 November 2026</span></h2>
@@ -546,7 +550,7 @@ export const pages = [
 
 <h2 id="v2-87-0">2.87.0 <span class="small muted">— 1 November 2026</span></h2>
 <ul>
-  <li><strong>Smarter reminder emails.</strong> The "Send reminder" button (Invoice status card and overdue banner) now pre-fills the <code>To:</code> field with the client email when it was collected on the Bill-to step, uses a <code>Reminder: Invoice #N (overdue)</code> subject line when past due, and includes the balance-due amount in the body when it has been calculated. Removes the most common friction in following up — finding the client email and remembering the invoice number.</li>
+  <li><strong>Smarter reminder emails.</strong> "Send reminder" pre-fills <code>To:</code> with the client email, uses a "Reminder: Invoice #N (overdue)" subject when past due, and includes the balance due when known.</li>
 </ul>
 
 <h2 id="v2-86-0">2.86.0 <span class="small muted">— 1 November 2026</span></h2>

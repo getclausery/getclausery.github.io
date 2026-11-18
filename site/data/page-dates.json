@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-18",
-  "hash": "96ac24f102e5f65c"
+  "hash": "9bfedebcdea2d368"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-11-18",
-  "hash": "df25e50fdd3374d2"
+  "hash": "61b72e7e024c8f70"
  },
  "clauses/": {
   "date": "2026-11-14",
@@ -261,43 +261,43 @@
  },
  "free-tools/": {
   "date": "2026-11-18",
-  "hash": "297603436a73db8d"
+  "hash": "fd437d15b02cfcda"
  },
  "free-tools/amount-in-words.html": {
   "date": "2026-11-18",
-  "hash": "9d4102184172dba4"
+  "hash": "82f8d061e8ab82af"
  },
  "free-tools/deadline-calculator.html": {
   "date": "2026-11-18",
-  "hash": "bfbcd8ebd9e0f35c"
+  "hash": "f7ff1034986e73e5"
  },
  "free-tools/freelance-rate.html": {
   "date": "2026-11-18",
-  "hash": "a5b8a474728b8e14"
+  "hash": "7810d665fc255da4"
  },
  "free-tools/invoice-due-date.html": {
   "date": "2026-11-18",
-  "hash": "f1d71e6568f523c5"
+  "hash": "850c884245e3cef0"
  },
  "free-tools/late-payment-interest.html": {
   "date": "2026-11-18",
-  "hash": "9f66d405c96e58c4"
+  "hash": "5f08329fe609c72f"
  },
  "free-tools/loan-repayment.html": {
   "date": "2026-11-18",
-  "hash": "672802f4228cfefb"
+  "hash": "4505801d9188247e"
  },
  "free-tools/prorated-rent.html": {
   "date": "2026-11-18",
-  "hash": "fb8ec44138437ac6"
+  "hash": "df99c29a4cf843d3"
  },
  "free-tools/sales-commission.html": {
   "date": "2026-11-18",
-  "hash": "3252ebd748a50876"
+  "hash": "60164627714dae97"
  },
  "free-tools/template-checker.html": {
-  "date": "2026-11-14",
-  "hash": "9213c2913da95610"
+  "date": "2026-11-18",
+  "hash": "5d179dcf35fed6d2"
  },
  "guides/": {
   "date": "2026-11-14",
@@ -397,7 +397,7 @@
  },
  "guides/how-to-write-a-payment-receipt.html": {
   "date": "2026-11-18",
-  "hash": "c0ca05eb1be5cb2e"
+  "hash": "05338dd09a370e75"
  },
  "guides/how-to-write-a-performance-improvement-plan.html": {
   "date": "2026-11-14",
@@ -469,7 +469,7 @@
  },
  "guides/invoice-email-template.html": {
   "date": "2026-11-18",
-  "hash": "46bf14c67fc1af8f"
+  "hash": "89067f875b368420"
  },
  "guides/is-an-mou-legally-binding.html": {
   "date": "2026-11-14",
@@ -809,7 +809,7 @@
  },
  "roadmap/": {
   "date": "2026-11-18",
-  "hash": "3b6a5e61e3308a47"
+  "hash": "78075f68fd464c07"
  },
  "search/": {
   "date": "2026-11-16",
@@ -825,7 +825,7 @@
  },
  "status/": {
   "date": "2026-11-18",
-  "hash": "794b0a937c3a5f89"
+  "hash": "6403ed833f8161b8"
  },
  "templates/": {
   "date": "2026-11-18",
@@ -1257,7 +1257,7 @@
  },
  "templates/payment-receipt.html": {
   "date": "2026-11-18",
-  "hash": "7b39fd18cd24ac42"
+  "hash": "d744d4154419c2e6"
  },
  "templates/payment-reminder-letter-template.html": {
   "date": "2026-11-14",
