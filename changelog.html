@@ -113,6 +113,12 @@
 <section class="section"><div class="wrap prose">
 <nav class="small muted" aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><ol class="bdcrums"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="./"><span itemprop="name">Home</span></a><meta itemprop="position" content="1"></li> <span aria-hidden="true">›</span> <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name" aria-current="page">Changelog</span><meta itemprop="position" content="2"></li></ol></nav><h1>Changelog <a href="./releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1><button type="button" class="page-print-btn page-share-btn" onclick="(function(s,b){if(navigator.share){navigator.share({title:document.title,url:location.href}).catch(()=>{})}else{navigator.clipboard.writeText(location.href);b.textContent='Link copied';setTimeout(()=>b.textContent='Share',1500)}})(this,this)" title="Share this page or copy link" aria-label="Share">Share</button><button type="button" class="page-print-btn" onclick="window.print()" title="Print or save as PDF" aria-label="Print">Print/PDF</button>
 <p><a class="btn btn-primary" href="./app/">Open Clausery, free</a> <a class="btn" href="./templates/">Free templates</a></p>
+<h2 id="v2-204-0">2.204.0 <span class="small muted">— <time datetime="2026-11-18">18 November 2026</time></span></h2>
+<ul>
+  <li><strong>Honors <code>prefers-reduced-motion</code>.</strong> Added a global <code>@media(prefers-reduced-motion:reduce)</code> rule that disables transitions, keyframe animations and smooth scrolling for visitors who have "Reduce motion" enabled in OS/mobile accessibility settings (iOS/macOS/Windows/Android). The welcome-bar pulse dot, release-pill spark and scroll-progress bar are suppressed for those users. (WCAG 2.3.3 Animation from Interactions.)</li>
+  <li><strong>Tighter transition easing.</strong> Replaced seven occurrences of <code>cubic-bezier(.2,.8,.2,1)</code> with the CSS <code>ease</code> keyword (visually nearly identical) to free bytes for the reduced-motion rule without touching the 45,000-byte stylesheet budget.</li>
+</ul>
+<span id="v2-204-1" aria-hidden="true"></span>
 <h2 id="v2-203-0">2.203.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul><li><strong>Autocorrect off for search.</strong> All four search inputs (homepage, /templates/, /search/, and the ⌘K palette) now declare <code>autocorrect="off"</code> so iOS Safari doesn't autocorrect template names, client names, or invoice numbers into dictionary words while you type. Also tightened the skip-link CSS slightly.</li></ul>
 <h2 id="v2-202-0">2.202.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
@@ -149,35 +155,16 @@
 <h2 id="v2-178-0">2.178.0–2.179.0 <span class="small muted">— 8–9 November 2026</span></h2>
 <ul><li><strong>App form keyboard hints &amp; touch targets.</strong> Added <code>enterkeyhint="next"</code>, <code>spellcheck="false"</code>, <code>autocapitalize="off"</code> and appropriate <code>inputmode</code>/<code>autocomplete</code> to every in-app text/number/money/email/tel/date/textarea control. Raised default <code>.input/.select/.textarea/.btn</code> in <code>app/styles.css</code> to <code>min-height:44px</code>. Deadline-calculator holidays textarea gets <code>spellcheck=false;enterkeyhint=done</code>.</li></ul>
 <span id="v2-179-0" aria-hidden="true"></span>
-<h2 id="v2-177-0">2.177.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
-<ul><li><strong>Free-tool enterkeyhints.</strong> Added <code>enterkeyhint="done"</code> to 22 remaining numeric/decimal inputs across free tools and the receipt generator so iOS/Android shows the blue <kbd>Done</kbd> key to dismiss the keyboard.</li></ul>
-<h2 id="v2-176-0">2.176.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
-<ul><li><strong>Changelog housekeeping.</strong> Collapsed v2.65–v2.67 into one summary line to recover changelog headroom.</li>
-</ul>
-<h2 id="v2-175-0">2.175.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
+<h2 id="v2-175-0">2.175.0–2.177.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
 <ul>
-  <li><strong>Freelance-rate calculator: autocomplete disabled on numeric fields.</strong> Added <code>autocomplete="off"</code> to the five numeric inputs on the freelance-rate calculator (target income, expenses, tax rate, statutory rate, Bank of England base rate) so browsers don't offer to autofill them with saved addresses or credit-card numbers, and don't obscure the live result. The other free calculators already had <code>autocomplete="off"</code>.</li>
+  <li><strong>Free-tool input polish.</strong> Added <code>enterkeyhint="done"</code> to 22 numeric/decimal inputs so iOS/Android shows the <kbd>Done</kbd> key; added <code>autocomplete="off"</code> to five freelance-rate fields; removed duplicated enterkeyhint attributes; collapsed v2.65–v2.67 changelog entries to recover headroom.</li>
 </ul>
-<h2 id="v2-174-0">2.174.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
+<span id="v2-176-0" aria-hidden="true"></span><span id="v2-177-0" aria-hidden="true"></span>
+<h2 id="v2-170-0">2.170.0–2.174.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
 <ul>
-  <li><strong>Free-tool inputs: spellcheck off, duplicate enterkeyhints removed.</strong> Added <code>spellcheck="false"</code> to all numeric/decimal inputs across the free calculator tools (late-payment interest, freelance-rate, prorated-rent, sales-commission, loan-repayment calculators) so numbers aren't red-underlined. Also removed five duplicated <code>enterkeyhint="done"</code> attributes that had been applied twice to type="number" inputs in the freelance-rate and deadline-calculator tools.</li>
+  <li><strong>Mobile touch-target & keyboard polish batch.</strong> Bumped <code>.faq summary</code>, code-block copy button and "Was this helpful?" vote buttons to 44 px (WCAG 2.5.5). Added <code>autocapitalize="off" spellcheck="false" enterkeyhint="search"</code> to all three marketing-site search inputs; added <code>enterkeyhint="next/done"</code>, <code>spellcheck="false"</code>, <code>autocomplete="off"</code> to invoice-email generator and free-tool numeric inputs; removed duplicate enterkeyhint attributes. Replaced the welcome-bar gradient with a flat color-mixed background (~130 B CSS saving).</li>
 </ul>
-<h2 id="v2-173-0">2.173.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
-<ul>
-  <li><strong>Invoice-email generator keyboard hints.</strong> Added <code>enterkeyhint="next"</code>, <code>spellcheck="false"</code> and appropriate <code>autocomplete="off"</code> attributes to the invoice-email generator inputs (client name, sender, invoice number, project, amount, due date, payment instructions) so iOS/Android show <kbd>Next</kbd> instead of Return to step through fields, and <kbd>Send</kbd> on the payment-instructions textarea. The read-only generated message body also gets <code>spellcheck="false"</code> so copied/injected text isn't red-underlined.</li>
-</ul>
-<h2 id="v2-172-0">2.172.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
-<ul>
-  <li><strong>Search input keyboard hints.</strong> Added <code>autocapitalize="off"</code>, <code>spellcheck="false"</code> and <code>enterkeyhint="search"</code> to the three site-wide search inputs (homepage template finder, /templates/ filter, /search/ page) so iOS/Android show the correct "Search" return key, don't auto-capitalise, and don't red-underline queries. The cmdk palette already had these.</li>
-</ul>
-<h2 id="v2-171-0">2.171.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
-<ul>
-  <li><strong>Copy and helpful-vote buttons to 44 px.</strong> The code-block copy button (<code>.copy-btn</code>) and "Was this helpful?" feedback buttons (<code>.helpful-btn</code>) had ~33–37 px hit areas. Moved <code>.copy-btn</code> padding/min-height to the base rule and bumped <code>.helpful-btn</code> to .65rem/.9rem padding with <code>min-height:44px</code>.</li>
-</ul>
-<h2 id="v2-170-0">2.170.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
-<ul>
-  <li><strong>FAQ tap targets to 44 px; welcome bar simplified.</strong> Bumped <code>.faq summary</code> vertical padding from .85rem to 1rem and added <code>min-height:44px</code> so each expandable question meets the WCAG 2.5.5 touch-target size on phones. Also replaced the welcome-bar's <code>linear-gradient</code> between the accent and amber tint with a single color-mixed background (saves ~130 bytes of CSS; the gradient was barely perceptible on either theme).</li>
-</ul>
+<span id="v2-171-0" aria-hidden="true"></span><span id="v2-172-0" aria-hidden="true"></span><span id="v2-173-0" aria-hidden="true"></span><span id="v2-174-0" aria-hidden="true"></span>
 <h2 id="v2-169-0">2.169.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
 <ul>
   <li><strong>Icon-stroke class restored; quickstart-card padding consolidated.</strong> Restored the <code>.i</code> SVG icon class (fill:none;stroke:currentColor;stroke-width:2) that was accidentally removed in v2.161 — menu, search, dismiss, check and arrow icons across 27 placements per page were rendering filled instead of stroked. Unified <code>.quickstart-card</code> padding to .85rem across all breakpoints (the previous .9rem/.85rem split was cosmetic), saving the redundant media-query overrides.</li>
@@ -538,7 +525,7 @@
       <a href="./legal/dmca.html">DMCA</a>
       <a href="./press/">Press kit</a>
     </div>
-    <div class="legal">© 2026 Clausery · <a href="./changelog.html#v2-203-0" style="color:inherit">v2.203.0</a> · <a href="./sitemap/" style="color:inherit">Sitemap</a> · Open source under <a href="./legal/license.html" style="color:inherit">AGPLv3</a> · Clausery name and logo are <a href="https://github.com/getclausery/getclausery.github.io/blob/main/TRADEMARKS.md" rel="noopener" style="color:inherit">trademarks</a>. Clausery is software, not legal advice; documents you generate are your responsibility. Not affiliated with Microsoft; Word is a trademark of Microsoft Corporation. Not affiliated with clausery.ai. <a href="https://github.com/getclausery/getclausery.github.io" rel="noopener" style="color:inherit">Source on GitHub</a></div>
+    <div class="legal">© 2026 Clausery · <a href="./changelog.html#v2-204-0" style="color:inherit">v2.204.0</a> · <a href="./sitemap/" style="color:inherit">Sitemap</a> · Open source under <a href="./legal/license.html" style="color:inherit">AGPLv3</a> · Clausery name and logo are <a href="https://github.com/getclausery/getclausery.github.io/blob/main/TRADEMARKS.md" rel="noopener" style="color:inherit">trademarks</a>. Clausery is software, not legal advice; documents you generate are your responsibility. Not affiliated with Microsoft; Word is a trademark of Microsoft Corporation. Not affiliated with clausery.ai. <a href="https://github.com/getclausery/getclausery.github.io" rel="noopener" style="color:inherit">Source on GitHub</a></div>
   </div>
 </footer>
 <script id="search-index" type="application/json" data-src="./search-index.json" defer></script>
