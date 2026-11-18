@@ -51,7 +51,7 @@ export const pages = [{
   <div class="wrap">
     <div>
       <div class="eyebrow">${ico(I.calc)} Free · No account · No card · Editable Word</div>
-      <div class="release-pill"><a href="${rel}changelog.html#v${APP_VERSION.replace(/\./g,'-')}"><strong>New:</strong> v${APP_VERSION}</a> — /templates/ filter gets role=search; start/end flexbox alignment shorthands. <a href="${rel}changelog.html">See what changed</a>.</div>
+      <div class="release-pill"><a href="${rel}changelog.html#v${APP_VERSION.replace(/\./g,'-')}"><strong>New:</strong> v${APP_VERSION}</a> — autocorrect="off" added to all search inputs (stops iOS autocorrect). <a href="${rel}changelog.html">See what changed</a>.</div>
       <h1>Free invoice template — make a professional invoice online in 60 seconds.</h1>
       <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><strong>4.8/5</strong><span class="muted">from 427 freelancers and small businesses</span></p>
       <p class="lead">Answer a few questions and download a printable PDF or editable <strong>Word .docx</strong> invoice. Totals, VAT, GST or sales tax, discounts, and the next invoice number are worked out automatically. Also make <a href="${rel}templates/quote.html">quotes</a>, <a href="${rel}templates/purchase-order.html">purchase orders</a>, <a href="${rel}templates/credit-note.html">credit notes</a> and <a href="${rel}templates/payment-receipt.html">receipts</a> — everything runs in your browser; nothing is uploaded.</p>
@@ -257,7 +257,7 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
     <p class="lead">${LIB.length} ready-made Word templates, from NDAs and employment contracts to leases, liability waivers and freelance contracts. Read the full wording, answer a few questions, and download a finished .docx. No sign-up, and nothing you type leaves your browser.</p>
     <form class="find-form" action="${rel}templates/" method="get" role="search" aria-label="Find a free template">
       <label class="sr-only" for="home-q">Find a template</label>
-      <input id="home-q" name="q" type="search" placeholder="Find a template: lease, NDA, invoice…" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search">
+      <input id="home-q" name="q" type="search" placeholder="Find a template: lease, NDA, invoice…" autocomplete="off" autocapitalize="off" spellcheck="false" autocorrect="off" enterkeyhint="search">
       <button class="btn btn-primary" type="submit">Search</button>
     </form>
     <div class="grid grid-4">

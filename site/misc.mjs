@@ -212,7 +212,7 @@ export const pages = [
 <p class="lead">Type what you are looking for — for example <a href="${rel}search/?q=invoice"><em>invoice</em></a>, <a href="${rel}search/?q=nda"><em>NDA</em></a>, <a href="${rel}search/?q=late+payment"><em>late payment</em></a>, <a href="${rel}search/?q=lease"><em>lease</em></a>, <a href="${rel}search/?q=independent+contractor"><em>independent contractor</em></a> — and the matching template, calculator or guide appears below.</p>
 <form class="find-form" action="${rel}search/" method="get" role="search" aria-label="Search the site" style="margin:1.5rem 0 1rem">
   <label for="site-q" class="sr-only">Search</label>
-  <input id="site-q" type="search" name="q" placeholder="invoice, NDA, lease, late payment…" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" autofocus>
+  <input id="site-q" type="search" name="q" placeholder="invoice, NDA, lease, late payment…" autocomplete="off" autocapitalize="off" spellcheck="false" autocorrect="off" enterkeyhint="search" autofocus>
   <button class="btn btn-primary" type="submit">Search <span class="arr">→</span></button>
 </form>
 <p class="small muted" role="status" aria-live="polite" id="site-q-status">Start typing to filter results, or press Enter to load the full page.</p>
@@ -243,6 +243,8 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-203-0">2.203.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
+<ul><li><strong>Autocorrect off for search.</strong> All four search inputs (homepage, /templates/, /search/, and the ⌘K palette) now declare <code>autocorrect="off"</code> so iOS Safari doesn't autocorrect template names, client names, or invoice numbers into dictionary words while you type. Also tightened the skip-link CSS slightly.</li></ul>
 <h2 id="v2-202-0">2.202.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul><li><strong>Search role on template filter.</strong> The /templates/ keyword filter now carries <code>role="search" aria-label="Filter templates"</code> so screen readers announce it as a search region. Replaced <code>justify-content:flex-end/start</code> and <code>align-items:flex-start</code> with the shorter <code>end/start</code> keywords across site.css (14 B saved).</li></ul>
 <h2 id="v2-201-0">2.201.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
@@ -277,13 +279,10 @@ export const pages = [
 <h2 id="v2-178-0">2.178.0–2.179.0 <span class="small muted">— 8–9 November 2026</span></h2>
 <ul><li><strong>App form keyboard hints &amp; touch targets.</strong> Added <code>enterkeyhint="next"</code>, <code>spellcheck="false"</code>, <code>autocapitalize="off"</code> and appropriate <code>inputmode</code>/<code>autocomplete</code> to every in-app text/number/money/email/tel/date/textarea control. Raised default <code>.input/.select/.textarea/.btn</code> in <code>app/styles.css</code> to <code>min-height:44px</code>. Deadline-calculator holidays textarea gets <code>spellcheck=false;enterkeyhint=done</code>.</li></ul>
 <span id="v2-179-0" aria-hidden="true"></span>
-<h2 id="v2-177-0">2.177.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
-<ul>
-  <li><strong>Free-tool enterkeyhints completed.</strong> Added <code>enterkeyhint="done"</code> to the 22 remaining numeric/decimal inputs across the free tools and payment-receipt generator that didn't already declare it (deadline, late-payment, amount-in-words, prorated-rent, sales-commission, loan-repayment, invoice-due-date, and the three receipt amount fields), so iOS/Android show the blue <kbd>Done</kbd> button to dismiss the keyboard instead of Return. Date inputs and checkboxes were left at their defaults.</li>
-</ul>
-<h2 id="v2-176-0">2.176.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
-<ul>
-  <li><strong>Changelog housekeeping.</strong> Condensed the three v2.65.0–v2.67.0 entries (31 October 2026, hub cross-link rollout) into one summary line to recover ~630 bytes of changelog build headroom, which had dropped under 100 B.</li>
+<h2 id="v2-177-0">2.177.0 <span class="small muted">— 8 November 2026</span></h2>
+<ul><li><strong>Free-tool enterkeyhints.</strong> Added <code>enterkeyhint="done"</code> to 22 remaining numeric/decimal inputs across free tools and the receipt generator so iOS/Android shows the blue <kbd>Done</kbd> key to dismiss the keyboard.</li></ul>
+<h2 id="v2-176-0">2.176.0 <span class="small muted">— 8 November 2026</span></h2>
+<ul><li><strong>Changelog housekeeping.</strong> Collapsed v2.65–v2.67 into one summary line to recover changelog headroom.</li>
 </ul>
 <h2 id="v2-175-0">2.175.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
 <ul>
