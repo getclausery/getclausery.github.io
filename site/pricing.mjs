@@ -35,7 +35,8 @@ const FAQ = [
   ['How do I add Team seats?', `The online Team checkout covers five named users at $${PRICES.team}/month. Additional seats cost $${PRICES.teamSeat} per user/month and are arranged by request at ${CONTACT_EMAIL}. Contact us before purchasing for a larger team.`],
 ];
 // The paid plans as structured data, so search engines can read the prices on this page.
-const offer = (name, price, unitText) => ({ '@type': 'Offer', name, price, priceCurrency: 'USD', url: SITE + 'pricing/', priceSpecification: { '@type': 'UnitPriceSpecification', price, priceCurrency: 'USD', unitText } });
+const VALID_UNTIL = new Date(Date.now()+365*86400000).toISOString().slice(0,10);
+const offer = (name, price, unitText) => ({ '@type': 'Offer', name, price, priceCurrency: 'USD', availability: 'https://schema.org/InStock', validThrough: VALID_UNTIL, url: SITE + 'pricing/', priceSpecification: { '@type': 'UnitPriceSpecification', price, priceCurrency: 'USD', unitText } });
 const plansLd = `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'Clausery', applicationCategory: 'BusinessApplication', operatingSystem: 'Any (web browser)', url: SITE,
   offers: [offer('Free', '0', 'every library template and up to 3 of your own'), offer('Pro, monthly', String(PRICES.pro), 'per user per month'), offer('Pro, yearly', String(PRICES.proYearly), 'per user per year'),
     ...(LIFETIME ? [offer('Pro, lifetime', String(PRICES.lifetime), 'one-time payment per user')] : []), offer('Team, 5 seats', String(PRICES.team), 'per month')] })}</script>`;
