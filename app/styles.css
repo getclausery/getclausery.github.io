@@ -163,7 +163,7 @@ details.section > .section-body { padding: 0 1rem 1rem; }
 .toast { display: flex; align-items: center; gap: .6rem; padding: .7rem .9rem; background: var(--ink); color: var(--ink-text); border-radius: var(--radius-sm); box-shadow: var(--shadow); font-size: .92rem; animation: rise .18s ease-out; }
 .toast.leaving { opacity: 0; transition: opacity .2s; }
 .toast-danger { background: var(--danger); color: var(--on-danger); } .toast-ok { background: var(--ok); color: var(--on-ok); } .toast-warn { background: var(--warn); color: var(--on-warn); }
-.toast-close { background: none; border: 0; color: inherit; cursor: pointer; padding: .2rem; margin-left: auto; display: flex; }
+.toast-close { background: none; border: 0; color: inherit; cursor: pointer; padding: .4rem; margin-left: auto; display: flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; }
 .toast .btn-ghost { color: inherit; border-color: rgba(255,255,255,.35); }
 @media (max-width: 800px) { .toasts { bottom: 4.75rem; right: .75rem; left: .75rem; max-width: none; } }
 @keyframes rise { from { transform: translateY(8px); opacity: 0; } to { transform: none; opacity: 1; } }
