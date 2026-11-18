@@ -243,6 +243,10 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-183-0">2.183.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
+<ul>
+  <li><strong>Clause Print/PDF button touch target.</strong> The <em>Print / PDF</em> button on clause pages now drops out of absolute positioning and flows as a 44&nbsp;px tall block button under the clause text on screens ≤&nbsp;760&nbsp;px, matching the treatment already used for <code>.page-print-btn</code>. Desktop layout is unchanged (absolute top-right at compact padding). Clause CSS lives inline in <code>site/clauses.mjs</code>, so this doesn't affect the site.css budget.</li>
+</ul>
 <h2 id="v2-182-0">2.182.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
   <li><strong>Free-tool and generator inputs get 44px touch targets.</strong> Added <code>min-height:44px</code> to all text, number, select and textarea inputs inside the free-calculator <code>.tool</code> block, the invoice-email generator, and the payment-receipt generator. The invoice deposit calculator already had this from v2.179; the marketing site's filter inputs and nav menu button already met 44px. (These rules live in per-tool inline <code>&lt;style&gt;</code> blocks and the app stylesheet, not in <code>site.css</code>, so they don't consume the 45 KB site.css budget.)</li>
@@ -543,9 +547,9 @@ export const pages = [
 
 <h2 id="v2-88-0">2.88.0 <span class="small muted">— 2 November 2026</span></h2>
 <ul>
-  <li><strong>Hero CTA CTR lift.</strong> Primary CTA label changed from "Make my free invoice" to "Make a free invoice — no sign up" so the no-account promise is inside the button where click-intent eyes land; home <code>&lt;title&gt;</code> retitled to "Free Invoice Template | No Sign-Up, Download · Clausery" (keyword-leading, puts "Download" — the #1 commercial intent modifier — at the end of the visible title); meta description sharpened to lead with the action and repeat "no sign-up, no credit card." All three together target the CTR gap visible in search snippets where competitors' buttons/title/description repeat "free" and "no sign-up" inside visible SERP real estate.</li>
-  <li><strong>App quick-jump palette.</strong> Press <kbd>/</kbd> anywhere in the app (outside an input) to open a lightweight jump menu: <strong>N</strong> new invoice, <strong>D</strong> drafts, <strong>O</strong> outstanding invoices, <strong>T</strong> templates, <strong>S</strong> settings. Arrow keys + Enter also work; Esc closes. Matches the marketing site's ⌘K palette at muscle-memory parity and cuts the "back to drafts, then click new invoice" flow to one keystroke.</li>
-  <li><strong>Client-name autocomplete.</strong> The Bill-to "Client name" input now has a native <code>&lt;datalist&gt;</code> of the 10 most recent client names as you type, so repeat senders can tab-complete instead of retyping. The 2.85 "Recent:" chips only helped when the field was empty; autocomplete covers mid-typing.</li>
+  <li><strong>Hero CTA CTR lift.</strong> Primary CTA relabelled to "Make a free invoice — no sign up", home <code>&lt;title&gt;</code> retitled keyword-leading with "Download" at the end, and meta description rewritten to lead with the action and repeat "no sign-up, no credit card".</li>
+  <li><strong>App quick-jump palette.</strong> Press <kbd>/</kbd> outside an input to open a jump menu (<strong>N</strong> new invoice, <strong>D</strong> drafts, <strong>O</strong> outstanding, <strong>T</strong> templates, <strong>S</strong> settings), matching the marketing-site ⌘K palette at muscle-memory parity.</li>
+  <li><strong>Client-name autocomplete.</strong> Bill-to "Client name" now has a native <code>&lt;datalist&gt;</code> of the 10 most-recent clients for mid-type tab-completion.</li>
 </ul>
 
 <h2 id="v2-87-0">2.87.0 <span class="small muted">— 1 November 2026</span></h2>
