@@ -58,8 +58,8 @@ body.embed { background: transparent; }
   <div class="row">
     <div><label for="start">Start date</label><input id="start" type="date"></div>
     <div><label for="amount">Number</label><input id="amount" type="number" enterkeyhint="done" inputmode="numeric" min="0" step="1" value="30" spellcheck="false"></div>
-    <div><label for="unit">Unit</label><select id="unit"><option value="days">Calendar days</option><option value="business">Business days (Mon–Fri)</option><option value="weeks">Weeks</option><option value="months">Months</option><option value="years">Years</option></select></div>
-    <div><label for="direction">Direction</label><select id="direction"><option value="after">After the start date</option><option value="before">Before the start date</option></select></div>
+    <div><label for="unit">Unit</label><select id="unit" enterkeyhint="next"><option value="days">Calendar days</option><option value="business">Business days (Mon–Fri)</option><option value="weeks">Weeks</option><option value="months">Months</option><option value="years">Years</option></select></div>
+    <div><label for="direction">Direction</label><select id="direction" enterkeyhint="next"><option value="after">After the start date</option><option value="before">Before the start date</option></select></div>
   </div>
   <label for="holidays">Holidays to skip for business days (optional, one date per line or comma-separated, YYYY-MM-DD)</label>
   <textarea id="holidays" rows="2" placeholder="2026-12-25, 2027-01-01"></textarea>
