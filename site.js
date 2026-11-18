@@ -143,12 +143,14 @@ for(const box of $$('[data-filter-for]')){
  const container=prose.closest('.docs-with-toc');if(container){container.appendChild(wrap);return}
 })();
 (function(){
+ if(window.matchMedia('(prefers-reduced-motion:reduce)').matches)return
  const els=$$('.feature,.plan,.steps li,.docs-card');if(!els.length||!('IntersectionObserver'in window))return
  els.forEach((e,i)=>{e.classList.add('reveal');e.style.transitionDelay=(i%8)*30+'ms'})
  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -40px 0px'})
  els.forEach(e=>io.observe(e))
 })();
 document.addEventListener('pointermove',e=>{
+ if(window.matchMedia('(prefers-reduced-motion:reduce)').matches)return
  const f=e.target.closest?.('.feature');if(!f)return
  const r=f.getBoundingClientRect();f.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');f.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%')
 });
