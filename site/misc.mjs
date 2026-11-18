@@ -243,13 +243,17 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-190-0">2.190.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
+<ul>
+  <li><strong>Footer social icons on phones.</strong> The footer GitHub/RSS icons were 32×32px; on screens under 760px they now bump to 44×44 via an inline <code>@media</code> block in the footer partial (no site.css cost). Desktop stays at 32px.</li>
+</ul>
 <h2 id="v2-189-0">2.189.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
-  <li><strong>Welcome-bar touch targets.</strong> The Trial CTA pill and dismiss × in the top sticky welcome bar now meet 44px on screens under 760px wide. Desktop unchanged.</li>
+  <li><strong>Welcome-bar touch targets.</strong> Trial CTA pill and dismiss × in the top sticky welcome bar meet 44px on screens under 760px wide. Desktop unchanged.</li>
 </ul>
 <h2 id="v2-188-0">2.188.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
-  <li><strong>Intake-form &amp; toast touch targets.</strong> Standalone intake forms now add a <code>@media(max-width:600px)</code> rule so inputs/selects/textarea use 16px font (no iOS zoom) and 44px height; buttons/icon buttons also meet 44px. In-app toast <em>Dismiss</em> raised from 24px to 44×44. Desktop unchanged.</li>
+  <li><strong>Intake-form &amp; toast touch targets.</strong> Standalone intake forms add a <code>@media(max-width:600px)</code> rule so inputs/selects/textarea use 16px (no iOS zoom) and 44px; buttons/icon buttons also meet 44px. In-app toast <em>Dismiss</em> raised from 24px to 44×44. Desktop unchanged.</li>
 </ul>
 <h2 id="v2-187-0">2.187.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
@@ -604,14 +608,12 @@ export const pages = [
 </ul>
 
 <h2 id="v2-75-0">2.75.0–2.80.0 <span class="small muted">— 1 November 2026</span></h2>
-<ul>
-  <li><strong>In-app conversion nudges.</strong> Post-download "win moment" notice offers the free Pro trial; trial activation surfaces a one-click unbranded re-download; returning users get a usage-count pitch after three library documents; "Send it" share hint on share-capable devices; trial-expiring warning at 3 days; first-run friction reduced (Next no longer blocks on unanswered fields, Review &amp; download shortcut on Items step).</li>
-</ul>
+<ul><li><strong>In-app conversion nudges.</strong> Post-download "win moment" offers the Pro trial; one-click unbranded re-download for trials; usage-count pitch after 3 docs; "Send it" share hint; expiring warning at 3 days; first-run friction reduced.</li></ul>
 <span id="v2-68-0" aria-hidden="true"></span><span id="v2-74-0" aria-hidden="true"></span><h2 id="v2-65-0">2.48.0–2.74.0 <span class="small muted">— 28 October–1 November 2026</span></h2>
 <ul><li><strong>What-to-include hubs and internal-link graph.</strong> 90 hub pages shipped in batches, with cross-links from guides, clause pages, free-tools, invoice subpages, templates, audience and competitor pages.</li></ul>
 <p class="small muted">Earlier entries collapsed; full history in <a href="https://github.com/getclausery/getclausery.github.io/commits/main">git log</a>.</p>
 <h2 id="v1-x" style="font-size:1.1rem">Earlier releases</h2>
-<p class="small muted">Versions 1.0.0–1.96.0 (24 September–25 October 2026) covered the public launch, clause library, 17 launch templates, freelancer/small-business hubs, free-tool calculators, competitor comparisons, site search, PWA manifest, breadcrumb/FAQ/Article JSON-LD, dual light/dark theme, security headers, the offline service worker, "Reviewed by editors" bylines, and auto-generated meta keywords/primaryImageOfPage schema. Full history in the <a href="https://github.com/getclausery/getclausery.github.io/commits/main">Git commit log</a>.</p>
+<p class="small muted">Versions 1.0.0–1.96.0: public launch, clause library, 17 templates, hubs, free calculators, comparisons, search, PWA, dual theme, security headers, offline SW, editor bylines, auto schema. See <a href="https://github.com/getclausery/getclausery.github.io/commits/main">git log</a>.</p>
 </div></section><div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}app/">Open Clausery, free <span class="arr">→</span></a></div>`,
   },
 ];
