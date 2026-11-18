@@ -325,6 +325,7 @@ export function footer(rel) {
         <a href="${rel}releases.xml" aria-label="Releases Atom feed">${ico(I.rss)}</a>
       </div>
     </div>
+    <style>@media(max-width:760px){.site-footer h3~a,.site-footer .legal a{min-height:44px;display:inline-flex;align-items:center;padding:.5rem 0}}</style>
     <div>
       <h3>Product</h3>
       <a href="${rel}app/">Open the app</a>

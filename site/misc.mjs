@@ -243,6 +243,8 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-195-0">2.195.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
+<ul><li><strong>Footer nav links on phones.</strong> Footer column links and legal links were 24–26px tall with <code>padding:.18rem 0</code>; they now use <code>min-height:44px;display:inline-flex;align-items:center</code> under <code>@media(max-width:760px)</code> via an inline <code>&lt;style&gt;</code> block in the footer partial (no site.css cost). Desktop stays compact.</li></ul>
 <h2 id="v2-194-0">2.194.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul><li><strong>Docs sidebar links on phones.</strong> The left-hand docs navigation links (<code>.docs-nav a</code>) were 29–30px tall with <code>padding:.4rem .6rem</code>; they now use <code>min-height:44px;display:inline-flex;align-items:center</code> on screens under 760px. Desktop unchanged.</li></ul>
 <h2 id="v2-193-0">2.193.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
