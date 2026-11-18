@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-18",
-  "hash": "33f5635a82f30cce"
+  "hash": "055e14d6de320c31"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-11-18",
-  "hash": "e14cbc67230bbc34"
+  "hash": "1b1af908534a6884"
  },
  "clauses/": {
   "date": "2026-11-18",
@@ -469,7 +469,7 @@
  },
  "guides/invoice-email-template.html": {
   "date": "2026-11-18",
-  "hash": "89067f875b368420"
+  "hash": "eef70230fe71027d"
  },
  "guides/is-an-mou-legally-binding.html": {
   "date": "2026-11-14",
@@ -809,7 +809,7 @@
  },
  "roadmap/": {
   "date": "2026-11-18",
-  "hash": "fb8efdd254b513dc"
+  "hash": "1e243c6425089646"
  },
  "search/": {
   "date": "2026-11-16",
@@ -825,7 +825,7 @@
  },
  "status/": {
   "date": "2026-11-18",
-  "hash": "81a1aa65192e4ba4"
+  "hash": "9ba674231442689f"
  },
  "templates/": {
   "date": "2026-11-18",
