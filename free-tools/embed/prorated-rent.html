@@ -57,12 +57,12 @@ body.embed { background: transparent; }
 <div class="tool">
   <div class="row">
     <div><label for="rent">Monthly rent</label><input id="rent" inputmode="decimal" value="1500" autocomplete="off" spellcheck="false" enterkeyhint="done"></div>
-    <div><label for="currency">Currency</label><select id="currency"><option value="USD">US dollars</option><option value="GBP">Pounds sterling</option><option value="EUR">Euros</option><option value="CAD">Canadian dollars</option><option value="AUD">Australian dollars</option></select></div>
-    <div><label for="direction">The tenant is</label><select id="direction"><option value="in">Moving in</option><option value="out">Moving out</option></select></div>
+    <div><label for="currency">Currency</label><select id="currency" enterkeyhint="next"><option value="USD">US dollars</option><option value="GBP">Pounds sterling</option><option value="EUR">Euros</option><option value="CAD">Canadian dollars</option><option value="AUD">Australian dollars</option></select></div>
+    <div><label for="direction">The tenant is</label><select id="direction" enterkeyhint="next"><option value="in">Moving in</option><option value="out">Moving out</option></select></div>
   </div>
   <div class="row">
     <div><label for="date">Move-in or move-out date</label><input id="date" type="date"></div>
-    <div><label for="method">Daily rate from</label><select id="method"><option value="month">Days in that month</option><option value="year">365-day year</option><option value="banker">30-day month</option></select></div>
+    <div><label for="method">Daily rate from</label><select id="method" enterkeyhint="next"><option value="month">Days in that month</option><option value="year">365-day year</option><option value="banker">30-day month</option></select></div>
   </div>
   <p id="error" class="err" role="alert" hidden></p>
   <div class="out" id="result" aria-live="polite"></div>

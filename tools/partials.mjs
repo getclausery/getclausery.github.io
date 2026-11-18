@@ -306,7 +306,7 @@ export function footer(rel) {
     <div class="cmdk-bar">
       <span id="cmdk-title" class="sr-only">Search and jump to a page, template, guide or action</span>
       ${ico('M11 4a7 7 0 100 14 7 7 0 000-14zm10 16l-4-4',20)}
-      <input id="cmdk-input" type="text" placeholder="Search templates, guides, pages, actions…" autocomplete="off" autocapitalize="off" spellcheck="false" aria-controls="cmdk-list" aria-label="Search" aria-describedby="cmdk-hint">
+      <input id="cmdk-input" type="text" placeholder="Search templates, guides, pages, actions…" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" aria-controls="cmdk-list" aria-label="Search" aria-describedby="cmdk-hint">
       <kbd>Esc</kbd>
     </div>
     <div class="cmdk-body" id="cmdk-list" role="listbox" aria-label="Search results"></div>
