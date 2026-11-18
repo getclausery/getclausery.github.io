@@ -243,6 +243,8 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-197-0">2.197.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
+<ul><li><strong>⌘K palette items on phones.</strong> Each command-palette result (<code>.cmdk-item</code>) now uses <code>min-height:44px;padding:.75rem .8rem</code> under <code>@media(max-width:620px)</code> so tapping a search result meets WCAG 2.5.5. Also removed two redundant <code>.menu-btn</code> padding overrides that duplicated the base rule, keeping site.css headroom at 127 B.</li></ul>
 <h2 id="v2-196-0">2.196.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul><li><strong>Header logo on phones.</strong> The Clausery wordmark in the top-left header (<code>a.brand</code>) had <code>padding:.25rem</code> ≈ 32px; it now uses <code>min-height:44px;padding:.5rem .25rem</code> under <code>@media(max-width:760px)</code> so the back-to-home tap target meets 44px. Desktop unchanged.</li></ul>
 <h2 id="v2-195-0">2.195.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
@@ -261,15 +263,15 @@ export const pages = [
 </ul>
 <h2 id="v2-189-0">2.189.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
-  <li><strong>Welcome-bar touch targets.</strong> Trial CTA pill and dismiss × in the top sticky welcome bar meet 44px on screens under 760px wide. Desktop unchanged.</li>
+  <li><strong>Welcome-bar touch targets.</strong> Trial CTA pill and dismiss × meet 44px under 760px.</li>
 </ul>
 <h2 id="v2-188-0">2.188.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
-  <li><strong>Intake-form &amp; toast touch targets.</strong> Standalone intake forms add a <code>@media(max-width:600px)</code> rule so inputs/selects/textarea use 16px (no iOS zoom) and 44px; buttons/icon buttons also meet 44px. In-app toast <em>Dismiss</em> raised from 24px to 44×44. Desktop unchanged.</li>
+  <li><strong>Intake-form &amp; toast touch targets.</strong> Standalone intake forms add a <code>@media(max-width:600px)</code> rule for 16px inputs and 44px buttons; in-app toast <em>Dismiss</em> raised to 44×44. Desktop unchanged.</li>
 </ul>
 <h2 id="v2-187-0">2.187.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
-  <li><strong>Autocapitalize hints tuned.</strong> Invoice-email generator: client/your names use <code>autocapitalize="words"</code>, project/payment prose use <code>autocapitalize="sentences"</code>, invoice number uses <code>autocapitalize="off"</code>. Also removed a stray duplicate <code>display:block</code> on <code>.prevnext</code>.</li>
+  <li><strong>Autocapitalize hints tuned.</strong> Invoice-email: names use <code>autocapitalize="words"</code>, prose uses <code>autocapitalize="sentences"</code>, invoice number <code>autocapitalize="off"</code>. Removed a stray duplicate <code>display:block</code> on <code>.prevnext</code>.</li>
 </ul>
 <h2 id="v2-186-0">2.186.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
