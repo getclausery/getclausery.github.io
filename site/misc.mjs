@@ -243,6 +243,9 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-215-0">2.215.0 <span class="small muted">— 18 November 2026</span></h2>
+<ul><li><strong>SEO title pass on short pages.</strong> Expanded seven short/under-optimized <code>&lt;title&gt;</code> tags (Contact, FAQ, Security, Guides hub, Roadmap, Status, Security Deposit Return guide) to fill the 60-char SERP budget with high-intent keywords.</li></ul>
+<span id="v2-215-1" aria-hidden="true"></span>
 <h2 id="v2-214-0">2.214.0 <span class="small muted">— 18 November 2026</span></h2>
 <ul><li><strong>Filter input announces result count to screen readers.</strong> Added <code>aria-describedby="tpl-q-count"</code> and <code>aria-controls="tpl-groups"</code> to the /templates/ filter input so screen readers associate it with the live "N of X templates match" status region and announce the count as the user types. Gave the status <code>&lt;p&gt;</code> a matching <code>id</code> (it already had <code>role="status" aria-live="polite"</code> from earlier passes, just lacked the programmatic connection).</li></ul>
 <span id="v2-214-1" aria-hidden="true"></span>
