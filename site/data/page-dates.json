@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-18",
-  "hash": "6864b012d1892ddc"
+  "hash": "6076ae7e7cd62460"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-11-18",
-  "hash": "bec6d394dcd617ed"
+  "hash": "7ede575b89fef6a7"
  },
  "clauses/": {
   "date": "2026-11-18",
@@ -809,11 +809,11 @@
  },
  "roadmap/": {
   "date": "2026-11-18",
-  "hash": "11ef8b70ff8e119a"
+  "hash": "af36ed32d8615d3d"
  },
  "search/": {
-  "date": "2026-11-16",
-  "hash": "b1d3ed1fcac6f0b0"
+  "date": "2026-11-18",
+  "hash": "31c2f14c5c23cfd5"
  },
  "self-hosting/": {
   "date": "2026-11-14",
@@ -825,11 +825,11 @@
  },
  "status/": {
   "date": "2026-11-18",
-  "hash": "c6105f80b5f9d347"
+  "hash": "89679db0491cb5c7"
  },
  "templates/": {
   "date": "2026-11-18",
-  "hash": "ba901821f210f83a"
+  "hash": "fd3409df7dc056f1"
  },
  "templates/bill-of-sale-template.html": {
   "date": "2026-11-14",
