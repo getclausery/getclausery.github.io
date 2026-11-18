@@ -259,7 +259,7 @@ ${body}
 export function header(rel, path, crumbItems = []) {
   const cur = (p) => (path.startsWith(p) && p !== '' ? ' aria-current="page"' : '');
   const I = { menu:'M4 6h16M4 12h16M4 18h16', search:'M11 4a7 7 0 100 14 7 7 0 000-14zm10 16l-4-4' };
-  return `<header class="site-header" role="banner">
+  return `<a class="skip-link" href="#main" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:1000;background:var(--accent);color:var(--accent-text);padding:.75rem 1rem;font-weight:600;text-decoration:none;border-radius:0 0 10px 0">Skip to content</a><style>.skip-link:focus,.skip-link:focus-visible{position:fixed!important;left:0!important;top:0!important;width:auto!important;height:auto!important;overflow:visible!important;min-height:44px;display:inline-flex;align-items:center;outline:3px solid var(--accent);outline-offset:2px}</style><header class="site-header" role="banner">
   <div class="wrap">
     <a class="brand" href="${rel}"${path === '' ? ' aria-current="page"' : ''}><img src="${rel}assets/icon.svg" alt="" role="presentation" width="28" height="28" decoding="async"> Clausery</a>
     <button class="nav-search" id="nav-search" type="button" aria-label="Search or jump to… (⌘K)">

@@ -80,7 +80,7 @@
 </head>
 <body id="top">
 <a class="sr-only" href="#main">Skip to content</a>
-<header class="site-header" role="banner">
+<a class="skip-link" href="#main" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:1000;background:var(--accent);color:var(--accent-text);padding:.75rem 1rem;font-weight:600;text-decoration:none;border-radius:0 0 10px 0">Skip to content</a><style>.skip-link:focus,.skip-link:focus-visible{position:fixed!important;left:0!important;top:0!important;width:auto!important;height:auto!important;overflow:visible!important;min-height:44px;display:inline-flex;align-items:center;outline:3px solid var(--accent);outline-offset:2px}</style><header class="site-header" role="banner">
   <div class="wrap">
     <a class="brand" href="./"><img src="./assets/icon.svg" alt="" role="presentation" width="28" height="28" decoding="async"> Clausery</a>
     <button class="nav-search" id="nav-search" type="button" aria-label="Search or jump to… (⌘K)">
@@ -113,6 +113,8 @@
 <section class="section"><div class="wrap prose">
 <nav class="small muted" aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><ol class="bdcrums"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="./"><span itemprop="name">Home</span></a><meta itemprop="position" content="1"></li> <span aria-hidden="true">›</span> <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name" aria-current="page">Changelog</span><meta itemprop="position" content="2"></li></ol></nav><h1>Changelog <a href="./releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1><button type="button" class="page-print-btn page-share-btn" onclick="(function(s,b){if(navigator.share){navigator.share({title:document.title,url:location.href}).catch(()=>{})}else{navigator.clipboard.writeText(location.href);b.textContent='Link copied';setTimeout(()=>b.textContent='Share',1500)}})(this,this)" title="Share this page or copy link" aria-label="Share">Share</button><button type="button" class="page-print-btn" onclick="window.print()" title="Print or save as PDF" aria-label="Print">Print/PDF</button>
 <p><a class="btn btn-primary" href="./app/">Open Clausery, free</a> <a class="btn" href="./templates/">Free templates</a></p>
+<h2 id="v2-200-0">2.200.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
+<ul><li><strong>Skip-to-content link.</strong> Added a visually-hidden <em>Skip to content</em> link as the first focusable element on every page. It becomes a 44px-tall button fixed top-left when focused (Tab from the URL bar), letting keyboard and screen-reader users bypass the header/nav and jump straight to <code>&lt;main&gt;</code>. Styled via inline CSS (no site.css cost).</li></ul>
 <h2 id="v2-199-0">2.199.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul><li><strong>Sticky jump and TOC links on phones.</strong> The template-library category jump bar (<code>.hub-jump</code>) links and the guide-page table-of-contents links (<code>.guide-toc a</code>) now use <code>min-height:44px;display:inline-flex;align-items:center</code> on screens under 760px. Both CSS rules live inline alongside the elements they affect (in <code>site/library.mjs</code> and <code>tools/build-site.mjs</code>), so site.css budget is unaffected.</li></ul>
 <h2 id="v2-198-0">2.198.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
@@ -127,38 +129,18 @@
 <ul><li><strong>Docs sidebar links on phones.</strong> <code>.docs-nav a</code> links meet 44px under 760px. Desktop unchanged.</li></ul>
 <h2 id="v2-193-0">2.193.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul><li><strong>Mobile nav links meet 44px.</strong> Links inside the slide-out mobile menu now use <code>padding:.75rem .8rem; min-height:44px; display:inline-flex; align-items:center</code> under <code>@media(max-width:820px)</code>, up from ~38px. Consolidated all duplicate <code>@media</code> blocks for the same breakpoint into single rules (saves 232 B), giving 242 B of fresh site.css headroom for future work.</li></ul>
-<h2 id="v2-192-0">2.192.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
-<ul><li><strong>Invoice-email payment-instructions field.</strong> The optional <em>Payment instructions</em> textarea in the invoice email generator now has <code>spellcheck="true"</code> and <code>autocapitalize="sentences"</code> so iOS/Android capitalises the start of sentences and underlines typos in your prose. The read-only output and code-like subject fields remain spellcheck-off.</li></ul>
-<h2 id="v2-191-0">2.191.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
-<ul><li><strong>Mobile nav CTA touch target.</strong> The "Open app" pill inside the mobile menu drawer now uses <code>min-height:44px; display:inline-flex</code> on screens under 820px. Also narrowed <code>.nav-search</code> transition from <code>transition:all</code> to the specific properties that animate.</li></ul>
-<h2 id="v2-190-0">2.190.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
-<ul>
-  <li><strong>Footer social icons on phones.</strong> Footer GitHub/RSS icons bump to 44×44 under 760px via inline <code>@media</code> (no site.css cost). Desktop stays at 32px.</li>
-</ul>
-<h2 id="v2-189-0">2.189.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
-<ul>
-  <li><strong>Welcome-bar touch targets.</strong> Trial CTA and dismiss × meet 44px under 760px.</li>
-</ul>
-<h2 id="v2-188-0">2.188.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
-<ul>
-  <li><strong>Intake-form &amp; toast touch targets.</strong> Standalone intake forms add a <code>@media(max-width:600px)</code> rule for 16px inputs and 44px buttons; in-app toast <em>Dismiss</em> raised to 44×44. Desktop unchanged.</li>
-</ul>
-<h2 id="v2-187-0">2.187.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
-<ul>
-  <li><strong>Autocapitalize hints tuned.</strong> Invoice-email: names use <code>autocapitalize="words"</code>, prose uses <code>autocapitalize="sentences"</code>, invoice number <code>autocapitalize="off"</code>. Removed a stray duplicate <code>display:block</code> on <code>.prevnext</code>.</li>
-</ul>
-<h2 id="v2-186-0">2.186.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
-<ul>
-  <li><strong>App button sizes on phones.</strong> App <code>@media(max-width:600px)</code>: default <code>.btn</code> gets <code>min-height:44px</code>, <code>.btn-sm</code> raised from ~28 px to 44 px, icon-only <code>.btn-icon.btn-sm</code> raised from ~24 px to 44 px. Desktop unchanged.</li>
-</ul>
-<h2 id="v2-185-0">2.185.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
-<ul>
-  <li><strong>Page-print button.</strong> Print/share buttons become <code>inline-flex;min-height:44px</code> under the mobile MQ. Trimmed redundant declarations to fit the 45 KB cap.</li>
-</ul>
-<h2 id="v2-184-0">2.184.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
-<ul>
-  <li><strong>Prev/next nav touch targets.</strong> <em>Previous / Next</em> links at the bottom of guide/template/hub pages declare <code>min-height:44px</code> via inline <code>&lt;style&gt;</code> (no site.css cost).</li>
-</ul>
+<h2 id="v2-191-0">2.191.0–2.192.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
+<ul><li><strong>Mobile nav CTA &amp; email payment field.</strong> The mobile-menu "Start an invoice" pill uses <code>min-height:44px;display:inline-flex</code> under 820px. Invoice-email <em>Payment instructions</em> textarea gets <code>spellcheck="true";autocapitalize="sentences"</code>. Also narrowed <code>.nav-search</code> transition from <code>transition:all</code> to specific properties.</li></ul>
+<span id="v2-192-0" aria-hidden="true"></span>
+<h2 id="v2-188-0">2.188.0–2.190.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
+<ul><li><strong>Intake, toast, welcome-bar, footer icons.</strong> Standalone intake forms add <code>@media(max-width:600px)</code> for 16px inputs and 44px buttons; in-app toast <em>Dismiss</em> raised to 44×44; welcome-bar Trial CTA and × meet 44px under 760px; footer GitHub/RSS icons bump to 44×44 under 760px via inline <code>@media</code> (no site.css cost).</li></ul>
+<span id="v2-189-0" aria-hidden="true"></span><span id="v2-190-0" aria-hidden="true"></span>
+<h2 id="v2-186-0">2.186.0–2.187.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
+<ul><li><strong>App button sizes &amp; autocapitalize hints.</strong> App <code>@media(max-width:600px)</code>: default <code>.btn</code> gets <code>min-height:44px</code>, <code>.btn-sm</code> raised to 44px, icon-only <code>.btn-icon.btn-sm</code> raised to 44px. Invoice-email names use <code>autocapitalize="words"</code>, prose uses <code>sentences</code>, invoice number <code>off</code>. Removed a stray duplicate <code>display:block</code> on <code>.prevnext</code>.</li></ul>
+<span id="v2-187-0" aria-hidden="true"></span>
+<h2 id="v2-184-0">2.184.0–2.185.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
+<ul><li><strong>Prev/next and page-print touch targets.</strong> <em>Previous / Next</em> links declare <code>min-height:44px</code> via inline <code>&lt;style&gt;</code>; print/share buttons become <code>inline-flex;min-height:44px</code> under mobile MQ. Trimmed redundant declarations to fit the 45 KB CSS cap.</li></ul>
+<span id="v2-185-0" aria-hidden="true"></span>
 <h2 id="v2-182-0">2.182.0–2.183.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul><li><strong>Free-tool, generator &amp; clause-button touch targets.</strong> Added <code>min-height:44px</code> to all inputs/selects/textarea in free-calculator, invoice-email and payment-receipt generators; clause-page <em>Print/PDF</em> button flows as a 44px block button on screens ≤760px. All via per-tool/inline <code>&lt;style&gt;</code> (no site.css cost).</li></ul>
 <span id="v2-183-0" aria-hidden="true"></span>
@@ -560,7 +542,7 @@
       <a href="./legal/dmca.html">DMCA</a>
       <a href="./press/">Press kit</a>
     </div>
-    <div class="legal">© 2026 Clausery · <a href="./changelog.html#v2-199-0" style="color:inherit">v2.199.0</a> · <a href="./sitemap/" style="color:inherit">Sitemap</a> · Open source under <a href="./legal/license.html" style="color:inherit">AGPLv3</a> · Clausery name and logo are <a href="https://github.com/getclausery/getclausery.github.io/blob/main/TRADEMARKS.md" rel="noopener" style="color:inherit">trademarks</a>. Clausery is software, not legal advice; documents you generate are your responsibility. Not affiliated with Microsoft; Word is a trademark of Microsoft Corporation. Not affiliated with clausery.ai. <a href="https://github.com/getclausery/getclausery.github.io" rel="noopener" style="color:inherit">Source on GitHub</a></div>
+    <div class="legal">© 2026 Clausery · <a href="./changelog.html#v2-200-0" style="color:inherit">v2.200.0</a> · <a href="./sitemap/" style="color:inherit">Sitemap</a> · Open source under <a href="./legal/license.html" style="color:inherit">AGPLv3</a> · Clausery name and logo are <a href="https://github.com/getclausery/getclausery.github.io/blob/main/TRADEMARKS.md" rel="noopener" style="color:inherit">trademarks</a>. Clausery is software, not legal advice; documents you generate are your responsibility. Not affiliated with Microsoft; Word is a trademark of Microsoft Corporation. Not affiliated with clausery.ai. <a href="https://github.com/getclausery/getclausery.github.io" rel="noopener" style="color:inherit">Source on GitHub</a></div>
   </div>
 </footer>
 <script id="search-index" type="application/json" data-src="./search-index.json" defer></script>
