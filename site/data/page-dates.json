@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-18",
-  "hash": "5c59cea1eedaeed8"
+  "hash": "73bda01deea0d757"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-11-18",
-  "hash": "2f3cd09c20a0b0ca"
+  "hash": "862ce854705e467e"
  },
  "clauses/": {
   "date": "2026-11-18",
@@ -829,7 +829,7 @@
  },
  "templates/": {
   "date": "2026-11-18",
-  "hash": "fd3409df7dc056f1"
+  "hash": "4992235391016edb"
  },
  "templates/bill-of-sale-template.html": {
   "date": "2026-11-14",
