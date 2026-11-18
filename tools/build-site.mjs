@@ -49,7 +49,7 @@ for (const p of pages) {
   const items = [['Home', '']];
   if (section && SECTIONS[section] && p.path !== section + '/') items.push([SECTIONS[section], section + '/']);
   items.push([p.title, p.path]);
-  p.extraHead = (p.extraHead || '') + crumbsLd(items);
+  p.extraHead = (p.extraHead || '') + crumbsLd(items, p.path);
 }
 // Last-modified dates (sitemap lastmod, dateModified, "Updated" lines) come from site/data/page-dates.json: each page's
 // date and a hash of its content. A page whose content hash changes gets today's date; an unchanged page keeps its
@@ -121,7 +121,7 @@ const editorNode = { '@context': 'https://schema.org', '@type': 'Person', '@id':
 const appNode = { '@context': 'https://schema.org', '@type': ['WebApplication','SoftwareApplication'], '@id': `${SITE}#app`, name: 'Clausery', url: `${SITE}app/`, applicationCategory: 'BusinessApplication', applicationSubCategory: 'Word document generator', operatingSystem: 'Any (web browser)', isAccessibleForFree: true, aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.8', bestRating: '5', worstRating: '1', ratingCount: '427', reviewCount: '427' }, offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', lowPrice: '0', highPrice: String(PRICES.proYearly), offerCount: 3, availability: 'https://schema.org/InStock', url: `${SITE}pricing/` }, publisher: { '@id': `${SITE}#organization` }, creator: { '@id': `${SITE}#organization` }, softwareVersion: '2.36.0', license: `${SITE}legal/license.html`, description: 'Free Word invoice, quote, receipt, contract and NDA generator. Build editable .docx documents in your browser — nothing is uploaded.' };
 const srcNode = { '@context': 'https://schema.org', '@type': 'SoftwareSourceCode', '@id': `${SITE}#source`, name: 'Clausery source', codeRepository: 'https://github.com/getclausery/getclausery.github.io', programmingLanguage: 'JavaScript', license: `${SITE}legal/license.html`, isAccessibleForFree: true, provider: { '@id': `${SITE}#organization` }, targetProduct: { '@id': `${SITE}#app` } };
 const wsNode = { '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE}#website`, url: SITE, name: 'Clausery', alternateName: ['getclausery', 'Clausery open source', 'Clausery invoice generator'], inLanguage: 'en-GB', publisher: { '@id': `${SITE}#organization` }, copyrightYear: YEAR, copyrightHolder: { '@id': `${SITE}#organization` }, copyrightNotice: `© ${YEAR} Clausery. Open source under AGPLv3.`, logo: { '@id': `${SITE}#logo` }, potentialAction: { '@type': 'SearchAction', target: { '@type': 'EntryPoint', urlTemplate: `${SITE}search/?q={search_term_string}` }, 'query-input': 'required name=search_term_string' } };
-const orgNode = { '@context': 'https://schema.org', '@type': 'Organization', '@id': `${SITE}#organization`, name: 'Clausery', url: SITE, logo: { '@id': `${SITE}#logo`, '@type': 'ImageObject', url: `${SITE}assets/icon-512.png`, contentUrl: `${SITE}assets/icon-512.png`, width: 512, height: 512, encodingFormat: 'image/png' }, image: `${SITE}assets/icon-512.png`, sameAs: ['https://github.com/getclausery/getclausery.github.io', 'https://github.com/getclausery', 'https://www.npmjs.com/package/clausery'], contactPoint: [{ '@type': 'ContactPoint', contactType: 'customer support', email: 'getclausery@gmail.com', availableLanguage: ['en-GB'], contactOption: 'TollFree', areaServed: 'Worldwide' }], foundingDate: '2025' };
+const orgNode = { '@context': 'https://schema.org', '@type': 'Organization', '@id': `${SITE}#organization`, name: 'Clausery', url: SITE, logo: { '@id': `${SITE}#logo`, '@type': 'ImageObject', url: `${SITE}assets/icon-512.png`, contentUrl: `${SITE}assets/icon-512.png`, width: 512, height: 512, encodingFormat: 'image/png', license: `${SITE}legal/license.html`, acquireLicensePage: `${SITE}pricing/` }, image: `${SITE}assets/icon-512.png`, sameAs: ['https://github.com/getclausery/getclausery.github.io', 'https://github.com/getclausery', 'https://www.npmjs.com/package/clausery'], contactPoint: [{ '@type': 'ContactPoint', contactType: 'customer support', email: 'getclausery@gmail.com', availableLanguage: ['en-GB'], contactOption: 'TollFree', areaServed: 'Worldwide' }], foundingDate: '2025' };
 const navNode = { '@context': 'https://schema.org', '@type': 'SiteNavigationElement', '@id': `${SITE}#sitenav`, name: 'Main navigation', mainEntityOfPage: { '@id': `${SITE}#website` }, hasPart: [ { '@type':'SiteNavigationElement', name:'Templates', url:`${SITE}templates/` }, { '@type':'SiteNavigationElement', name:'Invoice templates', url:`${SITE}invoice-templates/` }, { '@type':'SiteNavigationElement', name:'Guides', url:`${SITE}guides/` }, { '@type':'SiteNavigationElement', name:'Pricing', url:`${SITE}pricing/` }, { '@type':'SiteNavigationElement', name:'Docs', url:`${SITE}docs/` }, { '@type':'SiteNavigationElement', name:'Start an invoice', url:`${SITE}app/#/start/invoice` } ] };
 // Build siteLd for pages whose extraHead doesn't already DEFINE (not merely reference) a node with the given @id.
 // Parse each <script type="application/ld+json"> block in extraHead and walk the graph looking for any node that
@@ -220,7 +220,7 @@ for (const p of pages) {
     const topicTerm = (name) => ({ '@type': 'Thing', name: stripTags(name).slice(0, 80) });
     const topics = headings.filter((h) => h.text.length < 70 && !/common questions|questions$/i.test(h.text)).slice(0, 6).map((h) => topicTerm(h.text));
     const articleImage = p.ogImage
-      ? { '@type': 'ImageObject', url: `${SITE}${p.ogImage}`, width: 1200, height: 630, ...(p.ogImage !== 'assets/og.png' ? { caption: stripTags(p.title) } : {}) }
+      ? { '@type': 'ImageObject', url: `${SITE}${p.ogImage}`, width: 1200, height: 630, ...(p.ogImage !== 'assets/og.png' ? { caption: stripTags(p.title) } : {}), inLanguage: 'en-GB' }
       : { '@type': 'ImageObject', url: `${SITE}assets/og.png`, width: 1200, height: 630 };
     const articleLd = `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', '@id': `${SITE}${p.path}#article`, isPartOf: { '@id': `${SITE}${p.path}#webpage` }, headline: p.title, description: p.description, datePublished: p.published, dateModified: modified, ...(modified ? { lastReviewed: modified, reviewedBy: { '@id': `${SITE}about/#editors`, name: 'Clausery editors' } } : {}), inLanguage: 'en-GB', image: [articleImage], mainEntityOfPage: `${SITE}${p.path}`, ...(p.ogImage && p.ogImage !== 'assets/og.png' ? { thumbnailUrl: `${SITE}${p.ogImage}` } : {}), ...(p._sources ? { citation: p._sources.map(([, u]) => u) } : {}), ...(topics.length ? { about: topics } : {}), ...(headings.length >= 3 ? { articleSection: headings.map((h) => h.text) } : {}), author: { '@id': `${SITE}about/#editors`, name: 'Clausery editors' }, publisher: { '@id': `${SITE}#organization` } })}</script>`;
     p.extraHead = articleLd + (p.extraHead || '');
@@ -289,6 +289,8 @@ for (const p of pages) {
             if (!n.lastReviewed) { n.lastReviewed = modified; touched = true; }
             if (!n.reviewedBy) { n.reviewedBy = { '@id': `${SITE}about/#editors` }; touched = true; }
             if (!n.inLanguage) { n.inLanguage = 'en-GB'; touched = true; }
+            if (!n.mainEntityOfPage && n.url) { n.mainEntityOfPage = n.url; touched = true; }
+            if (!n.speakable) { n.speakable = { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.lead', 'main p:first-of-type'] }; touched = true; }
           }
         }
         return touched ? open + JSON.stringify(data) + close : open + body + close;
@@ -300,9 +302,11 @@ for (const p of pages) {
   const pageNodeLd = skipPageLd ? '' : `<script type="application/ld+json">${JSON.stringify({
     '@context': 'https://schema.org', '@type': /^templates\/[^/]+\.html$/.test(p.path) ? 'ItemPage' : 'WebPage', '@id': `${SITE}${p.path}#webpage`, url: `${SITE}${p.path}`,
     name: SEO_TITLES[p.path] || p.title, description: p.description, inLanguage: 'en-GB', isPartOf: { '@id': `${SITE}#website` }, publisher: { '@id': `${SITE}#organization` },
-    ...(p.published ? { datePublished: p.published } : {}), ...(modified ? { dateModified: modified, lastReviewed: modified, reviewedBy: { '@id': `${SITE}about/#editors` } } : {}),
-    ...(p.ogImage && p.ogImage !== 'assets/og.png' ? { primaryImageOfPage: { '@type': 'ImageObject', url: `${SITE}${p.ogImage}`, width: 1200, height: 630 } } : {}),
-    mentions: { '@id': `${SITE}#app` },
+    ...(p.published ? { datePublished: p.published, mainEntityOfPage: `${SITE}${p.path}` } : { mainEntityOfPage: `${SITE}${p.path}` }),
+    ...(modified ? { dateModified: modified, lastReviewed: modified, reviewedBy: { '@id': `${SITE}about/#editors` } } : {}),
+    ...(p.ogImage && p.ogImage !== 'assets/og.png' ? { primaryImageOfPage: { '@type': 'ImageObject', url: `${SITE}${p.ogImage}`, width: 1200, height: 630, license: `${SITE}legal/license.html` } } : {}),
+    speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.lead', 'main p:first-of-type'] },
+    mentions: { '@id': `${SITE}#app` }, breadcrumb: { '@id': `${SITE}${p.path}#breadcrumb` },
   })}</script>`;
   const siteLd = buildSiteLd(p.extraHead || '', skipSiteLd);
   const pageLd = pageNodeLd + siteLd;
@@ -687,7 +691,7 @@ console.log(`wrote search-index.json (${Buffer.byteLength(searchJson)} bytes, ${
   const total = indexable.length;
   const body = `<section class="section"><div class="wrap prose" style="max-width:56rem"><nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › Sitemap</nav><h1 class="mt-1">Sitemap (site map)</h1><p class="lead">A site map of every public page on Clausery — for people who prefer to browse and for crawlers. ${total} pages, all free, all in your browser.</p><p><strong>Quick links:</strong> ${GROUPS.map(([l])=>`<a href="#${l.toLowerCase().replace(/[^a-z]+/g,'-')}">${escHtml(l)}</a>`).join(' · ')}</p>${groupHtml}<p class="mt-2 small muted">There is also an <a href="${rel}sitemap_index.xml">XML sitemap</a> for crawlers, and an <a href="${rel}llms.txt">llms.txt</a> index for AI crawlers.</p></div></section>`;
   const listItems = indexable.map((p,i)=>({'@type':'ListItem',position:i+1,name:SEO_TITLES[p.path]||p.title,url:`${SITE}${p.path.replace(/\/index\.html$/,'/')}`}));
-  const extraHead = `<script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'CollectionPage','@id':`${SITE}sitemap/#webpage`,url:`${SITE}sitemap/`,name:'Sitemap — every page on Clausery',description:`${total} public pages on Clausery: invoices, templates, guides, calculators and docs, all free Word files you can edit in the browser.`,inLanguage:'en-GB',isPartOf:{'@id':`${SITE}#website`},mainEntity:{'@type':'ItemList',numberOfItems:listItems.length,itemListElement:listItems}})}</script>`;
+  const extraHead = `<script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'CollectionPage','@id':`${SITE}sitemap/#webpage`,url:`${SITE}sitemap/`,name:'Sitemap — every page on Clausery',description:`${total} public pages on Clausery: invoices, templates, guides, calculators and docs, all free Word files you can edit in the browser.`,inLanguage:'en-GB',isPartOf:{'@id':`${SITE}#website`},publisher:{'@id':`${SITE}#organization`},mainEntityOfPage:`${SITE}sitemap/`,speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','.lead','main p:first-of-type']},mainEntity:{'@type':'ItemList',numberOfItems:listItems.length,itemListElement:listItems}})}</script>`;
   mkdirSync('sitemap',{recursive:true});
   const sitemapSiteLd = buildSiteLd(extraHead, false);
   const sh = head({title:'Sitemap (site map) — every page on Clausery', description:`Site map of every public page on Clausery: ${total} free Word invoices, templates, contracts, NDAs, guides, calculators and docs, all in one list.`,path:'sitemap/',extraHead: extraHead + sitemapSiteLd,rel})+body+footer(rel);
@@ -709,10 +713,11 @@ const xmlEsc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': 
 const feed = pages.filter((p) => p.feed).sort((a, b) => (b.published + b.path).localeCompare(a.published + a.path));
 const updated = feed.map((p) => p.modified).sort().at(-1);
 writeFileSync('feed.xml', `<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:webfeeds="http://webfeeds.org/rss/1.0">
   <title>Clausery: guides and clause library</title>
   <subtitle>Practical guides to drafting and automating documents, and plain-English explanations of contract clauses.</subtitle>
   <link rel="self" href="${BASE}feed.xml"/>
+  <link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
   <link rel="alternate" href="${BASE}"/>
   <id>${BASE}</id>
   <updated>${updated}T00:00:00Z</updated>
@@ -747,10 +752,11 @@ if (releases.length) {
   releases = releases.filter((r) => r.version && r.date).map((r) => ({ ...r, iso: parseReleaseDate(r.date) })).filter((r) => r.iso);
   const relUpdated = releases.map((r) => r.iso).sort().at(-1);
   writeFileSync('releases.xml', `<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:webfeeds="http://webfeeds.org/rss/1.0">
   <title>Clausery releases</title>
   <subtitle>Release notes for Clausery: new templates, app features, fixes and policy changes.</subtitle>
   <link rel="self" href="${BASE}releases.xml"/>
+  <link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
   <link rel="alternate" href="${BASE}changelog.html"/>
   <id>${BASE}changelog.html</id>
   <updated>${relUpdated}T00:00:00Z</updated>
