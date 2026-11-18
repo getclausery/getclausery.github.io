@@ -123,6 +123,8 @@ const srcNode = { '@context': 'https://schema.org', '@type': 'SoftwareSourceCode
 const wsNode = { '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE}#website`, url: SITE, name: 'Clausery', alternateName: ['getclausery', 'Clausery open source', 'Clausery invoice generator'], inLanguage: 'en-GB', publisher: { '@id': `${SITE}#organization` }, copyrightYear: YEAR, copyrightHolder: { '@id': `${SITE}#organization` }, copyrightNotice: `© ${YEAR} Clausery. Open source under AGPLv3.`, logo: { '@id': `${SITE}#logo` }, potentialAction: { '@type': 'SearchAction', target: { '@type': 'EntryPoint', urlTemplate: `${SITE}search/?q={search_term_string}` }, 'query-input': 'required name=search_term_string' } };
 const orgNode = { '@context': 'https://schema.org', '@type': 'Organization', '@id': `${SITE}#organization`, name: 'Clausery', url: SITE, logo: { '@id': `${SITE}#logo`, '@type': 'ImageObject', url: `${SITE}assets/icon-512.png`, contentUrl: `${SITE}assets/icon-512.png`, width: 512, height: 512, encodingFormat: 'image/png', license: `${SITE}legal/license.html`, acquireLicensePage: `${SITE}pricing/` }, image: `${SITE}assets/icon-512.png`, sameAs: ['https://github.com/getclausery/getclausery.github.io', 'https://github.com/getclausery', 'https://www.npmjs.com/package/clausery'], contactPoint: [{ '@type': 'ContactPoint', contactType: 'customer support', email: 'getclausery@gmail.com', availableLanguage: ['en-GB'], contactOption: 'TollFree', areaServed: 'Worldwide' }], foundingDate: '2025' };
 const navNode = { '@context': 'https://schema.org', '@type': 'SiteNavigationElement', '@id': `${SITE}#sitenav`, name: 'Main navigation', mainEntityOfPage: { '@id': `${SITE}#website` }, hasPart: [ { '@type':'SiteNavigationElement', name:'Templates', url:`${SITE}templates/` }, { '@type':'SiteNavigationElement', name:'Invoice templates', url:`${SITE}invoice-templates/` }, { '@type':'SiteNavigationElement', name:'Guides', url:`${SITE}guides/` }, { '@type':'SiteNavigationElement', name:'Pricing', url:`${SITE}pricing/` }, { '@type':'SiteNavigationElement', name:'Docs', url:`${SITE}docs/` }, { '@type':'SiteNavigationElement', name:'Start an invoice', url:`${SITE}app/#/start/invoice` } ] };
+const feedNode = { '@context': 'https://schema.org', '@type': 'WebFeed', '@id': `${SITE}#feed`, name: 'Clausery guides and clause library', url: `${SITE}feed.xml`, encodingFormat: 'application/atom+xml', about: { '@id': `${SITE}#website` }, publisher: { '@id': `${SITE}#organization` }, inLanguage: 'en-GB' };
+const releasesFeedNode = { '@context': 'https://schema.org', '@type': 'WebFeed', '@id': `${SITE}#releases-feed`, name: 'Clausery releases', url: `${SITE}releases.xml`, encodingFormat: 'application/atom+xml', about: { '@id': `${SITE}#app` }, publisher: { '@id': `${SITE}#organization` }, inLanguage: 'en-GB' };
 // Build siteLd for pages whose extraHead doesn't already DEFINE (not merely reference) a node with the given @id.
 // Parse each <script type="application/ld+json"> block in extraHead and walk the graph looking for any node that
 // has both @type and @id equal to the target. Objects that only carry {"@id":"..."} (isPartOf, publisher references,
@@ -152,6 +154,8 @@ function buildSiteLd(extraHead = '', skipAll = false) {
   if (!hasDef(extraHead, `${SITE}about/#editors`)) blocks.push(editorNode);
   if (!hasDef(extraHead, `${SITE}#app`)) blocks.push(appNode);
   if (!hasDef(extraHead, `${SITE}#source`)) blocks.push(srcNode);
+  if (!hasDef(extraHead, `${SITE}#feed`)) blocks.push(feedNode);
+  if (!hasDef(extraHead, `${SITE}#releases-feed`)) blocks.push(releasesFeedNode);
   return blocks.map((n) => `<script type="application/ld+json">${JSON.stringify(n)}</script>`).join('');
 }
 for (const p of pages) {
@@ -718,10 +722,17 @@ writeFileSync('feed.xml', `<?xml version="1.0" encoding="utf-8"?>
   <subtitle>Practical guides to drafting and automating documents, and plain-English explanations of contract clauses.</subtitle>
   <link rel="self" href="${BASE}feed.xml"/>
   <link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
-  <link rel="alternate" href="${BASE}"/>
-  <id>${BASE}</id>
+  <link rel="alternate" href="${BASE}guides/"/>
+  <icon>${BASE}favicon.ico</icon>
+  <logo>${BASE}assets/icon-512.png</logo>
+  <webfeeds:icon>${BASE}assets/icon.svg</webfeeds:icon>
+  <webfeeds:logo>${BASE}assets/icon-512.png</webfeeds:logo>
+  <webfeeds:cover image="${BASE}assets/og/guides.png"/>
+  <webfeeds:accentColor>0d9488</webfeeds:accentColor>
+  <webfeeds:related layout="card" target="browser"/>
+  <id>${BASE}feed.xml</id>
   <updated>${updated}T00:00:00Z</updated>
-  <author><name>Clausery</name></author>
+  <author><name>Clausery editors</name><uri>${BASE}about/</uri><email>getclausery@gmail.com</email></author>
 ${feed.map((p) => `  <entry>
     <title>${xmlEsc(p.title)}</title>
     <link href="${BASE}${p.path}"/>
@@ -758,9 +769,16 @@ if (releases.length) {
   <link rel="self" href="${BASE}releases.xml"/>
   <link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
   <link rel="alternate" href="${BASE}changelog.html"/>
-  <id>${BASE}changelog.html</id>
+  <icon>${BASE}favicon.ico</icon>
+  <logo>${BASE}assets/icon-512.png</logo>
+  <webfeeds:icon>${BASE}assets/icon.svg</webfeeds:icon>
+  <webfeeds:logo>${BASE}assets/icon-512.png</webfeeds:logo>
+  <webfeeds:cover image="${BASE}assets/og/changelog.png"/>
+  <webfeeds:accentColor>0d9488</webfeeds:accentColor>
+  <webfeeds:related layout="card" target="browser"/>
+  <id>${BASE}releases.xml</id>
   <updated>${relUpdated}T00:00:00Z</updated>
-  <author><name>Clausery</name></author>
+  <author><name>Clausery editors</name><uri>${BASE}about/</uri><email>getclausery@gmail.com</email></author>
 ${releases.map((r) => `  <entry>
     <title>Clausery v${r.version} — ${r.summary || 'new release'}</title>
     <link href="${BASE}changelog.html#v${r.version.replace(/\./g,'-')}"/>
