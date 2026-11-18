@@ -157,7 +157,7 @@ for (const p of pages) {
     });
     if (p._toc && headings.length >= 3) {
       const tocItems = headings.map((h, idx) => `<li><a href="#${h.id}">${h.text}</a></li>`);
-      const tocHtml = `<nav class="guide-toc" aria-label="On this page"><h3>On this page</h3><ol>${tocItems.join('')}</ol></nav>`;
+      const tocHtml = `<style>@media(max-width:760px){.guide-toc a{min-height:44px;display:inline-flex;align-items:center}}</style><nav class="guide-toc" aria-label="On this page"><h3>On this page</h3><ol>${tocItems.join('')}</ol></nav>`;
       const firstH2 = renderedBody.match(/<h2[^>]* id="[^"]+">/);
       if (firstH2) renderedBody = renderedBody.slice(0, firstH2.index) + tocHtml + renderedBody.slice(firstH2.index);
       // TableOfContents JSON-LD unlocks "Jump to" section links in mobile SERPs for pages with a visible TOC.
