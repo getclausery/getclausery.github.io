@@ -135,7 +135,7 @@ border-bottom:1px solid color-mix(in srgb,var(--border) 55%,transparent);
 .welcome-bar .wb-meta{color:var(--muted);font-size:.85rem}
 .welcome-bar .wb-spacer{flex:1}
 .welcome-bar .wb-cta{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .8rem;border-radius:999px;background:var(--accent);color:var(--accent-text);font-weight:600;font-size:.85rem;text-decoration:none;box-shadow:0 4px 10 -4px color-mix(in srgb,var(--accent) 60%,transparent);transition:transform .15s,background .15s}
-.welcome-bar .wb-cta:hover{background:var(--accent-hover);transform:translateY(-1px)}
+.welcome-bar .wb-cta:hover{background:var(--accent-hover);transform:translateY(-1px)}@media(max-width:760px){.welcome-bar .wb-cta{min-height:44px;padding:.6rem 1rem}.welcome-bar .wb-dismiss{padding:.5rem;min-width:44px;min-height:44px}}
 .welcome-bar .wb-dismiss{background:none;border:0;color:var(--muted);cursor:pointer;padding:.25rem;border-radius:8px;display:grid;place-items:center;line-height:0}
 .welcome-bar .wb-dismiss:hover{background:var(--surface-2);color:var(--text)}
 .welcome-bar .wb-dismiss svg{width:16px;height:16px}

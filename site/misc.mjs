@@ -243,6 +243,10 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-189-0">2.189.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
+<ul>
+  <li><strong>Welcome-bar touch targets.</strong> The Trial CTA pill and dismiss × in the top sticky welcome bar now meet 44px on screens under 760px wide. Desktop unchanged.</li>
+</ul>
 <h2 id="v2-188-0">2.188.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
   <li><strong>Intake-form &amp; toast touch targets.</strong> Standalone intake forms now add a <code>@media(max-width:600px)</code> rule so inputs/selects/textarea use 16px font (no iOS zoom) and 44px height; buttons/icon buttons also meet 44px. In-app toast <em>Dismiss</em> raised from 24px to 44×44. Desktop unchanged.</li>
