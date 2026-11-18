@@ -243,6 +243,8 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-192-0">2.192.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
+<ul><li><strong>Invoice-email payment-instructions field.</strong> The optional <em>Payment instructions</em> textarea in the invoice email generator now has <code>spellcheck="true"</code> and <code>autocapitalize="sentences"</code> so iOS/Android capitalises the start of sentences and underlines typos in your prose. The read-only output and code-like subject fields remain spellcheck-off.</li></ul>
 <h2 id="v2-191-0">2.191.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul><li><strong>Mobile nav CTA touch target.</strong> The "Open app" pill inside the mobile menu drawer now uses <code>min-height:44px; display:inline-flex</code> on screens under 820px. Also narrowed <code>.nav-search</code> transition from <code>transition:all</code> to the specific properties that animate.</li></ul>
 <h2 id="v2-190-0">2.190.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
@@ -275,11 +277,11 @@ export const pages = [
 </ul>
 <h2 id="v2-183-0">2.183.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
-  <li><strong>Clause Print/PDF button touch target.</strong> The <em>Print / PDF</em> button on clause pages now drops out of absolute positioning and flows as a 44&nbsp;px tall block button under the clause text on screens ≤&nbsp;760&nbsp;px, matching the treatment already used for <code>.page-print-btn</code>. Desktop layout is unchanged (absolute top-right at compact padding). Clause CSS lives inline in <code>site/clauses.mjs</code>, so this doesn't affect the site.css budget.</li>
+  <li><strong>Clause Print/PDF touch target.</strong> Clause-page <em>Print / PDF</em> button drops out of absolute positioning and flows as a 44px block button under the clause text on screens ≤760px. CSS lives inline in <code>site/clauses.mjs</code> so site.css budget is unaffected.</li>
 </ul>
 <h2 id="v2-182-0">2.182.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
-  <li><strong>Free-tool and generator inputs get 44px touch targets.</strong> Added <code>min-height:44px</code> to all text, number, select and textarea inputs inside the free-calculator <code>.tool</code> block, the invoice-email generator, and the payment-receipt generator. The invoice deposit calculator already had this from v2.179; the marketing site's filter inputs and nav menu button already met 44px. (These rules live in per-tool inline <code>&lt;style&gt;</code> blocks and the app stylesheet, not in <code>site.css</code>, so they don't consume the 45 KB site.css budget.)</li>
+  <li><strong>Free-tool &amp; generator inputs 44px.</strong> Added <code>min-height:44px</code> to all inputs/selects/textarea inside free-calculator, invoice-email and payment-receipt generators via per-tool inline <code>&lt;style&gt;</code> (no site.css cost).</li>
 </ul>
 <h2 id="v2-181-0">2.181.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
