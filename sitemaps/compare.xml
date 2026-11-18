@@ -1,15 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <url><loc>https://getclausery.github.io/compare/bonsai-alternative.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>Bonsai alternative: free freelance contracts in Word</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/compare/clio-draft-alternative.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>Clio Draft alternative that never uploads client files</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/compare/docassemble-alternative.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>docassemble alternative that needs no server</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/compare/dubsado-alternative.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>Dubsado alternative: contracts without the setup</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/compare/eforms-alternative.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>eForms alternative: fill in documents without an account</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/compare/gavel-alternative.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>Gavel alternative that keeps client data on your computer</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/compare/honeybook-alternative.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>HoneyBook alternative when you only need contracts</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/compare/hotdocs-alternative.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>HotDocs alternative: document automation in the browser</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/compare/</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>Compare document automation tools</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/compare/lawdepot-alternative.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>LawDepot alternative with free Word downloads</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/compare/pandadoc-alternative.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>PandaDoc alternative for Word contract templates</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/compare/rocket-lawyer-alternative.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>Rocket Lawyer alternative: free templates, no membership</image:title></image:image></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://getclausery.github.io/compare/bonsai-alternative.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/compare/bonsai-alternative.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/compare/bonsai-alternative.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/compare/bonsai-alternative.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>Bonsai alternative: free freelance contracts in Word</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/compare/clio-draft-alternative.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/compare/clio-draft-alternative.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/compare/clio-draft-alternative.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/compare/clio-draft-alternative.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>Clio Draft alternative that never uploads client files</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/compare/docassemble-alternative.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/compare/docassemble-alternative.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/compare/docassemble-alternative.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/compare/docassemble-alternative.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>docassemble alternative that needs no server</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/compare/dubsado-alternative.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/compare/dubsado-alternative.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/compare/dubsado-alternative.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/compare/dubsado-alternative.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>Dubsado alternative: contracts without the setup</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/compare/eforms-alternative.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/compare/eforms-alternative.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/compare/eforms-alternative.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/compare/eforms-alternative.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>eForms alternative: fill in documents without an account</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/compare/gavel-alternative.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/compare/gavel-alternative.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/compare/gavel-alternative.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/compare/gavel-alternative.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>Gavel alternative that keeps client data on your computer</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/compare/honeybook-alternative.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/compare/honeybook-alternative.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/compare/honeybook-alternative.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/compare/honeybook-alternative.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>HoneyBook alternative when you only need contracts</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/compare/hotdocs-alternative.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/compare/hotdocs-alternative.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/compare/hotdocs-alternative.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/compare/hotdocs-alternative.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>HotDocs alternative: document automation in the browser</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/compare/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/compare/"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/compare/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/compare/"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>Compare document automation tools</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/compare/lawdepot-alternative.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/compare/lawdepot-alternative.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/compare/lawdepot-alternative.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/compare/lawdepot-alternative.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>LawDepot alternative with free Word downloads</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/compare/pandadoc-alternative.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/compare/pandadoc-alternative.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/compare/pandadoc-alternative.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/compare/pandadoc-alternative.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>PandaDoc alternative for Word contract templates</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/compare/rocket-lawyer-alternative.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/compare/rocket-lawyer-alternative.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/compare/rocket-lawyer-alternative.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/compare/rocket-lawyer-alternative.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/compare.png</image:loc><image:title>Rocket Lawyer alternative: free templates, no membership</image:title>    </image:image>
+  </url>
 </urlset>

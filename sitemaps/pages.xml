@@ -1,18 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <url><loc>https://getclausery.github.io/business-document-kit/</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/marketing/business-kit-social.png</image:loc><image:title>Free business document kit — 6 Word templates (no email)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/customers/</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/company.png</image:loc><image:title>Who uses Clausery: freelancers, landlords, HR</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/</loc><lastmod>2026-11-18</lastmod><priority>1.0</priority><image:image><image:loc>https://getclausery.github.io/assets/og/home.png</image:loc><image:title>Free Invoice Template | No Sign-Up, Download</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/nda-templates/</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/business-sale-nda.png</image:loc><image:title>Free NDA Templates | Sign-Ready Word/PDF (5 Forms)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/nda-templates/nda-form.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/business-sale-nda.png</image:loc><image:title>NDA Form | Free Non-Disclosure Agreement (Word/PDF)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/nda-templates/non-disclosure-agreement.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/business-sale-nda.png</image:loc><image:title>NDA (Non-Disclosure Agreement) | Free Word Template</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/nda-templates/simple-nda.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/business-sale-nda.png</image:loc><image:title>Simple NDA | Short Non-Disclosure Form (Word)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/pricing/</loc><lastmod>2026-11-18</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/pricing.png</image:loc><image:title>Clausery pricing: Free plan, Pro $19/user with a free trial</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/receipts/cash-receipt.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Cash Receipt | Free Printable PDF/Word (Sign &amp; Go)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/receipts/donation-receipt.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Donation Receipt | Free PDF/Word (Tax-Ready)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/roadmap/</loc><lastmod>2026-11-18</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/changelog.png</image:loc><image:title>Clausery roadmap: shipped, in progress, requests</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/search/</loc><lastmod>2026-11-18</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/self-hosting/</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/docs.png</image:loc><image:title>Self-host Clausery on your domain or intranet</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/sitemap/</loc><lastmod>2026-10-24</lastmod><priority>0.8</priority></url>
-  <url><loc>https://getclausery.github.io/status/</loc><lastmod>2026-11-18</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/company.png</image:loc><image:title>Clausery status: uptime, releases, service health</image:title></image:image></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://getclausery.github.io/business-document-kit/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/business-document-kit/"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/business-document-kit/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/business-document-kit/"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/marketing/business-kit-social.png</image:loc><image:title>Free business document kit — 6 Word templates (no email)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/customers/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/customers/"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/customers/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/customers/"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/company.png</image:loc><image:title>Who uses Clausery: freelancers, landlords, HR</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/"/>
+    <priority>1.0</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/home.png</image:loc><image:title>Free Invoice Template | No Sign-Up, Download</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/nda-templates/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/nda-templates/"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/nda-templates/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/nda-templates/"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/business-sale-nda.png</image:loc><image:title>Free NDA Templates | Sign-Ready Word/PDF (5 Forms)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/nda-templates/nda-form.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/nda-templates/nda-form.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/nda-templates/nda-form.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/nda-templates/nda-form.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/business-sale-nda.png</image:loc><image:title>NDA Form | Free Non-Disclosure Agreement (Word/PDF)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/nda-templates/non-disclosure-agreement.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/nda-templates/non-disclosure-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/nda-templates/non-disclosure-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/nda-templates/non-disclosure-agreement.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/business-sale-nda.png</image:loc><image:title>NDA (Non-Disclosure Agreement) | Free Word Template</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/nda-templates/simple-nda.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/nda-templates/simple-nda.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/nda-templates/simple-nda.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/nda-templates/simple-nda.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/business-sale-nda.png</image:loc><image:title>Simple NDA | Short Non-Disclosure Form (Word)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/pricing/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/pricing/"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/pricing.png</image:loc><image:title>Clausery pricing: Free plan, Pro $19/user with a free trial</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/receipts/cash-receipt.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/receipts/cash-receipt.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/receipts/cash-receipt.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/receipts/cash-receipt.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Cash Receipt | Free Printable PDF/Word (Sign &amp; Go)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/receipts/donation-receipt.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/receipts/donation-receipt.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/receipts/donation-receipt.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/receipts/donation-receipt.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Donation Receipt | Free PDF/Word (Tax-Ready)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/roadmap/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/roadmap/"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/roadmap/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/roadmap/"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/changelog.png</image:loc><image:title>Clausery roadmap: shipped, in progress, requests</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/search/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/search/"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/search/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/search/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/self-hosting/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/self-hosting/"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/self-hosting/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/self-hosting/"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/docs.png</image:loc><image:title>Self-host Clausery on your domain or intranet</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/sitemap/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/sitemap/"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/sitemap/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/sitemap/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/status/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/status/"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/status/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/status/"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/company.png</image:loc><image:title>Clausery status: uptime, releases, service health</image:title>    </image:image>
+  </url>
 </urlset>

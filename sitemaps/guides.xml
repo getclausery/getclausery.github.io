@@ -1,71 +1,547 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <url><loc>https://getclausery.github.io/guides/are-liability-waivers-enforceable.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Are Liability Waivers Enforceable? (What Works)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/are-non-competes-enforceable.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Are Non-Competes Enforceable? (2026 Rules)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/automate-word-templates.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Automate Word Templates Without Uploading</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/client-intake-without-a-portal.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Client Intake Without a Portal (Private Forms)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/conditional-clauses-in-word.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Conditional Clauses in Word (Auto Add/Remove)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/confidentiality-checklist-document-software.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Confidentiality checklist for choosing document software</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/do-i-need-a-model-release.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Do I Need a Model Release? (Plain Guide)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/gst-hst-invoice-requirements-canada.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>GST/HST invoice requirements in Canada: what to show</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-does-consignment-work.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Consignment: Commissions &amp; Payouts Explained</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-long-should-an-nda-last.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How Long Should an NDA Last? (Examples)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-lend-money-to-family.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Lending Money to Family? Get It in Writing</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-return-a-security-deposit.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Return a security deposit: deadlines &amp; deductions</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-save-an-invoice-as-pdf.html</loc><lastmod>2026-11-18</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to save an invoice as PDF from Word or Clausery</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-set-up-a-rent-payment-plan.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to set up a rent payment plan with a tenant</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-terminate-a-contract.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to Terminate a Contract (With Sample)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-write-a-bill-of-sale.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to Write a Bill of Sale (Free Template)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-write-a-cease-and-desist-letter.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Cease and Desist Letter (Free Templates)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-write-a-cleaning-services-contract.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to write a cleaning services contract</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-write-a-freelance-contract.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Freelance Contract: 10 Key Clauses to Include</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-write-a-gift-letter-for-a-mortgage.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Mortgage Gift Letter (Free Template)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-write-a-job-description.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to Write a Job Description (Free Template)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-write-a-notice-to-vacate.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Notice to Vacate Letter (Free Template)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-write-a-payment-demand-letter.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Demand Letter for Unpaid Invoices (Free)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-write-a-payment-receipt.html</loc><lastmod>2026-11-18</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to write a payment receipt: example and Word template</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-write-a-performance-improvement-plan.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Performance Improvement Plan (PIP) That Works</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-write-a-photography-contract.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to write a photography contract</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-write-a-promissory-note.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to write a promissory note</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-write-a-purchase-order.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to write a purchase order (with an example)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-write-a-reference-letter.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to Write a Reference Letter (Samples)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-write-a-remote-work-agreement.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to write a remote work agreement (free template)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-write-a-rent-increase-letter.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Rent Increase Letter (2026): Notice &amp; Wording</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-write-a-salary-increase-letter.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Salary Increase Letter (Free Sample)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-write-a-sublease-agreement.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to write a sublease agreement</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-write-a-termination-letter.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to Write a Termination Letter (Free)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-write-a-two-weeks-notice-letter.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Two Weeks Notice Letter (Free Template)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-write-an-employee-warning-letter.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Employee Warning Letter (Free Template)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-write-an-expense-reimbursement-form.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Expense Reimbursement Form (Free Template)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-write-an-independent-contractor-agreement.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to write an independent contractor agreement</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-write-an-invoice.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to Write an Invoice (2026): 7-Step Checklist</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-write-an-offer-letter.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to Write an Offer Letter (Free Template)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/how-to-write-meeting-minutes.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to write meeting minutes (with a template)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/guides.png</image:loc><image:title>Free invoice &amp; contract guides, templates (Word)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/invoice-email-template.html</loc><lastmod>2026-11-18</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Invoice email template: send, remind and follow up</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/is-an-mou-legally-binding.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Is an MOU Legally Binding? (It Depends)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/mail-merge-vs-document-automation.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Mail Merge vs Document Automation (Compared)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/mutual-vs-one-way-nda.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Mutual vs One-Way NDA: Which to Use</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/nda-vs-confidentiality-agreement.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>NDA vs Confidentiality Agreement: A Difference?</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/non-compete-vs-non-solicitation.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Non-Compete vs Non-Solicitation (Explained)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/quote-vs-estimate-vs-invoice.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Quote vs Estimate vs Invoice: What to Send</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/repeating-lists-and-tables-in-word.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Repeating Table Rows in Word Templates</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/tax-invoice-requirements-australia.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Tax invoice requirements in Australia: the seven details</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/what-bank-details-to-put-on-an-invoice.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>What bank details to put on an invoice (and stop fraud)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/what-is-a-change-order.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>What is a change order? How to handle scope changes</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/what-is-a-credit-note.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>What is a credit note? When to issue one, what it must say</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/what-is-a-hold-harmless-agreement.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>What is a hold harmless agreement? Types and examples</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/what-is-a-kill-fee.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>What Is a Kill Fee? (And How to Set One)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/what-is-a-sales-commission-agreement.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>What is a sales commission agreement?</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/what-to-do-when-a-client-wont-pay.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Client Won&apos;t Pay? 7 Steps to Get Paid</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/what-to-include-in-a-lease-agreement.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>What to Include in a Lease (12 Clauses)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/what-to-include-in-a-partnership-agreement.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Partnership Agreement: 10 Key Terms (2026)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/what-to-include-in-a-room-rental-agreement.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Renting a room in your home: what the agreement should say</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/what-to-include-in-a-roommate-agreement.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Roommate Agreement (12 Clauses to Include)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/what-to-include-in-a-severance-agreement.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>What to Include in a Severance Agreement</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/what-to-include-in-a-statement-of-work.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>What to include in a statement of work (SOW)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/what-to-include-in-a-tutoring-agreement.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>What to include in a tutoring agreement</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/what-to-include-in-an-equipment-rental-agreement.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>What to include in an equipment rental agreement</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/what-to-include-in-an-nda.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>What to Include in an NDA (9 Clauses)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/guides/what-to-include-on-a-vat-invoice.html</loc><lastmod>2026-11-14</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>What a VAT invoice must include (UK): full and simplified</image:title></image:image></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://getclausery.github.io/guides/are-liability-waivers-enforceable.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/are-liability-waivers-enforceable.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/are-liability-waivers-enforceable.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/are-liability-waivers-enforceable.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Are Liability Waivers Enforceable? (What Works)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/are-non-competes-enforceable.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/are-non-competes-enforceable.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/are-non-competes-enforceable.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/are-non-competes-enforceable.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Are Non-Competes Enforceable? (2026 Rules)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/automate-word-templates.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/automate-word-templates.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/automate-word-templates.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/automate-word-templates.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Automate Word Templates Without Uploading</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/client-intake-without-a-portal.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/client-intake-without-a-portal.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/client-intake-without-a-portal.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/client-intake-without-a-portal.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Client Intake Without a Portal (Private Forms)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/conditional-clauses-in-word.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/conditional-clauses-in-word.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/conditional-clauses-in-word.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/conditional-clauses-in-word.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Conditional Clauses in Word (Auto Add/Remove)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/confidentiality-checklist-document-software.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/confidentiality-checklist-document-software.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/confidentiality-checklist-document-software.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/confidentiality-checklist-document-software.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Confidentiality checklist for choosing document software</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/do-i-need-a-model-release.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/do-i-need-a-model-release.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/do-i-need-a-model-release.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/do-i-need-a-model-release.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Do I Need a Model Release? (Plain Guide)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/gst-hst-invoice-requirements-canada.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/gst-hst-invoice-requirements-canada.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/gst-hst-invoice-requirements-canada.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/gst-hst-invoice-requirements-canada.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>GST/HST invoice requirements in Canada: what to show</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-does-consignment-work.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-does-consignment-work.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-does-consignment-work.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-does-consignment-work.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Consignment: Commissions &amp; Payouts Explained</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-long-should-an-nda-last.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-long-should-an-nda-last.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-long-should-an-nda-last.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-long-should-an-nda-last.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How Long Should an NDA Last? (Examples)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-lend-money-to-family.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-lend-money-to-family.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-lend-money-to-family.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-lend-money-to-family.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Lending Money to Family? Get It in Writing</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-return-a-security-deposit.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-return-a-security-deposit.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-return-a-security-deposit.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-return-a-security-deposit.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Return a security deposit: deadlines &amp; deductions</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-save-an-invoice-as-pdf.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-save-an-invoice-as-pdf.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-save-an-invoice-as-pdf.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-save-an-invoice-as-pdf.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to save an invoice as PDF from Word or Clausery</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-set-up-a-rent-payment-plan.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-set-up-a-rent-payment-plan.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-set-up-a-rent-payment-plan.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-set-up-a-rent-payment-plan.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to set up a rent payment plan with a tenant</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-terminate-a-contract.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-terminate-a-contract.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-terminate-a-contract.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-terminate-a-contract.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to Terminate a Contract (With Sample)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-write-a-bill-of-sale.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-write-a-bill-of-sale.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-write-a-bill-of-sale.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-write-a-bill-of-sale.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to Write a Bill of Sale (Free Template)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-write-a-cease-and-desist-letter.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-write-a-cease-and-desist-letter.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-write-a-cease-and-desist-letter.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-write-a-cease-and-desist-letter.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Cease and Desist Letter (Free Templates)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-write-a-cleaning-services-contract.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-write-a-cleaning-services-contract.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-write-a-cleaning-services-contract.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-write-a-cleaning-services-contract.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to write a cleaning services contract</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-write-a-freelance-contract.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-write-a-freelance-contract.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-write-a-freelance-contract.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-write-a-freelance-contract.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Freelance Contract: 10 Key Clauses to Include</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-write-a-gift-letter-for-a-mortgage.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-write-a-gift-letter-for-a-mortgage.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-write-a-gift-letter-for-a-mortgage.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-write-a-gift-letter-for-a-mortgage.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Mortgage Gift Letter (Free Template)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-write-a-job-description.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-write-a-job-description.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-write-a-job-description.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-write-a-job-description.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to Write a Job Description (Free Template)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-write-a-notice-to-vacate.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-write-a-notice-to-vacate.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-write-a-notice-to-vacate.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-write-a-notice-to-vacate.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Notice to Vacate Letter (Free Template)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-write-a-payment-demand-letter.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-write-a-payment-demand-letter.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-write-a-payment-demand-letter.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-write-a-payment-demand-letter.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Demand Letter for Unpaid Invoices (Free)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-write-a-payment-receipt.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-write-a-payment-receipt.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-write-a-payment-receipt.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-write-a-payment-receipt.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to write a payment receipt: example and Word template</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-write-a-performance-improvement-plan.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-write-a-performance-improvement-plan.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-write-a-performance-improvement-plan.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-write-a-performance-improvement-plan.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Performance Improvement Plan (PIP) That Works</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-write-a-photography-contract.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-write-a-photography-contract.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-write-a-photography-contract.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-write-a-photography-contract.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to write a photography contract</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-write-a-promissory-note.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-write-a-promissory-note.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-write-a-promissory-note.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-write-a-promissory-note.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to write a promissory note</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-write-a-purchase-order.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-write-a-purchase-order.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-write-a-purchase-order.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-write-a-purchase-order.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to write a purchase order (with an example)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-write-a-reference-letter.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-write-a-reference-letter.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-write-a-reference-letter.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-write-a-reference-letter.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to Write a Reference Letter (Samples)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-write-a-remote-work-agreement.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-write-a-remote-work-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-write-a-remote-work-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-write-a-remote-work-agreement.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to write a remote work agreement (free template)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-write-a-rent-increase-letter.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-write-a-rent-increase-letter.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-write-a-rent-increase-letter.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-write-a-rent-increase-letter.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Rent Increase Letter (2026): Notice &amp; Wording</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-write-a-salary-increase-letter.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-write-a-salary-increase-letter.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-write-a-salary-increase-letter.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-write-a-salary-increase-letter.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Salary Increase Letter (Free Sample)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-write-a-sublease-agreement.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-write-a-sublease-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-write-a-sublease-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-write-a-sublease-agreement.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to write a sublease agreement</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-write-a-termination-letter.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-write-a-termination-letter.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-write-a-termination-letter.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-write-a-termination-letter.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to Write a Termination Letter (Free)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-write-a-two-weeks-notice-letter.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-write-a-two-weeks-notice-letter.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-write-a-two-weeks-notice-letter.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-write-a-two-weeks-notice-letter.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Two Weeks Notice Letter (Free Template)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-write-an-employee-warning-letter.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-write-an-employee-warning-letter.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-write-an-employee-warning-letter.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-write-an-employee-warning-letter.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Employee Warning Letter (Free Template)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-write-an-expense-reimbursement-form.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-write-an-expense-reimbursement-form.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-write-an-expense-reimbursement-form.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-write-an-expense-reimbursement-form.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Expense Reimbursement Form (Free Template)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-write-an-independent-contractor-agreement.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-write-an-independent-contractor-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-write-an-independent-contractor-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-write-an-independent-contractor-agreement.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to write an independent contractor agreement</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-write-an-invoice.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-write-an-invoice.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-write-an-invoice.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-write-an-invoice.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to Write an Invoice (2026): 7-Step Checklist</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-write-an-offer-letter.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-write-an-offer-letter.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-write-an-offer-letter.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-write-an-offer-letter.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to Write an Offer Letter (Free Template)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/how-to-write-meeting-minutes.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/how-to-write-meeting-minutes.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/how-to-write-meeting-minutes.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/how-to-write-meeting-minutes.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>How to write meeting minutes (with a template)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/guides.png</image:loc><image:title>Free invoice &amp; contract guides, templates (Word)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/invoice-email-template.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/invoice-email-template.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/invoice-email-template.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/invoice-email-template.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Invoice email template: send, remind and follow up</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/is-an-mou-legally-binding.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/is-an-mou-legally-binding.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/is-an-mou-legally-binding.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/is-an-mou-legally-binding.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Is an MOU Legally Binding? (It Depends)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/mail-merge-vs-document-automation.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/mail-merge-vs-document-automation.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/mail-merge-vs-document-automation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/mail-merge-vs-document-automation.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Mail Merge vs Document Automation (Compared)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/mutual-vs-one-way-nda.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/mutual-vs-one-way-nda.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/mutual-vs-one-way-nda.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/mutual-vs-one-way-nda.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Mutual vs One-Way NDA: Which to Use</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/nda-vs-confidentiality-agreement.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/nda-vs-confidentiality-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/nda-vs-confidentiality-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/nda-vs-confidentiality-agreement.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>NDA vs Confidentiality Agreement: A Difference?</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/non-compete-vs-non-solicitation.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/non-compete-vs-non-solicitation.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/non-compete-vs-non-solicitation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/non-compete-vs-non-solicitation.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Non-Compete vs Non-Solicitation (Explained)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/quote-vs-estimate-vs-invoice.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/quote-vs-estimate-vs-invoice.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/quote-vs-estimate-vs-invoice.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/quote-vs-estimate-vs-invoice.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Quote vs Estimate vs Invoice: What to Send</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/repeating-lists-and-tables-in-word.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/repeating-lists-and-tables-in-word.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/repeating-lists-and-tables-in-word.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/repeating-lists-and-tables-in-word.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Repeating Table Rows in Word Templates</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/tax-invoice-requirements-australia.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/tax-invoice-requirements-australia.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/tax-invoice-requirements-australia.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/tax-invoice-requirements-australia.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Tax invoice requirements in Australia: the seven details</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/what-bank-details-to-put-on-an-invoice.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/what-bank-details-to-put-on-an-invoice.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/what-bank-details-to-put-on-an-invoice.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/what-bank-details-to-put-on-an-invoice.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>What bank details to put on an invoice (and stop fraud)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/what-is-a-change-order.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/what-is-a-change-order.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/what-is-a-change-order.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/what-is-a-change-order.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>What is a change order? How to handle scope changes</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/what-is-a-credit-note.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/what-is-a-credit-note.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/what-is-a-credit-note.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/what-is-a-credit-note.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>What is a credit note? When to issue one, what it must say</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/what-is-a-hold-harmless-agreement.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/what-is-a-hold-harmless-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/what-is-a-hold-harmless-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/what-is-a-hold-harmless-agreement.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>What is a hold harmless agreement? Types and examples</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/what-is-a-kill-fee.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/what-is-a-kill-fee.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/what-is-a-kill-fee.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/what-is-a-kill-fee.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>What Is a Kill Fee? (And How to Set One)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/what-is-a-sales-commission-agreement.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/what-is-a-sales-commission-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/what-is-a-sales-commission-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/what-is-a-sales-commission-agreement.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>What is a sales commission agreement?</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/what-to-do-when-a-client-wont-pay.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/what-to-do-when-a-client-wont-pay.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/what-to-do-when-a-client-wont-pay.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/what-to-do-when-a-client-wont-pay.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Client Won&apos;t Pay? 7 Steps to Get Paid</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/what-to-include-in-a-lease-agreement.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/what-to-include-in-a-lease-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/what-to-include-in-a-lease-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/what-to-include-in-a-lease-agreement.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>What to Include in a Lease (12 Clauses)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/what-to-include-in-a-partnership-agreement.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/what-to-include-in-a-partnership-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/what-to-include-in-a-partnership-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/what-to-include-in-a-partnership-agreement.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Partnership Agreement: 10 Key Terms (2026)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/what-to-include-in-a-room-rental-agreement.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/what-to-include-in-a-room-rental-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/what-to-include-in-a-room-rental-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/what-to-include-in-a-room-rental-agreement.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Renting a room in your home: what the agreement should say</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/what-to-include-in-a-roommate-agreement.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/what-to-include-in-a-roommate-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/what-to-include-in-a-roommate-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/what-to-include-in-a-roommate-agreement.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>Roommate Agreement (12 Clauses to Include)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/what-to-include-in-a-severance-agreement.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/what-to-include-in-a-severance-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/what-to-include-in-a-severance-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/what-to-include-in-a-severance-agreement.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>What to Include in a Severance Agreement</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/what-to-include-in-a-statement-of-work.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/what-to-include-in-a-statement-of-work.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/what-to-include-in-a-statement-of-work.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/what-to-include-in-a-statement-of-work.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>What to include in a statement of work (SOW)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/what-to-include-in-a-tutoring-agreement.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/what-to-include-in-a-tutoring-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/what-to-include-in-a-tutoring-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/what-to-include-in-a-tutoring-agreement.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>What to include in a tutoring agreement</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/what-to-include-in-an-equipment-rental-agreement.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/what-to-include-in-an-equipment-rental-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/what-to-include-in-an-equipment-rental-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/what-to-include-in-an-equipment-rental-agreement.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>What to include in an equipment rental agreement</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/what-to-include-in-an-nda.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/what-to-include-in-an-nda.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/what-to-include-in-an-nda.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/what-to-include-in-an-nda.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>What to Include in an NDA (9 Clauses)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/guides/what-to-include-on-a-vat-invoice.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/guides/what-to-include-on-a-vat-invoice.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/guides/what-to-include-on-a-vat-invoice.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/guides/what-to-include-on-a-vat-invoice.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/invoice.png</image:loc><image:title>What a VAT invoice must include (UK): full and simplified</image:title>    </image:image>
+  </url>
 </urlset>
