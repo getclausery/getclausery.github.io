@@ -42,13 +42,25 @@ for (const f of indexable) {
   } catch { /* ignore read errors */ }
 }
 const imageTag = (loc, title, caption) => `<image:image><image:loc>${base}${loc}</image:loc>${title ? `<image:title>${esc(title)}</image:title>` : ''}${caption ? `<image:caption>${esc(caption)}</image:caption>` : ''}</image:image>`;
+const titleByPath = {};
+for (const f of indexable) {
+  try {
+    const html = readFileSync(f, 'utf8');
+    const m = html.match(/<title>([^<]+)<\/title>/);
+    if (m) titleByPath[f.replace(/index\.html$/, '')] = m[1].replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/\s*[·\-–—]\s*Clausery.*$/, '').trim();
+  } catch { /* ignore */ }
+}
 const imageEntry = (path) => {
   const parts = [];
   const t = TEMPLATE_BY_PATH[path];
   if (t) parts.push(imageTag(`assets/previews/${t.slug}.webp`, `${t.name} template for Word`, t.description || t.intro));
   const og = ogImageByPath[path];
   if (og && !(t && og === `assets/og/${t.slug}.png`)) {
-    const title = path.replace(/\/$/, '').split('/').pop().replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+    let title = titleByPath[path];
+    if (!title) {
+      let slug = path.replace(/\/$/, '').split('/').pop().replace(/\.html$/, '').replace(/-/g, ' ');
+      title = slug.replace(/\b\w/g, (c) => c.toUpperCase());
+    }
     parts.push(imageTag(og, title));
   }
   return parts.join('');
