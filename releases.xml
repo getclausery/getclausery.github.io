@@ -5,32 +5,47 @@
   <link rel="self" href="https://getclausery.github.io/releases.xml"/>
   <link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
   <link rel="alternate" href="https://getclausery.github.io/changelog.html"/>
-  <id>https://getclausery.github.io/changelog.html</id>
+  <icon>https://getclausery.github.io/favicon.ico</icon>
+  <logo>https://getclausery.github.io/assets/icon-512.png</logo>
+  <webfeeds:icon>https://getclausery.github.io/assets/icon.svg</webfeeds:icon>
+  <webfeeds:logo>https://getclausery.github.io/assets/icon-512.png</webfeeds:logo>
+  <webfeeds:cover image="https://getclausery.github.io/assets/og/changelog.png"/>
+  <webfeeds:accentColor>0d9488</webfeeds:accentColor>
+  <webfeeds:related layout="card" target="browser"/>
+  <id>https://getclausery.github.io/releases.xml</id>
   <updated>2026-11-18T00:00:00Z</updated>
-  <author><name>Clausery</name></author>
+  <author><name>Clausery editors</name><uri>https://getclausery.github.io/about/</uri><email>getclausery@gmail.com</email></author>
   <entry>
-    <title>Clausery v2.224.0 — WebSub/PubSubHubbub hub links on Atom feeds, speakable schema on every page, mainEntityOfPage + license metadata on image objects.</title>
+    <title>Clausery v2.225.0 — WebFeed JSON-LD for both Atom feeds, enriched Atom entries with icon/logo/author/cover/accentColor.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-225-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-225-0</id>
+    <published>2026-11-18T00:00:00Z</published>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <summary>WebFeed JSON-LD for both Atom feeds, enriched Atom entries with icon/logo/author/cover/accentColor.</summary>
+  </entry>
+  <entry>
+    <title>Clausery v2.224.0 — WebSub/PubSubHubbub hub links, speakable schema on every page, mainEntityOfPage + image-license metadata.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-224-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-224-0</id>
     <published>2026-11-18T00:00:00Z</published>
     <updated>2026-11-18T00:00:00Z</updated>
-    <summary>WebSub/PubSubHubbub hub links on Atom feeds, speakable schema on every page, mainEntityOfPage + license metadata on image objects.</summary>
+    <summary>WebSub/PubSubHubbub hub links, speakable schema on every page, mainEntityOfPage + image-license metadata.</summary>
   </entry>
   <entry>
-    <title>Clausery v2.223.0 — Breadcrumb microdata fix (final ListItem now carries itemprop=item) and full schema coverage on all 381 indexable pages.</title>
+    <title>Clausery v2.223.0 — Breadcrumb microdata fix and full schema coverage on all 381 indexable pages.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-223-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-223-0</id>
     <published>2026-11-18T00:00:00Z</published>
     <updated>2026-11-18T00:00:00Z</updated>
-    <summary>Breadcrumb microdata fix (final ListItem now carries itemprop=item) and full schema coverage on all 381 indexable pages.</summary>
+    <summary>Breadcrumb microdata fix and full schema coverage on all 381 indexable pages.</summary>
   </entry>
   <entry>
-    <title>Clausery v2.222.0 — Head-tag cleanup (removed duplicate meta tags) and richer Organization/WebSite schema.</title>
+    <title>Clausery v2.222.0 — Head-tag cleanup and richer Organization/WebSite schema.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-222-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-222-0</id>
     <published>2026-11-18T00:00:00Z</published>
     <updated>2026-11-18T00:00:00Z</updated>
-    <summary>Head-tag cleanup (removed duplicate meta tags) and richer Organization/WebSite schema.</summary>
+    <summary>Head-tag cleanup and richer Organization/WebSite schema.</summary>
   </entry>
   <entry>
     <title>Clausery v2.152.0 — Added fetchpriority=high to the site.css preload hint to help browsers prioritize the critical stylesheet on slow networks.</title>

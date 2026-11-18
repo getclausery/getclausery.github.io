@@ -4,10 +4,17 @@
   <subtitle>Practical guides to drafting and automating documents, and plain-English explanations of contract clauses.</subtitle>
   <link rel="self" href="https://getclausery.github.io/feed.xml"/>
   <link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
-  <link rel="alternate" href="https://getclausery.github.io/"/>
-  <id>https://getclausery.github.io/</id>
+  <link rel="alternate" href="https://getclausery.github.io/guides/"/>
+  <icon>https://getclausery.github.io/favicon.ico</icon>
+  <logo>https://getclausery.github.io/assets/icon-512.png</logo>
+  <webfeeds:icon>https://getclausery.github.io/assets/icon.svg</webfeeds:icon>
+  <webfeeds:logo>https://getclausery.github.io/assets/icon-512.png</webfeeds:logo>
+  <webfeeds:cover image="https://getclausery.github.io/assets/og/guides.png"/>
+  <webfeeds:accentColor>0d9488</webfeeds:accentColor>
+  <webfeeds:related layout="card" target="browser"/>
+  <id>https://getclausery.github.io/feed.xml</id>
   <updated>2026-11-18T00:00:00Z</updated>
-  <author><name>Clausery</name></author>
+  <author><name>Clausery editors</name><uri>https://getclausery.github.io/about/</uri><email>getclausery@gmail.com</email></author>
   <entry>
     <title>What to include in an equipment rental agreement</title>
     <link href="https://getclausery.github.io/guides/what-to-include-in-an-equipment-rental-agreement.html"/>
