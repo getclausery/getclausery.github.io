@@ -12,10 +12,9 @@ document.addEventListener('click',e=>{
  if(open){b.dataset.prev=document.body.style.overflow;document.body.style.overflow='hidden'}
  else{document.body.style.overflow=b.dataset.prev||'';if(bd){bd.hidden=true;bd.classList.remove('show')}}
 });
-document.addEventListener('click',e=>{
- if(K(e,'#nav-backdrop')){const n=$('#site-nav'),b=$('.menu-btn');if(n)n.classList.remove('open');if(b)b.setAttribute('aria-expanded','false');const bd=$('#nav-backdrop');if(bd){bd.hidden=true;bd.classList.remove('show')}document.body.style.overflow=''}
- if(K(e,'.site-nav a')){const n=$('#site-nav'),b=$('.menu-btn'),bd=$('#nav-backdrop');if(n)n.classList.remove('open');if(b)b.setAttribute('aria-expanded','false');if(bd){bd.hidden=true;bd.classList.remove('show')}document.body.style.overflow=''}
-});
+const closeNav=(returnFocus)=>{const n=$('#site-nav'),b=$('.menu-btn'),bd=$('#nav-backdrop');if(n)n.classList.remove('open');if(b)b.setAttribute('aria-expanded','false');if(bd){bd.hidden=true;bd.classList.remove('show')}document.body.style.overflow='';if(returnFocus&&b)b.focus()}
+document.addEventListener('click',e=>{if(K(e,'#nav-backdrop')||K(e,'.site-nav a'))closeNav(false)});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#site-nav.open'))closeNav(true)});
 document.addEventListener('click',async e=>{
  const b=e.target.closest?.('.copy-btn');if(!b)return
  const s=document.getElementById(b.dataset.copy),st=b.parentElement.querySelector('.copy-status');if(!s)return
