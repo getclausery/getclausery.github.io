@@ -243,6 +243,9 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-216-0">2.216.0 <span class="small muted">— 18 November 2026</span></h2>
+<ul><li><strong>rel=noopener on changelog GitHub links.</strong> Added <code>rel="noopener"</code> to the two "git log" links to prevent the opened tab from reaching <code>window.opener</code> and to suppress the Referer header on cross-origin navigation.</li></ul>
+<span id="v2-216-1" aria-hidden="true"></span>
 <h2 id="v2-215-0">2.215.0 <span class="small muted">— 18 November 2026</span></h2>
 <ul><li><strong>SEO title pass on short pages.</strong> Expanded seven short/under-optimized <code>&lt;title&gt;</code> tags (Contact, FAQ, Security, Guides hub, Roadmap, Status, Security Deposit Return guide) to fill the 60-char SERP budget with high-intent keywords.</li></ul>
 <span id="v2-215-1" aria-hidden="true"></span>
@@ -344,20 +347,9 @@ export const pages = [
 <h2 id="v2-160-0">2.160.0–2.162.0 <span class="small muted">— 8 November 2026</span></h2>
 <ul><li><strong>CSS consolidation batch.</strong> Unified nine duplicate sticky-CTA inline <code>&lt;style&gt;</code> blocks into one <code>.sticky-cta</code> class (~180 KB HTML saved); extracted 11 duplicate inline star-rating patterns into a shared <code>.rating/.stars</code> class (~1 KB saved); removed dead <code>.i</code> icon class and the <code>.bdcrums</code> typo. Added <code>aria-current="page"</code> to the header brand link on the homepage.</li></ul>
 <span id="v2-161-0" aria-hidden="true"></span><span id="v2-162-0" aria-hidden="true"></span>
-<h2 id="v2-159-0">2.159.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
-<ul>
-  <li><strong>Docs lead CTA injection fixed.</strong> The build step injects share/print buttons and a "Reviewed by" byline between the docs <code>&lt;h1&gt;</code> and the <code>&lt;p class="lead"&gt;</code>, which defeated the earlier <code>/&lt;\/p&gt;\s*&lt;h2/</code> regex and pushed the lead CTA below the first heading on three docs pages (Intake, Logic, Security) that had a lead paragraph immediately followed by an <code>&lt;h2&gt;</code>. Added an explicit match for <code>&lt;p class="lead"&gt;…&lt;/p&gt;</code> so the "Open Clausery / Browse templates" CTA is injected right after the lead paragraph on every docs page instead of after the first section.</li>
-  <li><strong>Autocomplete hints on the invoice-email generator.</strong> Added <code>autocomplete="organization"</code> to the client-name and sender/business-name fields so browsers and password managers can suggest saved business names, matching the autocomplete coverage already on other form fields.</li>
-</ul>
-<h2 id="v2-158-0">2.158.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
-<ul>
-  <li><strong>Removed mobile tap highlight.</strong> Added <code>-webkit-tap-highlight-color: transparent</code> to the body stylesheet (alongside the existing <code>touch-action: manipulation</code> rule that already removed the 300 ms tap delay). Removes the grey/blue flash that iOS Safari and older Android browsers paint over tapped buttons, links and cards, making tap feedback feel instant and match the existing button hover/active styles.</li>
-  <li><strong>Freelance-rate numeric keyboards.</strong> Added <code>inputmode="numeric"</code> to the three remaining whole-count inputs on the freelance-rate calculator (weeks off per year, billable hours per week, hours per working day) that were still showing the full QWERTY keyboard on mobile.</li>
-</ul>
-<h2 id="v2-157-0">2.157.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
-<ul>
-  <li><strong>Mobile numeric keyboards.</strong> Added <code>inputmode="decimal"</code> to the deposit-invoice project-amount and deposit-percentage fields, and <code>inputmode="numeric"</code> to the deadline-calculator day-count and loan-repayment payment-count fields. iOS and Android now surface the numeric keypad (with decimal separator) instead of the full QWERTY keyboard for money, percent and whole-count fields, reducing keystrokes on the highest-intent mobile drafting paths.</li>
-</ul>
+<h2 id="v2-157-0">2.157.0–2.159.0 <span class="small muted">— 8 November 2026</span></h2>
+<ul><li><strong>Mobile keyboard/tap polish batch.</strong> Added <code>inputmode="numeric"/"decimal"</code> to remaining numeric inputs on the deposit-invoice, deadline-calculator, loan-repayment and freelance-rate calculators so iOS/Android shows the numeric keypad. Added <code>-webkit-tap-highlight-color:transparent</code> to remove the grey/blue tap flash on iOS. Fixed docs lead-CTA injection regex so the "Open Clausery/Browse templates" CTA lands after the lead paragraph on every docs page. Added <code>autocomplete="organization"</code> to invoice-email client/sender fields.</li></ul>
+<span id="v2-158-0" aria-hidden="true"></span><span id="v2-159-0" aria-hidden="true"></span>
 <h2 id="v2-156-0">2.156.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
 <ul>
   <li><strong>Star ratings rolled out to remaining public hubs.</strong> Extended the "★★★★★ 4.8/5 from 427 freelancers and small businesses" social-proof line (v2.112 home, v2.154 pricing, v2.155 top four hubs) to the remaining marketing-intent hub pages: invoice templates by task/trade/country (<code>/invoice-templates/</code>), NDA templates (<code>/nda-templates/</code>), audience index (<code>/for/</code>), competitor comparison (<code>/compare/</code>), Why Clausery, and the business-document kit landing page. Every major organic entry page (12 hubs plus homepage and pricing) now shows the existing AggregateRating visually above the fold instead of only in SERP snippets.</li>
@@ -588,9 +580,9 @@ export const pages = [
 <ul><li><strong>In-app conversion nudges.</strong> Post-download "win moment" offers the Pro trial; one-click unbranded re-download for trials; usage-count pitch after 3 docs; "Send it" share hint; expiring warning at 3 days; first-run friction reduced.</li></ul>
 <span id="v2-68-0" aria-hidden="true"></span><span id="v2-74-0" aria-hidden="true"></span><h2 id="v2-65-0">2.48.0–2.74.0 <span class="small muted">— 28 October–1 November 2026</span></h2>
 <ul><li><strong>What-to-include hubs and internal-link graph.</strong> 90 hub pages shipped in batches, with cross-links from guides, clause pages, free-tools, invoice subpages, templates, audience and competitor pages.</li></ul>
-<p class="small muted">Earlier entries collapsed; full history in <a href="https://github.com/getclausery/getclausery.github.io/commits/main">git log</a>.</p>
+<p class="small muted">Earlier entries collapsed; full history in <a href="https://github.com/getclausery/getclausery.github.io/commits/main" rel="noopener">git log</a>.</p>
 <h2 id="v1-x" style="font-size:1.1rem">Earlier releases</h2>
-<p class="small muted">Versions 1.0.0–1.96.0: public launch, clause library, 17 templates, hubs, free calculators, comparisons, search, PWA, dual theme, security headers, offline SW, editor bylines, auto schema. See <a href="https://github.com/getclausery/getclausery.github.io/commits/main">git log</a>.</p>
+<p class="small muted">Versions 1.0.0–1.96.0: public launch, clause library, 17 templates, hubs, free calculators, comparisons, search, PWA, dual theme, security headers, offline SW, editor bylines, auto schema. See <a href="https://github.com/getclausery/getclausery.github.io/commits/main" rel="noopener">git log</a>.</p>
 </div></section><div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}app/">Open Clausery, free <span class="arr">→</span></a></div>`,
   },
 ];
