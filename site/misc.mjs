@@ -243,6 +243,9 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-221-0">2.221.0 <span class="small muted">— 18 November 2026</span></h2>
+<ul><li><strong>Copyright metadata in WebSite schema.</strong> Added <code>copyrightYear</code>, <code>copyrightHolder</code> (reference to the Organization node) and <code>copyrightNotice</code> to the <code>WebSite</code> JSON-LD block on every page, reinforcing knowledge-graph attribution and licensing metadata.</li></ul>
+<span id="v2-221-1" aria-hidden="true"></span>
 <h2 id="v2-220-0">2.220.0 <span class="small muted">— 18 November 2026</span></h2>
 <ul><li><strong>Image sitemap titles fixed.</strong> The XML image sitemap was deriving <code>image:title</code> from URL slugs (e.g. "Bill Of Sale Template.Html") for OG share cards. It now reads each page's actual <code>&lt;title&gt;</code> so Google Images and Pinterest see the human-readable headline.</li></ul>
 <span id="v2-220-1" aria-hidden="true"></span>
@@ -365,15 +368,9 @@ export const pages = [
 <h2 id="v2-154-0">2.154.0–2.156.0 <span class="small muted">— 8 November 2026</span></h2>
 <ul><li><strong>Star-rating rollout.</strong> Added the visible "★★★★★ 4.8/5 from 427" social-proof line (matching the AggregateRating JSON-LD that has been on the homepage since v2.90) under the H1 on pricing first (highest-intent conversion page), then on the four top-level hubs (<code>/templates/</code>, <code>/guides/</code>, <code>/free-tools/</code>, <code>/clauses/</code>), and finally on the remaining marketing hubs (<code>/invoice-templates/</code>, <code>/nda-templates/</code>, <code>/for/</code>, <code>/compare/</code>, Why Clausery, business-kit) — every major organic entry page now shows the rating above the fold.</li></ul>
 <span id="v2-155-0" aria-hidden="true"></span><span id="v2-156-0" aria-hidden="true"></span>
-<h2 id="v2-153-0">2.153.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
-<ul>
-  <li><strong>Pricing-page above-the-fold CTA.</strong> Added a prominent "Start 14-day free Pro trial" and "Open the free app" button pair directly under the pricing hero trust badges, before the billing-period toggle and plan cards. Previously the first action a visitor could click was the plan card itself nearly two screens down; now a primary conversion CTA is visible without scrolling on both mobile and desktop.</li>
-  <li><strong>Homepage Open Graph share card.</strong> Switched the homepage from the generic site share card to the dedicated <code>assets/og/home.png</code> ("Invoices, quotes and receipts in Word — calculated totals, everything stays on your device") that has been in the repository but unused, so links shared to Slack, Twitter, LinkedIn, iMessage and other scrapers show the homepage-specific headline instead of the generic brand card.</li>
-</ul>
-<h2 id="v2-152-0">2.152.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
-<ul>
-  <li><strong>Critical-CSS preload priority.</strong> Added <code>fetchpriority="high"</code> to the <code>site.css</code> preload hint so browsers deprioritize images and other resources in favour of the render-blocking stylesheet on slow networks. Tiny change but matches the LCP recommendation for single-file stylesheets under 45 KB.</li>
-</ul>
+<h2 id="v2-152-0">2.152.0–2.153.0 <span class="small muted">— 8 November 2026</span></h2>
+<ul><li><strong>Pricing CTA + homepage OG card.</strong> Added a "Start 14-day free trial"/"Open the free app" CTA pair under the pricing hero so a conversion action is visible without scrolling; switched the homepage Open Graph share card from the generic brand image to the dedicated <code>assets/og/home.png</code> for Slack/LinkedIn/Twitter previews; added <code>fetchpriority="high"</code> to the <code>site.css</code> preload hint to speed LCP on slow networks.</li></ul>
+<span id="v2-153-0" aria-hidden="true"></span>
 <h2 id="v2-151-0">2.151.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
 <ul>
   <li><strong>Head-tag cleanup.</strong> Removed a duplicate block of <code>hreflang</code> link tags (en, en-GB, x-default) that were emitted twice on every page because the same set was concatenated both on the canonical line and later after the Atom feed links — invalid HTML with three duplicate <code>rel="alternate"</code> links. Also removed a duplicate <code>apple-touch-icon</code> link (sizes 192×192 was listed twice, with and without the sizes attribute). Deleted a redundant mobile <code>table{width:100%;display:block;overflow-x:auto}</code> rule that was already declared in the base stylesheet, saving 61 bytes of CSS (site.css now 44,358 B, 642 B headroom).</li>
