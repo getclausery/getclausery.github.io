@@ -262,7 +262,7 @@ export function header(rel, path, crumbItems = []) {
   return `<a class="skip-link" href="#main" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;z-index:1000;background:var(--accent);color:var(--accent-text);padding:.75rem 1rem;font-weight:600;text-decoration:none;border-radius:0 0 10px 0">Skip to content</a><style>.skip-link:focus,.skip-link:focus-visible{position:fixed!important;left:0;top:0;width:auto;height:auto;overflow:visible;min-height:44px;display:inline-flex;align-items:center;outline:3px solid var(--accent);outline-offset:2px}</style><header class="site-header" role="banner">
   <div class="wrap">
     <a class="brand" href="${rel}"${path === '' ? ' aria-current="page"' : ''}><img src="${rel}assets/icon.svg" alt="" role="presentation" width="28" height="28" decoding="async"> Clausery</a>
-    <button class="nav-search" id="nav-search" type="button" aria-label="Search or jump to… (⌘K)">
+    <button class="nav-search" id="nav-search" type="button" aria-label="Search or jump to…" aria-keyshortcuts="Control+K Meta+K /">
       ${ico(I.search,16)}<span>Search or jump to…</span><kbd>⌘K</kbd>
     </button>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">${ico(I.menu,18)} Menu</button>
