@@ -243,6 +243,9 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-219-0">2.219.0 <span class="small muted">— 18 November 2026</span></h2>
+<ul><li><strong>Referrer policy + generator meta.</strong> Added <code>&lt;meta name="referrer" content="strict-origin-when-cross-origin"&gt;</code> so cross-origin navigations only send the origin (not the full URL path) as the Referer header — protects long-tail query parameters (e.g. from /search/) from leaking to third parties linked from the page. Added <code>&lt;meta name="generator" content="Clausery"&gt;</code> for CMS identity.</li></ul>
+<span id="v2-219-1" aria-hidden="true"></span>
 <h2 id="v2-218-0">2.218.0 <span class="small muted">— 18 November 2026</span></h2>
 <ul><li><strong>Pricing schema eligible for product rich snippets.</strong> Added <code>validThrough</code> (1 year) and <code>availability:InStock</code> to all pricing Offer schemas, <code>reviewCount</code> alongside <code>ratingCount</code> on homepage/site-wide AggregateRatings (required for software rich snippets), and attached the 4.8★ AggregateRating to the site-wide WebApplication node.</li></ul>
 <span id="v2-218-1" aria-hidden="true"></span>

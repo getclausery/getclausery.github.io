@@ -155,7 +155,7 @@ export function head({ title, description, path, extraHead = '', pageLd = '', og
 <title>${esc(full)}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="${esc(description)}">
-<meta name="author" content="Clausery">
+<meta name="author" content="Clausery"><meta name="generator" content="Clausery (https://getclausery.github.io/)"><meta name="referrer" content="strict-origin-when-cross-origin">
 ${keywords ? `<meta name="keywords" content="${esc(keywords)}">` : ''}
 ${robots}${prev ? `<link rel="prev" href="${SITE}${prev}">` : ''}${next ? `<link rel="next" href="${SITE}${next}">` : ''}<link rel="canonical" href="${url}"><link rel="author" href="${rel}about/"><link rel="alternate" hreflang="en" href="${url}"><link rel="alternate" hreflang="en-GB" href="${url}"><link rel="alternate" hreflang="x-default" href="${url}">
 <meta property="og:type" content="${ogType}">
