@@ -320,7 +320,7 @@ export function footer(rel) {
     <div class="brand-col">
       <a class="brand" href="${rel}"><img src="${rel}assets/icon.svg" alt="" role="presentation" width="28" height="28" decoding="async"> Clausery</a>
       <p class="mt-75">Make invoices, quotes and receipts in Word with the maths done for you. Your documents stay in your browser — no account required.</p>
-      <div class="footer-social">
+      <style>@media(max-width:760px){.site-footer .footer-social a{width:44px;height:44px}}</style><div class="footer-social">
         <a href="${REPO_URL}" rel="noopener" aria-label="Source on GitHub">${ico(I.github)}</a>
         <a href="${rel}releases.xml" aria-label="Releases Atom feed">${ico(I.rss)}</a>
       </div>
