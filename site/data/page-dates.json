@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-18",
-  "hash": "9bfedebcdea2d368"
+  "hash": "0d142d3d31ce500c"
  },
  ".well-known/change-password": {
   "date": "2026-10-23",
@@ -37,107 +37,107 @@
  },
  "changelog.html": {
   "date": "2026-11-18",
-  "hash": "61b72e7e024c8f70"
+  "hash": "b3b77b9f180adb31"
  },
  "clauses/": {
-  "date": "2026-11-14",
-  "hash": "9bc8bfe1eda35dca"
+  "date": "2026-11-18",
+  "hash": "976c62fa791a72bb"
  },
  "clauses/amendment-clause.html": {
-  "date": "2026-11-14",
-  "hash": "5b670dac53e4658a"
+  "date": "2026-11-18",
+  "hash": "35ae268acdb8ab1c"
  },
  "clauses/assignment-clause.html": {
-  "date": "2026-11-14",
-  "hash": "f734a001dba7d056"
+  "date": "2026-11-18",
+  "hash": "e2303481e7e57806"
  },
  "clauses/at-will-employment-clause.html": {
-  "date": "2026-11-14",
-  "hash": "bf81ba7f33db0eb6"
+  "date": "2026-11-18",
+  "hash": "b29c72716b33d172"
  },
  "clauses/confidentiality-clause.html": {
-  "date": "2026-11-14",
-  "hash": "ccab195ad02d589e"
+  "date": "2026-11-18",
+  "hash": "a000b88b7bf876da"
  },
  "clauses/dispute-resolution-clause.html": {
-  "date": "2026-11-14",
-  "hash": "a5512e9900df4285"
+  "date": "2026-11-18",
+  "hash": "9d021696bf3f1ae3"
  },
  "clauses/electronic-signature-clause.html": {
-  "date": "2026-11-14",
-  "hash": "6ed037e96ed940c8"
+  "date": "2026-11-18",
+  "hash": "ce68fd0d84101b8f"
  },
  "clauses/entire-agreement-clause.html": {
-  "date": "2026-11-14",
-  "hash": "2ef50b6ab04e154b"
+  "date": "2026-11-18",
+  "hash": "4fec11f58155b7cb"
  },
  "clauses/force-majeure-clause.html": {
-  "date": "2026-11-14",
-  "hash": "ddb7f9a81b014eda"
+  "date": "2026-11-18",
+  "hash": "f7c8513e4126122b"
  },
  "clauses/governing-law-clause.html": {
-  "date": "2026-11-14",
-  "hash": "a677d49334123c23"
+  "date": "2026-11-18",
+  "hash": "4cbc7a9ccaf32375"
  },
  "clauses/indemnification-clause.html": {
-  "date": "2026-11-14",
-  "hash": "0a92509b69483d8b"
+  "date": "2026-11-18",
+  "hash": "bdfdaa38cd7beaf7"
  },
  "clauses/independent-contractor-clause.html": {
-  "date": "2026-11-14",
-  "hash": "39497943f66f903f"
+  "date": "2026-11-18",
+  "hash": "2fbf6cee9b987f5e"
  },
  "clauses/intellectual-property-clause.html": {
-  "date": "2026-11-14",
-  "hash": "a927acfcbb2987b1"
+  "date": "2026-11-18",
+  "hash": "3fa78deab3566f48"
  },
  "clauses/late-payment-interest-clause.html": {
-  "date": "2026-11-14",
-  "hash": "16a32e7dbb99c1da"
+  "date": "2026-11-18",
+  "hash": "1a674753bb4e9df6"
  },
  "clauses/limitation-of-liability-clause.html": {
-  "date": "2026-11-14",
-  "hash": "d705d305cefa2db1"
+  "date": "2026-11-18",
+  "hash": "e6f41e8f249ebec2"
  },
  "clauses/non-compete-clause.html": {
-  "date": "2026-11-14",
-  "hash": "4722c6d630a99285"
+  "date": "2026-11-18",
+  "hash": "d16e3ec8f93d1472"
  },
  "clauses/non-solicitation-clause.html": {
-  "date": "2026-11-14",
-  "hash": "c184152a957f010c"
+  "date": "2026-11-18",
+  "hash": "5944862c40831c2a"
  },
  "clauses/notices-clause.html": {
-  "date": "2026-11-14",
-  "hash": "2c63858827430cf8"
+  "date": "2026-11-18",
+  "hash": "ea3de6fd50e8dce9"
  },
  "clauses/payment-terms-clause.html": {
-  "date": "2026-11-14",
-  "hash": "5985d9cfbfd9c827"
+  "date": "2026-11-18",
+  "hash": "7bc3ae1896585c8a"
  },
  "clauses/severability-clause.html": {
-  "date": "2026-11-14",
-  "hash": "dd69e2573352f27c"
+  "date": "2026-11-18",
+  "hash": "98f0855a0a3883e2"
  },
  "clauses/survival-clause.html": {
-  "date": "2026-11-14",
-  "hash": "cf4867cd7d879ea4"
+  "date": "2026-11-18",
+  "hash": "de4347e1cddcdac8"
  },
  "clauses/termination-for-cause-clause.html": {
-  "date": "2026-11-14",
-  "hash": "3cc95aa34b624d80"
+  "date": "2026-11-18",
+  "hash": "0047795123ab6db9"
  },
  "clauses/termination-for-convenience-clause.html": {
-  "date": "2026-11-14",
-  "hash": "039834e6520ed67f"
+  "date": "2026-11-18",
+  "hash": "62a1ed9c51747e6f"
  },
  "clauses/waiver-clause.html": {
-  "date": "2026-11-14",
-  "hash": "a13768e308815883"
+  "date": "2026-11-18",
+  "hash": "74af6b9c2f6ac7b5"
  },
  "clauses/warranty-clause.html": {
-  "date": "2026-11-14",
-  "hash": "2f70fd8124c2d894"
+  "date": "2026-11-18",
+  "hash": "a948cefad0dc3298"
  },
  "compare/": {
   "date": "2026-11-14",
@@ -809,7 +809,7 @@
  },
  "roadmap/": {
   "date": "2026-11-18",
-  "hash": "78075f68fd464c07"
+  "hash": "13bd830d7140fdff"
  },
  "search/": {
   "date": "2026-11-16",
@@ -825,7 +825,7 @@
  },
  "status/": {
   "date": "2026-11-18",
-  "hash": "6403ed833f8161b8"
+  "hash": "664c3de1c42e7741"
  },
  "templates/": {
   "date": "2026-11-18",

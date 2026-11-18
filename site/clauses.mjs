@@ -35,7 +35,7 @@ const COPY_CSS = `<style>
 .clause-box p { margin: 0 0 1rem; }
 .clause-tools { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; }
 .clause-print{position:absolute;top:.6rem;right:.6rem;padding:.3rem .7rem;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--muted);font-size:.78rem;cursor:pointer;font-family:inherit;line-height:1.3;transition:all .15s}
-.clause-print:hover{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+.clause-print:hover{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}@media(max-width:760px){.clause-print{position:static;display:inline-flex;align-items:center;min-height:44px;margin:.25rem .5rem .75rem 0}}
 .check-list { list-style: none; padding: 0; } .check-list li { border-bottom: 1px solid var(--border); padding: .9rem 0; } .check-list strong { display: block; margin-bottom: .25rem; }
 </style>`;
 
