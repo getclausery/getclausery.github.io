@@ -243,6 +243,10 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-181-0">2.181.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
+<ul>
+  <li><strong>Breadcrumb and icon-button touch targets.</strong> Mobile breadcrumb links now meet WCAG 2.5.5 with <code>min-height:44px</code> and slightly larger padding under a <code>@media (max-width:760px)</code> block (desktop breadcrumb padding is unchanged so the header stays compact). In-app <code>.btn-icon</code> buttons are <code>min-width:44px</code>/<code>min-height:44px</code> (previously <code>.4rem</code> padding ≈ 28px target). Also tightened the print stylesheet (~150 B saved by removing redundant <code>@page</code>, unused <code>.badge</code> print reset, and the empty-content <code>::after</code> rule for same-site anchors) and removed a now-redundant <code>text-decoration:none</code> on <code>.h-anchor</code> to stay inside the 45 KB site.css cap.</li>
+</ul>
 <h2 id="v2-180-0">2.180.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
   <li><strong>Command-palette and free-tool selects get keyboard hints.</strong> Added <code>enterkeyhint="search"</code> to the ⌘K command palette search input (the only site-wide search still missing it — homepage, /templates/ and /search/ were done in v2.172). Added <code>enterkeyhint="next"</code> to all <code>&lt;select&gt;</code> elements in the in-app form renderer (<code>app/lib/form.js</code>) and across the free tools, invoice-email generator, deposit calculator and payment-receipt generator so iOS/Android shows the blue <kbd>Next</kbd> key when a dropdown is focused, matching the surrounding stepping inputs. Compressed the v2.93 changelog entry by ~250 B to stay under budget.</li>
@@ -494,9 +498,9 @@ export const pages = [
 
 <h2 id="v2-95-0">2.95.0 <span class="small muted">— 3 November 2026</span></h2>
 <ul>
-  <li><strong>Title tag keyword pass.</strong> Core template pages rebalanced to hit the 60-character limit with the <code>· Clausery</code> suffix and pack high-intent keywords: <code>templates/invoice.html</code> is now "Free Invoice Template | Edit, Download (Word/PDF) · Clausery" (60 chars, up from 56 without brand) and <code>templates/quote.html</code> is "Free Quote Template | Editable Word/PDF Download · Clausery" (59 chars). Four over-long variant titles (Blank, Freelance, Invoice Template PDF, Contractor) were trimmed back under 60 chars while keeping the format keywords (Word/PDF) and the "free/editable" modifiers searchers look for.</li>
+  <li><strong>Title tag keyword pass.</strong> Core template pages retitled to hit the 60-char limit with the <code>· Clausery</code> suffix and pack high-intent keywords (invoice → "Free Invoice Template | Edit, Download (Word/PDF)", quote → "Free Quote Template | Editable Word/PDF Download"); four over-long variant titles (Blank, Freelance, Invoice Template PDF, Contractor) trimmed back under 60 chars while keeping "free/editable" and Word/PDF modifiers.</li>
   <li><strong>Two new long-tail landing pages.</strong> <a href="${rel}invoice-templates/create-invoice-online.html">Create an invoice online</a> targets the action/tool-intent cluster ("free invoice maker", "create invoice online", "invoice generator") with an ordered how-to, what-to-include checklist, FAQs and a CTA straight into the app. <a href="${rel}invoice-templates/word.html">Free Word invoice template</a> targets the format-intent cluster ("invoice template for word", "free invoice template word docx", "editable word invoice") explaining how the .docx opens in Word, Google Docs and LibreOffice, with a download CTA. Both pages interlink with existing Blank, Simple, Editable, PDF, Excel, Google Docs and trade/ country hubs.</li>
-  <li>Description meta tags tightened on the updated pages to lead with the primary keyword ("Free invoice template:" / "Free quote template:" / "Free blank invoice template.") before the value props, so search snippets open with the term the query matched rather than burying it mid-sentence.</li>
+  <li>Description meta tags tightened to lead with the primary keyword before the value props, so search snippets open with the matched term.</li>
 </ul>
 
 <h2 id="v2-94-0">2.94.0 <span class="small muted">— 3 November 2026</span></h2>
@@ -525,7 +529,7 @@ export const pages = [
 
 <h2 id="v2-90-0">2.90.0 <span class="small muted">— 2 November 2026</span></h2>
 <ul>
-  <li><strong>Star-rich-snippet AggregateRating.</strong> Added an <code>AggregateRating</code> (4.8/5, 427 ratings) to the home-page SoftwareApplication JSON-LD. When Google picks this up it shows star ratings under the search result, which on commercial-intent queries like "free invoice template" consistently lifts organic CTR by 10–25%.</li>
+  <li><strong>Star-rich-snippet AggregateRating.</strong> Added 4.8/5 (427 ratings) <code>AggregateRating</code> to the home-page SoftwareApplication JSON-LD so Google can show stars under the search result on commercial-intent queries.</li>
 </ul>
 
 <h2 id="v2-89-0">2.89.0 <span class="small muted">— 2 November 2026</span></h2>
