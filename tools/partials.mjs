@@ -87,7 +87,7 @@ export const faqLd = (faq, pageUrl) => {
   const id = pageUrl ? { '@id': `${SITE}${pageUrl}#faqpage`, url: `${SITE}${pageUrl}`, isPartOf: { '@id': `${SITE}${pageUrl}#webpage` }, mainEntityOfPage: { '@id': `${SITE}${pageUrl}#webpage` } } : {};
   return `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', ...id, mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, ...(pageUrl ? { inLanguage: 'en-GB' } : {}), acceptedAnswer: { '@type': 'Answer', text: a, ...(pageUrl ? { inLanguage: 'en-GB' } : {}) } })) })}</script>`;
 };
-export const crumbsLd = (items) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map(([name, url], i) => ({ '@type': 'ListItem', position: i + 1, name, item: SITE + url })) })}</script>`;
+export const crumbsLd = (items, pageUrl = '') => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', '@id': `${SITE}${pageUrl}#breadcrumb`, itemListElement: items.map(([name, url], i) => ({ '@type': 'ListItem', position: i + 1, name, item: { '@id': SITE + url + (url.endsWith('/') || url.endsWith('.html') ? '' : '/') + '#webpage', name } })) })}</script>`;
 export const crumbsHtml = (items, rel) => items.length > 1 ? `<nav aria-label="Breadcrumb" class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><ol>${items.map(([name, url], i) => `<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">${i > 0 ? '<span aria-hidden="true">/</span>' : ''}${i === items.length - 1 ? `<a itemprop="item" href="${rel}${url}" aria-current="page"><span itemprop="name">${esc(name)}</span></a><meta itemprop="position" content="${i + 1}">` : `<a itemprop="item" href="${rel}${url}"><span itemprop="name">${esc(name)}</span></a><meta itemprop="position" content="${i + 1}">`}</li>`).join('')}</ol></nav>` : '';
 export const collectionLd = ({ path, name, description, items }) => `<script type="application/ld+json">${JSON.stringify({
   '@context': 'https://schema.org', '@type': 'CollectionPage', '@id': `${SITE}${path}#webpage`, url: `${SITE}${path}`, name, description,
@@ -146,7 +146,7 @@ export function head({ title, description, path, extraHead = '', pageLd = '', og
     items.push([lastLabel, path]);
     crumbItems = items;
   }
-  const autoCrumb = crumbItems.length ? crumbsLd(crumbItems) : '';
+  const autoCrumb = crumbItems.length ? crumbsLd(crumbItems, path) : '';
   return `${CMI_HTML}
 <!doctype html>
 <html lang="en-GB">
@@ -202,6 +202,7 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <link rel="sitemap" type="application/xml" title="Sitemap" href="${rel}sitemap_index.xml">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="${rel}feed.xml">
 <link rel="alternate" type="application/atom+xml" title="Clausery releases" href="${rel}releases.xml">
+<link rel="hub" href="https://pubsubhubbub.appspot.com/" title="WebSub hub">
 <link rel="preconnect" href="https://static.cloudflareinsights.com" crossorigin>
 <link rel="dns-prefetch" href="https://static.cloudflareinsights.com">
 <link rel="preload" href="${rel}assets/icon.svg" as="image" type="image/svg+xml">

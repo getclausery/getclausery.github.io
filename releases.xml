@@ -1,27 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:webfeeds="http://webfeeds.org/rss/1.0">
   <title>Clausery releases</title>
   <subtitle>Release notes for Clausery: new templates, app features, fixes and policy changes.</subtitle>
   <link rel="self" href="https://getclausery.github.io/releases.xml"/>
+  <link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
   <link rel="alternate" href="https://getclausery.github.io/changelog.html"/>
   <id>https://getclausery.github.io/changelog.html</id>
   <updated>2026-11-18T00:00:00Z</updated>
   <author><name>Clausery</name></author>
   <entry>
-    <title>Clausery v2.223.0 — Fixed breadcrumb microdata (current page now carries itemprop=item link so BreadcrumbList validates), site-wide JSON-LD coverage extended to all hub pages that were previously skipped.</title>
+    <title>Clausery v2.224.0 — WebSub/PubSubHubbub hub links on Atom feeds, speakable schema on every page, mainEntityOfPage + license metadata on image objects.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-224-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-224-0</id>
+    <published>2026-11-18T00:00:00Z</published>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <summary>WebSub/PubSubHubbub hub links on Atom feeds, speakable schema on every page, mainEntityOfPage + license metadata on image objects.</summary>
+  </entry>
+  <entry>
+    <title>Clausery v2.223.0 — Breadcrumb microdata fix (final ListItem now carries itemprop=item) and full schema coverage on all 381 indexable pages.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-223-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-223-0</id>
     <published>2026-11-18T00:00:00Z</published>
     <updated>2026-11-18T00:00:00Z</updated>
-    <summary>Fixed breadcrumb microdata (current page now carries itemprop=item link so BreadcrumbList validates), site-wide JSON-LD coverage extended to all hub pages that were previously skipped.</summary>
+    <summary>Breadcrumb microdata fix (final ListItem now carries itemprop=item) and full schema coverage on all 381 indexable pages.</summary>
   </entry>
   <entry>
-    <title>Clausery v2.222.0 — Head-tag cleanup (removed duplicated author/generator/referrer/theme-color meta tags), richer Organization and WebSite schema (alternateName, foundingDate, contactPoint, logo, SiteNavigationElement hasPart).</title>
+    <title>Clausery v2.222.0 — Head-tag cleanup (removed duplicate meta tags) and richer Organization/WebSite schema.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-222-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-222-0</id>
     <published>2026-11-18T00:00:00Z</published>
     <updated>2026-11-18T00:00:00Z</updated>
-    <summary>Head-tag cleanup (removed duplicated author/generator/referrer/theme-color meta tags), richer Organization and WebSite schema (alternateName, foundingDate, contactPoint, logo, SiteNavigationElement hasPart).</summary>
+    <summary>Head-tag cleanup (removed duplicate meta tags) and richer Organization/WebSite schema.</summary>
   </entry>
   <entry>
     <title>Clausery v2.152.0 — Added fetchpriority=high to the site.css preload hint to help browsers prioritize the critical stylesheet on slow networks.</title>
