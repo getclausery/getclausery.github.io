@@ -243,6 +243,9 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-211-0">2.211.0 <span class="small muted">— 18 November 2026</span></h2>
+<ul><li><strong>Print CSS: hide release pill and "updated" badge.</strong> Added <code>.release-pill</code> and <code>.card-updated</code> to the print-media-query exclusion list so the version banner, pulsing dot and "Updated" corner badge on template cards don't appear on printed/PDF copies of pages (useful for the printable invoice and contract templates people export to PDF).</li></ul>
+<span id="v2-211-1" aria-hidden="true"></span>
 <h2 id="v2-210-0">2.210.0 <span class="small muted">— 18 November 2026</span></h2>
 <ul><li><strong>Fix: Enter on /templates/ filter focuses the card itself.</strong> The v2.209 Enter handler used <code>.feature a</code> to look for a nested link, but template-library cards are <code>&lt;a class="feature"&gt;</code> themselves — focus was never moving. The selector now targets <code>.feature:not([hidden])</code> directly so Enter reliably moves focus to the first matching template card.</li></ul>
 <span id="v2-210-1" aria-hidden="true"></span>
@@ -320,14 +323,9 @@ export const pages = [
 <h2 id="v2-167-0">2.167.0–2.169.0 <span class="small muted">— 8 November 2026</span></h2>
 <ul><li><strong>CSS/HTML cleanup batch.</strong> Added <code>.mt-*/.mw-*/.ta-*</code> utility classes replacing 204 inline style attributes (≈6 KB saved across pages). Extracted the homepage <code>.hero-starters</code> and <code>.testimonial</code> inline styles into CSS (homepage ~850 B smaller). Restored the accidentally-deleted <code>.i</code> SVG icon-stroke class. Removed dead CSS rules (<code>.badge-warn</code>, <code>.quote</code>, <code>@keyframes floatY</code>) and redundant declarations; unified <code>.quickstart-card</code> padding and merged duplicate media-query blocks.</li></ul>
 <span id="v2-168-0" aria-hidden="true"></span><span id="v2-169-0" aria-hidden="true"></span>
-<h2 id="v2-166-0">2.166.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
-<ul>
-  <li><strong>Sticky-CTA CSS micro-trim.</strong> Removed an unnecessary <code>justify-content:center</code> from <code>.sticky-cta a</code>. The CTA link already carries <code>.btn</code>, which sets <code>display:inline-flex;justify-content:center</code>; the redundant duplicate on the child rule was doing nothing. Also confirmed the mobile CTA link (always <code>.btn.btn-primary.btn-lg</code>) has a 48 px min-height from the existing <code>.btn-lg</code> rule, comfortably above the 44 px WCAG touch-target.</li>
-</ul>
-<h2 id="v2-165-0">2.165.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
-<ul>
-  <li><strong>Dead-code cleanup.</strong> Removed the now-empty <code>*_CTA_CSS</code>/<code>*_CTA_STYLE</code> constants and the empty <code>HUB_CTA_STYLE</code> export left over from v2.162's sticky-CTA consolidation (COMPARE_CTA_CSS, COUNTRY_CTA_CSS, DOCS_CTA_STYLE, LEGAL_CTA_STYLE, WF_CTA_CSS, HUB_CTA_CSS, HUB_CTA_STYLE) along with their imports and concatenation in <code>extraHead</code>. Also removed two empty <code>&lt;style&gt;&lt;/style&gt;</code> tags left on the pricing and trades pages.</li>
-</ul>
+<h2 id="v2-165-0">2.165.0–2.166.0 <span class="small muted">— 8 November 2026</span></h2>
+<ul><li><strong>Dead-code cleanup.</strong> Removed unused <code>*_CTA_CSS/STYLE</code> constants left over from the v2.162 sticky-CTA consolidation and two empty <code>&lt;style&gt;&lt;/style&gt;</code> tags. Also removed a redundant <code>justify-content:center</code> on <code>.sticky-cta a</code> (already set by <code>.btn</code>) and confirmed mobile CTA is 48 px via <code>.btn-lg</code>.</li></ul>
+<span id="v2-166-0" aria-hidden="true"></span>
 <h2 id="v2-164-0">2.164.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
 <ul>
   <li><strong>Mobile keyboard hints.</strong> Added <code>enterkeyhint="done"</code> to all numeric calculator inputs on the homepage demo, free-tool calculators (hourly-rate, loan, late-payment, rent-proration, etc.) and the deposit-invoice calculator, so iOS/Android show a blue "Done" button on the numeric keypad instead of a return key that does nothing. Also removed a redundant <code>html{scroll-behavior:auto}</code> override in the <code>prefers-reduced-motion</code> media query (the site never sets smooth scroll, so the override was dead code).</li>
