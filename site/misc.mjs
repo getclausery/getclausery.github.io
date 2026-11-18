@@ -243,6 +243,10 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-184-0">2.184.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
+<ul>
+  <li><strong>Prev/next nav touch targets.</strong> The <em>Previous / Next</em> links at the bottom of guide, template and hub pages now declare <code>min-height:44px</code> and are laid out with <code>inline-flex</code> centering so their padded area meets WCAG 2.5.5. The CSS lives in the inline <code>&lt;style&gt;</code> block emitted by <code>tools/build-site.mjs</code> alongside the prev/next nav, so it doesn't consume site.css budget. Padding and desktop layout are unchanged.</li>
+</ul>
 <h2 id="v2-183-0">2.183.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
   <li><strong>Clause Print/PDF button touch target.</strong> The <em>Print / PDF</em> button on clause pages now drops out of absolute positioning and flows as a 44&nbsp;px tall block button under the clause text on screens ≤&nbsp;760&nbsp;px, matching the treatment already used for <code>.page-print-btn</code>. Desktop layout is unchanged (absolute top-right at compact padding). Clause CSS lives inline in <code>site/clauses.mjs</code>, so this doesn't affect the site.css budget.</li>
@@ -559,14 +563,14 @@ export const pages = [
 
 <h2 id="v2-86-0">2.86.0 <span class="small muted">— 1 November 2026</span></h2>
 <ul>
-  <li><strong>Outstanding-invoice nav badge.</strong> The Drafts sidebar item now shows a small pill badge with the count of sent-but-unpaid invoices (red with a ! when any are overdue; amber when awaiting payment by due date). Returning users open the app and immediately see how many invoices are waiting on payment, instead of having to open the drafts list and scan the status column. Badge refreshes on every navigation so marking an invoice paid or sent updates it instantly.</li>
+  <li><strong>Outstanding-invoice nav badge.</strong> Drafts sidebar shows a pill with sent-but-unpaid count (red with ! when overdue, amber otherwise), refreshed on every navigation.</li>
 </ul>
 
 <h2 id="v2-85-0">2.85.0 <span class="small muted">— 1 November 2026</span></h2>
 <ul>
-  <li><strong>Changelog compressed.</strong> All 96 v1.x release entries (1.0.0–1.96.0, 24 September–25 October) collapsed into a single "Earlier releases" summary paragraph with a link to the Git commit log, freeing ~42 KB of headroom for upcoming releases. v2.x release notes remain full-length.</li>
-  <li><strong>Recent-clients chip row on Bill to.</strong> On the client step, when the client name is empty and previous drafts exist, a small "Recent:" chip row shows up to 5 recent client first-names. Tapping a chip fills in client name plus address / project reference / PO number from the last invoice for that client. Lets repeat senders pick up a client they've already billed in one tap instead of retyping.</li>
-  <li><strong>Post-paid receipt cross-sell.</strong> Marking an invoice paid now shows a toast "Marked [Client]'s invoice as paid — Make a receipt →" that starts a new payment-receipt draft (same flow as "New invoice for this client") for that client instead of the generic "Marked as paid." Receipts are the natural next action after a payment clears.</li>
+  <li><strong>Changelog compressed.</strong> 96 v1.x release entries collapsed into one "Earlier releases" summary linking to git history, freeing ~42 KB of build headroom; v2.x notes remain full-length.</li>
+  <li><strong>Recent-clients chip row on Bill to.</strong> "Recent:" chip row of up to 5 client first-names fills in name + address / project / PO from the last invoice in one tap.</li>
+  <li><strong>Post-paid receipt cross-sell.</strong> Marking paid toasts a "Make a receipt →" action that starts a receipt draft for that client.</li>
 </ul>
 
 <h2 id="v2-84-0">2.84.0 <span class="small muted">— 1 November 2026</span></h2>
