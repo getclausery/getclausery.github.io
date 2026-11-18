@@ -243,6 +243,8 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-193-0">2.193.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
+<ul><li><strong>Mobile nav links meet 44px.</strong> Links inside the slide-out mobile menu now use <code>padding:.75rem .8rem; min-height:44px; display:inline-flex; align-items:center</code> under <code>@media(max-width:820px)</code>, up from ~38px. Consolidated all duplicate <code>@media</code> blocks for the same breakpoint into single rules (saves 232 B), giving 242 B of fresh site.css headroom for future work.</li></ul>
 <h2 id="v2-192-0">2.192.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul><li><strong>Invoice-email payment-instructions field.</strong> The optional <em>Payment instructions</em> textarea in the invoice email generator now has <code>spellcheck="true"</code> and <code>autocapitalize="sentences"</code> so iOS/Android capitalises the start of sentences and underlines typos in your prose. The read-only output and code-like subject fields remain spellcheck-off.</li></ul>
 <h2 id="v2-191-0">2.191.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
@@ -261,11 +263,11 @@ export const pages = [
 </ul>
 <h2 id="v2-187-0">2.187.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
-  <li><strong>Autocapitalize hints tuned.</strong> The invoice-email generator's Client name / Your name inputs now use <code>autocapitalize="words"</code> so iOS/Android capitalises each word, the Project description and Payment-instructions fields use <code>autocapitalize="sentences"</code> for proper prose, and the Invoice-number reference field uses <code>autocapitalize="off"</code>. In the app's generic form renderer, default <code>type="text"</code> inputs were changed from <code>autocapitalize="off"</code> to <code>autocapitalize="sentences"</code> so names, addresses and description fields capitalise as users expect (code/reference fields use <code>type="number"</code> or explicit templates). Also removed a stray duplicate <code>display:block</code> on <code>.prevnext</code> left over from the v2.184 change.</li>
+  <li><strong>Autocapitalize hints tuned.</strong> Invoice-email generator: client/your names use <code>autocapitalize="words"</code>, project/payment prose use <code>autocapitalize="sentences"</code>, invoice number uses <code>autocapitalize="off"</code>. Also removed a stray duplicate <code>display:block</code> on <code>.prevnext</code>.</li>
 </ul>
 <h2 id="v2-186-0">2.186.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
-  <li><strong>App button sizes on phones.</strong> App <code>@media (max-width:600px)</code>: default <code>.btn</code> gets <code>min-height:44px</code>, <code>.btn-sm</code> (repeat-row move/delete icons, secondary actions) raised from ~28 px to <code>min-height:44px</code>, and icon-only <code>.btn-icon.btn-sm</code> raised from ~24 px to 44 px. Desktop sizes unchanged.</li>
+  <li><strong>App button sizes on phones.</strong> App <code>@media(max-width:600px)</code>: default <code>.btn</code> gets <code>min-height:44px</code>, <code>.btn-sm</code> raised from ~28 px to 44 px, icon-only <code>.btn-icon.btn-sm</code> raised from ~24 px to 44 px. Desktop unchanged.</li>
 </ul>
 <h2 id="v2-185-0">2.185.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
