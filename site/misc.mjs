@@ -243,6 +243,8 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-191-0">2.191.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
+<ul><li><strong>Mobile nav CTA touch target.</strong> The "Open app" pill inside the mobile menu drawer now uses <code>min-height:44px; display:inline-flex</code> on screens under 820px. Also narrowed <code>.nav-search</code> transition from <code>transition:all</code> to the specific properties that animate.</li></ul>
 <h2 id="v2-190-0">2.190.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
   <li><strong>Footer social icons on phones.</strong> The footer GitHub/RSS icons were 32×32px; on screens under 760px they now bump to 44×44 via an inline <code>@media</code> block in the footer partial (no site.css cost). Desktop stays at 32px.</li>
@@ -265,11 +267,11 @@ export const pages = [
 </ul>
 <h2 id="v2-185-0">2.185.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
-  <li><strong>Page-print button touch target.</strong> The print/share buttons on guide/template/clause pages become <code>inline-flex</code> with <code>min-height:44px</code> under the existing mobile media query, meeting WCAG 2.5.5. Trimmed two redundant declarations from <code>.page-print-btn</code> (<code>transition:all .15s</code> and <code>font-family:inherit</code>, both already inherited or replaced) to stay inside the 45 KB site.css cap with headroom.</li>
+  <li><strong>Page-print button touch target.</strong> Print/share buttons on guide/template/clause pages become <code>inline-flex;min-height:44px</code> under the mobile MQ. Trimmed two redundant declarations to stay inside the 45 KB site.css cap.</li>
 </ul>
 <h2 id="v2-184-0">2.184.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
-  <li><strong>Prev/next nav touch targets.</strong> The <em>Previous / Next</em> links at the bottom of guide, template and hub pages now declare <code>min-height:44px</code> and are laid out with <code>inline-flex</code> centering so their padded area meets WCAG 2.5.5. The CSS lives in the inline <code>&lt;style&gt;</code> block emitted by <code>tools/build-site.mjs</code> alongside the prev/next nav, so it doesn't consume site.css budget. Padding and desktop layout are unchanged.</li>
+  <li><strong>Prev/next nav touch targets.</strong> <em>Previous / Next</em> links at the bottom of guide/template/hub pages declare <code>min-height:44px</code> via inline <code>&lt;style&gt;</code> (no site.css cost).</li>
 </ul>
 <h2 id="v2-183-0">2.183.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
