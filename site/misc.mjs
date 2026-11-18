@@ -243,6 +243,9 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-217-0">2.217.0 <span class="small muted">— 18 November 2026</span></h2>
+<ul><li><strong>Organization <code>sameAs</code> expanded.</strong> Added the Clausery GitHub organisation URL (<code>github.com/getclausery</code>) and the npm package profile (<code>npmjs.com/package/clausery</code>) to the Organization JSON-LD <code>sameAs</code> array on the homepage and the site-wide schema block. More authoritative identity links help search engines and knowledge-graph resolvers disambiguate this Clausery (open-source document generator) from clausery.ai (enterprise compliance software).</li></ul>
+<span id="v2-217-1" aria-hidden="true"></span>
 <h2 id="v2-216-0">2.216.0 <span class="small muted">— 18 November 2026</span></h2>
 <ul><li><strong>rel=noopener on changelog GitHub links.</strong> Added <code>rel="noopener"</code> to the two "git log" links to prevent the opened tab from reaching <code>window.opener</code> and to suppress the Referer header on cross-origin navigation.</li></ul>
 <span id="v2-216-1" aria-hidden="true"></span>
