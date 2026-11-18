@@ -243,6 +243,9 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-207-0">2.207.0 <span class="small muted">— 18 November 2026</span></h2>
+<ul><li><strong>⌘K palette focus trap.</strong> The command palette (<kbd>⌘K</kbd>/<kbd>/</kbd>) now traps <kbd>Tab</kbd>/<kbd>Shift+Tab</kbd> so keyboard users cannot tab out into the obscured page, and restores focus to the previously-focused element when closed via <kbd>Esc</kbd>, backdrop click or item selection (WCAG 2.4.3, 2.1.2).</li></ul>
+<span id="v2-207-1" aria-hidden="true"></span>
 <h2 id="v2-206-0">2.206.0 <span class="small muted">— 18 November 2026</span></h2>
 <ul>
   <li><strong>Esc closes the mobile menu.</strong> Added a <kbd>Esc</kbd> key handler that closes the mobile nav when it is open and returns focus to the hamburger button (standard dialog/dismissal pattern). Also refactored the duplicated mobile-menu-close code in <code>site.js</code> into a single <code>closeNav()</code> helper, shaving 62 bytes off the script.</li>

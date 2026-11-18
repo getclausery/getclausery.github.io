@@ -116,15 +116,16 @@ for(const box of $$('[data-filter-for]')){
  flat=[...list.querySelectorAll('.cmdk-item')];idx=0;if(flat.length){flat[0].setAttribute('aria-selected','true');flat[0].scrollIntoView({block:'nearest'})}
  }
  function hl(t,qw){const safe=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));if(!qw.length)return safe(t);let out=safe(t);for(const w of qw){const re=new RegExp(`(${w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`,'gi');out=out.replace(re,'<b>$1</b>')}return out}
- async function open(){root.hidden=false;root.classList.add('show');list.innerHTML='<div class="cmdk-empty">Loading…</div>';setTimeout(()=>{input.value='';input.focus()},20);document.body.style.overflow='hidden';await ensure();render(input.value||'')}
- function close(){root.hidden=true;root.classList.remove('show');document.body.style.overflow='';idx=0}
+ async function open(){lastFocus=document.activeElement;root.hidden=false;root.classList.add('show');list.innerHTML='<div class="cmdk-empty">Loading…</div>';setTimeout(()=>{input.value='';input.focus()},20);document.body.style.overflow='hidden';await ensure();render(input.value||'')}
+ let lastFocus=null
+ function close(){root.hidden=true;root.classList.remove('show');document.body.style.overflow='';idx=0;if(lastFocus){lastFocus.focus();lastFocus=null}}
  function move(d){if(!flat.length)return;flat[idx]?.setAttribute('aria-selected','false');idx=(idx+d+flat.length)%flat.length;flat[idx].setAttribute('aria-selected','true');flat[idx].scrollIntoView({block:'nearest'})}
  document.addEventListener('keydown',e=>{
  const mod=e.metaKey||e.ctrlKey
  if(mod&&(e.key==='k'||e.key==='K')){e.preventDefault();root.classList.contains('show')?close():open();return}
  if(e.key==='/'&&!root.classList.contains('show')&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){e.preventDefault();open();return}
  if(!root.classList.contains('show'))return
- if(e.key==='Escape'){e.preventDefault();close()}else if(e.key==='ArrowDown'){e.preventDefault();move(1)}else if(e.key==='ArrowUp'){e.preventDefault();move(-1)}else if(e.key==='Enter'){e.preventDefault();const a=flat[idx];if(a){a.click();close()}}
+ if(e.key==='Escape'){e.preventDefault();close()}else if(e.key==='ArrowDown'){e.preventDefault();move(1)}else if(e.key==='ArrowUp'){e.preventDefault();move(-1)}else if(e.key==='Enter'){e.preventDefault();const a=flat[idx];if(a){a.click();close()}}else if(e.key==='Tab'){const focusable=$$('input,a,button',root).filter(el=>!el.hidden&&el.tabIndex!==-1);if(!focusable.length)return;const first=focusable[0],last=focusable[focusable.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}
  })
  if(openBtn)openBtn.addEventListener('click',open)
  root.addEventListener('click',e=>{if(e.target===root)close()})
