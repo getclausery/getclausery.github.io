@@ -243,6 +243,9 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-209-0">2.209.0 <span class="small muted">— 18 November 2026</span></h2>
+<ul><li><strong>Enter jumps to first filter match.</strong> Pressing <kbd>Enter</kbd> in the /templates/ filter input now moves focus directly to the first visible matching template link, so keyboard users don't have to <kbd>Tab</kbd> past the filter, status line and section headings to reach the result they typed for. The /search/ page already selects the top result on Enter via form submission.</li></ul>
+<span id="v2-209-1" aria-hidden="true"></span>
 <h2 id="v2-208-0">2.208.0 <span class="small muted">— 18 November 2026</span></h2>
 <ul><li><strong>Mobile-menu focus trap.</strong> The slide-out mobile nav now moves focus to the first link ("+ Start an invoice") when opened, traps <kbd>Tab</kbd>/<kbd>Shift+Tab</kbd> within the menu while it is open, and restores focus to the hamburger button when closed by <kbd>Esc</kbd>, backdrop tap, or nav-link activation. Mirrors the ⌘K palette fix from v2.207 for keyboard and screen-reader users (WCAG 2.4.3, 2.1.2).</li></ul>
 <span id="v2-208-1" aria-hidden="true"></span>

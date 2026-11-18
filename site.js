@@ -44,7 +44,7 @@ for(const box of $$('[data-filter-for]')){
  for(const g of groups)g.hidden=!g.querySelector('.feature:not([hidden])')
  if(cnt)cnt.textContent=w.length?`${shown} of ${items.length} templates match`:''
  if(empty)empty.hidden=shown>0}
- input.addEventListener('input',run);box.hidden=false
+ input.addEventListener('input',run);input.addEventListener('keydown',e=>{if(e.key==='Enter'){const first=root.querySelector('.feature:not([hidden]) a');if(first){e.preventDefault();first.focus()}}});box.hidden=false
  const q=new URL(location.href).searchParams.get('q');if(q){input.value=q;run()}
 }
 (function(){
