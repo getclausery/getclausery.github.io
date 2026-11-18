@@ -243,6 +243,9 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-212-0">2.212.0 <span class="small muted">— 18 November 2026</span></h2>
+<ul><li><strong>⌘K keyboard shortcut advertised to screen readers.</strong> Added <code>aria-keyshortcuts="Control+K Meta+K /"</code> to the nav-search button so screen readers announce that <kbd>⌘K</kbd>, <kbd>Ctrl+K</kbd> and <kbd>/</kbd> open the command palette. The ARIA <code>aria-keyshortcuts</code> attribute doesn't change behavior — it only exposes the existing shortcut to assistive technology.</li></ul>
+<span id="v2-212-1" aria-hidden="true"></span>
 <h2 id="v2-211-0">2.211.0 <span class="small muted">— 18 November 2026</span></h2>
 <ul><li><strong>Print CSS: hide release pill and "updated" badge.</strong> Added <code>.release-pill</code> and <code>.card-updated</code> to the print-media-query exclusion list so the version banner, pulsing dot and "Updated" corner badge on template cards don't appear on printed/PDF copies of pages (useful for the printable invoice and contract templates people export to PDF).</li></ul>
 <span id="v2-211-1" aria-hidden="true"></span>
@@ -326,14 +329,9 @@ export const pages = [
 <h2 id="v2-165-0">2.165.0–2.166.0 <span class="small muted">— 8 November 2026</span></h2>
 <ul><li><strong>Dead-code cleanup.</strong> Removed unused <code>*_CTA_CSS/STYLE</code> constants left over from the v2.162 sticky-CTA consolidation and two empty <code>&lt;style&gt;&lt;/style&gt;</code> tags. Also removed a redundant <code>justify-content:center</code> on <code>.sticky-cta a</code> (already set by <code>.btn</code>) and confirmed mobile CTA is 48 px via <code>.btn-lg</code>.</li></ul>
 <span id="v2-166-0" aria-hidden="true"></span>
-<h2 id="v2-164-0">2.164.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
-<ul>
-  <li><strong>Mobile keyboard hints.</strong> Added <code>enterkeyhint="done"</code> to all numeric calculator inputs on the homepage demo, free-tool calculators (hourly-rate, loan, late-payment, rent-proration, etc.) and the deposit-invoice calculator, so iOS/Android show a blue "Done" button on the numeric keypad instead of a return key that does nothing. Also removed a redundant <code>html{scroll-behavior:auto}</code> override in the <code>prefers-reduced-motion</code> media query (the site never sets smooth scroll, so the override was dead code).</li>
-</ul>
-<h2 id="v2-163-0">2.163.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
-<ul>
-  <li><strong>More CSS deduplication.</strong> Continued extracting repeated inline styles to shared classes: added a base <code>.actions</code> rule (5 instances), <code>.feature h2</code> rule for the small CTA-card headings (11 instances), promoted <code>.rating .stars</code> to a standalone <code>.stars</code> class so testimonial star ratings can reuse it (3 instances), and removed redundant inline <code>text-decoration:none;color:inherit</code> on <code>&lt;a class="feature"&gt;</code> cards (5 instances) since that rule is already on the <code>.feature</code> base class.</li>
-</ul>
+<h2 id="v2-163-0">2.163.0–2.164.0 <span class="small muted">— 8 November 2026</span></h2>
+<ul><li><strong>CSS dedupe + mobile keyboard hints.</strong> Extracted repeated inline styles to shared classes (<code>.actions</code>, <code>.feature h2</code>, <code>.stars</code>) and dropped redundant inline <code>text-decoration:none;color:inherit</code> on <code>.feature</code> cards. Added <code>enterkeyhint="done"</code> to all numeric calculator inputs (homepage demo, free tools, deposit calculator) so iOS/Android shows the blue <kbd>Done</kbd> key on numeric keypads; removed dead <code>html{scroll-behavior:auto}</code> override.</li></ul>
+<span id="v2-164-0" aria-hidden="true"></span>
 <h2 id="v2-162-0">2.162.0 <span class="small muted">— <time datetime="2026-11-08">8 November 2026</time></span></h2>
 <ul>
   <li><strong>Sticky-CTA CSS consolidated.</strong> The bottom-of-screen "Open Clausery / Start this invoice" CTA appeared on 376 pages, but each of nine page types (section hub, template, clause, country, doc, guide, free-tool, legal, pricing) inlined its own ~590-byte <code>&lt;style&gt;</code> block under a different class name (<code>.p-cta-fixed</code>, <code>.tpl-cta-fixed</code>, <code>.tpl-cta-fixed-c</code>, <code>.tpl-cta-fixed-h</code>, <code>.tpl-cta-fixed-t</code>, <code>.docs-cta-fixed</code>, <code>.legal-cta-fixed</code>, <code>.pricing-cta-fixed</code>, <code>.hub-cta-fixed</code>) with identical rules. Unified them all under a single <code>.sticky-cta</code> class in site.css using <code>body:has(.sticky-cta)</code> for the mobile bottom padding. Removed nine duplicated inline <code>&lt;style&gt;</code> blocks and the dead <code>.i</code> SVG-icon class (no page used it). Net saving ≈ 180 KB across HTML pages.</li>
