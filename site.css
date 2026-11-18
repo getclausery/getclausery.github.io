@@ -243,8 +243,8 @@ border-bottom:1px solid color-mix(in srgb,var(--border) 50%,transparent);
 .quote cite{display:block;font-style:normal;font-size:.9rem;color:var(--muted);margin-top:.85rem}
 
 .faq details{border-bottom:1px solid var(--border);padding:.25rem 0;transition:background .15s}.faq details[open]{background:color-mix(in srgb,var(--accent) 3%,transparent);margin:0 -.75rem;padding:.25rem .75rem;border-radius:12px}
-.faq summary{cursor:pointer;font-weight:600;padding:1rem 0;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;min-height:44px}
-.faq summary::-webkit-details-marker{display:none}.faq summary::after{content:"+";color:var(--muted);font-size:1.3rem;font-weight:400;transition:transform .2s,color .15s;width:20px;text-align:center}.faq details[open] summary::after{content:"−";color:var(--accent);transform:rotate(180deg)}
+.faq summary{cursor:pointer;font-weight:600;padding:.85rem 0;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;min-height:44px}
+.faq summary::-webkit-details-marker{display:none}.faq summary::after{content:"+";color:var(--muted);font-size:1.3rem;min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:flex-end}.faq details[open] summary::after{content:"−";color:var(--accent)}.faq summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:6px}
 .faq p{color:var(--muted);margin-bottom:1rem}
 
 .docs{display:grid;grid-template-columns:240 1fr;gap:3rem;padding:2.5rem 0 4rem}
