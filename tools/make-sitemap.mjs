@@ -65,13 +65,20 @@ const imageEntry = (path) => {
   }
   return parts.join('');
 };
+const hreflangLinks = (loc) => `    <xhtml:link rel="alternate" hreflang="en" href="${loc}"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="${loc}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="${loc}"/>`;
 const entry = (f) => {
   const p = f.replace(/index\.html$/, '');
   const loc = `${base}${p}`;
   const priority = p === '' ? '1.0' : p.startsWith('docs') ? '0.6' : p.startsWith('legal') || p === 'about/' || p.startsWith('contact/') ? '0.5' : '0.8';
-  return `  <url><loc>${loc}</loc>${lastmod[loc] ? `<lastmod>${lastmod[loc]}</lastmod>` : ''}<priority>${priority}</priority>${imageEntry(p)}</url>`;
+  return `  <url>
+    <loc>${loc}</loc>${lastmod[loc] ? `\n    <lastmod>${lastmod[loc]}</lastmod>` : ''}
+${hreflangLinks(loc)}
+    <priority>${priority}</priority>${imageEntry(p).replace(/<image:image>/g,'    <image:image>').replace(/<\/image:image>/g,'    </image:image>')}
+  </url>`;
 };
-const urlset = (files, images = false) => `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"${images ? ' xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"' : ''}>\n${files.map(entry).join('\n')}\n</urlset>\n`;
+const urlset = (files, images = false) => `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml"${images ? ' xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"' : ''}>\n${files.map(entry).join('\n')}\n</urlset>\n`;
 
 writeFileSync('sitemap.xml', urlset(indexable, true));
 mkdirSync('sitemaps', { recursive: true });

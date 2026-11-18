@@ -178,6 +178,7 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <meta name="thumbnail" content="${image}">
 <meta name="rating" content="General">
 <meta name="category" content="Business,Finance,Productivity">
+<meta name="content-language" content="en-GB">
 <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0f1419" media="(prefers-color-scheme: dark)">
 <meta name="original-source" content="${url}">

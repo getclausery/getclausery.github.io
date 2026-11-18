@@ -1,13 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <url><loc>https://getclausery.github.io/free-tools/amount-in-words.html</loc><lastmod>2026-11-18</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/free-tools.png</image:loc><image:title>Amount in words converter for contracts and cheques</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/free-tools/deadline-calculator.html</loc><lastmod>2026-11-18</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/free-tools.png</image:loc><image:title>Contract deadline calculator (business days, months, years)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/free-tools/freelance-rate.html</loc><lastmod>2026-11-18</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/free-tools.png</image:loc><image:title>Freelance rate calculator: hourly and day rate</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/free-tools/</loc><lastmod>2026-11-18</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/free-tools.png</image:loc><image:title>Free small-business calculators (Word, 2026)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/free-tools/invoice-due-date.html</loc><lastmod>2026-11-18</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/free-tools.png</image:loc><image:title>Net 30 calculator: invoice due date for any payment terms</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/free-tools/late-payment-interest.html</loc><lastmod>2026-11-18</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/free-tools.png</image:loc><image:title>Late payment interest calculator (contract or UK statutory)</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/free-tools/loan-repayment.html</loc><lastmod>2026-11-18</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/free-tools.png</image:loc><image:title>Loan repayment calculator with amortization schedule</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/free-tools/prorated-rent.html</loc><lastmod>2026-11-18</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/free-tools.png</image:loc><image:title>Prorated rent calculator for move-in and move-out</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/free-tools/sales-commission.html</loc><lastmod>2026-11-18</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/free-tools.png</image:loc><image:title>Sales commission calculator with tiers and draw</image:title></image:image></url>
-  <url><loc>https://getclausery.github.io/free-tools/template-checker.html</loc><lastmod>2026-11-18</lastmod><priority>0.8</priority><image:image><image:loc>https://getclausery.github.io/assets/og/free-tools.png</image:loc><image:title>Word template tag checker</image:title></image:image></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://getclausery.github.io/free-tools/amount-in-words.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/free-tools/amount-in-words.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/free-tools/amount-in-words.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/free-tools/amount-in-words.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/free-tools.png</image:loc><image:title>Amount in words converter for contracts and cheques</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/free-tools/deadline-calculator.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/free-tools/deadline-calculator.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/free-tools/deadline-calculator.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/free-tools/deadline-calculator.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/free-tools.png</image:loc><image:title>Contract deadline calculator (business days, months, years)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/free-tools/freelance-rate.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/free-tools/freelance-rate.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/free-tools/freelance-rate.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/free-tools/freelance-rate.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/free-tools.png</image:loc><image:title>Freelance rate calculator: hourly and day rate</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/free-tools/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/free-tools/"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/free-tools/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/free-tools/"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/free-tools.png</image:loc><image:title>Free small-business calculators (Word, 2026)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/free-tools/invoice-due-date.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/free-tools/invoice-due-date.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/free-tools/invoice-due-date.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/free-tools/invoice-due-date.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/free-tools.png</image:loc><image:title>Net 30 calculator: invoice due date for any payment terms</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/free-tools/late-payment-interest.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/free-tools/late-payment-interest.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/free-tools/late-payment-interest.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/free-tools/late-payment-interest.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/free-tools.png</image:loc><image:title>Late payment interest calculator (contract or UK statutory)</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/free-tools/loan-repayment.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/free-tools/loan-repayment.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/free-tools/loan-repayment.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/free-tools/loan-repayment.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/free-tools.png</image:loc><image:title>Loan repayment calculator with amortization schedule</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/free-tools/prorated-rent.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/free-tools/prorated-rent.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/free-tools/prorated-rent.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/free-tools/prorated-rent.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/free-tools.png</image:loc><image:title>Prorated rent calculator for move-in and move-out</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/free-tools/sales-commission.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/free-tools/sales-commission.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/free-tools/sales-commission.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/free-tools/sales-commission.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/free-tools.png</image:loc><image:title>Sales commission calculator with tiers and draw</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/free-tools/template-checker.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/free-tools/template-checker.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/free-tools/template-checker.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/free-tools/template-checker.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/free-tools.png</image:loc><image:title>Word template tag checker</image:title>    </image:image>
+  </url>
 </urlset>
