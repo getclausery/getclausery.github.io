@@ -5,8 +5,9 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  {"version":"2.226.0","date":"18 November 2026","summary":"WebApplication screenshot/featureList/browserRequirements, consolidated accessibility changelog batch."},
   {"version":"2.225.0","date":"18 November 2026","summary":"WebFeed JSON-LD for both Atom feeds, enriched Atom entries with icon/logo/author/cover/accentColor."},
-  {"version":"2.224.0","date":"18 November 2026","summary":"WebSub/PubSubHubbub hub links, speakable schema on every page, mainEntityOfPage + image-license metadata."},
+  {"version":"2.224.0","date":"18 November 2026","summary":"WebSub/PubSubHubbub hub links, speakable schema, mainEntityOfPage + image-license metadata."},
   {"version":"2.223.0","date":"18 November 2026","summary":"Breadcrumb microdata fix and full schema coverage on all 381 indexable pages."},
   {"version":"2.222.0","date":"18 November 2026","summary":"Head-tag cleanup and richer Organization/WebSite schema."},
   {"version":"2.152.0","date":"8 November 2026","summary":"Added fetchpriority=high to the site.css preload hint to help browsers prioritize the critical stylesheet on slow networks."},
@@ -247,6 +248,9 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-226-0">2.226.0 <span class="small muted">— 18 November 2026</span></h2>
+<ul><li><strong>WebApplication screenshot + featureList/browserRequirements.</strong> Added <code>screenshot</code> ImageObject (the in-browser invoice editor) to the site-wide WebApplication/SoftwareApplication node; expanded <code>featureList</code> from 7 to 8 entries (local invoice tracking, offline PWA, encrypted workspace, client-side .docx generation, conditional clauses, calculations, offline intake forms, no account required); added explicit <code>browserRequirements</code> and <code>permissions</code> (documents never leave your browser) for SoftwareApplication rich-result eligibility.</li></ul>
+<span id="v2-226-1" aria-hidden="true"></span>
 <h2 id="v2-225-0">2.225.0 <span class="small muted">— 18 November 2026</span></h2>
 <ul><li><strong>WebFeed schema + feed-metadata enrichment.</strong> Added <code>WebFeed</code> JSON-LD for both Atom feeds (guides <code>#feed</code>, releases <code>#releases-feed</code>) on every page, so search engines discover the feeds from structured data not just the <code>&lt;link rel=alternate&gt;</code> tags. Enriched both feeds with <code>&lt;icon&gt;</code>/<code>&lt;logo&gt;</code>, webfeeds.org icon/logo/cover/accentColor for Feedly/NetNewsWire, full author <code>uri</code>/<code>email</code>, and corrected the guides-feed <code>rel=alternate</code> to <code>/guides/</code> instead of the site root.</li></ul>
 <span id="v2-225-1" aria-hidden="true"></span>
@@ -264,23 +268,9 @@ export const pages = [
 <span id="v2-214-1" aria-hidden="true"></span><span id="v2-215-1" aria-hidden="true"></span><span id="v2-216-1" aria-hidden="true"></span><span id="v2-217-1" aria-hidden="true"></span><span id="v2-218-1" aria-hidden="true"></span><span id="v2-219-1" aria-hidden="true"></span><span id="v2-220-1" aria-hidden="true"></span><span id="v2-221-1" aria-hidden="true"></span>
 <h2 id="v2-207-0">2.207.0–2.213.0 <span class="small muted">— 18 November 2026</span></h2>
 <ul><li><strong>Keyboard and accessibility polish batch.</strong> ⌘K palette and mobile menu now trap focus and restore it on close (WCAG 2.4.3, 2.1.2); <kbd>Esc</kbd> closes the mobile menu via a shared <code>closeNav()</code> helper; <kbd>Enter</kbd> in the /templates/ filter jumps focus to the first match (fixing a selector bug where it looked for a nested <code>.feature a</code> instead of the card-as-link itself); bare <code>&lt;button&gt;</code> elements (hamburger, ⌘K, welcome-bar dismiss, print/share) now share the 2 px <code>:focus-visible</code> ring; the nav-search button advertises <code>aria-keyshortcuts="Control+K Meta+K /"</code> to assistive tech; print CSS hides the release-pill and card-updated badge; reduced-motion preference is honoured by JS-driven scroll-reveal/tilt effects (and the redundant per-element CSS block was removed, freeing 271 B).</li></ul>
-<span id="v2-207-1" aria-hidden="true"></span><span id="v2-208-1" aria-hidden="true"></span><span id="v2-209-1" aria-hidden="true"></span><span id="v2-210-1" aria-hidden="true"></span><span id="v2-211-1" aria-hidden="true"></span><span id="v2-212-1" aria-hidden="true"></span><span id="v2-213-1" aria-hidden="true"></span>
-<h2 id="v2-206-0">2.206.0 <span class="small muted">— 18 November 2026</span></h2>
-<ul>
-  <li><strong>Esc closes the mobile menu.</strong> Added a <kbd>Esc</kbd> key handler that closes the mobile nav when it is open and returns focus to the hamburger button (standard dialog/dismissal pattern). Also refactored the duplicated mobile-menu-close code in <code>site.js</code> into a single <code>closeNav()</code> helper, shaving 62 bytes off the script.</li>
-</ul>
-<span id="v2-206-1" aria-hidden="true"></span>
-<h2 id="v2-205-0">2.205.0 <span class="small muted">— 18 November 2026</span></h2>
-<ul>
-  <li><strong>Reduced-motion users skip JS animations too.</strong> v2.204 covered CSS transitions/keyframes with <code>@media(prefers-reduced-motion:reduce)</code>; this release extends the preference to the JavaScript-driven scroll-reveal on <code>.feature/.plan/.steps li/.docs-card</code> elements and the pointer-move tilt effect on feature cards, which are now skipped entirely when Reduce Motion is on. Also removed the now-redundant per-element reduced-motion CSS block (the universal rule supersedes it), freeing 271 bytes of stylesheet.</li>
-</ul>
-<span id="v2-205-1" aria-hidden="true"></span>
-<h2 id="v2-204-0">2.204.0 <span class="small muted">— 18 November 2026</span></h2>
-<ul>
-  <li><strong>Honors <code>prefers-reduced-motion</code>.</strong> Added a global <code>@media(prefers-reduced-motion:reduce)</code> rule that disables transitions, keyframe animations and smooth scrolling for visitors who have "Reduce motion" enabled in OS/mobile accessibility settings (iOS/macOS/Windows/Android). The welcome-bar pulse dot, release-pill spark and scroll-progress bar are suppressed for those users. (WCAG 2.3.3 Animation from Interactions.)</li>
-  <li><strong>Tighter transition easing.</strong> Replaced seven occurrences of <code>cubic-bezier(.2,.8,.2,1)</code> with the CSS <code>ease</code> keyword (visually nearly identical) to free bytes for the reduced-motion rule without touching the 45,000-byte stylesheet budget.</li>
-</ul>
-<span id="v2-204-1" aria-hidden="true"></span>
+<span id="v2-207-1" aria-hidden="true"></span><span id="v2-208-1" aria-hidden="true"></span><span id="v2-209-1" aria-hidden="true"></span><span id="v2-210-1" aria-hidden="true"></span><span id="v2-211-1" aria-hidden="true"></span><span id="v2-212-1" aria-hidden="true"></span><span id="v2-213-1" aria-hidden="true"></span><span id="v2-204-1" aria-hidden="true"></span><span id="v2-205-1" aria-hidden="true"></span><span id="v2-206-1" aria-hidden="true"></span>
+<h2 id="v2-204-0">2.204.0–2.206.0 <span class="small muted">— 18 November 2026</span></h2>
+<ul><li><strong>Reduced-motion + keyboard polish batch.</strong> Added global <code>@media(prefers-reduced-motion:reduce)</code> disabling transitions/keyframes/smooth scrolling (WCAG 2.3.3); extended the preference to JS-driven scroll-reveal and pointer-move tilt; <kbd>Esc</kbd> closes the mobile menu via a shared <code>closeNav()</code> helper that returns focus to the hamburger button; replaced seven <code>cubic-bezier(.2,.8,.2,1)</code> easings with the CSS <code>ease</code> keyword to free bytes for the reduced-motion rule; dropped the redundant per-element reduced-motion CSS block.</li></ul>
 <h2 id="v2-203-0">2.203.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul><li><strong>Autocorrect off for search.</strong> All four search inputs (homepage, /templates/, /search/, and the ⌘K palette) now declare <code>autocorrect="off"</code> so iOS Safari doesn't autocorrect template names, client names, or invoice numbers into dictionary words while you type. Also tightened the skip-link CSS slightly.</li></ul>
 <h2 id="v2-202-0">2.202.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>

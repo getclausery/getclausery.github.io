@@ -16,6 +16,14 @@
   <updated>2026-11-18T00:00:00Z</updated>
   <author><name>Clausery editors</name><uri>https://getclausery.github.io/about/</uri><email>getclausery@gmail.com</email></author>
   <entry>
+    <title>Clausery v2.226.0 — WebApplication screenshot/featureList/browserRequirements, consolidated accessibility changelog batch.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-226-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-226-0</id>
+    <published>2026-11-18T00:00:00Z</published>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <summary>WebApplication screenshot/featureList/browserRequirements, consolidated accessibility changelog batch.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.225.0 — WebFeed JSON-LD for both Atom feeds, enriched Atom entries with icon/logo/author/cover/accentColor.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-225-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-225-0</id>
@@ -24,12 +32,12 @@
     <summary>WebFeed JSON-LD for both Atom feeds, enriched Atom entries with icon/logo/author/cover/accentColor.</summary>
   </entry>
   <entry>
-    <title>Clausery v2.224.0 — WebSub/PubSubHubbub hub links, speakable schema on every page, mainEntityOfPage + image-license metadata.</title>
+    <title>Clausery v2.224.0 — WebSub/PubSubHubbub hub links, speakable schema, mainEntityOfPage + image-license metadata.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-224-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-224-0</id>
     <published>2026-11-18T00:00:00Z</published>
     <updated>2026-11-18T00:00:00Z</updated>
-    <summary>WebSub/PubSubHubbub hub links, speakable schema on every page, mainEntityOfPage + image-license metadata.</summary>
+    <summary>WebSub/PubSubHubbub hub links, speakable schema, mainEntityOfPage + image-license metadata.</summary>
   </entry>
   <entry>
     <title>Clausery v2.223.0 — Breadcrumb microdata fix and full schema coverage on all 381 indexable pages.</title>
