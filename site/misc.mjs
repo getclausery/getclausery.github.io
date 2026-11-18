@@ -243,12 +243,14 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-198-0">2.198.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
+<ul><li><strong>Pricing billing toggle on phones.</strong> The Monthly / Yearly toggle on <code>/pricing/</code> used <code>padding:.5rem 1.1rem</code> (~32 px tall); the mobile <code>@media(max-width:600px)</code> rule now sets <code>min-height:44px;padding:.65rem 1rem</code>. The CSS lives inline in <code>site/pricing.mjs</code> so no site.css cost.</li></ul>
 <h2 id="v2-197-0">2.197.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul><li><strong>⌘K palette items on phones.</strong> Each command-palette result (<code>.cmdk-item</code>) now uses <code>min-height:44px;padding:.75rem .8rem</code> under <code>@media(max-width:620px)</code> so tapping a search result meets WCAG 2.5.5. Also removed two redundant <code>.menu-btn</code> padding overrides that duplicated the base rule, keeping site.css headroom at 127 B.</li></ul>
 <h2 id="v2-196-0">2.196.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul><li><strong>Header logo on phones.</strong> The Clausery wordmark in the top-left header (<code>a.brand</code>) had <code>padding:.25rem</code> ≈ 32px; it now uses <code>min-height:44px;padding:.5rem .25rem</code> under <code>@media(max-width:760px)</code> so the back-to-home tap target meets 44px. Desktop unchanged.</li></ul>
 <h2 id="v2-195-0">2.195.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
-<ul><li><strong>Footer nav links on phones.</strong> Footer column links and legal links were 24–26px tall with <code>padding:.18rem 0</code>; they now use <code>min-height:44px;display:inline-flex;align-items:center</code> under <code>@media(max-width:760px)</code> via an inline <code>&lt;style&gt;</code> block in the footer partial (no site.css cost). Desktop stays compact.</li></ul>
+<ul><li><strong>Footer nav links on phones.</strong> Footer column/legal links meet 44px via inline <code>@media</code> (no site.css cost). Desktop stays compact.</li></ul>
 <h2 id="v2-194-0">2.194.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul><li><strong>Docs sidebar links on phones.</strong> The left-hand docs navigation links (<code>.docs-nav a</code>) were 29–30px tall with <code>padding:.4rem .6rem</code>; they now use <code>min-height:44px;display:inline-flex;align-items:center</code> on screens under 760px. Desktop unchanged.</li></ul>
 <h2 id="v2-193-0">2.193.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
@@ -259,11 +261,11 @@ export const pages = [
 <ul><li><strong>Mobile nav CTA touch target.</strong> The "Open app" pill inside the mobile menu drawer now uses <code>min-height:44px; display:inline-flex</code> on screens under 820px. Also narrowed <code>.nav-search</code> transition from <code>transition:all</code> to the specific properties that animate.</li></ul>
 <h2 id="v2-190-0">2.190.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
-  <li><strong>Footer social icons on phones.</strong> The footer GitHub/RSS icons were 32×32px; on screens under 760px they now bump to 44×44 via an inline <code>@media</code> block in the footer partial (no site.css cost). Desktop stays at 32px.</li>
+  <li><strong>Footer social icons on phones.</strong> Footer GitHub/RSS icons bump to 44×44 under 760px via inline <code>@media</code> (no site.css cost). Desktop stays at 32px.</li>
 </ul>
 <h2 id="v2-189-0">2.189.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
-  <li><strong>Welcome-bar touch targets.</strong> Trial CTA pill and dismiss × meet 44px under 760px.</li>
+  <li><strong>Welcome-bar touch targets.</strong> Trial CTA and dismiss × meet 44px under 760px.</li>
 </ul>
 <h2 id="v2-188-0">2.188.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
@@ -279,20 +281,15 @@ export const pages = [
 </ul>
 <h2 id="v2-185-0">2.185.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
-  <li><strong>Page-print button touch target.</strong> Print/share buttons on guide/template/clause pages become <code>inline-flex;min-height:44px</code> under the mobile MQ. Trimmed two redundant declarations to stay inside the 45 KB site.css cap.</li>
+  <li><strong>Page-print button.</strong> Print/share buttons become <code>inline-flex;min-height:44px</code> under the mobile MQ. Trimmed redundant declarations to fit the 45 KB cap.</li>
 </ul>
 <h2 id="v2-184-0">2.184.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul>
   <li><strong>Prev/next nav touch targets.</strong> <em>Previous / Next</em> links at the bottom of guide/template/hub pages declare <code>min-height:44px</code> via inline <code>&lt;style&gt;</code> (no site.css cost).</li>
 </ul>
-<h2 id="v2-183-0">2.183.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
-<ul>
-  <li><strong>Clause Print/PDF touch target.</strong> Clause-page <em>Print / PDF</em> button drops out of absolute positioning and flows as a 44px block button under the clause text on screens ≤760px. CSS lives inline in <code>site/clauses.mjs</code> so site.css budget is unaffected.</li>
-</ul>
-<h2 id="v2-182-0">2.182.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
-<ul>
-  <li><strong>Free-tool &amp; generator inputs 44px.</strong> Added <code>min-height:44px</code> to all inputs/selects/textarea inside free-calculator, invoice-email and payment-receipt generators via per-tool inline <code>&lt;style&gt;</code> (no site.css cost).</li>
-</ul>
+<h2 id="v2-182-0">2.182.0–2.183.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
+<ul><li><strong>Free-tool, generator &amp; clause-button touch targets.</strong> Added <code>min-height:44px</code> to all inputs/selects/textarea in free-calculator, invoice-email and payment-receipt generators; clause-page <em>Print/PDF</em> button flows as a 44px block button on screens ≤760px. All via per-tool/inline <code>&lt;style&gt;</code> (no site.css cost).</li></ul>
+<span id="v2-183-0" aria-hidden="true"></span>
 <h2 id="v2-180-0">2.180.0–2.181.0 <span class="small muted">— <time datetime="2026-11-09">9 November 2026</time></span></h2>
 <ul><li><strong>Keyboard hints and breadcrumb/icon touch targets.</strong> Added <code>enterkeyhint="search"</code> to ⌘K command-palette input and <code>enterkeyhint="next"</code> to all <code>&lt;select&gt;</code> elements in the app form renderer, free tools, invoice-email, deposit calculator and payment-receipt generator. Mobile breadcrumb links meet <code>min-height:44px</code> under a 760px MQ; in-app <code>.btn-icon</code> raised to 44px. Tightened the print stylesheet (~150 B saved) to stay under cap.</li></ul>
 <span id="v2-181-0" aria-hidden="true"></span>
