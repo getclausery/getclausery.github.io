@@ -16,6 +16,14 @@
   <updated>2026-11-18T00:00:00Z</updated>
   <author><name>Clausery editors</name><uri>https://getclausery.github.io/about/</uri><email>getclausery@gmail.com</email></author>
   <entry>
+    <title>Clausery v2.227.0 — WebApplication keywords/audience/applicationSuite, Organization knowsAbout/areaServed, rating/category meta tags.</title>
+    <link href="https://getclausery.github.io/changelog.html#v2-227-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-227-0</id>
+    <published>2026-11-18T00:00:00Z</published>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <summary>WebApplication keywords/audience/applicationSuite, Organization knowsAbout/areaServed, rating/category meta tags.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.226.0 — WebApplication screenshot/featureList/browserRequirements, consolidated accessibility changelog batch.</title>
     <link href="https://getclausery.github.io/changelog.html#v2-226-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-226-0</id>
@@ -46,14 +54,6 @@
     <published>2026-11-18T00:00:00Z</published>
     <updated>2026-11-18T00:00:00Z</updated>
     <summary>Breadcrumb microdata fix and full schema coverage on all 381 indexable pages.</summary>
-  </entry>
-  <entry>
-    <title>Clausery v2.222.0 — Head-tag cleanup and richer Organization/WebSite schema.</title>
-    <link href="https://getclausery.github.io/changelog.html#v2-222-0"/>
-    <id>https://getclausery.github.io/changelog.html#v2-222-0</id>
-    <published>2026-11-18T00:00:00Z</published>
-    <updated>2026-11-18T00:00:00Z</updated>
-    <summary>Head-tag cleanup and richer Organization/WebSite schema.</summary>
   </entry>
   <entry>
     <title>Clausery v2.152.0 — Added fetchpriority=high to the site.css preload hint to help browsers prioritize the critical stylesheet on slow networks.</title>
