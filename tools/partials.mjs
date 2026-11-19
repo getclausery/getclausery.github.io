@@ -170,11 +170,13 @@ ${robots}${prev ? `<link rel="prev" href="${SITE}${prev}">` : ''}${next ? `<link
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="${esc(imageAlt)}">
+${modified ? `<meta property="og:updated_time" content="${modified}">` : ''}
 ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(full)}">
 <meta name="twitter:description" content="${esc(description)}">
 <meta name="twitter:image" content="${image}">
 <meta name="twitter:image:alt" content="${esc(imageAlt)}">
+<meta name="twitter:site" content="@getclausery">
 <meta name="thumbnail" content="${image}">
 <meta name="rating" content="General">
 <meta name="category" content="Business,Finance,Productivity">
