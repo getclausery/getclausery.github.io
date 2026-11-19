@@ -698,7 +698,7 @@ console.log(`wrote search-index.json (${Buffer.byteLength(searchJson)} bytes, ${
   const extraHead = `<script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'CollectionPage','@id':`${SITE}sitemap/#webpage`,url:`${SITE}sitemap/`,name:'Sitemap — every page on Clausery',description:`${total} public pages on Clausery: invoices, templates, guides, calculators and docs, all free Word files you can edit in the browser.`,inLanguage:'en-GB',isPartOf:{'@id':`${SITE}#website`},publisher:{'@id':`${SITE}#organization`},mainEntityOfPage:`${SITE}sitemap/`,speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','.lead','main p:first-of-type']},mainEntity:{'@type':'ItemList',numberOfItems:listItems.length,itemListElement:listItems}})}</script>`;
   mkdirSync('sitemap',{recursive:true});
   const sitemapSiteLd = buildSiteLd(extraHead, false);
-  const sh = head({title:'Sitemap (site map) — every page on Clausery', description:`Site map of every public page on Clausery: ${total} free Word invoices, templates, contracts, NDAs, guides, calculators and docs, all in one list.`,path:'sitemap/',extraHead: extraHead + sitemapSiteLd,rel})+body+footer(rel);
+  const sh = head({title:'Sitemap (site map) — every page on Clausery', description:`Site map of every public page on Clausery: ${total} free Word invoices, templates, contracts, NDAs, guides, calculators and docs, all in one list.`,path:'sitemap/',extraHead: extraHead + sitemapSiteLd, modified: today, rel})+body+footer(rel);
   writeFileSync('sitemap/index.html',sh.replace(/<pre>/g,'<pre tabindex="0">'));
   console.log('wrote sitemap/index.html');
 }
