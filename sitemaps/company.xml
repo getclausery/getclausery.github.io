@@ -3,6 +3,7 @@
   <url>
     <loc>https://getclausery.github.io/about/</loc>
     <lastmod>2026-11-19</lastmod>
+    <changefreq>yearly</changefreq>
     <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/about/"/>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/about/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/about/"/>
@@ -11,6 +12,7 @@
   <url>
     <loc>https://getclausery.github.io/changelog.html</loc>
     <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
     <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/changelog.html"/>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/changelog.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/changelog.html"/>
@@ -19,6 +21,7 @@
   <url>
     <loc>https://getclausery.github.io/contact/</loc>
     <lastmod>2026-11-19</lastmod>
+    <changefreq>yearly</changefreq>
     <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/contact/"/>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/contact/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/contact/"/>
@@ -27,6 +30,7 @@
   <url>
     <loc>https://getclausery.github.io/legal/dmca.html</loc>
     <lastmod>2026-11-18</lastmod>
+    <changefreq>yearly</changefreq>
     <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/legal/dmca.html"/>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/legal/dmca.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/legal/dmca.html"/>
@@ -35,6 +39,7 @@
   <url>
     <loc>https://getclausery.github.io/legal/dpa.html</loc>
     <lastmod>2026-11-18</lastmod>
+    <changefreq>yearly</changefreq>
     <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/legal/dpa.html"/>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/legal/dpa.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/legal/dpa.html"/>
@@ -43,6 +48,7 @@
   <url>
     <loc>https://getclausery.github.io/legal/</loc>
     <lastmod>2026-11-18</lastmod>
+    <changefreq>yearly</changefreq>
     <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/legal/"/>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/legal/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/legal/"/>
@@ -51,6 +57,7 @@
   <url>
     <loc>https://getclausery.github.io/legal/license.html</loc>
     <lastmod>2026-11-18</lastmod>
+    <changefreq>yearly</changefreq>
     <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/legal/license.html"/>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/legal/license.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/legal/license.html"/>
@@ -59,6 +66,7 @@
   <url>
     <loc>https://getclausery.github.io/legal/privacy.html</loc>
     <lastmod>2026-11-18</lastmod>
+    <changefreq>yearly</changefreq>
     <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/legal/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/legal/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/legal/privacy.html"/>
@@ -67,6 +75,7 @@
   <url>
     <loc>https://getclausery.github.io/legal/terms.html</loc>
     <lastmod>2026-11-18</lastmod>
+    <changefreq>yearly</changefreq>
     <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/legal/terms.html"/>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/legal/terms.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/legal/terms.html"/>
@@ -75,6 +84,7 @@
   <url>
     <loc>https://getclausery.github.io/press/</loc>
     <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
     <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/press/"/>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/press/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/press/"/>
@@ -83,6 +93,7 @@
   <url>
     <loc>https://getclausery.github.io/why-clausery/</loc>
     <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
     <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/why-clausery/"/>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/why-clausery/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/why-clausery/"/>
