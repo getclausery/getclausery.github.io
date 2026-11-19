@@ -210,6 +210,8 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <link rel="terms-of-service" type="text/html" href="${rel}legal/terms.html">
 <link rel="privacy-policy" type="text/html" href="${rel}legal/privacy.html">
 <link rel="search" type="application/opensearchdescription+xml" title="Clausery" href="${rel}opensearch.xml">
+<link rel="edit" type="text/html" href="https://github.com/getclausery/getclausery.github.io" title="Source on GitHub">
+<link rel="publisher" type="text/html" href="${rel}about/" title="About Clausery">
 <link rel="sitemap" type="application/xml" title="Sitemap" href="${rel}sitemap_index.xml">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="${rel}feed.xml">
 <link rel="alternate" type="application/atom+xml" title="Clausery releases" href="${rel}releases.xml">
