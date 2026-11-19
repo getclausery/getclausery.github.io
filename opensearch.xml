@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
-  <ShortName>Clausery templates</ShortName>
-  <LongName>Clausery — free Word invoice, quote and contract templates</LongName>
-  <Description>Search the Clausery free Word invoice, contract and letter template library — independent open-source business, not affiliated with Clausery.ai.</Description>
-  <Tags>invoice word template free clausery quote receipt contract nda</Tags>
-  <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/svg+xml">https://getclausery.github.io/assets/icon.svg</Image>
-  <Image width="192" height="192" type="image/png">https://getclausery.github.io/assets/icon-192.png</Image>
-  <Url type="text/html" method="get" template="https://getclausery.github.io/templates/?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="https://getclausery.github.io/opensearch.xml"/>
-  <moz:SearchForm>https://getclausery.github.io/templates/</moz:SearchForm>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+<ShortName>Clausery</ShortName>
+<Description>Search Clausery templates, guides, calculators and documentation.</Description>
+<InputEncoding>UTF-8</InputEncoding>
+<Image width="16" height="16" type="image/png">https://getclausery.github.io/favicon-16.png</Image>
+<Image width="32" height="32" type="image/png">https://getclausery.github.io/favicon-32.png</Image>
+<Url type="text/html" method="get" template="https://getclausery.github.io/search/?q={searchTerms}"/>
+<Url type="application/opensearchdescription+xml" rel="self" template="https://getclausery.github.io/opensearch.xml"/>
+<Developer>Clausery</Developer>
+<Contact>https://getclausery.github.io/contact/</Contact>
+<LongName>Clausery — free Word invoice, contract and template generator</LongName>
+<SearchForm>https://getclausery.github.io/search/</SearchForm>
 </OpenSearchDescription>

@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  {"version":"2.232.0","date":"18 November 2026","summary":"rel=help/search links, OpenSearch description, rel=search browser search-engine integration, Organization serviceType/mainEntityOfPage."},
   {"version":"2.231.0","date":"18 November 2026","summary":"rel=payment/terms/privacy-policy links, WebApplication brand/provider/installUrl/termsOfService/privacyPolicy/priceValidUntil, Person.inLanguage."},
   {"version":"2.230.0","date":"18 November 2026","summary":"og:updated_time on every page, twitter:site meta, collapsed old changelog entries."},
   {"version":"2.229.0","date":"18 November 2026","summary":"WebApplication softwareHelp/releaseNotes/supportUrl, ContactPoint url, mobile-web-app-capable meta, Atom entry authors per entry."},
@@ -250,6 +251,9 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-232-0">2.232.0 <span class="small muted">— 18 November 2026</span></h2>
+<ul><li><strong>rel=help/search links + OpenSearch description.</strong> Added <code>&lt;link rel="help"&gt;</code> (→ /docs/) and <code>&lt;link rel="search" type="application/opensearchdescription+xml"&gt;</code> (→ /opensearch.xml) in every page head; shipped an OpenSearch description XML so Chrome/Firefox/Edge can register Clausery as a browser search-engine (Ctrl+K / address-bar search) for instant site search via /search/. Added <code>serviceType</code> and <code>mainEntityOfPage</code> (→ WebSite) to both the site-wide and homepage Organization JSON-LD nodes for richer Organization rich results.</li></ul>
+<span id="v2-232-1" aria-hidden="true"></span>
 <h2 id="v2-231-0">2.231.0 <span class="small muted">— 18 November 2026</span></h2>
 <ul><li><strong>Payment/terms/privacy link relations + WebApplication compliance fields.</strong> Added <code>&lt;link rel="payment"&gt;</code>, <code>&lt;link rel="terms-of-service"&gt;</code> and <code>&lt;link rel="privacy-policy"&gt;</code> in every page head so crawlers, password managers and browser payment/identity autofill can locate pricing, terms and privacy without guesswork. Added <code>brand</code>, <code>provider</code>, <code>installUrl</code>, <code>termsOfService</code>, <code>privacyPolicy</code> and <code>priceValidUntil</code> (YYYY-12-31 next year) to the site-wide and homepage WebApplication/SoftwareApplication nodes, and set <code>priceValidUntil</code> on each individual Offer on the homepage; added <code>inLanguage: en-GB</code> to the editors Person node.</li></ul>
 <span id="v2-231-1" aria-hidden="true"></span>
