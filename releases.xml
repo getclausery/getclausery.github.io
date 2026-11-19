@@ -16,6 +16,15 @@
   <updated>2026-11-18T00:00:00Z</updated>
   <author><name>Clausery editors</name><uri>https://getclausery.github.io/about/</uri><email>getclausery@gmail.com</email></author>
   <entry>
+    <title>Clausery v2.232.0 — rel=help/search links, OpenSearch description, rel=search browser search-engine integration, Organization serviceType/mainEntityOfPage.</title>
+    <link rel="alternate" type="text/html" href="https://getclausery.github.io/changelog.html#v2-232-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-232-0</id>
+    <published>2026-11-18T00:00:00Z</published>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <author><name>Clausery editors</name><uri>https://getclausery.github.io/about/</uri><email>getclausery@gmail.com</email></author>
+    <summary>rel=help/search links, OpenSearch description, rel=search browser search-engine integration, Organization serviceType/mainEntityOfPage.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.231.0 — rel=payment/terms/privacy-policy links, WebApplication brand/provider/installUrl/termsOfService/privacyPolicy/priceValidUntil, Person.inLanguage.</title>
     <link rel="alternate" type="text/html" href="https://getclausery.github.io/changelog.html#v2-231-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-231-0</id>
