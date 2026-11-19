@@ -192,6 +192,7 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <link rel="apple-touch-icon" sizes="192x192" href="${rel}assets/icon-192.png">
 <link rel="mask-icon" href="${rel}assets/icon.svg" color="#0d9488">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Clausery">
 <meta name="application-name" content="Clausery">
