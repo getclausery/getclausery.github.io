@@ -201,7 +201,6 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <meta name="msapplication-TileColor" content="#0d9488">
 <meta name="msapplication-config" content="${rel}browserconfig.xml">
 <link rel="manifest" href="${rel}app/manifest.webmanifest">
-<link rel="search" type="application/opensearchdescription+xml" title="Clausery templates" href="${rel}opensearch.xml">
 <link type="text/plain" rel="author" href="${rel}humans.txt">
 <link rel="license" href="${rel}legal/license.html" title="AGPL-3.0-or-later WITH Clausery-Trademark-Exception">
 <link rel="security" href="${rel}.well-known/security.txt">
@@ -210,6 +209,7 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <link rel="terms-of-service" type="text/html" href="${rel}legal/terms.html">
 <link rel="privacy-policy" type="text/html" href="${rel}legal/privacy.html">
 <link rel="search" type="application/opensearchdescription+xml" title="Clausery" href="${rel}opensearch.xml">
+<link rel="archives" type="text/html" href="${rel}changelog.html" title="Clausery changelog and release archive">
 <link rel="edit" type="text/html" href="https://github.com/getclausery/getclausery.github.io" title="Source on GitHub">
 <link rel="publisher" type="text/html" href="${rel}about/" title="About Clausery">
 <link rel="sitemap" type="application/xml" title="Sitemap" href="${rel}sitemap_index.xml">

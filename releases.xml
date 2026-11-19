@@ -16,6 +16,15 @@
   <updated>2026-11-18T00:00:00Z</updated>
   <author><name>Clausery editors</name><uri>https://getclausery.github.io/about/</uri><email>getclausery@gmail.com</email></author>
   <entry>
+    <title>Clausery v2.236.0 — WebPage mainContentOfPage WebPageElement (cssSelector:main) on every page, rel=archives link, removed duplicate opensearch link.</title>
+    <link rel="alternate" type="text/html" href="https://getclausery.github.io/changelog.html#v2-236-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-236-0</id>
+    <published>2026-11-18T00:00:00Z</published>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <author><name>Clausery editors</name><uri>https://getclausery.github.io/about/</uri><email>getclausery@gmail.com</email></author>
+    <summary>WebPage mainContentOfPage WebPageElement (cssSelector:main) on every page, rel=archives link, removed duplicate opensearch link.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.235.0 — Article wordCount/timeRequired on every editorial page, rel=edit/publisher link relations, collapsed v2.152–v2.169 changelog batch for budget.</title>
     <link rel="alternate" type="text/html" href="https://getclausery.github.io/changelog.html#v2-235-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-235-0</id>
