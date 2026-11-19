@@ -72,8 +72,10 @@ const entry = (f) => {
   const p = f.replace(/index\.html$/, '');
   const loc = `${base}${p}`;
   const priority = p === '' ? '1.0' : p.startsWith('docs') ? '0.6' : p.startsWith('legal') || p === 'about/' || p.startsWith('contact/') ? '0.5' : '0.8';
+  const changefreq = p === '' || p.startsWith('changelog') || p.startsWith('pricing') ? 'weekly' : p.startsWith('legal') || p.startsWith('about/') || p.startsWith('contact/') ? 'yearly' : 'monthly';
   return `  <url>
     <loc>${loc}</loc>${lastmod[loc] ? `\n    <lastmod>${lastmod[loc]}</lastmod>` : ''}
+    <changefreq>${changefreq}</changefreq>
 ${hreflangLinks(loc)}
     <priority>${priority}</priority>${imageEntry(p).replace(/<image:image>/g,'    <image:image>').replace(/<\/image:image>/g,'    </image:image>')}
   </url>`;
