@@ -16,6 +16,15 @@
   <updated>2026-11-18T00:00:00Z</updated>
   <author><name>Clausery editors</name><uri>https://getclausery.github.io/about/</uri><email>getclausery@gmail.com</email></author>
   <entry>
+    <title>Clausery v2.239.0 — rel=up parent-section link on every non-root page for hierarchical crawler discovery; no schema/CSS/code changes.</title>
+    <link rel="alternate" type="text/html" href="https://getclausery.github.io/changelog.html#v2-239-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-239-0</id>
+    <published>2026-11-18T00:00:00Z</published>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <author><name>Clausery editors</name><uri>https://getclausery.github.io/about/</uri><email>getclausery@gmail.com</email></author>
+    <summary>rel=up parent-section link on every non-root page for hierarchical crawler discovery; no schema/CSS/code changes.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.238.0 — Changelog budget relief: collapsed v2.170–v2.203 WCAG 2.5.5 touch-target batch (34 releases) into one grouped entry to recover headroom.</title>
     <link rel="alternate" type="text/html" href="https://getclausery.github.io/changelog.html#v2-238-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-238-0</id>

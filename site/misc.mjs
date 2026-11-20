@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  {"version":"2.239.0","date":"18 November 2026","summary":"rel=up parent-section link on every non-root page for hierarchical crawler discovery; no schema/CSS/code changes."},
   {"version":"2.238.0","date":"18 November 2026","summary":"Changelog budget relief: collapsed v2.170–v2.203 WCAG 2.5.5 touch-target batch (34 releases) into one grouped entry to recover headroom."},
   {"version":"2.237.0","date":"18 November 2026","summary":"Schema.org accessibility metadata (accessMode/accessModeSufficient/accessibilityFeature/Control/Hazard/API) on every page, meta subject/classification/topic, rel=index."},
   {"version":"2.236.0","date":"18 November 2026","summary":"WebPage mainContentOfPage WebPageElement (cssSelector:main) on every page, rel=archives link, removed duplicate opensearch link."},
@@ -257,6 +258,9 @@ export const pages = [
     body: (rel) => `<section class="section"><div class="wrap prose">
 <h1>Changelog <a href="${rel}releases.xml" style="font-size:.8rem;font-weight:500;vertical-align:middle;margin-left:.5rem" title="Subscribe to releases (Atom feed)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18M4 4.44A15.56 15.56 0 0119.56 20M4 10.75a9.25 9.25 0 019.25 9.25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Atom feed</a></h1>
 <p><a class="btn btn-primary" href="${rel}app/">Open Clausery, free</a> <a class="btn" href="${rel}templates/">Free templates</a></p>
+<h2 id="v2-239-0">2.239.0 <span class="small muted">— 18 November 2026</span></h2>
+<ul><li><strong>rel=up parent-section link on every page.</strong> Added <code>&lt;link rel="up"&gt;</code> on every non-root page pointing to its immediate parent section: file pages (guides/*.html, templates/*.html, invoice-templates/*.html etc.) link up to their containing hub (<code>guides/</code>, <code>templates/</code>, <code>invoice-templates/</code>); section-hub index pages link up to the home page (/); the home page and 404 have no up. This gives crawlers, assistive tech and browser site-navigation extensions an unambiguous hierarchical parent signal (complementing the existing rel=prev/next, rel=index, rel=contents, rel=chapter set). No schema, CSS or code changes — pure head-tag signal.</li></ul>
+<span id="v2-239-1" aria-hidden="true"></span>
 <h2 id="v2-238-0">2.238.0 <span class="small muted">— 18 November 2026</span></h2>
 <ul><li><strong>Changelog budget relief (collapsed v2.170–v2.203).</strong> Collapsed 34 individual/grouped changelog entries from the 8–9 November WCAG 2.5.5 touch-target and keyboard-hint pass (v2.170 through v2.203 — Skip-to-content link, 44 px tap targets across every button/input/link on phones, <code>enterkeyhint</code>/<code>inputmode</code>/<code>autocomplete</code> on app and marketing inputs, ⌘K/mobile-menu focus trapping, <code>prefers-reduced-motion</code> rules, print-stylesheet tightening and the small CSS deduplication wins in that batch) into one grouped entry, recovering ~4 KB of headroom for future SEO and schema work. No functional code/CSS/schema changes in this release — pure changelog compression.</li></ul>
 <span id="v2-238-1" aria-hidden="true"></span>

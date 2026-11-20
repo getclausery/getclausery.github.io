@@ -164,6 +164,18 @@ for (const p of pages) {
   const out = p.path === '' ? 'index.html' : p.path.endsWith('/') ? p.path + 'index.html' : p.path;
   const modified = p.layout === 'embed' ? null : pageDate(p, rel);
   p.modified = modified;
+  // Compute <link rel="up"> parent-section absolute URL for hierarchical crawler discovery (one level up; root/404 have none).
+  // File pages like guides/foo.html -> up=guides/; section index like guides/ -> up=/; sub-page like a/b/c.html -> up=a/b/; sub-section a/b/ -> up=a/.
+  let up = null;
+  if (p.path !== '' && p.path !== '404.html') {
+    if (p.path.endsWith('/')) {
+      const segs = p.path.split('/').filter(Boolean);
+      up = segs.length <= 1 ? SITE : SITE + segs.slice(0,-1).join('/') + '/';
+    } else {
+      const dir = p.path.substring(0, p.path.lastIndexOf('/')+1);
+      up = SITE + dir;
+    }
+  }
   let prev = null, next = null;
   const ch = chainIdx[p.path];
   if (ch) {
@@ -552,7 +564,7 @@ for (const p of pages) {
   kws.add('Word');
   const autoKeywords = [...kws].filter(Boolean).slice(0, 5).join(', ');
   let html = p.layout === 'embed' ? embedPage({ title: p.title, description: p.description, extraHead: p.extraHead, rel, body: p.body(rel) })
-    : (head({ title: seoTitle, description: p.description, path: p.path, extraHead: p.extraHead || '', pageLd, ogImage: p.ogImage, ogType: (p.feed || p.published) ? 'article' : 'website', published: p.published, modified, rel, noindex: Boolean(p.noindex), prev, next, keywords: p.keywords || autoKeywords }) + finalBody + footer(rel)).replace(/<pre>/g, '<pre tabindex="0">');
+    : (head({ title: seoTitle, description: p.description, path: p.path, extraHead: p.extraHead || '', pageLd, ogImage: p.ogImage, ogType: (p.feed || p.published) ? 'article' : 'website', published: p.published, modified, rel, noindex: Boolean(p.noindex), prev, next, up, keywords: p.keywords || autoKeywords }) + finalBody + footer(rel)).replace(/<pre>/g, '<pre tabindex="0">');
   // Visible Previous / Next navigation at the foot of any chained long-form page. Inserted at </main> so it sits
   // directly above the site footer (matching the <link rel=prev/next> already in <head>).
   if ((prev || next) && p.layout !== 'embed') {
@@ -728,7 +740,7 @@ console.log(`wrote search-index.json (${Buffer.byteLength(searchJson)} bytes, ${
   const extraHead = `<script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'CollectionPage','@id':`${SITE}sitemap/#webpage`,url:`${SITE}sitemap/`,name:'Sitemap — every page on Clausery',description:`${total} public pages on Clausery: invoices, templates, guides, calculators and docs, all free Word files you can edit in the browser.`,inLanguage:'en-GB',isPartOf:{'@id':`${SITE}#website`},publisher:{'@id':`${SITE}#organization`},datePublished:today,dateModified:today,lastReviewed:today,reviewedBy:{'@id':`${SITE}about/#editors`},license:`${SITE}legal/license.html`,copyrightYear:YEAR,copyrightHolder:{'@id':`${SITE}#organization`},copyrightNotice:`© ${YEAR} Clausery. Open source under AGPLv3.`,isAccessibleForFree:true,isFamilyFriendly:true,thumbnailUrl:`${SITE}assets/og.png`,accessMode:['textual','visual'],accessModeSufficient:[['textual']],accessibilityFeature:['alternativeText','highContrastDisplay','readingOrder','structuralNavigation','tableOfContents','longDescription'],accessibilityHazard:['none'],accessibilityControl:['fullKeyboardControl','fullMouseControl','fullTouchControl'],accessibilityAPI:['ARIA'],mainContentOfPage:{'@type':'WebPageElement','@id':`${SITE}sitemap/#main-content`,cssSelector:'main'},mainEntityOfPage:`${SITE}sitemap/`,speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','.lead','main p:first-of-type']},breadcrumb:{'@id':`${SITE}sitemap/#breadcrumb`},mainEntity:{'@type':'ItemList',numberOfItems:listItems.length,itemListElement:listItems}})}</script>`;
   mkdirSync('sitemap',{recursive:true});
   const sitemapSiteLd = buildSiteLd(extraHead, false);
-  const sh = head({title:'Sitemap (site map) — every page on Clausery', description:`Site map of every public page on Clausery: ${total} free Word invoices, templates, contracts, NDAs, guides, calculators and docs, all in one list.`,path:'sitemap/',extraHead: extraHead + sitemapSiteLd, modified: today, rel})+body+footer(rel);
+  const sh = head({title:'Sitemap (site map) — every page on Clausery', description:`Site map of every public page on Clausery: ${total} free Word invoices, templates, contracts, NDAs, guides, calculators and docs, all in one list.`,path:'sitemap/',extraHead: extraHead + sitemapSiteLd, modified: today, rel, up: SITE})+body+footer(rel);
   writeFileSync('sitemap/index.html',sh.replace(/<pre>/g,'<pre tabindex="0">'));
   console.log('wrote sitemap/index.html');
 }
