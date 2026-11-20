@@ -474,3 +474,72 @@ test('US non-tax example and starter display clear totals and setup', async ({ p
   await page.locator('.stepper button').filter({ hasText: 'Items and totals' }).click();
   await expect(page.locator('[name="has_tax"]')).not.toBeChecked();
 });
+
+test('home invoice demo carries default, rounded and zero values into mobile drafts', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto('');
+  await page.locator('.demo-cta-sm').click();
+  await page.waitForSelector('.stepper');
+  await page.locator('.stepper button').filter({ hasText: 'Items and totals' }).click();
+  const qty = page.locator('[name="line_items[0].item_quantity"]');
+  const rate = page.locator('[name="line_items[0].item_rate"]');
+  const total = page.locator('[data-path="invoice_total"] .computed-value');
+  await expect(qty).toHaveValue('12');
+  await expect(rate).toHaveValue('85');
+  await expect(total).toHaveText('$1,020.00');
+
+  await page.goto('');
+  await page.fill('#demo-rate', '10.234');
+  await page.fill('#demo-hours', '2.876');
+  await page.fill('#demo-tax', '7.25');
+  await expect(page.locator('#d-total')).toHaveText('31.60');
+  await page.locator('.demo-cta-sm').click();
+  await page.waitForSelector('.stepper');
+  await page.locator('.stepper button').filter({ hasText: 'Items and totals' }).click();
+  await expect(qty).toHaveValue('2.88');
+  await expect(rate).toHaveValue('10.23');
+  await expect(total).toHaveText('$31.60');
+
+  await page.goto('');
+  await page.fill('#demo-hours', '0');
+  await page.fill('#demo-rate', '0');
+  await page.locator('.demo-cta-sm').click();
+  await page.waitForSelector('.stepper');
+  await page.locator('.stepper button').filter({ hasText: 'Items and totals' }).click();
+  await expect(qty).toHaveValue('0');
+  await expect(rate).toHaveValue('0');
+  await expect(total).toHaveText('$0.00');
+});
+
+test('deposit calculator avoids stale amounts and carries a selected currency to the draft', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto('invoice-templates/deposit-invoice.html');
+  await page.fill('#deposit-amount', '100.01');
+  await page.fill('#deposit-percentage', '33.33');
+  await page.selectOption('#deposit-currency', 'GBP');
+  const cta = page.locator('#deposit-open');
+  await expect(cta).toHaveAttribute('href', /rate=33\.33.*currency=GBP/);
+  await page.fill('#deposit-percentage', '120');
+  await expect(cta).not.toHaveAttribute('href');
+  await expect(cta).toHaveAttribute('aria-disabled', 'true');
+  await page.fill('#deposit-percentage', '0');
+  await expect(cta).toHaveAttribute('href', /rate=0&hours=1&tax=0&currency=GBP/);
+  await page.fill('#deposit-percentage', '33.33');
+  await cta.click();
+  await page.waitForSelector('.stepper');
+  await page.locator('.stepper button').filter({ hasText: 'Items and totals' }).click();
+  await expect(page.locator('[name="line_items[0].item_name"]')).toHaveValue(/Agreed project deposit/);
+  await expect(page.locator('[name="line_items[0].item_rate"]')).toHaveValue('33.33');
+  await expect(page.locator('[data-path="invoice_total"] .computed-value')).toHaveText('£33.33');
+});
+
+test('calculator currency does not silently change an existing workspace', async ({ page }) => {
+  await page.goto('app/#/start/invoice/uk-invoice');
+  await page.waitForSelector('.stepper');
+  await page.goto('');
+  await page.locator('.demo-cta-sm').click();
+  await page.waitForSelector('.stepper');
+  await expect(page.locator('.toast').last()).toContainText('Amounts show in GBP; to show USD, change the currency in Settings.');
+  await page.locator('.stepper button').filter({ hasText: 'Items and totals' }).click();
+  await expect(page.locator('[data-path="invoice_total"] .computed-value')).toHaveText('£1,020.00');
+});

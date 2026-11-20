@@ -92,7 +92,7 @@ export function applyPreset(template, answers, preset) {
     const rate = Array.isArray(entry) ? entry[2] : entry.rate;
     const row = { ...blank, [descKey]: desc };
     if (qtyKey && qty !== undefined && qty !== null && qty !== '') row[qtyKey] = qty;
-    if (rateKey && rate !== undefined && rate !== null && rate !== '' && rate !== 0) row[rateKey] = rate;
+    if (rateKey && rate !== undefined && rate !== null && rate !== '') row[rateKey] = rate;
     return row;
   }) };
 }

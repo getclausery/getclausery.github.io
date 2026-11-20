@@ -5,6 +5,7 @@ import { inferQuestionnaire, newTemplate, normalizeTemplate, uid, KEY_RX, isRese
 import { applySetup, setupFor, SETUP_VERSION } from '../../lib/setups.js';
 import { presetFor } from '../../lib/presets.js';
 import { decodeBundle, encodePack, downloadBlob, safeFilename, checkDocxSize } from '../../lib/backup.js';
+import { CURRENCIES } from '../../config.js';
 
 /** Shown first to a new visitor: what small businesses make most, each calculated and remembered (setups.js). */
 const FEATURED = ['invoice', 'quote', 'payment-receipt', 'rent-receipt', 'purchase-order', 'credit-note'];
@@ -150,20 +151,24 @@ async function loadSample(ctx, s) {
 
 /** Build a synthetic preset from URL query params when a visitor arrives from the live hero demo or a calculator:
     ?rate=&hours=&tax= seeds the first line and tax rate so the number the visitor just saw is what opens. */
-function urlPreset(slug, params) {
+export function urlPreset(slug, params) {
   if (slug !== 'invoice') return null;
-  const rate = parseFloat(params.rate), hours = parseFloat(params.hours), tax = parseFloat(params.tax);
-  if (isNaN(rate) && isNaN(hours)) return null;
-  const qty = hours > 0 ? Math.round(hours * 100) / 100 : 1;
-  const unit = rate >= 0 ? Math.round(rate * 100) / 100 : '';
-  const desc = hours > 0 ? 'Work (hours)' : 'Service';
-  const lines = [[desc, qty, unit]];
+  const parse = (value) => {
+    if (value == null || String(value).trim() === '') return null;
+    const n = Number(value);
+    return Number.isFinite(n) && n >= 0 && n <= 1e12 ? n : null;
+  };
+  const rate = parse(params.rate), hours = parse(params.hours), tax = parse(params.tax);
+  if (rate === null && hours === null) return null;
+  const qty = hours === null ? 1 : Math.round(hours * 100) / 100;
+  const unit = rate === null ? '' : Math.round(rate * 100) / 100;
+  const lines = [[hours === null ? 'Service' : 'Work (hours)', qty, unit]];
   const answers = {};
-  if (!isNaN(tax) && tax >= 0) {
+  if (tax !== null) {
     answers.has_tax = tax > 0;
     if (tax > 0) { answers.tax_rate = tax; answers.tax_name = 'Tax'; }
   }
-  return { name: 'Your numbers', lines, answers, note: 'Your numbers are filled in from the calculator — change anything before you download.' };
+  return { name: 'Your numbers', lines, answers, note: `Your calculator numbers are filled in — check them before downloading.${tax === 0 ? ' Tax starts off; check if it applies.' : ''}` };
 }
 
 /** Deep link from the public template library (#/start/<slug>): reuse the sample if it is already in the workspace,
@@ -183,16 +188,17 @@ export async function startFromSample(ctx, { slug, preset: presetSlug, ...rest }
   const urlP = urlPreset(slug, rest);
   let preset = tradeP ? { ...tradeP, slug: presetSlug } : urlP;
   if (tradeP && urlP) {
-    // combine: URL numbers replace the first trade line; URL tax overrides if given
-    const lines = tradeP.lines ? [...tradeP.lines] : [['Work', 1]];
-    lines[0] = urlP.lines[0];
-    preset = { ...tradeP, slug: presetSlug, lines, answers: { ...(tradeP.answers || {}), ...(urlP.answers || {}) } };
+    // Keep the workflow's description while applying the calculator quantity and unit price.
+    const lines = tradeP.lines ? [...tradeP.lines] : [];
+    const first = lines[0];
+    const description = Array.isArray(first) ? first[0] : first?.desc || first?.description || first?.name;
+    lines[0] = [description || urlP.lines[0][0], ...urlP.lines[0].slice(1)];
+    preset = { ...tradeP, slug: presetSlug, lines, answers: { ...(tradeP.answers || {}), ...(urlP.answers || {}) }, note: [tradeP.note, urlP.note].filter(Boolean).join(' ') };
   }
-  // Apply URL-set currency before startDraft (same mechanism a country preset uses: patch settings on an empty workspace)
-  if (rest.currency) {
-    const drafts = await ctx.drafts.list();
-    if (!drafts.length && rest.currency !== ctx.settings.currency) await ctx.saveSettings({ currency: rest.currency });
-  }
+  // Currency is workspace-wide: initialize a new workspace, or warn instead of silently changing existing drafts.
+  const currency = CURRENCIES.includes(rest.currency) ? rest.currency : null;
+  if (currency && preset) preset = { ...preset, currency };
+  else if (currency && !(await ctx.drafts.list()).length && currency !== ctx.settings.currency) await ctx.saveSettings({ currency });
   await ctx.startDraft(t, { replace: true, preset });
 }
 

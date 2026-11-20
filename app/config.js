@@ -1,7 +1,7 @@
 /* Clausery <https://getclausery.github.io> — (C) 2026 Clausery. AGPL-3.0-or-later WITH Clausery-Trademark-Exception. Removing this notice is removal of copyright management information under 17 U.S.C. 1202. Source: https://github.com/getclausery/getclausery.github.io */
 /* Clausery deployment configuration. Edit this file when you deploy your own copy. */
 export const APP_NAME = 'Clausery';
-export const APP_VERSION = '2.241.0';
+export const APP_VERSION = '2.242.0';
 
 /* Public site URL (no trailing slash). Used for links in exported files and the intake form footer. */
 export const SITE_URL = 'https://getclausery.github.io';
@@ -57,6 +57,7 @@ export const KEY_REQUEST_URL = mailto('Clausery key request');
 export const keyRequestUrl = (plan) => mailto(`Clausery ${plan} key request`);
 
 /* Locale defaults for new workspaces. */
+export const CURRENCIES = ['USD', 'EUR', 'GBP', 'CAD', 'AUD', 'CHF', 'JPY', 'INR', 'SGD', 'NZD', 'ZAR', 'BRL', 'MXN', 'SEK', 'NOK', 'DKK'];
 export const DEFAULT_SETTINGS = { locale: '', currency: 'USD', dateFormat: 'long', theme: 'system', firmName: '', autoLockMinutes: 15 };
 
 /* In local development only, a public key can be overridden for end-to-end tests. Never applies on a real host. */

@@ -7,11 +7,9 @@ import { encodeWorkspace, decodeBundle, downloadBlob, safeFilename } from '../..
 import { estimateUsage, requestPersistence } from '../../lib/store.js';
 import { normalizeTemplate, DATE_FORMATS } from '../../lib/schema.js';
 import { VERSIONS } from '../../lib/versions.js';
-import { USAGE_COUNTER, TRIAL_DAYS } from '../../config.js';
+import { USAGE_COUNTER, TRIAL_DAYS, CURRENCIES } from '../../config.js';
 import { daysLeftText } from '../../lib/trial.js';
 import { priceLine, checkoutButtons } from '../offer.js';
-
-const CURRENCIES = ['USD', 'EUR', 'GBP', 'CAD', 'AUD', 'CHF', 'JPY', 'INR', 'SGD', 'NZD', 'ZAR', 'BRL', 'MXN', 'SEK', 'NOK', 'DKK'];
 
 export async function render(ctx) {
   const s = ctx.settings;

@@ -113,3 +113,18 @@ test('the UK non-VAT preset hides remembered VAT-only fields without deleting th
   assert.equal(answers.tax_registration_number, 'GB123');
   assert.equal(prior.has_tax_registration, true);
 });
+
+test('calculator links preserve explicit zero prices and zero quantities', async () => {
+  const { urlPreset } = await import('../../app/ui/views/templates.js');
+  const t = invoice();
+  const preset = urlPreset('invoice', { rate: '0', hours: '0', tax: '0' });
+  const a = applyPreset(t, newDraft(t).answers, preset);
+  assert.equal(a.line_items[0].item_quantity, 0);
+  assert.equal(a.line_items[0].item_rate, 0);
+  assert.equal(a.has_tax, false);
+  assert.equal(evaluateForm(t, a).values.invoice_total, 0);
+  assert.deepEqual(urlPreset('invoice', { rate: '10.234', hours: '2.876' }).lines, [['Work (hours)', 2.88, 10.23]]);
+  assert.equal(urlPreset('invoice', { rate: 'Infinity', hours: 'not a number' }), null);
+  assert.equal(urlPreset('invoice', { rate: '1oops' }), null);
+  assert.equal(urlPreset('quote', { rate: '100' }), null);
+});

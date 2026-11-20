@@ -5,10 +5,11 @@
   if (!r || !tEl) return;
 
   function fmt(n){
-    return (Math.round(n*100)/100).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+    return n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
   }
   function setText(el, val){ el.textContent = val; }
-  function num(v){ var n = parseFloat(v); return isFinite(n) && n >= 0 ? n : 0; }
+  function num(v){ var n = Number(v); return isFinite(n) && n >= 0 && n <= 1e12 ? n : 0; }
+  function rounded(v){ return Math.round(num(v) * 100) / 100; }
   var lastTotal = 0, tweenRaf = 0;
 
   function setTotal(val){
@@ -30,23 +31,21 @@
 
   function updateCta(){
     if (!cta) return;
-    var R = num(r.value), H = num(h.value), T = num(x.value);
-    // Only stamp params if the visitor changed something from defaults, so the plain /start/invoice link is clean
+    var R = rounded(r.value), H = rounded(h.value), T = num(x.value);
     var base = cta.getAttribute('data-href') || cta.getAttribute('href');
     if (!cta.getAttribute('data-href')) cta.setAttribute('data-href', base);
-    var changed = (R !== 85) || (H !== 12) || (T !== 0);
-    cta.setAttribute('href', changed ? base + '?rate=' + R + '&hours=' + H + '&tax=' + T : base);
+    cta.setAttribute('href', base + '?rate=' + R + '&hours=' + H + '&tax=' + T + '&currency=USD');
   }
 
   function calc(){
-    var R = num(r.value), H = num(h.value), T = num(x.value);
-    var sub = R*H, a = sub*T/100, tot = sub + a;
+    var R = rounded(r.value), H = rounded(h.value), T = num(x.value);
+    var sub = R*H, a = Math.round(sub*T)/100, tot = sub + a;
     setText($('d-rate'), fmt(R));
     setText($('d-hours'), H.toFixed(2));
     setText($('d-subtotal'), fmt(sub));
     setText($('d-sub2'), fmt(sub));
     var tpct = $('d-taxpct');
-    tpct.textContent = T.toFixed(1).replace(/[.]0$/,'');
+    tpct.textContent = String(T);
     setText($('d-taxamt'), fmt(a));
     setTotal(tot);
     updateCta();
@@ -55,6 +54,7 @@
   ['input','change'].forEach(function(e){
     r.addEventListener(e, calc); h.addEventListener(e, calc); x.addEventListener(e, calc);
   });
-  lastTotal = (num(r.value))*(num(h.value))*(1 + (num(x.value)/100));
+  var initial = rounded(r.value) * rounded(h.value);
+  lastTotal = initial + Math.round(initial * num(x.value)) / 100;
   updateCta();
 }();
