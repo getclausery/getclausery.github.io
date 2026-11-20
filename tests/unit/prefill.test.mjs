@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import { inspectDocx } from '../../app/lib/render.js';
 import { inferQuestionnaire, newTemplate, newDraft } from '../../app/lib/schema.js';
 import { SETUPS, applySetup, setupFor } from '../../app/lib/setups.js';
-import { prefillAnswers, prefillNote, nextInSequence, localToday } from '../../app/lib/prefill.js';
+import { prefillAnswers, prefillNote, nextInSequence, localToday, recentClientAnswers } from '../../app/lib/prefill.js';
 
 const lib = (slug, id = 't_' + slug) => {
   const q = applySetup(inferQuestionnaire(inspectDocx(readFileSync(`samples/${slug}.docx`))), setupFor(slug));
@@ -79,4 +79,16 @@ test('details carry across templates; a first document only gets today\'s date, 
   const mine = prefillAnswers(own, newDraft(own).answers, [sentInvoice], [inv, own], '2026-10-07');
   assert.equal(mine.answers.business_name, '');
   assert.match(localToday(new Date(2026, 0, 5)), /^2026-01-05$/);
+});
+
+test('recent clients fill only empty contact fields, never project or purchase-order details', () => {
+  const fields = ['client_name', 'client_address', 'client_email', 'client_phone', 'client_reference', 'project_name', 'purchase_order_number'].map((key) => ({ key, type: key === 'client_phone' ? 'phone' : 'text' }));
+  const source = { client_name: 'Acme Ltd', client_address: 'Old address', client_email: 'client@example.test', client_phone: '123', client_reference: 'old reference', project_name: 'Old job', purchase_order_number: 'PO-OLD' };
+  const answers = { client_name: '', client_address: 'New address', client_email: '', project_name: 'New job', purchase_order_number: 'PO-NEW' };
+  assert.deepEqual(recentClientAnswers({ fields }, answers, source), { client_name: 'Acme Ltd', client_email: 'client@example.test', client_phone: '123' });
+  assert.equal(answers.client_address, 'New address');
+  assert.deepEqual(recentClientAnswers({ fields }, { ...answers, client_name: 'Someone else' }, source), {});
+  assert.deepEqual(recentClientAnswers({ fields: [{ key: 'client_name', type: 'checkbox' }] }, answers, source), {});
+  assert.deepEqual(recentClientAnswers({ fields }, answers, { client_name: '', client_email: null }), {});
+  assert.deepEqual(recentClientAnswers({ fields }, answers, undefined), {});
 });

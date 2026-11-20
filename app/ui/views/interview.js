@@ -6,7 +6,7 @@ import { evaluateForm, buildRenderData, buildPreviewData, summarize } from '../.
 import { renderDocx, renderDocxBytes, zipFiles, previewDocx, describeTemplateError, isDocxError } from '../../lib/render.js';
 import { recordHistory, KIND_LABELS } from '../../lib/history.js';
 import { parseCsv, mapHeaders, rowsToAnswers, templateCsv, uniqueNames, FREE_BULK_ROWS, MAX_BULK_ROWS } from '../../lib/bulk.js';
-import { prefillAnswers, nextInSequence } from '../../lib/prefill.js';
+import { prefillAnswers, nextInSequence, recentClientAnswers } from '../../lib/prefill.js';
 import { setupFor } from '../../lib/setups.js';
 import { requestPersistence } from '../../lib/store.js';
 import { downloadBlob, safeFilename } from '../../lib/backup.js';
@@ -217,7 +217,7 @@ export async function render(ctx, { id }) {
       ? h('p.small', { style: { color: 'var(--muted)', margin: '-.25rem 0 .75rem' } },
           icon('check', 13), ' Client name is enough to generate.',
           h('br'),
-          ' Address and extra contact details are optional — and Clausery remembers each client so you only type them once.')
+          ' Address and extra contact details are optional. You can choose a recent client to fill empty contact fields.')
       : null;
     // Recent-clients chip row: on the client step, show up to 5 distinct client names from previous drafts as tappable chips
     // so a repeat sender can tap to pre-fill instead of retyping. Only shown when the current client_name is empty
@@ -227,6 +227,7 @@ export async function render(ctx, { id }) {
       const seen = new Set();
       const recent = [];
       for (const d of allDrafts) {
+        if (d.id === draft.id) continue;
         const name = d.answers && d.answers.client_name;
         const key = String(name || '').trim().toLowerCase();
         if (!key || seen.has(key) || key === String(draft.answers.client_name || '').trim().toLowerCase()) continue;
@@ -237,24 +238,17 @@ export async function render(ctx, { id }) {
         clientChips = h('div', { style: { display: 'flex', gap: '.35rem', flexWrap: 'wrap', marginTop: '-.25rem', marginBottom: '.75rem' } },
           h('span.small.muted', { style: { alignSelf: 'center' } }, 'Recent:'),
           ...recent.map((name) => h('button.btn.btn-sm', { type: 'button',
-            onclick: (e) => {
-              // Fill client_name; copy other client_* / project_* / purchase_order fields if the source draft had them and the field exists on this template.
-              const src = allDrafts.find((d) => String(d.answers && d.answers.client_name || '').trim().toLowerCase() === name.toLowerCase());
-              draft.answers.client_name = name;
-              if (src) {
-                for (const k of Object.keys(src.answers || {})) {
-                  if (/^client_|^project|^purchase_order/i.test(k)) {
-                    const f = template.fields.find((x) => x.key === k);
-                    const v = src.answers[k];
-                    if (f && v != null && v !== '') draft.answers[k] = structuredClone(v);
-                  }
-                }
-              }
-              pendingSave = true; flush(); renderStep();
-              const filled = src ? Object.keys(src.answers || {}).filter((k) => /^client_|^project|^purchase_order/i.test(k) && src.answers[k] !== '' && src.answers[k] != null).length - 1 : 0;
-              toast(`Filled in ${name.split(/\s+/)[0]}'s details${filled > 1 ? ` (${filled} field${filled === 2 ? '' : 's'})` : ''}.`, { type: 'ok', timeout: 3500 });
+            onclick: () => {
+              const src = allDrafts.find((d) => d.id !== draft.id && String(d.answers && d.answers.client_name || '').trim().toLowerCase() === name.toLowerCase());
+              const filled = recentClientAnswers(template, draft.answers, src?.answers);
+              if (!filled.client_name) { toast('Clear the client name first to choose a recent client.', { type: 'warn' }); return; }
+              Object.assign(draft.answers, filled);
+              onChange(draft.answers, 'client_name', evaluateForm(template, draft.answers, ctx.settings));
+              flush(); renderStep();
+              toast('Client details filled in. Check them before sending.', { type: 'ok', timeout: 3500 });
             },
-            title: `Fill in ${name.split(/\s+/)[0]}'s details from the last invoice` }, name.split(/\s+/)[0])));
+            title: `Fill empty contact fields for ${name}` }, name)));
+
       }
     }
     // Next-invoice-number microcopy: if the current step contains a sequence field (invoice_number, quote_number, …)

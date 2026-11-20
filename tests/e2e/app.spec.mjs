@@ -395,3 +395,41 @@ test('an hourly invoice starter calculates fractional hours', async ({ page }) =
   await page.fill('[data-path="line_items[0].item_rate"] input', '80');
   await expect(page.locator('[data-path="invoice_total"] .computed-value')).toHaveText('$280.00');
 });
+
+test('recent-client shortcut preserves new invoice details on mobile', async ({ page }) => {
+  const errors = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto('app/#/start/invoice');
+  await page.waitForSelector('.stepper');
+  await page.locator('.stepper button').filter({ hasText: 'Invoice details' }).click();
+  await fill(page, 'has_purchase_order', true);
+  await fill(page, 'purchase_order_number', 'PO-OLD');
+  await page.locator('.stepper button').filter({ hasText: 'Bill to' }).click();
+  await fill(page, 'client_name', 'Acme Ltd');
+  await fill(page, 'client_address', 'Old address');
+  await page.waitForTimeout(700);
+
+  await page.goto('app/#/start/invoice');
+  await page.waitForSelector('.stepper');
+  await page.locator('.stepper button').filter({ hasText: 'Invoice details' }).click();
+  await fill(page, 'has_purchase_order', true);
+  await fill(page, 'purchase_order_number', 'PO-NEW');
+  await page.locator('.stepper button').filter({ hasText: 'Bill to' }).click();
+  await fill(page, 'client_address', 'New address');
+  await fill(page, 'client_name', 'Someone else');
+  await page.getByRole('button', { name: 'Acme Ltd', exact: true }).click();
+  await expect(page.locator('[name="client_name"]')).toHaveValue('Someone else');
+  await expect(page.locator('[name="client_address"]')).toHaveValue('New address');
+  await fill(page, 'client_name', '');
+  await page.getByRole('button', { name: 'Acme Ltd', exact: true }).click();
+  await expect(page.locator('[name="client_name"]')).toHaveValue('Acme Ltd');
+  await expect(page.locator('[name="client_address"]')).toHaveValue('New address');
+  await page.reload();
+  await page.waitForSelector('.stepper');
+  await expect(page.locator('[name="client_name"]')).toHaveValue('Acme Ltd');
+  await expect(page.locator('[name="client_address"]')).toHaveValue('New address');
+  await page.locator('.stepper button').filter({ hasText: 'Invoice details' }).click();
+  await expect(page.locator('[name="purchase_order_number"]')).toHaveValue('PO-NEW');
+  expect(errors).toEqual([]);
+});
