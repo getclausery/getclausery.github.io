@@ -82,6 +82,35 @@ export async function render(ctx, { id }) {
   let stepIndex = Math.max(0, Math.min(steps.length - 1, Number(sessionStorage.getItem('clausery.step.' + id)) || 0));
   let form = null;
   let evaluation = evaluateForm(template, draft.answers, ctx.settings);
+  // Persistent references so the live total badge can be updated in place on every change
+  // without re-rendering the whole step body.
+  let skipBtnEl = null, totalValueEl = null;
+
+  // Running total of visible scalar money/computed-money answers (line-item repeats are arrays
+  // and are skipped here), used for the live total badge next to "Review & download".
+  function moneyTotal(ev) {
+    let total = 0;
+    if (!ev) return total;
+    for (const f of template.fields) {
+      if (!ev.visible[f.key]) continue;
+      const v = ev.values[f.key];
+      if (Array.isArray(v)) continue;
+      const type = f.type;
+      if (type !== 'money' && !(type === 'computed' && f.format === 'money')) continue;
+      let n;
+      if (typeof v === 'number') n = v;
+      else if (typeof v === 'string' && v.trim() !== '') n = Number(v);
+      else continue;
+      if (Number.isFinite(n)) total += n;
+    }
+    return total;
+  }
+
+  function formatMoney(total) {
+    const cur = (ctx.settings && ctx.settings.currency) || 'USD';
+    try { return new Intl.NumberFormat(undefined, { style: 'currency', currency: cur, minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(total); }
+    catch { return total.toFixed(2); }
+  }
 
   // Autosave: typing schedules a save; the save runs at once when the page hides, the workspace locks or the view goes.
   let saveTimer = null, pendingSave = false, stopped = false;
@@ -95,7 +124,7 @@ export async function render(ctx, { id }) {
   function persist() { if (stopped) return; pendingSave = true; clearTimeout(saveTimer); saveTimer = setTimeout(flush, SAVE_DELAY); }
   let justDownloaded = false;
   let justStartedTrial = false;
-  const onChange = (answers, path, ev) => { evaluation = ev; draft.status = 'draft'; draft.sentAt = null; draft.paidAt = null; justDownloaded = false; justStartedTrial = false; renderStepper(); persist(); schedulePreview(); };
+  const onChange = (answers, path, ev) => { evaluation = ev; draft.status = 'draft'; draft.sentAt = null; draft.paidAt = null; justDownloaded = false; justStartedTrial = false; renderStepper(); persist(); schedulePreview(); if (totalValueEl) totalValueEl.textContent = formatMoney(moneyTotal(ev)); };
 
   const heading = h('h1.sr-only', draft.title || template.name);
   const titleInput = h('input.input', { value: draft.title || '', placeholder: 'Draft name (optional)', 'aria-label': 'Draft name', autocapitalize: 'off', spellcheck: false, enterkeyhint: 'done', autocomplete: 'off', oninput: (e) => { draft.title = e.target.value; setTitle(draft.title || template.name); heading.textContent = draft.title || template.name; persist(); } });
@@ -201,9 +230,13 @@ export async function render(ctx, { id }) {
     // (the moment of value) and on Review itself, not on the early "about you" sections where it would be noise.
     const isItems = /item|total|line/i.test(step.title || '');
     const isFirstRun = !draft.answers.business_name && !(draft.history && draft.history.length);
-    const skipBtn = (isFirstRun && isItems && stepIndex < steps.length - 1)
-      ? h('button.btn', { type: 'button', onclick: () => go(steps.length - 1, true), title: 'Download now — missing answers will be blank, you can fill them in later' }, icon('download', 16), 'Review & download')
-      : null;
+    const showSkip = isFirstRun && isItems && stepIndex < steps.length - 1;
+    if (showSkip && !skipBtnEl) {
+      totalValueEl = h('span.total-badge-value', formatMoney(moneyTotal(evaluation)));
+      const totalBadge = h('span.total-badge', { style: { marginLeft: '.5rem', fontSize: '.85rem', color: 'var(--muted)', whiteSpace: 'nowrap' } }, 'Total: ', totalValueEl);
+      skipBtnEl = h('button.btn', { type: 'button', onclick: () => go(steps.length - 1, true), title: 'Download now — missing answers will be blank, you can fill them in later' }, icon('download', 16), 'Review & download', ' ', totalBadge);
+    }
+    const skipBtn = showSkip ? skipBtnEl : null;
     // Section 1 friction reducer: reassure first-timers only name + email are required on this step.
     const bizNudge = (isFirstRun && stepIndex === 0 && /your business|business/i.test(step.title || ''))
       ? h('p.small', { style: { color: 'var(--muted)', margin: '-.25rem 0 .75rem' } },
