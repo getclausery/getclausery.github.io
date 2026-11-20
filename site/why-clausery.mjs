@@ -42,7 +42,7 @@ const PAGE_CTA_CSS = ``;
 export const pages = [
   {
     path: 'why-clausery/', ogImage: 'assets/og/marketing.png', title: 'Why Clausery — no signup, no card, real Word files',
-    description: 'See why Clausery is different from invoice apps and cloud document tools: editable Word output, no uploads, no account to start, a free tier that never expires, public source code and a money-back guarantee.',
+    description: 'Why Clausery: editable Word invoices, contracts and receipts in your browser — no account, no uploads, nothing ever leaves your computer.',
     published: '2026-10-31',
     extraHead: faqLd(FAQ) + crumbsLd([['Home', ''], ['Why Clausery', 'why-clausery/']]) + PAGE_CTA_CSS,
     body: (rel) => `<section class="section"><div class="wrap prose">
