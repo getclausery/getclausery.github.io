@@ -16,6 +16,15 @@
   <updated>2026-11-18T00:00:00Z</updated>
   <author><name>Clausery editors</name><uri>https://getclausery.github.io/about/</uri><email>getclausery@gmail.com</email></author>
   <entry>
+    <title>Clausery v2.241.0 — Fixed UK and US non-tax invoice examples and non-VAT preset defaults.</title>
+    <link rel="alternate" type="text/html" href="https://getclausery.github.io/changelog.html#v2-241-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-241-0</id>
+    <published>2026-10-18T00:00:00Z</published>
+    <updated>2026-10-18T00:00:00Z</updated>
+    <author><name>Clausery editors</name><uri>https://getclausery.github.io/about/</uri><email>getclausery@gmail.com</email></author>
+    <summary>Fixed UK and US non-tax invoice examples and non-VAT preset defaults.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.240.0 — Restored workspace forms and made recent-client shortcuts preserve existing answers and transaction details.</title>
     <link rel="alternate" type="text/html" href="https://getclausery.github.io/changelog.html#v2-240-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-240-0</id>

@@ -433,3 +433,44 @@ test('recent-client shortcut preserves new invoice details on mobile', async ({ 
   await expect(page.locator('[name="purchase_order_number"]')).toHaveValue('PO-NEW');
   expect(errors).toEqual([]);
 });
+
+test('UK non-VAT starter hides previously saved VAT details in the downloaded invoice', async ({ page }) => {
+  const errors = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto('app/#/start/invoice/uk-vat-invoice');
+  await page.waitForSelector('.stepper');
+  await fill(page, 'tax_registration_number', 'GB123456789');
+  await page.waitForTimeout(700);
+  await page.goto('invoice-templates/uk-invoice.html');
+  await expect(page.locator('table').filter({ hasText: 'Example prices for illustration only' })).toContainText('£930.00');
+  await page.getByRole('link', { name: 'Start this invoice, free', exact: true }).click();
+  await page.waitForSelector('.stepper');
+  await expect(page.locator('.toast').last()).toContainText('tax turned off');
+  await expect(page.locator('[name="has_tax_registration"]')).not.toBeChecked();
+  await page.locator('.stepper button').filter({ hasText: 'Invoice details' }).click();
+  await expect(page.locator('[name="is_tax_invoice"]')).not.toBeChecked();
+  await expect(page.locator('[name="has_supply_date"]')).not.toBeChecked();
+  await page.locator('.stepper button').filter({ hasText: 'Items and totals' }).click();
+  await expect(page.locator('[name="has_tax"]')).not.toBeChecked();
+  await page.locator('.stepper button').filter({ hasText: 'Review & generate' }).click();
+  const [download] = await Promise.all([page.waitForEvent('download'), page.getByRole('button', { name: 'Download .docx' }).click()]);
+  const text = await docxText(await download.path());
+  expect(text).not.toContain('GB123456789');
+  expect(text).not.toContain('TAX INVOICE');
+  expect(errors).toEqual([]);
+});
+
+test('US non-tax example and starter display clear totals and setup', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto('invoice-templates/us-invoice.html');
+  const example = page.locator('table').filter({ hasText: 'Example prices for illustration only' });
+  await expect(example).toContainText('$1,240.00');
+  await expect(example).not.toContainText(/NaN|undefined/);
+  await page.getByRole('link', { name: 'Start this invoice, free', exact: true }).click();
+  await page.waitForSelector('.stepper');
+  await expect(page.locator('.toast').last()).toContainText('tax turned off');
+  await expect(page.locator('.toast').last()).not.toContainText(/undefined|NaN/);
+  await page.locator('.stepper button').filter({ hasText: 'Items and totals' }).click();
+  await expect(page.locator('[name="has_tax"]')).not.toBeChecked();
+});

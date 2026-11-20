@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-20",
-  "hash": "09b56cf1aca2734b"
+  "hash": "cf09fed415cade69"
  },
  ".well-known/change-password": {
   "date": "2026-11-18",
@@ -37,7 +37,7 @@
  },
  "changelog.html": {
   "date": "2026-11-20",
-  "hash": "01cd1bbb0964477e"
+  "hash": "7bcc3db7391ffdee"
  },
  "clauses/": {
   "date": "2026-11-18",
@@ -572,8 +572,8 @@
   "hash": "e97cb081744640db"
  },
  "invoice-templates/": {
-  "date": "2026-11-18",
-  "hash": "415c446cb55b2817"
+  "date": "2026-11-20",
+  "hash": "c2781e0dc3906fd8"
  },
  "invoice-templates/australia-tax-invoice.html": {
   "date": "2026-11-18",
@@ -724,16 +724,16 @@
   "hash": "90835b1fff5d18f3"
  },
  "invoice-templates/uk-invoice.html": {
-  "date": "2026-11-18",
-  "hash": "75b4155b2b3ae5ae"
+  "date": "2026-11-20",
+  "hash": "7be50cef34200ab1"
  },
  "invoice-templates/uk-vat-invoice.html": {
   "date": "2026-11-18",
   "hash": "e90d8ae17fa789d5"
  },
  "invoice-templates/us-invoice.html": {
-  "date": "2026-11-18",
-  "hash": "3a04f5bc7761d665"
+  "date": "2026-11-20",
+  "hash": "00b18a6c5cffe382"
  },
  "invoice-templates/videography.html": {
   "date": "2026-11-18",
@@ -809,7 +809,7 @@
  },
  "roadmap/": {
   "date": "2026-11-20",
-  "hash": "51136afb934a7ee1"
+  "hash": "519a61f7350e4de1"
  },
  "search/": {
   "date": "2026-11-18",
@@ -825,7 +825,7 @@
  },
  "status/": {
   "date": "2026-11-20",
-  "hash": "b0769e874f0e6efb"
+  "hash": "2cd69f3421bf125b"
  },
  "templates/": {
   "date": "2026-11-18",

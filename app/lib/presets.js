@@ -51,7 +51,7 @@ export const WORKFLOW_PRESETS = {
 export const TAX_PRESETS = {
   invoice: {
     'uk-vat-invoice': { name: 'UK VAT', currency: 'GBP', locale: 'en-GB', answers: { has_tax: true, tax_name: 'VAT', tax_rate: 20, has_tax_registration: true, tax_registration_label: 'VAT registration number' } },
-    'uk-invoice': { name: 'UK invoice', currency: 'GBP', locale: 'en-GB', answers: { has_tax: false } },
+    'uk-invoice': { name: 'UK invoice', currency: 'GBP', locale: 'en-GB', answers: { has_tax: false, has_tax_registration: false, is_tax_invoice: false, has_supply_date: false } },
     'us-invoice': { name: 'US invoice', currency: 'USD', locale: 'en-US', answers: { has_tax: false } },
     'ireland-vat-invoice': { name: 'Irish VAT', currency: 'EUR', locale: 'en-IE', answers: { has_tax: true, tax_name: 'VAT', tax_rate: 23, has_tax_registration: true, tax_registration_label: 'VAT number', has_supply_date: true } },
     'australia-tax-invoice': { name: 'Australian GST', currency: 'AUD', locale: 'en-AU', answers: { has_tax: true, tax_name: 'GST', tax_rate: 10, has_tax_registration: true, tax_registration_label: 'ABN', is_tax_invoice: true } },
@@ -103,5 +103,6 @@ export function presetNote(preset) {
   if (preset.note) return preset.note;
   if (preset.lines) return `Started with the lines a ${preset.name.toLowerCase()} business usually bills. Add your prices and remove what you don't need.`;
   const a = preset.answers || {};
+  if (a.has_tax === false) return `Set up for ${preset.name} with tax turned off. Check whether tax applies before sending.`;
   return `Set up for ${preset.name}: ${a.tax_name} at ${a.tax_rate}%, with your ${a.tax_registration_label}${a.is_tax_invoice ? ' and the title "Tax invoice"' : ''}. Change the rate if you charge a different one.`;
 }
