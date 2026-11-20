@@ -1,8 +1,8 @@
 {
  "origin": "https://getclausery.github.io/",
  "version": "2.242.0",
- "commit": "3fc34b54734d311570b34053dfcbbbb468bce099",
- "generatedAt": "2026-11-20T14:32:46.756Z",
+ "commit": "13a3c5cc7148f8ffafaea8d47d78acd71ca42b9a",
+ "generatedAt": "2026-11-20T14:38:20.430Z",
  "license": "AGPL-3.0-or-later WITH Clausery-Trademark-Exception",
  "files": {
   "/index.html": "sha256-5CNM0f1ym+ZKG7mat+ZXWNVIPKn9IOCbypWR8wIP1Ak=",
@@ -14,7 +14,7 @@
   "/feed.xml": "sha256-Ffg+sLr62eGMWZ3ItRCLOvuS5JaUgIMmXsN76k/pcSI=",
   "/llms.txt": "sha256-kmd2oGu+RUFCJyNNExHrL1Zd7MTD44AbrJEEk2HfNZI=",
   "/opensearch.xml": "sha256-IHUipK52WQnpCxRdG6mEl8auS7BBvFB6HMfXBsmKa2g=",
-  "/sitemap.xml": "sha256-13C3qW7Nna1oox/WyjP4ogsnUUACyapEpRaMTnrcWy8=",
+  "/sitemap.xml": "sha256-Q8Ei4w0I4fWEkClCtPatR8GRVhddn1NuOzlDMIfUNNU=",
   "/sitemap_index.xml": "sha256-kpl2tS1tqcfAuh1ZhdiPOz8L3BuL87FCOEjWNBLC+CY=",
   "/app/activate.html": "sha256-dUVJQftx/chul2d7ZRdx5gyQAby4ke4SLWOhr6QNu+k=",
   "/app/index.html": "sha256-Bnq8rKK4e3Im9nLoMTq+Uv6XkmziwZNm+3qlXTnxHj8=",
@@ -27,7 +27,7 @@
   "/app/ui/router.js": "sha256-ucT4KVniOsPvTWwwGwCs4pyKmdXZ3XJMQxLOSyJreOo=",
   "/app/ui/views/designer.js": "sha256-JXvNmhvpBpMAFRlRWVFyb/WONS6DzaVJmgtBAsf3jS8=",
   "/app/ui/views/drafts.js": "sha256-+tb9IKmnvccFqQA+ifVpoY3hXKwx5P1n0DLOIME9ONI=",
-  "/app/ui/views/interview.js": "sha256-AjfZO5/lRzAzvy2DEdbLMPdG3AIGJNNTPoM2MA/DnJo=",
+  "/app/ui/views/interview.js": "sha256-75o+3q06rU4T+OLsk15ulxLaCm30bICUyTE5CkGtQNw=",
   "/app/ui/views/lock.js": "sha256-axQX1kTED0z1Ts3MeTwdsBEWxQ8wO6YPc/O6a1BWQQU=",
   "/app/ui/views/settings.js": "sha256-UQRW7i67Qr5wK3qJGPH+kyCkl5dAaG+CAVVZmtEtRDk=",
   "/app/ui/views/templates.js": "sha256-6QMGAHJ6Lcpv8L2FzaUJ0UhqsPXFtUgpzahg8Boc0CU=",
@@ -285,7 +285,7 @@
   "/templates/hold-harmless-agreement.html": "sha256-LTVR5W6bAZMjNfqmeUH/k0p+8BJf4N1eTA7AvHkU7Ns=",
   "/templates/independent-contractor-agreement.html": "sha256-3bTjHmz9TDCDPhzIAKnxQnkGKOcbAWI2K74LewlGlno=",
   "/templates/independent-contractor-template.html": "sha256-jAzu4XPDL74cbVgGmtyyTIGCQEqA3BKKjS0TVy6Zj6I=",
-  "/templates/index.html": "sha256-tdssqI8gjzndZBpACqWvbcztjz2zMBZ47cZ8SVsuCrc=",
+  "/templates/index.html": "sha256-CY3Ir5sPSEH0DI3lW0pjcMiu7MlOcxpTpzDT2hO7n9Q=",
   "/templates/internship-offer-letter-template.html": "sha256-eZKF1t8USljgxGwNuWlQQJz+whCi6OEFPJ8wM4gyYHA=",
   "/templates/internship-offer-letter.html": "sha256-xpz+6KMp0JiZJub5YVfB7G4k3/bAHg0x9zv0myaHZyQ=",
   "/templates/invoice.html": "sha256-uOr4ZC65QtJefCwyp/yWzG5/QgjmAbnXz/aUgH5X7kY=",
@@ -545,7 +545,7 @@
   "/free-tools/amount-in-words.html": "sha256-204DP8c+sV2Z/mwCDg4ko1mZ92S5xinQfw1fo77CfXg=",
   "/free-tools/deadline-calculator.html": "sha256-6PlobR0DfbEUKb6h88SiQtHgIRVtnwsZ7Lf9xAoHEnY=",
   "/free-tools/freelance-rate.html": "sha256-JZSWgMyQ1jcEZtsPJQYVM1/27rcLSf8W4kwjtiiiqHE=",
-  "/free-tools/index.html": "sha256-U1Yw42YMrBoa8EgNN7kAuhNYUCkqaOgDfs49ytPKI2k=",
+  "/free-tools/index.html": "sha256-ZSsARcIG/OsYzZZSdYhj7dxL6pD2H0rop3OllMAzoYg=",
   "/free-tools/invoice-due-date.html": "sha256-VmWF096jGckhoOqox55gSy/W4ylZ3TK2FTS3ypPGSR0=",
   "/free-tools/late-payment-interest.html": "sha256-BbgRY/5BiWZEGsKu9kJEt3Saq2I9JAdR2tBWpZOYOnc=",
   "/free-tools/loan-repayment.html": "sha256-CNGHktx/NreNr41mmBBI/sdo5frO0PDISaf2iL4j91A=",
@@ -576,7 +576,7 @@
   "/for/consultants.html": "sha256-BpdxiGDhjLlKBN+mHLFbI266yoNpFL5IkRUkL7WRxvM=",
   "/for/freelancers.html": "sha256-SrM8CA9Fx/Af3UVamyP+6TjojCUr+DCPMJfV4vvBCVs=",
   "/for/hr-teams.html": "sha256-iQdYFfbNAvq0e8VVmForgH8c/De1/YswxQNxEEDXGzM=",
-  "/for/index.html": "sha256-z5cZKnTkB5LuH47Rv8aj6JscFlC54WGTUGL69aEh+so=",
+  "/for/index.html": "sha256-SYjFwnkn/yDVqUdcz5buUAlOlDB4IiA2rDdEejeLjs0=",
   "/for/landlords.html": "sha256-EtFdsOfhL4yoodbWBoN95UoDVvDZF54prr6KOM514CA=",
   "/for/law-firms.html": "sha256-ah9mh5/tV9QKGEx6Qo0oSBNUA2Glp7XERBBUCVkNcu0=",
   "/nda-templates/index.html": "sha256-Um4ekHf/u6bvehQ0xeQwrMcyj+SDNyjypdAP/cN7aVU=",
@@ -587,6 +587,6 @@
   "/go/index.html": "sha256-E3X3QgiLu6gz+N/puAXjvwd1fLhqu+CVEKjQl+LBsAI=",
   "/made-with/index.html": "sha256-nqW47TPUAvrHHto2B81NIZQv+fQHLEpwb50ktUngmBw=",
   "/.well-known/security.txt": "sha256-9hmk4JwgbchCCB94CXOhYtZPeLjEgGYe3tWi8wXZdMs=",
-  "/.well-known/attestation.json": "sha256-At7YKBM3xzAJ8zcoPRHu77wz/mheYk3+RwstZ2dfHGY="
+  "/.well-known/attestation.json": "sha256-9H78Tkh6AaCUELwOZDgzZx4OFSSuPDEp3eUEKCjDdnM="
  }
 }
