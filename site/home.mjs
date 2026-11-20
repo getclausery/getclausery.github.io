@@ -35,9 +35,9 @@ const HOME_FAQ = [
 ];
 
 export const pages = [{
-  path: '', title: 'Free Invoice Template | No Sign-Up, Download',
+  path: '', title: 'Free Invoice Template — Download in 60 Seconds, No Sign-Up',
   ogImage: 'assets/og/home.png',
-  description: `Fill in a free invoice template online and download as Word/PDF in 60 seconds. Totals, VAT/GST and discount auto-calculate. No sign-up, no credit card.`,
+  description: `Create a free invoice online and download as Word/PDF in 60 seconds. Totals, VAT/GST and discount auto-calculate. No sign-up, no credit card.`,
   extraHead: `<link rel="prefetch" href="./app/" as="document">
 <meta name="directree-verify" content="18cd9ea3fefedd43ee1d57c58248886c">
 <script type="speculationrules">{"prerender":[{"source":"list","urls":["./app/"],"where":{"and":[{"href_matches":"./app/*"},{"not":{"selector_matches":".btn"}}]},"eagerness":"moderate"}]}</script>

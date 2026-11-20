@@ -1,20 +1,20 @@
 {
  "origin": "https://getclausery.github.io/",
  "version": "2.242.0",
- "commit": "da0af8af4d969ed2aef61f656a2ad6721c4e6f57",
- "generatedAt": "2026-11-20T12:38:05.736Z",
+ "commit": "dd9f6b69b58ffc98fdbc07937839739685b88783",
+ "generatedAt": "2026-11-20T12:43:17.690Z",
  "license": "AGPL-3.0-or-later WITH Clausery-Trademark-Exception",
  "files": {
-  "/index.html": "sha256-Q827W9RXiuljgu1FHKD5XzcXCLveXkD712ePbaj3Nyg=",
+  "/index.html": "sha256-5CNM0f1ym+ZKG7mat+ZXWNVIPKn9IOCbypWR8wIP1Ak=",
   "/offline.html": "sha256-vAxboULZ05YQGKn37AK5z0yOU66KVq8nb/zAERTQrVY=",
-  "/404.html": "sha256-FrFzFzzQhoyC3B50AzycKZiXgeMX18BTvFHtpAnO5U4=",
+  "/404.html": "sha256-1MwWchL7K14+NNAnqYYHcVagZMS4Qyw+W3b8GvBzBMc=",
   "/humans.txt": "sha256-79leZCnWHcT1DVqJc5kiy3RKXY4jeZUCqpJKGt6URr4=",
   "/ads.txt": "sha256-n1n//tsJXaDTkFkQfQNE1rjrIIo1a6Uu06CqzeFDxVg=",
   "/robots.txt": "sha256-RFWnxXUfNuEjEZaZt6NqSkGJUOYZFkg6S2w7GYQKdak=",
   "/feed.xml": "sha256-yYEOVPhAFHajpCLJlfYIHaXp4zdaagEerUDJXdHu3zE=",
-  "/llms.txt": "sha256-R2j+Xunmm24dOa4GMh4UnBe1oUFTm0MEUXZ8cJvyW5E=",
+  "/llms.txt": "sha256-gt1QnwtLqWNi4F/AgDaMQEFg1h9Qawl2QGPARS9lNRE=",
   "/opensearch.xml": "sha256-IHUipK52WQnpCxRdG6mEl8auS7BBvFB6HMfXBsmKa2g=",
-  "/sitemap.xml": "sha256-jtclRKiOUAC3Y/H0DayCSK979vdhJGYL7kU+17moK1Q=",
+  "/sitemap.xml": "sha256-EVgaKrOtg0ReD1X8E55ftoRzUN/yGZ8MzVf3cG5Zpew=",
   "/sitemap_index.xml": "sha256-ji+p2MRuDFesMzyntLxuHzMl52aOQgZXucyKFCWzcUo=",
   "/app/activate.html": "sha256-dUVJQftx/chul2d7ZRdx5gyQAby4ke4SLWOhr6QNu+k=",
   "/app/index.html": "sha256-Bnq8rKK4e3Im9nLoMTq+Uv6XkmziwZNm+3qlXTnxHj8=",
@@ -587,6 +587,6 @@
   "/go/index.html": "sha256-E3X3QgiLu6gz+N/puAXjvwd1fLhqu+CVEKjQl+LBsAI=",
   "/made-with/index.html": "sha256-nqW47TPUAvrHHto2B81NIZQv+fQHLEpwb50ktUngmBw=",
   "/.well-known/security.txt": "sha256-9hmk4JwgbchCCB94CXOhYtZPeLjEgGYe3tWi8wXZdMs=",
-  "/.well-known/attestation.json": "sha256-xJUAvhNS0cMx4MVQ7proGG4+ddeGK/2OojxbL9fiOfQ="
+  "/.well-known/attestation.json": "sha256-Utr8b62Q2eBp3ylh9fKCQDlmAlqpf406MmQOXkxwCUs="
  }
 }
