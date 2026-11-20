@@ -44,6 +44,9 @@
 <meta name="original-source" content="https://getclausery.github.io/.well-known/support">
 <meta name="color-scheme" content="light dark">
 <meta name="format-detection" content="telephone=no">
+<meta name="subject" content="Support · Clausery — Clausery support: contact a person by email for questions, billing, templates or bug reports.">
+<meta name="classification" content="Business;Finance;Productivity">
+<meta name="topic" content="Free Word invoice, contract and document generator for freelancers and small businesses">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), display-capture=()">
@@ -70,6 +73,7 @@
 <link rel="archives" type="text/html" href="../changelog.html" title="Clausery changelog and release archive">
 <link rel="edit" type="text/html" href="https://github.com/getclausery/getclausery.github.io" title="Source on GitHub">
 <link rel="publisher" type="text/html" href="../about/" title="About Clausery">
+<link rel="index" type="text/html" href="../" title="Clausery home">
 <link rel="sitemap" type="application/xml" title="Sitemap" href="../sitemap_index.xml">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="../feed.xml">
 <link rel="alternate" type="application/atom+xml" title="Clausery releases" href="../releases.xml">
@@ -192,7 +196,7 @@
       <a href="../legal/dmca.html">DMCA</a>
       <a href="../press/">Press kit</a>
     </div>
-    <div class="legal">© 2026 Clausery · <a href="../changelog.html#v2-235-0" style="color:inherit">v2.235.0</a> · <a href="../sitemap/" style="color:inherit">Sitemap</a> · Open source under <a href="../legal/license.html" style="color:inherit">AGPLv3</a> · Clausery name and logo are <a href="https://github.com/getclausery/getclausery.github.io/blob/main/TRADEMARKS.md" rel="noopener" style="color:inherit">trademarks</a>. Clausery is software, not legal advice; documents you generate are your responsibility. Not affiliated with Microsoft; Word is a trademark of Microsoft Corporation. Not affiliated with clausery.ai. <a href="https://github.com/getclausery/getclausery.github.io" rel="noopener" style="color:inherit">Source on GitHub</a></div>
+    <div class="legal">© 2026 Clausery · <a href="../changelog.html#v2-236-0" style="color:inherit">v2.236.0</a> · <a href="../sitemap/" style="color:inherit">Sitemap</a> · Open source under <a href="../legal/license.html" style="color:inherit">AGPLv3</a> · Clausery name and logo are <a href="https://github.com/getclausery/getclausery.github.io/blob/main/TRADEMARKS.md" rel="noopener" style="color:inherit">trademarks</a>. Clausery is software, not legal advice; documents you generate are your responsibility. Not affiliated with Microsoft; Word is a trademark of Microsoft Corporation. Not affiliated with clausery.ai. <a href="https://github.com/getclausery/getclausery.github.io" rel="noopener" style="color:inherit">Source on GitHub</a></div>
   </div>
 </footer>
 <script id="search-index" type="application/json" data-src="../search-index.json" defer></script>
