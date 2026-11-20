@@ -244,24 +244,24 @@
   "hash": "d9d4a30e6ef13d40"
  },
  "for/freelancers.html": {
-  "date": "2026-11-18",
-  "hash": "c05cbcfb0ab335cb"
+  "date": "2026-11-20",
+  "hash": "beb6885eeaf9c587"
  },
  "for/hr-teams.html": {
   "date": "2026-11-18",
   "hash": "ed83ba4c3732d1e9"
  },
  "for/landlords.html": {
-  "date": "2026-11-18",
-  "hash": "81a610eb5ea7094d"
+  "date": "2026-11-20",
+  "hash": "b80e7578ac0aaf3a"
  },
  "for/law-firms.html": {
   "date": "2026-11-18",
   "hash": "201bab17251686a0"
  },
  "free-tools/": {
-  "date": "2026-11-18",
-  "hash": "4d556bc8fdbecbb2"
+  "date": "2026-11-20",
+  "hash": "8161294f07a3420b"
  },
  "free-tools/amount-in-words.html": {
   "date": "2026-11-18",
@@ -280,8 +280,8 @@
   "hash": "f3a7ecfe00b87bc1"
  },
  "free-tools/late-payment-interest.html": {
-  "date": "2026-11-18",
-  "hash": "9ebd945118f7e2ac"
+  "date": "2026-11-20",
+  "hash": "fcbd8c0f16e5002a"
  },
  "free-tools/loan-repayment.html": {
   "date": "2026-11-18",
@@ -300,8 +300,8 @@
   "hash": "00f2f67eb6d9d365"
  },
  "guides/": {
-  "date": "2026-11-18",
-  "hash": "dfab3cf46a902832"
+  "date": "2026-11-20",
+  "hash": "3577f0952f8f5d87"
  },
  "guides/are-liability-waivers-enforceable.html": {
   "date": "2026-11-18",
@@ -564,8 +564,8 @@
   "hash": "724929aef433b3d9"
  },
  "guides/what-to-include-in-an-nda.html": {
-  "date": "2026-11-18",
-  "hash": "fecd8d443d852f9c"
+  "date": "2026-11-20",
+  "hash": "d7db43c20b0a9718"
  },
  "guides/what-to-include-on-a-vat-invoice.html": {
   "date": "2026-11-18",
@@ -797,7 +797,7 @@
  },
  "pricing/": {
   "date": "2026-11-20",
-  "hash": "e3f0aa283d971b3a"
+  "hash": "c1d597f4e13aadd8"
  },
  "receipts/cash-receipt.html": {
   "date": "2026-11-18",
@@ -948,8 +948,8 @@
   "hash": "bf36bf450ec18093"
  },
  "templates/employee-nda.html": {
-  "date": "2026-11-18",
-  "hash": "597677c88d3d8032"
+  "date": "2026-11-20",
+  "hash": "3b5b4bb2afb78989"
  },
  "templates/employee-warning-letter-template.html": {
   "date": "2026-11-18",
@@ -1176,8 +1176,8 @@
   "hash": "fb146cc5d7029681"
  },
  "templates/mutual-nda.html": {
-  "date": "2026-11-18",
-  "hash": "5b1c52541e132f77"
+  "date": "2026-11-20",
+  "hash": "c33d22c3ae7358e4"
  },
  "templates/nanny-contract-template.html": {
   "date": "2026-11-18",
@@ -1548,7 +1548,7 @@
   "hash": "440309c869a5eb19"
  },
  "why-clausery/": {
-  "date": "2026-11-18",
-  "hash": "1271fc84ff21fad9"
+  "date": "2026-11-20",
+  "hash": "755d88ec14fba627"
  }
 }
