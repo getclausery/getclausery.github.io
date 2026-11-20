@@ -16,6 +16,25 @@ const dayNumber = (iso) => Date.UTC(+iso.slice(0, 4), +iso.slice(5, 7) - 1, +iso
 const fromDayNumber = (n) => new Date(n * 864e5).toISOString().slice(0, 10);
 const isSet = (v) => v !== undefined && v !== null && v !== '';
 
+// A client shortcut must not carry transaction-specific details into a new document, or overwrite answers
+// entered before the shortcut was clicked. Only ordinary contact fields are safe to suggest.
+export function recentClientAnswers(template, answers, source) {
+  const fields = new Map((template.fields || []).map((field) => [field.key, field]));
+  const filled = {};
+  // The chip may still be visible after the name was typed without a full re-render.
+  if (answers.client_name != null && (typeof answers.client_name !== 'string' || answers.client_name.trim())) return filled;
+  for (const key of ['client_name', 'client_address', 'client_email', 'client_phone']) {
+    const field = fields.get(key);
+    const value = source?.[key];
+    if (!field || !['text', 'textarea', 'email', 'phone'].includes(field.type)) continue;
+    if (typeof value !== 'string' || !value.trim()) continue;
+    const current = answers[key];
+    if (current != null && (typeof current !== 'string' || current.trim())) continue;
+    filled[key] = value;
+  }
+  return filled;
+}
+
 /** The next number in a sequence: the highest number used with the latest value's prefix and suffix, plus one, keeping
     its zero padding. Returns '' when no earlier value ends in a number. `values` are newest first. */
 export function nextInSequence(values) {
