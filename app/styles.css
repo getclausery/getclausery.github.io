@@ -347,6 +347,8 @@ body { overflow-x: hidden; }
   .input, .select, .textarea { padding: .5rem .6rem; font-size: 16px; /* prevents iOS zoom on focus */ }
   .field { margin-bottom: .85rem; }
   .grid-2 { grid-template-columns: 1fr; gap: 0; }
+  /* Empty-state primary CTA stretches on phones so new users tap straight into a draft */
+  .empty .btn { width: 100%; display: block; margin: 1rem auto 0; }
   /* Tables scroll horizontally within a wrapper so nothing blows out the page */
   .table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .table th, .table td { padding: .45rem .5rem; font-size: .88rem; white-space: normal; }
