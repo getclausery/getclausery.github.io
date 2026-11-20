@@ -138,12 +138,13 @@ const example = (c) => {
   const fmt = (n) => new Intl.NumberFormat(c.locale, { style: 'currency', currency: c.preset.currency }).format(n);
   const rows = c.lines.map(([d, q, r]) => [d, q, r, q * r]);
   const sub = rows.reduce((s, r) => s + r[3], 0);
-  const rate = c.preset.answers.tax_rate, tax = Math.round(sub * rate) / 100;
-  return `<div class="table-wrap" tabindex="0"><table class="compare"><caption class="small muted" style="caption-side:bottom;text-align:left;padding-top:.5rem">Example prices for illustration only. You enter your own lines and prices; the ${esc(c.preset.answers.tax_name)} and totals are worked out.</caption><thead><tr><th scope="col">Description</th><th scope="col">Qty</th><th scope="col">Unit price</th><th scope="col">Amount</th></tr></thead><tbody>
+  const taxable = c.preset.answers.has_tax === true;
+  const rate = c.preset.answers.tax_rate, tax = taxable ? Math.round(sub * rate) / 100 : 0;
+  const caption = taxable ? `the ${esc(c.preset.answers.tax_name)} and totals are worked out` : 'the total is worked out without tax';
+  return `<div class="table-wrap" tabindex="0"><table class="compare"><caption class="small muted" style="caption-side:bottom;text-align:left;padding-top:.5rem">Example prices for illustration only. You enter your own lines and prices; ${caption}.</caption><thead><tr><th scope="col">Description</th><th scope="col">Qty</th><th scope="col">Unit price</th><th scope="col">Amount</th></tr></thead><tbody>
     ${rows.map(([d, q, r, a]) => `<tr><td>${esc(d)}</td><td>${q}</td><td>${fmt(r)}</td><td>${fmt(a)}</td></tr>`).join('')}
     <tr><th scope="row" colspan="3" class="ta-r">Subtotal</th><td>${fmt(sub)}</td></tr>
-    <tr><th scope="row" colspan="3" class="ta-r">${esc(c.preset.answers.tax_name)} at ${rate}%</th><td>${fmt(tax)}</td></tr>
-    <tr><th scope="row" colspan="3" class="ta-r">Total</th><td><strong>${fmt(sub + tax)}</strong></td></tr>
+    ${taxable ? `<tr><th scope="row" colspan="3" class="ta-r">${esc(c.preset.answers.tax_name)} at ${rate}%</th><td>${fmt(tax)}</td></tr>\n    ` : ''}<tr><th scope="row" colspan="3" class="ta-r">Total</th><td><strong>${fmt(sub + tax)}</strong></td></tr>
   </tbody></table></div>`;
 };
 

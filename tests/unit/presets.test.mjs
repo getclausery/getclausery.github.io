@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import { inspectDocx } from '../../app/lib/render.js';
 import { inferQuestionnaire, newTemplate, newDraft } from '../../app/lib/schema.js';
 import { applySetup, setupFor } from '../../app/lib/setups.js';
-import { evaluateForm } from '../../app/lib/logic.js';
+import { buildRenderData, evaluateForm } from '../../app/lib/logic.js';
 import { PRESETS, WORKFLOW_PRESETS, presetFor, applyPreset } from '../../app/lib/presets.js';
 
 const invoice = () => {
@@ -32,7 +32,7 @@ test('every trade preset starts an invoice with its lines, quantities and empty 
   assert.equal(applyPreset(t, blank, null), blank);
 });
 
-test('every country preset sets up the invoice tax, rate and tax number, keeps the items, and the tax works out', async () => {
+test('country presets set the expected tax options, keep items, and calculate totals', async () => {
   const { TAX_PRESETS, presetNote } = await import('../../app/lib/presets.js');
   const t = invoice();
   const keys = new Set(t.fields.map((f) => f.key));
@@ -41,15 +41,21 @@ test('every country preset sets up the invoice tax, rate and tax number, keeps t
     for (const k of Object.keys(p.answers)) assert.ok(keys.has(k), `${slug}: ${k} is an invoice question`);
     const base = { ...newDraft(t).answers, business_name: 'Northwind', tax_registration_number: 'GB123' };
     const a = applyPreset(t, base, p);
-    assert.equal(a.has_tax, true, slug);
-    assert.equal(a.tax_rate, p.answers.tax_rate, slug);
+    assert.equal(a.has_tax, p.answers.has_tax, slug);
     assert.equal(a.tax_registration_number, 'GB123', `${slug}: a remembered tax number is kept`);
     assert.deepEqual(a.line_items, base.line_items, `${slug}: items untouched`);
     a.line_items = [{ ...a.line_items[0], item_name: 'Work', item_quantity: 2, item_rate: 50 }];
     const v = evaluateForm(t, a).values;
-    assert.equal(v.tax_amount, Math.round(100 * p.answers.tax_rate) / 100, slug);
+    assert.equal(v.invoice_total, p.answers.has_tax ? 100 + Math.round(100 * p.answers.tax_rate) / 100 : 100, slug);
     assert.equal(presetFor('invoice', slug), p);
-    assert.match(presetNote(p), new RegExp(`${p.answers.tax_rate}%`));
+    if (p.answers.has_tax) {
+      assert.equal(a.tax_rate, p.answers.tax_rate, slug);
+      assert.equal(v.tax_amount, Math.round(100 * p.answers.tax_rate) / 100, slug);
+      assert.match(presetNote(p), new RegExp(`${p.answers.tax_rate}%`));
+    } else {
+      assert.match(presetNote(p), /tax turned off/i);
+      assert.doesNotMatch(presetNote(p), /undefined|NaN/);
+    }
   }
   assert.equal(applyPreset(t, newDraft(t).answers, { name: 'X', answers: { not_a_question: 1 } }).not_a_question, undefined);
   assert.match(presetNote(PRESETS.invoice.cleaning), /cleaning business usually bills/);
@@ -89,4 +95,21 @@ test('hourly workflows support decimal hours and keep the business tax setup', (
   assert.equal(a.tax_name, 'VAT');
   for (const [slug, p] of Object.entries(WORKFLOW_PRESETS.invoice)) assert.equal(presetFor('invoice', slug), p);
   assert.equal(presetFor('quote', 'deposit-invoice'), null);
+});
+
+test('the UK non-VAT preset hides remembered VAT-only fields without deleting their answers', () => {
+  const t = invoice();
+  const prior = { ...newDraft(t).answers, has_tax: true, tax_name: 'VAT', tax_rate: 20,
+    has_tax_registration: true, tax_registration_number: 'GB123', is_tax_invoice: true,
+    has_supply_date: true, supply_date: '2026-01-01' };
+  const answers = applyPreset(t, prior, presetFor('invoice', 'uk-invoice'));
+  const { data } = buildRenderData(t, answers);
+  assert.equal(data.has_tax, false);
+  assert.equal(data.has_tax_registration, false);
+  assert.equal(data.tax_registration_number, '');
+  assert.equal(data.is_tax_invoice, false);
+  assert.equal(data.has_supply_date, false);
+  assert.equal(data.supply_date, '');
+  assert.equal(answers.tax_registration_number, 'GB123');
+  assert.equal(prior.has_tax_registration, true);
 });
