@@ -341,8 +341,8 @@ body { overflow-x: hidden; }
   .btn-lg { padding: .65rem 1rem; font-size: 1rem; min-height: 48px; }
   .btn-sm { padding: .5rem .75rem; font-size: .85rem; min-height: 44px; }
   /* Stack action rows so primary CTAs stretch and don't crowd */
-  .card-actions, .interview-nav, .toolbar, .modal-actions, .repeat-row-head { flex-wrap: wrap; }
-  .interview-nav .btn, .modal-actions .btn, .card-actions .btn { flex: 1 1 auto; min-width: 0; }
+  .card-actions, .interview-nav, .toolbar, .modal-actions, .repeat-row-head, .row { flex-wrap: wrap; }
+  .interview-nav .btn, .modal-actions .btn, .card-actions .btn, .row .btn { flex: 1 1 auto; min-width: 0; }
   /* Tighter form fields */
   .input, .select, .textarea { padding: .5rem .6rem; font-size: 16px; /* prevents iOS zoom on focus */ }
   .field { margin-bottom: .85rem; }
