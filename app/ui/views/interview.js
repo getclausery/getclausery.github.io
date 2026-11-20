@@ -82,9 +82,9 @@ export async function render(ctx, { id }) {
   let stepIndex = Math.max(0, Math.min(steps.length - 1, Number(sessionStorage.getItem('clausery.step.' + id)) || 0));
   let form = null;
   let evaluation = evaluateForm(template, draft.answers, ctx.settings);
-  // Persistent references so the live total badge can be updated in place on every change
+  // Persistent references so the live total badges can be updated in place on every change
   // without re-rendering the whole step body.
-  let skipBtnEl = null, totalValueEl = null;
+  let skipBtnEl = null, totalValueEl = null, reviewTotalValueEl = null;
 
   // Running total of visible scalar money/computed-money answers (line-item repeats are arrays
   // and are skipped here), used for the live total badge next to "Review & download".
@@ -124,7 +124,7 @@ export async function render(ctx, { id }) {
   function persist() { if (stopped) return; pendingSave = true; clearTimeout(saveTimer); saveTimer = setTimeout(flush, SAVE_DELAY); }
   let justDownloaded = false;
   let justStartedTrial = false;
-  const onChange = (answers, path, ev) => { evaluation = ev; draft.status = 'draft'; draft.sentAt = null; draft.paidAt = null; justDownloaded = false; justStartedTrial = false; renderStepper(); persist(); schedulePreview(); if (totalValueEl) totalValueEl.textContent = formatMoney(moneyTotal(ev)); };
+  const onChange = (answers, path, ev) => { evaluation = ev; draft.status = 'draft'; draft.sentAt = null; draft.paidAt = null; justDownloaded = false; justStartedTrial = false; renderStepper(); persist(); schedulePreview(); if (totalValueEl) totalValueEl.textContent = formatMoney(moneyTotal(ev)); if (reviewTotalValueEl) reviewTotalValueEl.textContent = formatMoney(moneyTotal(ev)); };
 
   const heading = h('h1.sr-only', draft.title || template.name);
   const titleInput = h('input.input', { value: draft.title || '', placeholder: 'Draft name (optional)', 'aria-label': 'Draft name', autocapitalize: 'off', spellcheck: false, enterkeyhint: 'done', autocomplete: 'off', oninput: (e) => { draft.title = e.target.value; setTitle(draft.title || template.name); heading.textContent = draft.title || template.name; persist(); } });
@@ -445,12 +445,17 @@ export async function render(ctx, { id }) {
       : null;
     const answered = template.fields.filter((f) => f.type !== 'computed' && f.type !== 'repeat' && ev.visible[f.key] !== false && draft.answers[f.key] !== '' && draft.answers[f.key] != null).length;
     const totalQ = template.fields.filter((f) => f.type !== 'computed' && f.type !== 'repeat' && ev.visible[f.key] !== false).length;
+    // Live total badge on the primary download CTA: the concrete amount at the moment of
+    // value reinforces conversion, especially on mobile where the button stretches full width.
+    const reviewTotalBadgeValue = h('span.review-total-value', formatMoney(moneyTotal(ev)));
+    reviewTotalValueEl = reviewTotalBadgeValue;
+    const downloadBtn = h('button.btn.btn-primary.btn-lg', { type: 'button', onclick: generate }, icon('download', 18), 'Download .docx', ' ', h('span.review-total-badge', { style: { marginLeft: '.5rem', fontSize: '.85rem', color: 'var(--muted)', whiteSpace: 'nowrap' } }, 'Total: ', reviewTotalBadgeValue));
     setChildren(bodyEl, h('div.stack',
       h('div.card',
         h('h2', 'Review & generate'),
         errs.length ? h('div.notice.notice-warn', icon('warn'), h('div', h('strong', `${errs.length} answer${errs.length === 1 ? '' : 's'} still needed. `), 'You can generate anyway; missing answers render blank.', h('ul', { style: { margin: '.5rem 0 0' } }, errs.slice(0, 8).map(([p, m]) => { const key = p.split(/[[.]/)[0]; const f = template.fields.find((x) => x.key === key); const si = steps.findIndex((s) => s.id === (f && f.sectionId)); return h('li', h('a', { href: '#', onclick: (e) => { e.preventDefault(); go(si); } }, f ? f.label : p), ': ', m); }), errs.length > 8 ? h('li', `…and ${errs.length - 8} more`) : null)))
           : h('div.notice.notice-ok', icon('check'), h('div', h('strong', 'Everything is answered. '), `${answered} of ${totalQ} questions.`)),
-        h('div.row', { style: { marginTop: '1rem' } }, h('button.btn.btn-primary.btn-lg', { type: 'button', onclick: generate }, icon('download', 18), 'Download .docx'), previewBtn, printBtn,
+        h('div.row', { style: { marginTop: '1rem' } }, downloadBtn, previewBtn, printBtn,
           canShareFiles() ? h('button.btn', { type: 'button', onclick: share }, icon('share', 16), 'Share…') : null,
           composeEmailBtn,
           h('button.btn', { type: 'button', onclick: openBulk }, icon('table', 16), 'From a spreadsheet')),
