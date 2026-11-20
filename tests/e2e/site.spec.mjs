@@ -349,3 +349,27 @@ test('round 17: the template finder filters the index, and template and guide pa
   await expect(page.locator('.guide-meta time').first()).toHaveAttribute('datetime', /^\d{4}-\d{2}-\d{2}$/);
   await expect(page.getByRole('heading', { name: 'More on freelancing and getting paid' })).toBeVisible();
 });
+
+test('mobile home, menu and primary invoice action fit the viewport', async ({ page }) => {
+  for (const width of [320, 375, 768]) {
+    await page.setViewportSize({ width, height: 812 });
+    await page.goto('');
+    const demo = page.locator('.demo-cta-sm');
+    await demo.scrollIntoViewIfNeeded();
+    const bounds = await demo.boundingBox();
+    expect(bounds.x).toBeGreaterThanOrEqual(0);
+    expect(bounds.x + bounds.width).toBeLessThanOrEqual(width);
+    expect(bounds.width).toBeGreaterThan(150);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+    const menu = page.locator('.menu-btn');
+    await expect(menu).toBeVisible();
+    await expect(page.locator('#site-nav')).toBeHidden();
+    await menu.click();
+    await expect(page.locator('#site-nav')).toBeVisible();
+    await expect(page.locator('#site-nav .nav-mobile-head')).toBeVisible();
+    await expect(menu).toHaveAttribute('aria-expanded', 'true');
+    await page.keyboard.press('Escape');
+    await expect(page.locator('#site-nav')).toBeHidden();
+    await expect(menu).toBeFocused();
+  }
+});

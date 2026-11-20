@@ -13,15 +13,19 @@ if (typeof document !== 'undefined') {
   if (form) {
     const output = document.querySelector('#deposit-result');
     const cta = document.querySelector('#deposit-open');
+    const base = cta?.getAttribute('href');
     const fmt = (n, c) => new Intl.NumberFormat('en', { style: 'currency', currency: c }).format(n);
     const update = () => {
       const result = calculateDeposit(form.elements.amount.value, form.elements.percentage.value);
-      if (!result) { output.textContent = 'Enter a non-negative project amount and a deposit from 0% to 100%.'; return; }
+      if (!result) {
+        output.textContent = 'Enter a non-negative project amount and a deposit from 0% to 100%.';
+        if (cta) { cta.removeAttribute('href'); cta.setAttribute('aria-disabled', 'true'); }
+        return;
+      }
       const currency = form.elements.currency.value;
       output.innerHTML = `<strong>${fmt(result.deposit, currency)} deposit · ${fmt(result.balance, currency)} remaining</strong>`;
-      if (cta && result.deposit > 0) {
-        const base = cta.getAttribute('data-href') || cta.getAttribute('href');
-        if (!cta.getAttribute('data-href')) cta.setAttribute('data-href', base);
+      if (cta && base) {
+        cta.removeAttribute('aria-disabled');
         cta.setAttribute('href', base + '?rate=' + result.deposit + '&hours=1&tax=0&currency=' + encodeURIComponent(currency));
       }
     };

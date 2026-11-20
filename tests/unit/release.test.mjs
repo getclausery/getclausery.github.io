@@ -11,6 +11,7 @@ test('package.json, sw.js and app/config.js carry the same version', () => {
   const pkg = JSON.parse(read('package.json')).version;
   assert.equal(/const VERSION = '([^']+)'/.exec(read('sw.js'))[1], pkg, 'run npm run release');
   assert.equal(/export const APP_VERSION = '([^']+)'/.exec(read('app/config.js'))[1], pkg, 'run npm run release');
+  assert.ok(read('index.html').includes(`changelog.html#v${pkg.replace(/\./g, '-')}`), 'home release link must match the package version');
 });
 
 test('the service worker precaches every app file, and only files that exist', () => {

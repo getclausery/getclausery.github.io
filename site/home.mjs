@@ -51,7 +51,7 @@ export const pages = [{
   <div class="wrap">
     <div>
       <div class="eyebrow">${ico(I.calc)} Free · No account · No card · Editable Word</div>
-      <div class="release-pill"><a href="${rel}changelog.html#v${APP_VERSION.replace(/\./g,'-')}"><strong>New:</strong> v${APP_VERSION}</a> — Clearer UK and US invoice examples and safer non-VAT defaults. <a href="${rel}changelog.html">See what changed</a>.</div>
+      <div class="release-pill"><a href="${rel}changelog.html#v${APP_VERSION.replace(/\./g,'-')}"><strong>New:</strong> v${APP_VERSION}</a> — Calculator amounts now carry accurately into invoice drafts. <a href="${rel}changelog.html">See what changed</a>.</div>
       <h1>Free invoice template — make a professional invoice online in 60 seconds.</h1>
       <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><strong>4.8/5</strong><span class="muted">from 427 freelancers and small businesses</span></p>
       <p class="lead">Answer a few questions and download a printable PDF or editable <strong>Word .docx</strong> invoice. Totals, VAT, GST or sales tax, discounts, and the next invoice number are worked out automatically. Also make <a href="${rel}templates/quote.html">quotes</a>, <a href="${rel}templates/purchase-order.html">purchase orders</a>, <a href="${rel}templates/credit-note.html">credit notes</a> and <a href="${rel}templates/payment-receipt.html">receipts</a> — everything runs in your browser; nothing is uploaded.</p>
@@ -62,7 +62,7 @@ export const pages = [{
         <li><strong>Open source</strong><span>AGPL, auditable</span></li>
       </ul>
       <div class="actions">
-        <a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make a free invoice — no sign up <span class="arr">→</span></a>
+        <a class="btn btn-primary btn-lg" style="display:block;width:100%;min-width:0;white-space:normal;text-align:center" href="${rel}app/#/start/invoice">Make a free invoice — no sign up <span class="arr">→</span></a>
         <a class="btn btn-lg" href="#try-it">See it work in 10 seconds</a>
       </div>
       <p class="small" style="margin-top:.75rem;color:var(--muted)">Free forever · no credit card · no account · nothing uploaded</p>
@@ -100,18 +100,18 @@ export const pages = [{
             <div class="hero-demo" aria-label="Interactive preview — fill in three fields and watch the invoice total update live">
         <div class="demo-q">
           <p class="demo-label">${ico(I.bolt)} Try it live</p>
-          <p class="demo-hint">Type in the three fields — the invoice updates. Nothing is sent anywhere.</p>
+          <p class="demo-hint">Type in the three fields — the invoice updates. Rate and hours round to two decimals. Nothing is sent anywhere.</p>
           <label>
             <span>Hourly rate ($)</span>
-            <input type="number" id="demo-rate" value="85" min="0" step="1" inputmode="decimal" enterkeyhint="done" spellcheck="false">
+            <input type="number" id="demo-rate" value="85" min="0" max="1000000000000" step="any" inputmode="decimal" enterkeyhint="done" spellcheck="false">
           </label>
           <label>
             <span>Hours</span>
-            <input type="number" id="demo-hours" value="12" min="0" step="0.25" inputmode="decimal" enterkeyhint="done" spellcheck="false">
+            <input type="number" id="demo-hours" value="12" min="0" max="1000000000000" step="any" inputmode="decimal" enterkeyhint="done" spellcheck="false">
           </label>
           <label>
             <span>Sales tax (%)</span>
-            <input type="number" id="demo-tax" value="0" min="0" step="0.1" inputmode="decimal" enterkeyhint="done" spellcheck="false">
+            <input type="number" id="demo-tax" value="0" min="0" max="1000000000000" step="any" inputmode="decimal" enterkeyhint="done" spellcheck="false">
           </label>
           <a class="demo-cta demo-cta-sm" href="${rel}app/#/start/invoice">Make my real invoice <span class="demo-arr">→</span></a>
           <p class="demo-foot">Downloads as an editable Word file · add your logo, your client, more line items</p>
@@ -181,6 +181,8 @@ export const pages = [{
 .inv-total .amt.bump{transform:scale(1.08)}
 .inv-paid{font-size:.62rem;color:#94a3b8;padding-top:.5rem;border-top:1px dashed #e2e8f0;margin-top:.5rem;text-align:center;letter-spacing:.01em}
 @media (max-width:900px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr);gap:1.5rem}
+  .hero .wrap > *{min-width:0}
   .hero-demo{grid-template-columns:1fr}
   .demo-q{order:2;border-right:0;border-top:1px solid var(--border);padding:1.1rem 1.15rem 1.15rem}
   .demo-inv{order:1;border-radius:20px 20px 0 0;padding:1.15rem 1.2rem 1rem}
@@ -241,7 +243,7 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
     <p style="margin-top:1.25rem"><strong>Invoice templates by trade:</strong> ${Object.entries(PRESETS.invoice).map(([slug, p]) => `<a href="${rel}invoice-templates/${slug}.html">${esc(p.name)}</a>`).join(' · ')} · <a href="${rel}invoice-templates/">all trades →</a></p>
     <p><strong>By country (VAT and GST set up for you):</strong> ${COUNTRIES.map((c) => `<a href="${rel}invoice-templates/${c.slug}.html">${esc(c.country)}</a>`).join(' · ')}</p>
     <!--nav--><p><strong>By billing task:</strong> ${workflowLinks(rel)}. Worked examples and a starter for each stage of the job.</p><!--/nav-->
-    <p><a class="btn" href="${rel}business-document-kit/">Get the free six-template business kit</a> <span class="small muted">Quote, scope, invoice, receipt, purchase order and credit note. No email signup.</span></p>
+    <p><a class="btn" style="display:inline-block;width:100%;white-space:normal" href="${rel}business-document-kit/">Get the free six-template business kit</a> <span class="small muted">Quote, scope, invoice, receipt, purchase order and credit note. No email signup.</span></p>
     <div class="grid grid-3 mt-2">
       <div class="feature"><div class="ico">${ico(I.calc)}</div><h3>Adds itself up</h3><p>Line amounts, discount, VAT, GST or sales tax, total and balance due update as you type. No formula to break.</p></div>
       <div class="feature"><div class="ico">${ico(I.check)}</div><h3>Remembers your details</h3><p>Your next invoice starts with your business details, bank details, tax rate and the next number filled in. Only the client and the items are new.</p></div>
@@ -404,7 +406,7 @@ ${SMALL_BUSINESS.map(([slug, name, what]) => `      <div class="feature"><h3><a 
   <div class="wrap">
     <h2>Your next invoice is one minute away.</h2>
     <p class="lead" style="margin:0 auto">No signup, no card. Fill in the boxes, download a Word file, done. Pro is only for people who want to automate their own templates — and it's free to try for ${TRIAL_DAYS} days.</p>
-    <div class="actions"><a class="btn btn-primary btn-lg" href="${rel}app/#/start/invoice">Make a free invoice — no sign up <span class="arr">→</span></a><a class="btn btn-lg" href="${rel}pricing/">See Pro ($${PRICES.pro}/mo)</a></div>
+    <div class="actions"><a class="btn btn-primary btn-lg" style="display:block;width:100%;min-width:0;white-space:normal;text-align:center" href="${rel}app/#/start/invoice">Make a free invoice — no sign up <span class="arr">→</span></a><a class="btn btn-lg" href="${rel}pricing/">See Pro ($${PRICES.pro}/mo)</a></div>
     <p class="small muted mt-15">Read <a href="${rel}about/">about Clausery</a>, see the <a href="${rel}why-clausery/">differences from other tools</a>, or browse <a href="${rel}templates/">all ${LIB.length} free templates</a>.</p>
   </div>
 </section>`,
