@@ -616,10 +616,14 @@ for (const p of pages) {
     }
   }
   // Print/PDF + Share buttons on every long-form page. Styles live in site.css (.page-print-btn).
+  // Inline onclick handlers are avoided so the page passes a strict script policy (no [onclick]
+  // attributes, e.g. the mobile menu test under a CSP); click behavior is wired via addEventListener
+  // in the script injected just below the buttons.
   if (!p.noindex && p.layout !== 'embed' && !p.path.endsWith('.pdf') && /<h1[^>]*>/.test(final) && !p.path.startsWith('app/')) {
-    const printBtn = `<button type="button" class="page-print-btn" onclick="window.print()" title="Print or save as PDF" aria-label="Print">Print/PDF</button>`;
-    const shareBtn = `<button type="button" class="page-print-btn page-share-btn" onclick="(function(s,b){if(navigator.share){navigator.share({title:document.title,url:location.href}).catch(()=>{})}else{navigator.clipboard.writeText(location.href);b.textContent='Link copied';setTimeout(()=>b.textContent='Share',1500)}})(this,this)" title="Share this page or copy link" aria-label="Share">Share</button>`;
-    final = final.replace(/(<h1[^>]*>[\s\S]*?<\/h1>)/, `$1${shareBtn}${printBtn}`);
+    const printBtn = `<button type="button" class="page-print-btn" data-action="print" title="Print or save as PDF" aria-label="Print">Print/PDF</button>`;
+    const shareBtn = `<button type="button" class="page-print-btn page-share-btn" data-action="share" title="Share this page or copy link" aria-label="Share">Share</button>`;
+    const btnScript = `<script>document.querySelectorAll('button[data-action="print"]').forEach(b=>b.addEventListener('click',()=>window.print()));document.querySelectorAll('button[data-action="share"]').forEach(b=>b.addEventListener('click',(e)=>{const s=e.currentTarget;if(navigator.share){navigator.share({title:document.title,url:location.href}).catch(()=>{})}else{navigator.clipboard.writeText(location.href).then(()=>{s.textContent='Link copied';setTimeout(()=>s.textContent='Share',1500)})}}));</script>`;
+    final = final.replace(/(<h1[^>]*>[\s\S]*?<\/h1>)/, `$1${shareBtn}${printBtn}${btnScript}`);
   }
   // Auto-inject a Breadcrumb nav on any indexable long-form page that doesn't already have one, so crawlers
   // and screen readers get a visible trail. The existing regex below adds RDFa microdata to these navs.
