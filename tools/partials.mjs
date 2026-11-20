@@ -186,6 +186,9 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <meta name="original-source" content="${url}">
 <meta name="color-scheme" content="light dark">
 <meta name="format-detection" content="telephone=no">
+<meta name="subject" content="${esc(full)} — ${esc(description)}">
+<meta name="classification" content="Business;Finance;Productivity">
+<meta name="topic" content="Free Word invoice, contract and document generator for freelancers and small businesses">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), display-capture=()">
@@ -212,6 +215,7 @@ ${articleMeta}<meta name="twitter:card" content="summary_large_image">
 <link rel="archives" type="text/html" href="${rel}changelog.html" title="Clausery changelog and release archive">
 <link rel="edit" type="text/html" href="https://github.com/getclausery/getclausery.github.io" title="Source on GitHub">
 <link rel="publisher" type="text/html" href="${rel}about/" title="About Clausery">
+<link rel="index" type="text/html" href="${rel}" title="Clausery home">
 <link rel="sitemap" type="application/xml" title="Sitemap" href="${rel}sitemap_index.xml">
 <link rel="alternate" type="application/atom+xml" title="Clausery guides and clause library" href="${rel}feed.xml">
 <link rel="alternate" type="application/atom+xml" title="Clausery releases" href="${rel}releases.xml">
