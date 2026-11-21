@@ -164,20 +164,6 @@ document.addEventListener('pointermove',e=>{
  const r=f.getBoundingClientRect();f.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');f.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%')
 });
 (function(){
- const OFFICIAL=['getclausery.github.io','getclausery.com','www.getclausery.com','clausery.app','www.clausery.app']
- const h=location.hostname.toLowerCase()
- if(h==='localhost'||h==='127.0.0.1'||h==='0.0.0.0'||h===''||h.endsWith('.e2b.app')||h.endsWith('.e2b.dev')||h.endsWith('.arena.ai')||h.endsWith('.local')||h==='file')return
- if(window.__CLAUSERY_WHITE_LABEL)return
- for(const o of OFFICIAL)if(h===o||h.endsWith('.'+o))return
- const brand=(($('.brand')?.textContent||'')+' '+document.title+' '+($('meta[property="og:site_name"]')?.getAttribute('content')||'')+' '+($('meta[name="generator"]')?.getAttribute('content')||'')+' '+($('meta[name="original-source"]')?.getAttribute('content')||'')+' '+($('.legal')?.textContent||'')+' '+[...document.querySelectorAll('script[type="application/ld+json"]')].map(s=>s.textContent).join(' ')).toLowerCase()
- if(!/clausery/.test(brand))return
- if(document.getElementById('clausery-copyguard'))return
- const bar=document.createElement('div');bar.id='clausery-copyguard';bar.setAttribute('role','note')
- bar.innerHTML='This appears to be an unlicensed copy of <a href="https://getclausery.github.io/" rel="noopener" target="_blank">Clausery</a>. Clausery is free and open source (AGPLv3); hosted copies that keep the Clausery name require a <a href="https://getclausery.github.io/legal/license.html" rel="noopener" target="_blank">commercial license</a>, and modified copies must publish their source.'
- document.documentElement.setAttribute('data-copyguard','1');document.body.insertBefore(bar,document.body.firstChild)
- try{console.log('%cClausery','color:#fff;background:#0b5;padding:2px 6px;border-radius:3px','open source AGPLv3 — unlicensed copy detected.')}catch{}
-})();
-(function(){
  try{if(window.top===window.self)return
  const allowed=['getclausery.github.io','getclausery.com','www.getclausery.com','clausery.app','www.clausery.app'];let ok=false
  try{const host=window.top.location.hostname;if(!host)ok=true;else for(const a of allowed)if(host===a||host.endsWith('.'+a)){ok=true;break}}catch{ok=false}

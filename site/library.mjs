@@ -7,7 +7,7 @@ import { applySetup, setupFor } from '../app/lib/setups.js';
 import { PRESETS } from '../app/lib/presets.js';
 import { invoiceWordHelp, workflowLinks } from './invoice-workflows.mjs';
 import { paymentReceiptHelp, receiptHelpHead } from './payment-receipt.mjs';
-import { esc, crumbsLd, collectionLd, faqLd, faqHtml, lowerFirst, fitSnippet, picture, helpfulWidget, SITE, LASTMOD, LASTMOD_LONG, longDate, ico, hubCta } from '../tools/partials.mjs';
+import { esc, crumbsLd, faqLd, faqHtml, lowerFirst, fitSnippet, picture, helpfulWidget, SITE, LASTMOD, LASTMOD_LONG, longDate, ico, hubCta } from '../tools/partials.mjs';
 import { CLAUSES } from './data/clauses.mjs';
 import { previewHtml, PREVIEW_CSS, PREVIEW_SIZE } from '../tools/preview.mjs';
 
@@ -711,7 +711,7 @@ export const pages = [
   {
     path: 'templates/', ogImage: 'assets/og/marketing.png', title: 'Free Word Templates | PDF & Docx (No Signup)',
     description: `${LIB.length} free Word templates you can fill in online and download as printable PDF or editable .docx — invoices, quotes, receipts, NDAs, contracts, employment letters, lease agreements and landlord forms. No account, no card, nothing uploaded.`,
-    extraHead: crumbsLd([['Home', ''], ['Templates', 'templates/']]) + collectionLd({ path: 'templates/', name: 'Free Word templates: invoices, business and contracts', description: `${LIB.length} free Word templates: invoices, quotes, receipts, business contracts, HR letters and landlord forms. Fill them in online or download the .docx.`, items: LIB.map((t) => [t.name, `templates/${t.slug}.html`]) }) + faqLd([
+    extraHead: crumbsLd([['Home', ''], ['Templates', 'templates/']]) + faqLd([
       ['Are these Word templates really free?', 'Yes. Every template on this page is free to fill in online and download as an editable Word .docx or printable PDF, with no account, no sign-up and nothing uploaded. You can also download a .zip of all 87 templates at once.'],
       ['Can I edit the templates in Word?', 'Yes. Every template downloads as a standard .docx file you can edit in Microsoft Word, Google Docs, LibreOffice or Pages. Answers you fill in online are merged into the Word document so paragraphs, dates and signature blocks are already in place.'],
       ['Do I need to sign up or give my email?', 'No. Clausery does not ask for an email address, password or credit card to download or fill in a template. Everything runs in your browser and documents save to your own device.'],
