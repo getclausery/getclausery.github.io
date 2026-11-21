@@ -60,7 +60,7 @@ const MATRIX = [
 ];
 
 export const pages = [{
-  path: 'pricing/', ogImage: 'assets/og/pricing.png', title: `Pricing · Free forever · Pro $${PRICES.pro}/month (no card required)`, extraHead: plansLd + faqLd(FAQ) + crumbsLd([['Home', ''], ['Pricing', 'pricing/']]),
+  path: 'pricing/', ogImage: 'assets/og/pricing.png', title: `Pricing · Free forever · Pro $${PRICES.pro}/month (no card required)`, extraHead: plansLd + faqLd(FAQ) + crumbsLd([['Home', ''], ['Pricing', 'pricing/']]) + `<style>@media (max-width: 600px) { .pricing-hero-cta { display: flex; flex-direction: column; gap: .5rem; } .pricing-hero-cta .btn { width: 100%; box-sizing: border-box; } }</style>`,
   description: `Free forever: ${LIB.length} Word templates, three of your own, unlimited documents; Pro is $${PRICES.pro}/user/month with a free trial, no card.`,
   body: (rel) => `
 <section class="section">
@@ -80,7 +80,7 @@ export const pages = [{
         <span title="No ads or third-party tracking">${''}<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg> No ads, no tracking cookies</span>
         <span title="SOC2-style data practice: everything stays local">${''}<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Encrypted local workspace</span>
       </div>
-      <p style="margin:1.5rem auto 0;text-align:center"><a class="btn btn-primary btn-lg" href="${rel}app/#/trial">Start ${TRIAL_DAYS}-day free Pro trial <span class="arr">→</span></a> <a class="btn btn-lg" href="${rel}app/">Open the free app</a></p>
+      <p style="margin:1.5rem auto 0;text-align:center"><div class="pricing-hero-cta"><a class="btn btn-primary btn-lg" href="${rel}app/#/trial">Start ${TRIAL_DAYS}-day free Pro trial <span class="arr">→</span></a><a class="btn btn-lg" href="${rel}app/">Open the free app</a></div></p>
     </div>
     <div class="billing-toggle" role="tablist" aria-label="Billing period">
       <button type="button" role="tab" aria-selected="true" data-billing="monthly" class="active">Monthly</button>
