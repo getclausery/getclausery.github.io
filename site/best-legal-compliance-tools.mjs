@@ -105,6 +105,28 @@ const TOOLS = [
     whoFor: 'Established businesses and enterprises that need broad integrations and advanced agreement-management controls.',
     catch: 'Enterprise-oriented pricing and complexity; often more than a small business or founder needs for occasional signing.',
   },
+  {
+    slug: 'legalzoom',
+    name: 'LegalZoom',
+    category: 'Business formation and legal documents',
+    officialUrl: 'https://www.legalzoom.com/',
+    tryUrl: 'https://www.legalzoom.com/',
+    forWhat: 'Business formation (LLC, corporation), registered agent, and a library of legal documents and contracts.',
+    why: 'One of the best-known formation services: sets up an LLC or corporation, provides a registered agent, and offers document templates plus attorney-access add-ons.',
+    whoFor: 'Founders who want a well-known brand to handle incorporation and basic legal documents in one place.',
+    catch: 'Pricier than doing formation yourself; document templates are general and sold à la carte or via subscription. Confirm what each plan actually includes before paying.',
+  },
+  {
+    slug: 'zenbusiness',
+    name: 'ZenBusiness',
+    category: 'Startup entity formation',
+    officialUrl: 'https://www.zenbusiness.com/',
+    tryUrl: 'https://www.zenbusiness.com/',
+    forWhat: 'LLC and corporation formation, registered agent, annual report and compliance reminders for small businesses.',
+    why: 'Formation-focused service with registered agent and compliance calendar, aimed at small businesses staying on top of filing deadlines.',
+    whoFor: 'Founders who want formation plus ongoing compliance reminders in one subscription.',
+    catch: 'Compliance help is reminders and filings, not legal advice; you still need a separate tool for contracts, NDAs and invoices.',
+  },
 ];
 
 const bySlug = Object.fromEntries(TOOLS.map((t) => [t.slug, t]));
@@ -112,7 +134,7 @@ const link = (slug, label) => `<a href="${esc(bySlug[slug].officialUrl)}" rel="n
 const decisionTable = (rel) => [
   ['I need contracts, NDAs and invoices I can edit in Word', `${link('clausery', 'Clausery')} — ${bySlug.clausery.why}`],
   ['I need a form tailored to my state or country', `${link('lawdepot', bySlug.lawdepot.name)}: jurisdiction-specific prescribed forms; confirm download terms on their site`],
-  ['I am incorporating a US startup and issuing equity', `${link('clerky', bySlug.clerky.name)} or ${link('stripe-atlas', bySlug['stripe-atlas'].name)}: entity formation and startup paperwork`],
+  ['I am incorporating a US startup and issuing equity', `${link('clerky', bySlug.clerky.name)}, ${link('stripe-atlas', bySlug['stripe-atlas'].name)}, ${link('legalzoom', bySlug.legalzoom.name)} or ${link('zenbusiness', bySlug.zenbusiness.name)}: entity formation and startup paperwork`],
   ['I need documents signed electronically', `${link('hellosign', bySlug.hellosign.name)}, ${link('pandadoc', bySlug.pandadoc.name)} or ${link('docusign', bySlug.docusign.name)}: e-signature and signature tracking`],
   ['I want documents plus attorney review', `${link('rocket-lawyer', bySlug['rocket-lawyer'].name)}: document and legal-help membership`],
 ];
@@ -193,7 +215,7 @@ export const pages = [
     ['Is Clausery really free?', 'Yes. Every template in the library can be filled in online and downloaded as Word, with no account, no card and no time limit. You can also automate up to three of your own Word templates free.'],
     ['Do I still need a lawyer?', 'Clausery is software, not a law firm. The templates are general samples; have anything important reviewed for your jurisdiction before you rely on it.'],
     ['Can I use Clausery alongside an e-signature tool?', 'Yes. Draft the Word document in Clausery, download it, then send it through HelloSign, DocuSign, PandaDoc or the signing service you already use.'],
-    ['What about entity formation?', 'Clausery does not incorporate a company or issue stock. For a US startup, pair Clausery for contracts with Clerky or Stripe Atlas for formation and equity paperwork.'],
+    ['What about entity formation?', 'Clausery does not incorporate a company or issue stock. For a US startup, pair Clausery for contracts with Clerky, Stripe Atlas, LegalZoom or ZenBusiness for formation and equity paperwork.'],
   ])}
 
   <p class=\"mt-2\"><a class=\"btn btn-primary btn-lg\" href=\"${rel}app/#/start/invoice\">Make an invoice, free <span class=\"arr\">\u2192</span></a> <a class=\"btn btn-lg\" href=\"${rel}templates/\">Browse ${LIB.length} free templates <span class=\"arr\">\u2192</span></a></p>
