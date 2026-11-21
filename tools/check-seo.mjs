@@ -12,7 +12,7 @@ const xml = readFileSync('sitemap.xml', 'utf8');
 const crawlerMayFetch = createRobotsPolicy(readFileSync('robots.txt', 'utf8'));
 const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(([, u]) => u);
 const dates = JSON.parse(readFileSync('site/data/page-dates.json', 'utf8'));
-const lastmod = Object.fromEntries([...xml.matchAll(/<url><loc>([^<]+)<\/loc><lastmod>([^<]+)<\/lastmod>/g)].map(([, loc, date]) => [loc, date]));
+const lastmod = Object.fromEntries([...xml.matchAll(/<url>\s*<loc>([^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>/g)].map(([, loc, date]) => [loc, date]));
 const indexed = new Set(urls);
 const documents = new Map();
 const titles = new Map();
@@ -25,7 +25,9 @@ const decode = (s) => String(s).replace(/&(#x[\da-f]+|#\d+|[a-z]+);/gi, (m, e) =
 const fileFor = (url) => { const path = new URL(url).pathname.slice(1); return !path || path.endsWith('/') ? path + 'index.html' : path; };
 const checkStructuredUrls = (value, file) => {
   if (typeof value === 'string' && value.startsWith(SITE)) {
-    const target = fileFor(value);
+    // Fragment identifiers (#webpage, #article, #doc, #generator) name a node
+    // within the page, not a separate file; resolve against the base URL only.
+    const target = fileFor(value.split('#')[0]);
     if (!existsSync(target)) fail(file, `structured-data URL has no file: ${value}`);
   } else if (Array.isArray(value)) for (const item of value) checkStructuredUrls(item, file);
   else if (value && typeof value === 'object') for (const item of Object.values(value)) checkStructuredUrls(item, file);
