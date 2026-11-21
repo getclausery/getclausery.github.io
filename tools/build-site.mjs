@@ -763,7 +763,7 @@ const xmlEsc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': 
 const feed = pages.filter((p) => p.feed).sort((a, b) => (b.published + b.path).localeCompare(a.published + a.path));
 const updated = feed.map((p) => p.modified).sort().at(-1);
 writeFileSync('feed.xml', `<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xmlns:webfeeds="http://webfeeds.org/rss/1.0">
+<feed xmlns="http://www.w3.org/2005/Atom">
   <title>Clausery: guides and clause library</title>
   <subtitle>Practical guides to drafting and automating documents, and plain-English explanations of contract clauses.</subtitle>
   <link rel="self" href="${BASE}feed.xml"/>
@@ -771,12 +771,7 @@ writeFileSync('feed.xml', `<?xml version="1.0" encoding="utf-8"?>
   <link rel="alternate" href="${BASE}guides/"/>
   <icon>${BASE}favicon.ico</icon>
   <logo>${BASE}assets/icon-512.png</logo>
-  <webfeeds:icon>${BASE}assets/icon.svg</webfeeds:icon>
-  <webfeeds:logo>${BASE}assets/icon-512.png</webfeeds:logo>
-  <webfeeds:cover image="${BASE}assets/og/guides.png"/>
-  <webfeeds:accentColor>0d9488</webfeeds:accentColor>
-  <webfeeds:related layout="card" target="browser"/>
-  <id>${BASE}feed.xml</id>
+  <id>${BASE}</id>
   <updated>${updated}T00:00:00Z</updated>
   <author><name>Clausery editors</name><uri>${BASE}about/</uri><email>getclausery@gmail.com</email></author>
 ${feed.map((p) => `  <entry>
@@ -810,7 +805,7 @@ if (releases.length) {
   releases = releases.filter((r) => r.version && r.date).map((r) => ({ ...r, iso: parseReleaseDate(r.date) })).filter((r) => r.iso);
   const relUpdated = releases.map((r) => r.iso).sort().at(-1);
   writeFileSync('releases.xml', `<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xmlns:webfeeds="http://webfeeds.org/rss/1.0">
+<feed xmlns="http://www.w3.org/2005/Atom">
   <title>Clausery releases</title>
   <subtitle>Release notes for Clausery: new templates, app features, fixes and policy changes.</subtitle>
   <link rel="self" href="${BASE}releases.xml"/>
@@ -818,12 +813,7 @@ if (releases.length) {
   <link rel="alternate" href="${BASE}changelog.html"/>
   <icon>${BASE}favicon.ico</icon>
   <logo>${BASE}assets/icon-512.png</logo>
-  <webfeeds:icon>${BASE}assets/icon.svg</webfeeds:icon>
-  <webfeeds:logo>${BASE}assets/icon-512.png</webfeeds:logo>
-  <webfeeds:cover image="${BASE}assets/og/changelog.png"/>
-  <webfeeds:accentColor>0d9488</webfeeds:accentColor>
-  <webfeeds:related layout="card" target="browser"/>
-  <id>${BASE}releases.xml</id>
+  <id>${BASE}</id>
   <updated>${relUpdated}T00:00:00Z</updated>
   <author><name>Clausery editors</name><uri>${BASE}about/</uri><email>getclausery@gmail.com</email></author>
 ${releases.map((r) => `  <entry>
