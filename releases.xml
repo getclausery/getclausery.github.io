@@ -16,6 +16,15 @@
   <updated>2026-11-18T00:00:00Z</updated>
   <author><name>Clausery editors</name><uri>https://getclausery.github.io/about/</uri><email>getclausery@gmail.com</email></author>
   <entry>
+    <title>Clausery v2.243.0 — Visibility: buyer-question pages, CollectionPage + Review schema, header/footer/guide/internal links to the roundup page.</title>
+    <link rel="alternate" type="text/html" href="https://getclausery.github.io/changelog.html#v2-243-0"/>
+    <id>https://getclausery.github.io/changelog.html#v2-243-0</id>
+    <published>2026-10-18T00:00:00Z</published>
+    <updated>2026-10-18T00:00:00Z</updated>
+    <author><name>Clausery editors</name><uri>https://getclausery.github.io/about/</uri><email>getclausery@gmail.com</email></author>
+    <summary>Visibility: buyer-question pages, CollectionPage + Review schema, header/footer/guide/internal links to the roundup page.</summary>
+  </entry>
+  <entry>
     <title>Clausery v2.242.0 — Fixed calculator-to-invoice handoff, including zero values, currency and invalid deposits.</title>
     <link rel="alternate" type="text/html" href="https://getclausery.github.io/changelog.html#v2-242-0"/>
     <id>https://getclausery.github.io/changelog.html#v2-242-0</id>

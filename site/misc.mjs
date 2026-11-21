@@ -5,6 +5,7 @@ import { TRIAL_DAYS, REFUND_DAYS } from '../app/config.js';
 // with the HTML changelog below. Date format is "D MMMM YYYY" (English, UTC). summary is a one-line
 // description used as the Atom entry title and summary.
 export const releases = [
+  {"version":"2.243.0","date":"18 October 2026","summary":"Visibility: buyer-question pages, CollectionPage + Review schema, header/footer/guide/internal links to the roundup page."},
   {"version":"2.242.0","date":"18 October 2026","summary":"Fixed calculator-to-invoice handoff, including zero values, currency and invalid deposits."},
   {"version":"2.241.0","date":"18 October 2026","summary":"Fixed UK and US non-tax invoice examples and non-VAT preset defaults."},
   {"version":"2.240.0","date":"18 October 2026","summary":"Restored workspace forms and made recent-client shortcuts preserve existing answers and transaction details."},
@@ -264,6 +265,9 @@ export const pages = [
 <h2 id="v2-242-0">2.242.0 <span class="small muted">— 18 October 2026</span></h2>
 <ul><li><strong>Calculator handoff.</strong> Demo and deposit amounts now carry into drafts, including zeros. Invalid deposits cannot send stale amounts; existing workspace currency is retained with a warning.</li></ul>
 <span id="v2-242-1" aria-hidden="true"></span>
+<h2 id="v2-243-0">2.243.0 <span class="small muted">— 18 October 2026</span></h2>
+<ul><li><strong>Visibility: buyer-question pages and internal links.</strong> Added <code>best-legal-compliance-tools/</code> roundup (10 tools: what each does, why people use it, who it is for, honest catch, official site link) and <code>for/startups/</code> audience page answering "best legal and compliance tools", "startup legal software" and "most popular tools"; CollectionPage + Review schema on the roundup; footer/header/comparison/homepage/guide internal links to the roundup; LegalZoom + ZenBusiness added to the roundup; roundup → Clausery template page links (offer letter, contractor agreement, NDA, invoice).</li></ul>
+<span id="v2-243-1" aria-hidden="true"></span>
 <h2 id="v2-241-0">2.241.0 <span class="small muted">— 18 October 2026</span></h2>
 <ul><li><strong>Clearer non-tax invoices.</strong> Fixed UK and US worked-example totals and starter messages. UK non-VAT drafts now hide remembered VAT-only options without deleting saved answers.</li></ul>
 <span id="v2-241-1" aria-hidden="true"></span>
