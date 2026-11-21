@@ -31,6 +31,10 @@
   "date": "2026-11-21",
   "hash": "726210cabb6e1185"
  },
+ "best-legal-compliance-tools/": {
+  "date": "2026-11-21",
+  "hash": "a08af8e6b31082a8"
+ },
  "business-document-kit/": {
   "date": "2026-11-21",
   "hash": "97bba71627043976"
@@ -141,7 +145,7 @@
  },
  "compare/": {
   "date": "2026-11-21",
-  "hash": "615324a10189251a"
+  "hash": "5584e65723ea40f4"
  },
  "compare/bonsai-alternative.html": {
   "date": "2026-11-21",
@@ -237,7 +241,7 @@
  },
  "for/": {
   "date": "2026-11-21",
-  "hash": "23da98715b2aff3e"
+  "hash": "c42a2fcd55f74e33"
  },
  "for/consultants.html": {
   "date": "2026-11-21",
@@ -258,6 +262,10 @@
  "for/law-firms.html": {
   "date": "2026-11-21",
   "hash": "f6436ab18e7803cf"
+ },
+ "for/startups.html": {
+  "date": "2026-11-21",
+  "hash": "9b74456439d680a2"
  },
  "free-tools/": {
   "date": "2026-11-21",

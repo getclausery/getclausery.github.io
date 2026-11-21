@@ -855,7 +855,7 @@ const section = (prefix, opts = {}) => {
 // Product section: curated root-level marketing pages (explicit list so ordering is stable and editorial).
 // Hubs that have their own dedicated section below (templates/, invoice-templates/, nda-templates/, for/,
 // clauses/, guides/, free-tools/, compare/) are listed under those sections instead, to avoid duplicate links.
-const productLinks = ['', 'about/', 'pricing/', 'why-clausery/', 'business-document-kit/', 'self-hosting/', 'customers/', 'press/', 'roadmap/', 'status/', 'docs/']
+const productLinks = ['', 'about/', 'pricing/', 'why-clausery/', 'best-legal-compliance-tools/', 'business-document-kit/', 'self-hosting/', 'customers/', 'press/', 'roadmap/', 'status/', 'docs/']
   .map((p) => {
     const page = findPage(p);
     if (!page || page.noindex) return null;
