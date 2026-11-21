@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xmlns:webfeeds="http://webfeeds.org/rss/1.0">
+<feed xmlns="http://www.w3.org/2005/Atom">
   <title>Clausery releases</title>
   <subtitle>Release notes for Clausery: new templates, app features, fixes and policy changes.</subtitle>
   <link rel="self" href="https://getclausery.github.io/releases.xml"/>
@@ -7,12 +7,7 @@
   <link rel="alternate" href="https://getclausery.github.io/changelog.html"/>
   <icon>https://getclausery.github.io/favicon.ico</icon>
   <logo>https://getclausery.github.io/assets/icon-512.png</logo>
-  <webfeeds:icon>https://getclausery.github.io/assets/icon.svg</webfeeds:icon>
-  <webfeeds:logo>https://getclausery.github.io/assets/icon-512.png</webfeeds:logo>
-  <webfeeds:cover image="https://getclausery.github.io/assets/og/changelog.png"/>
-  <webfeeds:accentColor>0d9488</webfeeds:accentColor>
-  <webfeeds:related layout="card" target="browser"/>
-  <id>https://getclausery.github.io/releases.xml</id>
+  <id>https://getclausery.github.io/</id>
   <updated>2026-11-18T00:00:00Z</updated>
   <author><name>Clausery editors</name><uri>https://getclausery.github.io/about/</uri><email>getclausery@gmail.com</email></author>
   <entry>

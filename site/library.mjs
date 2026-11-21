@@ -763,6 +763,101 @@ ${CATEGORY_ORDER.map(([c, label]) => `  <section class="filter-group" aria-label
     ['Can I save a filled-in template as PDF?', 'Yes. Fill it in online, then use your browser\u2019s Print \u2192 Save as PDF (or the built-in PDF button) to produce a printable PDF you can email to clients, tenants or new hires.'],
   ])}
   <p class="small muted mt-2">These are general samples, not legal advice. Have them reviewed for your jurisdiction before use.</p>
+  <h2 class="mt-25">More template variants</h2>
+  <div class="grid grid-3 variant-links">
+    <a class="feature" href="${rel}templates/bill-of-sale-template.html"><h3>bill of sale</h3></a>
+    <a class="feature" href="${rel}templates/board-resolution-template.html"><h3>board resolution</h3></a>
+    <a class="feature" href="${rel}templates/business-sale-nda-template.html"><h3>business sale nda</h3></a>
+    <a class="feature" href="${rel}templates/catering-contract-template.html"><h3>catering contract</h3></a>
+    <a class="feature" href="${rel}templates/cease-and-desist-letter-template.html"><h3>cease and desist letter</h3></a>
+    <a class="feature" href="${rel}templates/cease-and-desist-template.html"><h3>cease and desist</h3></a>
+    <a class="feature" href="${rel}templates/change-order-form-template.html"><h3>change order form</h3></a>
+    <a class="feature" href="${rel}templates/cleaning-services-contract-template.html"><h3>cleaning services contract</h3></a>
+    <a class="feature" href="${rel}templates/coaching-agreement-template.html"><h3>coaching agreement</h3></a>
+    <a class="feature" href="${rel}templates/consignment-agreement-template.html"><h3>consignment agreement</h3></a>
+    <a class="feature" href="${rel}templates/consulting-agreement-template.html"><h3>consulting agreement</h3></a>
+    <a class="feature" href="${rel}templates/contract-template.html"><h3>contract</h3></a>
+    <a class="feature" href="${rel}templates/contract-termination-letter-template.html"><h3>contract termination letter</h3></a>
+    <a class="feature" href="${rel}templates/contractor-nda-template.html"><h3>contractor nda</h3></a>
+    <a class="feature" href="${rel}templates/credit-note-template.html"><h3>credit note</h3></a>
+    <a class="feature" href="${rel}templates/employee-nda-template.html"><h3>employee nda</h3></a>
+    <a class="feature" href="${rel}templates/employee-warning-letter-template.html"><h3>employee warning letter</h3></a>
+    <a class="feature" href="${rel}templates/employment-agreement-template.html"><h3>employment agreement</h3></a>
+    <a class="feature" href="${rel}templates/employment-termination-letter-template.html"><h3>employment termination letter</h3></a>
+    <a class="feature" href="${rel}templates/employment-verification-template.html"><h3>employment verification</h3></a>
+    <a class="feature" href="${rel}templates/engagement-letter-template.html"><h3>engagement letter</h3></a>
+    <a class="feature" href="${rel}templates/equipment-rental-agreement-template.html"><h3>equipment rental agreement</h3></a>
+    <a class="feature" href="${rel}templates/event-planning-contract-template.html"><h3>event planning contract</h3></a>
+    <a class="feature" href="${rel}templates/eviction-notice-template.html"><h3>eviction notice</h3></a>
+    <a class="feature" href="${rel}templates/expense-reimbursement-form-template.html"><h3>expense reimbursement form</h3></a>
+    <a class="feature" href="${rel}templates/freelance-contract.html"><h3>freelance contract</h3></a>
+    <a class="feature" href="${rel}templates/freelance-writing-contract-template.html"><h3>freelance writing contract</h3></a>
+    <a class="feature" href="${rel}templates/general-release-template.html"><h3>general release</h3></a>
+    <a class="feature" href="${rel}templates/gift-letter-template.html"><h3>gift letter</h3></a>
+    <a class="feature" href="${rel}templates/graphic-design-contract-template.html"><h3>graphic design contract</h3></a>
+    <a class="feature" href="${rel}templates/hold-harmless-agreement-template.html"><h3>hold harmless agreement</h3></a>
+    <a class="feature" href="${rel}templates/independent-contractor-template.html"><h3>independent contractor</h3></a>
+    <a class="feature" href="${rel}templates/internship-offer-letter-template.html"><h3>internship offer letter</h3></a>
+    <a class="feature" href="${rel}templates/job-description-template.html"><h3>job description</h3></a>
+    <a class="feature" href="${rel}templates/landlord-reference-letter-template.html"><h3>landlord reference letter</h3></a>
+    <a class="feature" href="${rel}templates/late-rent-notice-template.html"><h3>late rent notice</h3></a>
+    <a class="feature" href="${rel}templates/lease-renewal-letter-template.html"><h3>lease renewal letter</h3></a>
+    <a class="feature" href="${rel}templates/lease-termination-agreement-template.html"><h3>lease termination agreement</h3></a>
+    <a class="feature" href="${rel}templates/letter-of-intent-template.html"><h3>letter of intent</h3></a>
+    <a class="feature" href="${rel}templates/liability-waiver-template.html"><h3>liability waiver</h3></a>
+    <a class="feature" href="${rel}templates/loan-agreement-template.html"><h3>loan agreement</h3></a>
+    <a class="feature" href="${rel}templates/meeting-minutes-template.html"><h3>meeting minutes</h3></a>
+    <a class="feature" href="${rel}templates/memorandum-of-understanding-template.html"><h3>memorandum of understanding</h3></a>
+    <a class="feature" href="${rel}templates/move-in-checklist-template.html"><h3>move in checklist</h3></a>
+    <a class="feature" href="${rel}templates/mutual-nda-template.html"><h3>mutual nda</h3></a>
+    <a class="feature" href="${rel}templates/nanny-contract-template.html"><h3>nanny contract</h3></a>
+    <a class="feature" href="${rel}templates/non-compete-agreement-template.html"><h3>non compete agreement</h3></a>
+    <a class="feature" href="${rel}templates/non-disclosure-agreement-template.html"><h3>non disclosure agreement</h3></a>
+    <a class="feature" href="${rel}templates/non-solicitation-agreement-template.html"><h3>non solicitation agreement</h3></a>
+    <a class="feature" href="${rel}templates/notice-to-vacate-template.html"><h3>notice to vacate</h3></a>
+    <a class="feature" href="${rel}templates/offer-letter-template.html"><h3>offer letter</h3></a>
+    <a class="feature" href="${rel}templates/one-way-nda-template.html"><h3>one way nda</h3></a>
+    <a class="feature" href="${rel}templates/partnership-agreement-template.html"><h3>partnership agreement</h3></a>
+    <a class="feature" href="${rel}templates/payment-demand-letter-template.html"><h3>payment demand letter</h3></a>
+    <a class="feature" href="${rel}templates/payment-receipt-template.html"><h3>payment receipt</h3></a>
+    <a class="feature" href="${rel}templates/payment-plan-agreement.html"><h3>payment plan agreement</h3></a>
+    <a class="feature" href="${rel}templates/payment-reminder-letter-template.html"><h3>payment reminder letter</h3></a>
+    <a class="feature" href="${rel}templates/performance-improvement-plan-template.html"><h3>performance improvement plan</h3></a>
+    <a class="feature" href="${rel}templates/personal-training-agreement-template.html"><h3>personal training agreement</h3></a>
+    <a class="feature" href="${rel}templates/pet-addendum-template.html"><h3>pet addendum</h3></a>
+    <a class="feature" href="${rel}templates/pet-sitting-agreement-template.html"><h3>pet sitting agreement</h3></a>
+    <a class="feature" href="${rel}templates/photo-release-form-template.html"><h3>photo release form</h3></a>
+    <a class="feature" href="${rel}templates/photography-contract-template.html"><h3>photography contract</h3></a>
+    <a class="feature" href="${rel}templates/promissory-note-template.html"><h3>promissory note</h3></a>
+    <a class="feature" href="${rel}templates/promotion-letter-template.html"><h3>promotion letter</h3></a>
+    <a class="feature" href="${rel}templates/purchase-order-template.html"><h3>purchase order</h3></a>
+    <a class="feature" href="${rel}templates/quote-template.html"><h3>quote</h3></a>
+    <a class="feature" href="${rel}templates/reference-letter-template.html"><h3>reference letter</h3></a>
+    <a class="feature" href="${rel}templates/remote-work-agreement-template.html"><h3>remote work agreement</h3></a>
+    <a class="feature" href="${rel}templates/rent-increase-letter-template.html"><h3>rent increase letter</h3></a>
+    <a class="feature" href="${rel}templates/rent-payment-plan-agreement-template.html"><h3>rent payment plan agreement</h3></a>
+    <a class="feature" href="${rel}templates/rent-receipt-template.html"><h3>rent receipt</h3></a>
+    <a class="feature" href="${rel}templates/rental-application-template.html"><h3>rental application</h3></a>
+    <a class="feature" href="${rel}templates/residential-lease-agreement-template.html"><h3>residential lease agreement</h3></a>
+    <a class="feature" href="${rel}templates/resignation-letter-template.html"><h3>resignation letter</h3></a>
+    <a class="feature" href="${rel}templates/retainer-agreement-template.html"><h3>retainer agreement</h3></a>
+    <a class="feature" href="${rel}templates/room-rental-agreement-template.html"><h3>room rental agreement</h3></a>
+    <a class="feature" href="${rel}templates/roommate-agreement-template.html"><h3>roommate agreement</h3></a>
+    <a class="feature" href="${rel}templates/salary-increase-template.html"><h3>salary increase</h3></a>
+    <a class="feature" href="${rel}templates/sales-commission-agreement-template.html"><h3>sales commission agreement</h3></a>
+    <a class="feature" href="${rel}templates/security-deposit-return-letter-template.html"><h3>security deposit return letter</h3></a>
+    <a class="feature" href="${rel}templates/service-agreement-template.html"><h3>service agreement</h3></a>
+    <a class="feature" href="${rel}templates/severance-agreement-template.html"><h3>severance agreement</h3></a>
+    <a class="feature" href="${rel}templates/social-media-management-contract-template.html"><h3>social media management contract</h3></a>
+    <a class="feature" href="${rel}templates/statement-of-work-template.html"><h3>statement of work</h3></a>
+    <a class="feature" href="${rel}templates/subcontractor-agreement-template.html"><h3>subcontractor agreement</h3></a>
+    <a class="feature" href="${rel}templates/sublease-agreement-template.html"><h3>sublease agreement</h3></a>
+    <a class="feature" href="${rel}templates/tutoring-agreement-template.html"><h3>tutoring agreement</h3></a>
+    <a class="feature" href="${rel}templates/two-weeks-notice-template.html"><h3>two weeks notice</h3></a>
+    <a class="feature" href="${rel}templates/video-production-contract-template.html"><h3>video production contract</h3></a>
+    <a class="feature" href="${rel}templates/virtual-assistant-agreement-template.html"><h3>virtual assistant agreement</h3></a>
+    <a class="feature" href="${rel}templates/web-design-contract-template.html"><h3>web design contract</h3></a>
+  </div>
 </div></section>
 ${hubCta(rel, 'app/#/start/invoice', 'Make an invoice, free')}
 `,

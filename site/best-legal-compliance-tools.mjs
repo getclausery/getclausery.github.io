@@ -153,7 +153,7 @@ export const pages = [
     ]) + `<script type="application/ld+json">${JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
-      '@id': SITE + 'best-legal-compliance-tools/#collection',
+      '@id': SITE + 'best-legal-compliance-tools/#webpage',
       url: SITE + 'best-legal-compliance-tools/',
       name: 'Best Legal and Compliance Tools for Startups (2026)',
       description: 'An honest roundup of the legal and compliance tools founders actually use — document templates, e-signature, entity formation and attorney access — with who each is for and where each falls short. Includes Clausery.',
