@@ -359,12 +359,14 @@ export function footer(rel) {
       <a href="${rel}docs/logic.html">Calculations</a>
       <a href="${rel}docs/security.html">Security</a>
       <a href="${rel}compare/">Compare</a>
+      <a href="${rel}best-legal-compliance-tools/">Best legal tools</a>
     </div>
     <div>
       <h3>Company</h3>
       <a href="${rel}about/">About</a>
       <a href="${rel}customers/">Customers</a>
       <a href="${rel}why-clausery/">Why Clausery</a>
+      <a href="${rel}for/startups/">For startup founders</a>
       <a href="${rel}self-hosting/">Self-host / Enterprise</a>
       <a href="${rel}roadmap/">Roadmap</a>
       <a href="${rel}status/">Status</a>
