@@ -289,6 +289,7 @@ export function header(rel, path, crumbItems = []) {
       <a href="${rel}guides/"${cur('guides/')} itemprop="url"><span itemprop="name">Guides</span></a>
       <a href="${rel}pricing/"${cur('pricing/')} itemprop="url"><span itemprop="name">Pricing</span></a>
       <a href="${rel}docs/"${cur('docs/')} itemprop="url"><span itemprop="name">Docs</span></a>
+      <a href="${rel}best-legal-compliance-tools/"${cur('best-legal-compliance-tools/')} itemprop="url"><span itemprop="name">Compare legal tools</span></a>
       <a class="btn btn-primary btn-sm" href="${rel}app/#/start/invoice" itemprop="url"><span itemprop="name">Make an invoice →</span></a>
     </nav>
   </div>
