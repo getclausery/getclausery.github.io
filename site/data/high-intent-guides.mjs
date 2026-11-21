@@ -52,7 +52,8 @@ and return or delete confidential information, subject to lawful record-retentio
   <li>Keep the signed version, approved changes, invoices and acceptance messages together.</li>
 </ul>
 <p>Start with the free <a href="${rel}templates/independent-contractor-agreement.html">independent contractor agreement template</a>, download it for Word or answer its questions in your browser. Check the result before signing. The <a href="${rel}guides/how-to-write-a-freelance-contract.html">freelance contract guide</a> adds practical points about revisions and cancellation for creative projects.</p>
-<p class="small muted">General information and sample wording, not legal or tax advice. Classification and contract rules vary by jurisdiction.</p>`,
+<p class="small muted">General information and sample wording, not legal or tax advice. Classification and contract rules vary by jurisdiction.</p>
+<p><a href="${rel}best-legal-compliance-tools/">Choosing legal tools?</a> See the roundup of document, e-signature and formation tools founders actually use.</p>`,
   },
   {
     slug: 'how-to-write-a-promissory-note',
