@@ -10,6 +10,15 @@
     <priority>0.5</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/company.png</image:loc><image:title>About Clausery (open-source invoice tool — not clausery.ai)</image:title>    </image:image>
   </url>
   <url>
+    <loc>https://getclausery.github.io/best-legal-compliance-tools/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/best-legal-compliance-tools/"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/best-legal-compliance-tools/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/best-legal-compliance-tools/"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/best-legal-compliance-tools.png</image:loc><image:title>Best Legal and Compliance Tools for Startups (2026)</image:title>    </image:image>
+  </url>
+  <url>
     <loc>https://getclausery.github.io/business-document-kit/</loc>
     <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -521,6 +530,15 @@
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/for/law-firms.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/for/law-firms.html"/>
     <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/for.png</image:loc><image:title>Document automation for small law firms, with no uploads</image:title>    </image:image>
+  </url>
+  <url>
+    <loc>https://getclausery.github.io/for/startups.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getclausery.github.io/for/startups.html"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://getclausery.github.io/for/startups.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getclausery.github.io/for/startups.html"/>
+    <priority>0.8</priority>    <image:image><image:loc>https://getclausery.github.io/assets/og/for.png</image:loc><image:title>Legal software for startup founders: what to choose and why</image:title>    </image:image>
   </url>
   <url>
     <loc>https://getclausery.github.io/free-tools/amount-in-words.html</loc>
