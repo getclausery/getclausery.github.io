@@ -214,7 +214,7 @@ export const pages = [
   <div class=\"feature\">
     <h3>Use Clausery for</h3>
     <ul>
-      <li>Contracts, NDAs, offer letters, contractor agreements and invoices as editable Word files</li>
+      <li><a href="${rel}templates/offer-letter.html">Offer letters</a>, <a href="${rel}templates/independent-contractor-agreement.html">contractor agreements</a>, <a href="${rel}templates/mutual-nda.html">NDAs</a> and <a href="${rel}templates/invoice.html">invoices</a> as editable Word files</li>
       <li>Drafting in your browser without an account, card or upload</li>
       <li>Keeping your own approved Word templates and reusing them with {tags}</li>
       <li>A startup\u2019s early legal paperwork before you need a law firm on retainer</li>
@@ -235,10 +235,10 @@ export const pages = [
 
   <h2 class=\"mt-25\">Questions</h2>
   ${faqHtml([
-    ['Is Clausery really free?', 'Yes. Every template in the library can be filled in online and downloaded as Word, with no account, no card and no time limit. You can also automate up to three of your own Word templates free.'],
+    ['Is Clausery really free?', 'Yes. Every template in the library — including <a href="${rel}templates/offer-letter.html">offer letters</a>, <a href="${rel}templates/independent-contractor-agreement.html">contractor agreements</a>, <a href="${rel}templates/mutual-nda.html">NDAs</a> and <a href="${rel}templates/invoice.html">invoices</a> — can be filled in online and downloaded as Word, with no account, no card and no time limit. You can also automate up to three of your own Word templates free.'],
     ['Do I still need a lawyer?', 'Clausery is software, not a law firm. The templates are general samples; have anything important reviewed for your jurisdiction before you rely on it.'],
     ['Can I use Clausery alongside an e-signature tool?', 'Yes. Draft the Word document in Clausery, download it, then send it through HelloSign, DocuSign, PandaDoc or the signing service you already use.'],
-    ['What about entity formation?', 'Clausery does not incorporate a company or issue stock. For a US startup, pair Clausery for contracts with Clerky, Stripe Atlas, LegalZoom or ZenBusiness for formation and equity paperwork.'],
+    ['What about entity formation?', 'Clausery does not incorporate a company or issue stock. Pair Clausery for contracts — <a href="${rel}templates/offer-letter.html">offer letters</a>, <a href="${rel}templates/independent-contractor-agreement.html">contractor agreements</a>, <a href="${rel}templates/mutual-nda.html">NDAs</a> — with Clerky, Stripe Atlas, LegalZoom or ZenBusiness for formation and equity paperwork.'],
   ])}
 
   <p class=\"mt-2\"><a class=\"btn btn-primary btn-lg\" href=\"${rel}app/#/start/invoice\">Make an invoice, free <span class=\"arr\">\u2192</span></a> <a class=\"btn btn-lg\" href=\"${rel}templates/\">Browse ${LIB.length} free templates <span class=\"arr\">\u2192</span></a></p>
