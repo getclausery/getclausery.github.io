@@ -1,6 +1,6 @@
 // Hub / variant pages that target high-intent long-tail keywords and link back into the template pages.
 import { existsSync } from 'node:fs';
-import { esc, faqLd, faqHtml, LASTMOD, LASTMOD_LONG, crumbsLd } from '../tools/partials.mjs';
+import { esc, faqLd, faqHtml, LASTMOD, LASTMOD_LONG, crumbsLd, picture, SITE } from '../tools/partials.mjs';
 
 // Each hub: path, title (<60 chars), description (<160), eyebrow, h1, lead intro, sections, faq.
 const HUBS = [
@@ -2555,29 +2555,42 @@ function hubBody(h, rel) {
   const bulletsHtml = h.bullets.map(([t, d]) => `<li><strong>${esc(t)}.</strong> ${esc(d)}</li>`).join('');
   const stepsHtml = h.howTo.map(([t, d], i) => `<li><h3>Step ${i+1}: ${esc(t)}</h3><p>${esc(d)}</p></li>`).join('');
   const intro = h.introParagraphs.map(p => `<p>${esc(p)}</p>`).join('');
+  const workedExampleHtml = h.section === 'invoice-templates' ? `<table><tr><th>Item</th><th>Qty</th><th>Price</th><th>Amount</th></tr><tr><td>Website design</td><td>1</td><td>$1,200</td><td>$1,200</td></tr><tr><td>Domain hosting</td><td>12</td><td>$25</td><td>$300</td></tr><tr><td><strong>Subtotal</strong></td><td></td><td></td><td>$1,500</td></tr><tr><td><strong>Total due</strong></td><td></td><td></td><td><strong>$1,500</strong></td></tr></table>` : '';
+  const slug = h.path.replace('templates/', '').replace('.html', '');
+  const og = hubOgImage(h.path);
+  const guideLink = related.find(([, href]) => href.startsWith('guides/'));
+  const thumbHtml = '<a class="tpl-thumb tpl-thumb-hero" href="#tpl-doc-text">' + picture({ src: rel + og, webp: rel + 'assets/previews/' + slug + '.webp', width: 600, height: 400, alt: 'First page of the ' + esc(h.title) + ' template for Word', loading: 'eager', fetchpriority: 'high' }) + '</a>';
   return `
 <section class="section"><div class="wrap prose">
 <nav class="small muted" aria-label="Breadcrumb">${crumbs.slice(0,-1).map(([l,href])=>`<a href="${rel}${href}">${esc(l)}</a> › `).join('')}${esc(h.h1)}</nav>
 <h1>${esc(h.h1)}</h1>
 <p class="lead">${esc(h.lead)}</p>
+${thumbHtml}
 <div class="actions">
 <a class="btn btn-primary btn-lg" href="${rel}${h.cta.href}">${esc(h.cta.label)} <span class="arr">→</span></a>
 <a class="btn btn-lg" href="${rel}${(h.download||{href:'samples/invoice.docx'}).href}" download>${esc((h.download||{label:'Download Word'}).label)}</a>
 </div>
 <p class="small muted">No sign-up. Editable Word (.docx) or print to PDF. Your answers stay in your browser. Updated <time datetime="${LASTMOD}">${LASTMOD_LONG}</time>.</p>
-${intro}
+${tplDocWrap(h, intro)}
+${workedExampleHtml}
+<p class="template-note">Use this free ${esc(h.title.toLowerCase())} template to put your agreement in writing without starting from scratch. Fill in the fields that apply to your situation, download the Word file, and tailor the wording to your deal before you share it with the other party. It covers the essentials so you do not miss the clauses that matter, and you can edit anything after downloading. No account or sign-up required, and the file is yours to keep.</p>
 <h2>What to include</h2>
 <ul>${bulletsHtml}</ul>
 <h2>How to fill it in</h2>
 <ol>${stepsHtml}</ol>
 <h2>Related templates and guides</h2>
 <div class="grid grid-3 related-cards">${linksHtml}</div>
-<h2 id="questions">Questions</h2>
+${guideLink ? '<p><strong>Guide:</strong> <a href="' + rel + guideLink[1] + '">' + esc(guideLink[0]) + '</a></p>' : '<p><strong>Guide:</strong> <a href="' + rel + 'templates/">Template library</a></p>'}
+<h2 id="questions">The questions you answer</h2>
 ${faqHtml(h.faq)}
 <p><a href="${rel}${h.section ? h.section + '/' : 'templates/'}">Browse all ${h.section ? esc(h.sectionLabel.toLowerCase()) : 'free templates'} →</a></p>
 <p class="small muted mt-2">These are general templates, not legal or tax advice. Have anything unusual reviewed for your jurisdiction.</p>
 </div></section>
 <div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}${h.cta.href}">${esc(h.cta.label)} <span class="arr">→</span></a></div>`;
+}
+
+function tplDocWrap(h, inner) {
+  return '<div class="tpl-doc" id="tpl-doc-text" tabindex="0" role="region" aria-label="Full text of the ' + esc(h.title) + ' template">' + inner + '</div>';
 }
 
 
@@ -2626,8 +2639,43 @@ const hubOgImage = (p) => {
   if (p === 'business-document-kit/') return 'assets/marketing/business-kit-social.png';
   return 'assets/og.png';
 };
+// DigitalDocument JSON-LD for each template variant hub page (declares the downloadable Word document entity).
+const docLd = (h) => {
+  const slug = h.path.replace('templates/', '').replace('.html', '');
+  const og = hubOgImage(h.path);
+  const dl = (h.download && h.download.href) || `samples/${slug}.docx`;
+  const hasDl = dl && existsSync(new URL(`../${dl}`, import.meta.url));
+  const doc = {
+    '@context': 'https://schema.org',
+    '@type': 'DigitalDocument',
+    '@id': `${SITE}${h.path}#doc`,
+    mainEntityOfPage: { '@id': `${SITE}${h.path}#webpage` },
+    name: h.title,
+    headline: h.title,
+    description: h.description,
+    url: `${SITE}${h.path}`,
+    encodingFormat: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    isAccessibleForFree: true,
+    inLanguage: 'en-GB',
+    genre: h.sectionLabel,
+    datePublished: '2026-10-31',
+    dateModified: LASTMOD,
+    educationalLevel: 'Beginner',
+    learningResourceType: 'Template',
+    license: `${SITE}legal/license.html`,
+    keywords: `${h.title} template, free Word ${h.title}`,
+    image: [`${SITE}${og}`],
+    thumbnailUrl: `${SITE}${og}`,
+    publisher: { '@id': `${SITE}#organization` },
+    creator: { '@id': `${SITE}#organization` },
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+  };
+  if (hasDl) doc.contentUrl = `${SITE}${dl}`;
+  return `<script type="application/ld+json">${JSON.stringify(doc)}</script>`;
+};
+
 export const pages = HUBS.map((h) => ({
   path: h.path, title: h.title, description: h.description, _toc: true, published: '2026-10-31', ogImage: hubOgImage(h.path),
-  extraHead: faqLd(h.faq) + crumbsLd(h.section ? [['Home', ''], [h.sectionLabel, h.section + '/'], [h.h1, h.path]] : [['Home', ''], [h.h1, h.path]]),
+  extraHead: faqLd(h.faq) + crumbsLd(h.section ? [['Home', ''], [h.sectionLabel, h.section + '/'], [h.h1, h.path]] : [['Home', ''], [h.h1, h.path]]) + (h.path.startsWith('templates/') ? docLd(h) : ''),
   body: (rel) => hubBody(h, rel),
 }));
