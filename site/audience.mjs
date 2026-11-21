@@ -456,7 +456,9 @@ Thank you,
 <p>If the job comes with a <a href="${rel}clauses/non-compete-clause.html">non-compete</a> or <a href="${rel}clauses/non-solicitation-clause.html">non-solicitation</a> restriction, mention it in the offer letter. Several US states require candidates to be told before they accept, and some ban non-competes for employees altogether.</p>
 <h2>Write it once, reuse it for every hire</h2>
 <p>The free <a href="${rel}templates/offer-letter.html">offer letter template</a> already handles remote or office wording, optional bonus and equity, a benefits list and conditions. Open it in Clausery, answer the questions for each candidate and download a finished Word letter. Candidate details stay on your computer. For interns, use the <a href="${rel}templates/internship-offer-letter.html">internship offer letter</a>.</p>
-<p class="small muted">General information, not legal advice. Employment law varies by country and state.</p>` },
+<p class="small muted">General information, not legal advice. Employment law varies by country and state.</p>
+<p><a href="${rel}best-legal-compliance-tools/">Choosing legal tools?</a> See the roundup of document, e-signature and formation tools founders actually use.</p>
+` },
   { slug: 'how-to-write-a-payment-demand-letter', title: 'Demand Letter for Unpaid Invoices (Free)',
     description: 'How to write a payment demand letter for a past-due invoice: friendly reminder through to final demand — free Word templates at each stage.',
     body: (rel) => `
@@ -535,7 +537,9 @@ Thank you,
   <li>An NDA that is later wiped out by the <a href="${rel}clauses/entire-agreement-clause.html">entire agreement clause</a> of the main contract.</li>
 </ul>
 <h2>Send one in two minutes</h2>
-<p>All five <a href="${rel}nda-templates/">NDA templates</a> are free to download as Word files or fill in online. Clausery asks for the parties, purpose, term and governing law, includes the optional clauses you choose, and produces a finished document without uploading anything.</p>` },
+<p>All five <a href="${rel}nda-templates/">NDA templates</a> are free to download as Word files or fill in online. Clausery asks for the parties, purpose, term and governing law, includes the optional clauses you choose, and produces a finished document without uploading anything.</p>
+<p><a href="${rel}best-legal-compliance-tools/">Choosing legal tools?</a> See the roundup of document, e-signature and formation tools founders actually use.</p>
+` },
   { slug: 'mutual-vs-one-way-nda', published: '2026-09-27', title: 'Mutual vs One-Way NDA: Which to Use',
     description: 'Mutual vs one-way NDA: which to sign when only one side discloses (one-way) vs both (mutual), the key clause differences, and when to pick each.',
     body: (rel) => `
