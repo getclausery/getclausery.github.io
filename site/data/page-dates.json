@@ -1,7 +1,7 @@
 {
  "": {
-  "date": "2026-11-20",
-  "hash": "3d2f6df420559512"
+  "date": "2026-11-21",
+  "hash": "4947477d5fa57a6d"
  },
  ".well-known/change-password": {
   "date": "2026-11-18",
@@ -796,8 +796,8 @@
   "hash": "35f1251cd3dcf566"
  },
  "pricing/": {
-  "date": "2026-11-20",
-  "hash": "c1d597f4e13aadd8"
+  "date": "2026-11-21",
+  "hash": "9f282d06182834e7"
  },
  "receipts/cash-receipt.html": {
   "date": "2026-11-18",

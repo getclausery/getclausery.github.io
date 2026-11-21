@@ -1,11 +1,11 @@
 {
  "origin": "https://getclausery.github.io/",
  "version": "2.242.0",
- "commit": "dc55da7f666e88b0482daf3d026ef7dc577c99d4",
- "generatedAt": "2026-11-20T15:07:49.844Z",
+ "commit": "ab9236f7ae73340494953af7709428bae560488b",
+ "generatedAt": "2026-11-21T13:59:31.551Z",
  "license": "AGPL-3.0-or-later WITH Clausery-Trademark-Exception",
  "files": {
-  "/index.html": "sha256-CO/gwP84qCPssjugcx6NUJcOO8bx9vuEZYJVulJdHqY=",
+  "/index.html": "sha256-U3eTLEQqJ/WCX6xJFTIEVzB4Wo+m2YvzNd8wMbzsnkc=",
   "/offline.html": "sha256-vAxboULZ05YQGKn37AK5z0yOU66KVq8nb/zAERTQrVY=",
   "/404.html": "sha256-qCArpWQCrV7yVpd9eQDuQrmL19/bdvHpAYqPHclbMY0=",
   "/humans.txt": "sha256-79leZCnWHcT1DVqJc5kiy3RKXY4jeZUCqpJKGt6URr4=",
@@ -14,8 +14,8 @@
   "/feed.xml": "sha256-Ffg+sLr62eGMWZ3ItRCLOvuS5JaUgIMmXsN76k/pcSI=",
   "/llms.txt": "sha256-kmd2oGu+RUFCJyNNExHrL1Zd7MTD44AbrJEEk2HfNZI=",
   "/opensearch.xml": "sha256-IHUipK52WQnpCxRdG6mEl8auS7BBvFB6HMfXBsmKa2g=",
-  "/sitemap.xml": "sha256-Q8Ei4w0I4fWEkClCtPatR8GRVhddn1NuOzlDMIfUNNU=",
-  "/sitemap_index.xml": "sha256-kpl2tS1tqcfAuh1ZhdiPOz8L3BuL87FCOEjWNBLC+CY=",
+  "/sitemap.xml": "sha256-qE1XEbdDWeydKOOAaU6E5bEp+iKJzH83Ztvn2CFhduA=",
+  "/sitemap_index.xml": "sha256-H6NNdxwxGMOge+0D2jv4339ok7tcJ5qIYy0zODKn+88=",
   "/app/activate.html": "sha256-dUVJQftx/chul2d7ZRdx5gyQAby4ke4SLWOhr6QNu+k=",
   "/app/index.html": "sha256-Bnq8rKK4e3Im9nLoMTq+Uv6XkmziwZNm+3qlXTnxHj8=",
   "/app/config.js": "sha256-xsS5CtfCMQZnKeItA5gb+wnaIXUvpa6nlRtlUoAVnYQ=",
@@ -213,7 +213,7 @@
   "/about/index.html": "sha256-eqPZUiwKlANOzy+Pc/lBu3HFu5USv7+X+jk9zedyaKc=",
   "/changelog.html": "sha256-astyYlWw4clIWkZmasw15/akqnPBGAgdan2oTFD3bpQ=",
   "/contact/index.html": "sha256-0h9dNtnqALHd73Q9pezFdvz3GzYLw6Rz9j1a4V81vSA=",
-  "/pricing/index.html": "sha256-Nypim/YxZ6GavadgL3h4IXJGsZobER9TxZ+EKyYKCaA=",
+  "/pricing/index.html": "sha256-G3sg5VWPWXoWJCgfuoyHRUW3njot9yOKN4Hdx1l45VE=",
   "/press/index.html": "sha256-2RSBa1KjOGkJiTXGZmcqU5mDdJhXw1bIHGkqw/1wtaw=",
   "/docs/backups.html": "sha256-TXg52kUvwANyjsk/Gxrp2e6FpFVPQp7xOpXI/7FlO4M=",
   "/docs/faq.html": "sha256-Sa4sOKkaNB7nz0luyYN3mtnTM7+F90gxH0LsraS4Gxo=",
@@ -587,6 +587,6 @@
   "/go/index.html": "sha256-E3X3QgiLu6gz+N/puAXjvwd1fLhqu+CVEKjQl+LBsAI=",
   "/made-with/index.html": "sha256-nqW47TPUAvrHHto2B81NIZQv+fQHLEpwb50ktUngmBw=",
   "/.well-known/security.txt": "sha256-9hmk4JwgbchCCB94CXOhYtZPeLjEgGYe3tWi8wXZdMs=",
-  "/.well-known/attestation.json": "sha256-4+c6Su2usGhXHiWEs5mkVmM68RDw0OaXpE/5TYEMANE="
+  "/.well-known/attestation.json": "sha256-Thn6aACWi29hKETCUsXFQS6+yo6ca9SW7I/E8QA6yAs="
  }
 }
