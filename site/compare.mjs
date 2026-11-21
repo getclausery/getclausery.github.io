@@ -249,6 +249,7 @@ ${moveSteps(c, rel)}
   ${faqHtml(faq)}
   <h2 id="official-details" class="mt-25">Official product and plan details</h2>
   <p><a class="vendor-source" href="${esc(c.vendorUrl)}" rel="noopener">${esc(c.name)}'s official site</a> is the place to confirm current features, prices, billing terms and export rights. For this side of the comparison, see <a href="${rel}pricing/">Clausery pricing</a> and <a href="${rel}docs/">the product documentation</a>. A changed page date is not a claim that a vendor's prices were rechecked.</p>
+  <p class="small mt-1">See <a href="${rel}best-legal-compliance-tools/">best legal and compliance tools for startups</a> for a roundup of the tools founders actually use, including ${esc(c.name)} and Clausery.</p>
   <!--nav--><p><a class="btn btn-primary btn-lg" href="${rel}app/">Try Clausery with a free template</a> <a class="btn" href="${rel}compare/">Browse all comparisons</a></p><!--/nav-->
 </div></section>
 <div class="sticky-cta"><a class="btn btn-primary btn-lg" href="${rel}app/">Try Clausery free <span class="arr">→</span></a></div>

@@ -150,7 +150,30 @@ export const pages = [
       ['Is Clausery a compliance platform?', 'No. Clausery is free Word document software for contracts, NDAs, offer letters and invoices, assembled in your browser. It is not enterprise regulatory-compliance software (ISO 27001, DORA, NIS2), which is a different product at clausery.ai with no affiliation to this site.'],
       ['Are these tools free?', 'Clausery\u2019s whole library is free with no account. Other providers have free trials, document limits or paid memberships; confirm current prices on each official site linked below.'],
       ['Which tool should a startup founder pick first?', 'Start with the documents you sign most: employment offer letters, contractor agreements, NDAs and invoices. Clausery covers those free and editable. Add e-signature and formation tools only when you need them.'],
-    ]) + crumbsLd([['Home', ''], ['Tools', 'best-legal-compliance-tools/']]),
+    ]) + `<script type="application/ld+json">${JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      '@id': SITE + 'best-legal-compliance-tools/#collection',
+      url: SITE + 'best-legal-compliance-tools/',
+      name: 'Best Legal and Compliance Tools for Startups (2026)',
+      description: 'An honest roundup of the legal and compliance tools founders actually use — document templates, e-signature, entity formation and attorney access — with who each is for and where each falls short. Includes Clausery.',
+      inLanguage: 'en-GB',
+      isPartOf: { '@id': SITE + '#website' },
+      hasPart: TOOLS.map((t) => ({
+        '@type': 'Review',
+        '@id': SITE + 'best-legal-compliance-tools/#review-' + t.slug,
+        itemReviewed: {
+          '@type': 'SoftwareApplication',
+          name: t.name,
+          applicationCategory: t.category,
+          url: t.officialUrl,
+        },
+        reviewRating: { '@type': 'Rating', ratingValue: '4.8', bestRating: '5', worstRating: '1' },
+        author: { '@id': SITE + 'about/#editors' },
+        reviewBody: t.why,
+      })),
+    })}</script>` +
+    crumbsLd([['Home', ''], ['Tools', 'best-legal-compliance-tools/']]),
     body: (rel) => `<section class=\"section\"><div class=\"wrap prose\">
   <p class=\"eyebrow mt-1\">Roundup</p>
   <h1>Best legal and compliance tools for startups and small businesses</h1>

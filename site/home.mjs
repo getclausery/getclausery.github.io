@@ -74,7 +74,7 @@ export const pages = [{
         <a href="${rel}invoice-templates/australia-tax-invoice.html">Australia GST</a>
         <a href="${rel}invoice-templates/canada-gst-hst-invoice.html">Canada HST</a>
       </div>
-      <p class="small mt-5">Or start with a <a href="${rel}app/#/start/quote">quote</a> · <a href="${rel}app/#/start/receipt">receipt</a> · <a href="${rel}business-document-kit/">free 6-template business kit</a> · <a href="${rel}templates/invoice.html">what to put on an invoice</a></p>
+      <p class="small mt-5">Or start with a <a href="${rel}app/#/start/quote">quote</a> · <a href="${rel}app/#/start/receipt">receipt</a> · <a href="${rel}business-document-kit/">free 6-template business kit</a> · <a href="${rel}templates/invoice.html">what to put on an invoice</a> · <a href="${rel}best-legal-compliance-tools/">comparing legal tools?</a></p>
       <div class="proof">
         <span>${ico(I.check)} No email, no password</span>
         <span>${ico(I.check)} Downloads as a normal Word file</span>
