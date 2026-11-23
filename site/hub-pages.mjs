@@ -2664,7 +2664,7 @@ const docLd = (h) => {
     learningResourceType: 'Template',
     license: `${SITE}legal/license.html`,
     keywords: `${h.title} template, free Word ${h.title}`,
-    image: [`${SITE}${og}`],
+    image: { '@type': 'ImageObject', '@id': `${SITE}${og}#image`, url: `${SITE}${og}`, width: 1200, height: 630 },
     thumbnailUrl: `${SITE}${og}`,
     publisher: { '@id': `${SITE}#organization` },
     creator: { '@id': `${SITE}#organization` },
