@@ -28,7 +28,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Copyright · Clausery">
-<meta property="og:updated_time" content="2026-11-21">
+<meta property="og:updated_time" content="2026-11-23">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Copyright · Clausery">
 <meta name="twitter:description" content="Clausery copyright and DMCA information.">
@@ -89,7 +89,7 @@
 <script>try { var t = localStorage.getItem('clausery.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) { /* storage unavailable */ }</script>
 <script src="../site.js" defer></script>
 <script type="speculationrules">{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"\?|#|/app/"}},{"not":{"selector_matches":"[download],[target=_blank],[rel~=nofollow],[href$=.xml],[href$=.txt],[href$=.json],[href$=.webmanifest]"}}]},"eagerness":"moderate"}]}</script>
-<meta http-equiv="refresh" content="0;url=../legal/dmca.html"><meta name="robots" content="noindex, follow"><script>location.replace("../legal/dmca.html");</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","@id":"https://getclausery.github.io/.well-known/copyright#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":{"@id":"https://getclausery.github.io/#webpage","name":"Home"}},{"@type":"ListItem","position":2,"name":"Copyright","item":{"@id":"https://getclausery.github.io/.well-known/copyright/#webpage","name":"Copyright"}}]}</script>
+<meta http-equiv="refresh" content="0;url=../legal/dmca.html"><meta name="robots" content="noindex, follow"><script>location.replace("../legal/dmca.html");</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","@id":"https://getclausery.github.io/.well-known/copyright#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://getclausery.github.io/"},{"@type":"ListItem","position":2,"name":"Copyright","item":"https://getclausery.github.io/.well-known/copyright/"}]}</script>
 </head>
 <body id="top">
 <a class="sr-only" href="#main">Skip to content</a>
