@@ -1,7 +1,7 @@
 {
  "": {
   "date": "2026-11-23",
-  "hash": "07e62fc1f28f6349"
+  "hash": "de08343b761f9c4e"
  },
  ".well-known/change-password": {
   "date": "2026-11-23",
@@ -361,7 +361,7 @@
  },
  "guides/how-to-save-an-invoice-as-pdf.html": {
   "date": "2026-11-23",
-  "hash": "e60294354225fee5"
+  "hash": "566c51640a3793e6"
  },
  "guides/how-to-set-up-a-rent-payment-plan.html": {
   "date": "2026-11-23",
@@ -405,7 +405,7 @@
  },
  "guides/how-to-write-a-payment-receipt.html": {
   "date": "2026-11-23",
-  "hash": "e703f688fb4faa13"
+  "hash": "818070547457e783"
  },
  "guides/how-to-write-a-performance-improvement-plan.html": {
   "date": "2026-11-23",
@@ -477,7 +477,7 @@
  },
  "guides/invoice-email-template.html": {
   "date": "2026-11-23",
-  "hash": "6a75b80855344ca9"
+  "hash": "9ba461d9a9365ae8"
  },
  "guides/is-an-mou-legally-binding.html": {
   "date": "2026-11-23",

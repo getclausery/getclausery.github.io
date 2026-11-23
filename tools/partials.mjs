@@ -105,7 +105,7 @@ export const helpfulWidget = (v) => `<p class="helpful" data-helpful="${esc(v)}"
 // HowTo JSON-LD helper. Pass the page title, description, totalTime (ISO 8601 duration e.g. 'PT10M') and an
 // array of {text, image?, name?} steps; if a raw body HTML string is passed as `steps`, we pull the first <ol><li>
 // block we find as the step list — this matches the structure used across the how-to guides.
-export const howToLd = ({ name, description, steps, totalTime = 'PT15M', image = `${SITE}assets/og.png` }) => {
+export const howToLd = ({ name, description, steps, totalTime = 'PT15M', image = { '@type': 'ImageObject', '@id': `${SITE}assets/og.png#image`, url: `${SITE}assets/og.png`, width: 1200, height: 630 } }) => {
   let stepItems = steps;
   if (typeof steps === 'string') {
     const m = steps.match(/<ol>\s*([\s\S]*?)<\/ol>/i);

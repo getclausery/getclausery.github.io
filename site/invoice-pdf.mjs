@@ -18,7 +18,7 @@ const FAQ = [
 
 export const pages = [{
   path: PATH, title: TITLE, description: DESCRIPTION, feed: true, published: '2026-10-09', ogImage: 'assets/og/invoice.png',
-  extraHead: faqLd(FAQ) + `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: TITLE, description: DESCRIPTION, datePublished: '2026-10-09', dateModified: LASTMOD, lastReviewed: LASTMOD, image: `${SITE}assets/og.png`, mainEntityOfPage: `${SITE}${PATH}`, citation: SOURCES.map(([, url]) => url), author: { '@id': `${SITE}about/#editors`, name: 'Clausery editors' }, publisher: { '@id': `${SITE}#organization` } })}</script>`,
+  extraHead: faqLd(FAQ) + `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: TITLE, description: DESCRIPTION, datePublished: '2026-10-09', dateModified: LASTMOD, lastReviewed: LASTMOD, image: { '@type': 'ImageObject', '@id': `${SITE}assets/og.png#image`, url: `${SITE}assets/og.png`, width: 1200, height: 630 }, mainEntityOfPage: `${SITE}${PATH}`, citation: SOURCES.map(([, url]) => url), author: { '@id': `${SITE}about/#editors`, name: 'Clausery editors' }, publisher: { '@id': `${SITE}#organization` } })}</script>`,
   body: (rel) => `<section class="section"><div class="wrap prose">
 <nav class="small muted" aria-label="Breadcrumb"><a href="${rel}">Home</a> › <a href="${rel}guides/">Guides</a></nav>
 <h1>${TITLE}</h1>
