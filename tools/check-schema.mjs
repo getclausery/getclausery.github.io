@@ -126,7 +126,7 @@ for (const url of urls) {
       if (node.isAccessibleForFree !== true) fail(file, 'DigitalDocument should be isAccessibleForFree: true');
       if (modified && node.dateModified !== modified) fail(file, `DigitalDocument dateModified ${node.dateModified} does not match page-dates ${modified}`);
       if (!Array.isArray(node.image) && !node.image) fail(file, 'DigitalDocument has no image');
-      for (const image of Array.isArray(node.image) ? node.image : [node.image]) if (image && !exists(image)) fail(file, `DigitalDocument image does not resolve: ${image}`);
+      for (const image of Array.isArray(node.image) ? node.image : [node.image]) { const imgUrl = typeof image === 'string' ? image : image?.url; if (imgUrl && !exists(imgUrl)) fail(file, `DigitalDocument image does not resolve: ${imgUrl}`); }
       if (node.thumbnailUrl && !exists(node.thumbnailUrl)) fail(file, 'DigitalDocument thumbnailUrl does not resolve');
     }
     if (type === 'CollectionPage') {
